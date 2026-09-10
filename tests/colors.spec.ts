@@ -1,6 +1,20 @@
 import { test, expect } from "@playwright/test";
 test("text, action states and categorical strokes retain contrast in every theme", async ({ page }) => {
 	await page.goto("/");
+	await page.emulateMedia({ reducedMotion: "reduce" });
+	await page
+		.locator(".mds-root")
+		.first()
+		.evaluate((root) => {
+			const button = document.createElement("button");
+			button.id = "contrast-danger";
+			button.type = "button";
+			button.className = "mds-button";
+			button.dataset.variant = "danger";
+			button.textContent = "Delete";
+			button.style.cssText = "position:fixed;bottom:16px;left:16px;z-index:100";
+			root.append(button);
+		});
 	for (const brand of ["neutral", "mt0"])
 		for (const mode of ["light", "dark"]) {
 			await page
@@ -55,5 +69,30 @@ test("text, action states and categorical strokes retain contrast in every theme
 				expect(result.ratio, brand + "/" + mode + " " + result.fg + " on " + result.bg).toBeGreaterThanOrEqual(
 					result.min,
 				);
+			const action = page.locator("#contrast-danger");
+			for (const state of ["rest", "hover", "pressed"]) {
+				if (state === "rest") await page.mouse.move(1, 1);
+				else if (state === "hover") await action.hover();
+				else await page.mouse.down();
+				const ratio = await action.evaluate((el) => {
+					const css = getComputedStyle(el);
+					const canvas = document.createElement("canvas");
+					canvas.width = canvas.height = 1;
+					const ctx = canvas.getContext("2d")!;
+					const light = (color: string) => {
+						ctx.fillStyle = color;
+						ctx.fillRect(0, 0, 1, 1);
+						const rgb = Array.from(ctx.getImageData(0, 0, 1, 1).data)
+							.slice(0, 3)
+							.map((v) => v / 255)
+							.map((v) => (v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)));
+						return rgb[0] * 0.2126 + rgb[1] * 0.7152 + rgb[2] * 0.0722;
+					};
+					const [lo, hi] = [light(css.color), light(css.backgroundColor)].sort((a, b) => a - b);
+					return (hi + 0.05) / (lo + 0.05);
+				});
+				expect(ratio, brand + "/" + mode + " danger " + state).toBeGreaterThanOrEqual(4.5);
+				if (state === "pressed") await page.mouse.up();
+			}
 		}
 });
