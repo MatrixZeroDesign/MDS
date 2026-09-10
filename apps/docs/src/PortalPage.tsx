@@ -1,133 +1,18 @@
-import { useState } from "react";
-import { Button, Input, Table, Tabs, TabList, Tab, TabPanel } from "@matrixzero/ui";
-const entries = [
-	[
-		"ThemeProvider",
-		"brand, mode, density, style",
-		"主题根与浮层隔离 / Theme and portal scope",
-		'<ThemeProvider brand="mt0" mode="system">{children}</ThemeProvider>',
-	],
-	[
-		"Button / IconButton",
-		"variant, size, loading / label, icon",
-		"操作与图标按钮 / Actions",
-		'<IconButton label="Add" icon={<Plus />} onClick={add} />',
-	],
-	[
-		"Field / Input / Select",
-		"label, description, error, required, disabled",
-		"标签、说明、校验与原生表单 / Forms",
-		'<Field label="Name" required><Input name="name" /></Field>',
-	],
-	[
-		"Checkbox / CheckField",
-		"checked, defaultChecked, onCheckedChange",
-		"布尔及混合状态 / Checked and mixed",
-		'<CheckField label="Protect" description="New requests" defaultChecked />',
-	],
-	[
-		"RadioGroup / RadioCard",
-		"value, onValueChange / title, description",
-		"普通或整卡单选 / Single selection",
-		'<RadioCardGroup defaultValue="standard"><RadioCard value="standard" title="Standard" /></RadioCardGroup>',
-	],
-	[
-		"Switch",
-		"checked, onCheckedChange, id",
-		"立即生效的布尔开关 / Immediate toggle",
-		'<label htmlFor="auto">Automatic</label><Switch id="auto" checked={value} onCheckedChange={setValue} />',
-	],
-	[
-		"SegmentedControl",
-		"label, options, value, onValueChange",
-		"互斥偏好选择 / Exclusive choices",
-		'<SegmentedControl label="Billing" value={billing} onValueChange={setBilling} options={options} />',
-	],
-	[
-		"ChoiceMenu",
-		"label, options, value, onValueChange",
-		"非模态菜单，非 combobox / Non-modal menu",
-		'<ChoiceMenu label="Scope" value={scope} options={options} onValueChange={setScope} />',
-	],
-	[
-		"DropdownMenu",
-		"modal, open, onOpenChange",
-		"操作菜单 / Action menu",
-		"<DropdownMenu modal={false}><DropdownTrigger asChild><Button>Actions</Button></DropdownTrigger><DropdownContent><DropdownItem onSelect={save}>Save</DropdownItem></DropdownContent></DropdownMenu>",
-	],
-	[
-		"Dialog / SideSheet",
-		"open, onOpenChange / title, description, closeLabel",
-		"模态任务面与侧边面板 / Task surfaces",
-		'<SideSheet><SideSheetTrigger asChild><Button>Edit</Button></SideSheetTrigger><SideSheetContent title="Edit" closeLabel="Close">{form}</SideSheetContent></SideSheet>',
-	],
-	[
-		"Navbar / NavRail / NavItem",
-		"collapsed, label / active, icon",
-		"桌面导航 / Desktop navigation",
-		'<NavRail label="Main" collapsed={collapsed}><NavItem active icon={<Blocks />}>Components</NavItem></NavRail>',
-	],
-	[
-		"NavDrawer",
-		"navigationLabel, title, closeLabel",
-		"移动导航 / Mobile navigation",
-		'<NavDrawer><NavDrawerTrigger asChild><Button>Menu</Button></NavDrawerTrigger><NavDrawerContent title="Navigation" navigationLabel="Main" closeLabel="Close">{items}</NavDrawerContent></NavDrawer>',
-	],
-	[
-		"Collapse / Accordion",
-		"open, onOpenChange / type, value",
-		"独立展开与分组展开 / Disclosure",
-		"<Collapse><CollapseTrigger asChild><Button>Advanced</Button></CollapseTrigger><CollapseContent>{content}</CollapseContent></Collapse>",
-	],
-	[
-		"Tabs",
-		"value, defaultValue, onValueChange",
-		"内容切换，方向键导航 / Content tabs",
-		'<Tabs defaultValue="a"><TabList aria-label="View"><Tab value="a">Overview</Tab></TabList><TabPanel value="a">{content}</TabPanel></Tabs>',
-	],
-	[
-		"Avatar / Badge",
-		"src, alt, fallback, size / tone",
-		"身份与状态 / Identity and status",
-		'<Avatar alt="Emma Chen" fallback="EC" /><Badge tone="success">Healthy</Badge>',
-	],
-	[
-		"List / Table / Pagination",
-		"children / page, pages, onPageChange",
-		"数据结构与分页 / Data and pagination",
-		'<Pagination page={page} pages={3} onPageChange={setPage} label="Pages" previousLabel="Previous" nextLabel="Next" />',
-	],
-	[
-		"Steps / Progress",
-		"steps, current, label / value",
-		"任务阶段与完成进度 / Progress",
-		'<Progress value={65} aria-label="Upload progress" />',
-	],
-	[
-		"Tooltip / Alert / EmptyState",
-		"content / tone / title, description, action",
-		"帮助与反馈 / Feedback",
-		'<TooltipProvider><Tooltip content="Saved locally"><Button>Help</Button></Tooltip></TooltipProvider>',
-	],
-	[
-		"LineChart / AreaChart / BarChart",
-		"title, data, series, labels, stacked",
-		"笛卡尔图表 / Cartesian charts",
-		'<LineChart title="Requests" data={data} series={[{key:"requests",label:"Requests"}]} />',
-	],
-	[
-		"DonutChart",
-		"title, data, labels, formatValue",
-		"非负数值占比 / Nonnegative proportions",
-		'<DonutChart title="Mix" data={[{label:"Chat",value:64},{label:"Code",value:36}]} />',
-	],
-];
+import { useEffect, useState } from "react";
+import { Tabs, TabList, Tab, TabPanel } from "@matrixzero/ui";
+import { ComponentDocs } from "./ComponentDocs";
 export function PortalPage({ locale }: { locale: "zh" | "en" }) {
-	const [query, setQuery] = useState(""),
-		[copied, setCopied] = useState(""),
-		t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+	const [tab, setTab] = useState(location.hash.includes("/") ? "api" : "start");
+	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+	useEffect(() => {
+		const sync = () => {
+			if (location.hash.startsWith("#docs/")) setTab("api");
+		};
+		window.addEventListener("hashchange", sync);
+		return () => window.removeEventListener("hashchange", sync);
+	}, []);
 	return (
-		<Tabs defaultValue="start">
+		<Tabs value={tab} onValueChange={setTab}>
 			<TabList aria-label={t("文档章节", "Documentation sections")}>
 				<Tab value="start">{t("快速开始", "Getting started")}</Tab>
 				<Tab value="api">{t("组件 API", "Component API")}</Tab>
@@ -135,6 +20,27 @@ export function PortalPage({ locale }: { locale: "zh" | "en" }) {
 			</TabList>
 			<TabPanel value="start">
 				<article className="docs-article">
+					<section className="docs-ai-entry" aria-label={t("AI 文档入口", "AI documentation entry")}>
+						<p className="docs-eyebrow">FOR PEOPLE & AGENTS</p>
+						<h2>{t("可阅读、可复制、可验证的组件文档", "Readable, reusable, verifiable component documentation")}</h2>
+						<p>
+							{t(
+								"38 篇组件指南，完整示例参与 TypeScript 检查。网站与 AI 入口从同一份内容生成。",
+								"38 component guides with type-checked examples. The website and AI entries share one source of truth.",
+							)}
+						</p>
+						<div className="docs-reference-footer">
+							<a href="./llms.txt">llms.txt ↗</a>
+							<a href="./llms-full.txt">{t("完整 AI 文档", "Complete AI documentation")} ↗</a>
+							<a href="./docs/manifest.json">{t("版本与组件索引", "Versioned manifest")} ↗</a>
+						</div>
+						<p className="docs-muted">
+							{t(
+								"私有站点需要 GitLab 授权；本地 AI 可直接读取仓库 docs/ 和示例源文件。",
+								"Private Pages requires GitLab authorization; local agents can read docs/ and example sources directly.",
+							)}
+						</p>
+					</section>
 					<h2>{t("安装所需的包", "Install the packages you need")}</h2>
 					<p>
 						{t(
@@ -185,62 +91,7 @@ import '@matrixzero/ui/themes/mt0.css';
 				</article>
 			</TabPanel>
 			<TabPanel value="api">
-				<div className="docs-stack">
-					<Input
-						aria-label={t("搜索组件文档", "Search component documentation")}
-						placeholder={t("搜索组件，例如 Dialog…", "Search components, e.g. Dialog…")}
-						value={query}
-						onChange={(e) => setQuery(e.target.value)}
-					/>
-					{entries
-						.filter((e) => e.join(" ").toLowerCase().includes(query.toLowerCase()))
-						.map(([name, props, desc, code]) => (
-							<section className="docs-card" key={name}>
-								<div className="docs-row">
-									<h2>{name}</h2>
-									<Button
-										size="sm"
-										onClick={async () => {
-											try {
-												await navigator.clipboard.writeText(code);
-												setCopied(name);
-											} catch {
-												setCopied("error");
-											}
-										}}
-									>
-										{copied === name ? t("已复制", "Copied") : t("复制示例", "Copy example")}
-									</Button>
-								</div>
-								<p className="docs-muted">{desc}</p>
-								<Table>
-									<thead>
-										<tr>
-											<th>{t("常用属性", "Common props")}</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td style={{ whiteSpace: "normal" }}>
-												<code>{props}</code>
-											</td>
-										</tr>
-									</tbody>
-								</Table>
-								<pre>
-									<code>{code}</code>
-								</pre>
-							</section>
-						))}
-					{!entries.some((e) => e.join(" ").toLowerCase().includes(query.toLowerCase())) && (
-						<p>{t("没有匹配的组件", "No matching components")}</p>
-					)}
-					<p role="status" className="docs-muted">
-						{copied === "error"
-							? t("无法访问剪贴板，请手动复制代码。", "Clipboard unavailable; select and copy the code manually.")
-							: ""}
-					</p>
-				</div>
+				<ComponentDocs locale={locale} />
 			</TabPanel>
 			<TabPanel value="theme">
 				<article className="docs-article">

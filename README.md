@@ -108,3 +108,7 @@ Field 负责 label、description、error、required、disabled 的关联。需�
 - [GitLab npm Registry](https://docs.gitlab.com/user/packages/npm_registry/) 用于私有包分发。
 
 内部软件，未授予公开再分发许可；第三方依赖保留各自许可。
+
+## Usage and AI guides / 组件使用文档
+
+See [documentation maintenance and source](docs/README.md), [integration](docs/guides/integration.md), and [design guidance](docs/guides/design-and-accessibility.md). The [portal](https://mds-b1761b.gitlab.io/#docs) includes 38 component guides with type-checked examples; authorized AI clients can start at [llms.txt](https://mds-b1761b.gitlab.io/llms.txt).

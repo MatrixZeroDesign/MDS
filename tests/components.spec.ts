@@ -248,7 +248,13 @@ test("docs portal supports search, examples and stable URLs", async ({ page }) =
 	await expect(page.getByRole("heading", { name: "文档指南", exact: true })).toBeVisible();
 	await page.getByRole("tab", { name: "组件 API" }).click();
 	await page.getByRole("textbox", { name: "搜索组件文档" }).fill("SideSheet");
-	await expect(page.getByRole("heading", { name: "Dialog / SideSheet" })).toBeVisible();
+	await page.getByRole("link", { name: "SideSheet ui", exact: true }).click();
+	await expect(
+		page.getByRole("heading", {
+			name: "SideSheet / SideSheetTrigger / SideSheetContent / SideSheetClose",
+			exact: true,
+		}),
+	).toBeVisible();
 	await expect(page.getByRole("heading", { name: "Avatar / Badge" })).toHaveCount(0);
 	await page.reload();
 	await expect(page.getByRole("heading", { name: "文档指南", exact: true })).toBeVisible();

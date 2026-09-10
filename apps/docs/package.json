@@ -3,8 +3,8 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev": "vite --host 127.0.0.1 --port 4173",
-		"build": "vite build"
+		"dev": "node ../../scripts/build-docs.mjs && vite --host 127.0.0.1 --port 4173",
+		"build": "node ../../scripts/build-docs.mjs && vite build"
 	},
 	"dependencies": {
 		"@matrixzero/ui": "0.1.0-alpha.3",

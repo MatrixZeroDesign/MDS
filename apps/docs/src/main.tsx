@@ -1,6 +1,6 @@
 import { ColorTokens } from "./ColorTokens";
-import { PortalPage } from "./PortalPage";
 import { lazy, Suspense, useEffect, useState } from "react";
+const PortalPage = lazy(() => import("./PortalPage").then((module) => ({ default: module.PortalPage })));
 const IconsPage = lazy(() => import("./IconsPage").then((module) => ({ default: module.IconsPage })));
 const ChartsPage = lazy(() => import("./ChartsPage").then((module) => ({ default: module.ChartsPage })));
 import { createRoot } from "react-dom/client";
@@ -88,7 +88,7 @@ import "./docs.css";
 
 const portalPages = ["system", "docs", "charts", "icons", "overview", "policy"];
 function readPage() {
-	const value = window.location.hash.slice(1);
+	const value = window.location.hash.slice(1).split("/")[0];
 	return portalPages.includes(value) ? value : "system";
 }
 function App() {
@@ -107,7 +107,7 @@ function App() {
 		return () => window.removeEventListener("hashchange", navigate);
 	}, []);
 	useEffect(() => {
-		if (window.location.hash !== "#" + page) window.history.pushState(null, "", "#" + page);
+		if (readPage() !== page || !window.location.hash) window.history.pushState(null, "", "#" + page);
 	}, [page]);
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	const [scope, setScope] = useState("all"),
@@ -368,7 +368,11 @@ function App() {
 							</div>
 							{(page === "overview" || page === "policy") && actions}
 						</div>
-						{page === "docs" && <PortalPage locale={locale} />}
+						{page === "docs" && (
+							<Suspense fallback={<p role="status">{t("加载文档…", "Loading documentation…")}</p>}>
+								<PortalPage locale={locale} />
+							</Suspense>
+						)}
 						{page === "charts" && (
 							<Suspense fallback={<p role="status">{t("正在加载图表…", "Loading charts…")}</p>}>
 								<ChartsPage locale={locale} />
