@@ -7,13 +7,15 @@ import { Check as CheckIcon, Minus, LoaderCircle, ChevronDown } from "@matrixzer
 export const cx = (...parts: (string | undefined | false)[]) => parts.filter(Boolean).join(" ");
 type Size = "sm" | "md" | "lg";
 export interface ButtonProps extends ComponentProps<"button"> {
-	variant?: "primary" | "secondary" | "ghost" | "danger";
+	variant?: "primary" | "secondary" | "ghost" | "danger" | "contrast";
 	size?: Size;
+	shape?: "rounded" | "pill";
 	loading?: boolean;
 }
 export function Button({
 	variant = "secondary",
 	size = "md",
+	shape = "rounded",
 	loading = false,
 	disabled,
 	className,
@@ -30,6 +32,7 @@ export function Button({
 			className={cx("mds-button", className)}
 			data-variant={variant}
 			data-size={size}
+			data-shape={shape}
 		>
 			{loading && <LoaderCircle className="mds-spin" size={16} aria-hidden="true" />}
 			{children}

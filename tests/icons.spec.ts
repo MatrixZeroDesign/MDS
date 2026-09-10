@@ -37,6 +37,8 @@ test("icon search understands Chinese, category filters and keyboard usage dialo
 	const count = await page.locator(".docs-icon-tile").count();
 	expect(count).toBeGreaterThan(10);
 	expect(count).toBeLessThan(320);
+	await expect(page.getByRole("listbox")).toHaveCount(0);
+	await expect(page.getByRole("combobox", { name: "图标分类" })).toBeFocused();
 	await page.locator(".docs-icon-tile").first().focus();
 	await page.keyboard.press("Enter");
 	await expect(page.getByRole("dialog")).toBeVisible();

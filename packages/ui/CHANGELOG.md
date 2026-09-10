@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.5
+
+- 新增 AvatarGroup，支持三种尺寸、叠放头像、本地化人数溢出标签及独立文档示例。
+
+- 新增 Atmosphere 渐变展示面，提供 iris、mint、peach 明暗主题配色；不引入持续动画。
+- Button 增加 contrast 语义与 pill 形状，支持明暗主题中的展示型主操作。
+- 新增欢迎卡片和功能介绍弹窗组合示例、键盘与渐变对比度验收。
+
 ## 0.1.0-alpha.4
 
 - Select 改用统一主题 listbox 与 options/onValueChange API；原生实现保留为 NativeSelect。支持表单提交、必填校验、重置、键盘与主题浮层。

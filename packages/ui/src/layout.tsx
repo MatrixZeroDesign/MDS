@@ -53,3 +53,12 @@ export function CardContent({ className, ...props }: ComponentProps<"div">) {
 export function CardFooter({ className, ...props }: ComponentProps<"div">) {
 	return <div {...props} className={cx("mds-card-footer", className)} />;
 }
+
+export interface AtmosphereProps extends ComponentProps<"div"> {
+	tone?: "iris" | "mint" | "peach";
+	as?: "div" | "section" | "article";
+}
+/** Decorative color stays behind content; theme colors provide the foreground contract. */
+export function Atmosphere({ tone = "iris", as: Tag = "div", className, ...props }: AtmosphereProps) {
+	return <Tag {...props} data-tone={tone} className={cx("mds-atmosphere", className)} />;
+}

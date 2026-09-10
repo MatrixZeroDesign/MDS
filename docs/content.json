@@ -14,8 +14,8 @@
 		"names": ["Button"],
 		"package": "ui",
 		"purpose": "触发保存、提交等明确操作。 / Trigger an explicit action.",
-		"guide": "同一区域突出一个 primary 操作；secondary 用于普通操作，ghost 用于低强调操作，danger 用于破坏性操作。异步请求由应用管理 loading。 / Emphasize one primary action per region. Manage async loading in the application.",
-		"api": "variant?: \"primary\" | \"secondary\" | \"ghost\" | \"danger\" = \"secondary\"; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; loading?: boolean = false; native button props",
+		"guide": "同一区域突出一个 primary 操作；secondary 用于普通操作，ghost 用于低强调操作，danger 用于破坏性操作。异步请求由应用管理 loading。 / Emphasize one primary action per region. Manage async loading in the application. contrast 与 pill 可用于展示型主操作；contrast 根据明暗主题反转。 / Use contrast and pill for expressive primary actions; contrast adapts to the theme.",
+		"api": "variant?: \"primary\" | \"secondary\" | \"ghost\" | \"danger\" | \"contrast\" = \"secondary\"; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; loading?: boolean = false; native button props; shape?: \"rounded\" | \"pill\" = \"rounded\"",
 		"a11y": "使用清晰的动词标签；loading 时禁用并设置 aria-busy，标签保留。 / Use a clear verb; loading disables the button and retains its label with aria-busy.",
 		"pitfalls": "默认 type=\"button\"；提交表单必须显式 type=\"submit\"。不支持 shadcn 的 asChild 属性。 / Set type=\"submit\" for form submission. Button does not expose shadcn’s asChild API."
 	},
@@ -428,5 +428,25 @@
 		"api": "maxWidth?:CSSProperties[\"maxWidth\"] = 1200; gutter?:CSSProperties[\"paddingInline\"] = 24; centered?:boolean = true; as?:\"div\"|\"main\"|\"section\"|\"article\"|\"aside\" = \"div\"; native div props",
 		"a11y": "需要页面主内容地标时 as=\"main\"；不要嵌套 main，section/aside 用标题或 aria-label 命名。 / Use main for the primary landmark without nesting main; name sections and asides appropriately.",
 		"pitfalls": "数字单位为 px，maxWidth 包含左右内边距；不限制高度、不隐藏溢出内容。传 CSS 长度时使用非负值。 / Numbers are pixels and maxWidth includes gutters. Height and overflow are not constrained. Use nonnegative CSS lengths."
+	},
+	{
+		"slug": "atmosphere",
+		"names": ["Atmosphere"],
+		"package": "ui",
+		"purpose": "为欢迎、新功能与引导提供柔和渐变背景。 / Soft gradient surfaces for welcomes, launches and onboarding.",
+		"guide": "tone 选择 iris 蓝紫、mint 青绿或 peach 暖桃；正文使用 --mds-text，辅助文字放在靠下的稳定底色区域。与 Dialog、Button、Container 组合，不引入新的焦点或布局语义。 / Choose iris, mint or peach. Use --mds-text over the gradient and place muted copy on the lower stable surface. Compose with Dialog, Button and Container.",
+		"api": "tone?: \"iris\" | \"mint\" | \"peach\" = \"iris\"; as?: \"div\" | \"section\" | \"article\" = \"div\"; native div props including children, className and style",
+		"a11y": "背景是装饰性 CSS，内容仍为正常 DOM。配色随 ThemeProvider 明暗/系统模式变化。默认没有持续动画；自定义配色时重新检查每个渐变位置的文字对比度。 / Decorative CSS preserves normal content semantics. Theme-aware palettes have no continuous animation. Recheck contrast across the entire gradient when overriding colors.",
+		"pitfalls": "不把状态含义仅编码为渐变颜色，不在上半部使用浅色辅助文字。背景不提供 modal 行为，弹窗仍使用 Dialog。 / Do not encode status through gradient color alone or use low-contrast muted text over the upper gradient. Use Dialog for modal behavior."
+	},
+	{
+		"slug": "avatar-group",
+		"names": ["AvatarGroup"],
+		"package": "ui",
+		"purpose": "以叠放头像展示团队成员。 / Show a compact group of people.",
+		"guide": "传入成员列表，max 控制可见头像数，剩余人数显示为 +N。支持 sm/md/lg。 / Pass members and cap visible avatars with max; remaining people appear as +N.",
+		"api": "members: { name: string; fallback: string; src?: string }[]; label: string; overflowLabel: (count: number) => string; max?: number = 4; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; div props",
+		"a11y": "label 命名整个组，每个头像使用成员姓名；overflowLabel 提供本地化剩余人数。 / Name the group and each person; localize the overflow label.",
+		"pitfalls": "人数标记不是按钮。如需查看完整成员列表，另提供有名称的按钮或链接。 / The count is informational; provide a separate named action to open a full member list."
 	}
 ]

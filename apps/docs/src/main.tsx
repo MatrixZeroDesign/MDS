@@ -1,3 +1,4 @@
+import { AtmosphereShowcase } from "./AtmosphereShowcase";
 import { ColorTokens } from "./ColorTokens";
 import { lazy, Suspense, useEffect, useState } from "react";
 const PortalPage = lazy(() => import("./PortalPage").then((module) => ({ default: module.PortalPage })));
@@ -22,6 +23,7 @@ import {
 	Tooltip,
 	Badge,
 	Avatar,
+	AvatarGroup,
 	Progress,
 	Skeleton,
 	Alert,
@@ -90,6 +92,9 @@ import {
 	Inbox,
 	Check,
 	ShieldCheck,
+	BookOpen,
+	ChartBar,
+	Palette,
 } from "@matrixzero/icons";
 import "@matrixzero/ui/styles.css";
 import "@matrixzero/ui/themes/mt0.css";
@@ -264,9 +269,10 @@ function App() {
 							title={t("工作区导航", "Workspace navigation")}
 							closeLabel={t("关闭导航", "Close navigation")}
 							navigationLabel={t("移动导航", "Mobile navigation")}
+							className="docs-navigation-drawer"
 						>
 							{[
-								["system", t("基础与组件", "Foundations & components")],
+								["system", t("基础与组件", "Components")],
 								["docs", t("文档指南", "Documentation")],
 								["charts", t("图表", "Charts")],
 								["icons", t("图标", "Icons")],
@@ -276,7 +282,21 @@ function App() {
 								<NavItem
 									key={id}
 									active={page === id}
-									icon={id === "system" ? <Blocks /> : id === "overview" ? <LayoutDashboard /> : <SlidersHorizontal />}
+									icon={
+										id === "system" ? (
+											<Blocks />
+										) : id === "docs" ? (
+											<BookOpen />
+										) : id === "charts" ? (
+											<ChartBar />
+										) : id === "icons" ? (
+											<Palette />
+										) : id === "overview" ? (
+											<LayoutDashboard />
+										) : (
+											<ShieldCheck />
+										)
+									}
 									onClick={() => {
 										setPage(id);
 										setDrawerOpen(false);
@@ -313,38 +333,54 @@ function App() {
 				</Navbar>
 				<div className="docs-layout" data-collapsed={railCollapsed || undefined}>
 					<NavRail className="docs-nav" label={t("主导航", "Main navigation")} collapsed={railCollapsed}>
-						<small>DESIGN SYSTEM</small>
-						{[
-							["system", t("基础与组件", "Foundations & components")],
-							["docs", t("文档指南", "Documentation")],
-							["charts", t("图表", "Charts")],
-							["icons", t("图标", "Icons")],
-							["overview", t("运行概览", "Overview")],
-							["policy", t("策略工作台", "Policy workspace")],
-						].map(([id, label]) => (
-							<NavItem
-								key={id}
-								active={page === id}
-								icon={id === "system" ? <Blocks /> : id === "overview" ? <LayoutDashboard /> : <SlidersHorizontal />}
-								onClick={() => {
-									setPage(id);
-									setNotice("");
-								}}
-							>
-								{label}
-							</NavItem>
-						))}
-						<div className="docs-nav-bottom">
-							<ShieldCheck size={14} /> {t("同一份包，真实组件", "Built with the real package")}
+						<div className="docs-nav-header">
+							<small>DESIGN SYSTEM</small>
+							<IconButton
+								variant="ghost"
+								label={t("切换导航宽度", "Toggle navigation width")}
+								title={railCollapsed ? t("展开侧栏", "Expand sidebar") : t("收起侧栏", "Collapse sidebar")}
+								aria-expanded={!railCollapsed}
+								aria-controls="docs-navigation-items"
+								onClick={() => setRailCollapsed(!railCollapsed)}
+								icon={railCollapsed ? <PanelLeftOpen size={16} /> : <PanelLeftClose size={16} />}
+							/>
 						</div>
-						<Button
-							variant="ghost"
-							aria-label={t("切换导航宽度", "Toggle navigation width")}
-							aria-expanded={!railCollapsed}
-							onClick={() => setRailCollapsed(!railCollapsed)}
-						>
-							{railCollapsed ? <PanelLeftOpen size={16} /> : <PanelLeftClose size={16} />}
-						</Button>
+						<div id="docs-navigation-items" className="docs-nav-items">
+							{[
+								["system", t("基础与组件", "Components")],
+								["docs", t("文档指南", "Documentation")],
+								["charts", t("图表", "Charts")],
+								["icons", t("图标", "Icons")],
+								["overview", t("运行概览", "Overview")],
+								["policy", t("策略工作台", "Policy workspace")],
+							].map(([id, label]) => (
+								<NavItem
+									key={id}
+									active={page === id}
+									icon={
+										id === "system" ? (
+											<Blocks />
+										) : id === "docs" ? (
+											<BookOpen />
+										) : id === "charts" ? (
+											<ChartBar />
+										) : id === "icons" ? (
+											<Palette />
+										) : id === "overview" ? (
+											<LayoutDashboard />
+										) : (
+											<ShieldCheck />
+										)
+									}
+									onClick={() => {
+										setPage(id);
+										setNotice("");
+									}}
+								>
+									{label}
+								</NavItem>
+							))}
+						</div>
 					</NavRail>
 					<main id="main" className="docs-main">
 						<div className="docs-page-heading">
@@ -426,6 +462,7 @@ function App() {
 									</div>
 								</section>
 								<ColorTokens locale={locale} mode={mode} />
+								<AtmosphereShowcase locale={locale} />
 								<div className="docs-grid">
 									<section className="docs-card">
 										<h2>
@@ -743,8 +780,35 @@ function App() {
 									)}
 									{section(
 										t("列表与头像", "Lists & avatars"),
-										"List / Avatar",
+										"List / Avatar / AvatarGroup",
 										<>
+											<div className="docs-avatar-groups">
+												{(["sm", "md", "lg"] as const).map((size) => (
+													<div key={size}>
+														<span className="mds-description">
+															{size === "sm"
+																? t("小号", "Small")
+																: size === "md"
+																	? t("默认 · 还有 3 位成员", "Default · 3 more members")
+																	: t("大号", "Large")}
+														</span>
+														<AvatarGroup
+															size={size}
+															label={t("项目成员", "Project members")}
+															max={3}
+															overflowLabel={(count) => t(`还有 ${count} 位成员`, `${count} more members`)}
+															members={[
+																{ name: "陈晨 Chen Chen", fallback: "陈" },
+																{ name: "Alex Morgan", fallback: "AM" },
+																{ name: "林雨 Lin Yu", fallback: "林" },
+																{ name: "Sam Lee", fallback: "SL" },
+																{ name: "周宁 Zhou Ning", fallback: "周" },
+																{ name: "Taylor Kim", fallback: "TK" },
+															]}
+														/>
+													</div>
+												))}
+											</div>
 											<List>
 												{apps.slice((listPage - 1) * 3, listPage * 3).map(([initial, title]) => (
 													<ListItem

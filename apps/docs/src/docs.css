@@ -66,16 +66,6 @@ a {
 	background: var(--mds-soft);
 	color: var(--mds-text);
 }
-.docs-nav-bottom {
-	font-size: 11px;
-	color: var(--mds-muted);
-	display: flex;
-	gap: 6px;
-	align-items: center;
-	margin-top: 64px;
-	padding: 12px;
-	line-height: 18px;
-}
 .docs-main {
 	background: var(--mds-surface);
 	border-radius: 16px 0 0 0;
@@ -300,7 +290,6 @@ a {
 		padding: 8px 16px;
 	}
 	.docs-nav small,
-	.docs-nav-bottom,
 	.docs-top-title {
 		display: none;
 	}
@@ -346,10 +335,7 @@ a {
 .mds-root .docs-nav {
 	width: auto;
 }
-.docs-nav[data-collapsed] > small,
-.docs-nav[data-collapsed] > .docs-nav-bottom {
-	display: none;
-}
+
 @media (max-width: 600px) {
 	.mds-root .docs-mobile-menu {
 		display: inline-flex;
@@ -750,4 +736,259 @@ a {
 }
 .mds-root .docs-reference-detail pre {
 	tab-size: 2;
+}
+
+.mds-root .docs-atmosphere-section {
+	margin: 28px 0 40px;
+}
+.mds-root .docs-atmosphere-section > .docs-row {
+	gap: 20px;
+	margin-bottom: 20px;
+	flex-wrap: wrap;
+}
+.mds-root .docs-atmosphere-section h2 {
+	margin: 6px 0;
+}
+.mds-root .docs-atmosphere-hero {
+	padding: 52px 24px 36px;
+	text-align: center;
+}
+.mds-root .docs-atmosphere-halo {
+	display: grid;
+	place-items: center;
+	margin: 0 auto 26px;
+	width: 72px;
+	height: 72px;
+	border-radius: 24px;
+	background: var(--mds-surface);
+	box-shadow: 0 12px 30px #0000000b;
+}
+.mds-root .docs-atmosphere-halo span {
+	font-size: 42px;
+	font-weight: 500;
+	line-height: 1;
+	letter-spacing: -4px;
+	padding-right: 4px;
+}
+.mds-root .docs-atmosphere-hero h3 {
+	font-size: clamp(26px, 3vw, 40px);
+	font-weight: 500;
+	letter-spacing: -0.035em;
+	line-height: 1.25;
+	margin: 14px auto 18px;
+}
+.mds-root .docs-atmosphere-description {
+	max-width: 490px;
+	margin: 0 auto 28px;
+	line-height: 1.85;
+	color: var(--mds-text);
+	font-size: 15px;
+}
+.mds-root .docs-atmosphere-caption {
+	font-size: 11px;
+	color: var(--mds-muted);
+	margin: 22px 0 0;
+}
+.mds-root .mds-dialog.docs-atmosphere-dialog {
+	width: min(680px, calc(100vw - 32px));
+	padding: 0;
+	border-radius: 28px;
+}
+.mds-root .docs-atmosphere-dialog > .mds-dialog-header {
+	position: absolute;
+	right: 18px;
+	top: 18px;
+	z-index: 2;
+	margin: 0;
+}
+.mds-root .docs-atmosphere-dialog .mds-dialog-title {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+}
+.mds-root .docs-atmosphere-dialog-surface {
+	border: 0;
+	padding: 76px 38px 44px;
+	text-align: center;
+}
+.mds-root .docs-atmosphere-tabs {
+	width: fit-content;
+	max-width: 100%;
+	margin: 0 auto 48px;
+	border: 0;
+	background: var(--mds-surface);
+	border-radius: 999px;
+	padding: 5px;
+	gap: 4px;
+}
+.mds-root .docs-atmosphere-tabs .mds-tab {
+	min-width: 110px;
+	border: 0;
+	border-radius: 999px;
+	color: var(--mds-muted);
+	padding: 12px 22px;
+	background: transparent;
+}
+.mds-root .docs-atmosphere-tabs .mds-tab[data-state="active"] {
+	color: var(--mds-text);
+	background: var(--mds-soft);
+	box-shadow: 0 2px 8px #0000000b;
+}
+.mds-root .docs-atmosphere-dialog-surface h2 {
+	font-size: clamp(24px, 3vw, 32px);
+	font-weight: 500;
+	line-height: 1.35;
+	letter-spacing: -0.03em;
+	margin: 0 0 18px;
+}
+.mds-root .docs-atmosphere-dialog-surface p {
+	max-width: 510px;
+	margin: 0 auto;
+	color: var(--mds-text);
+	line-height: 1.85;
+	font-size: 16px;
+}
+.mds-root .docs-atmosphere-dialog-surface .mds-tab-panel {
+	min-height: 170px;
+}
+.mds-root .docs-atmosphere-dialog-surface > .mds-button {
+	margin-top: 26px;
+	min-width: 148px;
+}
+@media (max-width: 480px) {
+	.mds-root .docs-atmosphere-dialog-surface {
+		padding: 70px 22px 30px;
+	}
+	.mds-root .docs-atmosphere-tabs {
+		margin-bottom: 32px;
+	}
+	.mds-root .docs-atmosphere-tabs .mds-tab {
+		min-width: 80px;
+		padding: 10px 18px;
+	}
+	.mds-root .docs-atmosphere-dialog-surface .mds-tab-panel {
+		min-height: 215px;
+	}
+}
+
+.mds-root .docs-atmosphere-hero .docs-eyebrow {
+	color: var(--mds-text);
+}
+.mds-root .docs-atmosphere-description,
+.mds-root .docs-atmosphere-dialog-surface p {
+	text-wrap: balance;
+}
+
+/* Documentation navigation uses a compact, single-line list in both surfaces. */
+.mds-root .docs-layout {
+	grid-template-columns: 240px minmax(0, 1fr);
+}
+.mds-root .docs-layout[data-collapsed] {
+	grid-template-columns: 64px minmax(0, 1fr);
+}
+.mds-root .docs-nav {
+	position: sticky;
+	top: 16px;
+	align-self: start;
+	max-height: calc(100dvh - 32px);
+	padding: 12px;
+	min-height: 0;
+	gap: 14px;
+}
+.mds-root .docs-nav-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	min-height: 36px;
+}
+.mds-root .docs-nav-header small {
+	padding: 0 8px;
+	font-size: 10px;
+	white-space: nowrap;
+}
+.mds-root .docs-nav-header .mds-icon-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	flex-shrink: 0;
+}
+.mds-root .docs-nav-items {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	overflow-y: auto;
+	min-height: 0;
+	padding: 4px;
+	margin: -4px;
+}
+.mds-root .docs-nav .mds-navitem,
+.mds-root .docs-navigation-drawer .mds-navitem {
+	min-height: 40px;
+	flex-shrink: 0;
+	gap: 12px;
+	padding: 10px 12px;
+}
+.mds-root .docs-nav .mds-navitem-label,
+.mds-root .docs-navigation-drawer .mds-navitem-label {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	min-width: 0;
+}
+.mds-root .docs-nav[data-collapsed] {
+	padding: 12px 8px;
+}
+.mds-root .docs-nav[data-collapsed] .docs-nav-header {
+	justify-content: center;
+}
+.mds-root .docs-nav[data-collapsed] .docs-nav-header small {
+	display: none;
+}
+.mds-root .docs-nav[data-collapsed] .mds-navitem {
+	justify-content: center;
+	padding: 10px;
+}
+.mds-root .docs-navigation-drawer {
+	width: min(320px, calc(100vw - 24px));
+	padding: 22px 16px;
+}
+.mds-root .docs-navigation-drawer .mds-navrail {
+	width: 100%;
+	padding: 0;
+}
+@media (max-width: 900px) {
+	.mds-root .docs-layout,
+	.mds-root .docs-layout[data-collapsed] {
+		grid-template-columns: minmax(0, 1fr);
+	}
+	.mds-root .docs-nav {
+		display: none;
+	}
+	.mds-root .docs-mobile-menu {
+		display: inline-flex;
+	}
+	.mds-root .docs-top-title {
+		display: none;
+	}
+	.mds-root .docs-top {
+		justify-content: space-between;
+		gap: 12px;
+	}
+}
+
+.mds-root .docs-avatar-groups {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+	padding-block: 8px 24px;
+}
+.mds-root .docs-avatar-groups > div {
+	display: grid;
+	gap: 12px;
 }

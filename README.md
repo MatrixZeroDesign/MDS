@@ -2,7 +2,7 @@
 
 MDS 是 Matrix 产品的 React 设计系统。提供中英文排版规范、独立主题、可访问组件与克制的微动效。组件包名为 **@matrixzero/ui**，展示名称为 **Matrix UI**。
 
-UI 目前为 **0.1.0-alpha.4**，Icons 与 Charts 为 **0.1.0-alpha.3** 预览版本。MT0 页面用于验证组合场景，未接入生产业务。
+UI 目前为 **0.1.0-alpha.5**，Icons 与 Charts 为 **0.1.0-alpha.3** 预览版本。MT0 页面用于验证组合场景，未接入生产业务。
 
 文档网站：[Matrix Design System](https://mds-b1761b.gitlab.io)，需要项目成员登录 GitLab。提供组件交互、安装和 API 文档、图表以及可搜索图标目录。
 
@@ -54,7 +54,7 @@ npm run check
 令牌通过环境或 CI 注入，不提交实际值。消费方使用只读包权限；GitLab CI 跨项目访问还需要 MDS 项目的 job token allowlist。
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.4
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.5
 ```
 
 ```tsx
@@ -111,4 +111,4 @@ Field 负责 label、description、error、required、disabled 的关联。需�
 
 ## Usage and AI guides / 组件使用文档
 
-See [documentation maintenance and source](docs/README.md), [integration](docs/guides/integration.md), and [design guidance](docs/guides/design-and-accessibility.md). The [portal](https://mds-b1761b.gitlab.io/#docs) includes 43 component guides with type-checked examples; authorized AI clients can start at [llms.txt](https://mds-b1761b.gitlab.io/llms.txt).
+See [documentation maintenance and source](docs/README.md), [integration](docs/guides/integration.md), and [design guidance](docs/guides/design-and-accessibility.md). The [portal](https://mds-b1761b.gitlab.io/#docs) includes 45 component guides with type-checked examples; authorized AI clients can start at [llms.txt](https://mds-b1761b.gitlab.io/llms.txt).

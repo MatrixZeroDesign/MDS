@@ -29,6 +29,47 @@ export function Avatar({
 		</A.Root>
 	);
 }
+export interface AvatarGroupProps extends Omit<ComponentProps<"div">, "children"> {
+	label: string;
+	members: readonly { name: string; fallback: string; src?: string }[];
+	max?: number;
+	size?: "sm" | "md" | "lg";
+	overflowLabel: (count: number) => string;
+}
+export function AvatarGroup({
+	label,
+	members,
+	max = 4,
+	size = "md",
+	overflowLabel,
+	className,
+	...props
+}: AvatarGroupProps) {
+	const limit = Number.isFinite(max) ? Math.max(1, Math.floor(max)) : 4;
+	const visible = members.slice(0, limit);
+	const remaining = members.length - visible.length;
+	return (
+		<div {...props} role="group" aria-label={label} className={cx("mds-avatar-group", className)} data-size={size}>
+			{visible.map((member, index) => (
+				<Avatar key={index} alt={member.name} fallback={member.fallback} src={member.src} size={size} />
+			))}
+			{remaining > 0 && (
+				<span
+					className="mds-avatar mds-avatar-overflow"
+					data-size={size}
+					role="img"
+					aria-label={overflowLabel(remaining)}
+					title={members
+						.slice(limit)
+						.map((member) => member.name)
+						.join(", ")}
+				>
+					+{remaining}
+				</span>
+			)}
+		</div>
+	);
+}
 export function Progress({ className, ...props }: ComponentProps<typeof P.Root>) {
 	const value = props.value == null ? null : Math.max(0, Math.min(100, props.value));
 	return (
