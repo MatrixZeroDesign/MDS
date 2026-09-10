@@ -1,10 +1,10 @@
 .mds-root {
-	--mds-chart-1: var(--mds-accent);
-	--mds-chart-2: var(--mds-success);
-	--mds-chart-3: var(--mds-warning);
-	--mds-chart-4: var(--mds-danger);
-	--mds-chart-5: var(--mds-muted);
-	--mds-chart-6: var(--mds-text);
+	--mds-chart-1: var(--mds-data-1, var(--mds-accent));
+	--mds-chart-2: var(--mds-data-2, var(--mds-success));
+	--mds-chart-3: var(--mds-data-3, var(--mds-warning));
+	--mds-chart-4: var(--mds-data-4, var(--mds-danger));
+	--mds-chart-5: var(--mds-data-5, var(--mds-muted));
+	--mds-chart-6: var(--mds-data-6, var(--mds-text));
 }
 .mds-root .mds-chart {
 	margin: 0;

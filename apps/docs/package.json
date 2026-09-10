@@ -7,10 +7,10 @@
 		"build": "vite build"
 	},
 	"dependencies": {
-		"@matrixzero/ui": "*",
+		"@matrixzero/ui": "0.1.0-alpha.3",
 		"react": "19.2.3",
 		"react-dom": "19.2.3",
-		"@matrixzero/charts": "0.1.0-alpha.1",
+		"@matrixzero/charts": "0.1.0-alpha.2",
 		"@matrixzero/icons": "*"
 	}
 }

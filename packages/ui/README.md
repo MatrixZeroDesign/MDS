@@ -16,7 +16,7 @@ Matrix Design System（MDS / Matrix UI）：面向多品牌产品的 React 19 �
 令牌使用环境变量注入。需要 registry 读权限，跨项目 CI 使用 job token 时需要 allowlist。
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.2
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.3
 ```
 
 ```tsx

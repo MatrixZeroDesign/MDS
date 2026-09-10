@@ -144,8 +144,8 @@ export function PortalPage({ locale }: { locale: "zh" | "en" }) {
 					</p>
 					<pre>
 						<code>
-							npm install --save-exact @matrixzero/ui@0.1.0-alpha.2{String.fromCharCode(10)}npm install --save-exact
-							@matrixzero/charts@0.1.0-alpha.1
+							npm install --save-exact @matrixzero/ui@0.1.0-alpha.3{String.fromCharCode(10)}npm install --save-exact
+							@matrixzero/charts@0.1.0-alpha.2
 						</code>
 					</pre>
 					<h3>{t("私有仓库配置", "Private registry configuration")}</h3>
@@ -247,14 +247,14 @@ import '@matrixzero/ui/themes/mt0.css';
 					<h2>{t("主题隔离与品牌契约", "Theme isolation and brand contract")}</h2>
 					<p>
 						{t(
-							"所有样式位于 .mds-root 内。brand 显式选择已导入的品牌 CSS；未导入时使用中性基础值，不自动切换至其他品牌。浮层保留当前主题。",
-							"Styles live inside .mds-root. Brand selects explicitly imported CSS; without it, neutral tokens remain. Portals retain their current theme.",
+							"所有样式位于 .mds-root 内。brand 显式选择已导入的品牌 CSS；未导入时使用基础语义值，不自动切换至其他品牌。浮层保留当前主题。",
+							"Styles live inside .mds-root. Brand selects explicitly imported CSS; without it, base semantic tokens remain. Portals retain their current theme.",
 						)}
 					</p>
 					<pre>
 						<code>
 							{
-								"--mds-text / --mds-muted\n--mds-bg / --mds-surface / --mds-soft\n--mds-border / --mds-focus\n--mds-accent / --mds-success / --mds-warning / --mds-danger\n--mds-font-latin / --mds-font-cjk / --mds-font-mono"
+								"--mds-text / --mds-muted\n--mds-bg / --mds-surface / --mds-soft\n--mds-border / --mds-focus\n--mds-accent / --mds-on-accent / --mds-tint\n--mds-success / --mds-success-bg (warning, danger, info)\n--mds-data-1 … --mds-data-6\n--mds-font-latin / --mds-font-cjk / --mds-font-mono"
 							}
 						</code>
 					</pre>

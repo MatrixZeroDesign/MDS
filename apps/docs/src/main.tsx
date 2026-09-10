@@ -1,3 +1,4 @@
+import { ColorTokens } from "./ColorTokens";
 import { PortalPage } from "./PortalPage";
 import { lazy, Suspense, useEffect, useState } from "react";
 const IconsPage = lazy(() => import("./IconsPage").then((module) => ({ default: module.IconsPage })));
@@ -408,15 +409,8 @@ function App() {
 									<div className="docs-numerals">
 										1,284.06 <small>ms · P95 延迟 / Latency</small>
 									</div>
-									<div className="docs-swatches">
-										{["text", "accent", "success", "warning", "danger"].map((v) => (
-											<span key={v}>
-												<i style={{ background: `var(--mds-${v})` }} />
-												{v}
-											</span>
-										))}
-									</div>
 								</section>
+								<ColorTokens locale={locale} mode={mode} />
 								<div className="docs-grid">
 									<section className="docs-card">
 										<h2>

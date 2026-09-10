@@ -1,15 +1,15 @@
 /* Explicit opt-in: mt0 brand values only; no OEM assets or network fonts. */
 .mds-root[data-mds-brand="mt0"] {
-	--mds-accent: #5563bf;
-	--mds-tint: #eef0fb;
+	--mds-accent: #087565;
+	--mds-tint: #ddf4eb;
 }
 .mds-root[data-mds-brand="mt0"][data-mds-mode="dark"] {
-	--mds-accent: #abb4f2;
-	--mds-tint: #31354c;
+	--mds-accent: #69dbb7;
+	--mds-tint: #203f33;
 }
 @media (prefers-color-scheme: dark) {
 	.mds-root[data-mds-brand="mt0"][data-mds-mode="system"] {
-		--mds-accent: #abb4f2;
-		--mds-tint: #31354c;
+		--mds-accent: #69dbb7;
+		--mds-tint: #203f33;
 	}
 }

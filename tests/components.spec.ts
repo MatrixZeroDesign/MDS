@@ -140,9 +140,9 @@ test("reduced motion disables micro animations", async ({ page }) => {
 test("table body follows product theme despite host defaults", async ({ page }) => {
 	await page.getByRole("button", { name: "运行概览", exact: true }).click();
 	await page.addStyleTag({ content: "table, td {color:white}" });
-	await expect(page.getByTestId("app-name").first()).toHaveCSS("color", "rgb(39, 43, 51)");
+	await expect(page.getByTestId("app-name").first()).toHaveCSS("color", "rgb(36, 54, 45)");
 	await page.getByRole("button", { name: "切换明暗主题" }).click();
-	await expect(page.getByTestId("app-name").first()).toHaveCSS("color", "rgb(232, 234, 240)");
+	await expect(page.getByTestId("app-name").first()).toHaveCSS("color", "rgb(237, 246, 239)");
 });
 test("tooltip and menu actions are functional", async ({ page }) => {
 	await page.getByRole("button", { name: "提示信息", exact: true }).focus();
@@ -155,8 +155,8 @@ test("independent theme portals and uncontrolled form reset", async ({ page }) =
 	await page.goto("/isolation.html");
 	const hostBefore = await page.locator("#host").evaluate((e) => getComputedStyle(e).color);
 	await page.getByRole("button", { name: "Dark choice" }).click();
-	await expect(page.getByRole("menu")).toHaveCSS("background-color", "rgb(34, 37, 44)");
-	await expect(page.getByRole("menu")).toHaveCSS("color", "rgb(232, 234, 240)");
+	await expect(page.getByRole("menu")).toHaveCSS("background-color", "rgb(32, 39, 37)");
+	await expect(page.getByRole("menu")).toHaveCSS("color", "rgb(237, 246, 239)");
 	await page.keyboard.press("Escape");
 	await page.getByRole("button", { name: "Custom choice" }).click();
 	await expect(page.getByRole("menu")).toHaveCSS("background-color", "rgb(255, 250, 243)");
@@ -175,9 +175,9 @@ test("system mode follows OS preference without storage or hydration state", asy
 	await page.goto("/isolation.html");
 	await page.getByTestId("dark-root").evaluate((e) => e.setAttribute("data-mds-mode", "system"));
 	await page.emulateMedia({ colorScheme: "light" });
-	await expect(page.getByTestId("dark-root")).toHaveCSS("color", "rgb(39, 43, 51)");
+	await expect(page.getByTestId("dark-root")).toHaveCSS("color", "rgb(36, 54, 45)");
 	await page.emulateMedia({ colorScheme: "dark" });
-	await expect(page.getByTestId("dark-root")).toHaveCSS("color", "rgb(232, 234, 240)");
+	await expect(page.getByTestId("dark-root")).toHaveCSS("color", "rgb(237, 246, 239)");
 });
 test("side sheet traps focus, preserves nested menu theme and returns focus", async ({ page }) => {
 	const trigger = page.getByRole("button", { name: "打开侧边面板", exact: true });

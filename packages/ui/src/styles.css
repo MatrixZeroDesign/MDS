@@ -4,19 +4,33 @@
 	--mds-font-cjk: "PingFang SC", "Microsoft YaHei";
 	--mds-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 	--mds-font: var(--mds-font-latin), var(--mds-font-cjk), sans-serif;
-	--mds-bg: #fafafb;
+	--mds-bg: #f7f8f5;
 	--mds-surface: #fff;
-	--mds-soft: #f1f2f4;
-	--mds-border: #dedfe3;
-	--mds-text: #272b33;
-	--mds-muted: #666d78;
-	--mds-accent: #525a68;
-	--mds-tint: #eceef1;
-	--mds-success: #287052;
-	--mds-warning: #8c5915;
-	--mds-danger: #b82e42;
-	--mds-focus: #555d6a;
-	--mds-overlay: #11182755;
+	--mds-soft: #eef3ee;
+	--mds-border: #d8e3da;
+	--mds-text: #24362d;
+	--mds-muted: #5f7066;
+	--mds-accent: #16735b;
+	--mds-tint: #e2f4eb;
+	--mds-on-accent: #ffffff;
+	--mds-accent-hover: color-mix(in srgb, var(--mds-accent) 88%, #000000);
+	--mds-accent-pressed: color-mix(in srgb, var(--mds-accent) 76%, #000000);
+	--mds-info: #2865b9;
+	--mds-info-bg: #eaf2ff;
+	--mds-success-bg: #e4f4e9;
+	--mds-warning-bg: #fff2d7;
+	--mds-danger-bg: #fce9ed;
+	--mds-data-1: #6256cf;
+	--mds-data-2: #087f72;
+	--mds-data-3: #ac720b;
+	--mds-data-4: #c13f6b;
+	--mds-data-5: #247bb0;
+	--mds-data-6: #75842c;
+	--mds-success: #17704b;
+	--mds-warning: #92600c;
+	--mds-danger: #be3654;
+	--mds-focus: var(--mds-accent);
+	--mds-overlay: #132b2259;
 	--mds-shadow: 0 8px 24px #00000014, 0 2px 6px #0000000a;
 	--mds-control-height: 36px;
 	--mds-radius: 8px;
@@ -34,35 +48,63 @@
 	text-align: start;
 }
 .mds-root[data-mds-mode="dark"] {
-	--mds-bg: #191b20;
-	--mds-surface: #22252c;
-	--mds-soft: #2b2e37;
-	--mds-border: #444b57;
-	--mds-text: #e8eaf0;
-	--mds-muted: #a6adba;
-	--mds-accent: #bbc2ce;
-	--mds-tint: #303642;
-	--mds-success: #8ed0b0;
-	--mds-warning: #ecc28b;
-	--mds-danger: #ff9cad;
-	--mds-focus: #aeb7c6;
+	--mds-bg: #161b1a;
+	--mds-surface: #202725;
+	--mds-soft: #2c3632;
+	--mds-border: #46554f;
+	--mds-text: #edf6ef;
+	--mds-muted: #adbbb4;
+	--mds-accent: #79dcb9;
+	--mds-tint: #203f32;
+	--mds-on-accent: #102d23;
+	--mds-accent-hover: color-mix(in srgb, var(--mds-accent) 88%, #ffffff);
+	--mds-accent-pressed: color-mix(in srgb, var(--mds-accent) 76%, #ffffff);
+	--mds-info: #9ebfff;
+	--mds-info-bg: #24354e;
+	--mds-success-bg: #213e2e;
+	--mds-warning-bg: #413623;
+	--mds-danger-bg: #462936;
+	--mds-data-1: #b3a3ff;
+	--mds-data-2: #67dbc0;
+	--mds-data-3: #efc274;
+	--mds-data-4: #ff94b8;
+	--mds-data-5: #7ec7f2;
+	--mds-data-6: #bfd476;
+	--mds-success: #83d9a5;
+	--mds-warning: #efc274;
+	--mds-danger: #ff9ab3;
+	--mds-focus: var(--mds-accent);
 	--mds-overlay: #0008;
 	color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
 	.mds-root[data-mds-mode="system"] {
-		--mds-bg: #191b20;
-		--mds-surface: #22252c;
-		--mds-soft: #2b2e37;
-		--mds-border: #444b57;
-		--mds-text: #e8eaf0;
-		--mds-muted: #a6adba;
-		--mds-accent: #bbc2ce;
-		--mds-tint: #303642;
-		--mds-success: #8ed0b0;
-		--mds-warning: #ecc28b;
-		--mds-danger: #ff9cad;
-		--mds-focus: #aeb7c6;
+		--mds-bg: #161b1a;
+		--mds-surface: #202725;
+		--mds-soft: #2c3632;
+		--mds-border: #46554f;
+		--mds-text: #edf6ef;
+		--mds-muted: #adbbb4;
+		--mds-accent: #79dcb9;
+		--mds-tint: #203f32;
+		--mds-on-accent: #102d23;
+		--mds-accent-hover: color-mix(in srgb, var(--mds-accent) 88%, #ffffff);
+		--mds-accent-pressed: color-mix(in srgb, var(--mds-accent) 76%, #ffffff);
+		--mds-info: #9ebfff;
+		--mds-info-bg: #24354e;
+		--mds-success-bg: #213e2e;
+		--mds-warning-bg: #413623;
+		--mds-danger-bg: #462936;
+		--mds-data-1: #b3a3ff;
+		--mds-data-2: #67dbc0;
+		--mds-data-3: #efc274;
+		--mds-data-4: #ff94b8;
+		--mds-data-5: #7ec7f2;
+		--mds-data-6: #bfd476;
+		--mds-success: #83d9a5;
+		--mds-warning: #efc274;
+		--mds-danger: #ff9ab3;
+		--mds-focus: var(--mds-accent);
 		--mds-overlay: #0008;
 		color-scheme: dark;
 	}
@@ -125,15 +167,15 @@
 	background: var(--mds-pressed);
 }
 .mds-root .mds-button[data-variant="primary"] {
-	background: var(--mds-text);
-	color: var(--mds-surface);
+	background: var(--mds-accent);
+	color: var(--mds-on-accent);
 	border-color: transparent;
 }
 .mds-root .mds-button[data-variant="primary"]:hover:not(:disabled) {
-	background: color-mix(in srgb, var(--mds-text) 88%, var(--mds-surface));
+	background: var(--mds-accent-hover);
 }
 .mds-root .mds-button[data-variant="primary"]:active:not(:disabled) {
-	background: color-mix(in srgb, var(--mds-text) 76%, var(--mds-surface));
+	background: var(--mds-accent-pressed);
 }
 .mds-root .mds-button[data-variant="ghost"] {
 	background: transparent;
@@ -145,7 +187,7 @@
 	color: var(--mds-text);
 }
 .mds-root .mds-button[data-variant="danger"] {
-	background: color-mix(in srgb, var(--mds-danger) 8%, var(--mds-surface));
+	background: var(--mds-danger-bg);
 	color: var(--mds-danger);
 	border-color: transparent;
 }
@@ -258,8 +300,12 @@
 }
 .mds-root .mds-checkbox[data-state="checked"],
 .mds-root .mds-checkbox[data-state="indeterminate"] {
-	background: var(--mds-text);
-	border-color: var(--mds-text);
+	background: var(--mds-accent);
+	border-color: var(--mds-accent);
+}
+.mds-root .mds-checkbox[data-state="checked"],
+.mds-root .mds-checkbox[data-state="indeterminate"] {
+	color: var(--mds-on-accent);
 }
 .mds-root .mds-checkbox span {
 	display: flex;
@@ -276,7 +322,7 @@
 	transition: background-color 150ms;
 }
 .mds-root .mds-switch[data-state="checked"] {
-	background: var(--mds-text);
+	background: var(--mds-accent);
 }
 .mds-root .mds-switch-thumb {
 	display: block;
@@ -288,6 +334,7 @@
 	box-shadow: 0 1px 3px #0002;
 }
 .mds-root .mds-switch-thumb[data-state="checked"] {
+	background: var(--mds-on-accent);
 	transform: translateX(14px);
 }
 .mds-root .mds-radio-group {
@@ -312,17 +359,17 @@
 	cursor: pointer;
 }
 .mds-root .mds-radio[data-state="checked"] {
-	border-color: var(--mds-text);
+	border-color: var(--mds-accent);
 }
 .mds-root .mds-radio-dot {
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;
-	background: var(--mds-text);
+	background: var(--mds-accent);
 }
 .mds-root .mds-slider {
 	width: 100%;
-	accent-color: var(--mds-text);
+	accent-color: var(--mds-accent);
 	cursor: pointer;
 }
 .mds-root .mds-choice-trigger {
@@ -470,15 +517,15 @@
 }
 .mds-root .mds-badge[data-tone="success"] {
 	color: var(--mds-success);
-	background: color-mix(in srgb, var(--mds-success) 8%, var(--mds-surface));
+	background: var(--mds-success-bg);
 }
 .mds-root .mds-badge[data-tone="warning"] {
 	color: var(--mds-warning);
-	background: color-mix(in srgb, var(--mds-warning) 8%, var(--mds-surface));
+	background: var(--mds-warning-bg);
 }
 .mds-root .mds-badge[data-tone="danger"] {
 	color: var(--mds-danger);
-	background: color-mix(in srgb, var(--mds-danger) 8%, var(--mds-surface));
+	background: var(--mds-danger-bg);
 }
 .mds-root .mds-avatar {
 	display: inline-flex;
@@ -518,7 +565,7 @@
 }
 .mds-root .mds-progress-indicator {
 	height: 100%;
-	background: var(--mds-text);
+	background: var(--mds-accent);
 	border-radius: 5px;
 	transition: width 150ms;
 }
@@ -545,13 +592,20 @@
 	color: var(--mds-text);
 	line-height: 22px;
 }
+.mds-root .mds-alert[data-tone="info"] {
+	color: var(--mds-info);
+	background: var(--mds-info-bg);
+}
 .mds-root .mds-alert[data-tone="danger"] {
+	background: var(--mds-danger-bg);
 	color: var(--mds-danger);
 }
 .mds-root .mds-alert[data-tone="success"] {
+	background: var(--mds-success-bg);
 	color: var(--mds-success);
 }
 .mds-root .mds-alert[data-tone="warning"] {
+	background: var(--mds-warning-bg);
 	color: var(--mds-warning);
 }
 .mds-root .mds-empty {
@@ -592,8 +646,8 @@
 	background: var(--mds-hover);
 }
 .mds-root .mds-tab[data-state="active"] {
-	background: var(--mds-soft);
-	color: var(--mds-text);
+	background: var(--mds-tint);
+	color: var(--mds-accent);
 }
 .mds-root .mds-tab-panel {
 	margin-top: 20px;
@@ -659,8 +713,8 @@
 	color: var(--mds-text);
 }
 .mds-root .mds-steps li[aria-current="step"] .mds-step-number {
-	background: var(--mds-text);
-	color: var(--mds-surface);
+	background: var(--mds-accent);
+	color: var(--mds-on-accent);
 }
 .mds-root .mds-steps li[data-complete] .mds-step-number {
 	background: var(--mds-tint);
@@ -892,8 +946,8 @@
 	background: var(--mds-pressed);
 }
 .mds-root .mds-navitem[aria-current="page"] {
-	background: var(--mds-soft);
-	color: var(--mds-text);
+	background: var(--mds-tint);
+	color: var(--mds-accent);
 }
 .mds-root .mds-navitem-icon {
 	display: flex;
@@ -1052,7 +1106,7 @@
 }
 .mds-root .mds-segment-option[data-state="checked"] {
 	background: var(--mds-surface);
-	color: var(--mds-text);
+	color: var(--mds-accent);
 	box-shadow: 0 1px 3px #00000014;
 }
 .mds-root .mds-radio-cards {
