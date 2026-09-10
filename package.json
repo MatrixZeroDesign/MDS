@@ -1,0 +1,35 @@
+{
+	"name": "matrix-design-system",
+	"private": true,
+	"workspaces": [
+		"packages/*",
+		"apps/*"
+	],
+	"scripts": {
+		"build": "npm run build:packages && npm run build -w @matrixzero/mds-docs",
+		"build:ui": "npm run build -w @matrixzero/icons && npm run build -w @matrixzero/ui",
+		"dev": "npm run build:packages && npm run dev -w @matrixzero/mds-docs",
+		"typecheck": "tsc --noEmit -p packages/icons/tsconfig.json && tsc --noEmit -p packages/ui/tsconfig.json && tsc --noEmit -p packages/charts/tsconfig.json && tsc --noEmit -p apps/docs/tsconfig.json",
+		"test": "playwright test",
+		"test:package": "node scripts/package-smoke.mjs",
+		"check": "npm run format:check && npm run typecheck && npm run build && npm test && npm run test:package",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"build:packages": "npm run build -w @matrixzero/icons && npm run build -w @matrixzero/ui && npm run build -w @matrixzero/charts"
+	},
+	"devDependencies": {
+		"@axe-core/playwright": "4.11.1",
+		"@playwright/test": "1.58.2",
+		"@types/node": "22.15.30",
+		"@types/react": "19.2.2",
+		"@types/react-dom": "19.2.2",
+		"@vitejs/plugin-react": "4.5.2",
+		"prettier": "3.6.2",
+		"typescript": "5.9.2",
+		"vite": "6.4.3"
+	},
+	"engines": {
+		"node": ">=22.12",
+		"npm": ">=10"
+	}
+}

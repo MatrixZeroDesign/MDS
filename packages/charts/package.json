@@ -1,0 +1,43 @@
+{
+	"name": "@matrixzero/charts",
+	"version": "0.1.0-alpha.1",
+	"description": "Theme-aware basic charts for Matrix Design System",
+	"type": "module",
+	"license": "UNLICENSED",
+	"files": [
+		"dist",
+		"README.md",
+		"CHANGELOG.md"
+	],
+	"sideEffects": [
+		"**/*.css"
+	],
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		},
+		"./styles.css": "./dist/styles.css"
+	},
+	"scripts": {
+		"build": "node ../../scripts/clean-ui.mjs && tsc -p tsconfig.json && node ../../scripts/copy-chart-styles.mjs"
+	},
+	"peerDependencies": {
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"@matrixzero/ui": ">=0.1.0-alpha.1 <1.0.0"
+	},
+	"dependencies": {
+		"recharts": "3.8.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://gitlab.com/matrixzero/mds.git",
+		"directory": "packages/charts"
+	},
+	"publishConfig": {
+		"registry": "https://gitlab.com/api/v4/projects/86296621/packages/npm/"
+	}
+}
