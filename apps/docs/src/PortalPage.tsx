@@ -299,12 +299,18 @@ export function IconsPage({ locale }: { locale: "zh" | "en" }) {
 					: "@matrixzero/icons · consistent 1.75px stroke, decorative by default."}
 			</p>
 			<Input
-				aria-label="Search icons"
-				placeholder="Search icons…"
+				aria-label={locale === "zh" ? "搜索图标" : "Search icons"}
+				placeholder={locale === "zh" ? "搜索图标名称…" : "Search icons…"}
 				value={query}
 				onChange={(e) => setQuery(e.target.value)}
 				style={{ margin: "20px 0" }}
 			/>
+			{names.length === 0 && (
+				<div role="status" className="docs-card">
+					<p>{locale === "zh" ? "未找到匹配的图标" : "No matching icons"}</p>
+					<Button onClick={() => setQuery("")}>{locale === "zh" ? "清除搜索" : "Clear search"}</Button>
+				</div>
+			)}
 			<div className="docs-icon-grid">
 				{names.map(([name, Icon]) => (
 					<div className="docs-icon-tile" key={name}>

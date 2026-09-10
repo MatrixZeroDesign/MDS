@@ -355,7 +355,13 @@ function App() {
 								<p className="docs-muted">
 									{page === "system"
 										? t("清晰、一致，也有温度。", "Clear, consistent, and considered.")
-										: t("演示数据 · 未连接生产环境", "Sample data · no production connection")}
+										: page === "docs"
+											? t("安装、组件 API 与设计规范。", "Installation, component APIs and design guidelines.")
+											: page === "icons"
+												? t("为 Matrix 独立绘制的图标集合。", "An independently drawn icon collection for Matrix.")
+												: page === "charts"
+													? t("清晰的数据表达，完整的交互示例。", "Clear data presentation with interactive examples.")
+													: t("演示数据 · 未连接生产环境", "Sample data · no production connection")}
 								</p>
 							</div>
 							{(page === "overview" || page === "policy") && actions}
@@ -622,7 +628,7 @@ function App() {
 											<div className="docs-setting">
 												<label htmlFor="email">
 													{t("邮件通知", "Email notifications")}
-													<small>{notify ? "Enabled" : "Disabled"}</small>
+													<small>{notify ? t("开启", "On") : t("关闭", "Off")}</small>
 												</label>
 												<Switch id="email" checked={notify} onCheckedChange={setNotify} />
 											</div>
