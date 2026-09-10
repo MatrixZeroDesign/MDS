@@ -1,0 +1,482 @@
+[
+	{
+		"name": "ArrowUp",
+		"category": "navigation",
+		"keywords": ["向上", "ArrowUp", "arrow up"]
+	},
+	{
+		"name": "ArrowDown",
+		"category": "navigation",
+		"keywords": ["向下", "ArrowDown", "arrow down"]
+	},
+	{
+		"name": "ArrowUpLeft",
+		"category": "navigation",
+		"keywords": ["左上", "ArrowUpLeft", "arrow up left"]
+	},
+	{
+		"name": "ArrowDownLeft",
+		"category": "navigation",
+		"keywords": ["左下", "ArrowDownLeft", "arrow down left"]
+	},
+	{
+		"name": "ArrowDownRight",
+		"category": "navigation",
+		"keywords": ["右下", "ArrowDownRight", "arrow down right"]
+	},
+	{
+		"name": "ChevronUp",
+		"category": "navigation",
+		"keywords": ["展开向上", "ChevronUp", "chevron up"]
+	},
+	{
+		"name": "ChevronLeft",
+		"category": "navigation",
+		"keywords": ["返回左侧", "ChevronLeft", "chevron left"]
+	},
+	{
+		"name": "ChevronsUp",
+		"category": "navigation",
+		"keywords": ["快速向上", "ChevronsUp", "chevrons up"]
+	},
+	{
+		"name": "ChevronsDown",
+		"category": "navigation",
+		"keywords": ["快速向下", "ChevronsDown", "chevrons down"]
+	},
+	{
+		"name": "ChevronsLeft",
+		"category": "navigation",
+		"keywords": ["快速向左", "ChevronsLeft", "chevrons left"]
+	},
+	{
+		"name": "ChevronsRight",
+		"category": "navigation",
+		"keywords": ["快速向右", "ChevronsRight", "chevrons right"]
+	},
+	{
+		"name": "MoveHorizontal",
+		"category": "navigation",
+		"keywords": ["水平移动", "MoveHorizontal", "move horizontal"]
+	},
+	{
+		"name": "MoveVertical",
+		"category": "navigation",
+		"keywords": ["垂直移动", "MoveVertical", "move vertical"]
+	},
+	{
+		"name": "Move",
+		"category": "navigation",
+		"keywords": ["自由移动", "Move", "move"]
+	},
+	{
+		"name": "CornerUpLeft",
+		"category": "navigation",
+		"keywords": ["向左返回上方", "CornerUpLeft", "corner up left"]
+	},
+	{
+		"name": "CornerUpRight",
+		"category": "navigation",
+		"keywords": ["向右返回上方", "CornerUpRight", "corner up right"]
+	},
+	{
+		"name": "CornerDownLeft",
+		"category": "navigation",
+		"keywords": ["向左转下方", "CornerDownLeft", "corner down left"]
+	},
+	{
+		"name": "CornerDownRight",
+		"category": "navigation",
+		"keywords": ["向右转下方", "CornerDownRight", "corner down right"]
+	},
+	{
+		"name": "TurnLeft",
+		"category": "navigation",
+		"keywords": ["左转", "TurnLeft", "turn left"]
+	},
+	{
+		"name": "TurnRight",
+		"category": "navigation",
+		"keywords": ["右转", "TurnRight", "turn right"]
+	},
+	{
+		"name": "Undo",
+		"category": "navigation",
+		"keywords": ["撤销", "Undo", "undo"]
+	},
+	{
+		"name": "Redo",
+		"category": "navigation",
+		"keywords": ["重做", "Redo", "redo"]
+	},
+	{
+		"name": "Refresh",
+		"category": "navigation",
+		"keywords": ["刷新同步", "Refresh", "refresh"]
+	},
+	{
+		"name": "RotateLeft",
+		"category": "navigation",
+		"keywords": ["逆时针旋转", "RotateLeft", "rotate left"]
+	},
+	{
+		"name": "RotateRight",
+		"category": "navigation",
+		"keywords": ["顺时针旋转", "RotateRight", "rotate right"]
+	},
+	{
+		"name": "LogIn",
+		"category": "navigation",
+		"keywords": ["登录进入", "LogIn", "log in"]
+	},
+	{
+		"name": "LogOut",
+		"category": "navigation",
+		"keywords": ["登出退出", "LogOut", "log out"]
+	},
+	{
+		"name": "Home",
+		"category": "navigation",
+		"keywords": ["首页主页", "Home", "home"]
+	},
+	{
+		"name": "Compass",
+		"category": "navigation",
+		"keywords": ["指南针方向", "Compass", "compass"]
+	},
+	{
+		"name": "Route",
+		"category": "navigation",
+		"keywords": ["路线流程路径", "Route", "route"]
+	},
+	{
+		"name": "MapPin",
+		"category": "navigation",
+		"keywords": ["位置地点", "MapPin", "map pin"]
+	},
+	{
+		"name": "Locate",
+		"category": "navigation",
+		"keywords": ["定位当前", "Locate", "locate"]
+	},
+	{
+		"name": "Grid2",
+		"category": "layout",
+		"keywords": ["四宫格", "Grid2", "grid 2"]
+	},
+	{
+		"name": "Grid3",
+		"category": "layout",
+		"keywords": ["九宫格", "Grid3", "grid 3"]
+	},
+	{
+		"name": "Columns2",
+		"category": "layout",
+		"keywords": ["双列布局", "Columns2", "columns 2"]
+	},
+	{
+		"name": "Columns3",
+		"category": "layout",
+		"keywords": ["三列布局", "Columns3", "columns 3"]
+	},
+	{
+		"name": "Rows2",
+		"category": "layout",
+		"keywords": ["双行布局", "Rows2", "rows 2"]
+	},
+	{
+		"name": "Rows3",
+		"category": "layout",
+		"keywords": ["三行布局", "Rows3", "rows 3"]
+	},
+	{
+		"name": "PanelTop",
+		"category": "layout",
+		"keywords": ["顶部面板", "PanelTop", "panel top"]
+	},
+	{
+		"name": "PanelBottom",
+		"category": "layout",
+		"keywords": ["底部面板", "PanelBottom", "panel bottom"]
+	},
+	{
+		"name": "PanelRight",
+		"category": "layout",
+		"keywords": ["右侧面板", "PanelRight", "panel right"]
+	},
+	{
+		"name": "Sidebar",
+		"category": "layout",
+		"keywords": ["侧边栏", "Sidebar", "sidebar"]
+	},
+	{
+		"name": "SplitHorizontal",
+		"category": "layout",
+		"keywords": ["水平拆分", "SplitHorizontal", "split horizontal"]
+	},
+	{
+		"name": "SplitVertical",
+		"category": "layout",
+		"keywords": ["垂直拆分", "SplitVertical", "split vertical"]
+	},
+	{
+		"name": "AlignLeft",
+		"category": "layout",
+		"keywords": ["左对齐", "AlignLeft", "align left"]
+	},
+	{
+		"name": "AlignCenter",
+		"category": "layout",
+		"keywords": ["水平居中", "AlignCenter", "align center"]
+	},
+	{
+		"name": "AlignRight",
+		"category": "layout",
+		"keywords": ["右对齐", "AlignRight", "align right"]
+	},
+	{
+		"name": "AlignTop",
+		"category": "layout",
+		"keywords": ["顶部对齐", "AlignTop", "align top"]
+	},
+	{
+		"name": "AlignMiddle",
+		"category": "layout",
+		"keywords": ["垂直居中", "AlignMiddle", "align middle"]
+	},
+	{
+		"name": "AlignBottom",
+		"category": "layout",
+		"keywords": ["底部对齐", "AlignBottom", "align bottom"]
+	},
+	{
+		"name": "DistributeHorizontal",
+		"category": "layout",
+		"keywords": ["水平等距", "DistributeHorizontal", "distribute horizontal"]
+	},
+	{
+		"name": "DistributeVertical",
+		"category": "layout",
+		"keywords": ["垂直等距", "DistributeVertical", "distribute vertical"]
+	},
+	{
+		"name": "Maximize",
+		"category": "layout",
+		"keywords": ["最大化", "Maximize", "maximize"]
+	},
+	{
+		"name": "Minimize",
+		"category": "layout",
+		"keywords": ["最小化", "Minimize", "minimize"]
+	},
+	{
+		"name": "Expand",
+		"category": "layout",
+		"keywords": ["扩展尺寸", "Expand", "expand"]
+	},
+	{
+		"name": "Shrink",
+		"category": "layout",
+		"keywords": ["收缩尺寸", "Shrink", "shrink"]
+	},
+	{
+		"name": "Fullscreen",
+		"category": "layout",
+		"keywords": ["全屏展示", "Fullscreen", "fullscreen"]
+	},
+	{
+		"name": "PictureInPicture",
+		"category": "layout",
+		"keywords": ["画中画", "PictureInPicture", "picture in picture"]
+	},
+	{
+		"name": "AppWindow",
+		"category": "layout",
+		"keywords": ["应用窗口", "AppWindow", "app window"]
+	},
+	{
+		"name": "BrowserWindow",
+		"category": "layout",
+		"keywords": ["浏览器窗口", "BrowserWindow", "browser window"]
+	},
+	{
+		"name": "Layers",
+		"category": "layout",
+		"keywords": ["图层叠加", "Layers", "layers"]
+	},
+	{
+		"name": "LayoutList",
+		"category": "layout",
+		"keywords": ["列表布局", "LayoutList", "layout list"]
+	},
+	{
+		"name": "Kanban",
+		"category": "layout",
+		"keywords": ["看板任务", "Kanban", "kanban"]
+	},
+	{
+		"name": "Table",
+		"category": "layout",
+		"keywords": ["表格数据", "Table", "table"]
+	},
+	{
+		"name": "Pencil",
+		"category": "editing",
+		"keywords": ["铅笔编辑", "Pencil", "pencil"]
+	},
+	{
+		"name": "PenTool",
+		"category": "editing",
+		"keywords": ["钢笔路径", "PenTool", "pen tool"]
+	},
+	{
+		"name": "Eraser",
+		"category": "editing",
+		"keywords": ["橡皮擦除", "Eraser", "eraser"]
+	},
+	{
+		"name": "Scissors",
+		"category": "editing",
+		"keywords": ["剪切裁剪", "Scissors", "scissors"]
+	},
+	{
+		"name": "Clipboard",
+		"category": "editing",
+		"keywords": ["剪贴板粘贴", "Clipboard", "clipboard"]
+	},
+	{
+		"name": "ClipboardCheck",
+		"category": "editing",
+		"keywords": ["核对清单", "ClipboardCheck", "clipboard check"]
+	},
+	{
+		"name": "TextCursor",
+		"category": "editing",
+		"keywords": ["文字光标", "TextCursor", "text cursor"]
+	},
+	{
+		"name": "Type",
+		"category": "editing",
+		"keywords": ["字体文本", "Type", "type"]
+	},
+	{
+		"name": "Bold",
+		"category": "editing",
+		"keywords": ["加粗字体", "Bold", "bold"]
+	},
+	{
+		"name": "Italic",
+		"category": "editing",
+		"keywords": ["斜体", "Italic", "italic"]
+	},
+	{
+		"name": "Underline",
+		"category": "editing",
+		"keywords": ["下划线", "Underline", "underline"]
+	},
+	{
+		"name": "Strikethrough",
+		"category": "editing",
+		"keywords": ["删除线", "Strikethrough", "strikethrough"]
+	},
+	{
+		"name": "Heading",
+		"category": "editing",
+		"keywords": ["标题", "Heading", "heading"]
+	},
+	{
+		"name": "Heading1",
+		"category": "editing",
+		"keywords": ["一级标题", "Heading1", "heading 1"]
+	},
+	{
+		"name": "Heading2",
+		"category": "editing",
+		"keywords": ["二级标题", "Heading2", "heading 2"]
+	},
+	{
+		"name": "ListOrdered",
+		"category": "editing",
+		"keywords": ["有序列表", "ListOrdered", "list ordered"]
+	},
+	{
+		"name": "ListBullets",
+		"category": "editing",
+		"keywords": ["无序列表", "ListBullets", "list bullets"]
+	},
+	{
+		"name": "Indent",
+		"category": "editing",
+		"keywords": ["增加缩进", "Indent", "indent"]
+	},
+	{
+		"name": "Outdent",
+		"category": "editing",
+		"keywords": ["减少缩进", "Outdent", "outdent"]
+	},
+	{
+		"name": "Quote",
+		"category": "editing",
+		"keywords": ["引用引文", "Quote", "quote"]
+	},
+	{
+		"name": "Code",
+		"category": "editing",
+		"keywords": ["代码语法", "Code", "code"]
+	},
+	{
+		"name": "Braces",
+		"category": "editing",
+		"keywords": ["花括号对象", "Braces", "braces"]
+	},
+	{
+		"name": "Link",
+		"category": "editing",
+		"keywords": ["链接连接", "Link", "link"]
+	},
+	{
+		"name": "Unlink",
+		"category": "editing",
+		"keywords": ["取消链接", "Unlink", "unlink"]
+	},
+	{
+		"name": "Paperclip",
+		"category": "editing",
+		"keywords": ["附件回形针", "Paperclip", "paperclip"]
+	},
+	{
+		"name": "Paintbrush",
+		"category": "editing",
+		"keywords": ["画笔绘画", "Paintbrush", "paintbrush"]
+	},
+	{
+		"name": "PaintBucket",
+		"category": "editing",
+		"keywords": ["填充颜色", "PaintBucket", "paint bucket"]
+	},
+	{
+		"name": "Highlighter",
+		"category": "editing",
+		"keywords": ["高亮标记", "Highlighter", "highlighter"]
+	},
+	{
+		"name": "Crop",
+		"category": "editing",
+		"keywords": ["裁切画布", "Crop", "crop"]
+	},
+	{
+		"name": "Ruler",
+		"category": "editing",
+		"keywords": ["标尺测量", "Ruler", "ruler"]
+	},
+	{
+		"name": "Superscript",
+		"category": "editing",
+		"keywords": ["上标", "Superscript", "superscript"]
+	},
+	{
+		"name": "Subscript",
+		"category": "editing",
+		"keywords": ["下标", "Subscript", "subscript"]
+	}
+]

@@ -1,0 +1,40 @@
+{
+	"name": "@matrixzero/icons",
+	"version": "0.1.0-alpha.3",
+	"description": "Independently drawn SVG icons for Matrix Design System",
+	"type": "module",
+	"license": "UNLICENSED",
+	"files": [
+		"dist",
+		"README.md",
+		"NOTICE.md",
+		"CHANGELOG.md"
+	],
+	"sideEffects": false,
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		},
+		"./catalog": {
+			"types": "./dist/catalog.d.ts",
+			"import": "./dist/catalog.js"
+		}
+	},
+	"scripts": {
+		"build": "node ../../scripts/generate-icon-catalog.mjs && node ../../scripts/clean-ui.mjs && tsc -p tsconfig.json"
+	},
+	"peerDependencies": {
+		"react": "^19.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://gitlab.com/matrixzero/mds.git",
+		"directory": "packages/icons"
+	},
+	"publishConfig": {
+		"registry": "https://gitlab.com/api/v4/projects/86296621/packages/npm/"
+	}
+}

@@ -1,0 +1,432 @@
+[
+	{
+		"slug": "theme",
+		"names": ["ThemeProvider"],
+		"package": "ui",
+		"purpose": "应用的主题、品牌、密度与浮层边界。 / Scope themes, brands, density and portals.",
+		"guide": "在应用入口导入基础 CSS；MT0 品牌还需显式导入 themes/mt0.css。将交互组件与图表放在根内，多个根可使用独立主题。 / Import core CSS at the app entry and explicitly import themes/mt0.css for MT0. Each root can use an independent theme.",
+		"api": "brand?: string = \"neutral\"; mode?: \"light\" | \"dark\" | \"system\" = \"system\"; density?: \"comfortable\" | \"compact\" = \"comfortable\"; style?: ThemeStyle",
+		"a11y": "设置页面 lang，翻译所有可访问名称。保留系统减少动态效果设置。 / Set the page lang, translate accessible names and preserve reduced-motion preferences.",
+		"pitfalls": "brand 不下载 CSS；不导入品牌文件就不会获得该品牌。不要通过 body 全局覆盖主题。 / brand does not fetch CSS; import it explicitly. Do not override themes on body."
+	},
+	{
+		"slug": "button",
+		"names": ["Button"],
+		"package": "ui",
+		"purpose": "触发保存、提交等明确操作。 / Trigger an explicit action.",
+		"guide": "同一区域突出一个 primary 操作；secondary 用于普通操作，ghost 用于低强调操作，danger 用于破坏性操作。异步请求由应用管理 loading。 / Emphasize one primary action per region. Manage async loading in the application.",
+		"api": "variant?: \"primary\" | \"secondary\" | \"ghost\" | \"danger\" = \"secondary\"; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; loading?: boolean = false; native button props",
+		"a11y": "使用清晰的动词标签；loading 时禁用并设置 aria-busy，标签保留。 / Use a clear verb; loading disables the button and retains its label with aria-busy.",
+		"pitfalls": "默认 type=\"button\"；提交表单必须显式 type=\"submit\"。不支持 shadcn 的 asChild 属性。 / Set type=\"submit\" for form submission. Button does not expose shadcn’s asChild API."
+	},
+	{
+		"slug": "icon-button",
+		"names": ["IconButton"],
+		"package": "ui",
+		"purpose": "空间紧凑时的图标操作。 / Compact icon actions.",
+		"guide": "label 描述操作而不是图形；尺寸跟随所在工具栏。 / Describe the action in label, not the shape.",
+		"api": "label: string (required); icon: ReactNode (required); other ButtonProps except children and aria-label",
+		"a11y": "label 是按钮的可访问名称，内部图标自动装饰化。 / label names the button; the inner icon is decorative.",
+		"pitfalls": "不要只依赖 tooltip 命名按钮。 / A tooltip is not a replacement for the button label."
+	},
+	{
+		"slug": "field",
+		"names": ["Field"],
+		"package": "ui",
+		"purpose": "统一标签、帮助文字与错误关联。 / Connect labels, help and errors.",
+		"guide": "每个 Field 放一个 Input、Textarea、Select、Checkbox、Switch 或 Slider。错误由业务校验后传入。 / Use one field-aware control per Field; pass application validation errors.",
+		"api": "label: ReactNode; description?: ReactNode; error?: ReactNode; required?: boolean; disabled?: boolean; id?: string",
+		"a11y": "自动关联 label、aria-describedby、aria-invalid，并将 required/disabled 传给子控件。 / Automatically associates labels, descriptions and errors and propagates required/disabled.",
+		"pitfalls": "不要在子控件上设置不同 id；多个输入应拆为多个 Field。Field 不执行校验。 / Do not override the child with a different id. Field does not validate data."
+	},
+	{
+		"slug": "input",
+		"names": ["Input"],
+		"package": "ui",
+		"purpose": "单行文本与原生输入类型。 / Single-line and native input types.",
+		"guide": "用 Field 提供可见标签，name 参与 FormData；受控值配合 onChange。 / Use Field for visible labels and name for FormData; pair value with onChange.",
+		"api": "Native input props excluding size; value/defaultValue, onChange, type, name, autoComplete, disabled, required",
+		"a11y": "placeholder 只用于提示格式，不能代替标签。 / A placeholder is a format hint, not a label.",
+		"pitfalls": "没有 onValueChange 或自定义 size 属性。不要同时传 value 和 defaultValue。 / Use onChange, not onValueChange; custom size is unsupported."
+	},
+	{
+		"slug": "textarea",
+		"names": ["Textarea"],
+		"package": "ui",
+		"purpose": "多行自由文本。 / Multiline free text.",
+		"guide": "用 rows 设置初始高度，长内容保持可编辑与可滚动。 / Use rows for initial height and keep long content editable.",
+		"api": "Native textarea props: rows, maxLength, value/defaultValue, onChange, name; Field context supported",
+		"a11y": "通过 Field 提供标签和长度说明。 / Provide a label and length guidance through Field.",
+		"pitfalls": "不要把多行输入替换成 contenteditable；组件不会自动计数或自动增高。 / This component does not automatically count characters or auto-grow."
+	},
+	{
+		"slug": "select",
+		"names": ["Select"],
+		"package": "ui",
+		"purpose": "统一 MDS 外观的单值表单选择器。 / A consistently styled single-value form select.",
+		"guide": "使用 options 定义选项；name 参与表单提交，defaultValue 指定非受控初始值。受控模式使用 value/onValueChange。 / Define options; name participates in form submission, defaultValue initializes uncontrolled state, and value/onValueChange control selection.",
+		"api": "options: readonly {value:string;label:string;description?:string;disabled?:boolean}[]; value/defaultValue?:string; onValueChange?:(value:string)=>void; name?, form?, required?, disabled?; placeholder?:string = \"—\"; trigger button props",
+		"a11y": "combobox/listbox 语义，方向键导航、键入查找、Enter 选择、Escape 返回触发器。Field 关联标签、说明和错误；必填校验会聚焦可见控件。 / Combobox/listbox semantics with arrows, typeahead, Enter and Escape. Field associates labels and errors; required validation focuses the visible trigger.",
+		"pitfalls": "alpha.4 起 Select 使用 options/onValueChange，不再接收 option children/onChange；原生 API 改用 NativeSelect。仅支持单选，value 必须唯一且非空，空字符串保留给 placeholder。受控表单重置由应用更新 value。 / From alpha.4, Select uses options/onValueChange; use NativeSelect for the former native API. Values must be unique and nonempty. Controlled resets are application-owned."
+	},
+	{
+		"slug": "native-select",
+		"names": ["NativeSelect"],
+		"package": "ui",
+		"purpose": "显式使用浏览器原生选择器。 / Explicit browser-native selection.",
+		"guide": "仅需要系统选择器、原生多选或渐进增强时使用 NativeSelect；产品表单默认使用统一样式的 Select。 / Use NativeSelect for a platform picker or native multiple selection; prefer Select for consistent product forms.",
+		"api": "Native select props: value/defaultValue, onChange, name, required, disabled, multiple; children: option/optgroup",
+		"a11y": "浏览器管理键盘、系统选项面板与表单重置。通过 Field 命名。 / The browser manages keyboard interaction, platform picker and form reset.",
+		"pitfalls": "这是旧版 Select 的原生实现；展开面板由系统绘制，无法匹配 MDS 浮层样式。 / This is the former native Select implementation. Its platform popup does not match MDS overlay styling."
+	},
+	{
+		"slug": "checkbox",
+		"names": ["Checkbox", "CheckField"],
+		"package": "ui",
+		"purpose": "独立选择、多选与混合选中状态。 / Independent choices and mixed selection.",
+		"guide": "普通带标签选项优先 CheckField；自定义布局使用 Checkbox 加 label。 / Prefer CheckField for labelled options; compose Checkbox for custom layouts.",
+		"api": "checked/defaultChecked?: boolean | \"indeterminate\"; onCheckedChange?: (checked: boolean | \"indeterminate\") => void; name?, value?, required?, disabled?; CheckField: label required, description optional",
+		"a11y": "Space 切换；indeterminate 用于父项部分选中。 / Space toggles; indeterminate represents a partially selected group.",
+		"pitfalls": "onCheckedChange 不是 DOM event。不要把 indeterminate 当作 true 提交业务。 / The callback receives a value, not an event. Handle indeterminate explicitly."
+	},
+	{
+		"slug": "switch",
+		"names": ["Switch"],
+		"package": "ui",
+		"purpose": "立即生效的二元偏好。 / An immediately applied preference.",
+		"guide": "用 checked/onCheckedChange 管理开关，标签保持稳定。 / Control with checked/onCheckedChange and keep the label stable.",
+		"api": "Radix Switch.Root props: checked/defaultChecked?: boolean; onCheckedChange?: (checked: boolean) => void; name?, required?, disabled?",
+		"a11y": "用 Field 或关联 label 命名，Space 切换。 / Name with Field or an associated label; Space toggles.",
+		"pitfalls": "待提交的多选使用 Checkbox。不要仅以颜色描述开启状态。 / Use Checkbox for selections awaiting submission; do not communicate state through color alone."
+	},
+	{
+		"slug": "radio",
+		"names": ["RadioGroup", "RadioItem"],
+		"package": "ui",
+		"purpose": "一组互斥的简短选项。 / Mutually exclusive short options.",
+		"guide": "每个 RadioItem 的 value 唯一，根管理 value/onValueChange。 / Give every item a unique value; manage selection on the root.",
+		"api": "RadioGroup: value/defaultValue?: string; onValueChange?: (value: string) => void; orientation?, name?, required?, disabled?; RadioItem: value required, children label",
+		"a11y": "根设置 aria-label/aria-labelledby，方向键移动选择，Tab 离开组。 / Name the group; arrow keys change selection and Tab leaves the group.",
+		"pitfalls": "不要把各项当作独立 boolean；RadioItem 必须放在 RadioGroup 内。 / Items belong to one group, not independent booleans."
+	},
+	{
+		"slug": "radio-card",
+		"names": ["RadioCardGroup", "RadioCard"],
+		"package": "ui",
+		"purpose": "需要标题、说明和图标的单选方案。 / Rich single-choice options.",
+		"guide": "选项信息较多时使用整卡选择；短选项用 RadioGroup。 / Use cards for richer choices and plain radio items for short labels.",
+		"api": "RadioCardGroup: Radix Radio.Root props; RadioCard: value: string, title: ReactNode, description?: ReactNode, icon?: ReactNode, disabled?: boolean",
+		"a11y": "组必须命名；卡片自动关联标题和说明，方向键切换。 / Name the group; each card associates its title and description.",
+		"pitfalls": "卡片内不能再嵌套按钮或链接。 / Do not nest buttons or links inside a radio card."
+	},
+	{
+		"slug": "segmented-control",
+		"names": ["SegmentedControl"],
+		"package": "ui",
+		"purpose": "少量、同级互斥偏好。 / A small set of peer preferences.",
+		"guide": "用于月付/年付、密度等偏好；切换关联内容面板时用 Tabs。 / Use for preferences such as billing or density; use Tabs for content panels.",
+		"api": "label: string; options: readonly { value: string; label: string; disabled?: boolean }[]; Radix Radio.Root value/defaultValue/onValueChange",
+		"a11y": "使用 radio 语义，方向键选择；label 为组命名。 / Uses radio semantics and arrow-key selection; label names the group.",
+		"pitfalls": "不是 tablist，不应伪造 tabpanel 关系。 / Do not treat it as a tablist."
+	},
+	{
+		"slug": "slider",
+		"names": ["Slider"],
+		"package": "ui",
+		"purpose": "在连续数值范围内调整。 / Adjust a value within a range.",
+		"guide": "显式设置 min/max/step；需要精确数值时提供数值输入。 / Set min/max/step and provide a numeric input when precision matters.",
+		"api": "Native input props except type; type is range; value/defaultValue, onChange, min, max, step; Field context supported",
+		"a11y": "原生方向键调整；显示当前值，单位使用 aria-valuetext。 / Native arrow-key adjustment; expose current value and units.",
+		"pitfalls": "onChange 接收事件，valueAsNumber 获取数字；不接受数组值。 / Read event.target.valueAsNumber; values are not arrays."
+	},
+	{
+		"slug": "choice-menu",
+		"names": ["ChoiceMenu"],
+		"package": "ui",
+		"purpose": "紧凑的偏好选择菜单。 / A compact preference menu.",
+		"guide": "用于视图范围、排序等已知值选择。始终传当前 value 与 onValueChange。 / Use for known preferences such as scope or sort order.",
+		"api": "label: string; value: string; onValueChange: (value: string) => void; options: readonly {value:string;label:string;description?:string;disabled?:boolean}[]; disabled?; placeholder?: string = \"—\"",
+		"a11y": "非模态 menuitemradio；支持键盘选择、Escape 关闭和触发器焦点恢复。 / Non-modal menuitemradio with keyboard selection, Escape and trigger focus restoration.",
+		"pitfalls": "没有表单 name、required 或原生 reset；表单用 Select。不支持搜索或自由输入。 / No native form name, required or reset; use Select for forms."
+	},
+	{
+		"slug": "dropdown-menu",
+		"names": ["DropdownMenu", "DropdownTrigger", "DropdownContent", "DropdownItem", "DropdownSeparator"],
+		"package": "ui",
+		"purpose": "一组相关操作的弹出菜单。 / A popup of related actions.",
+		"guide": "使用 Trigger asChild 组合 Button；动作在 DropdownItem.onSelect 中执行。页面工具菜单通常用 modal={false}。 / Compose a trigger with asChild; handle actions with onSelect. Page tool menus usually use modal={false}.",
+		"api": "Root: open/defaultOpen/onOpenChange, modal (Radix default true); Trigger: asChild; Content: sideOffset = 6, collisionPadding = 12; Item: onSelect, disabled, textValue",
+		"a11y": "方向键移动，Enter/Space 选择，Escape 关闭；文本不明确时传 textValue。 / Arrow keys navigate, Enter/Space select, Escape closes.",
+		"pitfalls": "不要用 onClick 代替菜单选择语义；不要将表单输入塞进操作菜单。 / Use selection semantics and keep form inputs outside action menus."
+	},
+	{
+		"slug": "dialog",
+		"names": ["Dialog", "DialogTrigger", "DialogContent", "DialogClose"],
+		"package": "ui",
+		"purpose": "需要用户专注的短任务。 / A focused, short task.",
+		"guide": "将 Trigger、Content、Close 放在同一个根内；受控模式用 open/onOpenChange。保存完成后由应用关闭。 / Compose Trigger, Content and Close in one root; control with open/onOpenChange when needed.",
+		"api": "Root: open/defaultOpen/onOpenChange, modal = true; Content: title: ReactNode, closeLabel: string, description?: ReactNode; Radix Content props including onCloseAutoFocus",
+		"a11y": "保留焦点圈定和 Escape；title 命名面板，closeLabel 翻译关闭操作。关闭时焦点回触发器。 / Preserve focus trapping and Escape; translate title and closeLabel. Focus returns to the trigger.",
+		"pitfalls": "没有 Trigger 的程序化打开必须记住实际 opener，在 onCloseAutoFocus 阻止默认后将焦点还给它。不要在 ThemeProvider 外渲染浮层。 / Programmatic opening without a Trigger requires explicit opener focus restoration in onCloseAutoFocus. Keep overlays inside ThemeProvider."
+	},
+	{
+		"slug": "side-sheet",
+		"names": ["SideSheet", "SideSheetTrigger", "SideSheetContent", "SideSheetClose"],
+		"package": "ui",
+		"purpose": "保留页面上下文的详情与编辑面板。 / Details and editing alongside page context.",
+		"guide": "将 Trigger、Content、Close 放在同一个根内；受控模式用 open/onOpenChange。保存完成后由应用关闭。 / Compose Trigger, Content and Close in one root; control with open/onOpenChange when needed.",
+		"api": "Root: open/defaultOpen/onOpenChange, modal = true; Content: title: ReactNode, closeLabel: string, description?: ReactNode; Radix Content props including onCloseAutoFocus; side?: \"left\" | \"right\" = \"right\"",
+		"a11y": "保留焦点圈定和 Escape；title 命名面板，closeLabel 翻译关闭操作。关闭时焦点回触发器。 / Preserve focus trapping and Escape; translate title and closeLabel. Focus returns to the trigger.",
+		"pitfalls": "没有 Trigger 的程序化打开必须记住实际 opener，在 onCloseAutoFocus 阻止默认后将焦点还给它。不要在 ThemeProvider 外渲染浮层。 / Programmatic opening without a Trigger requires explicit opener focus restoration in onCloseAutoFocus. Keep overlays inside ThemeProvider."
+	},
+	{
+		"slug": "navigation",
+		"names": ["Navbar", "NavRail", "NavItem", "NavLink"],
+		"package": "ui",
+		"purpose": "应用顶部与侧边导航结构。 / Top and side application navigation.",
+		"guide": "Navbar 是 header；NavRail 是命名 nav。跳转 URL 用 NavLink；应用状态动作使用 NavItem。路由由应用处理。 / Navbar renders header, NavRail renders nav. Use NavLink for URLs and NavItem for app-state actions.",
+		"api": "Navbar: native header props; NavRail: label: string, collapsed?: boolean = false; NavItem: native button props, active?, icon?; NavLink: native anchor props, active?, icon?",
+		"a11y": "active 设置 aria-current=\"page\"；多个导航区域使用不同名称。折叠时保留可访问名称。 / active sets aria-current=\"page\"; name separate landmarks distinctly and retain labels when collapsed.",
+		"pitfalls": "不会自动导航或匹配路由；NavItem 不支持 href。 / Route matching is application-owned; NavItem does not accept href."
+	},
+	{
+		"slug": "nav-drawer",
+		"names": ["NavDrawer", "NavDrawerTrigger", "NavDrawerContent", "NavDrawerClose"],
+		"package": "ui",
+		"purpose": "窄屏下的模态导航。 / Modal navigation on narrow screens.",
+		"guide": "以受控 open 管理抽屉；完成导航后关闭。内容固定从左侧进入。 / Control open and close after navigation; content enters from the left.",
+		"api": "Root/Trigger/Close: SideSheet equivalents; Content: title, closeLabel, navigationLabel required; description optional; side is always left",
+		"a11y": "面板标题与 navigationLabel 分别命名 dialog 和 nav；关闭后回到菜单触发器。 / Title and navigationLabel name the dialog and navigation landmark.",
+		"pitfalls": "不会随路由自动关闭，也不会自动判断断点。 / Breakpoints and close-on-navigation are application responsibilities."
+	},
+	{
+		"slug": "collapse",
+		"names": ["Collapse", "CollapseTrigger", "CollapseContent"],
+		"package": "ui",
+		"purpose": "独立的渐进展开区域。 / A single disclosure region.",
+		"guide": "用于高级设置与补充信息；一组关联折叠项用 Accordion。 / Use for advanced settings; use Accordion for a related group.",
+		"api": "Root: open/defaultOpen?: boolean, onOpenChange, disabled; Trigger: asChild; Content: forceMount and native div props",
+		"a11y": "Trigger 自动管理 aria-expanded 与 aria-controls，Enter/Space 切换。 / Trigger manages expanded state and relationships; Enter/Space toggles.",
+		"pitfalls": "不要用 CSS 隐藏仍可聚焦的内容；需要状态持久化时将数据状态放在根外。 / Avoid hiding focusable content with CSS; lift persistent data state outside."
+	},
+	{
+		"slug": "accordion",
+		"names": ["Accordion", "AccordionItem", "AccordionTrigger", "AccordionContent"],
+		"package": "ui",
+		"purpose": "多个相关的可展开章节。 / A group of disclosure sections.",
+		"guide": "type=\"single\" 使用字符串值，type=\"multiple\" 使用字符串数组。single 可加 collapsible 允许全关闭。 / Single mode uses a string; multiple mode uses an array. collapsible allows closing the single open item.",
+		"api": "Root: type: \"single\" | \"multiple\" required; value/defaultValue and onValueChange depend on type; Item: value: string; Trigger/Content: Radix props",
+		"a11y": "内置标题与按钮语义，方向键在标题间移动；标题应清晰独立。 / Built-in heading/button semantics and arrow-key navigation.",
+		"pitfalls": "不要在 Trigger 内再嵌套按钮。multiple 模式不接受 collapsible。 / Do not nest buttons in Trigger; collapsible belongs to single mode."
+	},
+	{
+		"slug": "tabs",
+		"names": ["Tabs", "TabList", "Tab", "TabPanel"],
+		"package": "ui",
+		"purpose": "切换同一上下文中的内容面板。 / Switch related content panels.",
+		"guide": "每个 Tab 与 TabPanel 使用相同唯一 value。慢速加载内容可设置 activationMode=\"manual\"。 / Match unique values between tabs and panels; use manual activation for slow content.",
+		"api": "Root: value/defaultValue, onValueChange, orientation = \"horizontal\", activationMode = \"automatic\"; TabList: aria-label; Tab/TabPanel: value required; Tab disabled?",
+		"a11y": "方向键导航，自动模式随焦点激活；手动模式 Enter/Space 激活。 / Arrow keys navigate; manual mode activates with Enter/Space.",
+		"pitfalls": "不是 URL 导航，也不是提交表单的偏好选择；分别使用 NavLink 和 SegmentedControl。 / Use NavLink for navigation and SegmentedControl for preferences."
+	},
+	{
+		"slug": "avatar",
+		"names": ["Avatar"],
+		"package": "ui",
+		"purpose": "人物或组织的视觉身份。 / Person or organization identity.",
+		"guide": "提供图片 src 与短 fallback；图片加载失败时显示 fallback。 / Provide an image and a short fallback for loading or failure.",
+		"api": "alt: string required; fallback: string required; src?: string; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; Radix Avatar.Root props",
+		"a11y": "alt 同时用于图片和 fallback 的可访问名称。 / alt names both the image and fallback.",
+		"pitfalls": "不自带点击语义；可交互头像需放在有名称的按钮/链接内。 / An Avatar is not an interactive control."
+	},
+	{
+		"slug": "badge",
+		"names": ["Badge"],
+		"package": "ui",
+		"purpose": "简短的类别或状态文字。 / A short category or status.",
+		"guide": "状态含义用文字表述，再选择对应 tone。 / State the meaning in text, then choose a tone.",
+		"api": "tone?: \"neutral\" | \"success\" | \"warning\" | \"danger\" = \"neutral\"; native span props",
+		"a11y": "颜色之外保留状态文字；动态播报需求由外层 live region 负责。 / Keep text alongside color; add a live region when announcements are needed.",
+		"pitfalls": "没有 info tone，也不是可点击 chip。 / Badge has no info tone and is not an interactive chip."
+	},
+	{
+		"slug": "list",
+		"names": ["List", "ListItem"],
+		"package": "ui",
+		"purpose": "纵向排列的一组内容。 / A vertical set of items.",
+		"guide": "List 渲染 ul；ListItem 渲染 li，leading/trailing 放身份与辅助操作。 / List is ul; ListItem is li with leading/trailing slots.",
+		"api": "List: native ul props; ListItem: native li props plus leading?: ReactNode, trailing?: ReactNode",
+		"a11y": "保留列表语义；需要操作时使用真实 Button 或链接。 / Preserve list semantics and use actual controls for actions.",
+		"pitfalls": "不要只给 li 加 onClick 伪装成按钮；不自带选择、排序或虚拟滚动。 / Do not make a pointer-only clickable li; selection and virtualization are not included."
+	},
+	{
+		"slug": "table",
+		"names": ["Table"],
+		"package": "ui",
+		"purpose": "需要按行列比较的结构化数据。 / Structured row-and-column data.",
+		"guide": "使用原生 caption、thead、tbody、th、td；宽表在自身容器横向滚动。 / Compose native table elements; wide tables scroll within their container.",
+		"api": "Native table props; children are native table sections; className applies to table",
+		"a11y": "用 caption 命名表格，列标题 scope=\"col\"、行标题 scope=\"row\"。 / Name with caption and associate row/column headers using scope.",
+		"pitfalls": "不是 DataGrid，没有内置排序、筛选、行选择或分页。 / This is not a DataGrid; sorting, filtering and pagination are application-owned."
+	},
+	{
+		"slug": "pagination",
+		"names": ["Pagination"],
+		"package": "ui",
+		"purpose": "跨页浏览数据的前后页控制。 / Previous/next data navigation.",
+		"guide": "页码从 1 开始；数据请求与页数计算由应用负责。筛选变化时同步校正 page。 / Pages are one-based; the application fetches data and clamps page after filtering.",
+		"api": "page: number; pages: number; onPageChange: (page:number)=>void; label, previousLabel, nextLabel: string — all required",
+		"a11y": "命名导航区，边界按钮禁用，页码变化在 polite 区域播报。 / Named navigation, disabled boundary buttons and polite page announcements.",
+		"pitfalls": "不是从 0 开始；page 越界不会自动修正。 / Pages are not zero-based and out-of-range values are not auto-corrected."
+	},
+	{
+		"slug": "steps",
+		"names": ["Steps"],
+		"package": "ui",
+		"purpose": "展示多阶段任务的位置。 / Show position in a multi-stage task.",
+		"guide": "current 是从 0 开始的当前步骤索引；更早步骤标记完成。 / current is a zero-based index; earlier steps are complete.",
+		"api": "steps: readonly {id:string;label:ReactNode;description?:ReactNode}[]; current:number; label:string — required",
+		"a11y": "有序列表，当前项 aria-current=\"step\"；文字描述阶段。 / Ordered list with aria-current=\"step\" and textual stage labels.",
+		"pitfalls": "不是导航控件；不会自动推进，也不提供每步错误状态。 / Steps is presentational and does not advance or track per-step errors."
+	},
+	{
+		"slug": "progress",
+		"names": ["Progress"],
+		"package": "ui",
+		"purpose": "任务完成比例或未知时长进度。 / Determinate or indeterminate progress.",
+		"guide": "value 使用 0–100；未知进度传 null 或省略。 / Use 0–100; omit value or pass null for indeterminate progress.",
+		"api": "value?: number | null; aria-label or aria-labelledby; Radix Progress.Root props; max is always 100",
+		"a11y": "始终提供可访问名称，必要时在邻近文本解释正在进行的任务。 / Always name the progress indicator and explain the ongoing task.",
+		"pitfalls": "不要传 max={1000} 期望自定义范围；实现固定 100 并裁剪 value。 / max is fixed at 100 and values are clamped."
+	},
+	{
+		"slug": "skeleton",
+		"names": ["Skeleton"],
+		"package": "ui",
+		"purpose": "内容加载时的占位轮廓。 / Loading placeholders.",
+		"guide": "尺寸接近最终内容以减少布局移动；外层标记 aria-busy 并提供加载说明。 / Match final dimensions and put aria-busy plus loading text on the containing region.",
+		"api": "Native div props; style/className for dimensions; aria-hidden is always true",
+		"a11y": "Skeleton 本身从可访问树隐藏；状态说明放在外层。 / Skeleton is hidden from assistive technology; expose status outside it.",
+		"pitfalls": "不能无限显示代替错误反馈；不要包含可聚焦子元素。 / Do not replace errors with an endless skeleton or nest focusable children."
+	},
+	{
+		"slug": "tooltip",
+		"names": ["TooltipProvider", "Tooltip"],
+		"package": "ui",
+		"purpose": "补充简短的非必要帮助文字。 / Brief supplementary help.",
+		"guide": "在应用或区域放一个 TooltipProvider；Tooltip 包裹单个可聚焦触发元素。 / Use a provider around the region and a single focusable trigger child.",
+		"api": "Provider: Radix Tooltip.Provider props, delayDuration default 700ms; Tooltip: content: ReactNode, children: ReactNode",
+		"a11y": "鼠标悬停和键盘焦点都可触发；触发器本身必须有名称。 / Available on hover and focus; the trigger needs its own accessible name.",
+		"pitfalls": "不要放表单、按钮或关键说明；禁用按钮不能直接充当可靠触发器。 / Do not put interactive or essential content in a tooltip; disabled buttons are unreliable triggers."
+	},
+	{
+		"slug": "alert",
+		"names": ["Alert"],
+		"package": "ui",
+		"purpose": "上下文中的成功、提示与错误反馈。 / Contextual feedback.",
+		"guide": "内容写明发生了什么和下一步；tone 按语义选择。 / Explain what happened and the next action; choose tone by meaning.",
+		"api": "tone?: \"info\" | \"success\" | \"warning\" | \"danger\" = \"info\"; native div props; default role alert for danger, status otherwise",
+		"a11y": "danger 使用紧急播报，其他状态 polite；避免频繁更新导致重复播报。 / Danger is assertive; other tones use status. Avoid repeated announcements.",
+		"pitfalls": "没有内置 title、description 或关闭按钮；通过 children 组合。 / Compose children; there are no title, description or dismiss props."
+	},
+	{
+		"slug": "empty-state",
+		"names": ["EmptyState"],
+		"package": "ui",
+		"purpose": "无数据时解释原因并提供下一步。 / Explain an empty result and a next action.",
+		"guide": "区分首次使用、无搜索结果与权限不足；action 提供有意义的下一步。 / Distinguish first use, no results and access restrictions.",
+		"api": "title: ReactNode; description?: ReactNode; action?: ReactNode; icon?: ReactNode",
+		"a11y": "标题渲染 h3；确保所在页面标题层级合理。图标是装饰性的。 / Title renders h3; keep a sensible heading hierarchy. The icon is decorative.",
+		"pitfalls": "加载、错误与空数据要分别处理；不要一律显示“暂无数据”。 / Handle loading, error and empty results separately."
+	},
+	{
+		"slug": "line-chart",
+		"names": ["LineChart"],
+		"package": "charts",
+		"purpose": "连续观测的变化趋势。 / Trends across observations.",
+		"guide": "按时间排序输入；用 null 表达缺失。 / Sort observations by time and use null for gaps. 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 / Import charts/styles.css after UI CSS. 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
+		"api": "title:string; data:readonly ChartDatum[]; series:readonly ChartSeries[]; description?:string; height?:number = 240 (min 180); locale?:string; labels?:ChartLabels; formatValue?, formatAxisValue?: (n:number)=>string; stacked?:boolean (area/bar only); motion?: boolean = true",
+		"a11y": "保留内置精确数据表；传 locale 与 labels 翻译文字，颜色不能是唯一编码。 / Keep the exact-value table and translate locale/labels; do not rely on color alone.",
+		"pitfalls": "series.key 必须唯一且不能为 label；缺失值不能填 0。容器宽度必须大于 0。LineChart 的 stacked 无效果。 / Series keys must be unique and cannot be label. Do not convert missing values to zero. Container width must be nonzero; stacked does not affect LineChart."
+	},
+	{
+		"slug": "area-chart",
+		"names": ["AreaChart"],
+		"package": "charts",
+		"purpose": "相对零点的规模，可选堆叠。 / Magnitude relative to zero, optionally stacked.",
+		"guide": "对比总量可堆叠；缺失较多时优先非堆叠图。 / Stack for total magnitude; prefer unstacked charts when gaps matter. 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 / Import charts/styles.css after UI CSS. 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
+		"api": "title:string; data:readonly ChartDatum[]; series:readonly ChartSeries[]; description?:string; height?:number = 240 (min 180); locale?:string; labels?:ChartLabels; formatValue?, formatAxisValue?: (n:number)=>string; stacked?:boolean (area/bar only); motion?: boolean = true",
+		"a11y": "保留内置精确数据表；传 locale 与 labels 翻译文字，颜色不能是唯一编码。 / Keep the exact-value table and translate locale/labels; do not rely on color alone.",
+		"pitfalls": "series.key 必须唯一且不能为 label；缺失值不能填 0。容器宽度必须大于 0。LineChart 的 stacked 无效果。 / Series keys must be unique and cannot be label. Do not convert missing values to zero. Container width must be nonzero; stacked does not affect LineChart."
+	},
+	{
+		"slug": "bar-chart",
+		"names": ["BarChart"],
+		"package": "charts",
+		"purpose": "离散类别间的数值比较。 / Compare discrete categories.",
+		"guide": "保持类别标签清晰；stacked 可表达组成，正负数分开堆叠。 / Keep labels legible; stacked bars separate positive and negative totals. 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 / Import charts/styles.css after UI CSS. 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
+		"api": "title:string; data:readonly ChartDatum[]; series:readonly ChartSeries[]; description?:string; height?:number = 240 (min 180); locale?:string; labels?:ChartLabels; formatValue?, formatAxisValue?: (n:number)=>string; stacked?:boolean (area/bar only); motion?: boolean = true",
+		"a11y": "保留内置精确数据表；传 locale 与 labels 翻译文字，颜色不能是唯一编码。 / Keep the exact-value table and translate locale/labels; do not rely on color alone.",
+		"pitfalls": "series.key 必须唯一且不能为 label；缺失值不能填 0。容器宽度必须大于 0。LineChart 的 stacked 无效果。 / Series keys must be unique and cannot be label. Do not convert missing values to zero. Container width must be nonzero; stacked does not affect LineChart."
+	},
+	{
+		"slug": "donut-chart",
+		"names": ["DonutChart"],
+		"package": "charts",
+		"purpose": "非负数值占整体的比例。 / Nonnegative parts of a whole.",
+		"guide": "类别较少且总量有意义时使用；精确比较优先 BarChart。 / Use for a small number of meaningful parts; prefer BarChart for precise comparison. 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
+		"api": "title:string; data:readonly {label:string;value:number;color?:string}[]; description?, height?, locale?, labels? (ChartLabels plus value?:string), formatValue?: (n:number)=>string; motion?: boolean = true",
+		"a11y": "提供标题与本地化 labels，保留数据表作为比例图的替代表示。 / Provide title and translated labels; retain the data table alternative.",
+		"pitfalls": "负数、非有限值和溢出总和会抛 RangeError；先校验外部输入或用错误边界。全零显示空态。 / Negative/nonfinite values and overflowing totals throw RangeError; validate inputs or use an error boundary. All-zero data is empty."
+	},
+	{
+		"slug": "icons",
+		"names": ["Search"],
+		"package": "icons",
+		"purpose": "MDS 自有 SVG 图标，320 个稳定名称。 / MDS SVG icons with 320 stable names.",
+		"guide": "按名称静态导入便于 tree shaking；16/20/24px 为常用尺寸。图标目录单独从 @matrixzero/icons/catalog 导入。 / Use named imports for tree shaking; common sizes are 16/20/24px. Import the catalogue separately.",
+		"api": "IconProps extends SVGProps<SVGSVGElement>; size?: number | string = 16; strokeWidth?: number = 1.75; absoluteStrokeWidth?: boolean; aria-label/aria-labelledby; catalog: iconCatalog, IconName, IconCategory",
+		"a11y": "默认装饰性 aria-hidden；独立有意义图标传 aria-label。图标按钮由 IconButton.label 命名。 / Decorative by default; use aria-label for meaningful standalone icons and IconButton.label for actions.",
+		"pitfalls": "不要在每个按钮中导入整套 catalog 动态查找；它会包含全部图标。 / Do not import the whole catalog for each button; it includes the entire collection."
+	},
+	{
+		"slug": "callout",
+		"names": ["Callout"],
+		"package": "ui",
+		"purpose": "持续展示的提示、注意事项与操作说明。 / Persistent tips, cautions and instructions.",
+		"guide": "信息说明用 info，完成条件用 success，风险提示用 warning/danger，一般备注用 neutral。标题概括重点，正文说明原因，action 放真实按钮或链接。 / Choose the tone by meaning, summarize the point in title and put real actions in action.",
+		"api": "tone?: \"info\" | \"success\" | \"warning\" | \"danger\" | \"neutral\" = \"info\"; title?: ReactNode; children?: ReactNode; icon?: ReactNode | false; action?: ReactNode; native div props",
+		"a11y": "默认 role=\"note\"，不主动打断屏幕阅读器；图标是装饰性的。动态状态通知使用 Alert。 / Defaults to role=\"note\" without live announcements; icons are decorative. Use Alert for dynamic status.",
+		"pitfalls": "不要只通过颜色传达风险；不要把整块 Callout 变成可点击容器。title 使用 strong，不隐式改变页面标题层级。 / Keep meaning in text and do not make the whole callout clickable. Title uses strong, not an implicit heading."
+	},
+	{
+		"slug": "banner",
+		"names": ["Banner"],
+		"package": "ui",
+		"purpose": "页面级通知与服务公告。 / Page-level notices and service announcements.",
+		"guide": "放在页面内容顶部，说明影响与下一步；action 提供相关操作，onDismiss 由应用控制可见性。 / Place near the page top and explain impact plus next action. The application owns dismiss state.",
+		"api": "label:string; title?:ReactNode; children?:ReactNode; tone?:\"info\"|\"success\"|\"warning\"|\"danger\"|\"neutral\" = \"info\"; icon?:ReactNode|false; action?:ReactNode; onDismiss?:()=>void requires dismissLabel:string",
+		"a11y": "默认命名 region，不自动抢占焦点或重复播报。关闭按钮必须翻译；移除通知时将焦点放到附近稳定控件。 / Named region without unsolicited focus or live announcements. Translate the dismiss label and restore focus near the notice after removal.",
+		"pitfalls": "不要自动定时消失，也不要通过颜色单独表达风险。需要实时状态播报时显式选用 Alert。 / Avoid automatic expiry and color-only meaning. Use Alert for live status."
+	},
+	{
+		"slug": "card",
+		"names": ["Card", "CardHeader", "CardTitle", "CardDescription", "CardContent", "CardFooter"],
+		"package": "ui",
+		"purpose": "组织一组相关内容与操作。 / Group related content and actions.",
+		"guide": "用 Header 放标题和说明，Content 放主要内容，Footer 放操作；outlined 为默认，elevated 用于浮起的内容，subtle 用于低强调分组。 / Compose Header, Content and Footer; choose outlined, elevated or subtle by emphasis.",
+		"api": "Card: native div props, variant?:\"outlined\"|\"elevated\"|\"subtle\" = \"outlined\"; Header/Content/Footer: div props; Title: heading props, as?:\"h2\"|\"h3\"|\"h4\"|\"h5\"|\"h6\" = \"h3\"; Description: p props",
+		"a11y": "CardTitle 的标题级别跟随页面结构；交互使用实际链接或按钮。 / Match CardTitle to the page heading hierarchy and use real links or buttons.",
+		"pitfalls": "Card 不是按钮，不自带选中态或点击语义；单选方案用 RadioCard。不要嵌套可点击的整卡与操作按钮。 / Card is not a selectable control; use RadioCard for choices and avoid nested interactive targets."
+	},
+	{
+		"slug": "container",
+		"names": ["Container"],
+		"package": "ui",
+		"purpose": "限制内容宽度并留出两侧空白。 / Constrain content width with inline gutters.",
+		"guide": "默认最大宽度 1200px、居中、两侧 24px 留白；窄父容器保持流式宽度，留白不超过父容器的 10%。 / Defaults to 1200px maximum width, centered, with 24px gutters capped at 10% of the parent width.",
+		"api": "maxWidth?:CSSProperties[\"maxWidth\"] = 1200; gutter?:CSSProperties[\"paddingInline\"] = 24; centered?:boolean = true; as?:\"div\"|\"main\"|\"section\"|\"article\"|\"aside\" = \"div\"; native div props",
+		"a11y": "需要页面主内容地标时 as=\"main\"；不要嵌套 main，section/aside 用标题或 aria-label 命名。 / Use main for the primary landmark without nesting main; name sections and asides appropriately.",
+		"pitfalls": "数字单位为 px，maxWidth 包含左右内边距；不限制高度、不隐藏溢出内容。传 CSS 长度时使用非负值。 / Numbers are pixels and maxWidth includes gutters. Height and overflow are not constrained. Use nonnegative CSS lengths."
+	}
+]
