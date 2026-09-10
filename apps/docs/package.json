@@ -10,7 +10,7 @@
 		"@matrixzero/ui": "*",
 		"react": "19.2.3",
 		"react-dom": "19.2.3",
-		"@matrixzero/charts": "*",
+		"@matrixzero/charts": "0.1.0-alpha.1",
 		"@matrixzero/icons": "*"
 	}
 }

@@ -9,3 +9,7 @@
 - 提供 Navbar、可折叠 NavRail、移动 NavDrawer、SideSheet 和独立 Collapse。
 - 增加 120–240ms 局部微动效与减少动态效果支持。
 - 提供真实组件展示站、浏览器交互/无障碍测试和 tarball 安装验证。
+
+## 0.1.0-alpha.2
+
+- 依赖扩展后的 Icons 0.1.0-alpha.2，保留现有组件 API。

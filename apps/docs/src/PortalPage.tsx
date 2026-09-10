@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Button, Input, Table, Tabs, TabList, Tab, TabPanel } from "@matrixzero/ui";
-import * as Icons from "@matrixzero/icons";
 const entries = [
 	[
 		"ThemeProvider",
@@ -145,7 +144,7 @@ export function PortalPage({ locale }: { locale: "zh" | "en" }) {
 					</p>
 					<pre>
 						<code>
-							npm install --save-exact @matrixzero/ui@0.1.0-alpha.1{String.fromCharCode(10)}npm install --save-exact
+							npm install --save-exact @matrixzero/ui@0.1.0-alpha.2{String.fromCharCode(10)}npm install --save-exact
 							@matrixzero/charts@0.1.0-alpha.1
 						</code>
 					</pre>
@@ -269,8 +268,8 @@ import '@matrixzero/ui/themes/mt0.css';
 					<h3>{t("图标维护", "Icon governance")}</h3>
 					<p>
 						{t(
-							"MDS 维护 32 个稳定图标名称、16/20/24px 尺寸和默认 1.75px 线宽。参考 Lucide 的清晰度独立绘制 SVG，采用 MDS 自己的几何细节。",
-							"MDS maintains 32 stable icon names, 16/20/24px sizes and a 1.75px stroke. SVG shapes are independently drawn, informed by Lucide’s clarity with MDS geometric details.",
+							"MDS 维护 320 个稳定图标名称、16/20/24px 尺寸和默认 1.75px 线宽。参考 Lucide 的清晰度独立绘制 SVG，采用 MDS 自己的几何细节。",
+							"MDS maintains 320 stable icon names, 16/20/24px sizes and a 1.75px stroke. SVG shapes are independently drawn, informed by Lucide’s clarity with MDS geometric details.",
 						)}
 					</p>
 					<h3>{t("发布与验收", "Release and validation")}</h3>
@@ -283,49 +282,5 @@ import '@matrixzero/ui/themes/mt0.css';
 				</article>
 			</TabPanel>
 		</Tabs>
-	);
-}
-
-export function IconsPage({ locale }: { locale: "zh" | "en" }) {
-	const [query, setQuery] = useState("");
-	const names = Object.entries(Icons).filter(([name]) => name.toLowerCase().includes(query.toLowerCase()));
-	const example = String.raw`import { Plus } from '@matrixzero/icons';
-<IconButton label="Add application" icon={<Plus />} />`;
-	return (
-		<>
-			<p className="docs-muted">
-				{locale === "zh"
-					? "@matrixzero/icons · 统一 1.75px 线宽，默认装饰性。"
-					: "@matrixzero/icons · consistent 1.75px stroke, decorative by default."}
-			</p>
-			<Input
-				aria-label={locale === "zh" ? "搜索图标" : "Search icons"}
-				placeholder={locale === "zh" ? "搜索图标名称…" : "Search icons…"}
-				value={query}
-				onChange={(e) => setQuery(e.target.value)}
-				style={{ margin: "20px 0" }}
-			/>
-			{names.length === 0 && (
-				<div role="status" className="docs-card">
-					<p>{locale === "zh" ? "未找到匹配的图标" : "No matching icons"}</p>
-					<Button onClick={() => setQuery("")}>{locale === "zh" ? "清除搜索" : "Clear search"}</Button>
-				</div>
-			)}
-			<div className="docs-icon-grid">
-				{names.map(([name, Icon]) => (
-					<div className="docs-icon-tile" key={name}>
-						<div>
-							<Icon size={16} />
-							<Icon size={20} />
-							<Icon size={24} />
-						</div>
-						<code>{name}</code>
-					</div>
-				))}
-			</div>
-			<pre>
-				<code>{example}</code>
-			</pre>
-		</>
 	);
 }

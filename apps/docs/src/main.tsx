@@ -1,5 +1,6 @@
-import { PortalPage, IconsPage } from "./PortalPage";
+import { PortalPage } from "./PortalPage";
 import { lazy, Suspense, useEffect, useState } from "react";
+const IconsPage = lazy(() => import("./IconsPage").then((module) => ({ default: module.IconsPage })));
 const ChartsPage = lazy(() => import("./ChartsPage").then((module) => ({ default: module.ChartsPage })));
 import { createRoot } from "react-dom/client";
 import {
@@ -372,7 +373,11 @@ function App() {
 								<ChartsPage locale={locale} />
 							</Suspense>
 						)}
-						{page === "icons" && <IconsPage locale={locale} />}
+						{page === "icons" && (
+							<Suspense fallback={<p role="status">{t("正在加载图标…", "Loading icons…")}</p>}>
+								<IconsPage locale={locale} />
+							</Suspense>
+						)}
 						{page === "system" && (
 							<>
 								<section className="docs-type">

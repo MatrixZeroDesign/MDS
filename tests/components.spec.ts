@@ -255,10 +255,10 @@ test("docs portal supports search, examples and stable URLs", async ({ page }) =
 });
 test("icon portal renders the whole maintained collection and filters", async ({ page }) => {
 	await page.goto("/#icons");
-	await expect(page.locator(".docs-icon-tile")).toHaveCount(32);
+	await expect(page.locator(".docs-icon-tile")).toHaveCount(320);
 	await page.getByRole("textbox", { name: "搜索图标" }).fill("Chevron");
-	await expect(page.locator(".docs-icon-tile")).toHaveCount(2);
-	await expect(page.locator(".docs-icon-tile").first().locator("svg")).toHaveCount(3);
+	await expect(page.locator(".docs-icon-tile")).toHaveCount(8);
+	await expect(page.locator(".docs-icon-tile").first().locator("svg")).toHaveCount(1);
 });
 test("basic charts render and expose a data table", async ({ page }) => {
 	await page.goto("/#charts");

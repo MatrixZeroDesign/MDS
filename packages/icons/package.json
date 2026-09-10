@@ -1,13 +1,14 @@
 {
 	"name": "@matrixzero/icons",
-	"version": "0.1.0-alpha.1",
+	"version": "0.1.0-alpha.2",
 	"description": "Independently drawn SVG icons for Matrix Design System",
 	"type": "module",
 	"license": "UNLICENSED",
 	"files": [
 		"dist",
 		"README.md",
-		"NOTICE.md"
+		"NOTICE.md",
+		"CHANGELOG.md"
 	],
 	"sideEffects": false,
 	"main": "./dist/index.js",
@@ -16,10 +17,14 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"import": "./dist/index.js"
+		},
+		"./catalog": {
+			"types": "./dist/catalog.d.ts",
+			"import": "./dist/catalog.js"
 		}
 	},
 	"scripts": {
-		"build": "node ../../scripts/clean-ui.mjs && tsc -p tsconfig.json"
+		"build": "node ../../scripts/generate-icon-catalog.mjs && node ../../scripts/clean-ui.mjs && tsc -p tsconfig.json"
 	},
 	"peerDependencies": {
 		"react": "^19.0.0"

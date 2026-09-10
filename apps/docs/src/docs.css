@@ -421,3 +421,103 @@ a {
 .docs-code summary {
 	cursor: pointer;
 }
+.docs-icon-count {
+	font: 13px/20px var(--mds-font-mono);
+	color: var(--mds-muted);
+}
+.docs-icon-tools {
+	display: grid;
+	grid-template-columns: minmax(160px, 1fr) 210px auto;
+	align-items: center;
+	gap: 12px;
+	margin: 24px 0 12px;
+}
+.docs-icon-results {
+	min-height: 36px;
+	margin-bottom: 16px;
+}
+.mds-root button.docs-icon-tile {
+	border: 1px solid transparent;
+	color: var(--mds-text);
+	font-family: inherit;
+	cursor: pointer;
+	transition:
+		background var(--mds-duration-fast),
+		border-color var(--mds-duration-fast);
+}
+.mds-root button.docs-icon-tile:hover {
+	background: var(--mds-soft);
+	border-color: var(--mds-border);
+}
+.mds-root button.docs-icon-tile:focus-visible {
+	outline: 2px solid var(--mds-accent);
+	outline-offset: 3px;
+}
+.mds-root button.docs-icon-tile[aria-pressed="true"] {
+	border-color: var(--mds-accent);
+	background: var(--mds-soft);
+}
+.docs-icon-drawing {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 40px;
+	margin-bottom: 12px;
+}
+.docs-icon-tile small {
+	display: block;
+	font-size: 11px;
+	line-height: 18px;
+	color: var(--mds-muted);
+	margin-top: 6px;
+}
+.docs-icon-usage {
+	margin-top: 24px;
+	padding: 20px;
+	background: var(--mds-bg);
+	border: 1px solid var(--mds-border);
+	border-radius: 12px;
+}
+.docs-icon-usage pre {
+	margin-bottom: 0;
+}
+@media (max-width: 1100px) {
+	.docs-icon-tools {
+		grid-template-columns: minmax(0, 1fr) auto;
+	}
+	.docs-icon-tools > :first-child {
+		grid-column: 1/-1;
+	}
+}
+@media (max-width: 600px) {
+	.docs-icon-tools {
+		grid-template-columns: minmax(0, 1fr);
+	}
+	.docs-icon-tools > * {
+		min-width: 0;
+	}
+	.docs-icon-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	.docs-icon-tile code {
+		font-size: 10px;
+		overflow-wrap: anywhere;
+	}
+}
+.docs-icon-preview {
+	display: flex;
+	align-items: end;
+	justify-content: center;
+	gap: 24px;
+	margin: 8px 0 24px;
+}
+.docs-icon-preview > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+}
+.docs-icon-preview small {
+	font: 11px/18px var(--mds-font-mono);
+	color: var(--mds-muted);
+}

@@ -1,6 +1,6 @@
 # @matrixzero/icons
 
-Matrix Design System 自行维护的 32 个 SVG 图标，使用手写几何路径，不依赖 Lucide 或运行时图标服务。默认 16px、1.75px 线宽、currentColor，圆角端点与连接，支持 16 / 20 / 24px。
+Matrix Design System 自行维护的 320 个 SVG 图标，使用手写几何路径，不依赖 Lucide 或运行时图标服务。默认 16px、1.75px 线宽、currentColor，圆角端点与连接，支持 16 / 20 / 24px。
 
 ## 视觉语言
 
@@ -27,3 +27,14 @@ import {IconButton} from '@matrixzero/ui';
 - 新增图标需检查 16 / 20 / 24px、明暗背景、光学重心和语义；现有导出名称保持稳定。
 
 React 是 peer dependency。来源说明见 NOTICE.md。
+
+## 分类与检索
+
+目录包含导航、布局、编辑、文件、通信、媒体、开发、安全、数据、商业与日常 11 类。搜索元数据通过独立入口 `@matrixzero/icons/catalog` 导入，包括名称、分类和中英文关键词。常规图标导入不会包含此目录。
+
+```tsx
+import { iconCatalog } from "@matrixzero/icons/catalog";
+const matches = iconCatalog.filter((icon) => icon.keywords.some((word) => word.includes("文件")));
+```
+
+所有原有名称保持兼容。按名称导入图标可被 tree shaking；docs 的全量目录按需加载。新增图标必须同时更新 catalog，构建时校验一一对应；测试阻止重复绘图和非必要全库打包。
