@@ -1,4 +1,4 @@
-import { useId } from "react";
+import { useEffect, useId, useRef } from "react";
 import type { ReactNode } from "react";
 import {
 	ResponsiveContainer,
@@ -37,6 +37,8 @@ export interface CartesianChartProps {
 	data: readonly ChartDatum[];
 	series: readonly ChartSeries[];
 	height?: number;
+	/** Local opacity transitions; respects prefers-reduced-motion. Default true. */
+	motion?: boolean;
 	locale?: string;
 	labels?: ChartLabels;
 	formatValue?: (value: number) => string;
@@ -170,6 +172,53 @@ function Frame({ title, description, children }: { title: string; description?: 
 		</figure>
 	);
 }
+const markSelector = ".recharts-line, .recharts-area, .recharts-bar, .recharts-pie";
+function Plot({
+	children,
+	height,
+	signature,
+	motion,
+	donut = false,
+}: {
+	children: ReactNode;
+	height: number;
+	signature: string;
+	motion: boolean;
+	donut?: boolean;
+}) {
+	const root = useRef<HTMLDivElement>(null);
+	const previous = useRef(signature);
+	useEffect(() => {
+		const changed = previous.current !== signature;
+		previous.current = signature;
+		if (!motion || !changed) return;
+		const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+		if (preference.matches) return;
+		// Animate only opacity of the committed observations, preserving keyboard focus and exact geometry.
+		const animations = Array.from(root.current?.querySelectorAll(markSelector) ?? []).map((mark) =>
+			mark.animate([{ opacity: 0.45 }, { opacity: 1 }], {
+				duration: 220,
+				easing: "cubic-bezier(0.2, 0, 0, 1)",
+			}),
+		);
+		const cancel = () => animations.forEach((animation) => animation.cancel());
+		preference.addEventListener("change", cancel);
+		return () => {
+			cancel();
+			preference.removeEventListener("change", cancel);
+		};
+	}, [signature, motion]);
+	return (
+		<div
+			ref={root}
+			className={`mds-chart-plot${donut ? " mds-chart-donut" : ""}`}
+			data-motion={motion ? "on" : "off"}
+			style={{ height: plotHeight(height) }}
+		>
+			{children}
+		</div>
+	);
+}
 function CartesianChart({
 	kind,
 	title,
@@ -177,6 +226,7 @@ function CartesianChart({
 	data,
 	series,
 	height = 240,
+	motion = true,
 	locale,
 	labels,
 	formatValue,
@@ -295,11 +345,11 @@ function CartesianChart({
 					{labels?.empty ?? "No data"}
 				</div>
 			) : (
-				<div className="mds-chart-plot" style={{ height: plotHeight(height) }}>
+				<Plot height={height} motion={motion} signature={JSON.stringify([sanitized, series, stacked, kind])}>
 					<ResponsiveContainer width="100%" height="100%" minWidth={0}>
 						{chart}
 					</ResponsiveContainer>
-				</div>
+				</Plot>
 			)}
 			<DataTable title={title} data={sanitized} series={series} labels={labels} format={format} />
 		</Frame>
@@ -313,12 +363,23 @@ export interface DonutChartProps {
 	description?: string;
 	data: readonly { label: string; value: number; color?: string }[];
 	height?: number;
+	/** Local opacity transitions; respects prefers-reduced-motion. Default true. */
+	motion?: boolean;
 	locale?: string;
 	labels?: ChartLabels & { value?: string };
 	formatValue?: (value: number) => string;
 }
 /** Nonnegative finite values only. Invalid data is rejected instead of silently changing totals. */
-export function DonutChart({ title, description, data, height = 240, locale, labels, formatValue }: DonutChartProps) {
+export function DonutChart({
+	title,
+	description,
+	data,
+	height = 240,
+	motion = true,
+	locale,
+	labels,
+	formatValue,
+}: DonutChartProps) {
 	if (data.some((d) => !finite(d.value) || d.value < 0))
 		throw new RangeError("DonutChart values must be finite and nonnegative");
 	const format = formatValue ?? defaultFormatter(locale),
@@ -333,7 +394,7 @@ export function DonutChart({ title, description, data, height = 240, locale, lab
 					{labels?.empty ?? "No data"}
 				</div>
 			) : (
-				<div className="mds-chart-plot mds-chart-donut" style={{ height: plotHeight(height) }}>
+				<Plot height={height} motion={motion} signature={JSON.stringify(data)} donut>
 					<ResponsiveContainer width="100%" height="100%" minWidth={0}>
 						<RPieChart accessibilityLayer aria-label={title}>
 							<Pie
@@ -359,7 +420,7 @@ export function DonutChart({ title, description, data, height = 240, locale, lab
 						<strong title={format(total)}>{format(total)}</strong>
 						{labels?.total && <span>{labels.total}</span>}
 					</div>
-				</div>
+				</Plot>
 			)}
 			<DataTable
 				title={title}

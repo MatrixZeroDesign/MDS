@@ -28,8 +28,8 @@ export function ChartsPage({ locale }: { locale: "zh" | "en" }) {
 			<div className="docs-row">
 				<p className="docs-muted">
 					{t(
-						"独立安装 @matrixzero/charts；基础 UI 包不依赖图表库。",
-						"Install @matrixzero/charts separately; the base UI package does not depend on the chart engine.",
+						"独立安装 @matrixzero/charts；基础 UI 包不依赖图表库。切换时间范围可体验局部淡入，自动尊重减少动态效果设置。",
+						"Install @matrixzero/charts separately; the base UI package does not depend on the chart engine. Switch ranges to see local fades, with reduced-motion support.",
 					)}
 				</p>
 				<SegmentedControl

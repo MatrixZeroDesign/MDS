@@ -128,7 +128,7 @@ export function Textarea({ className, ...props }: ComponentProps<"textarea">) {
 	return <textarea {...props} {...field} className={cx("mds-input", "mds-textarea", className)} />;
 }
 /** Native form select: preserves browser form/reset and platform accessibility behavior. */
-export function Select({ className, ...props }: ComponentProps<"select">) {
+export function NativeSelect({ className, ...props }: ComponentProps<"select">) {
 	const field = useFieldProps(props);
 	return (
 		<span className="mds-select-wrap">

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-alpha.3
+
+- 修复环形图中心总数穿透 tooltip 的层级问题；浮层始终绘制在总数之上。
+- 图形进入与数据更新采用 220ms 局部透明度过渡，tooltip 使用 120ms 淡入；数值与几何位置直接呈现真实数据。
+- 新增 `motion` 开关；跟随系统减少动态效果偏好并取消进行中的过渡，更新保留键盘焦点。
+
 ## 0.1.0-alpha.1
 
 - First independently installable MDS chart package: line, area, grouped and stacked bars, stacked areas and donuts.

@@ -37,7 +37,8 @@ React 19 作为 peer dependency，保留原生 props、ref 和 Radix 受控/非�
 
 原型曾因模态下拉触发全局滚动锁，产生背景位移风险。首版把两种用途分开：
 
-- Select：原生表单语义，提交/重置与平台无障碍行为。
+- Select：Radix listbox 负责视觉、键盘与焦点；原生表单值桥接负责提交、必填校验和重置。浮层在 provider 中按触发器宽度定位。
+- NativeSelect：显式使用平台选择器，保留旧版 option children/onChange API。
 - ChoiceMenu：Radix 非模态选择菜单，radio menu item 语义，用于筛选与偏好。
 
 不通过手工 ARIA 角色把 menu 伪装成 combobox。支持搜索、大数据虚拟化的 combobox 需要独立设计和测试，不在 alpha.1 中宣称支持。

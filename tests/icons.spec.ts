@@ -32,7 +32,8 @@ test("icon search understands Chinese, category filters and keyboard usage dialo
 	await page.getByRole("textbox", { name: "搜索图标" }).fill("zzzzzz");
 	await expect(page.getByText("未找到匹配的图标，试试其他关键词或分类。")).toBeVisible();
 	await page.getByRole("button", { name: "清除筛选" }).click();
-	await page.getByRole("combobox", { name: "图标分类" }).selectOption("security");
+	await page.getByRole("combobox", { name: "图标分类" }).click();
+	await page.getByRole("option", { name: /安全/ }).click();
 	const count = await page.locator(".docs-icon-tile").count();
 	expect(count).toBeGreaterThan(10);
 	expect(count).toBeLessThan(320);

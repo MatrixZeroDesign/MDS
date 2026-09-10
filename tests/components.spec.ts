@@ -48,7 +48,7 @@ test("nested menu Escape closes only menu then dialog", async ({ page }) => {
 	const dialog = page.getByRole("dialog");
 	await expect(dialog).toBeVisible();
 	await expect(dialog).toHaveAccessibleDescription("为应用配置一套清晰的防护规则。");
-	await dialog.getByRole("button", { name: "应用范围", exact: true }).click();
+	await dialog.getByRole("combobox", { name: "应用范围", exact: true }).click();
 	await page.keyboard.press("Escape");
 	await expect(page.getByRole("menu")).toHaveCount(0);
 	await expect(dialog).toBeVisible();

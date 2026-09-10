@@ -3,8 +3,8 @@ import * as A from "@radix-ui/react-avatar";
 import * as P from "@radix-ui/react-progress";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ChevronDown, Check } from "@matrixzero/icons";
-import { cx, Button } from "./controls.js";
+import { ChevronDown, Check, Info, AlertCircle, X } from "@matrixzero/icons";
+import { cx, Button, IconButton } from "./controls.js";
 export function Badge({
 	tone = "neutral",
 	className,
@@ -181,5 +181,76 @@ export function Pagination({
 				{nextLabel}
 			</Button>
 		</nav>
+	);
+}
+
+export interface CalloutProps extends Omit<ComponentProps<"div">, "title"> {
+	tone?: "info" | "success" | "warning" | "danger" | "neutral";
+	title?: ReactNode;
+	icon?: ReactNode | false;
+	action?: ReactNode;
+}
+/** Persistent explanatory content; use Alert for live status announcements. */
+export function Callout({ tone = "info", title, icon, action, children, className, ...props }: CalloutProps) {
+	const DefaultIcon = tone === "success" ? Check : tone === "warning" || tone === "danger" ? AlertCircle : Info;
+	return (
+		<div role="note" {...props} data-tone={tone} className={cx("mds-alert", "mds-callout", className)}>
+			{icon !== false && (
+				<span className="mds-callout-icon" aria-hidden="true">
+					{icon ?? <DefaultIcon size={18} />}
+				</span>
+			)}
+			<div className="mds-callout-copy">
+				{title && <strong className="mds-callout-title">{title}</strong>}
+				{children && <div className="mds-callout-body">{children}</div>}
+				{action && <div className="mds-callout-action">{action}</div>}
+			</div>
+		</div>
+	);
+}
+
+export type BannerProps = Omit<ComponentProps<"div">, "title"> & {
+	label: string;
+	title?: ReactNode;
+	tone?: "neutral" | "info" | "success" | "warning" | "danger";
+	icon?: ReactNode | false;
+	action?: ReactNode;
+} & ({ onDismiss: () => void; dismissLabel: string } | { onDismiss?: never; dismissLabel?: never });
+/** A page-level notice; the application controls visibility and persistence. */
+export function Banner({
+	label,
+	title,
+	tone = "info",
+	icon,
+	action,
+	onDismiss,
+	dismissLabel,
+	children,
+	className,
+	...props
+}: BannerProps) {
+	const DefaultIcon = tone === "success" ? Check : tone === "warning" || tone === "danger" ? AlertCircle : Info;
+	return (
+		<div
+			role="region"
+			aria-label={label}
+			{...props}
+			data-tone={tone}
+			className={cx("mds-alert", "mds-banner", className)}
+		>
+			{icon !== false && (
+				<span className="mds-callout-icon" aria-hidden="true">
+					{icon ?? <DefaultIcon size={18} />}
+				</span>
+			)}
+			<div className="mds-banner-copy">
+				{title && <strong>{title}</strong>}
+				{children && <div>{children}</div>}
+			</div>
+			{action && <div className="mds-banner-action">{action}</div>}
+			{onDismiss && (
+				<IconButton variant="ghost" size="sm" label={dismissLabel} icon={<X size={16} />} onClick={onDismiss} />
+			)}
+		</div>
 	);
 }

@@ -41,7 +41,7 @@ Render charts inside the MDS root/provider used by your application. Import the 
 | `BarChart`   | Grouped comparisons; optional `stacked`           |
 | `DonutChart` | Nonnegative parts of a whole, with a center total |
 
-Cartesian charts share `CartesianChartProps`: `title`, optional `description`, `data`, `series`, `height`, `locale`, `labels`, `formatValue`, `formatAxisValue`, and `stacked`. `stacked` affects area and bar charts only. A datum has a category `label` plus numeric or null values keyed by the series. Series keys must be unique and cannot use the reserved `label` key. A series can supply `color` to override its theme color.
+Cartesian charts share `CartesianChartProps`: `title`, optional `description`, `data`, `series`, `height`, `motion`, `locale`, `labels`, `formatValue`, `formatAxisValue`, and `stacked`. `stacked` affects area and bar charts only. A datum has a category `label` plus numeric or null values keyed by the series. Series keys must be unique and cannot use the reserved `label` key. A series can supply `color` to override its theme color.
 
 Donut data contains `{ label, value, color? }` entries. The same display props apply, except `series`, `stacked` and `formatAxisValue`. `labels.value` names the table's value column; optional `labels.total` adds a translated label under the center total.
 
@@ -49,7 +49,7 @@ Default chart height is 240 pixels, with a minimum of 180 pixels. The container 
 
 ## Data integrity and accessibility
 
-- No data-drawing, value-interpolation or tooltip movement animations. Changing datasets shows the actual new values immediately, including with reduced motion enabled.
+- Chart marks reveal with a local 220ms opacity transition on entry and dataset changes. Tooltips appear with a 120ms fade. No geometry, numeric-value interpolation, background movement or tooltip-position animation is used: committed data and exact totals update immediately. `motion={false}` disables these effects; `prefers-reduced-motion: reduce` also removes them, including an in-progress dataset transition. Keyboard focus is preserved across updates.
 - Lines use straight segments. Null, nonnumeric and nonfinite Cartesian values remain missing; lines and areas do not bridge those gaps. All-zero Cartesian datasets are real data, not empty states.
 - Positive and negative stacked values are accumulated separately. Negative datasets show a zero reference line. Stacked missing values depend on Recharts' stacking model; inspect the accompanying exact data table for completeness and prefer unstacked charts when gaps are significant.
 - Donut values must be finite and nonnegative, and their sum must be finite. Invalid input throws `RangeError`; validate external data before rendering or provide an error boundary. Empty and all-zero donut datasets show the supplied empty message, not a misleading full ring.

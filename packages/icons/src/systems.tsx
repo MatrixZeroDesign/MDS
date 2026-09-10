@@ -149,10 +149,9 @@ export const GitMerge = /* @__PURE__ */ defineIcon(
 export const Webhook = /* @__PURE__ */ defineIcon(
 	"Webhook",
 	<>
-		<circle cx="12" cy="5" r="2" />
-		<circle cx="5" cy="17" r="2" />
-		<circle cx="19" cy="17" r="2" />
-		<path d="m11 7-5 8m1 2h10m1-2-4-7M4 11a8 8 0 0 0 4 10m8 0a8 8 0 0 0 5-7" />
+		<path d="M12 5.5 8.12 12.22a3.5 3.5 0 1 0 1.75 3.03" />
+		<path d="M12 5.5 8.12 12.22a3.5 3.5 0 1 0 1.75 3.03" transform="rotate(120 12 12)" />
+		<path d="M12 5.5 8.12 12.22a3.5 3.5 0 1 0 1.75 3.03" transform="rotate(240 12 12)" />
 	</>,
 );
 export const Container = /* @__PURE__ */ defineIcon(

@@ -78,15 +78,15 @@ export function IconsPage({ locale }: { locale: "zh" | "en" }) {
 				<Select
 					aria-label={t("图标分类", "Icon category")}
 					value={category}
-					onChange={(e) => setCategory(e.target.value)}
-				>
-					<option value="all">{t("全部分类", "All categories")}</option>
-					{Object.entries(categories).map(([id, label]) => (
-						<option key={id} value={id}>
-							{label[locale === "zh" ? 0 : 1]} ({iconCatalog.filter((i) => i.category === id).length})
-						</option>
-					))}
-				</Select>
+					onValueChange={setCategory}
+					options={[
+						{ value: "all", label: t("全部分类", "All categories") },
+						...Object.entries(categories).map(([id, label]) => ({
+							value: id,
+							label: `${label[locale === "zh" ? 0 : 1]} (${iconCatalog.filter((i) => i.category === id).length})`,
+						})),
+					]}
+				/>
 				<SegmentedControl
 					label={t("图标尺寸", "Icon size")}
 					value={size}

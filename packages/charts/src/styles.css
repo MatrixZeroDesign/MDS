@@ -52,6 +52,8 @@
 	flex-shrink: 0;
 }
 .mds-root .mds-chart-plot {
+	position: relative;
+	isolation: isolate;
 	width: 100%;
 	min-width: 0;
 	font-variant-numeric: tabular-nums;
@@ -63,6 +65,9 @@
 	outline: 2px solid var(--mds-focus);
 	outline-offset: 2px;
 	border-radius: 6px;
+}
+.mds-root .mds-chart-plot .recharts-tooltip-wrapper {
+	z-index: 2;
 }
 .mds-root .mds-chart-tooltip {
 	padding: 10px 12px;
@@ -166,6 +171,7 @@
 	position: relative;
 }
 .mds-root .mds-chart-total {
+	z-index: 1;
 	position: absolute;
 	inset: 50% auto auto 50%;
 	transform: translate(-50%, -50%);
@@ -192,5 +198,27 @@
 @media (prefers-reduced-motion: reduce) {
 	.mds-root .mds-chart-data summary {
 		transition: none;
+	}
+}
+
+@keyframes mds-chart-reveal {
+	from {
+		opacity: 0.45;
+	}
+	to {
+		opacity: 1;
+	}
+}
+.mds-root .mds-chart-plot[data-motion="on"] :is(.recharts-line, .recharts-area, .recharts-bar, .recharts-pie) {
+	animation: mds-chart-reveal 220ms cubic-bezier(0.2, 0, 0, 1);
+}
+.mds-root .mds-chart-plot[data-motion="on"] .mds-chart-tooltip {
+	animation: mds-chart-reveal 120ms ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+	.mds-root
+		.mds-chart-plot[data-motion="on"]
+		:is(.recharts-line, .recharts-area, .recharts-bar, .recharts-pie, .mds-chart-tooltip) {
+		animation: none;
 	}
 }

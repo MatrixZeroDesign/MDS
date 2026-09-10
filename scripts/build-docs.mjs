@@ -18,7 +18,7 @@ const versions = Object.fromEntries(
 	),
 );
 const covered = new Set(entries.filter((e) => e.package === "ui").flatMap((e) => e.names));
-for (const file of ["theme", "controls", "overlays", "navigation", "display"]) {
+for (const file of ["theme", "controls", "overlays", "navigation", "display", "select", "layout"]) {
 	const source = ts.createSourceFile(
 		file,
 		await read(`packages/ui/src/${file}.tsx`),

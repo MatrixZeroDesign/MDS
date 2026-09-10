@@ -26,6 +26,15 @@ import {
 	Skeleton,
 	Alert,
 	EmptyState,
+	Callout,
+	Banner,
+	Container,
+	Card,
+	CardHeader,
+	CardTitle,
+	CardDescription,
+	CardContent,
+	CardFooter,
 	Tabs,
 	TabList,
 	Tab,
@@ -92,6 +101,7 @@ function readPage() {
 	return portalPages.includes(value) ? value : "system";
 }
 function App() {
+	const [bannerVisible, setBannerVisible] = useState(true);
 	const [billing, setBilling] = useState("monthly"),
 		[plan, setPlan] = useState("standard");
 	const [railCollapsed, setRailCollapsed] = useState(false),
@@ -213,17 +223,18 @@ function App() {
 						<Input value={newName} onChange={(e) => setNewName(e.target.value)} />
 					</Field>
 					<Field label={t("检测模板", "Template")}>
-						<Select defaultValue="standard">
-							<option value="standard">{t("标准防护", "Standard protection")}</option>
-							<option value="sensitive">{t("敏感信息保护", "Sensitive data protection")}</option>
-						</Select>
+						<Select
+							name="template"
+							defaultValue="standard"
+							options={[
+								{ value: "standard", label: t("标准防护", "Standard protection") },
+								{ value: "sensitive", label: t("敏感信息保护", "Sensitive data protection") },
+							]}
+						/>
 					</Field>
-					<ChoiceMenu
-						label={t("应用范围", "Applications")}
-						value={scope}
-						onValueChange={setScope}
-						options={menuOptions}
-					/>
+					<Field label={t("应用范围", "Applications")}>
+						<Select name="application" value={scope} onValueChange={setScope} options={menuOptions} />
+					</Field>
 					<Field label={t("说明", "Description")}>
 						<Textarea placeholder={t("策略用途（可选）", "Policy purpose (optional)")} />
 					</Field>
@@ -610,10 +621,13 @@ function App() {
 												<Input value={endpoint} onChange={(e) => setEndpoint(e.target.value)} />
 											</Field>
 											<Field label={t("适用范围", "Scope")}>
-												<Select defaultValue="all">
-													<option value="all">{t("全部应用", "All applications")}</option>
-													<option value="chat">{t("对话服务", "Chat service")}</option>
-												</Select>
+												<Select
+													defaultValue="all"
+													options={[
+														{ value: "all", label: t("全部应用", "All applications") },
+														{ value: "chat", label: t("对话服务", "Chat service") },
+													]}
+												/>
 											</Field>
 										</div>,
 									)}
@@ -830,6 +844,92 @@ function App() {
 										</>,
 									)}
 									{section(
+										t("页面通知", "Banner"),
+										"Banner",
+										bannerVisible ? (
+											<Banner
+												label={t("服务通知", "Service notice")}
+												title={t("新版本已就绪", "An update is ready")}
+												onDismiss={() => setBannerVisible(false)}
+												dismissLabel={t("关闭通知", "Dismiss notice")}
+												action={
+													<Button size="sm" onClick={() => setPage("docs")}>
+														{t("查看详情", "View details")}
+													</Button>
+												}
+											>
+												{t("更新后可使用新的组件与图标。", "The update includes new components and icons.")}
+											</Banner>
+										) : (
+											<Button autoFocus onClick={() => setBannerVisible(true)}>
+												{t("重新显示通知", "Show notice again")}
+											</Button>
+										),
+									)}
+									{section(
+										t("内容卡片", "Cards"),
+										"Card",
+										<Card>
+											<CardHeader>
+												<CardTitle>{t("工作区概览", "Workspace overview")}</CardTitle>
+												<CardDescription>
+													{t("管理应用、成员与使用情况。", "Manage applications, members and usage.")}
+												</CardDescription>
+											</CardHeader>
+											<CardContent>
+												<p>{t("3 个应用已连接。", "3 applications connected.")}</p>
+												<Badge tone="success">{t("运行正常", "Healthy")}</Badge>
+											</CardContent>
+											<CardFooter>
+												<Button onClick={() => setPage("overview")}>{t("打开工作区", "Open workspace")}</Button>
+											</CardFooter>
+										</Card>,
+									)}
+									{section(
+										t("居中容器", "Container"),
+										"Layout",
+										<div style={{ background: "var(--mds-soft)", paddingBlock: 16, borderRadius: 12 }}>
+											<Container maxWidth={360} gutter={24}>
+												<Card variant="subtle">
+													<CardContent>
+														{t(
+															"内容最大宽度 360px，左右各留白 24px；窄屏自动收缩。",
+															"Maximum width 360px with 24px inline gutters; fluid on narrow screens.",
+														)}
+													</CardContent>
+												</Card>
+											</Container>
+										</div>,
+									)}
+									{section(
+										t("提示说明", "Callout"),
+										"Callout",
+										<>
+											<Callout
+												title={t("开始之前", "Before you start")}
+												action={
+													<Button size="sm" onClick={() => setPage("docs")}>
+														{t("阅读指南", "Read guide")}
+													</Button>
+												}
+											>
+												{t("先配置工作区，再添加应用。", "Configure your workspace before adding an application.")}
+											</Callout>
+											<Callout tone="success" title={t("连接已验证", "Connection verified")}>
+												{t("可以开始发送请求。", "You can now send requests.")}
+											</Callout>
+											<Callout tone="warning" title={t("检查影响范围", "Review the scope")}>
+												{t("修改将应用于所有新请求。", "Changes apply to all new requests.")}
+											</Callout>
+											<Callout tone="danger" title={t("删除前请备份", "Back up before deleting")}>
+												{t("已删除的数据无法恢复。", "Deleted data cannot be recovered.")}
+											</Callout>
+											<Callout tone="neutral" icon={false}>
+												{t("提示：可随时调整这些设置。", "Tip: you can change these settings at any time.")}
+											</Callout>
+										</>,
+									)}
+									{section(
 										t("空状态", "Empty state"),
 										"Feedback",
 										<EmptyState
@@ -953,10 +1053,14 @@ function App() {
 										<Input value={name} onChange={(e) => setName(e.target.value)} />
 									</Field>
 									<Field label={t("适用范围", "Scope")}>
-										<Select value={policyScope} onChange={(e) => setPolicyScope(e.target.value)}>
-											<option value="all">{t("全部应用", "All applications")}</option>
-											<option value="chat">{t("对话服务", "Chat service")}</option>
-										</Select>
+										<Select
+											value={policyScope}
+											onValueChange={setPolicyScope}
+											options={[
+												{ value: "all", label: t("全部应用", "All applications") },
+												{ value: "chat", label: t("对话服务", "Chat service") },
+											]}
+										/>
 									</Field>
 									<CheckField
 										label={t("提示词注入", "Prompt injection")}

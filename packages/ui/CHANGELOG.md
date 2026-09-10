@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.4
+
+- Select 改用统一主题 listbox 与 options/onValueChange API；原生实现保留为 NativeSelect。支持表单提交、必填校验、重置、键盘与主题浮层。
+- 新增 Callout、Banner、Card 组合和 Container，附完整指南与示例。
+- 增加可辨识控件边界 token，修正 placeholder 对比度，扩展明暗主题与键盘验收。
+
+- 更新 icons 依赖至 0.1.0-alpha.3，统一安装时获得修正后的 Webhook 图形。
+
 ## 0.1.0-alpha.1
 
 - 建立 Matrix Design System 初始组件与中英文排版规范。

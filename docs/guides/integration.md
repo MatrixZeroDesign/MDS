@@ -1,6 +1,6 @@
 # Integration guide / 接入指南
 
-Applies to React 19, @matrixzero/ui 0.1.0-alpha.3, @matrixzero/icons 0.1.0-alpha.2 and @matrixzero/charts 0.1.0-alpha.2. Pin these versions when reproducing examples. This is an alpha API; inspect the installed declarations before upgrading.
+Applies to React 19, @matrixzero/ui 0.1.0-alpha.4, @matrixzero/icons 0.1.0-alpha.3 and @matrixzero/charts 0.1.0-alpha.3. Pin these versions when reproducing examples. This is an alpha API; inspect the installed declarations before upgrading.
 
 适用于 React 19 与以上固定版本。升级时检查变更记录及安装包的类型声明，不要套用 shadcn 的组件 API。
 
@@ -14,9 +14,9 @@ Configure your project .npmrc with an environment variable; never store the real
 ```
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.3 @matrixzero/icons@0.1.0-alpha.2
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.4 @matrixzero/icons@0.1.0-alpha.3
 # Optional charts / 按需安装图表
-npm install --save-exact @matrixzero/charts@0.1.0-alpha.2
+npm install --save-exact @matrixzero/charts@0.1.0-alpha.3
 ```
 
 React and react-dom 19 must also be installed. The registry and documentation portal are private: AI tools need authorized GitLab access, or a local checkout of docs/. These URLs do not bypass authentication.
@@ -45,7 +45,7 @@ Every component example assumes these styles and a surrounding ThemeProvider. Ex
 
 ## Controlled state / 受控状态
 
-Use value + onValueChange for radio groups, segmented controls, tabs and ChoiceMenu; checked + onCheckedChange for Checkbox and Switch; open + onOpenChange for overlays. Native Input, Textarea, Select and Slider use onChange events. Use defaultValue/defaultChecked/defaultOpen for uncontrolled state; do not mix controlled and uncontrolled ownership. Reset controlled state explicitly when the form resets.
+Use value + onValueChange for Select, radio groups, segmented controls, tabs and ChoiceMenu; checked + onCheckedChange for Checkbox and Switch; open + onOpenChange for overlays. Native Input, Textarea, NativeSelect and Slider use onChange events. Use defaultValue/defaultChecked/defaultOpen for uncontrolled state; do not mix controlled and uncontrolled ownership. Reset controlled state explicitly when the form resets.
 
 受控状态由应用持有，原生输入 onChange 接收事件；Radix 类控件回调接收值。不要混用 value 与 defaultValue。表单 reset 时同时重置应用持有的状态。
 

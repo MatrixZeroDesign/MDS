@@ -63,11 +63,21 @@
 		"slug": "select",
 		"names": ["Select"],
 		"package": "ui",
-		"purpose": "提交表单中的单选或原生多选。 / Native form selection.",
-		"guide": "选项用原生 option；通过 name、defaultValue 和 onChange 接入浏览器表单行为。 / Use native option children, name and onChange.",
+		"purpose": "统一 MDS 外观的单值表单选择器。 / A consistently styled single-value form select.",
+		"guide": "使用 options 定义选项；name 参与表单提交，defaultValue 指定非受控初始值。受控模式使用 value/onValueChange。 / Define options; name participates in form submission, defaultValue initializes uncontrolled state, and value/onValueChange control selection.",
+		"api": "options: readonly {value:string;label:string;description?:string;disabled?:boolean}[]; value/defaultValue?:string; onValueChange?:(value:string)=>void; name?, form?, required?, disabled?; placeholder?:string = \"—\"; trigger button props",
+		"a11y": "combobox/listbox 语义，方向键导航、键入查找、Enter 选择、Escape 返回触发器。Field 关联标签、说明和错误；必填校验会聚焦可见控件。 / Combobox/listbox semantics with arrows, typeahead, Enter and Escape. Field associates labels and errors; required validation focuses the visible trigger.",
+		"pitfalls": "alpha.4 起 Select 使用 options/onValueChange，不再接收 option children/onChange；原生 API 改用 NativeSelect。仅支持单选，value 必须唯一且非空，空字符串保留给 placeholder。受控表单重置由应用更新 value。 / From alpha.4, Select uses options/onValueChange; use NativeSelect for the former native API. Values must be unique and nonempty. Controlled resets are application-owned."
+	},
+	{
+		"slug": "native-select",
+		"names": ["NativeSelect"],
+		"package": "ui",
+		"purpose": "显式使用浏览器原生选择器。 / Explicit browser-native selection.",
+		"guide": "仅需要系统选择器、原生多选或渐进增强时使用 NativeSelect；产品表单默认使用统一样式的 Select。 / Use NativeSelect for a platform picker or native multiple selection; prefer Select for consistent product forms.",
 		"api": "Native select props: value/defaultValue, onChange, name, required, disabled, multiple; children: option/optgroup",
 		"a11y": "浏览器管理键盘、系统选项面板与表单重置。通过 Field 命名。 / The browser manages keyboard interaction, platform picker and form reset.",
-		"pitfalls": "不是 Radix Select API，不接受 options/onValueChange。菜单偏好切换使用 ChoiceMenu。 / This is not Radix Select; use children and onChange. Use ChoiceMenu for preferences."
+		"pitfalls": "这是旧版 Select 的原生实现；展开面板由系统绘制，无法匹配 MDS 浮层样式。 / This is the former native Select implementation. Its platform popup does not match MDS overlay styling."
 	},
 	{
 		"slug": "checkbox",
@@ -334,8 +344,8 @@
 		"names": ["LineChart"],
 		"package": "charts",
 		"purpose": "连续观测的变化趋势。 / Trends across observations.",
-		"guide": "按时间排序输入；用 null 表达缺失。 / Sort observations by time and use null for gaps. 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 / Import charts/styles.css after UI CSS.",
-		"api": "title:string; data:readonly ChartDatum[]; series:readonly ChartSeries[]; description?:string; height?:number = 240 (min 180); locale?:string; labels?:ChartLabels; formatValue?, formatAxisValue?: (n:number)=>string; stacked?:boolean (area/bar only)",
+		"guide": "按时间排序输入；用 null 表达缺失。 / Sort observations by time and use null for gaps. 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 / Import charts/styles.css after UI CSS. 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
+		"api": "title:string; data:readonly ChartDatum[]; series:readonly ChartSeries[]; description?:string; height?:number = 240 (min 180); locale?:string; labels?:ChartLabels; formatValue?, formatAxisValue?: (n:number)=>string; stacked?:boolean (area/bar only); motion?: boolean = true",
 		"a11y": "保留内置精确数据表；传 locale 与 labels 翻译文字，颜色不能是唯一编码。 / Keep the exact-value table and translate locale/labels; do not rely on color alone.",
 		"pitfalls": "series.key 必须唯一且不能为 label；缺失值不能填 0。容器宽度必须大于 0。LineChart 的 stacked 无效果。 / Series keys must be unique and cannot be label. Do not convert missing values to zero. Container width must be nonzero; stacked does not affect LineChart."
 	},
@@ -344,8 +354,8 @@
 		"names": ["AreaChart"],
 		"package": "charts",
 		"purpose": "相对零点的规模，可选堆叠。 / Magnitude relative to zero, optionally stacked.",
-		"guide": "对比总量可堆叠；缺失较多时优先非堆叠图。 / Stack for total magnitude; prefer unstacked charts when gaps matter. 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 / Import charts/styles.css after UI CSS.",
-		"api": "title:string; data:readonly ChartDatum[]; series:readonly ChartSeries[]; description?:string; height?:number = 240 (min 180); locale?:string; labels?:ChartLabels; formatValue?, formatAxisValue?: (n:number)=>string; stacked?:boolean (area/bar only)",
+		"guide": "对比总量可堆叠；缺失较多时优先非堆叠图。 / Stack for total magnitude; prefer unstacked charts when gaps matter. 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 / Import charts/styles.css after UI CSS. 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
+		"api": "title:string; data:readonly ChartDatum[]; series:readonly ChartSeries[]; description?:string; height?:number = 240 (min 180); locale?:string; labels?:ChartLabels; formatValue?, formatAxisValue?: (n:number)=>string; stacked?:boolean (area/bar only); motion?: boolean = true",
 		"a11y": "保留内置精确数据表；传 locale 与 labels 翻译文字，颜色不能是唯一编码。 / Keep the exact-value table and translate locale/labels; do not rely on color alone.",
 		"pitfalls": "series.key 必须唯一且不能为 label；缺失值不能填 0。容器宽度必须大于 0。LineChart 的 stacked 无效果。 / Series keys must be unique and cannot be label. Do not convert missing values to zero. Container width must be nonzero; stacked does not affect LineChart."
 	},
@@ -354,8 +364,8 @@
 		"names": ["BarChart"],
 		"package": "charts",
 		"purpose": "离散类别间的数值比较。 / Compare discrete categories.",
-		"guide": "保持类别标签清晰；stacked 可表达组成，正负数分开堆叠。 / Keep labels legible; stacked bars separate positive and negative totals. 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 / Import charts/styles.css after UI CSS.",
-		"api": "title:string; data:readonly ChartDatum[]; series:readonly ChartSeries[]; description?:string; height?:number = 240 (min 180); locale?:string; labels?:ChartLabels; formatValue?, formatAxisValue?: (n:number)=>string; stacked?:boolean (area/bar only)",
+		"guide": "保持类别标签清晰；stacked 可表达组成，正负数分开堆叠。 / Keep labels legible; stacked bars separate positive and negative totals. 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 / Import charts/styles.css after UI CSS. 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
+		"api": "title:string; data:readonly ChartDatum[]; series:readonly ChartSeries[]; description?:string; height?:number = 240 (min 180); locale?:string; labels?:ChartLabels; formatValue?, formatAxisValue?: (n:number)=>string; stacked?:boolean (area/bar only); motion?: boolean = true",
 		"a11y": "保留内置精确数据表；传 locale 与 labels 翻译文字，颜色不能是唯一编码。 / Keep the exact-value table and translate locale/labels; do not rely on color alone.",
 		"pitfalls": "series.key 必须唯一且不能为 label；缺失值不能填 0。容器宽度必须大于 0。LineChart 的 stacked 无效果。 / Series keys must be unique and cannot be label. Do not convert missing values to zero. Container width must be nonzero; stacked does not affect LineChart."
 	},
@@ -364,8 +374,8 @@
 		"names": ["DonutChart"],
 		"package": "charts",
 		"purpose": "非负数值占整体的比例。 / Nonnegative parts of a whole.",
-		"guide": "类别较少且总量有意义时使用；精确比较优先 BarChart。 / Use for a small number of meaningful parts; prefer BarChart for precise comparison.",
-		"api": "title:string; data:readonly {label:string;value:number;color?:string}[]; description?, height?, locale?, labels? (ChartLabels plus value?:string), formatValue?: (n:number)=>string",
+		"guide": "类别较少且总量有意义时使用；精确比较优先 BarChart。 / Use for a small number of meaningful parts; prefer BarChart for precise comparison. 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
+		"api": "title:string; data:readonly {label:string;value:number;color?:string}[]; description?, height?, locale?, labels? (ChartLabels plus value?:string), formatValue?: (n:number)=>string; motion?: boolean = true",
 		"a11y": "提供标题与本地化 labels，保留数据表作为比例图的替代表示。 / Provide title and translated labels; retain the data table alternative.",
 		"pitfalls": "负数、非有限值和溢出总和会抛 RangeError；先校验外部输入或用错误边界。全零显示空态。 / Negative/nonfinite values and overflowing totals throw RangeError; validate inputs or use an error boundary. All-zero data is empty."
 	},
@@ -378,5 +388,45 @@
 		"api": "IconProps extends SVGProps<SVGSVGElement>; size?: number | string = 16; strokeWidth?: number = 1.75; absoluteStrokeWidth?: boolean; aria-label/aria-labelledby; catalog: iconCatalog, IconName, IconCategory",
 		"a11y": "默认装饰性 aria-hidden；独立有意义图标传 aria-label。图标按钮由 IconButton.label 命名。 / Decorative by default; use aria-label for meaningful standalone icons and IconButton.label for actions.",
 		"pitfalls": "不要在每个按钮中导入整套 catalog 动态查找；它会包含全部图标。 / Do not import the whole catalog for each button; it includes the entire collection."
+	},
+	{
+		"slug": "callout",
+		"names": ["Callout"],
+		"package": "ui",
+		"purpose": "持续展示的提示、注意事项与操作说明。 / Persistent tips, cautions and instructions.",
+		"guide": "信息说明用 info，完成条件用 success，风险提示用 warning/danger，一般备注用 neutral。标题概括重点，正文说明原因，action 放真实按钮或链接。 / Choose the tone by meaning, summarize the point in title and put real actions in action.",
+		"api": "tone?: \"info\" | \"success\" | \"warning\" | \"danger\" | \"neutral\" = \"info\"; title?: ReactNode; children?: ReactNode; icon?: ReactNode | false; action?: ReactNode; native div props",
+		"a11y": "默认 role=\"note\"，不主动打断屏幕阅读器；图标是装饰性的。动态状态通知使用 Alert。 / Defaults to role=\"note\" without live announcements; icons are decorative. Use Alert for dynamic status.",
+		"pitfalls": "不要只通过颜色传达风险；不要把整块 Callout 变成可点击容器。title 使用 strong，不隐式改变页面标题层级。 / Keep meaning in text and do not make the whole callout clickable. Title uses strong, not an implicit heading."
+	},
+	{
+		"slug": "banner",
+		"names": ["Banner"],
+		"package": "ui",
+		"purpose": "页面级通知与服务公告。 / Page-level notices and service announcements.",
+		"guide": "放在页面内容顶部，说明影响与下一步；action 提供相关操作，onDismiss 由应用控制可见性。 / Place near the page top and explain impact plus next action. The application owns dismiss state.",
+		"api": "label:string; title?:ReactNode; children?:ReactNode; tone?:\"info\"|\"success\"|\"warning\"|\"danger\"|\"neutral\" = \"info\"; icon?:ReactNode|false; action?:ReactNode; onDismiss?:()=>void requires dismissLabel:string",
+		"a11y": "默认命名 region，不自动抢占焦点或重复播报。关闭按钮必须翻译；移除通知时将焦点放到附近稳定控件。 / Named region without unsolicited focus or live announcements. Translate the dismiss label and restore focus near the notice after removal.",
+		"pitfalls": "不要自动定时消失，也不要通过颜色单独表达风险。需要实时状态播报时显式选用 Alert。 / Avoid automatic expiry and color-only meaning. Use Alert for live status."
+	},
+	{
+		"slug": "card",
+		"names": ["Card", "CardHeader", "CardTitle", "CardDescription", "CardContent", "CardFooter"],
+		"package": "ui",
+		"purpose": "组织一组相关内容与操作。 / Group related content and actions.",
+		"guide": "用 Header 放标题和说明，Content 放主要内容，Footer 放操作；outlined 为默认，elevated 用于浮起的内容，subtle 用于低强调分组。 / Compose Header, Content and Footer; choose outlined, elevated or subtle by emphasis.",
+		"api": "Card: native div props, variant?:\"outlined\"|\"elevated\"|\"subtle\" = \"outlined\"; Header/Content/Footer: div props; Title: heading props, as?:\"h2\"|\"h3\"|\"h4\"|\"h5\"|\"h6\" = \"h3\"; Description: p props",
+		"a11y": "CardTitle 的标题级别跟随页面结构；交互使用实际链接或按钮。 / Match CardTitle to the page heading hierarchy and use real links or buttons.",
+		"pitfalls": "Card 不是按钮，不自带选中态或点击语义；单选方案用 RadioCard。不要嵌套可点击的整卡与操作按钮。 / Card is not a selectable control; use RadioCard for choices and avoid nested interactive targets."
+	},
+	{
+		"slug": "container",
+		"names": ["Container"],
+		"package": "ui",
+		"purpose": "限制内容宽度并留出两侧空白。 / Constrain content width with inline gutters.",
+		"guide": "默认最大宽度 1200px、居中、两侧 24px 留白；窄父容器保持流式宽度，留白不超过父容器的 10%。 / Defaults to 1200px maximum width, centered, with 24px gutters capped at 10% of the parent width.",
+		"api": "maxWidth?:CSSProperties[\"maxWidth\"] = 1200; gutter?:CSSProperties[\"paddingInline\"] = 24; centered?:boolean = true; as?:\"div\"|\"main\"|\"section\"|\"article\"|\"aside\" = \"div\"; native div props",
+		"a11y": "需要页面主内容地标时 as=\"main\"；不要嵌套 main，section/aside 用标题或 aria-label 命名。 / Use main for the primary landmark without nesting main; name sections and asides appropriately.",
+		"pitfalls": "数字单位为 px，maxWidth 包含左右内边距；不限制高度、不隐藏溢出内容。传 CSS 长度时使用非负值。 / Numbers are pixels and maxWidth includes gutters. Height and overflow are not constrained. Use nonnegative CSS lengths."
 	}
 ]

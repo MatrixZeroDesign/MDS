@@ -55,6 +55,8 @@ test("text, action states and categorical strokes retain contrast in every theme
 						["on-accent", "accent-hover", 4.5],
 						["on-accent", "accent-pressed", 4.5],
 						["focus", "surface", 3],
+						["control-border", "surface", 3],
+						["control-border", "soft", 3],
 					];
 					for (const role of ["success", "warning", "danger", "info"]) pairs.push([role, role + "-bg", 4.5]);
 					for (let i = 1; i <= 6; i++) pairs.push(["data-" + i, "bg", 3]);
@@ -95,4 +97,65 @@ test("text, action states and categorical strokes retain contrast in every theme
 				if (state === "pressed") await page.mouse.up();
 			}
 		}
+});
+
+test("rendered notices, cards, placeholders and control outlines meet contrast thresholds", async ({
+	page,
+}, testInfo) => {
+	await page.goto("/");
+	await page.emulateMedia({ reducedMotion: "reduce" });
+	const report = [];
+	for (const mode of ["light", "dark"]) {
+		await page
+			.locator(".mds-root")
+			.first()
+			.evaluate((el, mode) => el.setAttribute("data-mds-mode", mode), mode);
+		const pairs = await page.evaluate(() => {
+			const luminance = (color: string) => {
+				const c = document.createElement("canvas").getContext("2d")!;
+				c.fillStyle = color;
+				c.fillRect(0, 0, 1, 1);
+				const v = Array.from(c.getImageData(0, 0, 1, 1).data)
+					.slice(0, 3)
+					.map((n) => n / 255)
+					.map((n) => (n <= 0.04045 ? n / 12.92 : ((n + 0.055) / 1.055) ** 2.4));
+				return v[0] * 0.2126 + v[1] * 0.7152 + v[2] * 0.0722;
+			};
+			const ratio = (a: string, b: string) => {
+				const x = luminance(a),
+					y = luminance(b);
+				return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
+			};
+			const results = [];
+			for (const el of document.querySelectorAll(".mds-callout,.mds-banner,.mds-card")) {
+				const c = getComputedStyle(el);
+				results.push({
+					name: el.className + " " + el.getAttribute("data-tone"),
+					ratio: ratio(c.color, c.backgroundColor),
+					minimum: 4.5,
+				});
+			}
+			const description = document.querySelector(".mds-card-description")!;
+			results.push({
+				name: "card description",
+				ratio: ratio(
+					getComputedStyle(description).color,
+					getComputedStyle(description.closest(".mds-card")!).backgroundColor,
+				),
+				minimum: 4.5,
+			});
+			const input = document.querySelector('input.mds-input:not([aria-invalid="true"])')!;
+			const css = getComputedStyle(input);
+			results.push({ name: "input boundary", ratio: ratio(css.borderColor, css.backgroundColor), minimum: 3 });
+			const placeholder = getComputedStyle(input, "::placeholder");
+			results.push({ name: "placeholder", ratio: ratio(placeholder.color, css.backgroundColor), minimum: 4.5 });
+			return results;
+		});
+		for (const pair of pairs) expect(pair.ratio, mode + " " + pair.name).toBeGreaterThanOrEqual(pair.minimum);
+		report.push({ mode, pairs });
+	}
+	await testInfo.attach("actual-component-contrast.json", {
+		body: JSON.stringify(report, null, 2),
+		contentType: "application/json",
+	});
 });

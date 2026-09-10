@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Tabs, TabList, Tab, TabPanel } from "@matrixzero/ui";
+import entries from "../../../docs/content.json";
 import { ComponentDocs } from "./ComponentDocs";
 export function PortalPage({ locale }: { locale: "zh" | "en" }) {
 	const [tab, setTab] = useState(location.hash.includes("/") ? "api" : "start");
@@ -25,8 +26,8 @@ export function PortalPage({ locale }: { locale: "zh" | "en" }) {
 						<h2>{t("可阅读、可复制、可验证的组件文档", "Readable, reusable, verifiable component documentation")}</h2>
 						<p>
 							{t(
-								"38 篇组件指南，完整示例参与 TypeScript 检查。网站与 AI 入口从同一份内容生成。",
-								"38 component guides with type-checked examples. The website and AI entries share one source of truth.",
+								`${entries.length} 篇组件指南，完整示例参与 TypeScript 检查。网站与 AI 入口从同一份内容生成。`,
+								`${entries.length} component guides with type-checked examples. The website and AI entries share one source of truth.`,
 							)}
 						</p>
 						<div className="docs-reference-footer">
@@ -50,8 +51,8 @@ export function PortalPage({ locale }: { locale: "zh" | "en" }) {
 					</p>
 					<pre>
 						<code>
-							npm install --save-exact @matrixzero/ui@0.1.0-alpha.3{String.fromCharCode(10)}npm install --save-exact
-							@matrixzero/charts@0.1.0-alpha.2
+							npm install --save-exact @matrixzero/ui@0.1.0-alpha.4{String.fromCharCode(10)}npm install --save-exact
+							@matrixzero/charts@0.1.0-alpha.3
 						</code>
 					</pre>
 					<h3>{t("私有仓库配置", "Private registry configuration")}</h3>
