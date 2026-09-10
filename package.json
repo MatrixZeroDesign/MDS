@@ -12,7 +12,7 @@
 		"typecheck": "tsc --noEmit -p packages/icons/tsconfig.json && tsc --noEmit -p packages/ui/tsconfig.json && tsc --noEmit -p packages/charts/tsconfig.json && tsc --noEmit -p apps/docs/tsconfig.json",
 		"test": "playwright test",
 		"test:package": "node scripts/package-smoke.mjs",
-		"check": "npm run format:check && npm run typecheck && npm run build && npm test && npm run test:package",
+		"check": "npm run format:check && npm run build && npm run typecheck && npm test && npm run test:package",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"build:packages": "npm run build -w @matrixzero/icons && npm run build -w @matrixzero/ui && npm run build -w @matrixzero/charts"
