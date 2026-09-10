@@ -378,7 +378,8 @@ a {
 .docs-article p {
 	color: var(--mds-muted);
 }
-.docs-main pre {
+.docs-main pre,
+.docs-icon-usage pre {
 	padding: 16px;
 	background: var(--mds-soft);
 	border-radius: 8px;
@@ -388,7 +389,8 @@ a {
 	font: 12px/20px var(--mds-font-mono);
 	overflow: auto;
 }
-.docs-main code {
+.docs-main code,
+.docs-icon-usage code {
 	font-family: var(--mds-font-mono);
 	font-size: 12px;
 }
@@ -472,6 +474,7 @@ a {
 	margin-top: 6px;
 }
 .docs-icon-usage {
+	min-width: 0;
 	margin-top: 24px;
 	padding: 20px;
 	background: var(--mds-bg);
@@ -479,6 +482,7 @@ a {
 	border-radius: 12px;
 }
 .docs-icon-usage pre {
+	max-width: 100%;
 	margin-bottom: 0;
 }
 @media (max-width: 1100px) {
@@ -505,6 +509,7 @@ a {
 	}
 }
 .docs-icon-preview {
+	flex-wrap: wrap;
 	display: flex;
 	align-items: end;
 	justify-content: center;
@@ -520,4 +525,11 @@ a {
 .docs-icon-preview small {
 	font: 11px/18px var(--mds-font-mono);
 	color: var(--mds-muted);
+}
+
+.docs-icon-usage h2 {
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 500;
+	margin: 0;
 }

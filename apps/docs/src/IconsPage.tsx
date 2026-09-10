@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button, Input, Select, SegmentedControl, Dialog, DialogContent } from "@matrixzero/ui";
 import * as Icons from "@matrixzero/icons";
 import { iconCatalog } from "@matrixzero/icons/catalog";
@@ -42,6 +42,7 @@ export function IconsPage({ locale }: { locale: "zh" | "en" }) {
 		" size={" +
 		size +
 		"} />} />";
+	const opener = useRef<HTMLButtonElement | null>(null);
 	const SelectedIcon = Icons[selected];
 	const copy = async () => {
 		try {
@@ -124,7 +125,9 @@ export function IconsPage({ locale }: { locale: "zh" | "en" }) {
 							className="docs-icon-tile"
 							key={name}
 							aria-pressed={selected === name}
-							onClick={() => {
+							aria-haspopup="dialog"
+							onClick={(event) => {
+								opener.current = event.currentTarget;
 								setSelected(name);
 								setCopyStatus("");
 								setDetailOpen(true);
@@ -142,6 +145,10 @@ export function IconsPage({ locale }: { locale: "zh" | "en" }) {
 			<Dialog open={detailOpen} onOpenChange={setDetailOpen}>
 				<DialogContent
 					title={selected}
+					onCloseAutoFocus={(event) => {
+						event.preventDefault();
+						opener.current?.focus();
+					}}
 					description={t("图标预览与 React 用法", "Icon preview and React usage")}
 					closeLabel={t("关闭", "Close")}
 				>

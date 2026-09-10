@@ -24,6 +24,7 @@ test("icon catalog matches all unique drawings and preserves accessibility", () 
 	}
 });
 test("icon search understands Chinese, category filters and keyboard usage dialogs", async ({ page }) => {
+	await page.setViewportSize({ width: 320, height: 900 });
 	await page.goto("/#icons");
 	await expect(page.locator(".docs-icon-tile")).toHaveCount(320);
 	await page.getByRole("textbox", { name: "搜索图标" }).fill("搜索");
@@ -38,7 +39,10 @@ test("icon search understands Chinese, category filters and keyboard usage dialo
 	await page.locator(".docs-icon-tile").first().focus();
 	await page.keyboard.press("Enter");
 	await expect(page.getByRole("dialog")).toBeVisible();
+	expect(await page.getByRole("dialog").evaluate((node) => node.scrollWidth <= node.clientWidth + 1)).toBeTruthy();
 	await expect(page.getByRole("dialog").locator("code")).toContainText("from '@matrixzero/icons'");
+	await page.getByRole("dialog").getByRole("button", { name: "复制用法" }).focus();
 	await page.keyboard.press("Escape");
 	await expect(page.getByRole("dialog")).not.toBeVisible();
+	await expect(page.locator(".docs-icon-tile").first()).toBeFocused();
 });
