@@ -1,6 +1,6 @@
 import { Check, X, Info, AlertCircle } from "@matrixzero/icons";
 import * as Primitive from "@radix-ui/react-toast";
-import { createContext, useCallback, useContext, useLayoutEffect, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { usePortalContainer } from "./theme.js";
@@ -63,6 +63,12 @@ export function Toaster({
 	const container = usePortalContainer();
 	const [hovered, setHovered] = useState(false);
 	const [focused, setFocused] = useState(false);
+	useEffect(() => {
+		if (!entries.length) {
+			setHovered(false);
+			setFocused(false);
+		}
+	}, [entries.length]);
 	const [heights, setHeights] = useState<Record<number, number>>({});
 	const measure = useCallback(
 		(id: number, height: number) =>

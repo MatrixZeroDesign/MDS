@@ -77,3 +77,13 @@ test("toast remains usable on narrow RTL screens with long stacks and reduced mo
 	await page.getByRole("button", { name: "Dismiss notification" }).last().focus();
 	await expect(page.getByRole("button", { name: "Dismiss notification" }).last()).toBeInViewport();
 });
+
+test("closing the final toast resets the next stack to its resting state", async ({ page }) => {
+	await page.goto("/#docs/toast");
+	await page.getByRole("button", { name: "Show toast", exact: true }).click();
+	await page.getByRole("button", { name: "Dismiss notification", exact: true }).click();
+	await page.getByRole("button", { name: "Stack three", exact: true }).click();
+	await page.mouse.move(0, 0);
+	await expect(page.locator(".mds-toaster")).toHaveAttribute("data-expanded", "false");
+	await expect(page.locator(".mds-toast")).toHaveCount(0, { timeout: 6000 });
+});
