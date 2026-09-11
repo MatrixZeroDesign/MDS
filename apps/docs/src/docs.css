@@ -1091,3 +1091,68 @@ a {
 		transition: none;
 	}
 }
+
+.mds-root .docs-component-navigation {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	min-width: 0;
+}
+.mds-root .docs-component-navigation > a {
+	display: flex;
+	align-items: center;
+	min-height: 36px;
+	padding: 8px 12px;
+	border-radius: 8px;
+	text-decoration: none;
+	color: var(--mds-muted);
+	font-size: 13px;
+	white-space: nowrap;
+}
+.mds-root .docs-component-navigation > a:hover {
+	background: var(--mds-soft);
+	color: var(--mds-text);
+}
+.mds-root .docs-component-navigation > a[aria-current="page"] {
+	color: var(--mds-accent);
+	background: var(--mds-tint);
+}
+.mds-root .docs-component-navigation > a:focus-visible {
+	outline: 2px solid var(--mds-accent);
+	outline-offset: -2px;
+}
+.mds-root .docs-component-navigation > .docs-eyebrow {
+	margin: 20px 12px 8px;
+}
+.mds-root .docs-component-initial {
+	display: none;
+}
+.mds-root .docs-nav[data-collapsed] .docs-component-label,
+.mds-root .docs-nav[data-collapsed] .docs-component-search,
+.mds-root .docs-nav[data-collapsed] .docs-component-navigation > p {
+	display: none;
+}
+.mds-root .docs-nav[data-collapsed] .docs-component-initial {
+	display: inline;
+}
+.mds-root .docs-nav[data-collapsed] .docs-component-navigation > a {
+	justify-content: center;
+	padding: 8px 4px;
+}
+.mds-root .docs-reference-single {
+	display: block;
+}
+.mds-root .docs-live-example {
+	margin-block: 28px;
+}
+.mds-root .docs-live-stage {
+	padding: 28px;
+	border: 1px solid var(--mds-border);
+	border-radius: 16px;
+	background: var(--mds-surface);
+	min-width: 0;
+	overflow-x: auto;
+}
+.mds-root .docs-live-stage > * {
+	max-width: 100%;
+}

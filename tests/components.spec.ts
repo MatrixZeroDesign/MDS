@@ -199,7 +199,7 @@ test("navigation rail collapses while keeping accessible item labels", async ({ 
 	const nav = page.getByRole("navigation", { name: "主导航" });
 	await page.getByRole("button", { name: "切换导航宽度" }).click();
 	await expect(nav).toHaveAttribute("data-collapsed", "true");
-	await nav.getByRole("button", { name: "文档指南", exact: true }).click();
+	await nav.getByRole("link", { name: "快速开始", exact: true }).click();
 	await expect(page.getByRole("heading", { name: "文档指南", exact: true })).toBeVisible();
 });
 test("mobile navigation drawer routes and closes", async ({ page }) => {
@@ -249,9 +249,8 @@ test("radio cards select via whole card and preserve disabled state", async ({ p
 test("docs portal supports search, examples and stable URLs", async ({ page }) => {
 	await page.goto("/#docs");
 	await expect(page.getByRole("heading", { name: "文档指南", exact: true })).toBeVisible();
-	await page.getByRole("tab", { name: "组件 API" }).click();
 	await page.getByRole("textbox", { name: "搜索组件文档" }).fill("SideSheet");
-	await page.getByRole("link", { name: "SideSheet ui", exact: true }).click();
+	await page.getByRole("link", { name: "SideSheet", exact: true }).click();
 	await expect(
 		page.getByRole("heading", {
 			name: "SideSheet / SideSheetTrigger / SideSheetContent / SideSheetClose",

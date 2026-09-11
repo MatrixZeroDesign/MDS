@@ -1,25 +1,17 @@
 import { useEffect, useState } from "react";
-import { Tabs, TabList, Tab, TabPanel } from "@matrixzero/ui";
 import entries from "../../../docs/content.json";
 import { ComponentDocs } from "./ComponentDocs";
 export function PortalPage({ locale }: { locale: "zh" | "en" }) {
-	const [tab, setTab] = useState(location.hash.includes("/") ? "api" : "start");
+	const [slug, setSlug] = useState(location.hash.split("/")[1] || "start");
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	useEffect(() => {
-		const sync = () => {
-			if (location.hash.startsWith("#docs/")) setTab("api");
-		};
+		const sync = () => setSlug(location.hash.split("/")[1] || "start");
 		window.addEventListener("hashchange", sync);
 		return () => window.removeEventListener("hashchange", sync);
 	}, []);
 	return (
-		<Tabs value={tab} onValueChange={setTab}>
-			<TabList aria-label={t("文档章节", "Documentation sections")}>
-				<Tab value="start">{t("快速开始", "Getting started")}</Tab>
-				<Tab value="api">{t("组件 API", "Component API")}</Tab>
-				<Tab value="theme">{t("主题与动效", "Themes & motion")}</Tab>
-			</TabList>
-			<TabPanel value="start">
+		<>
+			{slug === "start" && (
 				<article className="docs-article">
 					<section className="docs-ai-entry" aria-label={t("AI 文档入口", "AI documentation entry")}>
 						<p className="docs-eyebrow">FOR PEOPLE & AGENTS</p>
@@ -86,15 +78,13 @@ import '@matrixzero/ui/themes/mt0.css';
 					<p>
 						{t(
 							"“基础与组件”展示真实包组件，“图表”展示可交互数据与数据表。API 页列出常用属性和组合示例，完整类型随包发布。",
-							"Foundations shows real package components. Charts includes interactive examples and data tables. The API tab lists common props and compositions; full TypeScript definitions ship with each package.",
+							"Foundations shows real package components. Charts includes interactive examples and data tables. Each component page lists common props and compositions; full TypeScript definitions ship with each package.",
 						)}
 					</p>
 				</article>
-			</TabPanel>
-			<TabPanel value="api">
-				<ComponentDocs locale={locale} />
-			</TabPanel>
-			<TabPanel value="theme">
+			)}
+			{slug !== "start" && slug !== "theme-motion" && <ComponentDocs locale={locale} />}
+			{slug === "theme-motion" && (
 				<article className="docs-article">
 					<h2>{t("主题隔离与品牌契约", "Theme isolation and brand contract")}</h2>
 					<p>
@@ -132,7 +122,7 @@ import '@matrixzero/ui/themes/mt0.css';
 						)}
 					</p>
 				</article>
-			</TabPanel>
-		</Tabs>
+			)}
+		</>
 	);
 }

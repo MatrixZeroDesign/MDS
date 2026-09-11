@@ -1,3 +1,4 @@
+import { ComponentNavigation } from "./ComponentNavigation";
 import { AtmosphereShowcase } from "./AtmosphereShowcase";
 import { ColorTokens } from "./ColorTokens";
 import { lazy, Suspense, useEffect, useState } from "react";
@@ -133,7 +134,7 @@ function App() {
 				: page;
 	const primaryItems = [
 		["home", t("首页", "Home"), "home"],
-		["system", t("组件", "Components"), "components"],
+		["docs", t("组件", "Components"), "components"],
 		["icons", t("图标", "Icons"), "icons"],
 		["charts", t("图表", "Charts"), "charts"],
 		["showcase", t("应用示例", "Showcase"), "showcase"],
@@ -328,19 +329,23 @@ function App() {
 									<p className="docs-eyebrow">
 										{area === "components" ? t("组件导航", "Component navigation") : t("应用示例", "Showcase")}
 									</p>
-									{secondaryItems.map(([id, label]) => (
-										<NavItem
-											key={id}
-											active={page === id}
-											icon={navIcon(id)}
-											onClick={() => {
-												setPage(id);
-												setDrawerOpen(false);
-											}}
-										>
-											{label}
-										</NavItem>
-									))}
+									{area === "components" ? (
+										<ComponentNavigation locale={locale} onNavigate={() => setDrawerOpen(false)} />
+									) : (
+										secondaryItems.map(([id, label]) => (
+											<NavItem
+												key={id}
+												active={page === id}
+												icon={navIcon(id)}
+												onClick={() => {
+													setPage(id);
+													setDrawerOpen(false);
+												}}
+											>
+												{label}
+											</NavItem>
+										))
+									)}
 								</div>
 							)}
 						</NavDrawerContent>
@@ -393,19 +398,23 @@ function App() {
 								/>
 							</div>
 							<div id="docs-navigation-items" className="docs-nav-items">
-								{secondaryItems.map(([id, label]) => (
-									<NavItem
-										key={id}
-										active={page === id}
-										icon={navIcon(id)}
-										onClick={() => {
-											setPage(id);
-											setNotice("");
-										}}
-									>
-										{label}
-									</NavItem>
-								))}
+								{area === "components" ? (
+									<ComponentNavigation locale={locale} />
+								) : (
+									secondaryItems.map(([id, label]) => (
+										<NavItem
+											key={id}
+											active={page === id}
+											icon={navIcon(id)}
+											onClick={() => {
+												setPage(id);
+												setNotice("");
+											}}
+										>
+											{label}
+										</NavItem>
+									))
+								)}
 							</div>
 						</NavRail>
 					)}

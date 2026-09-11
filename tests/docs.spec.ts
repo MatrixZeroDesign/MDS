@@ -31,12 +31,12 @@ test("component guides retain deep links, keyboard navigation and readable mobil
 	await expect(
 		page.getByRole("heading", { name: "Dialog / DialogTrigger / DialogContent / DialogClose", exact: true }),
 	).toBeVisible();
-	await expect(page.getByRole("tab", { name: "组件 API" })).toHaveAttribute("aria-selected", "true");
+	await expect(page.getByRole("region", { name: "交互示例" })).toBeVisible();
 	await expect(page.getByRole("link", { name: "Markdown ↗", exact: true })).toHaveAttribute(
 		"href",
 		"./docs/components/dialog.md",
 	);
-	await page.getByRole("link", { name: "Select ui", exact: true }).click();
+	await page.getByRole("link", { name: "Select", exact: true }).click();
 	await expect(page).toHaveURL(/#docs\/select$/);
 	await page.reload();
 	await expect(page.getByRole("heading", { name: "Select", exact: true })).toBeVisible();

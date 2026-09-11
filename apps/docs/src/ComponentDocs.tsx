@@ -1,12 +1,17 @@
-import { useEffect, useState } from "react";
-import { Button, Input } from "@matrixzero/ui";
+import { lazy, Suspense, useEffect, useState } from "react";
+import { Button } from "@matrixzero/ui";
 import entries from "../../../docs/content.json";
 const examples = import.meta.glob("./examples/*.tsx", { query: "?raw", import: "default", eager: true }) as Record<
 	string,
 	string
 >;
+const previews = Object.fromEntries(
+	Object.entries(import.meta.glob<{ default: React.ComponentType }>("./examples/*.tsx")).map(([path, load]) => [
+		path,
+		lazy(load),
+	]),
+);
 export function ComponentDocs({ locale }: { locale: "zh" | "en" }) {
-	const [query, setQuery] = useState("");
 	const [selected, setSelected] = useState(() => location.hash.split("/")[1] || "");
 	const [status, setStatus] = useState("");
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
@@ -19,32 +24,10 @@ export function ComponentDocs({ locale }: { locale: "zh" | "en" }) {
 		return () => window.removeEventListener("hashchange", sync);
 	}, []);
 	const entry = entries.find((e) => e.slug === selected);
-	const filtered = entries.filter((e) =>
-		[e.slug, ...e.names, e.purpose, e.guide].join(" ").toLowerCase().includes(query.toLowerCase()),
-	);
+	const Preview = entry ? previews[`./examples/${entry.slug}.tsx`] : undefined;
 	const code = entry ? examples[`./examples/${entry.slug}.tsx`] : "";
 	return (
-		<div className="docs-reference">
-			<aside className="docs-reference-index" aria-label={t("组件目录", "Component index")}>
-				<Input
-					aria-label={t("搜索组件文档", "Search component documentation")}
-					placeholder={t("搜索组件或用途…", "Search components or purpose…")}
-					value={query}
-					onChange={(e) => setQuery(e.target.value)}
-				/>
-				<p className="docs-muted">
-					{filtered.length} / {entries.length} {t("篇使用指南", "usage guides")}
-				</p>
-				<nav aria-label={t("使用指南", "Usage guides")}>
-					{filtered.map((e) => (
-						<a key={e.slug} href={`#docs/${e.slug}`} aria-current={selected === e.slug ? "page" : undefined}>
-							{e.slug === "icons" ? "Icons" : e.names[0]}
-							<span>{e.package}</span>
-						</a>
-					))}
-				</nav>
-				{!filtered.length && <p>{t("没有匹配的组件", "No matching components")}</p>}
-			</aside>
+		<div className="docs-reference docs-reference-single">
 			{entry ? (
 				<article className="docs-article docs-reference-detail" key={entry.slug}>
 					<div className="docs-row">
@@ -53,6 +36,14 @@ export function ComponentDocs({ locale }: { locale: "zh" | "en" }) {
 					</div>
 					<h2>{entry.slug === "icons" ? "Icons" : entry.names.join(" / ")}</h2>
 					<p>{entry.purpose}</p>
+					<section aria-label={t("交互示例", "Interactive example")} className="docs-live-example">
+						<h3>{t("示例", "Example")}</h3>
+						<div className="docs-live-stage">
+							<Suspense fallback={<p role="status">{t("加载示例…", "Loading example…")}</p>}>
+								{Preview && <Preview />}
+							</Suspense>
+						</div>
+					</section>
 					<h3>{t("使用指南", "Guide")}</h3>
 					<p>{entry.guide}</p>
 					<h3>API</h3>
@@ -112,7 +103,7 @@ export function ComponentDocs({ locale }: { locale: "zh" | "en" }) {
 						)}
 					</p>
 					<div className="docs-guide-grid">
-						{filtered.map((e) => (
+						{entries.map((e) => (
 							<a className="docs-guide-card" key={e.slug} href={`#docs/${e.slug}`}>
 								<h3>{e.slug === "icons" ? "Icons" : e.names[0]}</h3>
 								<p>{e.purpose}</p>
