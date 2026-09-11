@@ -1,19 +1,20 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Button } from "@matrixzero/ui";
-export default function Example() {
+export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<Card>
 			<CardHeader>
-				<CardTitle>工作区 Workspace</CardTitle>
-				<CardDescription>应用与用量 Applications and usage</CardDescription>
+				<CardTitle>{t("工作区", "Workspace")}</CardTitle>
+				<CardDescription>{t("应用与用量", "Applications and usage")}</CardDescription>
 			</CardHeader>
-			<CardContent>3 个应用已连接。3 applications connected.</CardContent>
+			<CardContent>{t("3 个应用已连接。", "3 applications connected.")}</CardContent>
 			<CardFooter>
 				<Button
 					onClick={() => {
 						window.location.hash = "overview";
 					}}
 				>
-					查看概览 View overview
+					{t("查看概览", "View overview")}
 				</Button>
 			</CardFooter>
 		</Card>

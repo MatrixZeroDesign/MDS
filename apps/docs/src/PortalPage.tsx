@@ -43,7 +43,7 @@ export function PortalPage({ locale }: { locale: "zh" | "en" }) {
 					</p>
 					<pre>
 						<code>
-							npm install --save-exact @matrixzero/ui@0.1.0-alpha.5{String.fromCharCode(10)}npm install --save-exact
+							npm install --save-exact @matrixzero/ui@0.1.0-alpha.6{String.fromCharCode(10)}npm install --save-exact
 							@matrixzero/charts@0.1.0-alpha.3
 						</code>
 					</pre>

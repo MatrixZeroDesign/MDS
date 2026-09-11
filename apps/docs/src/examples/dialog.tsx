@@ -1,17 +1,22 @@
 import { Dialog, DialogTrigger, DialogContent, DialogClose, Button, Field, Input } from "@matrixzero/ui";
 
-export default function Example() {
+export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<Dialog>
 			<DialogTrigger asChild>
-				<Button>编辑 Edit</Button>
+				<Button>{t("编辑", "Edit")}</Button>
 			</DialogTrigger>
-			<DialogContent title="编辑 Edit" description="更新显示名称 / Update your display name" closeLabel="关闭 Close">
-				<Field label="名称 Name">
+			<DialogContent
+				title={t("编辑", "Edit")}
+				description={t("更新显示名称", "Update your display name")}
+				closeLabel={t("关闭", "Close")}
+			>
+				<Field label={t("名称", "Name")}>
 					<Input defaultValue="Matrix" />
 				</Field>
 				<DialogClose asChild>
-					<Button>完成 Done</Button>
+					<Button>{t("完成", "Done")}</Button>
 				</DialogClose>
 			</DialogContent>
 		</Dialog>

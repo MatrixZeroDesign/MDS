@@ -7,7 +7,7 @@
 		"build": "node ../../scripts/build-docs.mjs && vite build"
 	},
 	"dependencies": {
-		"@matrixzero/ui": "0.1.0-alpha.5",
+		"@matrixzero/ui": "0.1.0-alpha.6",
 		"react": "19.2.3",
 		"react-dom": "19.2.3",
 		"@matrixzero/charts": "0.1.0-alpha.3",

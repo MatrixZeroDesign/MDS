@@ -1,15 +1,16 @@
 import { NativeSelect, Field, Button } from "@matrixzero/ui";
 
-export default function Example() {
+export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<form>
-			<Field label="地区 Region">
+			<Field label={t("地区", "Region")}>
 				<NativeSelect name="region" defaultValue="asia">
-					<option value="asia">亚洲 Asia</option>
-					<option value="europe">欧洲 Europe</option>
+					<option value="asia">{t("亚洲", "Asia")}</option>
+					<option value="europe">{t("欧洲", "Europe")}</option>
 				</NativeSelect>
 			</Field>
-			<Button type="reset">重置 Reset</Button>
+			<Button type="reset">{t("重置", "Reset")}</Button>
 		</form>
 	);
 }

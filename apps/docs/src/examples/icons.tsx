@@ -1,5 +1,6 @@
 import { Search } from "@matrixzero/icons";
 
-export default function Example() {
-	return <Search size={20} aria-label="搜索 Search" />;
+export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+	return <Search size={20} aria-label={t("搜索", "Search")} />;
 }

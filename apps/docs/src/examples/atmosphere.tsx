@@ -1,5 +1,6 @@
 import { Atmosphere, Container, Button } from "@matrixzero/ui";
-export default function Example() {
+export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<Atmosphere
 			tone="iris"
@@ -8,8 +9,8 @@ export default function Example() {
 			style={{ padding: "64px 24px 40px", textAlign: "center" }}
 		>
 			<Container maxWidth={560}>
-				<h2 id="welcome-title">让想法，自然发生。Make room for what’s next.</h2>
-				<p>柔和的色彩，清晰的表达。Soft color, clear intentions.</p>
+				<h2 id="welcome-title">{t("让想法，自然发生。", "Make room for what’s next.")}</h2>
+				<p>{t("柔和的色彩，清晰的表达。", "Soft color, clear intentions.")}</p>
 				<Button
 					variant="contrast"
 					shape="pill"
@@ -17,7 +18,7 @@ export default function Example() {
 						window.location.hash = "system";
 					}}
 				>
-					探索组件 Explore components
+					{t("探索组件", "Explore components")}
 				</Button>
 			</Container>
 		</Atmosphere>

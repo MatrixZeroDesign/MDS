@@ -1,18 +1,19 @@
 import { Select, Field, Button } from "@matrixzero/ui";
-export default function Example() {
+export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<form>
-			<Field label="地区 Region" required>
+			<Field label={t("地区", "Region")} required>
 				<Select
 					name="region"
 					defaultValue="asia"
 					options={[
-						{ value: "asia", label: "亚洲 Asia" },
-						{ value: "europe", label: "欧洲 Europe" },
+						{ value: "asia", label: t("亚洲", "Asia") },
+						{ value: "europe", label: t("欧洲", "Europe") },
 					]}
 				/>
 			</Field>
-			<Button type="reset">重置 Reset</Button>
+			<Button type="reset">{t("重置", "Reset")}</Button>
 		</form>
 	);
 }

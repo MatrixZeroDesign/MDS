@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Field, Slider } from "@matrixzero/ui";
 
-export default function Example() {
+export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	const [volume, setVolume] = useState(50);
 	return (
-		<Field label={`音量 Volume: ${volume}%`}>
+		<Field label={`${t("音量", "Volume")}: ${volume}%`}>
 			<Slider
 				min={0}
 				max={100}

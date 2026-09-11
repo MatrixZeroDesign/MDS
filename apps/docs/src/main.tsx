@@ -145,12 +145,14 @@ function App() {
 					["system", t("基础与组件", "Foundations & components")],
 					["docs", t("文档指南", "Documentation")],
 				]
-			: area === "showcase"
-				? [
-						["overview", t("运行概览", "Overview")],
-						["policy", t("策略工作台", "Policy workspace")],
-					]
-				: [];
+			: area === "charts"
+				? [["charts", t("图表总览", "Chart overview")]]
+				: area === "showcase"
+					? [
+							["overview", t("运行概览", "Overview")],
+							["policy", t("策略工作台", "Policy workspace")],
+						]
+					: [];
 	const navIcon = (id: string) =>
 		id === "system" ? (
 			<Blocks />
@@ -179,7 +181,7 @@ function App() {
 		[policyInjection, setPolicyInjection] = useState(true),
 		[policySensitive, setPolicySensitive] = useState(true),
 		[savedPolicy, setSavedPolicy] = useState({ scope: "all", injection: true, sensitive: true });
-	const [name, setName] = useState("默认防护 · Default protection"),
+	const [name, setName] = useState(t("默认防护", "Default protection")),
 		[saved, setSaved] = useState(name),
 		[createOpen, setCreateOpen] = useState(false),
 		[newName, setNewName] = useState(""),
@@ -219,17 +221,17 @@ function App() {
 		{ value: "knowledge", label: t("知识检索", "Knowledge search") },
 	];
 	const apps = [
-		["CS", "Customer support"],
-		["KB", "知识检索 · Knowledge"],
-		["CA", "Code assistant"],
-		["AN", "Analytics"],
-		["TR", "Translator"],
-		["RS", "Research"],
+		["CS", t("客户支持", "Customer support")],
+		["KB", t("知识检索", "Knowledge")],
+		["CA", t("代码助手", "Code assistant")],
+		["AN", t("数据分析", "Analytics")],
+		["TR", t("翻译助手", "Translator")],
+		["RS", t("研究助手", "Research")],
 	];
 	const requests = [
-		["对话服务 · Chat", "req_8f2a91", "chat-pro", "success", "248 ms"],
-		["知识检索 · Knowledge", "req_7b4c20", "embed-large", "success", "82 ms"],
-		["代码助手 · Code", "req_9d1e34", "code-pro", "danger", "36 ms"],
+		[t("对话服务", "Chat"), "req_8f2a91", "chat-pro", "success", "248 ms"],
+		[t("知识检索", "Knowledge"), "req_7b4c20", "embed-large", "success", "82 ms"],
+		[t("代码助手", "Code"), "req_9d1e34", "code-pro", "danger", "36 ms"],
 	];
 	const section = (title: string, sub: string, children: React.ReactNode) => (
 		<section className="docs-card">
@@ -327,10 +329,19 @@ function App() {
 							{secondaryItems.length > 0 && (
 								<div className="docs-drawer-secondary">
 									<p className="docs-eyebrow">
-										{area === "components" ? t("组件导航", "Component navigation") : t("应用示例", "Showcase")}
+										{area === "components"
+											? t("组件导航", "Component navigation")
+											: area === "charts"
+												? t("图表导航", "Chart navigation")
+												: t("应用示例", "Showcase")}
 									</p>
-									{area === "components" ? (
-										<ComponentNavigation locale={locale} onNavigate={() => setDrawerOpen(false)} />
+									{area === "components" || area === "charts" ? (
+										<ComponentNavigation
+											key={area}
+											kind={area === "charts" ? "charts" : "ui"}
+											locale={locale}
+											onNavigate={() => setDrawerOpen(false)}
+										/>
 									) : (
 										secondaryItems.map(([id, label]) => (
 											<NavItem
@@ -386,7 +397,7 @@ function App() {
 					{secondaryItems.length > 0 && (
 						<NavRail className="docs-nav" label={t("主导航", "Main navigation")} collapsed={railCollapsed}>
 							<div className="docs-nav-header">
-								<small>{area === "components" ? "COMPONENTS" : "SHOWCASE"}</small>
+								<small>{area === "components" ? "COMPONENTS" : area === "charts" ? "CHARTS" : "SHOWCASE"}</small>
 								<IconButton
 									variant="ghost"
 									label={t("切换导航宽度", "Toggle navigation width")}
@@ -398,8 +409,8 @@ function App() {
 								/>
 							</div>
 							<div id="docs-navigation-items" className="docs-nav-items">
-								{area === "components" ? (
-									<ComponentNavigation locale={locale} />
+								{area === "components" || area === "charts" ? (
+									<ComponentNavigation key={area} kind={area === "charts" ? "charts" : "ui"} locale={locale} />
 								) : (
 									secondaryItems.map(([id, label]) => (
 										<NavItem
@@ -541,19 +552,23 @@ function App() {
 										/>
 									</div>
 									<div className="docs-type-grid">
-										<div lang="zh-CN">
-											<small>中文 · 简体</small>
-											<h3>让每一次调用，清晰可见。</h3>
-											<p>查看调用记录、配置防护策略，随时掌握服务状态。</p>
-										</div>
-										<div lang="en">
-											<small>English · Latin</small>
-											<h3>Clarity in every request.</h3>
-											<p>Review activity, configure safeguards, and stay in control.</p>
-										</div>
+										{locale === "zh" && (
+											<div lang="zh-CN">
+												<small>中文 · 简体</small>
+												<h3>让每一次调用，清晰可见。</h3>
+												<p>查看调用记录、配置防护策略，随时掌握服务状态。</p>
+											</div>
+										)}
+										{locale === "en" && (
+											<div lang="en">
+												<small>English · Latin</small>
+												<h3>Clarity in every request.</h3>
+												<p>Review activity, configure safeguards, and stay in control.</p>
+											</div>
+										)}
 									</div>
 									<div className="docs-numerals">
-										1,284.06 <small>ms · P95 延迟 / Latency</small>
+										1,284.06 <small>{t("ms · P95 延迟", "ms · P95 latency")}</small>
 									</div>
 								</section>
 								<ColorTokens locale={locale} mode={mode} />
@@ -656,7 +671,7 @@ function App() {
 											>
 												<div className="docs-stack">
 													<Field label={t("策略名称", "Policy name")}>
-														<Input defaultValue="标准防护 · Standard protection" />
+														<Input defaultValue={t("标准防护", "Standard protection")} />
 													</Field>
 													<ChoiceMenu
 														label={t("面板应用范围", "Sheet applications")}
@@ -720,7 +735,7 @@ function App() {
 												<Button size="sm" onClick={() => setNotice("Small action")}>
 													Small
 												</Button>
-												<Button onClick={() => setNotice("Default action")}>Default</Button>
+												<Button onClick={() => setNotice("Default action")}>{t("默认", "Default")}</Button>
 												<Button size="lg" onClick={() => setNotice("Large action")}>
 													Large
 												</Button>
@@ -732,7 +747,7 @@ function App() {
 												<Badge tone="success">✓ {t("正常", "Healthy")}</Badge>
 												<Badge tone="warning">{t("待审查", "Review")}</Badge>
 												<Badge tone="danger">× {t("已拦截", "Blocked")}</Badge>
-												<Badge>Draft</Badge>
+												<Badge>{t("草稿", "Draft")}</Badge>
 											</div>
 										</>,
 									)}
@@ -744,7 +759,7 @@ function App() {
 												label={t("工作区名称", "Workspace name")}
 												description={t("中英文使用同一套垂直节奏。", "A shared vertical rhythm across languages.")}
 											>
-												<Input defaultValue="研发团队 · Engineering" />
+												<Input defaultValue={t("研发团队", "Engineering")} />
 											</Field>
 											<Field
 												label={t("端点地址", "Endpoint URL")}
@@ -770,7 +785,7 @@ function App() {
 											<div className="docs-setting">
 												<label htmlFor="auto">
 													{t("自动防护", "Automatic protection")}
-													<small>Automatically protect new applications</small>
+													<small>{t("自动保护新应用", "Automatically protect new applications")}</small>
 												</label>
 												<Switch id="auto" checked={protect} onCheckedChange={setProtect} />
 											</div>
@@ -893,11 +908,11 @@ function App() {
 															max={3}
 															overflowLabel={(count) => t(`还有 ${count} 位成员`, `${count} more members`)}
 															members={[
-																{ name: "陈晨 Chen Chen", fallback: "陈" },
+																{ name: t("陈晨", "Chen Chen"), fallback: t("陈", "CC") },
 																{ name: "Alex Morgan", fallback: "AM" },
-																{ name: "林雨 Lin Yu", fallback: "林" },
+																{ name: t("林雨", "Lin Yu"), fallback: t("林", "LY") },
 																{ name: "Sam Lee", fallback: "SL" },
-																{ name: "周宁 Zhou Ning", fallback: "周" },
+																{ name: t("周宁", "Zhou Ning"), fallback: t("周", "ZN") },
 																{ name: "Taylor Kim", fallback: "TK" },
 															]}
 														/>
@@ -910,13 +925,17 @@ function App() {
 														key={title}
 														leading={<Avatar alt={title} fallback={initial} />}
 														trailing={
-															<Button variant="ghost" aria-label={`Open ${title}`} onClick={() => setNotice(title)}>
+															<Button
+																variant="ghost"
+																aria-label={t(`打开${title}`, `Open ${title}`)}
+																onClick={() => setNotice(title)}
+															>
 																<ArrowUpRight size={14} />
 															</Button>
 														}
 													>
 														{title}
-														<span className="mds-description">Workspace application</span>
+														<span className="mds-description">{t("工作区应用", "Workspace application")}</span>
 													</ListItem>
 												))}
 											</List>
@@ -950,8 +969,10 @@ function App() {
 														</AccordionContent>
 													</AccordionItem>
 													<AccordionItem value="two">
-														<AccordionTrigger>Can I change this later?</AccordionTrigger>
-														<AccordionContent>Yes. Changes apply to new requests.</AccordionContent>
+														<AccordionTrigger>{t("之后可以更改吗？", "Can I change this later?")}</AccordionTrigger>
+														<AccordionContent>
+															{t("可以，更改将应用于新请求。", "Yes. Changes apply to new requests.")}
+														</AccordionContent>
 													</AccordionItem>
 												</Accordion>
 											</TabPanel>

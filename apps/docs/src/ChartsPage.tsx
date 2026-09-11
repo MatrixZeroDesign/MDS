@@ -1,8 +1,50 @@
-import { useState } from "react";
+import { ComponentDocs } from "./ComponentDocs";
+import { useState, useEffect, type ReactElement } from "react";
 import { LineChart, AreaChart, BarChart, DonutChart } from "@matrixzero/charts";
-import { SegmentedControl } from "@matrixzero/ui";
+import { Button, SegmentedControl } from "@matrixzero/ui";
 import "@matrixzero/charts/styles.css";
+function ChartExample({ kind, children, locale }: { kind: string; children: ReactElement; locale: "zh" | "en" }) {
+	const [status, setStatus] = useState("");
+	const code = `import { ${kind} } from '@matrixzero/charts';
+import '@matrixzero/charts/styles.css';
+
+export default function Example() {
+  return <${kind} {...${JSON.stringify(children.props, null, 2)}} />;
+}`;
+	return (
+		<section className="docs-card">
+			{children}
+			<a href={`#charts/${kind.replace("Chart", "").toLowerCase()}-chart`}>Chart API →</a>
+			<details className="docs-code">
+				<summary>{locale === "zh" ? "样例代码" : "Example code"}</summary>
+				<Button
+					size="sm"
+					onClick={async () => {
+						try {
+							await navigator.clipboard.writeText(code);
+							setStatus(locale === "zh" ? "已复制" : "Copied");
+						} catch {
+							setStatus(locale === "zh" ? "请手动复制代码" : "Please copy the code manually");
+						}
+					}}
+				>
+					{locale === "zh" ? "复制代码" : "Copy code"}
+				</Button>
+				<pre>
+					<code>{code}</code>
+				</pre>
+				<p role="status">{status}</p>
+			</details>
+		</section>
+	);
+}
 export function ChartsPage({ locale }: { locale: "zh" | "en" }) {
+	const [detail, setDetail] = useState(location.hash.split("/")[1]);
+	useEffect(() => {
+		const sync = () => setDetail(location.hash.split("/")[1]);
+		window.addEventListener("hashchange", sync);
+		return () => window.removeEventListener("hashchange", sync);
+	}, []);
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en),
 		[range, setRange] = useState("week");
 	const values = range === "week" ? [1240, 1830, 1520, 2210, 1940, 2480, 2120] : [540, 760, 910, 880, 1160, 1450, 1240];
@@ -23,6 +65,7 @@ export function ChartsPage({ locale }: { locale: "zh" | "en" }) {
 		empty: t("暂无数据", "No data"),
 		value: t("请求量", "Requests"),
 	};
+	if (detail) return <ComponentDocs locale={locale} />;
 	return (
 		<>
 			<div className="docs-row">
@@ -43,7 +86,7 @@ export function ChartsPage({ locale }: { locale: "zh" | "en" }) {
 				/>
 			</div>
 			<div className="docs-grid" style={{ marginTop: 24 }}>
-				<section className="docs-card">
+				<ChartExample kind="LineChart" locale={locale}>
 					<LineChart
 						title={t("调用趋势 · 折线图", "Request trend · Line")}
 						description={t("请求 / 时间", "Requests over time")}
@@ -52,8 +95,8 @@ export function ChartsPage({ locale }: { locale: "zh" | "en" }) {
 						locale={locale}
 						labels={labels}
 					/>
-				</section>
-				<section className="docs-card">
+				</ChartExample>
+				<ChartExample kind="AreaChart" locale={locale}>
 					<AreaChart
 						title={t("请求总量 · 面积图", "Request volume · Area")}
 						data={data}
@@ -61,8 +104,8 @@ export function ChartsPage({ locale }: { locale: "zh" | "en" }) {
 						locale={locale}
 						labels={labels}
 					/>
-				</section>
-				<section className="docs-card">
+				</ChartExample>
+				<ChartExample kind="BarChart" locale={locale}>
 					<BarChart
 						title={t("每日比较 · 柱状图", "Daily comparison · Bar")}
 						data={data}
@@ -70,8 +113,8 @@ export function ChartsPage({ locale }: { locale: "zh" | "en" }) {
 						locale={locale}
 						labels={labels}
 					/>
-				</section>
-				<section className="docs-card">
+				</ChartExample>
+				<ChartExample kind="DonutChart" locale={locale}>
 					<DonutChart
 						title={t("应用占比 · 环形图", "Application mix · Donut")}
 						data={[
@@ -82,8 +125,8 @@ export function ChartsPage({ locale }: { locale: "zh" | "en" }) {
 						locale={locale}
 						labels={labels}
 					/>
-				</section>
-				<section className="docs-card">
+				</ChartExample>
+				<ChartExample kind="BarChart" locale={locale}>
 					<BarChart
 						title={t("堆叠比较", "Stacked comparison")}
 						stacked
@@ -92,8 +135,8 @@ export function ChartsPage({ locale }: { locale: "zh" | "en" }) {
 						locale={locale}
 						labels={labels}
 					/>
-				</section>
-				<section className="docs-card">
+				</ChartExample>
+				<ChartExample kind="BarChart" locale={locale}>
 					<BarChart
 						title={t("正负值与缺失数据", "Positive, negative and missing values")}
 						stacked
@@ -106,8 +149,8 @@ export function ChartsPage({ locale }: { locale: "zh" | "en" }) {
 						locale={locale}
 						labels={labels}
 					/>
-				</section>
-				<section className="docs-card">
+				</ChartExample>
+				<ChartExample kind="LineChart" locale={locale}>
 					<LineChart
 						title={t("空数据状态", "Empty data state")}
 						data={[]}
@@ -115,21 +158,8 @@ export function ChartsPage({ locale }: { locale: "zh" | "en" }) {
 						locale={locale}
 						labels={labels}
 					/>
-				</section>
+				</ChartExample>
 			</div>
-			<details className="docs-code">
-				<summary>{t("代码示例", "Code example")}</summary>
-				<pre>
-					<code>{`import { LineChart } from '@matrixzero/charts';
-import '@matrixzero/charts/styles.css';
-
-<LineChart
-  title="Requests"
-  data={[{ label: 'Mon', requests: 1240 }]}
-  series={[{ key: 'requests', label: 'Requests' }]}
-/>`}</code>
-				</pre>
-			</details>
 		</>
 	);
 }

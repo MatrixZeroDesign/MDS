@@ -1,13 +1,14 @@
 import { Table } from "@matrixzero/ui";
 
-export default function Example() {
+export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<Table>
-			<caption>最近请求 Recent requests</caption>
+			<caption>{t("最近请求", "Recent requests")}</caption>
 			<thead>
 				<tr>
-					<th scope="col">模型 Model</th>
-					<th scope="col">请求 Requests</th>
+					<th scope="col">{t("模型", "Model")}</th>
+					<th scope="col">{t("请求", "Requests")}</th>
 				</tr>
 			</thead>
 			<tbody>

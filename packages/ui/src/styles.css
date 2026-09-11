@@ -1296,9 +1296,12 @@
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	gap: 12px;
-	padding: 14px 18px;
-	border-radius: 10px;
+	gap: 8px 12px;
+	padding: 8px 20px;
+	border-radius: 0;
+	min-height: 44px;
+	width: 100%;
+	box-sizing: border-box;
 }
 .mds-root .mds-banner[data-tone="neutral"] {
 	color: var(--mds-text);
@@ -1311,7 +1314,8 @@
 	overflow-wrap: anywhere;
 }
 .mds-root .mds-banner-copy strong {
-	display: block;
+	display: inline;
+	margin-inline-end: 8px;
 	font-weight: 600;
 }
 .mds-root .mds-banner-action {
@@ -1517,4 +1521,12 @@
 .mds-root .mds-avatar-overflow[data-size="lg"] {
 	width: auto;
 	min-width: 40px;
+}
+
+.mds-root .mds-banner-copy > div {
+	display: inline;
+}
+.mds-root .mds-banner-copy {
+	font-size: 13px;
+	line-height: 1.5;
 }

@@ -1156,3 +1156,76 @@ a {
 .mds-root .docs-live-stage > * {
 	max-width: 100%;
 }
+
+/* Shared documentation rhythm: prose, preview, code and reference. */
+.mds-root .docs-article {
+	width: 100%;
+	max-width: 840px;
+	font-size: 14px;
+	line-height: 1.75;
+}
+.mds-root .docs-article > h2 {
+	margin: 32px 0 12px;
+}
+.mds-root .docs-article > h3 {
+	margin: 32px 0 12px;
+	line-height: 1.4;
+}
+.mds-root .docs-article > p {
+	margin: 0 0 16px;
+	line-height: 1.75;
+}
+.mds-root .docs-reference-detail > .docs-row:first-child {
+	margin-bottom: 12px;
+}
+.mds-root .docs-reference-detail > h2 {
+	margin: 0 0 12px;
+}
+.mds-root .docs-live-example {
+	margin: 28px 0 32px;
+}
+.mds-root .docs-live-example > h3 {
+	margin: 0 0 12px;
+}
+.mds-root .docs-live-stage {
+	padding: 24px;
+}
+.mds-root .docs-article > .docs-row {
+	gap: 16px;
+	margin: 32px 0 12px;
+	align-items: center;
+}
+.mds-root .docs-article > .docs-row > h3,
+.mds-root .docs-article > .docs-row > p {
+	margin: 0;
+}
+.mds-root .docs-article pre {
+	margin: 16px 0 24px;
+	padding: 20px;
+	line-height: 1.7;
+}
+.mds-root .docs-article > [role="status"]:empty {
+	display: none;
+}
+.mds-root .docs-reference-footer {
+	margin-top: 32px;
+	padding-top: 20px;
+}
+.mds-root .docs-type-grid > div:only-child {
+	grid-column: 1 / -1;
+}
+@media (max-width: 600px) {
+	.mds-root .docs-live-stage {
+		padding: 16px;
+	}
+	.mds-root .docs-article pre {
+		padding: 16px;
+	}
+	.mds-root .docs-article > h3 {
+		margin-top: 24px;
+	}
+	.mds-root .docs-article > .docs-row {
+		gap: 12px;
+		flex-wrap: wrap;
+	}
+}

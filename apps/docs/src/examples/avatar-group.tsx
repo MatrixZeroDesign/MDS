@@ -1,16 +1,17 @@
 import { AvatarGroup } from "@matrixzero/ui";
 
-export default function Example() {
+export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<AvatarGroup
-			label="项目成员 Project members"
+			label={t("项目成员", "Project members")}
 			max={3}
 			size="md"
-			overflowLabel={(count) => `还有 ${count} 位成员 / ${count} more members`}
+			overflowLabel={(count) => t(`还有 ${count} 位成员`, `${count} more members`)}
 			members={[
-				{ name: "陈晨 Chen Chen", fallback: "陈" },
+				{ name: t("陈晨", "Chen Chen"), fallback: t("陈", "CC") },
 				{ name: "Alex Morgan", fallback: "AM" },
-				{ name: "林雨 Lin Yu", fallback: "林" },
+				{ name: t("林雨", "Lin Yu"), fallback: t("林", "LY") },
 				{ name: "Sam Lee", fallback: "SL" },
 				{ name: "Taylor Kim", fallback: "TK" },
 			]}

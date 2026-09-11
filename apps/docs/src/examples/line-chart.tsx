@@ -1,21 +1,22 @@
 import { LineChart } from "@matrixzero/charts";
 
-export default function Example() {
+export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<LineChart
-			title="请求量 Requests"
-			locale="zh-CN"
+			title={t("请求量", "Requests")}
+			locale={locale === "zh" ? "zh-CN" : "en"}
 			data={[
 				{ label: "Mon", requests: 120 },
 				{ label: "Tue", requests: null },
 				{ label: "Wed", requests: 180 },
 			]}
-			series={[{ key: "requests", label: "请求 Requests" }]}
+			series={[{ key: "requests", label: t("请求", "Requests") }]}
 			labels={{
-				dataTable: "查看数据 View data",
-				category: "日期 Day",
-				empty: "暂无数据 No data",
-				missing: "缺失 Missing",
+				dataTable: t("查看数据", "View data"),
+				category: t("日期", "Day"),
+				empty: t("暂无数据", "No data"),
+				missing: t("缺失", "Missing"),
 			}}
 		/>
 	);

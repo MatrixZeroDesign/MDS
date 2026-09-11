@@ -77,7 +77,7 @@ test("component drawer links open live examples and API without a nested directo
 	await nav.getByRole("textbox", { name: "搜索组件文档" }).fill("Button");
 	await nav.getByRole("link", { name: "Button", exact: true }).click();
 	const preview = page.getByRole("region", { name: "交互示例" });
-	await preview.getByRole("button", { name: "添加 Add" }).click();
+	await preview.getByRole("button", { name: "添加" }).click();
 	await expect(preview.getByRole("status")).toHaveText("1");
 	await expect(page.getByRole("heading", { name: "API", exact: true })).toBeVisible();
 	await expect(page.locator(".docs-reference-index")).toHaveCount(0);

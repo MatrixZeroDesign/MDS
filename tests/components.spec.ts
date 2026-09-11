@@ -81,15 +81,15 @@ test("tabs and accordion respond to keyboard", async ({ page }) => {
 	await page.keyboard.press("ArrowRight");
 	await expect(page.getByRole("tab", { name: "变更记录" })).toHaveAttribute("data-state", "active");
 	await page.getByRole("tab", { name: "配置", exact: true }).click();
-	await page.getByRole("button", { name: "Can I change this later?" }).click();
-	await expect(page.getByText("Yes. Changes apply to new requests.")).toBeVisible();
+	await page.getByRole("button", { name: "之后可以更改吗？" }).click();
+	await expect(page.getByText("可以，更改将应用于新请求。")).toBeVisible();
 });
 test("steps pagination progress and cancellation have observable effects", async ({ page }) => {
 	await page.getByRole("button", { name: "继续", exact: true }).click();
 	await expect(page.getByRole("heading", { name: "确认防护策略" })).toBeVisible();
 	await page.getByRole("button", { name: "下一页", exact: true }).click();
-	await expect(page.getByRole("button", { name: "Open Analytics", exact: true })).toBeVisible();
-	await expect(page.getByRole("button", { name: "Open Customer support", exact: true })).toHaveCount(0);
+	await expect(page.getByRole("button", { name: "打开数据分析", exact: true })).toBeVisible();
+	await expect(page.getByRole("button", { name: "打开客户支持", exact: true })).toHaveCount(0);
 	await page.getByRole("button", { name: "开始导出", exact: true }).click();
 	await expect(page.getByRole("progressbar", { name: "导出进度" })).toHaveAttribute("aria-valuenow", "100", {
 		timeout: 5000,

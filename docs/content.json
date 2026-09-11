@@ -14,7 +14,7 @@
 		"names": ["Button"],
 		"package": "ui",
 		"purpose": "触发保存、提交等明确操作。 / Trigger an explicit action.",
-		"guide": "同一区域突出一个 primary 操作；secondary 用于普通操作，ghost 用于低强调操作，danger 用于破坏性操作。异步请求由应用管理 loading。 / Emphasize one primary action per region. Manage async loading in the application. contrast 与 pill 可用于展示型主操作；contrast 根据明暗主题反转。 / Use contrast and pill for expressive primary actions; contrast adapts to the theme.",
+		"guide": "同一区域突出一个 primary 操作；secondary 用于普通操作，ghost 用于低强调操作，danger 用于破坏性操作。异步请求由应用管理 loading。contrast 与 pill 可用于展示型主操作；contrast 根据明暗主题反转。 / Emphasize one primary action per region. Manage async loading in the application. Use contrast and pill for expressive primary actions; contrast adapts to the theme.",
 		"api": "variant?: \"primary\" | \"secondary\" | \"ghost\" | \"danger\" | \"contrast\" = \"secondary\"; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; loading?: boolean = false; native button props; shape?: \"rounded\" | \"pill\" = \"rounded\"",
 		"a11y": "使用清晰的动词标签；loading 时禁用并设置 aria-busy，标签保留。 / Use a clear verb; loading disables the button and retains its label with aria-busy.",
 		"pitfalls": "默认 type=\"button\"；提交表单必须显式 type=\"submit\"。不支持 shadcn 的 asChild 属性。 / Set type=\"submit\" for form submission. Button does not expose shadcn’s asChild API."
@@ -344,7 +344,7 @@
 		"names": ["LineChart"],
 		"package": "charts",
 		"purpose": "连续观测的变化趋势。 / Trends across observations.",
-		"guide": "按时间排序输入；用 null 表达缺失。 / Sort observations by time and use null for gaps. 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 / Import charts/styles.css after UI CSS. 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
+		"guide": "按时间排序输入；用 null 表达缺失。 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Sort observations by time and use null for gaps. Import charts/styles.css after UI CSS. Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
 		"api": "title:string; data:readonly ChartDatum[]; series:readonly ChartSeries[]; description?:string; height?:number = 240 (min 180); locale?:string; labels?:ChartLabels; formatValue?, formatAxisValue?: (n:number)=>string; stacked?:boolean (area/bar only); motion?: boolean = true",
 		"a11y": "保留内置精确数据表；传 locale 与 labels 翻译文字，颜色不能是唯一编码。 / Keep the exact-value table and translate locale/labels; do not rely on color alone.",
 		"pitfalls": "series.key 必须唯一且不能为 label；缺失值不能填 0。容器宽度必须大于 0。LineChart 的 stacked 无效果。 / Series keys must be unique and cannot be label. Do not convert missing values to zero. Container width must be nonzero; stacked does not affect LineChart."
@@ -354,7 +354,7 @@
 		"names": ["AreaChart"],
 		"package": "charts",
 		"purpose": "相对零点的规模，可选堆叠。 / Magnitude relative to zero, optionally stacked.",
-		"guide": "对比总量可堆叠；缺失较多时优先非堆叠图。 / Stack for total magnitude; prefer unstacked charts when gaps matter. 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 / Import charts/styles.css after UI CSS. 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
+		"guide": "对比总量可堆叠；缺失较多时优先非堆叠图。 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Stack for total magnitude; prefer unstacked charts when gaps matter. Import charts/styles.css after UI CSS. Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
 		"api": "title:string; data:readonly ChartDatum[]; series:readonly ChartSeries[]; description?:string; height?:number = 240 (min 180); locale?:string; labels?:ChartLabels; formatValue?, formatAxisValue?: (n:number)=>string; stacked?:boolean (area/bar only); motion?: boolean = true",
 		"a11y": "保留内置精确数据表；传 locale 与 labels 翻译文字，颜色不能是唯一编码。 / Keep the exact-value table and translate locale/labels; do not rely on color alone.",
 		"pitfalls": "series.key 必须唯一且不能为 label；缺失值不能填 0。容器宽度必须大于 0。LineChart 的 stacked 无效果。 / Series keys must be unique and cannot be label. Do not convert missing values to zero. Container width must be nonzero; stacked does not affect LineChart."
@@ -364,7 +364,7 @@
 		"names": ["BarChart"],
 		"package": "charts",
 		"purpose": "离散类别间的数值比较。 / Compare discrete categories.",
-		"guide": "保持类别标签清晰；stacked 可表达组成，正负数分开堆叠。 / Keep labels legible; stacked bars separate positive and negative totals. 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 / Import charts/styles.css after UI CSS. 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
+		"guide": "保持类别标签清晰；stacked 可表达组成，正负数分开堆叠。 图表样式需在 UI CSS 后导入 @matrixzero/charts/styles.css。 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Keep labels legible; stacked bars separate positive and negative totals. Import charts/styles.css after UI CSS. Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
 		"api": "title:string; data:readonly ChartDatum[]; series:readonly ChartSeries[]; description?:string; height?:number = 240 (min 180); locale?:string; labels?:ChartLabels; formatValue?, formatAxisValue?: (n:number)=>string; stacked?:boolean (area/bar only); motion?: boolean = true",
 		"a11y": "保留内置精确数据表；传 locale 与 labels 翻译文字，颜色不能是唯一编码。 / Keep the exact-value table and translate locale/labels; do not rely on color alone.",
 		"pitfalls": "series.key 必须唯一且不能为 label；缺失值不能填 0。容器宽度必须大于 0。LineChart 的 stacked 无效果。 / Series keys must be unique and cannot be label. Do not convert missing values to zero. Container width must be nonzero; stacked does not affect LineChart."
@@ -374,7 +374,7 @@
 		"names": ["DonutChart"],
 		"package": "charts",
 		"purpose": "非负数值占整体的比例。 / Nonnegative parts of a whole.",
-		"guide": "类别较少且总量有意义时使用；精确比较优先 BarChart。 / Use for a small number of meaningful parts; prefer BarChart for precise comparison. 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
+		"guide": "类别较少且总量有意义时使用；精确比较优先 BarChart。 进入和更新使用局部淡入，motion={false} 关闭；自动尊重减少动态效果。 / Use for a small number of meaningful parts; prefer BarChart for precise comparison. Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.",
 		"api": "title:string; data:readonly {label:string;value:number;color?:string}[]; description?, height?, locale?, labels? (ChartLabels plus value?:string), formatValue?: (n:number)=>string; motion?: boolean = true",
 		"a11y": "提供标题与本地化 labels，保留数据表作为比例图的替代表示。 / Provide title and translated labels; retain the data table alternative.",
 		"pitfalls": "负数、非有限值和溢出总和会抛 RangeError；先校验外部输入或用错误边界。全零显示空态。 / Negative/nonfinite values and overflowing totals throw RangeError; validate inputs or use an error boundary. All-zero data is empty."
@@ -403,8 +403,8 @@
 		"slug": "banner",
 		"names": ["Banner"],
 		"package": "ui",
-		"purpose": "页面级通知与服务公告。 / Page-level notices and service announcements.",
-		"guide": "放在页面内容顶部，说明影响与下一步；action 提供相关操作，onDismiss 由应用控制可见性。 / Place near the page top and explain impact plus next action. The application owns dismiss state.",
+		"purpose": "页面顶部的窄条公告，用于影响整个页面的服务通知。 / A slim page-top announcement for service notices affecting the whole page.",
+		"guide": "放在页面顶部，保持短句、横向排列与少量操作；窄屏可换行，不截断重要信息。正文中的解释与提醒使用 Callout。 / Place at the page top with concise copy and inline actions. Wrap on narrow screens without hiding important information. Use Callout for contextual explanations in content.",
 		"api": "label:string; title?:ReactNode; children?:ReactNode; tone?:\"info\"|\"success\"|\"warning\"|\"danger\"|\"neutral\" = \"info\"; icon?:ReactNode|false; action?:ReactNode; onDismiss?:()=>void requires dismissLabel:string",
 		"a11y": "默认命名 region，不自动抢占焦点或重复播报。关闭按钮必须翻译；移除通知时将焦点放到附近稳定控件。 / Named region without unsolicited focus or live announcements. Translate the dismiss label and restore focus near the notice after removal.",
 		"pitfalls": "不要自动定时消失，也不要通过颜色单独表达风险。需要实时状态播报时显式选用 Alert。 / Avoid automatic expiry and color-only meaning. Use Alert for live status."

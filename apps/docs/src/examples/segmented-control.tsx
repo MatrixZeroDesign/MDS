@@ -1,16 +1,17 @@
 import { useState } from "react";
 import { SegmentedControl } from "@matrixzero/ui";
 
-export default function Example() {
+export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	const [value, setValue] = useState("monthly");
 	return (
 		<SegmentedControl
-			label="计费 Billing"
+			label={t("计费", "Billing")}
 			value={value}
 			onValueChange={setValue}
 			options={[
-				{ value: "monthly", label: "月付 Monthly" },
-				{ value: "annual", label: "年付 Annual" },
+				{ value: "monthly", label: t("月付", "Monthly") },
+				{ value: "annual", label: t("年付", "Annual") },
 			]}
 		/>
 	);
