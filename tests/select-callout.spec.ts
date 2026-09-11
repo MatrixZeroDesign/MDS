@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 test("Select preserves submitted values, required validation, reset and controlled state", async ({ page }) => {
-	await page.goto("/isolation.html");
+	await page.goto("/isolation.html?lang=zh");
 	const styled = page.getByRole("combobox", { name: "Styled choice" });
 	await styled.click();
 	await expect(page.getByRole("option", { name: "Disabled", exact: true })).toHaveAttribute("data-disabled", "");
@@ -30,7 +30,7 @@ test("Select preserves submitted values, required validation, reset and controll
 });
 test("both modal form selects share one themed dropdown without shifting content", async ({ page }) => {
 	await page.emulateMedia({ reducedMotion: "reduce" });
-	await page.goto("/#system");
+	await page.goto("/?lang=zh#system");
 	await page.getByRole("button", { name: "新建策略", exact: true }).click();
 	const dialog = page.getByRole("dialog", { includeHidden: true });
 	const measure = () =>
@@ -57,7 +57,7 @@ test("both modal form selects share one themed dropdown without shifting content
 test("Select supports keyboard typeahead and theme-scoped portal; Callout is readable without live announcements", async ({
 	page,
 }) => {
-	await page.goto("/isolation.html");
+	await page.goto("/isolation.html?lang=zh");
 	const select = page.getByRole("combobox", { name: "Styled choice" });
 	await select.focus();
 	await page.keyboard.press("ArrowDown");
@@ -67,11 +67,11 @@ test("Select supports keyboard typeahead and theme-scoped portal; Callout is rea
 	await expect(page.getByRole("option", { name: "Beta", exact: true })).toBeFocused();
 	await page.keyboard.press("Enter");
 	await expect(select).toContainText("Beta");
-	await page.goto("/#system");
+	await page.goto("/?lang=zh#system");
 	await expect(page.getByRole("note")).toHaveCount(5);
 	await page.getByRole("note").first().getByRole("button", { name: "阅读指南" }).click();
 	await expect(page).toHaveURL(/#docs$/);
-	await page.goto("/#system");
+	await page.goto("/?lang=zh#system");
 	await page.getByRole("button", { name: "切换明暗主题" }).click();
 	await page.setViewportSize({ width: 320, height: 900 });
 	expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
@@ -79,7 +79,7 @@ test("Select supports keyboard typeahead and theme-scoped portal; Callout is rea
 });
 
 test("Banner dismissal and Container widths work without losing keyboard focus", async ({ page }) => {
-	await page.goto("/#system");
+	await page.goto("/?lang=zh#system");
 	await page.getByRole("button", { name: "关闭通知" }).click();
 	const restore = page.getByRole("button", { name: "重新显示通知" });
 	await expect(restore).toBeVisible();
@@ -99,7 +99,7 @@ test("Banner dismissal and Container widths work without losing keyboard focus",
 });
 test("Select popup on a scrolling page does not shift the page or trigger", async ({ page }) => {
 	await page.emulateMedia({ reducedMotion: "reduce" });
-	await page.goto("/#system");
+	await page.goto("/?lang=zh#system");
 	const trigger = page.getByRole("combobox", { name: "适用范围", exact: true });
 	await trigger.scrollIntoViewIfNeeded();
 	const measure = () =>

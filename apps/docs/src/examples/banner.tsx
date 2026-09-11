@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Banner, Button } from "@matrixzero/ui";
-export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	const [visible, setVisible] = useState(true);
 	return (

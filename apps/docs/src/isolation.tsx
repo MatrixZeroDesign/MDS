@@ -16,7 +16,7 @@ function Fixture() {
 	return (
 		<>
 			<p id="host">Host text</p>
-			<ThemeProvider brand="mt0" mode="dark" data-testid="dark-root">
+			<ThemeProvider brand="mt0" mode="dark" dir="rtl" data-testid="dark-root">
 				<ChoiceMenu label="Dark choice" value={a} onValueChange={setA} options={options} />
 			</ThemeProvider>
 			<ThemeProvider

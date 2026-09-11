@@ -68,7 +68,8 @@ a {
 }
 .docs-main {
 	background: var(--mds-surface);
-	border-radius: 16px 0 0 0;
+	border-radius: 0;
+	border-start-start-radius: 16px;
 	padding: 36px;
 	min-width: 0;
 }
@@ -121,7 +122,7 @@ a {
 	font-size: 11px;
 	font-weight: 400;
 	color: var(--mds-muted);
-	margin-left: 8px;
+	margin-inline-start: 8px;
 }
 .docs-type-grid {
 	display: grid;
@@ -220,7 +221,7 @@ a {
 .docs-notice {
 	position: fixed;
 	bottom: 24px;
-	right: 24px;
+	inset-inline-end: 24px;
 	display: flex;
 	align-items: center;
 	gap: 8px;
@@ -768,7 +769,7 @@ a {
 	font-weight: 500;
 	line-height: 1;
 	letter-spacing: -4px;
-	padding-right: 4px;
+	padding-inline-end: 4px;
 }
 .mds-root .docs-atmosphere-hero h3 {
 	font-size: clamp(26px, 3vw, 40px);
@@ -796,7 +797,7 @@ a {
 }
 .mds-root .docs-atmosphere-dialog > .mds-dialog-header {
 	position: absolute;
-	right: 18px;
+	inset-inline-end: 18px;
 	top: 18px;
 	z-index: 2;
 	margin: 0;
@@ -1070,7 +1071,7 @@ a {
 .mds-root .docs-destination-card > span:last-child {
 	position: absolute;
 	top: 28px;
-	right: 28px;
+	inset-inline-end: 28px;
 }
 @media (max-width: 900px) {
 	.mds-root .docs-primary-nav {
@@ -1228,4 +1229,30 @@ a {
 		gap: 12px;
 		flex-wrap: wrap;
 	}
+}
+
+.mds-root .docs-article pre,
+.mds-root .docs-api-signature,
+.mds-root .docs-code pre {
+	direction: ltr;
+	text-align: start;
+}
+.mds-root .docs-nav-header .mds-icon-button:dir(rtl) svg {
+	transform: scaleX(-1);
+}
+@media (max-width: 600px) {
+	.mds-root .docs-top {
+		gap: 8px;
+	}
+	.mds-root .docs-top .docs-actions {
+		gap: 2px;
+	}
+	.mds-root .docs-top .docs-actions .mds-button {
+		padding-inline: 8px;
+	}
+}
+
+.mds-root .docs-main p,
+.mds-root .docs-eyebrow {
+	unicode-bidi: plaintext;
 }

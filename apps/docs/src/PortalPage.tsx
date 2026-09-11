@@ -43,7 +43,7 @@ export function PortalPage({ locale }: { locale: "zh" | "en" }) {
 					</p>
 					<pre>
 						<code>
-							npm install --save-exact @matrixzero/ui@0.1.0-alpha.6{String.fromCharCode(10)}npm install --save-exact
+							npm install --save-exact @matrixzero/ui@0.1.0-alpha.7{String.fromCharCode(10)}npm install --save-exact
 							@matrixzero/charts@0.1.0-alpha.3
 						</code>
 					</pre>
@@ -67,7 +67,7 @@ export function PortalPage({ locale }: { locale: "zh" | "en" }) {
 import '@matrixzero/ui/styles.css';
 import '@matrixzero/ui/themes/mt0.css';
 
-<ThemeProvider brand="mt0" mode="system">
+<ThemeProvider brand="mt0" mode="system" dir="ltr">
   <Field label="工作区 / Workspace" required>
     <Input name="workspace" />
   </Field>
@@ -99,6 +99,19 @@ import '@matrixzero/ui/themes/mt0.css';
 								"--mds-text / --mds-muted\n--mds-bg / --mds-surface / --mds-soft\n--mds-border / --mds-focus\n--mds-accent / --mds-on-accent / --mds-tint\n--mds-success / --mds-success-bg (warning, danger, info)\n--mds-data-1 … --mds-data-6\n--mds-font-latin / --mds-font-cjk / --mds-font-mono"
 							}
 						</code>
+					</pre>
+					<h3>{t("阅读方向：RTL 与 LTR", "Reading direction: RTL and LTR")}</h3>
+					<p>
+						{t(
+							"语言与方向独立配置。设置 dir=rtl 可镜像布局并调整方向键行为；dir=ltr 恢复默认。浮层继承当前方向，多个主题根可使用不同方向。侧边面板优先使用 start/end；代码和时间序列数值保持从左到右阅读。",
+							"Configure language and direction independently. dir=rtl mirrors layout and adjusts arrow-key behavior; dir=ltr restores the default. Portals inherit direction, and independent roots may use different directions. Prefer start/end for sheets; code and chronological data keep their left-to-right reading order.",
+						)}
+					</p>
+					<pre>
+						<code>{`<ThemeProvider dir="rtl" lang="ar">
+  <Tabs defaultValue="overview">…</Tabs>
+  <SideSheetContent side="end" title="…" closeLabel="…">…</SideSheetContent>
+</ThemeProvider>`}</code>
 					</pre>
 					<h3>{t("微动效", "Micro motion")}</h3>
 					<p>

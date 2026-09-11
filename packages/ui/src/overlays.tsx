@@ -1,3 +1,4 @@
+import { useDirection } from "@radix-ui/react-direction";
 import { useId } from "react";
 import type { ComponentProps, ReactNode } from "react";
 import * as Menu from "@radix-ui/react-dropdown-menu";
@@ -144,17 +145,28 @@ export const SideSheet = D.Root;
 export const SideSheetTrigger = D.Trigger;
 export const SideSheetClose = D.Close;
 export interface SideSheetContentProps extends DialogContentProps {
-	side?: "left" | "right";
+	side?: "left" | "right" | "start" | "end";
 }
 export function SideSheetContent({
 	title,
 	description,
 	closeLabel,
-	side = "right",
+	side = "end",
 	children,
 	className,
 	...props
 }: SideSheetContentProps) {
+	const direction = useDirection();
+	const physicalSide =
+		side === "start"
+			? direction === "rtl"
+				? "right"
+				: "left"
+			: side === "end"
+				? direction === "rtl"
+					? "left"
+					: "right"
+				: side;
 	const container = usePortalContainer(),
 		descriptionId = useId();
 	return container ? (
@@ -163,7 +175,7 @@ export function SideSheetContent({
 			<D.Content
 				{...props}
 				aria-describedby={description ? descriptionId : undefined}
-				data-side={side}
+				data-side={physicalSide}
 				className={cx("mds-sheet", className)}
 			>
 				<div className="mds-dialog-header">

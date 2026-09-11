@@ -1,6 +1,6 @@
 import { DonutChart } from "@matrixzero/charts";
 
-export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<DonutChart

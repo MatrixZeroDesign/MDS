@@ -107,6 +107,7 @@ function readPage() {
 	return portalPages.includes(value) ? value : "home";
 }
 function App() {
+	const [direction, setDirection] = useState<"ltr" | "rtl">("ltr");
 	const [bannerVisible, setBannerVisible] = useState(true);
 	const [billing, setBilling] = useState("monthly"),
 		[plan, setPlan] = useState("standard");
@@ -114,7 +115,9 @@ function App() {
 		[drawerOpen, setDrawerOpen] = useState(false),
 		[advancedOpen, setAdvancedOpen] = useState(false);
 	const [mode, setMode] = useState<ThemeMode>("light"),
-		[locale, setLocale] = useState<"zh" | "en">("zh"),
+		[locale, setLocale] = useState<"zh" | "en">(() =>
+			new URLSearchParams(location.search).get("lang") === "zh" ? "zh" : "en",
+		),
 		[page, setPage] = useState(readPage),
 		[density, setDensity] = useState<"comfortable" | "compact">("comfortable");
 	useEffect(() => {
@@ -298,7 +301,7 @@ function App() {
 		</Dialog>
 	);
 	return (
-		<ThemeProvider brand="mt0" mode={mode} density={density} lang={locale === "zh" ? "zh-CN" : "en"}>
+		<ThemeProvider dir={direction} brand="mt0" mode={mode} density={density} lang={locale === "zh" ? "zh-CN" : "en"}>
 			<TooltipProvider delayDuration={300}>
 				<Navbar className="docs-top">
 					<NavDrawer open={drawerOpen} onOpenChange={setDrawerOpen}>
@@ -372,6 +375,14 @@ function App() {
 						))}
 					</nav>
 					<div className="docs-actions">
+						<Button
+							variant="ghost"
+							aria-label={t("切换阅读方向", "Toggle reading direction")}
+							aria-pressed={direction === "rtl"}
+							onClick={() => setDirection(direction === "ltr" ? "rtl" : "ltr")}
+						>
+							{direction.toUpperCase()}
+						</Button>
 						<Button
 							variant="ghost"
 							onClick={() => setLocale(locale === "zh" ? "en" : "zh")}

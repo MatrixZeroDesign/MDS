@@ -16,7 +16,7 @@ Matrix Design System（MDS / Matrix UI）：面向多品牌产品的 React 19 �
 令牌使用环境变量注入。需要 registry 读权限，跨项目 CI 使用 job token 时需要 allowlist。
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.6
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.7
 ```
 
 ```tsx
@@ -55,3 +55,5 @@ CSS 独立导入，不要求使用方安装 Tailwind。React / React DOM 是 pee
 Callout provides persistent contextual notes; Banner provides dismissible page-level notices. Card composes Header, Title, Description, Content and Footer. Container constrains maxWidth and inline gutter with optional centering. Each has a complete usage guide and type-checked example in the docs portal.
 
 Accessibility: keep control outlines on --mds-control-border and decorative dividers on --mds-border. Default text pairs target 4.5:1; essential control/focus outlines target 3:1. Validate your own token overrides, keyboard interaction and content composition.
+
+Direction: set `dir="rtl"` or `dir="ltr"` on `ThemeProvider`, independently of `lang`. Nested roots inherit direction unless overridden. Radix keyboard behavior and portals share this direction. `SideSheetContent` supports logical `start`/`end` (default `end`) and physical `left`/`right`; `NavDrawer` opens at `start`.

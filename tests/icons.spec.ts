@@ -25,7 +25,7 @@ test("icon catalog matches all unique drawings and preserves accessibility", () 
 });
 test("icon search understands Chinese, category filters and keyboard usage dialogs", async ({ page }) => {
 	await page.setViewportSize({ width: 320, height: 900 });
-	await page.goto("/#icons");
+	await page.goto("/?lang=zh#icons");
 	await expect(page.locator(".docs-icon-tile")).toHaveCount(320);
 	await page.getByRole("textbox", { name: "搜索图标" }).fill("搜索");
 	await expect(page.getByRole("button", { name: /^Search / })).toBeVisible();

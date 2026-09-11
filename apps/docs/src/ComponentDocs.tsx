@@ -26,7 +26,9 @@ export function ComponentDocs({ locale }: { locale: "zh" | "en" }) {
 	}, []);
 	const entry = entries.find((e) => e.slug === selected);
 	const Preview = entry ? previews[`./examples/${entry.slug}.tsx`] : undefined;
-	const code = entry ? examples[`./examples/${entry.slug}.tsx`].replace('locale = "zh"', `locale = "${locale}"`) : "";
+	const code = entry
+		? examples[`./examples/${entry.slug}.tsx`].replace(/locale = "(?:zh|en)"/, `locale = "${locale}"`)
+		: "";
 	return (
 		<div className="docs-reference docs-reference-single">
 			{entry ? (

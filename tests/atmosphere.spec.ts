@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 test("expressive surfaces support palette selection, accessible dialog tabs and mobile themes", async ({ page }) => {
-	await page.goto("/#system");
+	await page.goto("/?lang=zh#system");
 	const region = page.getByRole("region", { name: "渐变展示风格" });
 	await region.getByRole("radio", { name: "薄荷", exact: true }).click();
 	await expect(region.locator(".mds-atmosphere")).toHaveAttribute("data-tone", "mint");
@@ -31,7 +31,7 @@ test("actual gradient pixels retain readable foreground contrast in all palettes
 	page,
 }, testInfo) => {
 	test.setTimeout(60000);
-	await page.goto("/#system");
+	await page.goto("/?lang=zh#system");
 	await page.emulateMedia({ reducedMotion: "reduce" });
 	const surface = page.locator(".docs-atmosphere-hero");
 	const report = [];

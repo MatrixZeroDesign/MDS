@@ -74,7 +74,7 @@ export function NavDrawerContent({
 	...props
 }: ComponentProps<typeof SideSheetContent> & { navigationLabel: string }) {
 	return (
-		<SideSheetContent {...props} side="left">
+		<SideSheetContent {...props} side="start">
 			<NavRail label={navigationLabel}>{children}</NavRail>
 		</SideSheetContent>
 	);

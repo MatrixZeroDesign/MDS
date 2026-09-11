@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import ts from "typescript";
 test("every gallery chart has matching executable example code and a type-specific API link", async ({ page }) => {
-	await page.goto("/#charts");
+	await page.goto("/?lang=zh#charts");
 	const cards = page.locator(".docs-grid > .docs-card");
 	await expect(cards).toHaveCount(7);
 	for (const card of await cards.all()) {

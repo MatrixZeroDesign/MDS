@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
 test.beforeEach(async ({ page }) => {
-	await page.goto("/#system");
+	await page.goto("/?lang=zh#system");
 });
 test("Field labels, validation and common control geometry", async ({ page }) => {
 	const input = page.getByLabel("端点地址", { exact: true });
@@ -154,7 +154,7 @@ test("tooltip and menu actions are functional", async ({ page }) => {
 	await expect(page.getByText("链接已准备好")).toBeVisible();
 });
 test("independent theme portals and uncontrolled form reset", async ({ page }) => {
-	await page.goto("/isolation.html");
+	await page.goto("/isolation.html?lang=zh");
 	const hostBefore = await page.locator("#host").evaluate((e) => getComputedStyle(e).color);
 	await page.getByRole("button", { name: "Dark choice" }).click();
 	await expect(page.getByRole("menu")).toHaveCSS("background-color", "rgb(32, 39, 37)");
@@ -174,7 +174,7 @@ test("independent theme portals and uncontrolled form reset", async ({ page }) =
 	expect(await page.locator("#host").evaluate((e) => getComputedStyle(e).color)).toBe(hostBefore);
 });
 test("system mode follows OS preference without storage or hydration state", async ({ page }) => {
-	await page.goto("/isolation.html");
+	await page.goto("/isolation.html?lang=zh");
 	await page.getByTestId("dark-root").evaluate((e) => e.setAttribute("data-mds-mode", "system"));
 	await page.emulateMedia({ colorScheme: "light" });
 	await expect(page.getByTestId("dark-root")).toHaveCSS("color", "rgb(36, 54, 45)");
@@ -247,7 +247,7 @@ test("radio cards select via whole card and preserve disabled state", async ({ p
 	await expect(page.getByText("已选择观察模式")).toBeVisible();
 });
 test("docs portal supports search, examples and stable URLs", async ({ page }) => {
-	await page.goto("/#docs");
+	await page.goto("/?lang=zh#docs");
 	await expect(page.getByRole("heading", { name: "文档指南", exact: true })).toBeVisible();
 	await page.getByRole("textbox", { name: "搜索组件文档" }).fill("SideSheet");
 	await page.getByRole("link", { name: "SideSheet", exact: true }).click();
@@ -262,14 +262,14 @@ test("docs portal supports search, examples and stable URLs", async ({ page }) =
 	await expect(page.getByRole("heading", { name: "文档指南", exact: true })).toBeVisible();
 });
 test("icon portal renders the whole maintained collection and filters", async ({ page }) => {
-	await page.goto("/#icons");
+	await page.goto("/?lang=zh#icons");
 	await expect(page.locator(".docs-icon-tile")).toHaveCount(320);
 	await page.getByRole("textbox", { name: "搜索图标" }).fill("Chevron");
 	await expect(page.locator(".docs-icon-tile")).toHaveCount(8);
 	await expect(page.locator(".docs-icon-tile").first().locator("svg")).toHaveCount(1);
 });
 test("basic charts render and expose a data table", async ({ page }) => {
-	await page.goto("/#charts");
+	await page.goto("/?lang=zh#charts");
 	await expect(page.locator(".mds-chart")).toHaveCount(7);
 	await expect(page.locator(".mds-chart").first().locator(".recharts-surface")).toBeVisible();
 	await page.locator(".mds-chart-data summary").first().click();
@@ -281,7 +281,7 @@ test("basic charts render and expose a data table", async ({ page }) => {
 test("charts and icons fit mobile widths in both themes", async ({ page }) => {
 	await page.setViewportSize({ width: 320, height: 900 });
 	for (const hash of ["charts", "icons"]) {
-		await page.goto("/#" + hash);
+		await page.goto("/?lang=zh#" + hash);
 		await expect
 			.poll(() => page.locator(".mds-root").evaluate((e) => e.scrollWidth - e.clientWidth))
 			.toBeLessThanOrEqual(1);

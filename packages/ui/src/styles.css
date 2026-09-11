@@ -889,11 +889,11 @@
 .mds-root .mds-select {
 	appearance: none;
 	line-height: 20px;
-	padding-right: 34px;
+	padding-inline-end: 34px;
 }
 .mds-root .mds-select-wrap > svg {
 	position: absolute;
-	right: 11px;
+	inset-inline-end: 11px;
 	top: 50%;
 	transform: translateY(-50%);
 	pointer-events: none;
@@ -1529,4 +1529,8 @@
 .mds-root .mds-banner-copy {
 	font-size: 13px;
 	line-height: 1.5;
+}
+
+.mds-root .mds-switch:dir(rtl) .mds-switch-thumb[data-state="checked"] {
+	transform: translateX(-14px);
 }

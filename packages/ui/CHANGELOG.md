@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.0-alpha.7
+
+- ThemeProvider 支持 dir=ltr/rtl，并向 Radix 交互与浮层传递方向；嵌套根继承或独立覆盖。
+- SideSheet 增加 start/end，默认 end；NavDrawer 从 start 展开。修正 RTL 开关与原生选择器。
+
 ## 0.1.0-alpha.6
 
 - Banner 默认使用顶部窄条样式，标题和正文横向排列，与正文 Callout 区分；窄屏保留完整内容和关闭操作。

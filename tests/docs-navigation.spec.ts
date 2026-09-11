@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 test("desktop navigation stays single-line with an anchored collapse control", async ({ page }) => {
-	await page.goto("/#system");
+	await page.goto("/?lang=zh#system");
 	await page.getByRole("button", { name: "Change language" }).click();
 	const nav = page.getByRole("navigation", { name: "Main navigation" });
 	const toggle = nav.getByRole("button", { name: "Toggle navigation width" });
@@ -28,7 +28,7 @@ test("desktop navigation stays single-line with an anchored collapse control", a
 test("tablet and mobile navigation use the same unclipped labels and close after routing", async ({ page }) => {
 	for (const width of [800, 320]) {
 		await page.setViewportSize({ width, height: 900 });
-		await page.goto("/#system");
+		await page.goto("/?lang=zh#system");
 		await page.reload();
 		await page.getByRole("button", { name: "Change language" }).click();
 		await page.getByRole("button", { name: "Open navigation" }).click();
@@ -46,7 +46,7 @@ test("tablet and mobile navigation use the same unclipped labels and close after
 });
 
 test("site sections own their secondary navigation and retain deep links", async ({ page }) => {
-	await page.goto("/");
+	await page.goto("/?lang=zh");
 	await page.getByRole("button", { name: "Change language" }).click();
 	const primary = page.getByRole("navigation", { name: "Site navigation" });
 	await expect(primary.getByRole("link")).toHaveCount(5);
@@ -61,7 +61,7 @@ test("site sections own their secondary navigation and retain deep links", async
 	await expect(primary.getByRole("link", { name: "Showcase" })).toHaveAttribute("aria-current", "page");
 	await page.goBack();
 	await expect(page.getByRole("heading", { name: "Showcase", exact: true })).toBeVisible();
-	await page.goto("/#docs/avatar-group");
+	await page.goto("/?lang=zh#docs/avatar-group");
 	await page.reload();
 	await expect(page.getByRole("heading", { name: "AvatarGroup", exact: true })).toBeVisible();
 	await expect(
@@ -70,7 +70,7 @@ test("site sections own their secondary navigation and retain deep links", async
 });
 
 test("component drawer links open live examples and API without a nested directory", async ({ page }) => {
-	await page.goto("/#docs/start");
+	await page.goto("/?lang=zh#docs/start");
 	const nav = page.getByRole("navigation", { name: "主导航" });
 	await nav.getByRole("link", { name: "主题与动效", exact: true }).click();
 	await expect(page.getByRole("heading", { name: "主题隔离与品牌契约" })).toBeVisible();

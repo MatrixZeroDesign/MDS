@@ -48,7 +48,7 @@ test("donut rejects invalid and overflowing totals, while all-zero data is empty
 test("charts stay within narrow screens and expose the selected dataset as a table", async ({ page }) => {
 	const errors: string[] = [];
 	page.on("pageerror", (error) => errors.push(error.message));
-	await page.goto("/#system");
+	await page.goto("/?lang=zh#system");
 	await page.getByRole("link", { name: "图表", exact: true }).click();
 	const first = page.locator(".mds-chart").first();
 	await expect(first.locator(".recharts-surface")).toBeVisible();
@@ -67,7 +67,7 @@ test("charts stay within narrow screens and expose the selected dataset as a tab
 });
 
 test("donut tooltip paints above its center total", async ({ page }) => {
-	await page.goto("/#charts");
+	await page.goto("/?lang=zh#charts");
 	const donut = page.locator(".mds-chart-donut");
 	await donut.scrollIntoViewIfNeeded();
 	const point = await donut
@@ -112,7 +112,7 @@ test("dataset motion keeps exact geometry and values, and cancels when reduced m
 			return animation;
 		};
 	});
-	await page.goto("/#charts");
+	await page.goto("/?lang=zh#charts");
 	const first = page.locator(".mds-chart").first();
 	await expect(first.locator(".recharts-line-curve").first()).toBeVisible();
 	await first.locator("summary").click();

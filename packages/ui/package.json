@@ -1,6 +1,6 @@
 {
 	"name": "@matrixzero/ui",
-	"version": "0.1.0-alpha.6",
+	"version": "0.1.0-alpha.7",
 	"description": "Matrix Design System — accessible React components and brand-scoped themes",
 	"type": "module",
 	"license": "UNLICENSED",
@@ -47,7 +47,8 @@
 		"@radix-ui/react-select": "2.2.6",
 		"@radix-ui/react-switch": "1.2.6",
 		"@radix-ui/react-tabs": "1.1.13",
-		"@radix-ui/react-tooltip": "1.2.8"
+		"@radix-ui/react-tooltip": "1.2.8",
+		"@radix-ui/react-direction": "1.1.1"
 	},
 	"publishConfig": {
 		"registry": "https://gitlab.com/api/v4/projects/86296621/packages/npm/"

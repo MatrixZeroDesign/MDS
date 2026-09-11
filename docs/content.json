@@ -4,8 +4,8 @@
 		"names": ["ThemeProvider"],
 		"package": "ui",
 		"purpose": "应用的主题、品牌、密度与浮层边界。 / Scope themes, brands, density and portals.",
-		"guide": "在应用入口导入基础 CSS；MT0 品牌还需显式导入 themes/mt0.css。将交互组件与图表放在根内，多个根可使用独立主题。 / Import core CSS at the app entry and explicitly import themes/mt0.css for MT0. Each root can use an independent theme.",
-		"api": "brand?: string = \"neutral\"; mode?: \"light\" | \"dark\" | \"system\" = \"system\"; density?: \"comfortable\" | \"compact\" = \"comfortable\"; style?: ThemeStyle",
+		"guide": "用 ThemeProvider 包裹界面；mode 管理主题，dir 管理布局和 Radix 键盘方向。方向与语言独立设置；嵌套根可继承或显式覆盖方向，浮层保持相同方向。 / Wrap the interface in ThemeProvider. mode controls theme; dir controls layout and Radix keyboard direction independently of language. Nested roots inherit or explicitly override direction; portals keep the same direction.",
+		"api": "brand?: string = \"neutral\"; mode?: \"light\" | \"dark\" | \"system\" = \"system\"; density?: \"comfortable\" | \"compact\" = \"comfortable\"; style?: ThemeStyle; dir?: \"ltr\" | \"rtl\" (inherits parent direction; defaults to \"ltr\")",
 		"a11y": "设置页面 lang，翻译所有可访问名称。保留系统减少动态效果设置。 / Set the page lang, translate accessible names and preserve reduced-motion preferences.",
 		"pitfalls": "brand 不下载 CSS；不导入品牌文件就不会获得该品牌。不要通过 body 全局覆盖主题。 / brand does not fetch CSS; import it explicitly. Do not override themes on body."
 	},
@@ -175,7 +175,7 @@
 		"package": "ui",
 		"purpose": "保留页面上下文的详情与编辑面板。 / Details and editing alongside page context.",
 		"guide": "将 Trigger、Content、Close 放在同一个根内；受控模式用 open/onOpenChange。保存完成后由应用关闭。 / Compose Trigger, Content and Close in one root; control with open/onOpenChange when needed.",
-		"api": "Root: open/defaultOpen/onOpenChange, modal = true; Content: title: ReactNode, closeLabel: string, description?: ReactNode; Radix Content props including onCloseAutoFocus; side?: \"left\" | \"right\" = \"right\"",
+		"api": "Root: open/defaultOpen/onOpenChange, modal = true; Content: title: ReactNode, closeLabel: string, description?: ReactNode; Radix Content props including onCloseAutoFocus; side?: \"left\" | \"right\" | \"start\" | \"end\" = \"end\"",
 		"a11y": "保留焦点圈定和 Escape；title 命名面板，closeLabel 翻译关闭操作。关闭时焦点回触发器。 / Preserve focus trapping and Escape; translate title and closeLabel. Focus returns to the trigger.",
 		"pitfalls": "没有 Trigger 的程序化打开必须记住实际 opener，在 onCloseAutoFocus 阻止默认后将焦点还给它。不要在 ThemeProvider 外渲染浮层。 / Programmatic opening without a Trigger requires explicit opener focus restoration in onCloseAutoFocus. Keep overlays inside ThemeProvider."
 	},

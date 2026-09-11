@@ -27,7 +27,7 @@ test("AI documentation publishes every guide, example, type reference and icon w
 	expect(manifest.components.find((c: { slug: string }) => c.slug === "icons").exports).toHaveLength(320);
 });
 test("component guides retain deep links, keyboard navigation and readable mobile layout", async ({ page }) => {
-	await page.goto("/#docs/dialog");
+	await page.goto("/?lang=zh#docs/dialog");
 	await expect(
 		page.getByRole("heading", { name: "Dialog / DialogTrigger / DialogContent / DialogClose", exact: true }),
 	).toBeVisible();

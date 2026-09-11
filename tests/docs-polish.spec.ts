@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 test("documentation locales are exclusive and Banner is a page-top strip", async ({ page }) => {
-	await page.goto("/#docs/banner");
+	await page.goto("/?lang=zh#docs/banner");
 	const stage = page.locator(".docs-live-stage");
 	await expect(stage.getByRole("region", { name: "服务通知" })).toBeVisible();
 	const banner = stage.locator(".mds-banner");
@@ -18,7 +18,7 @@ test("documentation locales are exclusive and Banner is a page-top strip", async
 		return c.textContent;
 	});
 	expect(english).not.toMatch(/\p{Script=Han}/u);
-	await page.goto("/#docs/dialog");
+	await page.goto("/?lang=zh#docs/dialog");
 	await expect(stage.getByRole("button", { name: "Edit", exact: true })).toBeVisible();
 	await stage.getByRole("button", { name: "Edit", exact: true }).click();
 	await expect(page.getByRole("dialog").getByRole("button", { name: "Done" })).toBeVisible();

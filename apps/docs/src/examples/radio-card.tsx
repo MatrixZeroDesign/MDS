@@ -1,6 +1,6 @@
 import { RadioCardGroup, RadioCard } from "@matrixzero/ui";
 
-export default function Example({ locale = "zh" }: { locale?: "zh" | "en" }) {
+export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<RadioCardGroup aria-label={t("方案", "Plan")} defaultValue="standard">
