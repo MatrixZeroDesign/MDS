@@ -1,3 +1,5 @@
+import { showcaseCatalog } from "./showcases/catalog";
+import { ShowcasePage } from "./ShowcasePage";
 import { AppearancePicker, readSavedMode, saveMode } from "./AppearancePicker";
 import { PalettePicker } from "./PalettePicker";
 import { ComponentNavigation } from "./ComponentNavigation";
@@ -104,7 +106,17 @@ import "@matrixzero/ui/styles.css";
 import "@matrixzero/ui/themes/mt0.css";
 import "./docs.css";
 
-const portalPages = ["home", "showcase", "system", "docs", "charts", "icons", "overview", "policy"];
+const portalPages = [
+	"home",
+	"showcase",
+	"system",
+	"docs",
+	"charts",
+	"icons",
+	"overview",
+	"policy",
+	...showcaseCatalog.map((item) => item.id),
+];
 function readPage() {
 	const value = window.location.hash.slice(1).split("/")[0];
 	return portalPages.includes(value) ? value : "home";
@@ -145,7 +157,7 @@ function App() {
 	const area =
 		page === "system" || page === "docs"
 			? "components"
-			: ["overview", "policy", "showcase"].includes(page)
+			: ["overview", "policy", "showcase", ...showcaseCatalog.map((item) => item.id)].includes(page)
 				? "showcase"
 				: page;
 	const primaryItems = [
@@ -165,8 +177,8 @@ function App() {
 				? [["charts", t("图表总览", "Chart overview")]]
 				: area === "showcase"
 					? [
-							["overview", t("运行概览", "Overview")],
-							["policy", t("策略工作台", "Policy workspace")],
+							["showcase", t("全部场景", "All scenarios")],
+							...showcaseCatalog.map((item) => [item.id, item.title[locale === "zh" ? 0 : 1]]),
 						]
 					: [];
 	const navIcon = (id: string) =>
@@ -480,7 +492,8 @@ function App() {
 																? t("图标", "Icons")
 																: page === "overview"
 																	? t("运行概览", "Overview")
-																	: t("策略工作台", "Policy workspace")}
+																	: (showcaseCatalog.find((item) => item.id === page)?.title[locale === "zh" ? 0 : 1] ??
+																		t("策略工作台", "Policy workspace"))}
 									</h1>
 									<p className="docs-muted">
 										{page === "home"
@@ -532,28 +545,7 @@ function App() {
 									</div>
 								</>
 							)}
-							{page === "showcase" && (
-								<div className="docs-destination-grid">
-									{secondaryItems.map(([id, label]) => (
-										<a className="docs-destination-card" key={id} href={`#${id}`}>
-											<span aria-hidden="true">{navIcon(id)}</span>
-											<h2>{label}</h2>
-											<p>
-												{id === "overview"
-													? t(
-															"指标、调用记录与运行状态的仪表盘组合。",
-															"A dashboard combining metrics, request activity and status.",
-														)
-													: t(
-															"表单、选项与策略配置的完整工作流。",
-															"A complete workflow for forms, options and policy configuration.",
-														)}
-											</p>
-											<span aria-hidden="true">↗</span>
-										</a>
-									))}
-								</div>
-							)}
+							{(page === "showcase" || page.startsWith("showcase-")) && <ShowcasePage locale={locale} page={page} />}
 							{page === "docs" && (
 								<Suspense fallback={<p role="status">{t("加载文档…", "Loading documentation…")}</p>}>
 									<PortalPage locale={locale} />

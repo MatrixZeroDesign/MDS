@@ -1,3 +1,8 @@
+# 0.1.0-alpha.10
+
+- Tabs 统一为下划线内容导航，移除 alpha.9 新增的 segmented、size、shape 配置；胶囊与分段选择改用 SegmentedControl，新增 size、shape。
+- 迁移：内容面板继续使用 Tabs 并移除上述属性；周期、模式等单值选择使用 SegmentedControl。
+
 # 0.1.0-alpha.9
 
 - Tabs 新增 segmented 样式、尺寸和圆角选项，支持滑块动画、RTL、键盘及减少动态效果。首页与文档统一使用真实组件 API。

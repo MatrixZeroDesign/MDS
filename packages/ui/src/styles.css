@@ -1127,7 +1127,7 @@
 }
 .mds-root .mds-segment-option[data-state="checked"] {
 	background: transparent;
-	color: var(--mds-accent);
+	color: var(--mds-text);
 	box-shadow: none;
 }
 .mds-root .mds-radio-cards {
@@ -1964,48 +1964,56 @@
 	}
 }
 
-.mds-root .mds-tabs[data-variant="segmented"] {
-	position: relative;
-	isolation: isolate;
-	display: inline-flex;
-	max-inline-size: 100%;
-	padding: 3px;
-	gap: 3px;
-	border-radius: 9px;
-	background: var(--mds-soft);
+.mds-root .mds-tabs {
+	gap: 16px;
+	border-block-end: 1px solid var(--mds-border);
 }
-.mds-root .mds-tabs[data-variant="segmented"] .mds-tab {
-	position: relative;
-	z-index: 1;
-	border-radius: 6px;
-	padding: 7px 14px;
+.mds-root .mds-tab {
+	border-radius: 0;
+	padding: 10px 2px;
+	border-block-end: 2px solid transparent;
+	margin-block-end: -1px;
+}
+.mds-root .mds-tab[data-state="active"] {
 	background: transparent;
+	color: var(--mds-accent);
+	border-block-end-color: var(--mds-accent);
 }
-.mds-root .mds-tabs[data-variant="segmented"] .mds-tab[data-state="active"] {
+.mds-root .mds-tab:hover:not(:disabled) {
+	background: transparent;
 	color: var(--mds-text);
-}
-.mds-root .mds-tabs[data-variant="segmented"] .mds-tab:hover:not(:disabled) {
-	color: var(--mds-text);
-}
-.mds-root .mds-tabs[data-variant="segmented"][data-size="sm"] .mds-tab {
-	padding: 5px 10px;
-}
-.mds-root .mds-tabs[data-variant="segmented"][data-size="lg"] .mds-tab {
-	padding: 12px 22px;
-}
-.mds-root .mds-tabs[data-variant="segmented"][data-shape="pill"],
-.mds-root .mds-tabs[data-variant="segmented"][data-shape="pill"] .mds-tab,
-.mds-root .mds-tabs[data-variant="segmented"][data-shape="pill"] .mds-segment-indicator {
-	border-radius: 999px;
-}
-.mds-root .mds-tabs[data-orientation="vertical"] {
-	flex-direction: column;
-}
-.mds-root .mds-tabs[data-variant="segmented"]:not(:has(.mds-segment-indicator)) .mds-tab[data-state="active"] {
-	background: var(--mds-surface);
-	box-shadow: 0 1px 3px #00000014;
 }
 .mds-root .mds-tab:disabled {
 	opacity: 0.45;
 	cursor: not-allowed;
+}
+.mds-root .mds-tabs[data-orientation="vertical"] {
+	flex-direction: column;
+	border-block-end: 0;
+	border-inline-end: 1px solid var(--mds-border);
+}
+.mds-root .mds-tabs[data-orientation="vertical"] .mds-tab {
+	text-align: start;
+	border-block-end: 0;
+	border-inline-end: 2px solid transparent;
+	margin: 0;
+	margin-inline-end: -1px;
+	padding: 8px 12px;
+}
+.mds-root .mds-tabs[data-orientation="vertical"] .mds-tab[data-state="active"] {
+	border-inline-end-color: var(--mds-accent);
+}
+.mds-root .mds-segmented[data-size="sm"] .mds-segment-option {
+	min-height: 26px;
+	padding: 3px 10px;
+}
+.mds-root .mds-segmented[data-size="lg"] .mds-segment-option {
+	min-height: 44px;
+	padding: 12px 22px;
+	font-size: 14px;
+}
+.mds-root .mds-segmented[data-shape="pill"],
+.mds-root .mds-segmented[data-shape="pill"] .mds-segment-option,
+.mds-root .mds-segmented[data-shape="pill"] .mds-segment-indicator {
+	border-radius: 999px;
 }

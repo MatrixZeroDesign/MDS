@@ -124,8 +124,8 @@
 		"names": ["SegmentedControl"],
 		"package": "ui",
 		"purpose": "少量、同级互斥偏好。 / A small set of peer preferences.",
-		"guide": "用于月付/年付、密度等偏好；切换关联内容面板时用 Tabs。 切换时背景以 200ms 滑移，减少动态效果时立即切换。 / Use for preferences such as billing or density; use Tabs for content panels. The selection background slides over 200ms; reduced motion switches immediately.",
-		"api": "label: string; options: readonly { value: string; label: string; disabled?: boolean }[]; Radix Radio.Root value/defaultValue/onValueChange",
+		"guide": "互斥单值选择使用 SegmentedControl，可配置 size 和 shape。切换关联内容面板请用 Tabs。滑块支持 RTL、键盘及减少动态效果。 / Use SegmentedControl for mutually exclusive values, with size and shape options. Use Tabs to switch associated content panels. The sliding indicator supports RTL, keyboard navigation and reduced motion.",
+		"api": "label: string; options: readonly { value: string; label: string; disabled?: boolean }[]; Radix Radio.Root value/defaultValue/onValueChange; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; shape?: \"rounded\" | \"pill\" = \"rounded\"",
 		"a11y": "使用 radio 语义，方向键选择；label 为组命名。 / Uses radio semantics and arrow-key selection; label names the group.",
 		"pitfalls": "不是 tablist，不应伪造 tabpanel 关系。 / Do not treat it as a tablist."
 	},
@@ -224,8 +224,8 @@
 		"names": ["Tabs", "TabList", "Tab", "TabPanel"],
 		"package": "ui",
 		"purpose": "切换同一上下文中的内容面板。 / Switch related content panels.",
-		"guide": "使用 Tabs 切换关联内容面板；选择单一值请用 SegmentedControl。variant=\"segmented\" 提供滑块样式，size 和 shape 控制分段样式的尺寸与圆角。保留键盘、手动激活、RTL 和减少动态效果支持。 / Use Tabs to switch associated content panels; use SegmentedControl to select a value. variant=\"segmented\" adds a sliding indicator; size and shape customize its dimensions and corners. Keyboard navigation, manual activation, RTL and reduced motion are preserved.",
-		"api": "Tabs: variant?: \"default\" | \"segmented\" = \"default\"; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; shape?: \"rounded\" | \"pill\" = \"rounded\"; value?: string; defaultValue?: string; onValueChange?: (value: string) => void; orientation?: \"horizontal\" | \"vertical\"; activationMode?: \"automatic\" | \"manual\"; Tab: value: string; disabled?: boolean; TabPanel: value: string",
+		"guide": "Tabs 使用下划线表示当前内容面板，并关联 Tab 与 TabPanel。胶囊与分段滑块统一使用 SegmentedControl，适用于周期、模式等单值选择。 / Tabs use an underline to identify the current content panel and associate each Tab with a TabPanel. Use SegmentedControl for pill-shaped or segmented single-value choices such as billing cycles and modes.",
+		"api": "Tabs: value?: string; defaultValue?: string; onValueChange?: (value: string) => void; orientation?: \"horizontal\" | \"vertical\" = \"horizontal\"; activationMode?: \"automatic\" | \"manual\" = \"automatic\"; TabList: aria-label: string; Tab: value: string; disabled?: boolean; TabPanel: value: string",
 		"a11y": "方向键导航，自动模式随焦点激活；手动模式 Enter/Space 激活。 / Arrow keys navigate; manual mode activates with Enter/Space.",
 		"pitfalls": "不是 URL 导航，也不是提交表单的偏好选择；分别使用 NavLink 和 SegmentedControl。 / Use NavLink for navigation and SegmentedControl for preferences."
 	},

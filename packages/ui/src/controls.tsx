@@ -233,10 +233,19 @@ export interface SegmentOption {
 	disabled?: boolean;
 }
 export interface SegmentedControlProps extends Omit<ComponentProps<typeof Radio.Root>, "children"> {
+	size?: "sm" | "md" | "lg";
+	shape?: "rounded" | "pill";
 	label: string;
 	options: readonly SegmentOption[];
 }
-export function SegmentedControl({ label, options, className, ...props }: SegmentedControlProps) {
+export function SegmentedControl({
+	label,
+	options,
+	className,
+	size = "md",
+	shape = "rounded",
+	...props
+}: SegmentedControlProps) {
 	const anchor = useRef<HTMLSpanElement>(null);
 	const direction = useDirection(props.dir);
 	const [position, setPosition] = useState<{ x: number; y: number; width: number; height: number } | null>(null);
@@ -272,9 +281,16 @@ export function SegmentedControl({ label, options, className, ...props }: Segmen
 			resize.disconnect();
 			mutation.disconnect();
 		};
-	}, [direction, options]);
+	}, [direction, options, size, shape]);
 	return (
-		<Radio.Root orientation="horizontal" {...props} aria-label={label} className={cx("mds-segmented", className)}>
+		<Radio.Root
+			orientation="horizontal"
+			{...props}
+			aria-label={label}
+			data-size={size}
+			data-shape={shape}
+			className={cx("mds-segmented", className)}
+		>
 			<span ref={anchor} hidden aria-hidden="true" />
 			{position && (
 				<span

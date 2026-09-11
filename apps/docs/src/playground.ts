@@ -32,11 +32,7 @@ const motion: PlaygroundControl = {
 	boolean: true,
 };
 export const playgroundControls: Record<string, PlaygroundControl[]> = {
-	tabs: [
-		{ key: "variant", label: ["样式", "Variant"], values: ["default", "segmented"], initial: "segmented" },
-		size,
-		shape,
-	],
+	"segmented-control": [size, shape],
 	theme: [
 		{
 			key: "palette",
