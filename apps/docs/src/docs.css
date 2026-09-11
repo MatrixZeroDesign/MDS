@@ -790,27 +790,7 @@ a {
 	text-align: center;
 }
 .mds-root .docs-atmosphere-tabs {
-	width: fit-content;
-	max-width: 100%;
 	margin: 0 auto 48px;
-	border: 0;
-	background: var(--mds-surface);
-	border-radius: 999px;
-	padding: 5px;
-	gap: 4px;
-}
-.mds-root .docs-atmosphere-tabs .mds-tab {
-	min-width: 110px;
-	border: 0;
-	border-radius: 999px;
-	color: var(--mds-muted);
-	padding: 12px 22px;
-	background: transparent;
-}
-.mds-root .docs-atmosphere-tabs .mds-tab[data-state="active"] {
-	color: var(--mds-text);
-	background: var(--mds-soft);
-	box-shadow: 0 2px 8px #0000000b;
 }
 .mds-root .docs-atmosphere-dialog-surface h2 {
 	font-size: clamp(24px, 3vw, 32px);
@@ -839,10 +819,6 @@ a {
 	}
 	.mds-root .docs-atmosphere-tabs {
 		margin-bottom: 32px;
-	}
-	.mds-root .docs-atmosphere-tabs .mds-tab {
-		min-width: 80px;
-		padding: 10px 18px;
 	}
 	.mds-root .docs-atmosphere-dialog-surface .mds-tab-panel {
 		min-height: 215px;

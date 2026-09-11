@@ -224,8 +224,8 @@
 		"names": ["Tabs", "TabList", "Tab", "TabPanel"],
 		"package": "ui",
 		"purpose": "切换同一上下文中的内容面板。 / Switch related content panels.",
-		"guide": "每个 Tab 与 TabPanel 使用相同唯一 value。慢速加载内容可设置 activationMode=\"manual\"。 / Match unique values between tabs and panels; use manual activation for slow content.",
-		"api": "Root: value/defaultValue, onValueChange, orientation = \"horizontal\", activationMode = \"automatic\"; TabList: aria-label; Tab/TabPanel: value required; Tab disabled?",
+		"guide": "使用 Tabs 切换关联内容面板；选择单一值请用 SegmentedControl。variant=\"segmented\" 提供滑块样式，size 和 shape 控制分段样式的尺寸与圆角。保留键盘、手动激活、RTL 和减少动态效果支持。 / Use Tabs to switch associated content panels; use SegmentedControl to select a value. variant=\"segmented\" adds a sliding indicator; size and shape customize its dimensions and corners. Keyboard navigation, manual activation, RTL and reduced motion are preserved.",
+		"api": "Tabs: variant?: \"default\" | \"segmented\" = \"default\"; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; shape?: \"rounded\" | \"pill\" = \"rounded\"; value?: string; defaultValue?: string; onValueChange?: (value: string) => void; orientation?: \"horizontal\" | \"vertical\"; activationMode?: \"automatic\" | \"manual\"; Tab: value: string; disabled?: boolean; TabPanel: value: string",
 		"a11y": "方向键导航，自动模式随焦点激活；手动模式 Enter/Space 激活。 / Arrow keys navigate; manual mode activates with Enter/Space.",
 		"pitfalls": "不是 URL 导航，也不是提交表单的偏好选择；分别使用 NavLink 和 SegmentedControl。 / Use NavLink for navigation and SegmentedControl for preferences."
 	},

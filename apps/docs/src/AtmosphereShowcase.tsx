@@ -58,7 +58,7 @@ export function AtmosphereShowcase({ locale }: { locale: "zh" | "en" }) {
 						className="docs-atmosphere-dialog"
 					>
 						<Atmosphere tone={tone} className="docs-atmosphere-dialog-surface">
-							<Tabs defaultValue="create">
+							<Tabs defaultValue="create" variant="segmented" shape="pill" size="lg">
 								<TabList aria-label={t("体验介绍", "Experience introduction")} className="docs-atmosphere-tabs">
 									<Tab value="create">{t("创作", "Create")}</Tab>
 									<Tab value="connect">{t("连接", "Connect")}</Tab>

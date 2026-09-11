@@ -1,3 +1,7 @@
+# 0.1.0-alpha.9
+
+- Tabs 新增 segmented 样式、尺寸和圆角选项，支持滑块动画、RTL、键盘及减少动态效果。首页与文档统一使用真实组件 API。
+
 # Changelog
 
 ## 0.1.0-alpha.8

@@ -32,6 +32,11 @@ const motion: PlaygroundControl = {
 	boolean: true,
 };
 export const playgroundControls: Record<string, PlaygroundControl[]> = {
+	tabs: [
+		{ key: "variant", label: ["样式", "Variant"], values: ["default", "segmented"], initial: "segmented" },
+		size,
+		shape,
+	],
 	theme: [
 		{
 			key: "palette",
@@ -66,6 +71,8 @@ export const playgroundControls: Record<string, PlaygroundControl[]> = {
 	"donut-chart": [motion],
 };
 export const playgroundLabels: Record<string, [string, string]> = {
+	default: ["默认", "Default"],
+	segmented: ["分段", "Segmented"],
 	mono: ["黑白", "Monochrome"],
 	blue: ["蓝色", "Blue"],
 	violet: ["紫罗兰", "Violet"],

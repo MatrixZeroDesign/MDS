@@ -1,3 +1,5 @@
+import { useDirection } from "@radix-ui/react-direction";
+import { createContext, useContext, useLayoutEffect, useRef, useState } from "react";
 import type { ComponentProps, ReactNode } from "react";
 import * as A from "@radix-ui/react-avatar";
 import * as P from "@radix-ui/react-progress";
@@ -128,10 +130,77 @@ export function EmptyState({
 		</div>
 	);
 }
-export const Tabs = TabsPrimitive.Root;
-export const TabList = ({ className, ...props }: ComponentProps<typeof TabsPrimitive.List>) => (
-	<TabsPrimitive.List {...props} className={cx("mds-tabs", className)} />
-);
+export interface TabsProps extends ComponentProps<typeof TabsPrimitive.Root> {
+	variant?: "default" | "segmented";
+	size?: "sm" | "md" | "lg";
+	shape?: "rounded" | "pill";
+}
+const TabsStyleContext = createContext({ variant: "default", size: "md", shape: "rounded", direction: "ltr" });
+export function Tabs({ variant = "default", size = "md", shape = "rounded", ...props }: TabsProps) {
+	const direction = useDirection(props.dir);
+	return (
+		<TabsStyleContext.Provider value={{ variant, size, shape, direction }}>
+			<TabsPrimitive.Root {...props} />
+		</TabsStyleContext.Provider>
+	);
+}
+export function TabList({ className, children, ...props }: ComponentProps<typeof TabsPrimitive.List>) {
+	const style = useContext(TabsStyleContext);
+	const anchor = useRef<HTMLSpanElement>(null);
+	const [position, setPosition] = useState<{ x: number; y: number; width: number; height: number } | null>(null);
+	useLayoutEffect(() => {
+		const root = anchor.current?.parentElement;
+		if (!root || style.variant !== "segmented") {
+			setPosition(null);
+			return;
+		}
+		const measure = () => {
+			const selected = root.querySelector<HTMLElement>('.mds-tab[data-state="active"]');
+			const next = selected
+				? { x: selected.offsetLeft, y: selected.offsetTop, width: selected.offsetWidth, height: selected.offsetHeight }
+				: null;
+			setPosition((current) => (JSON.stringify(current) === JSON.stringify(next) ? current : next));
+		};
+		const resize = new ResizeObserver(measure);
+		resize.observe(root);
+		root.querySelectorAll(".mds-tab").forEach((item) => resize.observe(item));
+		const mutation = new MutationObserver(measure);
+		mutation.observe(root, {
+			subtree: true,
+			attributes: true,
+			attributeFilter: ["data-state", "dir"],
+			childList: true,
+		});
+		measure();
+		return () => {
+			resize.disconnect();
+			mutation.disconnect();
+		};
+	}, [style.variant, style.size, style.shape, style.direction, children]);
+	return (
+		<TabsPrimitive.List
+			{...props}
+			className={cx("mds-tabs", className)}
+			data-variant={style.variant}
+			data-size={style.size}
+			data-shape={style.shape}
+		>
+			<span ref={anchor} hidden aria-hidden="true" />
+			{position && (
+				<span
+					aria-hidden="true"
+					className="mds-segment-indicator"
+					style={{
+						width: position.width,
+						height: position.height,
+						transform: `translate(${position.x}px, ${position.y}px)`,
+					}}
+				/>
+			)}
+			{children}
+		</TabsPrimitive.List>
+	);
+}
 export const Tab = ({ className, ...props }: ComponentProps<typeof TabsPrimitive.Trigger>) => (
 	<TabsPrimitive.Trigger {...props} className={cx("mds-tab", className)} />
 );

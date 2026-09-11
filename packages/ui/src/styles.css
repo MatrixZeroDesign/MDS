@@ -1963,3 +1963,49 @@
 		--mds-on-accent: #2d2111;
 	}
 }
+
+.mds-root .mds-tabs[data-variant="segmented"] {
+	position: relative;
+	isolation: isolate;
+	display: inline-flex;
+	max-inline-size: 100%;
+	padding: 3px;
+	gap: 3px;
+	border-radius: 9px;
+	background: var(--mds-soft);
+}
+.mds-root .mds-tabs[data-variant="segmented"] .mds-tab {
+	position: relative;
+	z-index: 1;
+	border-radius: 6px;
+	padding: 7px 14px;
+	background: transparent;
+}
+.mds-root .mds-tabs[data-variant="segmented"] .mds-tab[data-state="active"] {
+	color: var(--mds-text);
+}
+.mds-root .mds-tabs[data-variant="segmented"] .mds-tab:hover:not(:disabled) {
+	color: var(--mds-text);
+}
+.mds-root .mds-tabs[data-variant="segmented"][data-size="sm"] .mds-tab {
+	padding: 5px 10px;
+}
+.mds-root .mds-tabs[data-variant="segmented"][data-size="lg"] .mds-tab {
+	padding: 12px 22px;
+}
+.mds-root .mds-tabs[data-variant="segmented"][data-shape="pill"],
+.mds-root .mds-tabs[data-variant="segmented"][data-shape="pill"] .mds-tab,
+.mds-root .mds-tabs[data-variant="segmented"][data-shape="pill"] .mds-segment-indicator {
+	border-radius: 999px;
+}
+.mds-root .mds-tabs[data-orientation="vertical"] {
+	flex-direction: column;
+}
+.mds-root .mds-tabs[data-variant="segmented"]:not(:has(.mds-segment-indicator)) .mds-tab[data-state="active"] {
+	background: var(--mds-surface);
+	box-shadow: 0 1px 3px #00000014;
+}
+.mds-root .mds-tab:disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+}
