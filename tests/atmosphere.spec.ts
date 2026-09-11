@@ -17,6 +17,7 @@ test("expressive surfaces support palette selection, accessible dialog tabs and 
 	await page.keyboard.press("Escape");
 	await expect(trigger).toBeFocused();
 	await page.getByRole("button", { name: "切换明暗主题" }).click();
+	await page.getByRole("menuitemradio", { name: "深色", exact: true }).click();
 	await page.getByRole("button", { name: "Change language" }).click();
 	await page.setViewportSize({ width: 320, height: 900 });
 	await page.emulateMedia({ reducedMotion: "reduce" });

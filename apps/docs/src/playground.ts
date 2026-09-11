@@ -32,6 +32,18 @@ const motion: PlaygroundControl = {
 	boolean: true,
 };
 export const playgroundControls: Record<string, PlaygroundControl[]> = {
+	theme: [
+		{
+			key: "palette",
+			label: ["配色方案", "Palette"],
+			values: ["mint", "mono", "blue", "violet", "rose", "amber"],
+			initial: "mint",
+		},
+	],
+	"empty-state": [
+		{ key: "media", label: ["配图", "Thumbnail"], values: ["illustration", "icon", "none"], initial: "illustration" },
+		{ ...size, key: "thumbnailSize" },
+	],
 	toast: [tone("success")],
 	button: [variant, size, shape],
 	"icon-button": [{ ...variant, initial: "secondary" }, size, shape],
@@ -54,6 +66,14 @@ export const playgroundControls: Record<string, PlaygroundControl[]> = {
 	"donut-chart": [motion],
 };
 export const playgroundLabels: Record<string, [string, string]> = {
+	mono: ["黑白", "Monochrome"],
+	blue: ["蓝色", "Blue"],
+	violet: ["紫罗兰", "Violet"],
+	rose: ["玫瑰", "Rose"],
+	amber: ["琥珀", "Amber"],
+	illustration: ["插画", "Illustration"],
+	icon: ["图标", "Icon"],
+	none: ["无配图", "None"],
 	sm: ["小号", "Small"],
 	md: ["中号", "Medium"],
 	lg: ["大号", "Large"],

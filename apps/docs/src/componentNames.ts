@@ -3,6 +3,7 @@ export const componentNames: Record<string, string> = {
 	toast: "通知",
 	button: "按钮",
 	"icon-button": "图标按钮",
+	form: "表单",
 	field: "表单字段",
 	input: "输入框",
 	textarea: "多行输入框",

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import type { ThemeMode } from "@matrixzero/ui";
+import { Field, Select, type ThemeMode, type ThemePalette } from "@matrixzero/ui";
+import { paletteOptions } from "./PalettePicker";
 const roles = [
 	["accent", "强调", "Accent"],
 	["tint", "选中底色", "Selection"],
@@ -14,7 +15,17 @@ const roles = [
 	["text", "正文", "Text"],
 	["muted", "辅助文字", "Muted text"],
 ] as const;
-export function ColorTokens({ locale, mode }: { locale: "zh" | "en"; mode: ThemeMode }) {
+export function ColorTokens({
+	locale,
+	mode,
+	palette,
+	onPaletteChange,
+}: {
+	locale: "zh" | "en";
+	mode: ThemeMode;
+	palette: ThemePalette;
+	onPaletteChange: (value: ThemePalette) => void;
+}) {
 	const ref = useRef<HTMLElement>(null),
 		[values, setValues] = useState<Record<string, string>>({});
 	useEffect(() => {
@@ -29,14 +40,23 @@ export function ColorTokens({ locale, mode }: { locale: "zh" | "en"; mode: Theme
 		const mq = matchMedia("(prefers-color-scheme: dark)");
 		mq.addEventListener("change", read);
 		return () => mq.removeEventListener("change", read);
-	}, [mode]);
+	}, [mode, palette]);
 	return (
 		<section className="docs-colors" ref={ref} aria-label={locale === "zh" ? "颜色系统" : "Color system"}>
 			<div className="docs-row">
 				<h2>{locale === "zh" ? "颜色与层次" : "Color & hierarchy"}</h2>
 				<p className="docs-muted">
-					{locale === "zh" ? "暖白、松石、鲜明的状态色。" : "Warm surfaces, sea green, expressive states."}
+					{locale === "zh" ? "主色配套层次，状态色保留语义。" : "Coordinated brand colors, consistent semantic states."}
 				</p>
+			</div>
+			<div style={{ maxWidth: 240, marginBlockEnd: 24 }}>
+				<Field label={locale === "zh" ? "配色方案" : "Palette"}>
+					<Select
+						value={palette}
+						onValueChange={(value) => onPaletteChange(value as ThemePalette)}
+						options={paletteOptions.map((option) => ({ value: option.value, label: option[locale] }))}
+					/>
+				</Field>
 			</div>
 			<div className="docs-token-grid">
 				{roles.map(([role, zh, en]) => (

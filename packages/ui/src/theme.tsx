@@ -1,6 +1,8 @@
 import { DirectionProvider, useDirection } from "@radix-ui/react-direction";
 import { createContext, useContext, useState } from "react";
 import type { ComponentProps, CSSProperties } from "react";
+export type ThemePalette = "mint" | "mono" | "blue" | "violet" | "rose" | "amber";
+const PaletteContext = createContext<ThemePalette | null>(null);
 export type ThemeMode = "light" | "dark" | "system";
 export type ThemeStyle = CSSProperties & { [token: `--mds-${string}`]: string | number };
 const PortalContext = createContext<HTMLElement | null>(null);
@@ -10,6 +12,8 @@ export function usePortalContainer() {
 export interface ThemeProviderProps extends Omit<ComponentProps<"div">, "style" | "dir"> {
 	dir?: "ltr" | "rtl";
 	brand?: string;
+	/** Preset color family. Inherits from a parent; null restores brand tokens. */
+	palette?: ThemePalette | null;
 	mode?: ThemeMode;
 	density?: "comfortable" | "compact";
 	style?: ThemeStyle;
@@ -17,6 +21,7 @@ export interface ThemeProviderProps extends Omit<ComponentProps<"div">, "style" 
 /** Brand names select an explicitly imported theme. No runtime fetch or brand fallback. */
 export function ThemeProvider({
 	dir,
+	palette,
 	brand = "neutral",
 	mode = "system",
 	density = "comfortable",
@@ -25,22 +30,27 @@ export function ThemeProvider({
 	...props
 }: ThemeProviderProps) {
 	const direction = useDirection(dir);
+	const inheritedPalette = useContext(PaletteContext);
+	const selectedPalette = palette === undefined ? inheritedPalette : palette;
 	const [container, setContainer] = useState<HTMLDivElement | null>(null);
 	return (
-		<DirectionProvider dir={direction}>
-			<div
-				{...props}
-				dir={direction}
-				className={`mds-root ${className}`}
-				data-mds-brand={brand}
-				data-mds-mode={mode}
-				data-mds-density={density}
-			>
-				<PortalContext.Provider value={container}>
-					{children}
-					<div ref={setContainer} className="mds-portals" />
-				</PortalContext.Provider>
-			</div>
-		</DirectionProvider>
+		<PaletteContext.Provider value={selectedPalette}>
+			<DirectionProvider dir={direction}>
+				<div
+					{...props}
+					dir={direction}
+					className={`mds-root ${className}`}
+					data-mds-brand={brand}
+					data-mds-palette={selectedPalette ?? undefined}
+					data-mds-mode={mode}
+					data-mds-density={density}
+				>
+					<PortalContext.Provider value={container}>
+						{children}
+						<div ref={setContainer} className="mds-portals" />
+					</PortalContext.Provider>
+				</div>
+			</DirectionProvider>
+		</PaletteContext.Provider>
 	);
 }

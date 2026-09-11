@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.8
+
+- ThemeProvider 新增六套可继承 palette；文档默认跟随系统，手动模式保存到本地。
+
+- 新增 Form、FormSubmit、FormErrorSummary 与提交状态 hook，保留原生表单能力并支持异步提交与错误定位。
+- Switch 支持 checkedIcon / uncheckedIcon 自定义滑块图标。
+- 文档 API 改为按组件分组的属性表。
+
+- SegmentedControl 使用连续滑移的选中背景，适配内容尺寸、RTL、键盘与减少动态效果。
+
+- EmptyState 新增 thumbnail 与 thumbnailSize，支持不裁切的图片、插画和图标；保留旧 icon 用法。
+- 文档提供配图与尺寸选择，同步源码和无障碍指南。
+
 ## 0.1.0-alpha.7
 
 - 新增 ToastProvider、Toaster 和 useToast：多条通知堆叠、悬停或聚焦展开并暂停计时、定时及手动关闭、持久通知与动作。

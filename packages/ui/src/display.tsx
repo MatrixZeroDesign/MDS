@@ -100,19 +100,28 @@ export function EmptyState({
 	description,
 	action,
 	icon,
+	thumbnail,
+	thumbnailSize = "md",
 }: {
 	title: ReactNode;
 	description?: ReactNode;
 	action?: ReactNode;
 	icon?: ReactNode;
+	/** Optional image, illustration or icon. Takes precedence over icon. */
+	thumbnail?: ReactNode;
+	thumbnailSize?: "sm" | "md" | "lg";
 }) {
 	return (
 		<div className="mds-empty">
-			{icon && (
+			{thumbnail != null ? (
+				<div className="mds-empty-thumbnail" data-size={thumbnailSize}>
+					{thumbnail}
+				</div>
+			) : icon ? (
 				<div className="mds-empty-icon" aria-hidden="true">
 					{icon}
 				</div>
-			)}
+			) : null}
 			<h3>{title}</h3>
 			{description && <p className="mds-description">{description}</p>}
 			{action}

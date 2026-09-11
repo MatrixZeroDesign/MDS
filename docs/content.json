@@ -4,8 +4,8 @@
 		"names": ["ThemeProvider"],
 		"package": "ui",
 		"purpose": "应用的主题、品牌、密度与浮层边界。 / Scope themes, brands, density and portals.",
-		"guide": "用 ThemeProvider 包裹界面；mode 管理主题，dir 管理布局和 Radix 键盘方向。方向与语言独立设置；嵌套根可继承或显式覆盖方向，浮层保持相同方向。 / Wrap the interface in ThemeProvider. mode controls theme; dir controls layout and Radix keyboard direction independently of language. Nested roots inherit or explicitly override direction; portals keep the same direction.",
-		"api": "brand?: string = \"neutral\"; mode?: \"light\" | \"dark\" | \"system\" = \"system\"; density?: \"comfortable\" | \"compact\" = \"comfortable\"; style?: ThemeStyle; dir?: \"ltr\" | \"rtl\" (inherits parent direction; defaults to \"ltr\")",
+		"guide": "用 ThemeProvider 包裹界面；mode 管理主题，dir 管理布局和 Radix 键盘方向。方向与语言独立设置；嵌套根可继承或显式覆盖方向，浮层保持相同方向。 palette 提供六套配色，独立于明暗模式；状态色保持固定语义。 / Wrap the interface in ThemeProvider. mode controls theme; dir controls layout and Radix keyboard direction independently of language. Nested roots inherit or explicitly override direction; portals keep the same direction. palette selects one of six color families independently of mode, retaining semantic status colors.",
+		"api": "brand?: string = \"neutral\"; mode?: \"light\" | \"dark\" | \"system\" = \"system\"; density?: \"comfortable\" | \"compact\" = \"comfortable\"; style?: ThemeStyle; dir?: \"ltr\" | \"rtl\" (inherits parent direction; defaults to \"ltr\"); palette?: \"mint\" | \"mono\" | \"blue\" | \"violet\" | \"rose\" | \"amber\" | null (inherits parent; null restores brand tokens)",
 		"a11y": "设置页面 lang，翻译所有可访问名称。保留系统减少动态效果设置。 / Set the page lang, translate accessible names and preserve reduced-motion preferences.",
 		"pitfalls": "brand 不下载 CSS；不导入品牌文件就不会获得该品牌。不要通过 body 全局覆盖主题。 / brand does not fetch CSS; import it explicitly. Do not override themes on body."
 	},
@@ -94,8 +94,8 @@
 		"names": ["Switch"],
 		"package": "ui",
 		"purpose": "立即生效的二元偏好。 / An immediately applied preference.",
-		"guide": "用 checked/onCheckedChange 管理开关，标签保持稳定。 / Control with checked/onCheckedChange and keep the label stable.",
-		"api": "Radix Switch.Root props: checked/defaultChecked?: boolean; onCheckedChange?: (checked: boolean) => void; name?, required?, disabled?",
+		"guide": "用 checked/onCheckedChange 管理开关，标签保持稳定。 checkedIcon 和 uncheckedIcon 定义滑块内的装饰图标，状态由 Radix 管理。 / Control with checked/onCheckedChange and keep the label stable. checkedIcon and uncheckedIcon supply decorative thumb icons; Radix manages their visibility.",
+		"api": "Radix Switch.Root props: checked/defaultChecked?: boolean; onCheckedChange?: (checked: boolean) => void; name?, required?, disabled?; checkedIcon?: ReactNode; uncheckedIcon?: ReactNode",
 		"a11y": "用 Field 或关联 label 命名，Space 切换。 / Name with Field or an associated label; Space toggles.",
 		"pitfalls": "待提交的多选使用 Checkbox。不要仅以颜色描述开启状态。 / Use Checkbox for selections awaiting submission; do not communicate state through color alone."
 	},
@@ -124,7 +124,7 @@
 		"names": ["SegmentedControl"],
 		"package": "ui",
 		"purpose": "少量、同级互斥偏好。 / A small set of peer preferences.",
-		"guide": "用于月付/年付、密度等偏好；切换关联内容面板时用 Tabs。 / Use for preferences such as billing or density; use Tabs for content panels.",
+		"guide": "用于月付/年付、密度等偏好；切换关联内容面板时用 Tabs。 切换时背景以 200ms 滑移，减少动态效果时立即切换。 / Use for preferences such as billing or density; use Tabs for content panels. The selection background slides over 200ms; reduced motion switches immediately.",
 		"api": "label: string; options: readonly { value: string; label: string; disabled?: boolean }[]; Radix Radio.Root value/defaultValue/onValueChange",
 		"a11y": "使用 radio 语义，方向键选择；label 为组命名。 / Uses radio semantics and arrow-key selection; label names the group.",
 		"pitfalls": "不是 tablist，不应伪造 tabpanel 关系。 / Do not treat it as a tablist."
@@ -334,10 +334,10 @@
 		"names": ["EmptyState"],
 		"package": "ui",
 		"purpose": "无数据时解释原因并提供下一步。 / Explain an empty result and a next action.",
-		"guide": "区分首次使用、无搜索结果与权限不足；action 提供有意义的下一步。 / Distinguish first use, no results and access restrictions.",
-		"api": "title: ReactNode; description?: ReactNode; action?: ReactNode; icon?: ReactNode",
-		"a11y": "标题渲染 h3；确保所在页面标题层级合理。图标是装饰性的。 / Title renders h3; keep a sensible heading hierarchy. The icon is decorative.",
-		"pitfalls": "加载、错误与空数据要分别处理；不要一律显示“暂无数据”。 / Handle loading, error and empty results separately."
+		"guide": "说明当前为什么没有内容，以及用户可以做什么。thumbnail 接受图片、SVG 插画或图标；保持比例且不裁切。没有配图时不保留空白。 / Explain why content is absent and what users can do next. thumbnail accepts images, SVG illustrations or icons without cropping. Omit it for a text-only state.",
+		"api": "title: ReactNode; description?: ReactNode; action?: ReactNode; icon?: ReactNode; thumbnail?: ReactNode; thumbnailSize?: \"sm\" | \"md\" | \"lg\" = \"md\" (48/96/160px)",
+		"a11y": "装饰图片使用 alt=\"\"，装饰 SVG 使用 aria-hidden=\"true\"；有独立含义的图片提供本地化 alt。 / Use alt=\"\" for decorative images and aria-hidden=\"true\" for decorative SVGs. Give meaningful images localized alt text.",
+		"pitfalls": "thumbnail 优先于旧的 icon 属性；旧用法保持兼容。 / thumbnail takes precedence over the legacy icon prop, which remains supported."
 	},
 	{
 		"slug": "line-chart",
@@ -458,5 +458,15 @@
 		"api": "ToastProvider: children: ReactNode; duration?: number = 5000; label?: string; Toaster: label?: string; closeLabel?: string; useToast(): { toast(options: ToastOptions): number; dismiss(id: number): void; clear(): void }; ToastOptions: title: string; description?: ReactNode; tone?: \"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\"; duration?: number; action?: { label: string; altText: string; onClick: () => void }",
 		"a11y": "F8 聚焦通知，悬停、聚焦或窗口失焦时暂停计时。翻译 label、closeLabel 和 action.altText。 / F8 focuses notifications. Hover, focus and window blur pause timers. Translate label, closeLabel and action.altText.",
 		"pitfalls": "持久通知使用 duration: Infinity。重要表单错误仍应在字段旁展示；不要只通过短暂通知告知。 / Use duration: Infinity for persistent notifications. Keep important form errors beside their fields rather than only in a toast."
+	},
+	{
+		"slug": "form",
+		"names": ["Form", "FormSubmit", "FormErrorSummary"],
+		"package": "ui",
+		"purpose": "统一完整表单的布局、提交状态和错误定位。 / Consistent form layout, submission state and error navigation.",
+		"guide": "Form 保留原生校验、提交和重置。onSubmitAsync 接收包含提交按钮的 FormData，并自动管理提交中状态；FormSubmit 防止重复提交。errors 配合 Field.error 展示服务端校验结果，提交后定位第一个可聚焦的错误控件。 / Form preserves native validation, submission and reset. onSubmitAsync receives FormData including the submitter and manages pending state. FormSubmit prevents duplicate submissions. Use errors alongside Field.error for server validation; after submission, focus moves to the first focusable invalid field.",
+		"api": "Form: onSubmitAsync?: (data: FormData, form: HTMLFormElement) => Promise<void>; submitting?: boolean = false; errors?: readonly FormError[]; errorTitle?: string; submitErrorMessage?: string; onSubmitError?: (error: unknown) => void; native form props; FormSubmit: Button props excluding type; FormErrorSummary: errors: readonly FormError[]; title: string; FormError: fieldId?: string; message: ReactNode; useFormStatus(): { submitting: boolean }",
+		"a11y": "使用 Field 和稳定 id 关联错误。提交时 aria-busy 为 true，提交按钮保留名称。服务端错误同时显示在字段旁与摘要中。 / Connect field errors using Field and stable IDs. aria-busy indicates submission while button labels remain available. Server errors appear both beside fields and in the summary.",
+		"pitfalls": "不绑定表单库。使用原生 onSubmit 或 React Hook Form 时自行管理 preventDefault 与 submitting；若 onSubmit 阻止默认事件，不再调用 onSubmitAsync。原生 action 提交不需要 onSubmitAsync。 / No form library is required. With native onSubmit or React Hook Form, manage preventDefault and submitting externally. A prevented onSubmit skips onSubmitAsync. Native action submissions do not need onSubmitAsync."
 	}
 ]

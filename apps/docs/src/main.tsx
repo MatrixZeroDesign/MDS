@@ -1,3 +1,5 @@
+import { AppearancePicker, readSavedMode, saveMode } from "./AppearancePicker";
+import { PalettePicker } from "./PalettePicker";
 import { ComponentNavigation } from "./ComponentNavigation";
 import { AtmosphereShowcase } from "./AtmosphereShowcase";
 import { ColorTokens } from "./ColorTokens";
@@ -80,7 +82,7 @@ import {
 	CollapseTrigger,
 	CollapseContent,
 } from "@matrixzero/ui";
-import type { ThemeMode } from "@matrixzero/ui";
+import type { ThemeMode, ThemePalette } from "@matrixzero/ui";
 import {
 	Moon,
 	Sun,
@@ -118,13 +120,14 @@ function ToastFeedback({ message, consume }: { message: string; consume: () => v
 	return null;
 }
 function App() {
+	const [palette, setPalette] = useState<ThemePalette>("mint");
 	const [direction, setDirection] = useState<"ltr" | "rtl">("ltr");
 	const [bannerVisible, setBannerVisible] = useState(true);
 	const [billing, setBilling] = useState("monthly"),
 		[plan, setPlan] = useState("standard");
 	const [drawerOpen, setDrawerOpen] = useState(false),
 		[advancedOpen, setAdvancedOpen] = useState(false);
-	const [mode, setMode] = useState<ThemeMode>("light"),
+	const [mode, setMode] = useState<ThemeMode>(readSavedMode),
 		[locale, setLocale] = useState<"zh" | "en">(() =>
 			new URLSearchParams(location.search).get("lang") === "zh" ? "zh" : "en",
 		),
@@ -311,7 +314,14 @@ function App() {
 		</Dialog>
 	);
 	return (
-		<ThemeProvider dir={direction} brand="mt0" mode={mode} density={density} lang={locale === "zh" ? "zh-CN" : "en"}>
+		<ThemeProvider
+			palette={palette}
+			dir={direction}
+			brand="mt0"
+			mode={mode}
+			density={density}
+			lang={locale === "zh" ? "zh-CN" : "en"}
+		>
 			<ToastProvider label={t("通知", "Notification")}>
 				<Toaster
 					label={t("通知 ({hotkey})", "Notifications ({hotkey})")}
@@ -405,14 +415,15 @@ function App() {
 							>
 								{locale === "zh" ? "EN" : "中文"}
 							</Button>
-							<Button
-								variant="ghost"
-								onClick={() => setMode(mode === "dark" ? "light" : "dark")}
-								aria-label={t("切换明暗主题", "Toggle color theme")}
-							>
-								{mode === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-							</Button>
-							<Avatar fallback="M" alt="Matrix workspace" size="sm" />
+							<AppearancePicker
+								mode={mode}
+								locale={locale}
+								onChange={(value) => {
+									setMode(value);
+									saveMode(value);
+								}}
+							/>
+							<PalettePicker palette={palette} onChange={setPalette} locale={locale} />
 						</div>
 					</Navbar>
 					<div className="docs-layout" data-sidebar={secondaryItems.length > 0 || undefined}>
@@ -593,7 +604,7 @@ function App() {
 											1,284.06 <small>{t("ms · P95 延迟", "ms · P95 latency")}</small>
 										</div>
 									</section>
-									<ColorTokens locale={locale} mode={mode} />
+									<ColorTokens locale={locale} mode={mode} palette={palette} onPaletteChange={setPalette} />
 									<AtmosphereShowcase locale={locale} />
 									<div className="docs-grid">
 										<section className="docs-card">

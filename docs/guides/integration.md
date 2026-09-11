@@ -1,6 +1,6 @@
 # Integration guide / 接入指南
 
-Applies to React 19, @matrixzero/ui 0.1.0-alpha.7, @matrixzero/icons 0.1.0-alpha.4 and @matrixzero/charts 0.1.0-alpha.3. Pin these versions when reproducing examples. This is an alpha API; inspect the installed declarations before upgrading.
+Applies to React 19, @matrixzero/ui 0.1.0-alpha.8, @matrixzero/icons 0.1.0-alpha.4 and @matrixzero/charts 0.1.0-alpha.3. Pin these versions when reproducing examples. This is an alpha API; inspect the installed declarations before upgrading.
 
 适用于 React 19 与以上固定版本。升级时检查变更记录及安装包的类型声明，不要套用 shadcn 的组件 API。
 
@@ -14,7 +14,7 @@ Configure your project .npmrc with an environment variable; never store the real
 ```
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.7 @matrixzero/icons@0.1.0-alpha.4
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.8 @matrixzero/icons@0.1.0-alpha.4
 # Optional charts / 按需安装图表
 npm install --save-exact @matrixzero/charts@0.1.0-alpha.3
 ```
@@ -56,3 +56,15 @@ Use value + onValueChange for Select, radio groups, segmented controls, tabs and
 - `usePortalContainer(): HTMLElement | null` returns the current ThemeProvider portal node. It is initially null; render custom portals only after it exists. Do not fall back to document.body and lose theme scope.
 
 Prefer the built-in controls and overlays; these helpers are extension points, not requirements for normal usage.
+
+## Color families and appearance / 配色与显示模式
+
+`ThemeProvider palette="mono"` selects the monochrome family. Other presets are `mint`, `blue`, `violet`, `rose` and `amber`. Palette and `mode` are independent: each family supports light, dark and system. Nested roots inherit palette; set `palette={null}` to restore that root's brand tokens. Inline token overrides still take precedence. Success, warning, danger and information colors keep their semantic roles.
+
+`palette` 与明暗模式独立，嵌套根继承配色，传入 null 恢复品牌色。文档站默认跟随系统；用户选择的 mode 保存至本地，下次加载优先读取有效记录。存储不可用时仍可切换本次会话。
+
+## Forms / 表单
+
+Use `Form` with `Field` and controls. Native validation runs on submit; native `action`, `method`, `onSubmit` and `onReset` remain available. For managed async submission, provide `onSubmitAsync`; `FormSubmit` reads its pending state. A rejected promise displays the localized `submitErrorMessage`. Use `errors` and matching `Field.error` for application validation, with stable `fieldId` values for focus navigation.
+
+With an external form library, use its native `onSubmit` handler and pass `submitting` yourself. Do not add `onSubmitAsync` to a handler that calls `preventDefault`. The MDS `useFormStatus` hook reads MDS Form state; it is distinct from React DOM's hook of the same name.

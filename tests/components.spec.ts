@@ -111,7 +111,10 @@ for (const language of ["zh", "en"])
 	for (const mode of ["light", "dark"]) {
 		test(`accessible gallery ${language}/${mode}`, async ({ page }) => {
 			if (language === "en") await page.getByRole("button", { name: "Change language" }).click();
-			if (mode === "dark") await page.getByRole("button", { name: /切换明暗主题|Toggle color theme/ }).click();
+			if (mode === "dark") {
+				await page.getByRole("button", { name: /切换明暗主题|Toggle color theme/ }).click();
+				await page.getByRole("menuitemradio", { name: language === "zh" ? "深色" : "Dark", exact: true }).click();
+			}
 			await page.waitForTimeout(200);
 			const scan = await new AxeBuilder({ page })
 				.include(".mds-root")
@@ -145,6 +148,7 @@ test("table body follows product theme despite host defaults", async ({ page }) 
 	await page.addStyleTag({ content: "table, td {color:white}" });
 	await expect(page.getByTestId("app-name").first()).toHaveCSS("color", "rgb(36, 54, 45)");
 	await page.getByRole("button", { name: "切换明暗主题" }).click();
+	await page.getByRole("menuitemradio", { name: "深色", exact: true }).click();
 	await expect(page.getByTestId("app-name").first()).toHaveCSS("color", "rgb(237, 246, 239)");
 });
 test("tooltip and menu actions are functional", async ({ page }) => {
@@ -287,6 +291,7 @@ test("charts and icons fit mobile widths in both themes", async ({ page }) => {
 			.poll(() => page.locator(".mds-root").evaluate((e) => e.scrollWidth - e.clientWidth))
 			.toBeLessThanOrEqual(1);
 		await page.getByRole("button", { name: "切换明暗主题" }).click();
+		await page.getByRole("menuitemradio", { name: "深色", exact: true }).click();
 		await expect
 			.poll(() => page.locator(".mds-root").evaluate((e) => e.scrollWidth - e.clientWidth))
 			.toBeLessThanOrEqual(1);

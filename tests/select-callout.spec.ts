@@ -73,6 +73,7 @@ test("Select supports keyboard typeahead and theme-scoped portal; Callout is rea
 	await expect(page).toHaveURL(/#docs$/);
 	await page.goto("/?lang=zh#system");
 	await page.getByRole("button", { name: "切换明暗主题" }).click();
+	await page.getByRole("menuitemradio", { name: "深色", exact: true }).click();
 	await page.setViewportSize({ width: 320, height: 900 });
 	expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
 	expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();

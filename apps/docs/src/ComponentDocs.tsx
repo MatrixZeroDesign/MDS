@@ -1,3 +1,4 @@
+import { ApiReference } from "./ApiReference";
 import { componentTitle } from "./componentNames";
 import { playgroundControls, playgroundLabels } from "./playground";
 import "@matrixzero/charts/styles.css";
@@ -98,9 +99,7 @@ export function ComponentDocs({ locale }: { locale: "zh" | "en" }) {
 					<h3>{t("使用指南", "Guide")}</h3>
 					<p>{text(entry.guide)}</p>
 					<h3>API</h3>
-					<p className="docs-api-signature">
-						<code>{entry.api}</code>
-					</p>
+					<ApiReference api={entry.api} name={entry.names[0]} slug={entry.slug} locale={locale} />
 					<p>
 						<a href={`./docs/api/${entry.package}.md`}>
 							{t("完整类型声明（含继承属性）", "Full type declarations, including inherited props")} ↗

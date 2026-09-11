@@ -1,4 +1,5 @@
-import { createContext, useContext, useId } from "react";
+import { useDirection } from "@radix-ui/react-direction";
+import { createContext, useContext, useId, useLayoutEffect, useRef, useState } from "react";
 import type { ComponentProps, ReactNode } from "react";
 import * as Check from "@radix-ui/react-checkbox";
 import * as Toggle from "@radix-ui/react-switch";
@@ -151,11 +152,26 @@ export function Checkbox({ className, ...props }: ComponentProps<typeof Check.Ro
 		</Check.Root>
 	);
 }
-export function Switch({ className, ...props }: ComponentProps<typeof Toggle.Root>) {
+export interface SwitchProps extends ComponentProps<typeof Toggle.Root> {
+	checkedIcon?: ReactNode;
+	uncheckedIcon?: ReactNode;
+}
+export function Switch({ className, checkedIcon, uncheckedIcon, ...props }: SwitchProps) {
 	const field = useFieldProps(props);
 	return (
 		<Toggle.Root {...props} {...field} className={cx("mds-switch", className)}>
-			<Toggle.Thumb className="mds-switch-thumb" />
+			<Toggle.Thumb className="mds-switch-thumb">
+				{uncheckedIcon != null && (
+					<span className="mds-switch-icon" data-visible="unchecked" aria-hidden="true">
+						{uncheckedIcon}
+					</span>
+				)}
+				{checkedIcon != null && (
+					<span className="mds-switch-icon" data-visible="checked" aria-hidden="true">
+						{checkedIcon}
+					</span>
+				)}
+			</Toggle.Thumb>
 		</Toggle.Root>
 	);
 }
@@ -221,8 +237,56 @@ export interface SegmentedControlProps extends Omit<ComponentProps<typeof Radio.
 	options: readonly SegmentOption[];
 }
 export function SegmentedControl({ label, options, className, ...props }: SegmentedControlProps) {
+	const anchor = useRef<HTMLSpanElement>(null);
+	const direction = useDirection(props.dir);
+	const [position, setPosition] = useState<{ x: number; y: number; width: number; height: number } | null>(null);
+	useLayoutEffect(() => {
+		const root = anchor.current?.parentElement;
+		if (!root) return;
+		const measure = () => {
+			const selected = root.querySelector<HTMLElement>('.mds-segment-option[data-state="checked"]');
+			if (!selected) {
+				setPosition(null);
+				return;
+			}
+			const next = {
+				x: selected.offsetLeft,
+				y: selected.offsetTop,
+				width: selected.offsetWidth,
+				height: selected.offsetHeight,
+			};
+			setPosition((current) =>
+				current &&
+				Object.keys(next).every((key) => current[key as keyof typeof next] === next[key as keyof typeof next])
+					? current
+					: next,
+			);
+		};
+		measure();
+		const resize = new ResizeObserver(measure);
+		resize.observe(root);
+		root.querySelectorAll(".mds-segment-option").forEach((item) => resize.observe(item));
+		const mutation = new MutationObserver(measure);
+		mutation.observe(root, { subtree: true, attributes: true, attributeFilter: ["data-state"] });
+		return () => {
+			resize.disconnect();
+			mutation.disconnect();
+		};
+	}, [direction, options]);
 	return (
 		<Radio.Root orientation="horizontal" {...props} aria-label={label} className={cx("mds-segmented", className)}>
+			<span ref={anchor} hidden aria-hidden="true" />
+			{position && (
+				<span
+					className="mds-segment-indicator"
+					aria-hidden="true"
+					style={{
+						width: position.width,
+						height: position.height,
+						transform: `translate(${position.x}px, ${position.y}px)`,
+					}}
+				/>
+			)}
 			{options.map((option) => (
 				<Radio.Item key={option.value} value={option.value} disabled={option.disabled} className="mds-segment-option">
 					{option.label}
