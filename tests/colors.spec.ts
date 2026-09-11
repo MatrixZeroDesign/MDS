@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 test("text, action states and categorical strokes retain contrast in every theme", async ({ page }) => {
-	await page.goto("/");
+	await page.goto("/#system");
 	await page.emulateMedia({ reducedMotion: "reduce" });
 	await page
 		.locator(".mds-root")
@@ -102,7 +102,7 @@ test("text, action states and categorical strokes retain contrast in every theme
 test("rendered notices, cards, placeholders and control outlines meet contrast thresholds", async ({
 	page,
 }, testInfo) => {
-	await page.goto("/");
+	await page.goto("/#system");
 	await page.emulateMedia({ reducedMotion: "reduce" });
 	const report = [];
 	for (const mode of ["light", "dark"]) {

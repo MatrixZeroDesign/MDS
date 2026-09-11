@@ -100,10 +100,10 @@ import "@matrixzero/ui/styles.css";
 import "@matrixzero/ui/themes/mt0.css";
 import "./docs.css";
 
-const portalPages = ["system", "docs", "charts", "icons", "overview", "policy"];
+const portalPages = ["home", "showcase", "system", "docs", "charts", "icons", "overview", "policy"];
 function readPage() {
 	const value = window.location.hash.slice(1).split("/")[0];
-	return portalPages.includes(value) ? value : "system";
+	return portalPages.includes(value) ? value : "home";
 }
 function App() {
 	const [bannerVisible, setBannerVisible] = useState(true);
@@ -125,6 +125,45 @@ function App() {
 		if (readPage() !== page || !window.location.hash) window.history.pushState(null, "", "#" + page);
 	}, [page]);
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+	const area =
+		page === "system" || page === "docs"
+			? "components"
+			: ["overview", "policy", "showcase"].includes(page)
+				? "showcase"
+				: page;
+	const primaryItems = [
+		["home", t("首页", "Home"), "home"],
+		["system", t("组件", "Components"), "components"],
+		["icons", t("图标", "Icons"), "icons"],
+		["charts", t("图表", "Charts"), "charts"],
+		["showcase", t("应用示例", "Showcase"), "showcase"],
+	];
+	const secondaryItems =
+		area === "components"
+			? [
+					["system", t("基础与组件", "Foundations & components")],
+					["docs", t("文档指南", "Documentation")],
+				]
+			: area === "showcase"
+				? [
+						["overview", t("运行概览", "Overview")],
+						["policy", t("策略工作台", "Policy workspace")],
+					]
+				: [];
+	const navIcon = (id: string) =>
+		id === "system" ? (
+			<Blocks />
+		) : id === "docs" ? (
+			<BookOpen />
+		) : id === "charts" ? (
+			<ChartBar />
+		) : id === "icons" ? (
+			<Palette />
+		) : id === "policy" ? (
+			<ShieldCheck />
+		) : (
+			<LayoutDashboard />
+		);
 	const [scope, setScope] = useState("all"),
 		[notify, setNotify] = useState(false),
 		[protect, setProtect] = useState(true),
@@ -271,32 +310,11 @@ function App() {
 							navigationLabel={t("移动导航", "Mobile navigation")}
 							className="docs-navigation-drawer"
 						>
-							{[
-								["system", t("基础与组件", "Components")],
-								["docs", t("文档指南", "Documentation")],
-								["charts", t("图表", "Charts")],
-								["icons", t("图标", "Icons")],
-								["overview", t("运行概览", "Overview")],
-								["policy", t("策略工作台", "Policy workspace")],
-							].map(([id, label]) => (
+							{primaryItems.map(([id, label, section]) => (
 								<NavItem
 									key={id}
-									active={page === id}
-									icon={
-										id === "system" ? (
-											<Blocks />
-										) : id === "docs" ? (
-											<BookOpen />
-										) : id === "charts" ? (
-											<ChartBar />
-										) : id === "icons" ? (
-											<Palette />
-										) : id === "overview" ? (
-											<LayoutDashboard />
-										) : (
-											<ShieldCheck />
-										)
-									}
+									active={area === section}
+									icon={navIcon(id)}
 									onClick={() => {
 										setPage(id);
 										setDrawerOpen(false);
@@ -305,14 +323,38 @@ function App() {
 									{label}
 								</NavItem>
 							))}
+							{secondaryItems.length > 0 && (
+								<div className="docs-drawer-secondary">
+									<p className="docs-eyebrow">
+										{area === "components" ? t("组件导航", "Component navigation") : t("应用示例", "Showcase")}
+									</p>
+									{secondaryItems.map(([id, label]) => (
+										<NavItem
+											key={id}
+											active={page === id}
+											icon={navIcon(id)}
+											onClick={() => {
+												setPage(id);
+												setDrawerOpen(false);
+											}}
+										>
+											{label}
+										</NavItem>
+									))}
+								</div>
+							)}
 						</NavDrawerContent>
 					</NavDrawer>
-					<a href="#system" className="docs-logo">
+					<a href="#home" className="docs-logo" aria-label="MDS Home">
 						M<span>DS</span>
 					</a>
-					<span className="docs-top-title">
-						MATRIX DESIGN SYSTEM <Badge>0.1 alpha</Badge>
-					</span>
+					<nav className="docs-primary-nav" aria-label={t("全站导航", "Site navigation")}>
+						{primaryItems.map(([id, label, section]) => (
+							<a key={id} href={`#${id}`} aria-current={area === section ? "page" : undefined}>
+								{label}
+							</a>
+						))}
+					</nav>
 					<div className="docs-actions">
 						<Button
 							variant="ghost"
@@ -331,57 +373,42 @@ function App() {
 						<Avatar fallback="M" alt="Matrix workspace" size="sm" />
 					</div>
 				</Navbar>
-				<div className="docs-layout" data-collapsed={railCollapsed || undefined}>
-					<NavRail className="docs-nav" label={t("主导航", "Main navigation")} collapsed={railCollapsed}>
-						<div className="docs-nav-header">
-							<small>DESIGN SYSTEM</small>
-							<IconButton
-								variant="ghost"
-								label={t("切换导航宽度", "Toggle navigation width")}
-								title={railCollapsed ? t("展开侧栏", "Expand sidebar") : t("收起侧栏", "Collapse sidebar")}
-								aria-expanded={!railCollapsed}
-								aria-controls="docs-navigation-items"
-								onClick={() => setRailCollapsed(!railCollapsed)}
-								icon={railCollapsed ? <PanelLeftOpen size={16} /> : <PanelLeftClose size={16} />}
-							/>
-						</div>
-						<div id="docs-navigation-items" className="docs-nav-items">
-							{[
-								["system", t("基础与组件", "Components")],
-								["docs", t("文档指南", "Documentation")],
-								["charts", t("图表", "Charts")],
-								["icons", t("图标", "Icons")],
-								["overview", t("运行概览", "Overview")],
-								["policy", t("策略工作台", "Policy workspace")],
-							].map(([id, label]) => (
-								<NavItem
-									key={id}
-									active={page === id}
-									icon={
-										id === "system" ? (
-											<Blocks />
-										) : id === "docs" ? (
-											<BookOpen />
-										) : id === "charts" ? (
-											<ChartBar />
-										) : id === "icons" ? (
-											<Palette />
-										) : id === "overview" ? (
-											<LayoutDashboard />
-										) : (
-											<ShieldCheck />
-										)
-									}
-									onClick={() => {
-										setPage(id);
-										setNotice("");
-									}}
-								>
-									{label}
-								</NavItem>
-							))}
-						</div>
-					</NavRail>
+				<div
+					className="docs-layout"
+					data-sidebar={secondaryItems.length > 0 || undefined}
+					data-collapsed={railCollapsed || undefined}
+				>
+					{secondaryItems.length > 0 && (
+						<NavRail className="docs-nav" label={t("主导航", "Main navigation")} collapsed={railCollapsed}>
+							<div className="docs-nav-header">
+								<small>{area === "components" ? "COMPONENTS" : "SHOWCASE"}</small>
+								<IconButton
+									variant="ghost"
+									label={t("切换导航宽度", "Toggle navigation width")}
+									title={railCollapsed ? t("展开侧栏", "Expand sidebar") : t("收起侧栏", "Collapse sidebar")}
+									aria-expanded={!railCollapsed}
+									aria-controls="docs-navigation-items"
+									onClick={() => setRailCollapsed(!railCollapsed)}
+									icon={railCollapsed ? <PanelLeftOpen size={16} /> : <PanelLeftClose size={16} />}
+								/>
+							</div>
+							<div id="docs-navigation-items" className="docs-nav-items">
+								{secondaryItems.map(([id, label]) => (
+									<NavItem
+										key={id}
+										active={page === id}
+										icon={navIcon(id)}
+										onClick={() => {
+											setPage(id);
+											setNotice("");
+										}}
+									>
+										{label}
+									</NavItem>
+								))}
+							</div>
+						</NavRail>
+					)}
 					<main id="main" className="docs-main">
 						<div className="docs-page-heading">
 							<div>
@@ -389,32 +416,91 @@ function App() {
 									{page === "overview" || page === "policy" ? "MT0 / WORKSPACE" : "MATRIX / DESIGN SYSTEM"}
 								</p>
 								<h1>
-									{page === "system"
+									{page === "home"
 										? "Matrix Design System"
-										: page === "docs"
-											? t("文档指南", "Documentation")
-											: page === "charts"
-												? t("图表", "Charts")
-												: page === "icons"
-													? t("图标", "Icons")
-													: page === "overview"
-														? t("运行概览", "Overview")
-														: t("策略工作台", "Policy workspace")}
+										: page === "showcase"
+											? t("应用示例", "Showcase")
+											: page === "system"
+												? "Matrix Design System"
+												: page === "docs"
+													? t("文档指南", "Documentation")
+													: page === "charts"
+														? t("图表", "Charts")
+														: page === "icons"
+															? t("图标", "Icons")
+															: page === "overview"
+																? t("运行概览", "Overview")
+																: t("策略工作台", "Policy workspace")}
 								</h1>
 								<p className="docs-muted">
-									{page === "system"
-										? t("清晰、一致，也有温度。", "Clear, consistent, and considered.")
-										: page === "docs"
-											? t("安装、组件 API 与设计规范。", "Installation, component APIs and design guidelines.")
-											: page === "icons"
-												? t("为 Matrix 独立绘制的图标集合。", "An independently drawn icon collection for Matrix.")
-												: page === "charts"
-													? t("清晰的数据表达，完整的交互示例。", "Clear data presentation with interactive examples.")
-													: t("演示数据 · 未连接生产环境", "Sample data · no production connection")}
+									{page === "home"
+										? t(
+												"从基础到体验，用一致的语言构建界面。",
+												"A considered language for every part of your interface.",
+											)
+										: page === "showcase"
+											? t("在真实页面组合中探索组件。", "Explore components in complete product experiences.")
+											: page === "system"
+												? t("清晰、一致，也有温度。", "Clear, consistent, and considered.")
+												: page === "docs"
+													? t("安装、组件 API 与设计规范。", "Installation, component APIs and design guidelines.")
+													: page === "icons"
+														? t("为 Matrix 独立绘制的图标集合。", "An independently drawn icon collection for Matrix.")
+														: page === "charts"
+															? t(
+																	"清晰的数据表达，完整的交互示例。",
+																	"Clear data presentation with interactive examples.",
+																)
+															: t("演示数据 · 未连接生产环境", "Sample data · no production connection")}
 								</p>
 							</div>
 							{(page === "overview" || page === "policy") && actions}
 						</div>
+						{page === "home" && (
+							<>
+								<AtmosphereShowcase locale={locale} />
+								<div className="docs-destination-grid">
+									{primaryItems.slice(1).map(([id, label]) => (
+										<a className="docs-destination-card" key={id} href={`#${id}`}>
+											<span aria-hidden="true">{navIcon(id)}</span>
+											<h2>{label}</h2>
+											<p>
+												{id === "system"
+													? t("基础规范、交互组件与使用指南", "Foundations, interactive components and guides")
+													: id === "icons"
+														? t("为 Matrix 绘制的完整图标集合", "The complete Matrix icon collection")
+														: id === "charts"
+															? t("可访问的数据可视化与动态效果", "Accessible data visualization and motion")
+															: t("在完整产品界面中查看设计系统", "See the system in complete product interfaces")}
+											</p>
+											<span aria-hidden="true">↗</span>
+										</a>
+									))}
+								</div>
+							</>
+						)}
+						{page === "showcase" && (
+							<div className="docs-destination-grid">
+								{secondaryItems.map(([id, label]) => (
+									<a className="docs-destination-card" key={id} href={`#${id}`}>
+										<span aria-hidden="true">{navIcon(id)}</span>
+										<h2>{label}</h2>
+										<p>
+											{id === "overview"
+												? t(
+														"指标、调用记录与运行状态的仪表盘组合。",
+														"A dashboard combining metrics, request activity and status.",
+													)
+												: t(
+														"表单、选项与策略配置的完整工作流。",
+														"A complete workflow for forms, options and policy configuration.",
+													)}
+										</p>
+										<span aria-hidden="true">↗</span>
+									</a>
+								))}
+							</div>
+						)}
 						{page === "docs" && (
 							<Suspense fallback={<p role="status">{t("加载文档…", "Loading documentation…")}</p>}>
 								<PortalPage locale={locale} />

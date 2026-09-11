@@ -48,8 +48,8 @@ test("donut rejects invalid and overflowing totals, while all-zero data is empty
 test("charts stay within narrow screens and expose the selected dataset as a table", async ({ page }) => {
 	const errors: string[] = [];
 	page.on("pageerror", (error) => errors.push(error.message));
-	await page.goto("/");
-	await page.getByRole("button", { name: "图表", exact: true }).click();
+	await page.goto("/#system");
+	await page.getByRole("link", { name: "图表", exact: true }).click();
 	const first = page.locator(".mds-chart").first();
 	await expect(first.locator(".recharts-surface")).toBeVisible();
 	await first.locator("summary").click();
