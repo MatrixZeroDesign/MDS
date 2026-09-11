@@ -1,3 +1,4 @@
+import { componentNames, componentTitle } from "./componentNames";
 import { useEffect, useState } from "react";
 import { Input } from "@matrixzero/ui";
 import entries from "../../../docs/content.json";
@@ -22,7 +23,9 @@ export function ComponentNavigation({
 	const items = entries
 		.filter((e) => e.package === kind)
 		.sort((a, b) => a.names[0].localeCompare(b.names[0]))
-		.filter((e) => [e.names.join(" "), e.purpose].join(" ").toLowerCase().includes(query.toLowerCase()));
+		.filter((e) =>
+			[componentNames[e.slug], e.names.join(" "), e.purpose].join(" ").toLowerCase().includes(query.toLowerCase()),
+		);
 	const link = (href: string, label: string) => (
 		<a
 			key={href}
@@ -32,9 +35,6 @@ export function ComponentNavigation({
 			onClick={onNavigate}
 			aria-current={hash === href || (href === "#docs/start" && hash === "#docs") ? "page" : undefined}
 		>
-			<span className="docs-component-initial" aria-hidden="true">
-				{label.slice(0, 2)}
-			</span>
 			<span className="docs-component-label">{label}</span>
 		</a>
 	);
@@ -59,7 +59,7 @@ export function ComponentNavigation({
 					<p className="docs-eyebrow">{t("组件", "Components")}</p>
 				</>
 			)}
-			{items.map((e) => link(`#${kind === "charts" ? "charts" : "docs"}/${e.slug}`, e.names[0]))}
+			{items.map((e) => link(`#${kind === "charts" ? "charts" : "docs"}/${e.slug}`, componentTitle(e, locale)))}
 			{!items.length && <p className="docs-muted">{t("没有匹配的组件", "No matching components")}</p>}
 		</div>
 	);

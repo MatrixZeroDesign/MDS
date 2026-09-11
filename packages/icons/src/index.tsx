@@ -160,6 +160,13 @@ export const Bell = /* @__PURE__ */ defineIcon(
 	<>
 		<path d="M6.5 9a5.5 5.5 0 0 1 11 0v3.5l2 3v1h-15v-1l2-3V9Zm3 11h5" />
 	</>,
+	() => (
+		<path
+			fill="currentColor"
+			stroke="none"
+			d="M12 2.6A6.4 6.4 0 0 0 5.6 9v3.2l-1.9 2.9a.9.9 0 0 0-.2.5v.9c0 .5.4.9.9.9h15.2c.5 0 .9-.4.9-.9v-.9a.9.9 0 0 0-.2-.5l-1.9-2.9V9A6.4 6.4 0 0 0 12 2.6ZM9.5 19a2.5 2.5 0 0 0 5 0Z"
+		/>
+	),
 );
 export const ExternalLink = /* @__PURE__ */ defineIcon(
 	"ExternalLink",
@@ -171,3 +178,5 @@ export const ExternalLink = /* @__PURE__ */ defineIcon(
 export * from "./interface.js";
 export * from "./content.js";
 export * from "./systems.js";
+
+export * from "./social.js";

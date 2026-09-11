@@ -1,9 +1,10 @@
 import { DonutChart } from "@matrixzero/charts";
 
-export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
+export default function Example({ locale = "en", motion = true }: { locale?: "zh" | "en"; motion?: boolean }) {
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<DonutChart
+			motion={motion}
 			title={t("流量组成", "Traffic mix")}
 			data={[
 				{ label: "Chat", value: 64 },

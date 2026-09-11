@@ -77,7 +77,8 @@
 	{
 		"name": "Bookmark",
 		"category": "files",
-		"keywords": ["收藏", "书签", "save", "bookmark"]
+		"keywords": ["收藏", "书签", "save", "bookmark"],
+		"variants": ["outlined", "filled"]
 	},
 	{
 		"name": "FileBookmark",
@@ -307,7 +308,8 @@
 	{
 		"name": "Flag",
 		"category": "communication",
-		"keywords": ["标记", "flag", "report"]
+		"keywords": ["标记", "flag", "report"],
+		"variants": ["outlined", "filled"]
 	},
 	{
 		"name": "Reply",

@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Button, Input, Select, SegmentedControl, Dialog, DialogContent } from "@matrixzero/ui";
+import { Button, IconButton, Input, Select, SegmentedControl, Dialog, DialogContent } from "@matrixzero/ui";
 import * as Icons from "@matrixzero/icons";
 import { iconCatalog } from "@matrixzero/icons/catalog";
 const categories: Record<string, [string, string]> = {
@@ -17,6 +17,10 @@ const categories: Record<string, [string, string]> = {
 };
 export function IconsPage({ locale }: { locale: "zh" | "en" }) {
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+	const [variant, setVariant] = useState<"outlined" | "filled">("outlined");
+	const [liked, setLiked] = useState(false);
+	const [saved, setSaved] = useState(false);
+	const [starred, setStarred] = useState(false);
 	const [query, setQuery] = useState(""),
 		[category, setCategory] = useState("all"),
 		[size, setSize] = useState("20");
@@ -26,6 +30,7 @@ export function IconsPage({ locale }: { locale: "zh" | "en" }) {
 	const matches = iconCatalog.filter(
 		(item) =>
 			(category === "all" || item.category === category) &&
+			(variant === "outlined" || ("variants" in item && item.variants.includes("filled"))) &&
 			query
 				.trim()
 				.toLowerCase()
@@ -41,7 +46,9 @@ export function IconsPage({ locale }: { locale: "zh" | "en" }) {
 		selected +
 		" size={" +
 		size +
-		"} />} />";
+		'} variant="' +
+		variant +
+		'" />} />';
 	const opener = useRef<HTMLButtonElement | null>(null);
 	const SelectedIcon = Icons[selected];
 	const copy = async () => {
@@ -65,12 +72,75 @@ export function IconsPage({ locale }: { locale: "zh" | "en" }) {
 					{iconCatalog.length} {t("个图标", "icons")}
 				</span>
 			</div>
+			<section
+				className="docs-card"
+				aria-label={t("选中状态示例", "Selection state example")}
+				style={{ marginBlock: 24, display: "grid", gap: 16 }}
+			>
+				<h2 style={{ margin: 0 }}>{t("用形态表达选中状态", "Make selection visible")}</h2>
+				<p className="docs-muted" style={{ margin: 0 }}>
+					{t(
+						"爱心、书签、星标、铃铛与旗帜支持独立绘制的实心版本。按钮的选中状态同时通过 aria-pressed 表达。",
+						"Heart, Bookmark, Star, Bell and Flag have independently drawn filled variants. Toggle buttons also expose their state through aria-pressed.",
+					)}
+				</p>
+				<div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
+					<IconButton
+						label={t("喜欢", "Like")}
+						aria-pressed={liked}
+						icon={<Icons.Heart size={20} variant={liked ? "filled" : "outlined"} />}
+						onClick={() => setLiked(!liked)}
+					/>
+					<IconButton
+						label={t("收藏", "Save")}
+						aria-pressed={saved}
+						icon={<Icons.Bookmark size={20} variant={saved ? "filled" : "outlined"} />}
+						onClick={() => setSaved(!saved)}
+					/>
+					<IconButton
+						label={t("星标", "Star")}
+						aria-pressed={starred}
+						icon={<Icons.Star size={20} variant={starred ? "filled" : "outlined"} />}
+						onClick={() => setStarred(!starred)}
+					/>
+				</div>
+				<pre style={{ margin: 0 }}>
+					<code>{`const [liked, setLiked] = useState(false);
+
+<IconButton
+  label="${t("喜欢", "Like")}"
+  aria-pressed={liked}
+  onClick={() => setLiked(!liked)}
+  icon={<Heart variant={liked ? "filled" : "outlined"} />}
+/>`}</code>
+				</pre>
+			</section>
+			<div className="docs-row" style={{ marginBlockEnd: 16 }}>
+				<SegmentedControl
+					label={t("图标样式", "Icon style")}
+					value={variant}
+					onValueChange={(value) => {
+						setVariant(value as "outlined" | "filled");
+						setSelected(value === "filled" ? "Heart" : "Share");
+					}}
+					options={[
+						{ value: "outlined", label: t("线框", "Outlined") },
+						{ value: "filled", label: t("实心", "Filled") },
+					]}
+				/>
+				<p className="docs-muted" style={{ margin: 0 }}>
+					{t(
+						"实心视图只列出支持该样式的图标。其余图标传入 filled 时保持线框。",
+						"Filled view lists supported icons only. Other icons retain their outline when passed filled.",
+					)}
+				</p>
+			</div>
 			<div className="docs-icon-tools">
 				<Input
 					aria-label={t("搜索图标", "Search icons")}
 					placeholder={t(
-						"搜索名称或关键词，例如 文件、搜索、server…",
-						"Search names or keywords, e.g. file, search, server…",
+						"搜索名称或关键词，例如 分享、爱心、书签…",
+						"Search names or keywords, e.g. share, heart, bookmark…",
 					)}
 					value={query}
 					onChange={(e) => setQuery(e.target.value)}
@@ -134,7 +204,7 @@ export function IconsPage({ locale }: { locale: "zh" | "en" }) {
 							}}
 						>
 							<span className="docs-icon-drawing">
-								<Icon size={Number(size)} />
+								<Icon size={Number(size)} variant={variant} />
 							</span>
 							<code>{name}</code>
 							<small>{categories[category]?.[locale === "zh" ? 0 : 1]}</small>
@@ -156,7 +226,7 @@ export function IconsPage({ locale }: { locale: "zh" | "en" }) {
 						<div className="docs-icon-preview">
 							{[16, 20, 24, 48].map((value) => (
 								<div key={value}>
-									<SelectedIcon size={value} />
+									<SelectedIcon size={value} variant={variant} />
 									<small>{value}px</small>
 								</div>
 							))}

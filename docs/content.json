@@ -144,7 +144,7 @@
 		"names": ["ChoiceMenu"],
 		"package": "ui",
 		"purpose": "紧凑的偏好选择菜单。 / A compact preference menu.",
-		"guide": "用于视图范围、排序等已知值选择。始终传当前 value 与 onValueChange。 / Use for known preferences such as scope or sort order.",
+		"guide": "采用紧凑工具栏按钮，用于排序、密度或视图偏好，选中后立即生效。表单字段使用 Select；不要仅凭宽度区分二者。 / Use the compact toolbar button for sort order, density or view preferences that apply immediately. Use Select for form fields; width alone is not the distinction.",
 		"api": "label: string; value: string; onValueChange: (value: string) => void; options: readonly {value:string;label:string;description?:string;disabled?:boolean}[]; disabled?; placeholder?: string = \"—\"",
 		"a11y": "非模态 menuitemradio；支持键盘选择、Escape 关闭和触发器焦点恢复。 / Non-modal menuitemradio with keyboard selection, Escape and trigger focus restoration.",
 		"pitfalls": "没有表单 name、required 或原生 reset；表单用 Select。不支持搜索或自由输入。 / No native form name, required or reset; use Select for forms."
@@ -383,9 +383,9 @@
 		"slug": "icons",
 		"names": ["Search"],
 		"package": "icons",
-		"purpose": "MDS 自有 SVG 图标，320 个稳定名称。 / MDS SVG icons with 320 stable names.",
-		"guide": "按名称静态导入便于 tree shaking；16/20/24px 为常用尺寸。图标目录单独从 @matrixzero/icons/catalog 导入。 / Use named imports for tree shaking; common sizes are 16/20/24px. Import the catalogue separately.",
-		"api": "IconProps extends SVGProps<SVGSVGElement>; size?: number | string = 16; strokeWidth?: number = 1.75; absoluteStrokeWidth?: boolean; aria-label/aria-labelledby; catalog: iconCatalog, IconName, IconCategory",
+		"purpose": "MDS 自有 SVG 图标，340 个稳定名称。 / MDS SVG icons with 340 stable names.",
+		"guide": "按名称静态导入便于 tree shaking；16、20、24px 为常用尺寸，目录从 @matrixzero/icons/catalog 导入。独立信息图标传 aria-label，装饰图标默认隐藏。Heart、Star、Bookmark、Bell 和 Flag 支持 outlined/filled；切换按钮同时设置 aria-pressed。 / Use named imports for tree shaking; common sizes are 16, 20 and 24px. Import the catalogue from @matrixzero/icons/catalog. Give standalone meaningful icons an aria-label; decorative icons are hidden by default. Heart, Star, Bookmark, Bell and Flag support outlined/filled; set aria-pressed on toggle buttons.",
+		"api": "IconProps extends SVGProps<SVGSVGElement>; size?: number | string = 16; strokeWidth?: number = 1.75; absoluteStrokeWidth?: boolean; aria-label/aria-labelledby; catalog: iconCatalog, IconName, IconCategory; variant?: \"outlined\" | \"filled\" = \"outlined\" (Heart, Star, Bookmark, Bell, Flag)",
 		"a11y": "默认装饰性 aria-hidden；独立有意义图标传 aria-label。图标按钮由 IconButton.label 命名。 / Decorative by default; use aria-label for meaningful standalone icons and IconButton.label for actions.",
 		"pitfalls": "不要在每个按钮中导入整套 catalog 动态查找；它会包含全部图标。 / Do not import the whole catalog for each button; it includes the entire collection."
 	},
@@ -448,5 +448,15 @@
 		"api": "members: { name: string; fallback: string; src?: string }[]; label: string; overflowLabel: (count: number) => string; max?: number = 4; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; div props",
 		"a11y": "label 命名整个组，每个头像使用成员姓名；overflowLabel 提供本地化剩余人数。 / Name the group and each person; localize the overflow label.",
 		"pitfalls": "人数标记不是按钮。如需查看完整成员列表，另提供有名称的按钮或链接。 / The count is informational; provide a separate named action to open a full member list."
+	},
+	{
+		"slug": "toast",
+		"names": ["ToastProvider", "Toaster"],
+		"package": "ui",
+		"purpose": "短暂的操作反馈，支持多条堆叠。 / Temporary feedback with stacked notifications.",
+		"guide": "在 ThemeProvider 内放 ToastProvider 和一个 Toaster；通过 useToast().toast 发送通知。默认 5 秒关闭，悬停或键盘聚焦展开并暂停计时。 / Place ToastProvider and one Toaster inside ThemeProvider. Call useToast().toast to notify. Notifications dismiss after 5 seconds; hover or keyboard focus expands the stack and pauses timers.",
+		"api": "ToastProvider: children: ReactNode; duration?: number = 5000; label?: string; Toaster: label?: string; closeLabel?: string; useToast(): { toast(options: ToastOptions): number; dismiss(id: number): void; clear(): void }; ToastOptions: title: string; description?: ReactNode; tone?: \"neutral\" | \"info\" | \"success\" | \"warning\" | \"danger\"; duration?: number; action?: { label: string; altText: string; onClick: () => void }",
+		"a11y": "F8 聚焦通知，悬停、聚焦或窗口失焦时暂停计时。翻译 label、closeLabel 和 action.altText。 / F8 focuses notifications. Hover, focus and window blur pause timers. Translate label, closeLabel and action.altText.",
+		"pitfalls": "持久通知使用 duration: Infinity。重要表单错误仍应在字段旁展示；不要只通过短暂通知告知。 / Use duration: Infinity for persistent notifications. Keep important form errors beside their fields rather than only in a toast."
 	}
 ]

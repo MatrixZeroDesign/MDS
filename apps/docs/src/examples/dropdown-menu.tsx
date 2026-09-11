@@ -12,7 +12,7 @@ export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	const [message, setMessage] = useState("");
 	return (
-		<>
+		<div style={{ display: "grid", gap: 16 }}>
 			<DropdownMenu modal={false}>
 				<DropdownTrigger asChild>
 					<Button>{t("操作", "Actions")}</Button>
@@ -23,7 +23,9 @@ export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
 					<DropdownItem disabled>{t("删除", "Delete")}</DropdownItem>
 				</DropdownContent>
 			</DropdownMenu>
-			<p role="status">{message}</p>
-		</>
+			<p role="status" style={{ margin: 0 }}>
+				{message}
+			</p>
+		</div>
 	);
 }

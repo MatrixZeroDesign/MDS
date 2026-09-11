@@ -3,14 +3,16 @@ import { NativeSelect, Field, Button } from "@matrixzero/ui";
 export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
-		<form>
+		<form style={{ display: "grid", gap: 16 }}>
 			<Field label={t("地区", "Region")}>
 				<NativeSelect name="region" defaultValue="asia">
 					<option value="asia">{t("亚洲", "Asia")}</option>
 					<option value="europe">{t("欧洲", "Europe")}</option>
 				</NativeSelect>
 			</Field>
-			<Button type="reset">{t("重置", "Reset")}</Button>
+			<Button type="reset" style={{ justifySelf: "start" }}>
+				{t("重置", "Reset")}
+			</Button>
 		</form>
 	);
 }

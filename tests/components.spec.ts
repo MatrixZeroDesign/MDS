@@ -1,3 +1,4 @@
+import { iconCatalog } from "../packages/icons/dist/catalog.js";
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
@@ -101,7 +102,7 @@ test("native form reset restores values", async ({ page }) => {
 	const input = page.getByLabel("策略名称", { exact: false });
 	await input.fill("saved");
 	await page.getByRole("button", { name: "保存更改", exact: true }).click();
-	await expect(page.getByText("所有更改已保存")).toBeVisible();
+	await expect(page.getByText("所有更改已保存", { exact: true })).toBeVisible();
 	await input.fill("unsaved");
 	await page.getByRole("button", { name: "重置", exact: true }).click();
 	await expect(input).toHaveValue("saved");
@@ -151,7 +152,7 @@ test("tooltip and menu actions are functional", async ({ page }) => {
 	await expect(page.getByRole("tooltip")).toBeVisible();
 	await page.getByRole("button", { name: "更多操作" }).click();
 	await page.getByRole("menuitem", { name: "分享", exact: true }).click();
-	await expect(page.getByText("链接已准备好")).toBeVisible();
+	await expect(page.getByText("链接已准备好", { exact: true })).toBeVisible();
 });
 test("independent theme portals and uncontrolled form reset", async ({ page }) => {
 	await page.goto("/isolation.html?lang=zh");
@@ -195,10 +196,10 @@ test("side sheet traps focus, preserves nested menu theme and returns focus", as
 	await expect(dialog).toHaveCount(0);
 	await expect(trigger).toBeFocused();
 });
-test("navigation rail collapses while keeping accessible item labels", async ({ page }) => {
+test("documentation navigation keeps full accessible item labels", async ({ page }) => {
 	const nav = page.getByRole("navigation", { name: "主导航" });
-	await page.getByRole("button", { name: "切换导航宽度" }).click();
-	await expect(nav).toHaveAttribute("data-collapsed", "true");
+	await expect(page.getByRole("button", { name: "切换导航宽度" })).toHaveCount(0);
+	await expect(nav).not.toHaveAttribute("data-collapsed");
 	await nav.getByRole("link", { name: "快速开始", exact: true }).click();
 	await expect(page.getByRole("heading", { name: "文档指南", exact: true })).toBeVisible();
 });
@@ -227,7 +228,7 @@ test("sheet reduced motion has no slide animation", async ({ page }) => {
 });
 test("icon buttons expose labels and disabled actions cannot activate", async ({ page }) => {
 	await page.getByRole("button", { name: "添加应用", exact: true }).click();
-	await expect(page.getByText("已添加示例应用")).toBeVisible();
+	await expect(page.getByText("已添加示例应用", { exact: true })).toBeVisible();
 	await expect(page.getByRole("button", { name: "无权限操作" })).toBeDisabled();
 });
 test("segmented control supports keyboard selection and disabled options", async ({ page }) => {
@@ -250,10 +251,10 @@ test("docs portal supports search, examples and stable URLs", async ({ page }) =
 	await page.goto("/?lang=zh#docs");
 	await expect(page.getByRole("heading", { name: "文档指南", exact: true })).toBeVisible();
 	await page.getByRole("textbox", { name: "搜索组件文档" }).fill("SideSheet");
-	await page.getByRole("link", { name: "SideSheet", exact: true }).click();
+	await page.getByRole("link", { name: /SideSheet$/, exact: true }).click();
 	await expect(
 		page.getByRole("heading", {
-			name: "SideSheet / SideSheetTrigger / SideSheetContent / SideSheetClose",
+			name: /SideSheet$/,
 			exact: true,
 		}),
 	).toBeVisible();
@@ -263,7 +264,7 @@ test("docs portal supports search, examples and stable URLs", async ({ page }) =
 });
 test("icon portal renders the whole maintained collection and filters", async ({ page }) => {
 	await page.goto("/?lang=zh#icons");
-	await expect(page.locator(".docs-icon-tile")).toHaveCount(320);
+	await expect(page.locator(".docs-icon-tile")).toHaveCount(iconCatalog.length);
 	await page.getByRole("textbox", { name: "搜索图标" }).fill("Chevron");
 	await expect(page.locator(".docs-icon-tile")).toHaveCount(8);
 	await expect(page.locator(".docs-icon-tile").first().locator("svg")).toHaveCount(1);

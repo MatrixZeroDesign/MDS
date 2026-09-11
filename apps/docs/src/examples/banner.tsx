@@ -1,12 +1,19 @@
 import { useState } from "react";
 import { Banner, Button } from "@matrixzero/ui";
-export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
+export default function Example({
+	locale = "en",
+	tone = "info",
+}: {
+	locale?: "zh" | "en";
+	tone?: "neutral" | "info" | "success" | "warning" | "danger";
+}) {
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	const [visible, setVisible] = useState(true);
 	return (
 		<div style={{ border: "1px solid var(--mds-border)", borderRadius: 12, overflow: "hidden" }}>
 			{visible ? (
 				<Banner
+					tone={tone}
 					label={t("服务通知", "Service notice")}
 					onDismiss={() => setVisible(false)}
 					dismissLabel={t("关闭通知", "Dismiss notice")}

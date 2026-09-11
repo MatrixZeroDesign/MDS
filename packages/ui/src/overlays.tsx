@@ -35,15 +35,22 @@ export function ChoiceMenu({
 	className,
 }: ChoiceMenuProps) {
 	const container = usePortalContainer();
+	const selectedId = useId();
 	return (
 		<Menu.Root modal={false}>
-			<Menu.Trigger disabled={disabled} id={id} aria-label={label} className={cx("mds-choice-trigger", className)}>
-				<span>{options.find((o) => o.value === value)?.label ?? placeholder}</span>
+			<Menu.Trigger
+				disabled={disabled}
+				id={id}
+				aria-label={label}
+				aria-describedby={selectedId}
+				className={cx("mds-choice-trigger", className)}
+			>
+				<span id={selectedId}>{options.find((o) => o.value === value)?.label ?? placeholder}</span>
 				<ChevronDown size={14} aria-hidden="true" />
 			</Menu.Trigger>
 			{container && (
 				<Menu.Portal container={container}>
-					<Menu.Content sideOffset={6} collisionPadding={12} loop className="mds-menu">
+					<Menu.Content align="start" sideOffset={6} collisionPadding={12} loop className="mds-menu">
 						<Menu.Label className="mds-menu-label">{label}</Menu.Label>
 						<Menu.RadioGroup value={value} onValueChange={onValueChange}>
 							{options.map((o) => (

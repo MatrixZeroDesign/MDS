@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-test("desktop navigation stays single-line with an anchored collapse control", async ({ page }) => {
+test("desktop documentation navigation stays expanded with readable labels", async ({ page }) => {
 	await page.goto("/?lang=zh#system");
 	await page.getByRole("button", { name: "Change language" }).click();
 	const nav = page.getByRole("navigation", { name: "Main navigation" });
@@ -13,17 +13,11 @@ test("desktop navigation stays single-line with an anchored collapse control", a
 			.locator(".docs-component-label")
 			.evaluateAll((items) => items.every((el) => el.scrollWidth <= el.clientWidth)),
 	).toBeTruthy();
-	const head = await toggle.boundingBox();
-	const first = await nav.getByRole("link", { name: "Foundations & components", exact: true }).boundingBox();
-	expect(head!.y + head!.height).toBeLessThanOrEqual(first!.y);
+	await expect(toggle).toHaveCount(0);
+	await expect(nav).not.toHaveAttribute("data-collapsed");
 	await expect(page.getByText("Built with the real package", { exact: true })).toHaveCount(0);
-	await toggle.click();
-	await expect(toggle).toBeFocused();
-	await expect(toggle).toHaveAttribute("aria-expanded", "false");
 	await nav.getByRole("link", { name: "Getting started", exact: true }).click();
 	await expect(page).toHaveURL(/#docs\/start$/);
-	await toggle.click();
-	await expect(toggle).toHaveAttribute("aria-expanded", "true");
 });
 test("tablet and mobile navigation use the same unclipped labels and close after routing", async ({ page }) => {
 	for (const width of [800, 320]) {
@@ -63,7 +57,7 @@ test("site sections own their secondary navigation and retain deep links", async
 	await expect(page.getByRole("heading", { name: "Showcase", exact: true })).toBeVisible();
 	await page.goto("/?lang=zh#docs/avatar-group");
 	await page.reload();
-	await expect(page.getByRole("heading", { name: "AvatarGroup", exact: true })).toBeVisible();
+	await expect(page.getByRole("heading", { name: /AvatarGroup$/, exact: true })).toBeVisible();
 	await expect(
 		page.getByRole("navigation", { name: "全站导航" }).getByRole("link", { name: "组件", exact: true }),
 	).toHaveAttribute("aria-current", "page");
@@ -75,7 +69,7 @@ test("component drawer links open live examples and API without a nested directo
 	await nav.getByRole("link", { name: "主题与动效", exact: true }).click();
 	await expect(page.getByRole("heading", { name: "主题隔离与品牌契约" })).toBeVisible();
 	await nav.getByRole("textbox", { name: "搜索组件文档" }).fill("Button");
-	await nav.getByRole("link", { name: "Button", exact: true }).click();
+	await nav.getByRole("link", { name: /^(按钮 )?Button$/, exact: true }).click();
 	const preview = page.getByRole("region", { name: "交互示例" });
 	await preview.getByRole("button", { name: "添加" }).click();
 	await expect(preview.getByRole("status")).toHaveText("1");
@@ -85,8 +79,8 @@ test("component drawer links open live examples and API without a nested directo
 	await page.getByRole("button", { name: "打开导航" }).click();
 	const drawer = page.getByRole("dialog");
 	await drawer.getByRole("textbox", { name: "搜索组件文档" }).fill("AvatarGroup");
-	await drawer.getByRole("link", { name: "AvatarGroup", exact: true }).click();
+	await drawer.getByRole("link", { name: /AvatarGroup$/, exact: true }).click();
 	await expect(drawer).toHaveCount(0);
-	await expect(page.getByRole("heading", { name: "AvatarGroup", exact: true })).toBeVisible();
+	await expect(page.getByRole("heading", { name: /AvatarGroup$/, exact: true })).toBeVisible();
 	await expect(page.getByRole("region", { name: "交互示例" }).getByRole("group")).toBeVisible();
 });

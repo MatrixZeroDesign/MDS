@@ -1,9 +1,15 @@
 import { Callout } from "@matrixzero/ui";
-export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
+export default function Example({
+	locale = "en",
+	tone = "warning",
+}: {
+	locale?: "zh" | "en";
+	tone?: "neutral" | "info" | "success" | "warning" | "danger";
+}) {
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<Callout
-			tone="warning"
+			tone={tone}
 			title={t("发布前检查", "Review before publishing")}
 			action={<a href="#docs/select">{t("阅读选择器指南", "Read the Select guide")}</a>}
 		>

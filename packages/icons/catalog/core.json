@@ -152,7 +152,8 @@
 	{
 		"name": "Bell",
 		"category": "communication",
-		"keywords": ["通知", "铃铛", "notification", "alert"]
+		"keywords": ["通知", "铃铛", "notification", "alert"],
+		"variants": ["outlined", "filled"]
 	},
 	{
 		"name": "ExternalLink",

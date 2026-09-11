@@ -1,9 +1,15 @@
 import { Atmosphere, Container, Button } from "@matrixzero/ui";
-export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
+export default function Example({
+	locale = "en",
+	tone = "iris",
+}: {
+	locale?: "zh" | "en";
+	tone?: "iris" | "mint" | "peach";
+}) {
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<Atmosphere
-			tone="iris"
+			tone={tone}
 			as="section"
 			aria-labelledby="welcome-title"
 			style={{ padding: "64px 24px 40px", textAlign: "center" }}

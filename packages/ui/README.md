@@ -27,10 +27,10 @@ import "@matrixzero/ui/themes/mt0.css";
 export function Settings() {
 	return (
 		<ThemeProvider brand="mt0" mode="system">
-			<Field label="工作区名称 / Workspace name" required>
+			<Field label="Workspace name" required>
 				<Input name="workspace" defaultValue="Engineering" />
 			</Field>
-			<Button variant="primary">保存 Save</Button>
+			<Button variant="primary">Save</Button>
 		</ThemeProvider>
 	);
 }
@@ -57,3 +57,9 @@ Callout provides persistent contextual notes; Banner provides dismissible page-l
 Accessibility: keep control outlines on --mds-control-border and decorative dividers on --mds-border. Default text pairs target 4.5:1; essential control/focus outlines target 3:1. Validate your own token overrides, keyboard interaction and content composition.
 
 Direction: set `dir="rtl"` or `dir="ltr"` on `ThemeProvider`, independently of `lang`. Nested roots inherit direction unless overridden. Radix keyboard behavior and portals share this direction. `SideSheetContent` supports logical `start`/`end` (default `end`) and physical `left`/`right`; `NavDrawer` opens at `start`.
+
+## Toast notifications
+
+Place one `ToastProvider` and `Toaster` inside the `ThemeProvider`. Descendants call `useToast().toast({ title, description, tone, duration })`; the returned ID can be passed to `dismiss(id)`. `clear()` removes all notifications. The default duration is 5000ms; use `Infinity` for a notification that requires dismissal.
+
+Notifications stack at the inline end of the viewport. Hover or keyboard focus expands the stack and pauses timers; F8 focuses the notification region. Pass localized `label` and `closeLabel` to the provider/viewport. Keep critical validation beside the relevant field. See the complete Toast example and API in the documentation portal.

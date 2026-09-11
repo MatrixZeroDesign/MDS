@@ -1,0 +1,20 @@
+import { test, expect } from "@playwright/test";
+test("ChoiceMenu is an immediate compact toolbar action while Select remains a form control", async ({ page }) => {
+	await page.goto("/#docs/choice-menu");
+	const stage = page.locator(".docs-live-stage");
+	const menu = stage.getByRole("button", { name: "Sort order", exact: true });
+	const select = stage.getByRole("combobox", { name: "Region", exact: true });
+	await expect(menu).toHaveCSS("border-radius", "999px");
+	await expect(menu).toHaveCSS("height", "32px");
+	expect((await menu.boundingBox())!.width).toBeLessThan((await select.boundingBox())!.width);
+	await expect(menu).toHaveAccessibleDescription("Recently updated");
+	await menu.click();
+	await page.getByRole("menuitemradio", { name: "Name A–Z" }).click();
+	await expect(stage.locator("li").first()).toHaveText("Atlas");
+	await expect(menu).toBeFocused();
+	await select.click();
+	await expect(page.getByRole("listbox")).toBeVisible();
+	await page.getByRole("option", { name: "Europe" }).click();
+	await stage.getByRole("button", { name: "Reset", exact: true }).click();
+	await expect(select).toContainText("Asia");
+});

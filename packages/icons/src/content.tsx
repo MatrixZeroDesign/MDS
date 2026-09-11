@@ -104,6 +104,13 @@ export const Bookmark = /* @__PURE__ */ defineIcon(
 	<>
 		<path d="M6 20V5a1.5 1.5 0 0 1 1.5-1.5h9A1.5 1.5 0 0 1 18 5v15l-6-4-6 4Z" />
 	</>,
+	() => (
+		<path
+			fill="currentColor"
+			stroke="none"
+			d="M7.5 2.6h9A2.4 2.4 0 0 1 18.9 5v15a.9.9 0 0 1-1.4.7L12 17l-5.5 3.7a.9.9 0 0 1-1.4-.7V5a2.4 2.4 0 0 1 2.4-2.4Z"
+		/>
+	),
 );
 export const FileBookmark = /* @__PURE__ */ defineIcon(
 	"FileBookmark",
@@ -405,6 +412,13 @@ export const Flag = /* @__PURE__ */ defineIcon(
 	<>
 		<path d="M5 20V4c5-2 9 3 14 0v10c-5 3-9-2-14 0" />
 	</>,
+	() => (
+		<path
+			fill="currentColor"
+			stroke="none"
+			d="M4.6 3.5a.9.9 0 0 1 .9-.9H12c.3 0 .6.2.8.4l1.2 2h5.5a.9.9 0 0 1 .9.9v8.6a.9.9 0 0 1-.9.9H13a.9.9 0 0 1-.8-.4L11 13H6.4v7.5a.9.9 0 0 1-1.8 0Z"
+		/>
+	),
 );
 export const Reply = /* @__PURE__ */ defineIcon(
 	"Reply",

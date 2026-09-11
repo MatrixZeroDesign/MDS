@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.0-alpha.4
+
+- 新增 20 个分享、通信与互动图标，目录扩展至 340 个独立图形。
+- Heart、Bookmark、Star、Bell、Flag 支持 outlined / filled 成对样式；默认线框，实心使用独立几何。
+- 目录标注可用样式；不支持 filled 的图标保持 outlined，避免错误填充。
+
 ## 0.1.0-alpha.3
 
 - 重绘 Webhook：三个旋转对称回调环替代重叠外弧，改善 16/20/24px 轮廓。名称和属性 API 不变。

@@ -1,3 +1,4 @@
+import { iconCatalog } from "../packages/icons/dist/catalog.js";
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 test("AI documentation publishes every guide, example, type reference and icon without requiring JavaScript", async ({
@@ -22,24 +23,25 @@ test("AI documentation publishes every guide, example, type reference and icon w
 	}
 	for (const path of [...manifest.guides, ...manifest.api]) expect((await request.get("/" + path)).ok()).toBeTruthy();
 	const icons = await (await request.get("/" + manifest.icons)).json();
-	expect(icons).toHaveLength(320);
+	expect(icons).toHaveLength(iconCatalog.length);
 	expect(icons[0].keywords.length).toBeGreaterThan(0);
-	expect(manifest.components.find((c: { slug: string }) => c.slug === "icons").exports).toHaveLength(320);
+	expect(icons.find((icon: { name: string }) => icon.name === "Heart").variants).toContain("filled");
+	expect(manifest.components.find((c: { slug: string }) => c.slug === "icons").exports).toHaveLength(
+		iconCatalog.length,
+	);
 });
 test("component guides retain deep links, keyboard navigation and readable mobile layout", async ({ page }) => {
 	await page.goto("/?lang=zh#docs/dialog");
-	await expect(
-		page.getByRole("heading", { name: "Dialog / DialogTrigger / DialogContent / DialogClose", exact: true }),
-	).toBeVisible();
+	await expect(page.getByRole("heading", { name: /Dialog$/, exact: true })).toBeVisible();
 	await expect(page.getByRole("region", { name: "交互示例" })).toBeVisible();
 	await expect(page.getByRole("link", { name: "Markdown ↗", exact: true })).toHaveAttribute(
 		"href",
 		"./docs/components/dialog.md",
 	);
-	await page.getByRole("link", { name: "Select", exact: true }).click();
+	await page.getByRole("link", { name: /^(选择器 )?Select$/, exact: true }).click();
 	await expect(page).toHaveURL(/#docs\/select$/);
 	await page.reload();
-	await expect(page.getByRole("heading", { name: "Select", exact: true })).toBeVisible();
+	await expect(page.getByRole("heading", { name: /^(选择器 )?Select$/, exact: true })).toBeVisible();
 	const results = await new AxeBuilder({ page }).analyze();
 	expect(results.violations).toEqual([]);
 	await page.setViewportSize({ width: 320, height: 900 });

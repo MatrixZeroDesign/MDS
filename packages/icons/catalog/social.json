@@ -1,0 +1,102 @@
+[
+	{
+		"name": "Share",
+		"category": "communication",
+		"keywords": ["分享", "share", "social"]
+	},
+	{
+		"name": "ShareUp",
+		"category": "communication",
+		"keywords": ["分享", "导出", "export", "upload"]
+	},
+	{
+		"name": "ShareForward",
+		"category": "communication",
+		"keywords": ["分享", "转发", "forward"]
+	},
+	{
+		"name": "LinkCopy",
+		"category": "communication",
+		"keywords": ["复制链接", "copy", "link"]
+	},
+	{
+		"name": "LinkOff",
+		"category": "communication",
+		"keywords": ["断开链接", "unlink", "broken"]
+	},
+	{
+		"name": "SendHorizontal",
+		"category": "communication",
+		"keywords": ["发送", "send", "message"]
+	},
+	{
+		"name": "MailPlus",
+		"category": "communication",
+		"keywords": ["邮件", "新建", "compose", "mail"]
+	},
+	{
+		"name": "MailHeart",
+		"category": "communication",
+		"keywords": ["邮件", "喜欢", "favorite", "mail"]
+	},
+	{
+		"name": "MessagePlus",
+		"category": "communication",
+		"keywords": ["新增评论", "新建消息", "comment", "add"]
+	},
+	{
+		"name": "MessageUnread",
+		"category": "communication",
+		"keywords": ["未读", "消息", "unread", "message"]
+	},
+	{
+		"name": "MessageHeart",
+		"category": "communication",
+		"keywords": ["喜欢评论", "爱心消息", "reaction", "love"]
+	},
+	{
+		"name": "ReplyQuote",
+		"category": "communication",
+		"keywords": ["引用回复", "quote", "reply"]
+	},
+	{
+		"name": "UserHeart",
+		"category": "communication",
+		"keywords": ["关注用户", "favorite", "person"]
+	},
+	{
+		"name": "UserCheck",
+		"category": "communication",
+		"keywords": ["已关注", "用户确认", "following", "verified"]
+	},
+	{
+		"name": "BellOff",
+		"category": "communication",
+		"keywords": ["通知关闭", "静音", "mute", "notifications"]
+	},
+	{
+		"name": "BellRing",
+		"category": "communication",
+		"keywords": ["通知提醒", "响铃", "alert", "ring"]
+	},
+	{
+		"name": "BookmarkPlus",
+		"category": "communication",
+		"keywords": ["添加书签", "收藏", "add", "save"]
+	},
+	{
+		"name": "BookmarkCheck",
+		"category": "communication",
+		"keywords": ["已收藏", "书签", "saved"]
+	},
+	{
+		"name": "HeartHandshake",
+		"category": "communication",
+		"keywords": ["关爱", "合作", "支持", "support", "care"]
+	},
+	{
+		"name": "NotificationDot",
+		"category": "communication",
+		"keywords": ["未读", "通知", "红点", "unread", "notification"]
+	}
+]

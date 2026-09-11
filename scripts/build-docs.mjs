@@ -18,7 +18,7 @@ const versions = Object.fromEntries(
 	),
 );
 const covered = new Set(entries.filter((e) => e.package === "ui").flatMap((e) => e.names));
-for (const file of ["theme", "controls", "overlays", "navigation", "display", "select", "layout"]) {
+for (const file of ["theme", "controls", "overlays", "navigation", "display", "select", "layout", "toast"]) {
 	const source = ts.createSourceFile(
 		file,
 		await read(`packages/ui/src/${file}.tsx`),
@@ -62,7 +62,7 @@ const { iconCatalog } = await import(resolve(root, "packages/icons/dist/catalog.
 await output(
 	"apps/docs/public/docs/icons.json",
 	JSON.stringify(
-		iconCatalog.map(({ name, category, keywords }) => ({ name, category, keywords })),
+		iconCatalog.map((item) => ({ ...item, variants: "variants" in item ? item.variants : ["outlined"] })),
 		null,
 		2,
 	) + "\n",

@@ -1,9 +1,19 @@
 import { BarChart } from "@matrixzero/charts";
 
-export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
+export default function Example({
+	locale = "en",
+	motion = true,
+	stacked = false,
+}: {
+	locale?: "zh" | "en";
+	motion?: boolean;
+	stacked?: boolean;
+}) {
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
 	return (
 		<BarChart
+			stacked={stacked}
+			motion={motion}
 			title={t("请求量", "Requests")}
 			locale={locale === "zh" ? "zh-CN" : "en"}
 			data={[

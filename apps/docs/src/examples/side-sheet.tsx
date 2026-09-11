@@ -12,12 +12,14 @@ export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
 				description={t("更新显示名称", "Update your display name")}
 				closeLabel={t("关闭", "Close")}
 			>
-				<Field label={t("名称", "Name")}>
-					<Input defaultValue="Matrix" />
-				</Field>
-				<SideSheetClose asChild>
-					<Button>{t("完成", "Done")}</Button>
-				</SideSheetClose>
+				<div style={{ display: "grid", gap: 16, paddingTop: 16 }}>
+					<Field label={t("名称", "Name")}>
+						<Input defaultValue="Matrix" />
+					</Field>
+					<SideSheetClose asChild>
+						<Button style={{ justifySelf: "start" }}>{t("完成", "Done")}</Button>
+					</SideSheetClose>
+				</div>
 			</SideSheetContent>
 		</SideSheet>
 	);

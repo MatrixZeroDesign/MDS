@@ -2,6 +2,11 @@
 
 ## 0.1.0-alpha.7
 
+- 新增 ToastProvider、Toaster 和 useToast：多条通知堆叠、悬停或聚焦展开并暂停计时、定时及手动关闭、持久通知与动作。
+- Table 区分列标题与行标题，修复数据行不完整的表头底色，统一标题间距与行分隔。
+
+- ChoiceMenu 使用紧凑胶囊工具栏样式，菜单与触发器起始边对齐，区别于表单 Select；当前值作为可访问描述。
+
 - ThemeProvider 支持 dir=ltr/rtl，并向 Radix 交互与浮层传递方向；嵌套根继承或独立覆盖。
 - SideSheet 增加 start/end，默认 end；NavDrawer 从 start 展开。修正 RTL 开关与原生选择器。
 

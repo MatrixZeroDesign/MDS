@@ -1,6 +1,6 @@
 # @matrixzero/icons
 
-Matrix Design System 自行维护的 320 个 SVG 图标，使用手写几何路径，不依赖 Lucide 或运行时图标服务。默认 16px、1.75px 线宽、currentColor，圆角端点与连接，支持 16 / 20 / 24px。
+Matrix Design System 自行维护的 340 个 SVG 图标，使用手写几何路径，不依赖 Lucide 或运行时图标服务。默认 16px、1.75px 线宽、currentColor，圆角端点与连接，支持 16 / 20 / 24px。
 
 ## 视觉语言
 
@@ -38,3 +38,29 @@ const matches = iconCatalog.filter((icon) => icon.keywords.some((word) => word.i
 ```
 
 所有原有名称保持兼容。按名称导入图标可被 tree shaking；docs 的全量目录按需加载。新增图标必须同时更新 catalog，构建时校验一一对应；测试阻止重复绘图和非必要全库打包。
+
+## Outlined and filled variants
+
+`variant="outlined"` is the default and preserves existing rendering. `Heart`, `Bookmark`, `Star`, `Bell` and `Flag` also support `variant="filled"` with independently drawn solid silhouettes. Filled paths inherit `currentColor`; do not use the SVG `fill` property to turn outline paths into solid icons. Other icons safely retain their outlined drawing when passed `filled`. The catalog advertises paired icons through `variants: ["outlined", "filled"]`.
+
+```tsx
+import { useState } from "react";
+import { Heart, Share } from "@matrixzero/icons";
+import { IconButton } from "@matrixzero/ui";
+
+function Favorite() {
+	const [liked, setLiked] = useState(false);
+	return (
+		<IconButton
+			label="Like"
+			aria-pressed={liked}
+			onClick={() => setLiked(!liked)}
+			icon={<Heart variant={liked ? "filled" : "outlined"} />}
+		/>
+	);
+}
+
+<IconButton label="Share" icon={<Share />} />;
+```
+
+The icon conveys visual state; the button owns behavior and accessible state. Keep its label stable while toggling `aria-pressed`. No color change is required to distinguish the selected state. New sharing and interaction icons include `Share`, `ShareUp`, `ShareForward`, `LinkCopy`, `LinkOff`, `SendHorizontal`, `MailPlus`, `MailHeart`, `MessagePlus`, `MessageUnread`, `MessageHeart`, `ReplyQuote`, `UserHeart`, `UserCheck`, `BellOff`, `BellRing`, `BookmarkPlus`, `BookmarkCheck`, `HeartHandshake` and `NotificationDot`.

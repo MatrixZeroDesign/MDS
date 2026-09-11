@@ -1,6 +1,8 @@
+import { componentTitle } from "./componentNames";
+import { playgroundControls, playgroundLabels } from "./playground";
 import "@matrixzero/charts/styles.css";
 import { lazy, Suspense, useEffect, useState } from "react";
-import { Button } from "@matrixzero/ui";
+import { Button, Field, Select } from "@matrixzero/ui";
 import entries from "../../../docs/content.json";
 const examples = import.meta.glob("./examples/*.tsx", { query: "?raw", import: "default", eager: true }) as Record<
 	string,
@@ -13,6 +15,11 @@ const previews = Object.fromEntries(
 );
 export function ComponentDocs({ locale }: { locale: "zh" | "en" }) {
 	const [selected, setSelected] = useState(() => location.hash.split("/")[1] || "");
+	const [selection, setSelection] = useState<{ slug: string; values: Record<string, string> }>({
+		slug: "",
+		values: {},
+	});
+	const [revision, setRevision] = useState(0);
 	const [status, setStatus] = useState("");
 	const text = (value: string) => value.split(" / ")[locale === "zh" ? 0 : 1] || value;
 	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
@@ -26,9 +33,25 @@ export function ComponentDocs({ locale }: { locale: "zh" | "en" }) {
 	}, []);
 	const entry = entries.find((e) => e.slug === selected);
 	const Preview = entry ? previews[`./examples/${entry.slug}.tsx`] : undefined;
-	const code = entry
+	const controls = playgroundControls[selected] || [];
+	const values = Object.fromEntries(
+		controls.map((control) => [
+			control.key,
+			selection.slug === selected ? (selection.values[control.key] ?? control.initial) : control.initial,
+		]),
+	);
+	const previewProps = Object.fromEntries(
+		controls.map((control) => [control.key, control.boolean ? values[control.key] === "true" : values[control.key]]),
+	);
+	let code = entry
 		? examples[`./examples/${entry.slug}.tsx`].replace(/locale = "(?:zh|en)"/, `locale = "${locale}"`)
 		: "";
+	for (const control of controls) {
+		code = code.replace(
+			new RegExp(`(${control.key}\\s*=\\s*)("[^"]*"|true|false)`),
+			(_, prefix) => prefix + (control.boolean ? values[control.key] : JSON.stringify(values[control.key])),
+		);
+	}
 	return (
 		<div className="docs-reference docs-reference-single">
 			{entry ? (
@@ -37,13 +60,38 @@ export function ComponentDocs({ locale }: { locale: "zh" | "en" }) {
 						<p className="docs-eyebrow">@matrixzero/{entry.package}</p>
 						<a href={`./docs/components/${entry.slug}.md`}>Markdown ↗</a>
 					</div>
-					<h2>{entry.slug === "icons" ? "Icons" : entry.names.join(" / ")}</h2>
+					<h2>{componentTitle(entry, locale, true)}</h2>
 					<p>{text(entry.purpose)}</p>
 					<section aria-label={t("交互示例", "Interactive example")} className="docs-live-example">
 						<h3>{t("示例", "Example")}</h3>
+						{controls.length > 0 && (
+							<div className="docs-playground-controls" role="group" aria-label={t("示例设置", "Example settings")}>
+								{controls.map((control) => (
+									<Field key={control.key} label={t(...control.label)}>
+										<Select
+											value={values[control.key]}
+											onValueChange={(value) =>
+												setSelection({ slug: selected, values: { ...values, [control.key]: value } })
+											}
+											options={control.values.map((value) => ({ value, label: t(...playgroundLabels[value]) }))}
+										/>
+									</Field>
+								))}
+								<Button
+									variant="ghost"
+									size="sm"
+									onClick={() => {
+										setSelection({ slug: selected, values: {} });
+										setRevision((value) => value + 1);
+									}}
+								>
+									{t("重置", "Reset")}
+								</Button>
+							</div>
+						)}
 						<div className="docs-live-stage">
 							<Suspense fallback={<p role="status">{t("加载示例…", "Loading example…")}</p>}>
-								{Preview && <Preview key={locale} locale={locale} />}
+								{Preview && <Preview key={`${locale}-${revision}`} locale={locale} {...previewProps} />}
 							</Suspense>
 						</div>
 					</section>
@@ -108,7 +156,7 @@ export function ComponentDocs({ locale }: { locale: "zh" | "en" }) {
 					<div className="docs-guide-grid">
 						{entries.map((e) => (
 							<a className="docs-guide-card" key={e.slug} href={`#docs/${e.slug}`}>
-								<h3>{e.slug === "icons" ? "Icons" : e.names[0]}</h3>
+								<h3>{componentTitle(e, locale)}</h3>
 								<p>{text(e.purpose)}</p>
 								<span>{t("阅读指南", "Read guide")} →</span>
 							</a>

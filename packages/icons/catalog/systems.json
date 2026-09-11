@@ -432,12 +432,14 @@
 	{
 		"name": "Heart",
 		"category": "everyday",
-		"keywords": ["爱心", "favorite", "喜欢"]
+		"keywords": ["爱心", "favorite", "喜欢"],
+		"variants": ["outlined", "filled"]
 	},
 	{
 		"name": "Star",
 		"category": "everyday",
-		"keywords": ["星标", "favorite", "收藏"]
+		"keywords": ["星标", "favorite", "收藏"],
+		"variants": ["outlined", "filled"]
 	},
 	{
 		"name": "Flame",
