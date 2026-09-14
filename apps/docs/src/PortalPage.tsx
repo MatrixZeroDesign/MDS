@@ -2,11 +2,12 @@ import { type DocsLocale, translate } from "./i18n";
 import { useEffect, useState } from "react";
 import entries from "../../../docs/content.json";
 import { ComponentDocs } from "./ComponentDocs";
+import { appPath, routePath } from "./router";
 export function PortalPage({ locale }: { locale: DocsLocale }) {
-	const [slug, setSlug] = useState(location.pathname.split("/")[2] || "start");
+	const [slug, setSlug] = useState(routePath().split("/")[2] || "start");
 	const t = (zh: string, en: string) => translate(locale, zh, en);
 	useEffect(() => {
-		const sync = () => setSlug(location.pathname.split("/")[2] || "start");
+		const sync = () => setSlug(routePath().split("/")[2] || "start");
 		window.addEventListener("popstate", sync);
 		return () => window.removeEventListener("popstate", sync);
 	}, []);
@@ -25,14 +26,14 @@ export function PortalPage({ locale }: { locale: DocsLocale }) {
 							)}
 						</p>
 						<div className="docs-reference-footer">
-							<a href="./llms.txt">llms.txt ↗</a>
-							<a href="./llms-full.txt">{t("完整 AI 文档", "Complete AI documentation")} ↗</a>
-							<a href="/docs/manifest.json">{t("版本与组件索引", "Versioned manifest")} ↗</a>
+							<a href={appPath("/llms.txt")}>llms.txt ↗</a>
+							<a href={appPath("/llms-full.txt")}>{t("完整 AI 文档", "Complete AI documentation")} ↗</a>
+							<a href={appPath("/docs/manifest.json")}>{t("版本与组件索引", "Versioned manifest")} ↗</a>
 						</div>
 						<p className="docs-muted">
 							{t(
-								"私有站点需要 GitLab 授权；本地 AI 可直接读取仓库 docs/ 和示例源文件。",
-								"Private Pages requires GitLab authorization; local agents can read docs/ and example sources directly.",
+								"站点与源码公开；本地 AI 也可直接读取 docs/ 和示例源文件。",
+								"The site and source are public; local agents can also read docs/ and example sources directly.",
 							)}
 						</p>
 					</section>
@@ -49,18 +50,10 @@ export function PortalPage({ locale }: { locale: DocsLocale }) {
 							@matrixzero/charts@0.1.0-alpha.4
 						</code>
 					</pre>
-					<h3>{t("私有仓库配置", "Private registry configuration")}</h3>
-					<pre>
-						<code>
-							{
-								"@matrixzero:registry=https://gitlab.com/api/v4/projects/86296621/packages/npm/\n//gitlab.com/api/v4/projects/86296621/packages/npm/:_authToken=${MDS_NPM_TOKEN}"
-							}
-						</code>
-					</pre>
 					<p>
 						{t(
-							"通过环境变量注入只读令牌，不提交实际令牌。",
-							"Inject a read-only token through the environment; never commit the token.",
+							"包通过 npm 公共 registry 分发，无需额外配置。",
+							"Packages use the public npm registry with no extra configuration.",
 						)}
 					</p>
 					<h3>{t("接入主题", "Add the theme root")}</h3>

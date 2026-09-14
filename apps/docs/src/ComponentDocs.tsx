@@ -8,6 +8,7 @@ import { playgroundControls, playgroundLabels } from "./playground";
 import "@matrixzero/charts/styles.css";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Anchor, Button, Field, Select } from "@matrixzero/ui";
+import { appPath, routePath } from "./router";
 import entries from "../../../docs/content.json";
 const examples = import.meta.glob("./examples/*.tsx", { query: "?raw", import: "default", eager: true }) as Record<
 	string,
@@ -29,7 +30,7 @@ const previews = Object.fromEntries(
 	),
 );
 export function ComponentDocs({ locale }: { locale: DocsLocale }) {
-	const [selected, setSelected] = useState(() => location.pathname.split("/")[2] || "");
+	const [selected, setSelected] = useState(() => routePath().split("/")[2] || "");
 	const [selection, setSelection] = useState<{ slug: string; values: Record<string, string> }>({
 		slug: "",
 		values: {},
@@ -41,7 +42,7 @@ export function ComponentDocs({ locale }: { locale: DocsLocale }) {
 	const t = (zh: string, en: string) => translate(locale, zh, en);
 	useEffect(() => {
 		const sync = () => {
-			setSelected(location.pathname.split("/")[2] || "");
+			setSelected(routePath().split("/")[2] || "");
 		};
 		window.addEventListener("popstate", sync);
 		return () => window.removeEventListener("popstate", sync);
@@ -178,7 +179,7 @@ export function ComponentDocs({ locale }: { locale: DocsLocale }) {
 						<h2 id={sectionId("api")}>API</h2>
 						<ApiReference api={entry.api} name={entry.names[0]} slug={entry.slug} locale={locale} />
 						<p>
-							<a href={`/docs/api/${entry.package}.md`}>
+							<a href={appPath(`/docs/api/${entry.package}.md`)}>
 								{t("完整类型声明（含继承属性）", "Full type declarations, including inherited props")} ↗
 							</a>
 						</p>
@@ -187,11 +188,13 @@ export function ComponentDocs({ locale }: { locale: DocsLocale }) {
 						<h2 id={sectionId("pitfalls")}>{t("常见误用", "Common pitfalls")}</h2>
 						<p>{text(entry.pitfalls)}</p>
 						<div className="docs-reference-footer">
-							<a href={`/docs/components/${entry.slug}.md`}>{t("Markdown 文档", "Markdown documentation")} ↗</a>
+							<a href={appPath(`/docs/components/${entry.slug}.md`)}>
+								{t("Markdown 文档", "Markdown documentation")} ↗
+							</a>
 							<a href={entry.package === "charts" ? "/charts" : entry.package === "icons" ? "/icons" : "/system"}>
 								{t("打开交互示例", "Open interactive examples")} →
 							</a>
-							<a href={`/docs/examples/${entry.slug}.tsx`}>{t("下载 TSX 示例", "Download TSX example")} ↗</a>
+							<a href={appPath(`/docs/examples/${entry.slug}.tsx`)}>{t("下载 TSX 示例", "Download TSX example")} ↗</a>
 						</div>
 					</article>
 				</>
@@ -207,7 +210,7 @@ export function ComponentDocs({ locale }: { locale: DocsLocale }) {
 					</p>
 					<div className="docs-guide-grid">
 						{entries.map((e) => (
-							<a className="docs-guide-card" key={e.slug} href={`/docs/${e.slug}`}>
+							<a className="docs-guide-card" key={e.slug} href={appPath(`/docs/${e.slug}`)}>
 								<h3>{componentTitle(e, locale)}</h3>
 								<p>{text(e.purpose)}</p>
 								<span>{t("阅读指南", "Read guide")} →</span>

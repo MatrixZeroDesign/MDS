@@ -4,7 +4,7 @@ Theme-aware charts for **Matrix Design System**, independently installable from 
 
 ## Installation
 
-Configure the private registry using the repository documentation, then install compatible versions of `@matrixzero/ui`, `@matrixzero/charts`, React and React DOM. React 19 is required. Charts are not included in the core UI bundle.
+Install compatible versions of `@matrixzero/ui`, `@matrixzero/charts`, React and React DOM from the public npm registry. React 19 is required. Charts are not included in the core UI bundle.
 
 ```tsx
 import { LineChart } from "@matrixzero/charts";

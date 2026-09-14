@@ -5,6 +5,7 @@ import { lazy, type ReactNode, Suspense, useState } from "react";
 import { Container, Grid, Input, Field, SegmentedControl, EmptyState, Button, Badge } from "@matrixzero/ui";
 import { showcaseCatalog } from "./showcases/catalog";
 import type { SceneProps } from "./showcases/shared";
+import { appPath } from "./router";
 const scenes = {
 	"showcase-creator": lazy(() => import("./showcases/creator")),
 	"showcase-finance": lazy(() => import("./showcases/finance")),
@@ -46,7 +47,7 @@ export function ShowcaseDetailFrame({
 	return (
 		<Container className="sc-detail" maxWidth={1280} gutter={0}>
 			<div className="sc-detail-bar">
-				<a href="/showcase">← {t("全部场景", "All scenarios")}</a>
+				<a href={appPath("/showcase")}>← {t("全部场景", "All scenarios")}</a>
 				<Badge>
 					{item.audience === "business" ? t("企业产品", "Business product") : t("消费产品", "Consumer product")}
 				</Badge>
@@ -146,7 +147,7 @@ export function ShowcasePage({ locale, page }: { locale: SceneProps["locale"]; p
 			</div>
 			<Grid className="sc-gallery-grid" minColumnWidth={420} gap={24}>
 				{visible.map((item) => (
-					<a className="sc-gallery-card" key={item.id} href={`/${item.id}`}>
+					<a className="sc-gallery-card" key={item.id} href={appPath(`/${item.id}`)}>
 						<div className="sc-card-art" data-audience={item.audience}>
 							<span className="sc-card-number">{item.motif}</span>
 							<span className="sc-card-category">

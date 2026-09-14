@@ -5,8 +5,8 @@
 - Start with [integration](guides/integration.md) and [design and accessibility](guides/design-and-accessibility.md).
 - [content.json](content.json) is the canonical component usage/guide/API/accessibility/pitfalls catalogue, in Chinese and English.
 - Complete, type-checked examples are in [apps/docs/src/examples](../apps/docs/src/examples).
-- The [docs portal](https://mds-b1761b.gitlab.io/#docs) renders this same content. `#docs/dialog` and equivalent component routes support reload and sharing.
-- AI clients can read `llms.txt`, `llms-full.txt`, `docs/manifest.json`, `docs/components/<slug>.md`, `docs/examples/<slug>.tsx` and `docs/api/<package>.md` from the portal. `docs/icons.json` contains all maintained icon names, categories and keywords. Private Pages requires authorized access; local agents can use the source files above.
+- The [docs portal](https://matrixzerodesign.github.io/MDS/docs/) renders this same content. `/MDS/docs/dialog` and equivalent component routes support reload and sharing.
+- AI clients can read `llms.txt`, `llms-full.txt`, `docs/manifest.json`, `docs/components/<slug>.md`, `docs/examples/<slug>.tsx` and `docs/api/<package>.md` from the portal. `docs/icons.json` contains all maintained icon names, categories and keywords. Local agents can also use the source files above.
 
 ## Maintain / 维护
 

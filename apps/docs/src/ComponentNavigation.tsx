@@ -4,6 +4,7 @@ import { componentNames, componentTitle } from "./componentNames";
 import { useEffect, useState } from "react";
 import { Input, NavLink } from "@matrixzero/ui";
 import entries from "../../../docs/content.json";
+import { appPath, routePath } from "./router";
 
 export function ComponentNavigation({
 	locale,
@@ -14,10 +15,10 @@ export function ComponentNavigation({
 	onNavigate?: () => void;
 	kind?: "ui" | "charts";
 }) {
-	const [hash, setHash] = useState(location.pathname);
+	const [hash, setHash] = useState(routePath);
 	const [query, setQuery] = useState("");
 	useEffect(() => {
-		const sync = () => setHash(location.pathname);
+		const sync = () => setHash(routePath());
 		window.addEventListener("popstate", sync);
 		return () => window.removeEventListener("popstate", sync);
 	}, []);
@@ -31,7 +32,7 @@ export function ComponentNavigation({
 	const link = (href: string, label: string) => (
 		<NavLink
 			key={href}
-			href={href}
+			href={appPath(href)}
 			title={label}
 			aria-label={label}
 			onClick={onNavigate}

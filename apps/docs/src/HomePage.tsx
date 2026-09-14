@@ -2,6 +2,7 @@ import { type DocsLocale, translate } from "./i18n";
 import { useState } from "react";
 import { Card, Avatar, IconButton, Switch, Progress, Badge } from "@matrixzero/ui";
 import { Heart, ArrowUpRight } from "@matrixzero/icons";
+import { appPath } from "./router";
 import "./home.css";
 export function HomePage({ locale }: { locale: DocsLocale }) {
 	const t = (zh: string, en: string) => translate(locale, zh, en);
@@ -19,14 +20,14 @@ export function HomePage({ locale }: { locale: DocsLocale }) {
 							"Thoughtful components. Considered details. Everything you need to make an everyday experience feel extraordinary.",
 						)}
 					</p>
-					<a className="home-start" href="/docs/start">
+					<a className="home-start" href={appPath("/docs/start")}>
 						{t("开始构建", "Start building")} <ArrowUpRight size={18} />
 					</a>
 				</div>
 			</header>
 			<div className="home-mosaic">
 				<Card variant="plain" className="home-photo-card">
-					<a href="/showcase-feed" className="home-photo-link">
+					<a href={appPath("/showcase-feed")} className="home-photo-link">
 						<img
 							src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?auto=format&fit=crop&w=1000&q=85"
 							alt={t("阳光下的安静工作空间", "A quiet workspace in natural light")}
@@ -64,7 +65,7 @@ export function HomePage({ locale }: { locale: DocsLocale }) {
 								"Type, color, space, and motion. A foundation that leaves room for your own character.",
 							)}
 						</p>
-						<a href="/design">{t("我们的设计原则", "Meet the design principles")} ↗</a>
+						<a href={appPath("/design")}>{t("我们的设计原则", "Meet the design principles")} ↗</a>
 					</Card>
 					<Card className="home-live-card">
 						<div className="home-live-heading">
@@ -86,7 +87,7 @@ export function HomePage({ locale }: { locale: DocsLocale }) {
 					</Card>
 				</div>
 				<Card variant="plain" className="home-travel-card">
-					<a href="/showcase-travel">
+					<a href={appPath("/showcase-travel")}>
 						<img
 							src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=900&q=85"
 							alt={t("山间湖泊与安静的小镇", "A lakeside town surrounded by mountains")}

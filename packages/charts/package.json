@@ -3,7 +3,7 @@
 	"version": "0.1.0-alpha.4",
 	"description": "Theme-aware basic charts for Matrix Design System",
 	"type": "module",
-	"license": "UNLICENSED",
+	"license": "MIT",
 	"files": [
 		"dist",
 		"README.md",
@@ -34,10 +34,11 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://gitlab.com/matrixzero/mds.git",
+		"url": "git+https://github.com/MatrixZeroDesign/MDS.git",
 		"directory": "packages/charts"
 	},
 	"publishConfig": {
-		"registry": "https://gitlab.com/api/v4/projects/86296621/packages/npm/"
+		"registry": "https://registry.npmjs.org/",
+		"access": "public"
 	}
 }

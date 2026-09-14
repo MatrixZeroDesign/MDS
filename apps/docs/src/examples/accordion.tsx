@@ -7,7 +7,7 @@ export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
 		<Accordion type="single" collapsible>
 			<AccordionItem value="install">
 				<AccordionTrigger>{t("如何安装？", "How to install?")}</AccordionTrigger>
-				<AccordionContent>{t("通过私有 registry 安装", "Install through the private registry.")}</AccordionContent>
+				<AccordionContent>{t("通过 npm 安装", "Install from npm.")}</AccordionContent>
 			</AccordionItem>
 		</Accordion>
 	);

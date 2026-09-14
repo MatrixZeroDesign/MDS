@@ -1,6 +1,7 @@
 import { type DocsLocale, translate } from "./i18n";
 import { Card, ThemeProvider, Typography } from "@matrixzero/ui";
 import { ArrowUpRight } from "@matrixzero/icons";
+import { appPath } from "./router";
 export function DesignPage({ locale }: { locale: DocsLocale }) {
 	const t = (zh: string, en: string) => translate(locale, zh, en);
 	const principles = [
@@ -47,7 +48,7 @@ export function DesignPage({ locale }: { locale: DocsLocale }) {
 							"Choose color, shape, type, and interface rhythm while comparing light and dark in real time.",
 						)}
 					</p>
-					<a href="/theme-builder">
+					<a href={appPath("/theme-builder")}>
 						{t("打开主题构建器", "Open theme builder")}
 						<ArrowUpRight size={18} />
 					</a>
@@ -104,7 +105,7 @@ export function DesignPage({ locale }: { locale: DocsLocale }) {
 							"Keep feedback local without moving the background. Respect reduced motion, preserve visible keyboard focus, and never communicate state through color alone.",
 						)}
 					</p>
-					<a href="/docs/theme-motion">{t("查看实现指南", "Implementation guide")} →</a>
+					<a href={appPath("/docs/theme-motion")}>{t("查看实现指南", "Implementation guide")} →</a>
 				</Card>
 			</div>
 		</div>

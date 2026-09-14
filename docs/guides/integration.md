@@ -6,12 +6,7 @@ Applies to React 19, @matrixzero/ui 0.1.0-alpha.11, @matrixzero/icons 0.1.0-alph
 
 ## Install / 安装
 
-Configure your project .npmrc with an environment variable; never store the real token in source:
-
-```ini
-@matrixzero:registry=https://gitlab.com/api/v4/projects/86296621/packages/npm/
-//gitlab.com/api/v4/projects/86296621/packages/npm/:_authToken=${MDS_NPM_TOKEN}
-```
+Install from the public npm registry; no project-level registry configuration is required:
 
 ```sh
 npm install --save-exact @matrixzero/ui@0.1.0-alpha.11 @matrixzero/icons@0.1.0-alpha.4
@@ -19,7 +14,7 @@ npm install --save-exact @matrixzero/ui@0.1.0-alpha.11 @matrixzero/icons@0.1.0-a
 npm install --save-exact @matrixzero/charts@0.1.0-alpha.4
 ```
 
-React and react-dom 19 must also be installed. The registry and documentation portal are private: AI tools need authorized GitLab access, or a local checkout of docs/. These URLs do not bypass authentication.
+React and react-dom 19 must also be installed. Packages and documentation are public; AI tools may also use a local checkout of docs/.
 
 ## Required application root / 必需的应用入口
 

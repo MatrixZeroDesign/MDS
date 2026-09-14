@@ -4,6 +4,7 @@ import { useState, useEffect, type ReactElement } from "react";
 import { LineChart, AreaChart, BarChart, DonutChart } from "@matrixzero/charts";
 import { Button, SegmentedControl } from "@matrixzero/ui";
 import "@matrixzero/charts/styles.css";
+import { appPath, routePath } from "./router";
 function ChartExample({ kind, children, locale }: { kind: string; children: ReactElement; locale: DocsLocale }) {
 	const [status, setStatus] = useState("");
 	const code = `import { ${kind} } from '@matrixzero/charts';
@@ -15,7 +16,7 @@ export default function Example() {
 	return (
 		<section className="docs-card">
 			{children}
-			<a href={`/charts/${kind.replace("Chart", "").toLowerCase()}-chart`}>Chart API →</a>
+			<a href={appPath(`/charts/${kind.replace("Chart", "").toLowerCase()}-chart`)}>Chart API →</a>
 			<details className="docs-code">
 				<summary>{translate(locale, "样例代码", "Example code")}</summary>
 				<Button
@@ -40,9 +41,9 @@ export default function Example() {
 	);
 }
 export function ChartsPage({ locale }: { locale: DocsLocale }) {
-	const [detail, setDetail] = useState(location.pathname.split("/")[2]);
+	const [detail, setDetail] = useState(routePath().split("/")[2]);
 	useEffect(() => {
-		const sync = () => setDetail(location.pathname.split("/")[2]);
+		const sync = () => setDetail(routePath().split("/")[2]);
 		window.addEventListener("popstate", sync);
 		return () => window.removeEventListener("popstate", sync);
 	}, []);

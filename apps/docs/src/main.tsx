@@ -5,7 +5,7 @@ import { DensityPicker, readSavedDensity, saveDensity } from "./DensityPicker";
 import { DesignPage } from "./DesignPage";
 import { SystemCompositions } from "./SystemCompositions";
 import { PageLoading } from "./PageLoading";
-import { navigate as navigatePath } from "./router";
+import { appPath, navigate as navigatePath, routePath as readRoutePath } from "./router";
 import { showcaseCatalog } from "./showcases/catalog";
 import { ShowcaseDetailFrame, ShowcasePage } from "./ShowcasePage";
 import { AppearancePicker, readSavedMode, saveMode } from "./AppearancePicker";
@@ -149,7 +149,7 @@ const portalPages = [
 	...showcaseCatalog.map((item) => item.id),
 ];
 function readPage() {
-	const value = window.location.pathname.slice(1).split("/")[0];
+	const value = readRoutePath().slice(1).split("/")[0];
 	return portalPages.includes(value) ? value : "home";
 }
 function ToastFeedback({ message, consume }: { message: string; consume: () => void }) {
@@ -211,11 +211,11 @@ function App() {
 		updateDensity(value);
 		saveDensity(value);
 	};
-	const [routePath, setRoutePath] = useState(location.pathname);
+	const [routePath, setRoutePath] = useState(readRoutePath);
 	useEffect(() => {
 		const navigate = () => {
 			setPage(readPage());
-			setRoutePath(location.pathname);
+			setRoutePath(readRoutePath());
 		};
 		window.addEventListener("popstate", navigate);
 		return () => window.removeEventListener("popstate", navigate);
@@ -451,7 +451,7 @@ function App() {
 									/* Session state still works. */
 								}
 							}}
-							action={<a href="/docs/start">{t("快速开始", "Get started")}</a>}
+							action={<a href={appPath("/docs/start")}>{t("快速开始", "Get started")}</a>}
 						>
 							{t(
 								"MDS 预览版 · 组件持续完善中，交互示例使用演示数据。",
@@ -519,12 +519,12 @@ function App() {
 								)}
 							</NavDrawerContent>
 						</NavDrawer>
-						<a href="/home" className="docs-logo" aria-label="MDS Home">
+						<a href={appPath("/home")} className="docs-logo" aria-label="MDS Home">
 							M<span>DS</span>
 						</a>
 						<nav className="docs-primary-nav" aria-label={t("全站导航", "Site navigation")}>
 							{primaryItems.map(([id, label, section]) => (
-								<NavLink key={id} href={`/${id}`} active={area === section}>
+								<NavLink key={id} href={appPath(`/${id}`)} active={area === section}>
 									{label}
 								</NavLink>
 							))}
@@ -583,7 +583,7 @@ function App() {
 											<ComponentNavigation key={area} kind={area === "charts" ? "charts" : "ui"} locale={locale} />
 										) : (
 											secondaryItems.map(([id, label]) => (
-												<NavLink key={id} href={`/${id}`} active={page === id} onClick={() => setNotice("")}>
+												<NavLink key={id} href={appPath(`/${id}`)} active={page === id} onClick={() => setNotice("")}>
 													{label}
 												</NavLink>
 											))

@@ -3,10 +3,10 @@
 	"version": "0.1.0-alpha.11",
 	"description": "Matrix Design System — accessible React components and brand-scoped themes",
 	"type": "module",
-	"license": "UNLICENSED",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://gitlab.com/matrixzero/mds.git",
+		"url": "git+https://github.com/MatrixZeroDesign/MDS.git",
 		"directory": "packages/ui"
 	},
 	"files": [
@@ -56,6 +56,7 @@
 		"react-aria-components": "1.21.1"
 	},
 	"publishConfig": {
-		"registry": "https://gitlab.com/api/v4/projects/86296621/packages/npm/"
+		"registry": "https://registry.npmjs.org/",
+		"access": "public"
 	}
 }

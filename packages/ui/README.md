@@ -2,18 +2,11 @@
 
 Matrix Design System（MDS / Matrix UI）：面向多品牌产品的 React 19 组件、中英文排版、明暗主题与局部微动效。
 
-内部预览版本，未授予公开再分发许可。
+公开预览版本，使用 MIT License。
 
 ## 安装与使用
 
-通过 Matrix GitLab npm Registry 安装，固定版本：
-
-```ini
-@matrixzero:registry=https://gitlab.com/api/v4/projects/86296621/packages/npm/
-//gitlab.com/api/v4/projects/86296621/packages/npm/:_authToken=${MDS_NPM_TOKEN}
-```
-
-令牌使用环境变量注入。需要 registry 读权限，跨项目 CI 使用 job token 时需要 allowlist。
+通过 npm 公共 registry 安装并固定版本：
 
 ```sh
 npm install --save-exact @matrixzero/ui@0.1.0-alpha.11
@@ -48,7 +41,7 @@ CSS 独立导入，不要求使用方安装 Tailwind。React / React DOM 是 pee
 - 字体使用本机拉丁与中文回退字体；微动效遵循 prefers-reduced-motion。
 - 所有文案和业务行为由调用方传入。
 
-完整 API 由随包发布的 TypeScript 声明提供；使用示例、设计边界、测试和发布规范见 [MDS 仓库](https://gitlab.com/matrixzero/mds)。
+完整 API 由随包发布的 TypeScript 声明提供；使用示例、设计边界、测试和发布规范见 [MDS 仓库](https://github.com/MatrixZeroDesign/MDS)。
 
 ## Layout and notices
 

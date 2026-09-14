@@ -2,9 +2,9 @@
 
 MDS 是 Matrix 产品的 React 设计系统。提供中英文排版规范、独立主题、可访问组件与克制的微动效。组件包名为 **@matrixzero/ui**，展示名称为 **Matrix UI**。
 
-UI 目前为 **0.1.0-alpha.7**，Icons 与 Charts 为 **0.1.0-alpha.3** 预览版本。MT0 页面用于验证组合场景，未接入生产业务。
+UI 目前为 **0.1.0-alpha.11**，Icons 与 Charts 为 **0.1.0-alpha.4** 预览版本。MT0 页面用于验证组合场景，未接入生产业务。
 
-文档网站：[Matrix Design System](https://mds-b1761b.gitlab.io)，需要项目成员登录 GitLab。提供组件交互、安装和 API 文档、图表以及可搜索图标目录。
+文档网站：[Matrix Design System](https://matrixzerodesign.github.io/MDS/)。提供组件交互、安装和 API 文档、图表以及可搜索图标目录。
 
 ## 仓库结构
 
@@ -42,19 +42,10 @@ npm run check
 
 ## 安装
 
-包发布到本项目 GitLab Package Registry。使用项目级 registry 避免同名 scope 的路由歧义。
-
-在使用方的 npm 配置中加入：
-
-```ini
-@matrixzero:registry=https://gitlab.com/api/v4/projects/86296621/packages/npm/
-//gitlab.com/api/v4/projects/86296621/packages/npm/:_authToken=${MDS_NPM_TOKEN}
-```
-
-令牌通过环境或 CI 注入，不提交实际值。消费方使用只读包权限；GitLab CI 跨项目访问还需要 MDS 项目的 job token allowlist。
+包通过 npm 公共 registry 发布，使用方不需要额外的 registry 配置。
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.7
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.11
 ```
 
 ```tsx
@@ -105,10 +96,10 @@ Field 负责 label、description、error、required、disabled 的关联。需�
 - 复用 [Radix Primitives](https://www.radix-ui.com/primitives/docs/overview/introduction) 的交互基础，MDS 负责视觉、组件组合和主题边界。
 - [shadcn 共享 UI 包](https://ui.shadcn.com/docs/monorepo) 提供独立组件包组织方式的参考；本项目发布编译 CSS，避免消费方需要扫描包源码。
 - 对照 [OpenAI UI guidelines](https://developers.openai.com/plugins/concepts/ui-guidelines) 的清晰层次与克制交互；MDS 是独立实现，不声称使用 ChatGPT 内部代码。
-- [GitLab npm Registry](https://docs.gitlab.com/user/packages/npm_registry/) 用于私有包分发。
+- [npm trusted publishing](https://docs.npmjs.com/trusted-publishers/) 用于公开包分发与构建来源证明。
 
-内部软件，未授予公开再分发许可；第三方依赖保留各自许可。
+MDS 使用 MIT License；第三方依赖保留各自许可。
 
 ## Usage and AI guides / 组件使用文档
 
-See [documentation maintenance and source](docs/README.md), [integration](docs/guides/integration.md), and [design guidance](docs/guides/design-and-accessibility.md). The [portal](https://mds-b1761b.gitlab.io/#docs) includes 45 component guides with type-checked examples; authorized AI clients can start at [llms.txt](https://mds-b1761b.gitlab.io/llms.txt).
+See [documentation maintenance and source](docs/README.md), [integration](docs/guides/integration.md), and [design guidance](docs/guides/design-and-accessibility.md). The [portal](https://matrixzerodesign.github.io/MDS/docs/) includes 45 component guides with type-checked examples; AI clients can start at [llms.txt](https://matrixzerodesign.github.io/MDS/llms.txt).
