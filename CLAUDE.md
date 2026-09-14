@@ -1,6 +1,6 @@
 # Matrix Design System
 
-- Follow the workspace `CLAUDE.md`. Make changes on a branch and open a pull request; Ethan performs merges.
+- Follow the workspace `CLAUDE.md`. Make changes on a branch and open a pull request.
 - Use English for source code, comments, tests, commit messages, pull requests, issues, and documentation source. Other languages are allowed only in i18n translation resources.
 - Component source code belongs only in `packages/ui/src`. The docs app must import components from `@matrixzero/ui` and must not copy component implementations.
 - Scope all CSS under `.mds-root`. Do not change the host `html` or `body` theme, scrolling, or colors.
