@@ -1,3 +1,9 @@
+# 0.1.0-alpha.12
+
+- Add automatic SegmentedControl overflow arrows, single-line options, edge fades, and accessible scroll labels.
+- Preserve selected indicators and keyboard navigation when scrolling in LTR and RTL layouts.
+- Use a single surface for modal navigation drawers so inactive items stay transparent.
+
 # 0.1.0-alpha.11
 
 - 新增 Typography、Grid 与 Divider，覆盖排版层级、响应式规则网格和横纵内容分隔。

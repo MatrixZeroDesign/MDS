@@ -34,7 +34,7 @@ test("RTL mirrors navigation and switch movement, and tabs follow direction-awar
 	await control.check();
 	await expect(control.locator(".mds-switch-thumb")).toHaveCSS("transform", "matrix(1, 0, 0, 1, -14, 0)");
 	await page.goto("/docs/select?lang=ar");
-	await page.locator(".docs-live-stage .mds-select-trigger").first().click();
+	await page.locator(".docs-live-example").first().locator(".mds-select-trigger").click();
 	await expect(page.getByRole("listbox")).toHaveCSS("direction", "rtl");
 	await page.keyboard.press("Escape");
 	await page.setViewportSize({ width: 320, height: 900 });

@@ -3099,6 +3099,7 @@
 .mds-root .mds-sheet-body > .mds-navdrawer-panel {
 	inline-size: 100%;
 	padding: 0;
+	background: transparent;
 }
 .mds-root .mds-navdrawer-title {
 	padding: var(--mds-nav-item-padding-inline);
@@ -4235,4 +4236,43 @@
 }
 .mds-root .mds-atmosphere {
 	border-radius: var(--mds-radius-display);
+}
+
+.mds-root .mds-segment-scroll-shell {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	min-width: 0;
+	max-width: 100%;
+}
+.mds-root .mds-segment-scroll-shell > .mds-segmented {
+	order: 1;
+	min-width: 0;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	overflow-y: hidden;
+	scrollbar-width: none;
+}
+.mds-root .mds-segment-scroll-shell > .mds-segmented::-webkit-scrollbar {
+	display: none;
+}
+.mds-root .mds-segment-scroll-shell .mds-segment-option {
+	flex: 0 0 auto;
+	white-space: nowrap;
+}
+.mds-root .mds-segment-scroll-button {
+	flex: none;
+	width: 28px;
+	min-width: 28px;
+	padding: 0;
+}
+
+.mds-root .mds-segment-scroll-shell[data-can-scroll-left] > .mds-segmented {
+	mask-image: linear-gradient(to right, transparent, black 14px);
+}
+.mds-root .mds-segment-scroll-shell[data-can-scroll-right] > .mds-segmented {
+	mask-image: linear-gradient(to left, transparent, black 14px);
+}
+.mds-root .mds-segment-scroll-shell[data-can-scroll-left][data-can-scroll-right] > .mds-segmented {
+	mask-image: linear-gradient(to right, transparent, black 14px, black calc(100% - 14px), transparent);
 }

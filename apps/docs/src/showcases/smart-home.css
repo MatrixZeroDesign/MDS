@@ -457,8 +457,6 @@
 
 	.mds-root .sc-smart-room-filter {
 		inline-size: 100%;
-		overflow-x: auto;
-		flex-wrap: nowrap;
 	}
 
 	.mds-root .sc-smart-device-grid,

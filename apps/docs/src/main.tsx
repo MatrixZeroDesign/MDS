@@ -478,7 +478,7 @@ function App() {
 								</Button>
 							</NavDrawerTrigger>
 							<NavDrawerContent
-								title={t("工作区导航", "Workspace navigation")}
+								title="MDS"
 								closeLabel={t("关闭导航", "Close navigation")}
 								navigationLabel={t("移动导航", "Mobile navigation")}
 								className="docs-navigation-drawer"

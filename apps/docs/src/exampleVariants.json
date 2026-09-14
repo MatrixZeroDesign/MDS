@@ -13,6 +13,10 @@
 		{
 			"file": "segmented-control--shape-comparison",
 			"title": ["形状对比", "Shape comparison"]
+		},
+		{
+			"file": "segmented-control--overflow",
+			"title": ["溢出滚动", "Scrollable options"]
 		}
 	],
 	"theme": [

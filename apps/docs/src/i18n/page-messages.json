@@ -1561,5 +1561,12 @@
 		"Chaque modification de règle est enregistrée dans le journal d’audit.",
 		"Cada cambio de regla se registra en el registro de auditoría.",
 		"يُسجَّل كل تغيير في القواعد في سجل التدقيق."
+	],
+	"Scrollable options": [
+		"スクロール可能な選択肢",
+		"스크롤 가능한 옵션",
+		"Options défilantes",
+		"Opciones desplazables",
+		"خيارات قابلة للتمرير"
 	]
 }

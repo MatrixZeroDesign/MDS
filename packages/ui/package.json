@@ -1,6 +1,6 @@
 {
 	"name": "@matrixzero/ui",
-	"version": "0.1.0-alpha.11",
+	"version": "0.1.0-alpha.12",
 	"description": "Matrix Design System — accessible React components and brand-scoped themes",
 	"type": "module",
 	"license": "MIT",

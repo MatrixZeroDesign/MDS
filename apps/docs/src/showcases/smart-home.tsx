@@ -1,3 +1,4 @@
+import scrollLabels from "../i18n/segmented-scroll.json";
 import { useMemo, useState } from "react";
 import {
 	Badge,
@@ -214,6 +215,8 @@ export default function SmartHome({ locale }: SceneProps) {
 
 			<SegmentedControl
 				className="sc-smart-room-filter"
+				scrollLeftLabel={scrollLabels[locale][0]}
+				scrollRightLabel={scrollLabels[locale][1]}
 				label={t("按房间筛选设备", "Filter devices by room")}
 				value={room}
 				onValueChange={(value) => setRoom(value as Room)}

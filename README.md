@@ -2,7 +2,7 @@
 
 MDS 是 Matrix 产品的 React 设计系统。提供中英文排版规范、独立主题、可访问组件与克制的微动效。组件包名为 **@matrixzero/ui**，展示名称为 **Matrix UI**。
 
-UI 目前为 **0.1.0-alpha.11**，Icons 与 Charts 为 **0.1.0-alpha.4** 预览版本。MT0 页面用于验证组合场景，未接入生产业务。
+UI 目前为 **0.1.0-alpha.12**，Icons 与 Charts 为 **0.1.0-alpha.4** 预览版本。MT0 页面用于验证组合场景，未接入生产业务。
 
 文档网站：[Matrix Design System](https://matrixzerodesign.github.io/MDS/)。提供组件交互、安装和 API 文档、图表以及可搜索图标目录。
 
@@ -45,7 +45,7 @@ npm run check
 包通过 npm 公共 registry 发布，使用方不需要额外的 registry 配置。
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.11
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.12
 ```
 
 ```tsx

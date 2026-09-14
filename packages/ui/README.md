@@ -9,7 +9,7 @@ Matrix Design System（MDS / Matrix UI）：面向多品牌产品的 React 19 �
 通过 npm 公共 registry 安装并固定版本：
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.11
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.12
 ```
 
 ```tsx

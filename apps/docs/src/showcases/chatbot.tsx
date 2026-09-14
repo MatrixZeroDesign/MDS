@@ -9,6 +9,7 @@ import {
 	IconButton,
 	NavDrawer,
 	NavDrawerContent,
+	NavDrawerTrigger,
 	SelectionList,
 	SelectionListItem,
 	Textarea,
@@ -16,6 +17,7 @@ import {
 import { Copy, MessagePlus, Paperclip, Refresh, Send, Stop } from "@matrixzero/icons";
 import { translator, type SceneProps } from "./shared";
 import "./chatbot.css";
+import { useMobileViewport } from "../useMobileViewport";
 
 const conversations = [
 	["launch", "产品发布计划", "Product launch plan"],
@@ -29,6 +31,8 @@ const answers = {
 
 export default function Chatbot({ locale }: SceneProps) {
 	const t = translator(locale);
+	const mobile = useMobileViewport();
+	const [navigationOpen, setNavigationOpen] = useState(false);
 	const localizedAnswer = () => answers[locale === "zh" || locale === "zh-TW" ? "zh" : "en"];
 	const [conversation, setConversation] = useState("launch");
 	const [draft, setDraft] = useState("");
@@ -64,10 +68,19 @@ export default function Chatbot({ locale }: SceneProps) {
 	useEffect(() => () => window.clearInterval(timer.current), []);
 	return (
 		<Card className="sc-chatbot-shell">
-			<NavDrawer variant="standard">
+			<NavDrawer
+				variant={mobile ? "modal" : "standard"}
+				open={mobile && navigationOpen}
+				onOpenChange={setNavigationOpen}
+			>
+				<NavDrawerTrigger asChild>
+					<Button className="sc-chatbot-menu" variant="secondary">
+						{t("会话导航", "Conversation navigation")}
+					</Button>
+				</NavDrawerTrigger>
 				<NavDrawerContent
-					className="sc-chatbot-sidebar"
-					title=""
+					className={mobile ? "sc-chatbot-mobile-navigation" : "sc-chatbot-sidebar"}
+					title={mobile ? t("会话导航", "Conversation navigation") : ""}
 					closeLabel={t("关闭会话导航", "Close conversation navigation")}
 					navigationLabel={t("会话导航", "Conversation navigation")}
 				>
@@ -83,7 +96,10 @@ export default function Chatbot({ locale }: SceneProps) {
 						<SelectionList
 							label={t("会话历史", "Conversation history")}
 							value={conversation}
-							onValueChange={setConversation}
+							onValueChange={(value) => {
+								setConversation(value);
+								setNavigationOpen(false);
+							}}
 						>
 							{conversations.map(([id, zh, en]) => (
 								<SelectionListItem key={id} value={id}>

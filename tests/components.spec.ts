@@ -218,7 +218,7 @@ test("mobile navigation drawer routes and closes", async ({ page }) => {
 	await page.setViewportSize({ width: 390, height: 844 });
 	await page.goto("/system?lang=en");
 	await page.getByRole("button", { name: "Open navigation" }).click();
-	const drawer = page.getByRole("dialog", { name: "Workspace navigation" });
+	const drawer = page.getByRole("dialog", { name: "MDS" });
 	await expect(drawer).toBeVisible();
 	await drawer.getByRole("button", { name: "Showcase", exact: true }).click();
 	await page.getByRole("link", { name: /Release governance/ }).click();

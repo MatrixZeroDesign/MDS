@@ -200,11 +200,11 @@
 		color-mix(in srgb, var(--mds-soft) 66%, transparent) 100%
 	);
 }
-.mds-root .sc-robotics-map svg {
+.mds-root .sc-robotics-map > .sc-robotics-route {
 	position: absolute;
-	inset: 25px 4%;
-	width: 92%;
-	height: calc(100% - 50px);
+	inset: 0;
+	width: 100%;
+	height: 100%;
 	overflow: visible;
 	fill: none;
 	stroke: color-mix(in srgb, var(--mds-accent) 58%, var(--mds-muted));
@@ -246,12 +246,14 @@
 	box-shadow: 0 5px 18px color-mix(in srgb, var(--mds-text) 12%, transparent);
 }
 .mds-root .sc-node-start {
-	left: 8%;
-	bottom: 22%;
+	left: 12%;
+	top: 69.615%;
+	transform: translate(-50%, -50%);
 }
 .mds-root .sc-node-end {
-	right: 6%;
-	top: 41%;
+	left: 91.333%;
+	top: 47.692%;
+	transform: translate(-50%, -50%);
 }
 .mds-root .sc-robotics-position {
 	left: 48%;
@@ -444,4 +446,31 @@
 	.mds-root .sc-robotics-position i {
 		animation: none;
 	}
+}
+
+.mds-root .sc-robotics-marker-label {
+	position: absolute;
+	top: calc(100% + 7px);
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 3px 6px;
+	border-radius: var(--mds-radius-sm);
+	background: var(--mds-surface);
+	color: var(--mds-text);
+	font-size: 11px;
+	white-space: nowrap;
+}
+.mds-root .sc-node-start .sc-robotics-marker-label {
+	left: 0;
+	transform: none;
+}
+.mds-root .sc-node-end .sc-robotics-marker-label {
+	left: auto;
+	right: 0;
+	transform: none;
+}
+.mds-root .sc-robotics-map-key {
+	margin: 12px 0 0;
+	color: var(--mds-muted);
+	font-size: 12px;
 }
