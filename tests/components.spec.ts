@@ -45,24 +45,28 @@ test("ChoiceMenu does not lock or shift the background and restores focus", asyn
 	expect(await measure()).toEqual(before);
 });
 test("nested menu Escape closes only menu then dialog", async ({ page }) => {
-	await page.getByRole("button", { name: "新建策略", exact: true }).click();
+	await page.goto("/governance?lang=en");
+	await page.getByRole("button", { name: "Create release rule", exact: true }).click();
 	const dialog = page.getByRole("dialog");
 	await expect(dialog).toBeVisible();
-	await expect(dialog).toHaveAccessibleDescription("为应用配置一套清晰的防护规则。");
-	await dialog.getByRole("combobox", { name: "应用范围", exact: true }).click();
+	await expect(dialog).toHaveAccessibleDescription(
+		"Define approval and verification requirements for production changes.",
+	);
+	await dialog.getByRole("combobox", { name: "Environment", exact: true }).click();
 	await page.keyboard.press("Escape");
 	await expect(page.getByRole("menu")).toHaveCount(0);
 	await expect(dialog).toBeVisible();
 	await page.keyboard.press("Escape");
 	await expect(dialog).toHaveCount(0);
-	await expect(page.getByRole("button", { name: "新建策略", exact: true })).toBeFocused();
+	await expect(page.getByRole("button", { name: "Create release rule", exact: true })).toBeFocused();
 });
 test("create workflow uses the same real components", async ({ page }) => {
-	await page.getByRole("button", { name: "新建策略", exact: true }).click();
-	await page.getByRole("dialog").getByLabel("策略名称", { exact: false }).fill("MDS 中文 / English");
-	await page.getByRole("button", { name: "创建", exact: true }).click();
+	await page.goto("/governance?lang=en");
+	await page.getByRole("button", { name: "Create release rule", exact: true }).click();
+	await page.getByRole("dialog").getByLabel("Rule name", { exact: false }).fill("Production approval");
+	await page.getByRole("button", { name: "Create", exact: true }).click();
 	await expect(page.getByRole("dialog")).toHaveCount(0);
-	await expect(page.getByLabel("策略名称", { exact: false })).toHaveValue("MDS 中文 / English");
+	await expect(page.getByLabel("Rule name", { exact: false })).toHaveValue("Production approval");
 });
 test("switch, checkbox labels and radio keyboard interactions", async ({ page }) => {
 	const toggle = page.getByRole("switch", { name: "自动防护" });
@@ -97,14 +101,13 @@ test("steps pagination progress and cancellation have observable effects", async
 	});
 });
 test("native form reset restores values", async ({ page }) => {
-	await page.getByRole("navigation", { name: "全站导航" }).getByRole("link", { name: "应用示例" }).click();
-	await page.getByRole("link", { name: "策略工作台", exact: true }).click();
-	const input = page.getByLabel("策略名称", { exact: false });
+	await page.goto("/governance?lang=en");
+	const input = page.getByLabel("Rule name", { exact: false });
 	await input.fill("saved");
-	await page.getByRole("button", { name: "保存更改", exact: true }).click();
-	await expect(page.getByText("所有更改已保存", { exact: true })).toBeVisible();
+	await page.getByRole("button", { name: "Save release rules", exact: true }).click();
+	await expect(page.getByText("Release rules saved", { exact: true })).toBeVisible();
 	await input.fill("unsaved");
-	await page.getByRole("button", { name: "重置", exact: true }).click();
+	await page.getByRole("button", { name: "Reset", exact: true }).click();
 	await expect(input).toHaveValue("saved");
 });
 for (const language of ["zh", "en"])
@@ -213,13 +216,14 @@ test("documentation navigation keeps full accessible item labels", async ({ page
 });
 test("mobile navigation drawer routes and closes", async ({ page }) => {
 	await page.setViewportSize({ width: 390, height: 844 });
-	await page.getByRole("button", { name: "打开导航" }).click();
-	const drawer = page.getByRole("dialog", { name: "工作区导航" });
+	await page.goto("/system?lang=en");
+	await page.getByRole("button", { name: "Open navigation" }).click();
+	const drawer = page.getByRole("dialog", { name: "Workspace navigation" });
 	await expect(drawer).toBeVisible();
-	await drawer.getByRole("button", { name: "应用示例", exact: true }).click();
-	await page.getByRole("link", { name: /策略工作台/ }).click();
+	await drawer.getByRole("button", { name: "Showcase", exact: true }).click();
+	await page.getByRole("link", { name: /Release governance/ }).click();
 	await expect(drawer).toHaveCount(0);
-	await expect(page.getByRole("heading", { name: "策略工作台" })).toBeVisible();
+	await expect(page.getByRole("heading", { name: "Release governance" })).toBeVisible();
 });
 test("independent collapse expands and collapses with keyboard", async ({ page }) => {
 	const trigger = page.getByRole("button", { name: "展开高级设置" });

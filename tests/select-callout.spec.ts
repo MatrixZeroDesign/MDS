@@ -30,15 +30,15 @@ test("Select preserves submitted values, required validation, reset and controll
 });
 test("both modal form selects share one themed dropdown without shifting content", async ({ page }) => {
 	await page.emulateMedia({ reducedMotion: "reduce" });
-	await page.goto("/system?lang=zh");
-	await page.getByRole("button", { name: "新建策略", exact: true }).click();
+	await page.goto("/governance?lang=en");
+	await page.getByRole("button", { name: "Create release rule", exact: true }).click();
 	const dialog = page.getByRole("dialog", { includeHidden: true });
 	const measure = () =>
 		dialog.evaluate((el) => {
 			const r = el.getBoundingClientRect();
 			return [r.x, r.y, r.width, r.height];
 		});
-	for (const label of ["检测模板", "应用范围"]) {
+	for (const label of ["Rule template", "Environment"]) {
 		const trigger = dialog.getByRole("combobox", { name: label, includeHidden: true });
 		const before = await measure();
 		await trigger.click();
