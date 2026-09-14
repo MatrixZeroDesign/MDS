@@ -285,36 +285,8 @@
 		block-size: auto;
 		min-height: 680px;
 	}
-	.mds-root .sc-chatbot-sidebar {
-		display: block;
+	.mds-root .sc-product .sc-chatbot-main {
 		block-size: auto;
-		padding: 12px;
-		border-inline-end: 0;
-		border-bottom: 1px solid var(--mds-border);
-	}
-	.mds-root .sc-chatbot-brand,
-	.mds-root .sc-chatbot-profile-region,
-	.mds-root .sc-chatbot-profile,
-	.mds-root .sc-chatbot-sidebar nav > small,
-	.mds-root .sc-chatbot-sidebar > .mds-button {
-		display: none;
-	}
-	.mds-root .sc-chatbot-sidebar nav {
-		display: flex;
-		gap: 6px;
-		overflow-x: auto;
-		scrollbar-width: none;
-	}
-	.mds-root .sc-chatbot-sidebar nav button {
-		display: block;
-		width: auto;
-		flex: 0 0 auto;
-		padding: 8px 12px;
-	}
-	.mds-root .sc-chatbot-sidebar nav button small {
-		display: none;
-	}
-	.mds-root .sc-chatbot-main {
 		min-height: 650px;
 	}
 	.mds-root .sc-chatbot-thread {
@@ -325,4 +297,14 @@
 	.mds-root .sc-chatbot-caret[data-active] {
 		animation: none;
 	}
+}
+
+.mds-root .sc-chatbot-menu {
+	margin: 12px;
+	justify-self: start;
+}
+.mds-root .sc-chatbot-mobile-navigation .mds-navdrawer-panel {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }

@@ -1,6 +1,7 @@
 import { type DocsLocale, translate } from "./i18n";
 import { navigate } from "./router";
 import { useState } from "react";
+import { useMobileViewport } from "./useMobileViewport";
 import {
 	Button,
 	analyzeThemeColor,
@@ -24,6 +25,7 @@ import {
 	ListItem,
 	NavDrawer,
 	NavDrawerContent,
+	NavDrawerTrigger,
 	NavItem,
 	NotificationBadge,
 	Progress,
@@ -259,6 +261,8 @@ export function PalettePicker({
 	const [draftOptions, setDraftOptions] = useState<CustomThemeOptions>(customThemeOptions);
 	const [draftDensity, setDraftDensity] = useState(density);
 	const [previewNavCollapsed, setPreviewNavCollapsed] = useState(false);
+	const mobilePreview = useMobileViewport();
+	const [previewNavigationOpen, setPreviewNavigationOpen] = useState(false);
 	const [acceptedAdjustment, setAcceptedAdjustment] = useState(false);
 	const [suggestionSource, setSuggestionSource] = useState<string | null>(null);
 	const [copied, setCopied] = useState(false);
@@ -383,26 +387,37 @@ export function PalettePicker({
 								/>
 							</div>
 							<div className="docs-theme-preview-shell" data-nav-collapsed={previewNavCollapsed || undefined}>
-								<NavDrawer variant={previewNavCollapsed ? "rail" : "standard"}>
+								<NavDrawer
+									variant={mobilePreview ? "modal" : previewNavCollapsed ? "rail" : "standard"}
+									open={mobilePreview && previewNavigationOpen}
+									onOpenChange={setPreviewNavigationOpen}
+								>
+									<NavDrawerTrigger asChild>
+										<Button className="docs-theme-preview-menu" variant="secondary">
+											{translate(locale, "预览导航", "Preview navigation")}
+										</Button>
+									</NavDrawerTrigger>
 									<NavDrawerContent
-										className="docs-theme-preview-navigation"
-										title=""
+										className={mobilePreview ? undefined : "docs-theme-preview-navigation"}
+										title={mobilePreview ? translate(locale, "预览导航", "Preview navigation") : ""}
 										navigationLabel={translate(locale, "预览导航", "Preview navigation")}
 										closeLabel={translate(locale, "关闭", "Close")}
 									>
 										<div className="docs-theme-preview-nav-header">
 											<Typography variant="label">Matrix</Typography>
-											<IconButton
-												variant="ghost"
-												size="sm"
-												icon={previewNavCollapsed ? <PanelLeftOpen /> : <PanelLeftClose />}
-												label={
-													previewNavCollapsed
-														? translate(locale, "展开导航", "Expand navigation")
-														: translate(locale, "折叠导航", "Collapse navigation")
-												}
-												onClick={() => setPreviewNavCollapsed((value) => !value)}
-											/>
+											{!mobilePreview && (
+												<IconButton
+													variant="ghost"
+													size="sm"
+													icon={previewNavCollapsed ? <PanelLeftOpen /> : <PanelLeftClose />}
+													label={
+														previewNavCollapsed
+															? translate(locale, "展开导航", "Expand navigation")
+															: translate(locale, "折叠导航", "Collapse navigation")
+													}
+													onClick={() => setPreviewNavCollapsed((value) => !value)}
+												/>
+											)}
 										</div>
 										<Divider />
 										<NavItem icon={<Home />} shortLabel={translate(locale, "首页", "Home")} active>

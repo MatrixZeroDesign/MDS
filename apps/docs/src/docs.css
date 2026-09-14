@@ -3111,3 +3111,20 @@ a {
 		grid-template-columns: minmax(0, 1fr);
 	}
 }
+
+@media (max-width: 760px) {
+	.mds-root .docs-theme-preview-shell,
+	.mds-root .docs-theme-preview-shell[data-nav-collapsed] {
+		grid-template-columns: minmax(0, 1fr);
+	}
+	.mds-root .docs-theme-preview-menu {
+		justify-self: start;
+		margin: 12px;
+	}
+}
+
+@media (max-width: 520px) {
+	.mds-root .docs-theme-preview-sampler {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
