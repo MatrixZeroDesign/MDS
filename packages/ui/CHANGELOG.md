@@ -1,3 +1,12 @@
+# 0.1.0-alpha.11
+
+- 新增 Typography、Grid 与 Divider，覆盖排版层级、响应式规则网格和横纵内容分隔。
+- Navbar 与 NavDrawer 的高度、内边距和条目节奏完整跟随全局 density。
+- Toaster 新增 `placement="inline"`，可在面板或内容区域内展示带操作的通知。
+- 新增 DateField、DatePicker、TimeField、TimePicker，自定义输入和主题弹层。
+- 新增 AudioPlayer、Spinner，完善 Slider 的进度与音量使用。
+- 多色主题背景随配色变化，Atmosphere 默认跟随品牌配色；文档默认黑白主题。
+
 # 0.1.0-alpha.10
 
 - Tabs 统一为下划线内容导航，移除 alpha.9 新增的 segmented、size、shape 配置；胶囊与分段选择改用 SegmentedControl，新增 size、shape。

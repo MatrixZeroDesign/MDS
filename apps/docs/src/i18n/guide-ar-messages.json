@@ -1,0 +1,226 @@
+{
+	"Scope themes, brands, density and portals.": [
+		"テーマ、ブランド、密度、ポータルの適用範囲を定義します。",
+		"테마, 브랜드, 밀도 및 포털의 적용 범위를 지정합니다.",
+		"Délimite les thèmes, les marques, la densité et les portails.",
+		"Define el ámbito de temas, marcas, densidad y portales.",
+		"تحديد نطاق السمات والعلامات والكثافة والبوابات."
+	],
+	"Wrap the interface in ThemeProvider. mode controls theme; dir controls layout and Radix keyboard direction independently of language. Nested roots inherit or explicitly override direction; portals keep the same direction. palette selects one of six color families independently of mode, retaining semantic status colors.": [
+		"ThemeProviderで画面を囲みます。modeは明暗テーマ、dirはレイアウトとキーボード方向を言語とは独立して設定します。入れ子とポータルは方向を継承します。paletteは明暗モードとは別に6つの配色を提供し、状態色の意味を保ちます。",
+		"ThemeProvider로 인터페이스를 감싸세요. mode는 테마를, dir은 언어와 독립적으로 레이아웃과 키보드 방향을 설정합니다. 중첩 루트와 포털은 방향을 상속합니다. palette는 명암 모드와 별도로 6가지 색상을 제공하며 상태 색상의 의미는 유지됩니다.",
+		"Entourez l’interface avec ThemeProvider. mode règle le thème et dir la disposition ainsi que le sens du clavier, indépendamment de la langue. Les racines imbriquées et les portails héritent du sens. palette propose six familles de couleurs indépendantes du mode, tout en préservant les couleurs sémantiques.",
+		"Envuelve la interfaz en ThemeProvider. mode controla el tema; dir controla la disposición y el teclado independientemente del idioma. Las raíces anidadas y los portales heredan la dirección. palette ofrece seis familias de colores independientes del modo y conserva los colores semánticos.",
+		"ضع الواجهة داخل ThemeProvider. يتحكم mode في السمة، ويتحكم dir في اتجاه التخطيط ومفاتيح Radix بصورة مستقلة عن اللغة. ترث الجذور المتداخلة الاتجاه أو تتجاوزه صراحة؛ وتحافظ البوابات على الاتجاه نفسه. يختار palette إحدى ست مجموعات لونية مستقلة عن mode مع الحفاظ على ألوان الحالات الدلالية."
+	],
+	"Set the page lang, translate accessible names and preserve reduced-motion preferences.": [
+		"ページのlangとアクセシブル名を設定し、動きを減らす設定を尊重してください。",
+		"페이지의 lang과 접근 가능한 이름을 설정하고 동작 줄이기 설정을 존중하세요.",
+		"Définissez lang, traduisez les noms accessibles et respectez la réduction des animations.",
+		"Define lang, traduce los nombres accesibles y respeta la reducción de movimiento.",
+		"حدّد lang للصفحة وترجم الأسماء الميسّرة واحترم تفضيلات تقليل الحركة."
+	],
+	"brand does not fetch CSS; import it explicitly. Do not override themes on body.": [
+		"brandはCSSを読み込みません。明示的にインポートし、bodyでテーマを上書きしないでください。",
+		"brand는 CSS를 가져오지 않습니다. 명시적으로 가져오고 body에서 테마를 덮어쓰지 마세요.",
+		"brand ne charge pas le CSS : importez-le explicitement. Ne surchargez pas les thèmes sur body.",
+		"brand no carga CSS: impórtalo explícitamente. No sobrescribas los temas en body.",
+		"لا يجلب brand ملفات CSS؛ استوردها صراحة. لا تتجاوز السمات على body."
+	],
+	"Trigger an explicit action.": [
+		"明確な操作を実行します。",
+		"명확한 작업을 실행합니다.",
+		"Déclenche une action explicite.",
+		"Ejecuta una acción explícita.",
+		"تنفيذ إجراء واضح."
+	],
+	"Emphasize one primary action per region. Manage async loading in the application. Use contrast and pill for expressive primary actions; contrast adapts to the theme.": [
+		"各領域でprimary操作を1つだけ強調します。非同期処理のloadingはアプリで管理します。contrastとpillは印象的な主要操作に使えます。contrastはテーマに適応します。",
+		"영역마다 primary 작업 하나만 강조하세요. 비동기 loading은 앱에서 관리합니다. 강조된 주요 작업에는 contrast와 pill을 사용하며 contrast는 테마에 맞게 바뀝니다.",
+		"Mettez en avant une seule action primary par zone. Gérez loading dans l’application. Utilisez contrast et pill pour les actions principales expressives ; contrast s’adapte au thème.",
+		"Destaca una sola acción primary por zona. Gestiona loading en la aplicación. Usa contrast y pill para acciones principales expresivas; contrast se adapta al tema.",
+		"أبرِز إجراءً أساسيًا واحدًا في كل منطقة. أدِر التحميل غير المتزامن في التطبيق. استخدم contrast وpill للإجراءات الأساسية البارزة؛ يتكيّف contrast مع السمة."
+	],
+	"Use a clear verb; loading disables the button and retains its label with aria-busy.": [
+		"明確な動詞をラベルに使います。loading中は操作を無効にし、ラベルを維持してaria-busyを設定します。",
+		"명확한 동사를 레이블로 사용하세요. loading 중에는 버튼이 비활성화되며 레이블과 aria-busy가 유지됩니다.",
+		"Utilisez un verbe clair. loading désactive le bouton et conserve son libellé avec aria-busy.",
+		"Usa un verbo claro. loading desactiva el botón y conserva su etiqueta con aria-busy.",
+		"استخدم فعلًا واضحًا؛ يعطّل loading الزر مع الحفاظ على تسميته وإضافة aria-busy."
+	],
+	"Set type=\"submit\" for form submission. Button does not expose shadcn’s asChild API.": [
+		"フォーム送信にはtype=\"submit\"を指定します。ButtonはshadcnのasChild APIを提供しません。",
+		"폼 제출에는 type=\"submit\"을 지정하세요. Button은 shadcn의 asChild API를 제공하지 않습니다.",
+		"Définissez type=\"submit\" pour envoyer un formulaire. Button ne propose pas l’API asChild de shadcn.",
+		"Define type=\"submit\" para enviar formularios. Button no ofrece la API asChild de shadcn.",
+		"اضبط type=\"submit\" لإرسال النموذج. لا يوفّر Button واجهة asChild الخاصة بـ shadcn."
+	],
+	"Connect labels, help and errors.": [
+		"ラベル、説明、エラーを関連付けます。",
+		"레이블, 도움말 및 오류를 연결합니다.",
+		"Relie les libellés, l’aide et les erreurs.",
+		"Relaciona etiquetas, ayuda y errores.",
+		"ربط التسميات ونصوص المساعدة والأخطاء."
+	],
+	"Use one field-aware control per Field; pass application validation errors.": [
+		"Fieldごとに対応するコントロールを1つ配置し、アプリの検証エラーを渡します。",
+		"Field마다 연결 가능한 컨트롤 하나를 사용하고 앱의 검증 오류를 전달하세요.",
+		"Utilisez un seul contrôle compatible par Field et transmettez les erreurs de validation.",
+		"Usa un único control compatible por Field y pasa los errores de validación.",
+		"استخدم عنصر إدخال واحدًا متوافقًا مع Field داخل كل Field، ومرّر أخطاء التحقق من التطبيق."
+	],
+	"Automatically associates labels, descriptions and errors and propagates required/disabled.": [
+		"ラベル、説明、エラーを自動で関連付け、requiredとdisabledを伝播します。",
+		"레이블, 설명, 오류를 자동 연결하고 required와 disabled를 전달합니다.",
+		"Associe automatiquement les libellés, descriptions et erreurs et transmet required et disabled.",
+		"Asocia automáticamente etiquetas, descripciones y errores y propaga required y disabled.",
+		"يربط التسميات والأوصاف والأخطاء تلقائيًا ويمرّر required وdisabled."
+	],
+	"Do not override the child with a different id. Field does not validate data.": [
+		"子要素のidを別の値で上書きしないでください。Fieldはデータを検証しません。",
+		"자식의 id를 다른 값으로 덮어쓰지 마세요. Field는 데이터를 검증하지 않습니다.",
+		"Ne remplacez pas l’id du contrôle. Field ne valide pas les données.",
+		"No sobrescribas el id del control. Field no valida los datos.",
+		"لا تمنح العنصر الفرعي معرّف id مختلفًا. لا يتحقق Field من البيانات."
+	],
+	"Single-line and native input types.": [
+		"1行のテキストとネイティブ入力型を扱います。",
+		"한 줄 텍스트와 기본 입력 유형을 지원합니다.",
+		"Gère le texte sur une ligne et les types de saisie natifs.",
+		"Admite texto de una línea y tipos de entrada nativos.",
+		"إدخال نص من سطر واحد وأنواع الإدخال الأصلية."
+	],
+	"Use Field for visible labels and name for FormData; pair value with onChange.": [
+		"表示ラベルにはField、FormDataにはnameを使い、valueにはonChangeを組み合わせます。",
+		"표시 레이블에는 Field, FormData에는 name을 사용하고 value와 onChange를 함께 지정하세요.",
+		"Utilisez Field pour les libellés, name pour FormData et associez value à onChange.",
+		"Usa Field para etiquetas, name para FormData y combina value con onChange.",
+		"استخدم Field للتسميات المرئية وname ضمن FormData؛ واربط value بـ onChange."
+	],
+	"A placeholder is a format hint, not a label.": [
+		"placeholderは入力形式のヒントであり、ラベルの代わりではありません。",
+		"placeholder는 형식 안내이며 레이블을 대신하지 않습니다.",
+		"Le placeholder indique un format ; il ne remplace pas le libellé.",
+		"El placeholder indica el formato; no sustituye la etiqueta.",
+		"النص النائب إرشاد للتنسيق وليس تسمية."
+	],
+	"Use onChange, not onValueChange; custom size is unsupported.": [
+		"onValueChangeではなくonChangeを使います。独自のsizeはサポートしていません。",
+		"onValueChange 대신 onChange를 사용하세요. 사용자 지정 size는 지원하지 않습니다.",
+		"Utilisez onChange, pas onValueChange. Les tailles personnalisées ne sont pas prises en charge.",
+		"Usa onChange, no onValueChange. No se admiten tamaños personalizados.",
+		"استخدم onChange وليس onValueChange؛ لا يُدعم الحجم المخصّص."
+	],
+	"A consistently styled single-value form select.": [
+		"統一された外観の単一選択フォームです。",
+		"일관된 스타일의 단일 값 선택 필드입니다.",
+		"Sélecteur de formulaire à valeur unique au style cohérent.",
+		"Selector de formulario de un valor con estilo uniforme.",
+		"اختيار قيمة واحدة في النموذج بتصميم متناسق."
+	],
+	"Define options; name participates in form submission, defaultValue initializes uncontrolled state, and value/onValueChange control selection.": [
+		"optionsで選択肢を定義します。nameはフォーム送信、defaultValueは非制御状態の初期値、valueとonValueChangeは制御された選択に使います。",
+		"options로 항목을 정의하세요. name은 폼 제출, defaultValue는 비제어 초기값, value와 onValueChange는 제어 선택에 사용합니다.",
+		"Définissez options. name participe à l’envoi, defaultValue initialise l’état non contrôlé et value/onValueChange contrôlent la sélection.",
+		"Define options. name participa en el envío, defaultValue inicializa el estado no controlado y value/onValueChange controlan la selección.",
+		"حدّد options؛ يشارك name في إرسال النموذج ويهيّئ defaultValue الحالة غير المتحكّم بها، بينما يتحكم value وonValueChange في التحديد."
+	],
+	"Combobox/listbox semantics with arrows, typeahead, Enter and Escape. Field associates labels and errors; required validation focuses the visible trigger.": [
+		"矢印、文字検索、Enter、Escapeに対応したcombobox/listboxです。Fieldがラベルとエラーを関連付け、必須検証時はトリガーにフォーカスします。",
+		"화살표, 문자 검색, Enter, Escape를 지원하는 combobox/listbox입니다. Field가 레이블과 오류를 연결하며 필수 검증 시 트리거에 초점을 맞춥니다.",
+		"Sémantique combobox/listbox avec flèches, recherche par frappe, Entrée et Échap. Field associe les libellés et erreurs ; la validation required cible le déclencheur.",
+		"Semántica combobox/listbox con flechas, búsqueda al escribir, Intro y Escape. Field asocia etiquetas y errores; la validación required enfoca el activador.",
+		"دلالات combobox وlistbox مع الأسهم والبحث بالكتابة وEnter وEscape. يربط Field التسميات والأخطاء؛ ويوجّه التحقق من required التركيز إلى زر الفتح المرئي."
+	],
+	"From alpha.4, Select uses options/onValueChange; use NativeSelect for the former native API. Values must be unique and nonempty. Controlled resets are application-owned.": [
+		"alpha.4以降はoptions/onValueChangeを使います。以前のネイティブAPIにはNativeSelectを使います。値は空でない一意の値にし、制御状態のリセットはアプリで管理します。",
+		"alpha.4부터 options/onValueChange를 사용합니다. 이전 기본 API는 NativeSelect를 사용하세요. 값은 비어 있지 않고 고유해야 하며 제어 상태 초기화는 앱이 관리합니다.",
+		"Depuis alpha.4, utilisez options/onValueChange. NativeSelect conserve l’ancienne API native. Les valeurs doivent être uniques et non vides ; l’application gère la réinitialisation contrôlée.",
+		"Desde alpha.4 usa options/onValueChange. NativeSelect conserva la API nativa anterior. Los valores deben ser únicos y no vacíos; la aplicación gestiona el restablecimiento controlado.",
+		"منذ alpha.4 يستخدم Select خاصيتي options وonValueChange؛ استخدم NativeSelect للواجهة الأصلية السابقة. يجب أن تكون القيم فريدة وغير فارغة. يتولى التطبيق إعادة ضبط القيم المتحكّم بها."
+	],
+	"A compact preference menu.": [
+		"コンパクトな設定メニューです。",
+		"간결한 환경설정 메뉴입니다.",
+		"Menu compact de préférences.",
+		"Menú compacto de preferencias.",
+		"قائمة مدمجة للتفضيلات."
+	],
+	"Use the compact toolbar button for sort order, density or view preferences that apply immediately. Use Select for form fields; width alone is not the distinction.": [
+		"並び順、密度、表示など即時に適用する設定に使います。フォーム入力にはSelectを使います。幅だけが違いではありません。",
+		"정렬, 밀도, 보기처럼 즉시 적용되는 설정에 사용하세요. 폼 입력에는 Select를 사용합니다. 너비만 다른 것이 아닙니다.",
+		"Utilisez-le pour les préférences immédiates : tri, densité ou affichage. Réservez Select aux formulaires ; la largeur n’est pas la seule différence.",
+		"Úsalo para preferencias inmediatas: orden, densidad o vista. Usa Select en formularios; la anchura no es la única diferencia.",
+		"استخدم زر شريط الأدوات المدمج لترتيب الفرز أو الكثافة أو تفضيلات العرض المطبّقة فورًا. استخدم Select لحقول النماذج؛ العرض وحده لا يميّز بينهما."
+	],
+	"Non-modal menuitemradio with keyboard selection, Escape and trigger focus restoration.": [
+		"キーボード選択、Escape、トリガーへのフォーカス復帰に対応した非モーダルmenuitemradioです。",
+		"키보드 선택, Escape 및 트리거 초점 복원을 지원하는 비모달 menuitemradio입니다.",
+		"menuitemradio non modal avec sélection clavier, Échap et restitution du focus au déclencheur.",
+		"menuitemradio no modal con selección por teclado, Escape y restauración del foco al activador.",
+		"قائمة menuitemradio غير مشروطة تدعم الاختيار بلوحة المفاتيح وEscape وإعادة التركيز إلى زر الفتح."
+	],
+	"No native form name, required or reset; use Select for forms.": [
+		"ネイティブのname、required、resetはありません。フォームにはSelectを使います。",
+		"기본 name, required, reset이 없습니다. 폼에는 Select를 사용하세요.",
+		"Pas de name, required ni reset natifs : utilisez Select pour les formulaires.",
+		"No dispone de name, required ni reset nativos: usa Select en formularios.",
+		"لا يدعم خصائص النموذج الأصلية name أو required أو إعادة الضبط؛ استخدم Select للنماذج."
+	],
+	"Group related content and actions.": [
+		"関連する内容と操作をまとめます。",
+		"관련 내용과 작업을 그룹화합니다.",
+		"Regroupe le contenu et les actions associés.",
+		"Agrupa contenido y acciones relacionados.",
+		"تجميع المحتوى والإجراءات المرتبطة."
+	],
+	"Compose Header, Content and Footer; choose outlined, elevated or subtle by emphasis; plain is transparent and borderless.": [
+		"Header、Content、Footerを組み合わせます。強調度に応じてoutlined、elevated、subtleを選びます。plainは透明で枠線がありません。",
+		"Header, Content, Footer를 조합하세요. 강조 수준에 따라 outlined, elevated, subtle을 선택합니다. plain은 투명하고 테두리가 없습니다.",
+		"Composez Header, Content et Footer. Choisissez outlined, elevated ou subtle selon l’importance ; plain est transparent et sans bordure.",
+		"Combina Header, Content y Footer. Elige outlined, elevated o subtle según el énfasis; plain es transparente y sin borde.",
+		"اجمع Header وContent وFooter؛ اختر outlined أو elevated أو subtle بحسب مستوى الإبراز؛ ويكون plain شفافًا بلا حدود."
+	],
+	"Match CardTitle to the page heading hierarchy and use real links or buttons.": [
+		"CardTitleを見出し階層に合わせ、実際のリンクやボタンを使います。",
+		"CardTitle을 페이지 제목 계층에 맞추고 실제 링크나 버튼을 사용하세요.",
+		"Respectez la hiérarchie des titres avec CardTitle et utilisez de vrais liens ou boutons.",
+		"Ajusta CardTitle a la jerarquía de encabezados y usa enlaces o botones reales.",
+		"طابق CardTitle مع تسلسل عناوين الصفحة واستخدم روابط أو أزرارًا حقيقية."
+	],
+	"Card is not a selectable control; use RadioCard for choices and avoid nested interactive targets.": [
+		"Cardは選択コントロールではありません。選択にはRadioCardを使い、操作可能な要素を入れ子にしないでください。",
+		"Card는 선택 컨트롤이 아닙니다. 선택에는 RadioCard를 사용하고 대화형 요소를 중첩하지 마세요.",
+		"Card n’est pas un contrôle de sélection. Utilisez RadioCard et évitez les cibles interactives imbriquées.",
+		"Card no es un control de selección. Usa RadioCard y evita elementos interactivos anidados.",
+		"ليس Card عنصر تحديد؛ استخدم RadioCard للاختيارات وتجنّب تداخل العناصر التفاعلية."
+	],
+	"Switch related content panels.": [
+		"関連するコンテンツパネルを切り替えます。",
+		"관련 콘텐츠 패널을 전환합니다.",
+		"Alterne entre des panneaux de contenu associés.",
+		"Alterna entre paneles de contenido relacionados.",
+		"التبديل بين لوحات محتوى مرتبطة."
+	],
+	"Tabs use an underline to identify the current content panel and associate each Tab with a TabPanel. Use SegmentedControl for pill-shaped or segmented single-value choices such as billing cycles and modes.": [
+		"下線で現在のパネルを示し、TabをTabPanelに関連付けます。料金周期やモードなどの単一値の選択にはSegmentedControlを使います。",
+		"밑줄로 현재 패널을 표시하고 Tab과 TabPanel을 연결합니다. 결제 주기나 모드 같은 단일 값 선택에는 SegmentedControl을 사용하세요.",
+		"Le soulignement identifie le panneau actif ; associez chaque Tab à un TabPanel. Utilisez SegmentedControl pour les choix uniques comme un cycle de facturation ou un mode.",
+		"El subrayado identifica el panel activo; relaciona cada Tab con un TabPanel. Usa SegmentedControl para valores únicos, como ciclos de facturación o modos.",
+		"تستخدم Tabs خطًا سفليًا لتحديد لوحة المحتوى الحالية وتربط كل Tab بـ TabPanel. استخدم SegmentedControl للاختيارات المفردة ذات الشكل البيضاوي أو المقسّم مثل دورات الفوترة والأوضاع."
+	],
+	"Arrow keys navigate; manual mode activates with Enter/Space.": [
+		"矢印キーで移動し、manualモードではEnterまたはSpaceで選択します。",
+		"화살표로 이동하며 manual 모드에서는 Enter 또는 Space로 활성화합니다.",
+		"Naviguez avec les flèches ; en mode manual, activez avec Entrée ou Espace.",
+		"Navega con flechas; en modo manual, activa con Intro o Espacio.",
+		"تنتقل مفاتيح الأسهم بين العناصر؛ في الوضع اليدوي يتم التفعيل عبر Enter أو Space."
+	],
+	"Use NavLink for navigation and SegmentedControl for preferences.": [
+		"ページ移動にはNavLink、設定の選択にはSegmentedControlを使います。",
+		"탐색에는 NavLink, 설정 선택에는 SegmentedControl을 사용하세요.",
+		"Utilisez NavLink pour la navigation et SegmentedControl pour les préférences.",
+		"Usa NavLink para navegar y SegmentedControl para preferencias.",
+		"استخدم NavLink للتنقل وSegmentedControl للتفضيلات."
+	]
+}

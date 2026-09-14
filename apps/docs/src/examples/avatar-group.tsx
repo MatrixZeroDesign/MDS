@@ -1,7 +1,8 @@
+import { type DocsLocale, translate } from "../i18n";
 import { AvatarGroup } from "@matrixzero/ui";
 
-export default function Example({ locale = "en", size = "md" }: { locale?: "zh" | "en"; size?: "sm" | "md" | "lg" }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+export default function Example({ locale = "en", size = "md" }: { locale?: DocsLocale; size?: "sm" | "md" | "lg" }) {
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	return (
 		<AvatarGroup
 			size={size}

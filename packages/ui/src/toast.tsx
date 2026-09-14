@@ -55,9 +55,12 @@ export function ToastProvider({
 export function Toaster({
 	label = "Notifications ({hotkey})",
 	closeLabel = "Dismiss notification",
+	placement = "fixed",
 }: {
 	label?: string;
 	closeLabel?: string;
+	/** Fixed notifications use the theme portal; inline notifications render where Toaster is placed. */
+	placement?: "fixed" | "inline";
 }) {
 	const { entries, dismiss } = useToast();
 	const container = usePortalContainer();
@@ -92,11 +95,12 @@ export function Toaster({
 			? entries.reduce((sum, entry) => sum + (heights[entry.id] ?? 88) + 10, -10)
 			: (heights[entries.at(-1)!.id] ?? 88) + Math.min(entries.length - 1, 2) * 8
 		: 0;
-	if (!container || !entries.length) return null;
-	return createPortal(
+	if (!entries.length) return null;
+	const toaster = (
 		<div
 			className="mds-toaster"
 			data-expanded={expanded}
+			data-placement={placement}
 			onPointerEnter={() => setHovered(true)}
 			onPointerLeave={() => setHovered(false)}
 			onFocusCapture={() => setFocused(true)}
@@ -118,9 +122,9 @@ export function Toaster({
 				/>
 			))}
 			<Primitive.Viewport className="mds-toast-viewport" label={label} />
-		</div>,
-		container,
+		</div>
 	);
+	return placement === "inline" ? toaster : container ? createPortal(toaster, container) : null;
 }
 function ToastItem({
 	entry,

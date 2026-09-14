@@ -30,7 +30,7 @@ test("Select preserves submitted values, required validation, reset and controll
 });
 test("both modal form selects share one themed dropdown without shifting content", async ({ page }) => {
 	await page.emulateMedia({ reducedMotion: "reduce" });
-	await page.goto("/?lang=zh#system");
+	await page.goto("/system?lang=zh");
 	await page.getByRole("button", { name: "新建策略", exact: true }).click();
 	const dialog = page.getByRole("dialog", { includeHidden: true });
 	const measure = () =>
@@ -67,11 +67,11 @@ test("Select supports keyboard typeahead and theme-scoped portal; Callout is rea
 	await expect(page.getByRole("option", { name: "Beta", exact: true })).toBeFocused();
 	await page.keyboard.press("Enter");
 	await expect(select).toContainText("Beta");
-	await page.goto("/?lang=zh#system");
+	await page.goto("/system?lang=zh");
 	await expect(page.getByRole("note")).toHaveCount(5);
 	await page.getByRole("note").first().getByRole("button", { name: "阅读指南" }).click();
-	await expect(page).toHaveURL(/#docs$/);
-	await page.goto("/?lang=zh#system");
+	await expect(page).toHaveURL(/\/docs$/);
+	await page.goto("/system?lang=zh");
 	await page.getByRole("button", { name: "切换明暗主题" }).click();
 	await page.getByRole("menuitemradio", { name: "深色", exact: true }).click();
 	await page.setViewportSize({ width: 320, height: 900 });
@@ -80,14 +80,17 @@ test("Select supports keyboard typeahead and theme-scoped portal; Callout is rea
 });
 
 test("Banner dismissal and Container widths work without losing keyboard focus", async ({ page }) => {
-	await page.goto("/?lang=zh#system");
+	await page.goto("/system?lang=zh");
 	await page.getByRole("button", { name: "关闭通知" }).click();
 	const restore = page.getByRole("button", { name: "重新显示通知" });
 	await expect(restore).toBeVisible();
 	await expect(restore).toBeFocused();
 	await restore.click();
 	await expect(page.getByRole("region", { name: "服务通知" })).toBeVisible();
-	const container = page.locator(".mds-container").first();
+	const container = page
+		.locator(".docs-card")
+		.filter({ has: page.getByRole("heading", { name: "居中容器" }) })
+		.locator(".mds-container");
 	const dimensions = await container.evaluate((el) => {
 		const c = getComputedStyle(el);
 		return { width: el.getBoundingClientRect().width, max: c.maxWidth, left: c.paddingLeft, right: c.paddingRight };
@@ -96,11 +99,11 @@ test("Banner dismissal and Container widths work without losing keyboard focus",
 	expect(dimensions.max).toBe("360px");
 	expect(dimensions.left).toBe(dimensions.right);
 	await page.setViewportSize({ width: 320, height: 900 });
-	expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();
+	await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();
 });
 test("Select popup on a scrolling page does not shift the page or trigger", async ({ page }) => {
 	await page.emulateMedia({ reducedMotion: "reduce" });
-	await page.goto("/?lang=zh#system");
+	await page.goto("/system?lang=zh");
 	const trigger = page.getByRole("combobox", { name: "适用范围", exact: true });
 	await trigger.scrollIntoViewIfNeeded();
 	const measure = () =>

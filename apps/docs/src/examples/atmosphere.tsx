@@ -1,12 +1,15 @@
+import { type DocsLocale, translate } from "../i18n";
+import { useToast } from "@matrixzero/ui";
 import { Atmosphere, Container, Button } from "@matrixzero/ui";
 export default function Example({
 	locale = "en",
-	tone = "iris",
+	tone = "brand",
 }: {
-	locale?: "zh" | "en";
-	tone?: "iris" | "mint" | "peach";
+	locale?: DocsLocale;
+	tone?: "brand" | "iris" | "mint" | "peach";
 }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+	const { toast } = useToast();
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	return (
 		<Atmosphere
 			tone={tone}
@@ -21,7 +24,7 @@ export default function Example({
 					variant="contrast"
 					shape="pill"
 					onClick={() => {
-						window.location.hash = "system";
+						toast({ title: t("示例操作已完成", "Example action completed") });
 					}}
 				>
 					{t("探索组件", "Explore components")}

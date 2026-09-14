@@ -1,9 +1,18 @@
+import { translatePair, translate } from "./i18n";
+import { PageLoading } from "./PageLoading";
 import { Preview } from "./showcases/Preview";
 import { lazy, Suspense, useState } from "react";
-import { Input, Field, SegmentedControl, EmptyState, Button, Badge } from "@matrixzero/ui";
+import { Container, Grid, Input, Field, SegmentedControl, EmptyState, Button, Badge } from "@matrixzero/ui";
 import { showcaseCatalog } from "./showcases/catalog";
 import type { SceneProps } from "./showcases/shared";
 const scenes = {
+	"showcase-creator": lazy(() => import("./showcases/creator")),
+	"showcase-finance": lazy(() => import("./showcases/finance")),
+	"showcase-robotics": lazy(() => import("./showcases/robotics")),
+	"showcase-smart-home": lazy(() => import("./showcases/smart-home")),
+	"showcase-vehicle": lazy(() => import("./showcases/vehicle")),
+	"showcase-chatbot": lazy(() => import("./showcases/chatbot")),
+	"showcase-feed": lazy(() => import("./showcases/feed")),
 	"showcase-projects": lazy(() => import("./showcases/projects")),
 	"showcase-crm": lazy(() => import("./showcases/crm")),
 	"showcase-support": lazy(() => import("./showcases/support")),
@@ -22,15 +31,16 @@ const sources = import.meta.glob("./showcases/*.tsx", { query: "?raw", import: "
 export function ShowcasePage({ locale, page }: { locale: SceneProps["locale"]; page: string }) {
 	const [filter, setFilter] = useState("all");
 	const [query, setQuery] = useState("");
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
-	const index = locale === "zh" ? 0 : 1;
+	const t = (zh: string, en: string) => translate(locale, zh, en);
+	const businessCount = showcaseCatalog.filter((entry) => entry.audience === "business").length;
+	const consumerCount = showcaseCatalog.filter((entry) => entry.audience === "consumer").length;
 	const item = showcaseCatalog.find((x) => x.id === page);
 	const Scene = scenes[page as keyof typeof scenes];
 	if (Scene && item)
 		return (
-			<div className="sc-detail">
+			<Container className="sc-detail" maxWidth={1280} gutter={0}>
 				<div className="sc-detail-bar">
-					<a href="#showcase">← {t("全部场景", "All scenarios")}</a>
+					<a href="/showcase">← {t("全部场景", "All scenarios")}</a>
 					<Badge>
 						{item.audience === "business" ? t("企业产品", "Business product") : t("消费产品", "Consumer product")}
 					</Badge>
@@ -41,7 +51,7 @@ export function ShowcasePage({ locale, page }: { locale: SceneProps["locale"]; p
 						"Interactive demo · data stays on this page; no live services are connected.",
 					)}
 				</p>
-				<Suspense fallback={<p role="status">{t("加载场景…", "Loading scenario…")}</p>}>
+				<Suspense fallback={<PageLoading locale={locale} />}>
 					<section className="sc-product" aria-label={t("产品场景", "Product scenario")}>
 						<Scene key={`${page}-${locale}`} locale={locale} />
 					</section>
@@ -62,18 +72,22 @@ export function ShowcasePage({ locale, page }: { locale: SceneProps["locale"]; p
 						<code>{sources["./showcases/shared.tsx"]}</code>
 					</pre>
 				</details>
-			</div>
+			</Container>
 		);
 	const visible = showcaseCatalog.filter(
 		(x) =>
 			(filter === "all" || x.audience === filter) &&
-			(x.title[index] + " " + x.description[index]).toLowerCase().includes(query.toLowerCase()),
+			(translatePair(locale, x.title) + " " + translatePair(locale, x.description))
+				.toLowerCase()
+				.includes(query.toLowerCase()),
 	);
 	return (
-		<div className="sc-gallery">
+		<Container className="sc-gallery" maxWidth={1280} gutter={0}>
 			<div className="sc-gallery-intro">
 				<div>
-					<span className="docs-eyebrow">12 {t("种产品体验", "PRODUCT EXPERIENCES")}</span>
+					<span className="docs-eyebrow">
+						{showcaseCatalog.length} {t("种产品体验", "PRODUCT EXPERIENCES")}
+					</span>
 					<h2>{t("一种设计语言，多种可能。", "One design language. Many possibilities.")}</h2>
 					<p>
 						{t(
@@ -83,7 +97,8 @@ export function ShowcasePage({ locale, page }: { locale: SceneProps["locale"]; p
 					</p>
 				</div>
 				<div className="sc-gallery-mark" aria-hidden="true">
-					12<span>↗</span>
+					{showcaseCatalog.length}
+					<span>↗</span>
 				</div>
 			</div>
 			<div className="sc-gallery-filters">
@@ -92,18 +107,18 @@ export function ShowcasePage({ locale, page }: { locale: SceneProps["locale"]; p
 					value={filter}
 					onValueChange={setFilter}
 					options={[
-						{ value: "all", label: t("全部 · 12", "All · 12") },
-						{ value: "business", label: t("企业 · 7", "Business · 7") },
-						{ value: "consumer", label: t("消费 · 5", "Consumer · 5") },
+						{ value: "all", label: `${t("全部", "All")} · ${showcaseCatalog.length}` },
+						{ value: "business", label: `${t("企业", "Business")} · ${businessCount}` },
+						{ value: "consumer", label: `${t("消费", "Consumer")} · ${consumerCount}` },
 					]}
 				/>
 				<Field label={t("搜索场景", "Search scenarios")}>
 					<Input type="search" value={query} onChange={(e) => setQuery(e.target.value)} />
 				</Field>
 			</div>
-			<div className="sc-gallery-grid">
+			<Grid className="sc-gallery-grid" minColumnWidth={420} gap={24}>
 				{visible.map((item) => (
-					<a className="sc-gallery-card" key={item.id} href={`#${item.id}`}>
+					<a className="sc-gallery-card" key={item.id} href={`/${item.id}`}>
 						<div className="sc-card-art" data-audience={item.audience}>
 							<span className="sc-card-number">{item.motif}</span>
 							<span className="sc-card-category">
@@ -113,14 +128,14 @@ export function ShowcasePage({ locale, page }: { locale: SceneProps["locale"]; p
 						</div>
 						<div className="sc-card-copy">
 							<h3>
-								{item.title[index]} <span aria-hidden="true">↗</span>
+								{translatePair(locale, item.title)} <span aria-hidden="true">↗</span>
 							</h3>
-							<p>{item.description[index]}</p>
+							<p>{translatePair(locale, item.description)}</p>
 							<small>{item.components.join(" · ")}</small>
 						</div>
 					</a>
 				))}
-			</div>
+			</Grid>
 			{!visible.length && (
 				<EmptyState
 					title={t("没有匹配场景", "No matching scenarios")}
@@ -136,6 +151,6 @@ export function ShowcasePage({ locale, page }: { locale: SceneProps["locale"]; p
 					}
 				/>
 			)}
-		</div>
+		</Container>
 	);
 }

@@ -1,6 +1,7 @@
+import { type DocsLocale, translate } from "../i18n";
 import { Container, Card, CardContent } from "@matrixzero/ui";
-export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	return (
 		<Container as="section" aria-label={t("内容区域", "Content area")} maxWidth={960} gutter={24}>
 			<Card>

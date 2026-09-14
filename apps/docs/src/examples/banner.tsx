@@ -1,13 +1,14 @@
+import { type DocsLocale, translate } from "../i18n";
 import { useState } from "react";
 import { Banner, Button } from "@matrixzero/ui";
 export default function Example({
 	locale = "en",
 	tone = "info",
 }: {
-	locale?: "zh" | "en";
+	locale?: DocsLocale;
 	tone?: "neutral" | "info" | "success" | "warning" | "danger";
 }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	const [visible, setVisible] = useState(true);
 	return (
 		<div style={{ border: "1px solid var(--mds-border)", borderRadius: 12, overflow: "hidden" }}>
@@ -17,7 +18,7 @@ export default function Example({
 					label={t("服务通知", "Service notice")}
 					onDismiss={() => setVisible(false)}
 					dismissLabel={t("关闭通知", "Dismiss notice")}
-					action={<a href="#docs/theme-motion">{t("查看详情", "Learn more")}</a>}
+					action={<a href="/docs/theme-motion">{t("查看详情", "Learn more")}</a>}
 				>
 					{t("今晚 22:00 进行维护，数据仍可查看。", "Maintenance at 22:00. Your data remains available.")}
 				</Banner>

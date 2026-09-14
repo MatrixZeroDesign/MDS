@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 test("Form preserves validation, prevents duplicate async submissions, focuses errors and resets", async ({ page }) => {
-	await page.goto("/#docs/form");
+	await page.goto("/docs/form");
 	const preview = page.getByRole("region", { name: "Interactive example" });
 	const form = preview.locator("form");
 	const name = preview.getByRole("textbox", { name: "Workspace name" });
@@ -32,13 +32,13 @@ test("Form preserves validation, prevents duplicate async submissions, focuses e
 	expect((await new AxeBuilder({ page }).include(".mds-form").analyze()).violations).toEqual([]);
 	await name.fill("Matrix");
 	await save.click();
-	await expect(preview.getByRole("status")).toHaveText("Saved.");
+	await expect(preview.getByRole("status").filter({ hasText: "Saved." })).toHaveText("Saved.");
 	await preview.getByRole("button", { name: "Reset", exact: true }).click();
 	await expect(name).toHaveValue("");
-	await expect(preview.getByRole("status")).toHaveCount(0);
+	await expect(preview.getByRole("status").filter({ hasText: "Saved." })).toHaveCount(0);
 });
 test("Form recovers from rejected submission promises", async ({ page }) => {
-	await page.goto("/#docs/form");
+	await page.goto("/docs/form");
 	const preview = page.getByRole("region", { name: "Interactive example" });
 	await preview.getByRole("textbox", { name: "Workspace name" }).fill("offline");
 	await preview.getByRole("textbox", { name: "Email", exact: true }).fill("user@example.com");
@@ -46,11 +46,11 @@ test("Form recovers from rejected submission promises", async ({ page }) => {
 	await expect(preview.getByRole("alert")).toHaveText("Unable to save. Please try again.");
 	await preview.getByRole("textbox", { name: "Workspace name" }).fill("Matrix");
 	await preview.getByRole("button", { name: "Save", exact: true }).click();
-	await expect(preview.getByRole("status")).toHaveText("Saved.");
+	await expect(preview.getByRole("status").filter({ hasText: "Saved." })).toHaveText("Saved.");
 	await expect(preview.getByRole("alert")).toHaveCount(0);
 });
 test("API tables separate contracts, defaults and explanations and scroll on narrow screens", async ({ page }) => {
-	await page.goto("/#docs/toast");
+	await page.goto("/docs/toast");
 	await expect(page.locator(".docs-api-signature")).toHaveCount(0);
 	await expect(page.locator(".docs-api-group")).toHaveCount(4);
 	const provider = page.getByRole("region", { name: "ToastProvider properties", exact: true });
@@ -62,7 +62,7 @@ test("API tables separate contracts, defaults and explanations and scroll on nar
 	expect((await new AxeBuilder({ page }).include(".docs-api-groups").analyze()).violations).toEqual([]);
 });
 test("Switch icon slots track checked state and stay decorative through keyboard and RTL changes", async ({ page }) => {
-	await page.goto("/#docs/switch");
+	await page.goto("/docs/switch");
 	const preview = page.getByRole("region", { name: "Interactive example" });
 	const theme = preview.getByRole("switch", { name: "Light theme" });
 	await expect(theme.locator('[data-visible="checked"]')).toHaveCSS("opacity", "1");

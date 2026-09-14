@@ -1,3 +1,4 @@
+import { type DocsLocale, translate } from "./i18n";
 import {
 	DropdownMenu,
 	DropdownTrigger,
@@ -30,7 +31,7 @@ export function AppearancePicker({
 }: {
 	mode: ThemeMode;
 	onChange: (mode: ThemeMode) => void;
-	locale: "zh" | "en";
+	locale: DocsLocale;
 }) {
 	const options: { value: ThemeMode; zh: string; en: string }[] = [
 		{ value: "light", zh: "浅色", en: "Light" },
@@ -42,7 +43,7 @@ export function AppearancePicker({
 			<DropdownTrigger asChild>
 				<IconButton
 					variant="ghost"
-					label={locale === "zh" ? "切换明暗主题" : "Toggle color theme"}
+					label={translate(locale, "切换明暗主题", "Toggle color theme")}
 					icon={mode === "system" ? <Monitor size={16} /> : mode === "dark" ? <Moon size={16} /> : <Sun size={16} />}
 				/>
 			</DropdownTrigger>
@@ -54,7 +55,16 @@ export function AppearancePicker({
 						aria-checked={mode === option.value}
 						onSelect={() => onChange(option.value)}
 					>
-						{option[locale]}
+						<span style={{ display: "inline-flex", alignItems: "center", gap: "var(--mds-space-field)" }}>
+							{option.value === "light" ? (
+								<Sun size={16} />
+							) : option.value === "dark" ? (
+								<Moon size={16} />
+							) : (
+								<Monitor size={16} />
+							)}
+							{translate(locale, option.zh, option.en)}
+						</span>
 						{mode === option.value && <Check size={14} style={{ marginInlineStart: "auto" }} />}
 					</DropdownItem>
 				))}

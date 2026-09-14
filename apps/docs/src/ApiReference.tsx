@@ -1,3 +1,4 @@
+import { translatePair, type DocsLocale, translate } from "./i18n";
 import { Table } from "@matrixzero/ui";
 type Row = { name: string; type: string; defaultValue?: string; description?: [string, string]; required?: boolean };
 type Group = { name: string; rows: Row[]; notes?: string[] };
@@ -269,13 +270,13 @@ function summarize(api: string, name: string): Group[] {
 	const groups: Group[] = [{ name, rows: [], notes: [] }];
 	let current = groups[0];
 	for (let part of statements(api)) {
-		const group = part.match(/^([A-Z][\w/]*):\s*(.*)$/);
+		const group = part.match(/^([A-Z][\w]*(?:\s*\/\s*[A-Z][\w]*)*):\s*(.*)$/);
 		if (group) {
 			current = { name: group[1], rows: [], notes: [] };
 			groups.push(current);
 			part = group[2];
 		}
-		const property = part.match(/^([\w/-]+)(\?)?:\s*(.+)$/);
+		const property = part.match(/^([\w/.[\]-]+)(\?)?:\s*(.+)$/);
 		if (!property) {
 			current.notes!.push(part);
 			continue;
@@ -300,9 +301,9 @@ export function ApiReference({
 	api: string;
 	name: string;
 	slug: string;
-	locale: "zh" | "en";
+	locale: DocsLocale;
 }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	const groups =
 		slug === "toast"
 			? toastGroups
@@ -315,7 +316,7 @@ export function ApiReference({
 		<div className="docs-api-groups">
 			{groups.map((group, index) => (
 				<section className="docs-api-group" key={`${group.name}-${index}`} aria-label={`${group.name} API`}>
-					<h4>{group.name} API</h4>
+					<h3>{group.name} API</h3>
 					{group.rows.length > 0 && (
 						<div
 							className="docs-api-scroll"
@@ -346,7 +347,7 @@ export function ApiReference({
 												<code>{row.defaultValue ?? "—"}</code>
 											</td>
 											{group.rows.some((r) => r.description) && (
-												<td>{row.description?.[locale === "zh" ? 0 : 1] ?? "—"}</td>
+												<td>{row.description ? translatePair(locale, row.description) : "—"}</td>
 											)}
 										</tr>
 									))}

@@ -36,7 +36,7 @@ export const showcaseCatalog = [
 		audience: "business",
 		title: ["客服收件箱", "Support inbox"],
 		description: ["回复客户、查看上下文并解决工单。", "Reply to customers, review context and resolve tickets."],
-		components: ["Tabs", "Textarea", "Badge"],
+		components: ["Tabs", "Textarea", "Badge", "NotificationBadge"],
 		motif: "05",
 	},
 	{
@@ -97,5 +97,79 @@ export const showcaseCatalog = [
 		description: ["记录习惯和饮水，观察本周的节奏。", "Log habits and water, and see your weekly rhythm."],
 		components: ["Checkbox", "Progress", "BarChart"],
 		motif: "12",
+	},
+	{
+		id: "showcase-feed",
+		audience: "consumer",
+		title: ["灵感社区", "Inspiration feed"],
+		description: [
+			"发现生活灵感，浏览故事并收藏喜欢的内容。",
+			"Discover everyday inspiration, explore stories and save your favorites.",
+		],
+		components: ["Card", "Avatar", "IconButton", "Chip", "Dialog", "Input"],
+		motif: "13",
+	},
+	{
+		id: "showcase-chatbot",
+		audience: "consumer",
+		title: ["智能助手", "AI assistant"],
+		description: [
+			"在专注的会话界面中提问、生成、停止并继续思考。",
+			"Ask, generate, stop, and keep thinking in a focused conversation.",
+		],
+		components: ["Card", "Textarea", "Avatar", "IconButton", "Badge"],
+		motif: "14",
+	},
+	{
+		id: "showcase-robotics",
+		audience: "business",
+		title: ["机器人指挥中心", "Robotics command center"],
+		description: [
+			"监控车队状态、协调任务并处理安全控制。",
+			"Monitor fleet health, coordinate missions, and handle safety controls.",
+		],
+		components: ["Card", "SelectionList", "Badge", "Button", "Dialog", "AreaChart"],
+		motif: "15",
+	},
+	{
+		id: "showcase-finance",
+		audience: "consumer",
+		title: ["个人财务", "Personal finance"],
+		description: [
+			"查看账户、投资组合与储蓄目标的清晰全景。",
+			"See accounts, portfolio movement, and savings goals in one calm view.",
+		],
+		components: ["Card", "AreaChart", "Table", "SegmentedControl", "IconButton"],
+		motif: "16",
+	},
+	{
+		id: "showcase-vehicle",
+		audience: "consumer",
+		title: ["电动车控制", "Electric vehicle"],
+		description: ["查看车辆状态，准备座舱并安排充电。", "Check vehicle status, prepare the cabin, and plan charging."],
+		components: ["Card", "Switch", "Slider", "TimePicker", "AreaChart"],
+		motif: "17",
+	},
+	{
+		id: "showcase-smart-home",
+		audience: "consumer",
+		title: ["智能家居", "Connected home"],
+		description: [
+			"控制空间、设备和自动化，掌握家庭环境。",
+			"Control rooms, devices, and automations while understanding the home environment.",
+		],
+		components: ["Card", "Switch", "Slider", "List", "AreaChart"],
+		motif: "18",
+	},
+	{
+		id: "showcase-creator",
+		audience: "business",
+		title: ["创作者工作台", "Creator studio"],
+		description: [
+			"规划发布、查看内容表现并管理作品。",
+			"Plan releases, understand performance, and manage a growing content library.",
+		],
+		components: ["Card", "List", "Badge", "NotificationBadge", "BarChart", "Table", "Progress", "SegmentedControl"],
+		motif: "19",
 	},
 ] as const;

@@ -31,21 +31,19 @@ test("AI documentation publishes every guide, example, type reference and icon w
 	);
 });
 test("component guides retain deep links, keyboard navigation and readable mobile layout", async ({ page }) => {
-	await page.goto("/?lang=zh#docs/dialog");
-	await expect(page.getByRole("heading", { name: /Dialog$/, exact: true })).toBeVisible();
+	await page.goto("/docs/dialog?lang=zh");
+	await expect(page.getByRole("heading", { name: /Dialog/, exact: true })).toBeVisible();
 	await expect(page.getByRole("region", { name: "交互示例" })).toBeVisible();
-	await expect(page.getByRole("link", { name: "Markdown ↗", exact: true })).toHaveAttribute(
-		"href",
-		"./docs/components/dialog.md",
-	);
+	await expect(page.getByRole("link", { name: /Markdown 文档/ })).toHaveAttribute("href", "/docs/components/dialog.md");
 	await page.getByRole("link", { name: /^(选择器 )?Select$/, exact: true }).click();
-	await expect(page).toHaveURL(/#docs\/select$/);
+	await expect(page).toHaveURL(/\/docs\/select$/);
 	await page.reload();
 	await expect(page.getByRole("heading", { name: /^(选择器 )?Select$/, exact: true })).toBeVisible();
 	const results = await new AxeBuilder({ page }).analyze();
 	expect(results.violations).toEqual([]);
 	await page.setViewportSize({ width: 320, height: 900 });
 	expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();
-	await page.getByRole("link", { name: "Markdown ↗", exact: true }).focus();
-	await expect(page.getByRole("link", { name: "Markdown ↗", exact: true })).toBeFocused();
+	const markdownLink = page.getByRole("link", { name: /Markdown( 文档| documentation)?/ });
+	await markdownLink.focus();
+	await expect(markdownLink).toBeFocused();
 });

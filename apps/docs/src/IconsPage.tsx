@@ -1,3 +1,4 @@
+import { translatePair, type DocsLocale, translate } from "./i18n";
 import { useRef, useState } from "react";
 import { Button, IconButton, Input, Select, SegmentedControl, Dialog, DialogContent } from "@matrixzero/ui";
 import * as Icons from "@matrixzero/icons";
@@ -15,8 +16,8 @@ const categories: Record<string, [string, string]> = {
 	business: ["商业与交易", "Business"],
 	everyday: ["日常与时间", "Everyday"],
 };
-export function IconsPage({ locale }: { locale: "zh" | "en" }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+export function IconsPage({ locale }: { locale: DocsLocale }) {
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	const [variant, setVariant] = useState<"outlined" | "filled">("outlined");
 	const [liked, setLiked] = useState(false);
 	const [saved, setSaved] = useState(false);
@@ -153,7 +154,7 @@ export function IconsPage({ locale }: { locale: "zh" | "en" }) {
 						{ value: "all", label: t("全部分类", "All categories") },
 						...Object.entries(categories).map(([id, label]) => ({
 							value: id,
-							label: `${label[locale === "zh" ? 0 : 1]} (${iconCatalog.filter((i) => i.category === id).length})`,
+							label: `${translatePair(locale, label)} (${iconCatalog.filter((i) => i.category === id).length})`,
 						})),
 					]}
 				/>
@@ -207,7 +208,7 @@ export function IconsPage({ locale }: { locale: "zh" | "en" }) {
 								<Icon size={Number(size)} variant={variant} />
 							</span>
 							<code>{name}</code>
-							<small>{categories[category]?.[locale === "zh" ? 0 : 1]}</small>
+							<small>{translatePair(locale, categories[category] ?? [])}</small>
 						</button>
 					);
 				})}

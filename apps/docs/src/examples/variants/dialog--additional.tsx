@@ -1,0 +1,32 @@
+import { type DocsLocale, translate } from "../../i18n";
+import { Dialog, DialogTrigger, DialogContent, DialogClose, Button, Field, Input } from "@matrixzero/ui";
+
+export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
+	const t = (zh: string, en: string) => translate(locale, zh, en);
+	return (
+		<Dialog>
+			<DialogTrigger asChild>
+				<Button>{t("编辑", "Edit")}</Button>
+			</DialogTrigger>
+			<DialogContent
+				title={t("编辑", "Edit")}
+				description={t("更新显示名称", "Update your display name")}
+				closeLabel={t("关闭", "Close")}
+			>
+				<div style={{ display: "grid", gap: 16, paddingTop: 16 }}>
+					<Field label={t("名称", "Name")}>
+						<Input defaultValue="Matrix" />
+						{Array.from({ length: 12 }, (_, i) => (
+							<p key={i}>
+								{t("补充说明", "Additional details")} {i + 1}
+							</p>
+						))}
+					</Field>
+					<DialogClose asChild>
+						<Button style={{ justifySelf: "start" }}>{t("完成", "Done")}</Button>
+					</DialogClose>
+				</div>
+			</DialogContent>
+		</Dialog>
+	);
+}

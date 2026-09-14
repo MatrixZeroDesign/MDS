@@ -1,7 +1,8 @@
+import { type DocsLocale, translate } from "../i18n";
 import { useId, useState } from "react";
 import { Form, FormSubmit, Field, Input, Button, type FormError } from "@matrixzero/ui";
-export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	const id = useId();
 	const [errors, setErrors] = useState<FormError[]>([]);
 	const [saved, setSaved] = useState(false);

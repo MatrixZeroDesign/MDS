@@ -1,0 +1,154 @@
+{
+	"Operations overview": [
+		"運用状況",
+		"운영 개요",
+		"Vue des opérations",
+		"Resumen de operaciones",
+		"نظرة عامة على العمليات"
+	],
+	"Metrics, request activity and service health.": [
+		"指標、リクエストの履歴、サービスの稼働状況。",
+		"지표, 요청 활동 및 서비스 상태.",
+		"Indicateurs, activité des requêtes et état des services.",
+		"Métricas, actividad de solicitudes y estado del servicio.",
+		"المؤشرات ونشاط الطلبات وسلامة الخدمة."
+	],
+	"Policy workspace": [
+		"ポリシーワークスペース",
+		"정책 작업 공간",
+		"Espace des politiques",
+		"Espacio de políticas",
+		"مساحة السياسات"
+	],
+	"Configure protection rules and save policies.": [
+		"保護ルールを設定し、ポリシーを保存します。",
+		"보호 규칙을 설정하고 정책을 저장하세요.",
+		"Configurez les règles de protection et enregistrez les politiques.",
+		"Configura reglas de protección y guarda políticas.",
+		"اضبط قواعد الحماية واحفظ السياسات."
+	],
+	"Project workspace": [
+		"プロジェクトワークスペース",
+		"프로젝트 작업 공간",
+		"Espace projet",
+		"Espacio de proyectos",
+		"مساحة المشاريع"
+	],
+	"Create tasks, advance the board and track delivery.": [
+		"タスクを作成し、ボードを進め、成果物の進捗を追跡します。",
+		"작업을 만들고 보드를 진행하며 결과물을 추적하세요.",
+		"Créez des tâches, faites avancer le tableau et suivez les livraisons.",
+		"Crea tareas, avanza en el tablero y sigue las entregas.",
+		"أنشئ المهام وحدّث اللوحة وتابع التسليم."
+	],
+	"Sales CRM": ["営業CRM", "영업 CRM", "CRM commercial", "CRM de ventas", "إدارة علاقات العملاء"],
+	"Find accounts, review opportunities and update stages.": [
+		"顧客を検索し、商談を確認し、営業ステージを更新します。",
+		"고객을 찾고 영업 기회를 검토하며 단계를 업데이트하세요.",
+		"Trouvez des comptes, examinez les opportunités et actualisez les étapes.",
+		"Busca cuentas, revisa oportunidades y actualiza etapas.",
+		"ابحث عن العملاء وراجع الفرص وحدّث المراحل."
+	],
+	"Support inbox": ["サポート受信箱", "지원 받은편지함", "Boîte d’assistance", "Bandeja de soporte", "صندوق الدعم"],
+	"Reply to customers, review context and resolve tickets.": [
+		"顧客に返信し、背景を確認し、問い合わせを解決します。",
+		"고객에게 답변하고 맥락을 확인하며 문의를 해결하세요.",
+		"Répondez aux clients, consultez le contexte et résolvez les tickets.",
+		"Responde a clientes, revisa el contexto y resuelve incidencias.",
+		"ردّ على العملاء وراجع السياق وعالج التذاكر."
+	],
+	"People & access": [
+		"メンバーとアクセス権",
+		"구성원과 접근 권한",
+		"Membres et accès",
+		"Personas y acceso",
+		"الأعضاء والوصول"
+	],
+	"Add members, adjust roles and configure sign-in.": [
+		"メンバーを追加し、役割を調整し、ログインを設定します。",
+		"구성원을 추가하고 역할을 조정하며 로그인을 설정하세요.",
+		"Ajoutez des membres, ajustez les rôles et configurez la connexion.",
+		"Añade miembros, ajusta roles y configura el inicio de sesión.",
+		"أضف أعضاء وعدّل الأدوار واضبط تسجيل الدخول."
+	],
+	"Plans & billing": ["プランと請求", "플랜과 청구", "Offres et facturation", "Planes y facturación", "الخطط والفوترة"],
+	"Compare plans, switch billing cycles and confirm changes.": [
+		"プランを比較し、請求期間を切り替え、変更を確定します。",
+		"플랜을 비교하고 청구 주기를 전환하며 변경사항을 확인하세요.",
+		"Comparez les offres, changez de cycle de facturation et confirmez les modifications.",
+		"Compara planes, cambia ciclos de facturación y confirma los cambios.",
+		"قارن الخطط وبدّل دورات الفوترة وأكّد التغييرات."
+	],
+	"Lifestyle shop": [
+		"暮らしのショップ",
+		"라이프스타일 숍",
+		"Boutique art de vivre",
+		"Tienda de estilo de vida",
+		"متجر أسلوب الحياة"
+	],
+	"Explore a product, pick a finish and add it to your bag.": [
+		"商品を見て、仕上げを選び、ショッピングバッグに追加します。",
+		"상품을 살펴보고 마감을 선택해 쇼핑백에 담으세요.",
+		"Découvrez un produit, choisissez une finition et ajoutez-le à votre panier.",
+		"Explora un producto, elige un acabado y añádelo a tu bolsa.",
+		"استكشف منتجًا واختر تشطيبه وأضفه إلى حقيبتك."
+	],
+	"A quiet getaway": ["静かな休日", "조용한 휴가", "Une escapade paisible", "Una escapada tranquila", "عطلة هادئة"],
+	"Choose dates, review the price and finish a demo booking.": [
+		"日付を選び、料金を確認し、デモ予約を完了します。",
+		"날짜를 선택하고 가격을 확인한 후 데모 예약을 완료하세요.",
+		"Choisissez les dates, vérifiez le prix et terminez une réservation de démonstration.",
+		"Elige fechas, revisa el precio y completa una reserva de prueba.",
+		"اختر التواريخ وراجع السعر وأكمل حجزًا تجريبيًا."
+	],
+	"Learning studio": [
+		"学びのスタジオ",
+		"학습 스튜디오",
+		"Studio d’apprentissage",
+		"Estudio de aprendizaje",
+		"استوديو التعلم"
+	],
+	"Explore lessons, read and record your progress.": [
+		"レッスンを探し、読み進め、学習の進捗を記録します。",
+		"강의를 살펴보고 읽으며 학습 진행 상황을 기록하세요.",
+		"Découvrez les leçons, lisez et enregistrez votre progression.",
+		"Explora lecciones, lee y registra tu progreso.",
+		"استكشف الدروس واقرأ وسجّل تقدمك."
+	],
+	"Music collection": [
+		"音楽コレクション",
+		"음악 컬렉션",
+		"Collection musicale",
+		"Colección de música",
+		"مجموعة الموسيقى"
+	],
+	"Select tracks, control player state and save favorites.": [
+		"曲を選び、再生を操作し、お気に入りを保存します。",
+		"곡을 선택하고 재생을 제어하며 즐겨찾기를 저장하세요.",
+		"Sélectionnez des titres, contrôlez la lecture et enregistrez vos favoris.",
+		"Selecciona canciones, controla la reproducción y guarda favoritos.",
+		"اختر المقاطع وتحكّم بالتشغيل واحفظ المفضلة."
+	],
+	"Daily rituals": ["毎日の習慣", "매일의 습관", "Rituels quotidiens", "Rutinas diarias", "عادات يومية"],
+	"Log habits and water, and see your weekly rhythm.": [
+		"習慣や水分摂取を記録し、1週間のリズムを見てみましょう。",
+		"습관과 수분 섭취를 기록하고 주간 리듬을 확인하세요.",
+		"Notez vos habitudes et votre hydratation, puis observez votre rythme hebdomadaire.",
+		"Registra hábitos e hidratación y observa tu ritmo semanal.",
+		"سجّل العادات وشرب الماء وتابع إيقاع أسبوعك."
+	],
+	"Inspiration feed": [
+		"インスピレーションフィード",
+		"영감 피드",
+		"Fil d’inspiration",
+		"Feed de inspiración",
+		"موجز الإلهام"
+	],
+	"Discover everyday inspiration, explore stories and save your favorites.": [
+		"日々のひらめきを見つけ、ストーリーを楽しみ、お気に入りを保存します。",
+		"일상의 영감을 발견하고 이야기를 살펴보며 마음에 드는 콘텐츠를 저장하세요.",
+		"Trouvez l’inspiration au quotidien, explorez des récits et enregistrez vos favoris.",
+		"Descubre inspiración cotidiana, explora historias y guarda tus favoritos.",
+		"اكتشف إلهامًا يوميًا واستكشف القصص واحفظ المفضلة."
+	]
+}

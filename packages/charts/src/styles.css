@@ -61,7 +61,7 @@
 .mds-root .mds-chart-plot .recharts-surface {
 	font-family: var(--mds-font);
 }
-.mds-root .mds-chart-plot .recharts-surface:focus-visible {
+.mds-root .mds-chart-plot :is(.recharts-wrapper, .recharts-surface):focus-visible {
 	outline: 2px solid var(--mds-focus);
 	outline-offset: 2px;
 	border-radius: 6px;
@@ -221,4 +221,8 @@
 		:is(.recharts-line, .recharts-area, .recharts-bar, .recharts-pie, .mds-chart-tooltip) {
 		animation: none;
 	}
+}
+
+.mds-root .mds-chart-plot :is(.recharts-wrapper, .recharts-surface):focus:not(:focus-visible) {
+	outline: none;
 }

@@ -1,7 +1,8 @@
+import { type DocsLocale, translate } from "../i18n";
 import { SideSheet, SideSheetTrigger, SideSheetContent, SideSheetClose, Button, Field, Input } from "@matrixzero/ui";
 
-export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	return (
 		<SideSheet>
 			<SideSheetTrigger asChild>

@@ -18,22 +18,20 @@ test("empty state preserves image semantics and legacy icon compatibility", () =
 	expect(markup).not.toContain("Old icon");
 	expect(legacy).toContain("mds-empty-icon");
 });
-test("empty state thumbnail options update the preview and source at narrow RTL widths", async ({ page }) => {
-	await page.goto("/#docs/empty-state");
+test("empty state thumbnail variants render at narrow RTL widths", async ({ page }) => {
+	await page.goto("/docs/empty-state");
 	const preview = page.getByRole("region", { name: "Interactive example" });
 	await expect(preview.locator(".mds-empty-thumbnail")).toHaveCSS("width", "96px");
-	await page.getByRole("combobox", { name: "Size", exact: true }).click();
-	await page.getByRole("option", { name: "Large", exact: true }).click();
-	await expect(preview.locator(".mds-empty-thumbnail")).toHaveCSS("width", "160px");
-	await expect(page.locator(".docs-reference-detail pre")).toContainText('thumbnailSize = "lg"');
+	const comparison = page.getByRole("region", { name: "Size comparison" });
+	await expect(comparison.locator(".mds-empty-thumbnail")).toHaveCount(3);
+	await expect(comparison.locator(".mds-empty-thumbnail").last()).toHaveCSS("width", "160px");
 	await page.getByRole("button", { name: "Toggle reading direction" }).click();
 	await page.setViewportSize({ width: 320, height: 900 });
 	expect((await new AxeBuilder({ page }).include(".mds-empty").analyze()).violations).toEqual([]);
-	await page.getByRole("combobox", { name: "Thumbnail", exact: true }).click();
-	await page.getByRole("option", { name: "Icon", exact: true }).click();
-	await expect(preview.locator(".mds-empty-thumbnail svg")).toHaveAttribute("viewBox", "0 0 24 24");
-	await page.getByRole("combobox", { name: "Thumbnail", exact: true }).click();
-	await page.getByRole("option", { name: "None", exact: true }).click();
-	await expect(preview.locator(".mds-empty-thumbnail")).toHaveCount(0);
-	await expect(preview.getByRole("heading", { name: "No matches" })).toBeVisible();
+	await expect(
+		page.getByRole("region", { name: "Thumbnail: Icon" }).locator(".mds-empty-thumbnail svg"),
+	).toHaveAttribute("viewBox", "0 0 24 24");
+	const none = page.getByRole("region", { name: "Thumbnail: None" });
+	await expect(none.locator(".mds-empty-thumbnail")).toHaveCount(0);
+	await expect(none.getByRole("heading", { name: "No matches" })).toBeVisible();
 });

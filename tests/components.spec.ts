@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
 test.beforeEach(async ({ page }) => {
-	await page.goto("/?lang=zh#system");
+	await page.goto("/system?lang=zh");
 });
 test("Field labels, validation and common control geometry", async ({ page }) => {
 	const input = page.getByLabel("端点地址", { exact: true });
@@ -98,7 +98,7 @@ test("steps pagination progress and cancellation have observable effects", async
 });
 test("native form reset restores values", async ({ page }) => {
 	await page.getByRole("navigation", { name: "全站导航" }).getByRole("link", { name: "应用示例" }).click();
-	await page.getByRole("button", { name: "策略工作台", exact: true }).click();
+	await page.getByRole("link", { name: "策略工作台", exact: true }).click();
 	const input = page.getByLabel("策略名称", { exact: false });
 	await input.fill("saved");
 	await page.getByRole("button", { name: "保存更改", exact: true }).click();
@@ -110,7 +110,10 @@ test("native form reset restores values", async ({ page }) => {
 for (const language of ["zh", "en"])
 	for (const mode of ["light", "dark"]) {
 		test(`accessible gallery ${language}/${mode}`, async ({ page }) => {
-			if (language === "en") await page.getByRole("button", { name: "Change language" }).click();
+			if (language === "en") {
+				await page.getByRole("button", { name: "Change language" }).click();
+				await page.getByRole("menuitemradio", { name: /English/ }).click();
+			}
 			if (mode === "dark") {
 				await page.getByRole("button", { name: /切换明暗主题|Toggle color theme/ }).click();
 				await page.getByRole("menuitemradio", { name: language === "zh" ? "深色" : "Dark", exact: true }).click();
@@ -127,6 +130,7 @@ for (const width of [320, 390, 736, 1024]) {
 	test(`layout fits ${width}px including English`, async ({ page }) => {
 		await page.setViewportSize({ width, height: 1000 });
 		await page.getByRole("button", { name: "Change language" }).click();
+		await page.getByRole("menuitemradio", { name: /English/ }).click();
 		const overflow = await page.locator(".mds-root").evaluate((e) => e.scrollWidth > e.clientWidth + 1);
 		expect(overflow).toBe(false);
 	});
@@ -144,12 +148,12 @@ test("reduced motion disables micro animations", async ({ page }) => {
 });
 test("table body follows product theme despite host defaults", async ({ page }) => {
 	await page.getByRole("navigation", { name: "全站导航" }).getByRole("link", { name: "应用示例" }).click();
-	await page.getByRole("button", { name: "运行概览", exact: true }).click();
+	await page.getByRole("link", { name: "运行概览", exact: true }).click();
 	await page.addStyleTag({ content: "table, td {color:white}" });
-	await expect(page.getByTestId("app-name").first()).toHaveCSS("color", "rgb(36, 54, 45)");
+	await expect(page.getByTestId("app-name").first()).toHaveCSS("color", "rgb(36, 36, 36)");
 	await page.getByRole("button", { name: "切换明暗主题" }).click();
 	await page.getByRole("menuitemradio", { name: "深色", exact: true }).click();
-	await expect(page.getByTestId("app-name").first()).toHaveCSS("color", "rgb(237, 246, 239)");
+	await expect(page.getByTestId("app-name").first()).toHaveCSS("color", "rgb(243, 243, 243)");
 });
 test("tooltip and menu actions are functional", async ({ page }) => {
 	await page.getByRole("button", { name: "提示信息", exact: true }).focus();
@@ -162,8 +166,8 @@ test("independent theme portals and uncontrolled form reset", async ({ page }) =
 	await page.goto("/isolation.html?lang=zh");
 	const hostBefore = await page.locator("#host").evaluate((e) => getComputedStyle(e).color);
 	await page.getByRole("button", { name: "Dark choice" }).click();
-	await expect(page.getByRole("menu")).toHaveCSS("background-color", "rgb(32, 39, 37)");
-	await expect(page.getByRole("menu")).toHaveCSS("color", "rgb(237, 246, 239)");
+	await expect(page.getByRole("menu")).toHaveCSS("background-color", "rgb(34, 34, 34)");
+	await expect(page.getByRole("menu")).toHaveCSS("color", "rgb(243, 243, 243)");
 	await page.keyboard.press("Escape");
 	await page.getByRole("button", { name: "Custom choice" }).click();
 	await expect(page.getByRole("menu")).toHaveCSS("background-color", "rgb(255, 250, 243)");
@@ -182,9 +186,9 @@ test("system mode follows OS preference without storage or hydration state", asy
 	await page.goto("/isolation.html?lang=zh");
 	await page.getByTestId("dark-root").evaluate((e) => e.setAttribute("data-mds-mode", "system"));
 	await page.emulateMedia({ colorScheme: "light" });
-	await expect(page.getByTestId("dark-root")).toHaveCSS("color", "rgb(36, 54, 45)");
+	await expect(page.getByTestId("dark-root")).toHaveCSS("color", "rgb(36, 36, 36)");
 	await page.emulateMedia({ colorScheme: "dark" });
-	await expect(page.getByTestId("dark-root")).toHaveCSS("color", "rgb(237, 246, 239)");
+	await expect(page.getByTestId("dark-root")).toHaveCSS("color", "rgb(243, 243, 243)");
 });
 test("side sheet traps focus, preserves nested menu theme and returns focus", async ({ page }) => {
 	const trigger = page.getByRole("button", { name: "打开侧边面板", exact: true });
@@ -205,7 +209,7 @@ test("documentation navigation keeps full accessible item labels", async ({ page
 	await expect(page.getByRole("button", { name: "切换导航宽度" })).toHaveCount(0);
 	await expect(nav).not.toHaveAttribute("data-collapsed");
 	await nav.getByRole("link", { name: "快速开始", exact: true }).click();
-	await expect(page.getByRole("heading", { name: "文档指南", exact: true })).toBeVisible();
+	await expect(page.getByRole("heading", { name: "快速开始", exact: true })).toBeVisible();
 });
 test("mobile navigation drawer routes and closes", async ({ page }) => {
 	await page.setViewportSize({ width: 390, height: 844 });
@@ -252,29 +256,29 @@ test("radio cards select via whole card and preserve disabled state", async ({ p
 	await expect(page.getByText("已选择观察模式")).toBeVisible();
 });
 test("docs portal supports search, examples and stable URLs", async ({ page }) => {
-	await page.goto("/?lang=zh#docs");
-	await expect(page.getByRole("heading", { name: "文档指南", exact: true })).toBeVisible();
+	await page.goto("/docs?lang=zh");
+	await expect(page.getByRole("heading", { name: "快速开始", exact: true })).toBeVisible();
 	await page.getByRole("textbox", { name: "搜索组件文档" }).fill("SideSheet");
 	await page.getByRole("link", { name: /SideSheet$/, exact: true }).click();
 	await expect(
 		page.getByRole("heading", {
-			name: /SideSheet$/,
+			name: /SideSheet/,
 			exact: true,
 		}),
 	).toBeVisible();
 	await expect(page.getByRole("heading", { name: "Avatar / Badge" })).toHaveCount(0);
 	await page.reload();
-	await expect(page.getByRole("heading", { name: "文档指南", exact: true })).toBeVisible();
+	await expect(page.getByRole("heading", { name: /SideSheet/ })).toBeVisible();
 });
 test("icon portal renders the whole maintained collection and filters", async ({ page }) => {
-	await page.goto("/?lang=zh#icons");
+	await page.goto("/icons?lang=zh");
 	await expect(page.locator(".docs-icon-tile")).toHaveCount(iconCatalog.length);
 	await page.getByRole("textbox", { name: "搜索图标" }).fill("Chevron");
 	await expect(page.locator(".docs-icon-tile")).toHaveCount(8);
 	await expect(page.locator(".docs-icon-tile").first().locator("svg")).toHaveCount(1);
 });
 test("basic charts render and expose a data table", async ({ page }) => {
-	await page.goto("/?lang=zh#charts");
+	await page.goto("/charts?lang=zh");
 	await expect(page.locator(".mds-chart")).toHaveCount(7);
 	await expect(page.locator(".mds-chart").first().locator(".recharts-surface")).toBeVisible();
 	await page.locator(".mds-chart-data summary").first().click();
@@ -286,7 +290,7 @@ test("basic charts render and expose a data table", async ({ page }) => {
 test("charts and icons fit mobile widths in both themes", async ({ page }) => {
 	await page.setViewportSize({ width: 320, height: 900 });
 	for (const hash of ["charts", "icons"]) {
-		await page.goto("/?lang=zh#" + hash);
+		await page.goto("/" + hash + "?lang=zh");
 		await expect
 			.poll(() => page.locator(".mds-root").evaluate((e) => e.scrollWidth - e.clientWidth))
 			.toBeLessThanOrEqual(1);

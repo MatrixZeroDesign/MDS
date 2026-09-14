@@ -1,7 +1,8 @@
+import { type DocsLocale, translate } from "../i18n";
 import type { ReactNode } from "react";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@matrixzero/ui";
-export type SceneProps = { locale: "zh" | "en" };
-export const translator = (locale: SceneProps["locale"]) => (zh: string, en: string) => (locale === "zh" ? zh : en);
+export type SceneProps = { locale: DocsLocale };
+export const translator = (locale: SceneProps["locale"]) => (zh: string, en: string) => translate(locale, zh, en);
 export function Panel({ title, description, children }: { title: string; description?: string; children: ReactNode }) {
 	return (
 		<Card>

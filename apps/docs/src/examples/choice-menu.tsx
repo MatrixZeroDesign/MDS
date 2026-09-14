@@ -1,8 +1,9 @@
+import { type DocsLocale, translate } from "../i18n";
 import { useState } from "react";
 import { ChoiceMenu, Field, Select, Button } from "@matrixzero/ui";
 
-export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	const [sort, setSort] = useState("recent");
 	const items = sort === "recent" ? ["Matrix", "Atlas"] : ["Atlas", "Matrix"];
 	return (

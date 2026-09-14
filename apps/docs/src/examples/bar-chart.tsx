@@ -1,3 +1,4 @@
+import { languageTag, type DocsLocale, translate } from "../i18n";
 import { BarChart } from "@matrixzero/charts";
 
 export default function Example({
@@ -5,23 +6,31 @@ export default function Example({
 	motion = true,
 	stacked = false,
 }: {
-	locale?: "zh" | "en";
+	locale?: DocsLocale;
 	motion?: boolean;
 	stacked?: boolean;
 }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+	const t = (zh: string, en: string) => translate(locale, zh, en);
+	// Deterministic synthetic data for documentation, not production metrics.
 	return (
 		<BarChart
 			stacked={stacked}
 			motion={motion}
-			title={t("请求量", "Requests")}
-			locale={locale === "zh" ? "zh-CN" : "en"}
-			data={[
-				{ label: "Mon", requests: 120 },
-				{ label: "Tue", requests: null },
-				{ label: "Wed", requests: 180 },
+			title={t("月度渠道用量", "Monthly usage by channel")}
+			locale={languageTag(locale)}
+			data={Array.from({ length: 12 }, (_, i) => ({
+				label: new Intl.DateTimeFormat(languageTag(locale), { month: "short", timeZone: "UTC" }).format(
+					new Date(Date.UTC(2026, i, 1)),
+				),
+				web: Math.round(24000 + i * 1800 + Math.sin(i * 0.8) * 6500),
+				mobile: Math.round(17000 + i * 1200 + Math.cos(i * 0.7) * 4200),
+				api: Math.round(12000 + i * 2100 + Math.sin(i * 1.3) * 3200),
+			}))}
+			series={[
+				{ key: "web", label: t("网页端", "Web") },
+				{ key: "mobile", label: t("移动端", "Mobile") },
+				{ key: "api", label: "API" },
 			]}
-			series={[{ key: "requests", label: t("请求", "Requests") }]}
 			labels={{
 				dataTable: t("查看数据", "View data"),
 				category: t("日期", "Day"),

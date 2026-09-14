@@ -1,3 +1,4 @@
+import { languageTag, translate } from "../i18n";
 import { useState } from "react";
 import { Checkbox, Progress, Button } from "@matrixzero/ui";
 import { BarChart } from "@matrixzero/charts";
@@ -47,7 +48,7 @@ export default function Wellness({ locale }: SceneProps) {
 			<Panel title={t("这一周的节奏", "Your week at a glance")}>
 				<BarChart
 					title={t("每日完成的习惯", "Habits completed each day")}
-					locale={locale === "zh" ? "zh-CN" : "en"}
+					locale={languageTag(locale)}
 					data={[
 						{ label: t("周一", "Mon"), count: 2 },
 						{ label: t("周二", "Tue"), count: 3 },

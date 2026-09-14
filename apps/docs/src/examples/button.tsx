@@ -1,3 +1,4 @@
+import { type DocsLocale, translate } from "../i18n";
 import { useState } from "react";
 import { Button } from "@matrixzero/ui";
 
@@ -7,12 +8,12 @@ export default function Example({
 	size = "md",
 	shape = "rounded",
 }: {
-	locale?: "zh" | "en";
+	locale?: DocsLocale;
 	variant?: "primary" | "secondary" | "ghost" | "danger" | "contrast";
 	size?: "sm" | "md" | "lg";
 	shape?: "rounded" | "pill";
 }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	const [count, setCount] = useState(0);
 	return (
 		<div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 16 }}>

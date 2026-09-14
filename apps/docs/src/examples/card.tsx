@@ -1,6 +1,9 @@
+import { type DocsLocale, translate } from "../i18n";
+import { useToast } from "@matrixzero/ui";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Button } from "@matrixzero/ui";
-export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
+	const { toast } = useToast();
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	return (
 		<Card>
 			<CardHeader>
@@ -11,7 +14,7 @@ export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
 			<CardFooter>
 				<Button
 					onClick={() => {
-						window.location.hash = "overview";
+						toast({ title: t("示例操作已完成", "Example action completed") });
 					}}
 				>
 					{t("查看概览", "View overview")}

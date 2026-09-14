@@ -1,11 +1,13 @@
+import { languageTag, translate } from "../i18n";
 import { useState } from "react";
-import { Button, Field, Input, Select, Form, FormSubmit, Steps, Callout } from "@matrixzero/ui";
+import { Button, Field, DatePicker, TimePicker, Select, Form, FormSubmit, Steps, Callout } from "@matrixzero/ui";
 import { Panel, translator, type SceneProps } from "./shared";
 export default function Travel({ locale }: SceneProps) {
 	const t = translator(locale);
 	const [step, setStep] = useState(0);
 	const [guests, setGuests] = useState("2");
 	const [date, setDate] = useState("2026-10-16");
+	const [arrival, setArrival] = useState("15:00");
 	return (
 		<div className="sc-stack">
 			<div
@@ -41,7 +43,7 @@ export default function Travel({ locale }: SceneProps) {
 					>
 						<div className="sc-two">
 							<Field label={t("入住日期", "Check-in date")} required>
-								<Input type="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+								<DatePicker value={date} onValueChange={setDate} locale={languageTag(locale)} required />
 							</Field>
 							<Field label={t("入住人数", "Guests")}>
 								<Select
@@ -51,12 +53,19 @@ export default function Travel({ locale }: SceneProps) {
 								/>
 							</Field>
 						</div>
+						<TimePicker
+							label={t("预计到达时间", "Estimated arrival")}
+							value={arrival}
+							onValueChange={setArrival}
+							locale={languageTag(locale)}
+							hourCycle={24}
+						/>
 						<FormSubmit variant="primary">{t("查看预订", "Review reservation")}</FormSubmit>
 					</Form>
 				) : step === 1 ? (
 					<>
 						<p>
-							{date} · {guests} {t("位客人 · 两晚", "guests · two nights")}
+							{date} · {arrival} · {guests} {t("位客人 · 两晚", "guests · two nights")}
 						</p>
 						<strong className="sc-price">${240 + Number(guests) * 30}</strong>
 						<p>

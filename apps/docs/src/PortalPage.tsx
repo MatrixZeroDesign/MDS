@@ -1,18 +1,20 @@
+import { type DocsLocale, translate } from "./i18n";
 import { useEffect, useState } from "react";
 import entries from "../../../docs/content.json";
 import { ComponentDocs } from "./ComponentDocs";
-export function PortalPage({ locale }: { locale: "zh" | "en" }) {
-	const [slug, setSlug] = useState(location.hash.split("/")[1] || "start");
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+export function PortalPage({ locale }: { locale: DocsLocale }) {
+	const [slug, setSlug] = useState(location.pathname.split("/")[2] || "start");
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	useEffect(() => {
-		const sync = () => setSlug(location.hash.split("/")[1] || "start");
-		window.addEventListener("hashchange", sync);
-		return () => window.removeEventListener("hashchange", sync);
+		const sync = () => setSlug(location.pathname.split("/")[2] || "start");
+		window.addEventListener("popstate", sync);
+		return () => window.removeEventListener("popstate", sync);
 	}, []);
 	return (
 		<>
 			{slug === "start" && (
 				<article className="docs-article">
+					<h1>{t("快速开始", "Getting started")}</h1>
 					<section className="docs-ai-entry" aria-label={t("AI 文档入口", "AI documentation entry")}>
 						<p className="docs-eyebrow">FOR PEOPLE & AGENTS</p>
 						<h2>{t("可阅读、可复制、可验证的组件文档", "Readable, reusable, verifiable component documentation")}</h2>
@@ -25,7 +27,7 @@ export function PortalPage({ locale }: { locale: "zh" | "en" }) {
 						<div className="docs-reference-footer">
 							<a href="./llms.txt">llms.txt ↗</a>
 							<a href="./llms-full.txt">{t("完整 AI 文档", "Complete AI documentation")} ↗</a>
-							<a href="./docs/manifest.json">{t("版本与组件索引", "Versioned manifest")} ↗</a>
+							<a href="/docs/manifest.json">{t("版本与组件索引", "Versioned manifest")} ↗</a>
 						</div>
 						<p className="docs-muted">
 							{t(
@@ -43,8 +45,8 @@ export function PortalPage({ locale }: { locale: "zh" | "en" }) {
 					</p>
 					<pre>
 						<code>
-							npm install --save-exact @matrixzero/ui@0.1.0-alpha.10{String.fromCharCode(10)}npm install --save-exact
-							@matrixzero/charts@0.1.0-alpha.3
+							npm install --save-exact @matrixzero/ui@0.1.0-alpha.11{String.fromCharCode(10)}npm install --save-exact
+							@matrixzero/charts@0.1.0-alpha.4
 						</code>
 					</pre>
 					<h3>{t("私有仓库配置", "Private registry configuration")}</h3>
@@ -77,7 +79,7 @@ import '@matrixzero/ui/themes/mt0.css';
 					<h3>{t("使用示例与 API", "Examples and API")}</h3>
 					<p>
 						{t(
-							"“基础与组件”展示真实包组件，“图表”展示可交互数据与数据表。API 页列出常用属性和组合示例，完整类型随包发布。",
+							"“组件总览”展示真实包组件，“图表”展示可交互数据与数据表。API 页列出常用属性和组合示例，完整类型随包发布。",
 							"Foundations shows real package components. Charts includes interactive examples and data tables. Each component page lists common props and compositions; full TypeScript definitions ship with each package.",
 						)}
 					</p>
@@ -86,6 +88,18 @@ import '@matrixzero/ui/themes/mt0.css';
 			{slug !== "start" && slug !== "theme-motion" && <ComponentDocs locale={locale} />}
 			{slug === "theme-motion" && (
 				<article className="docs-article">
+					<h1>{t("主题与动效", "Themes & motion")}</h1>
+					<h2>{t("颜色与注意力层级", "Color and attention")}</h2>
+					<p>
+						{t(
+							"主色用于关键操作和表单选中状态。导航、标签页和表格选中使用中性选中色；头像占位及普通通知使用中性装饰色。成功、警告与错误保持独立语义，图表使用分类色。",
+							"Reserve the accent for key actions and form selection. Navigation, tabs and selected table rows use neutral selection colors; avatar fallbacks and general notifications use neutral decoration colors. Success, warning and error retain their own semantics, while charts use categorical colors.",
+						)}
+					</p>
+					<p>
+						<code>--mds-selection-bg / --mds-selection-text</code> ·{" "}
+						<code>--mds-decoration-bg / --mds-decoration-text</code>
+					</p>
 					<h2>{t("主题隔离与品牌契约", "Theme isolation and brand contract")}</h2>
 					<p>
 						{t(

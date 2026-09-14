@@ -1,9 +1,10 @@
+import { type DocsLocale, translate } from "./i18n";
 import { ComponentDocs } from "./ComponentDocs";
 import { useState, useEffect, type ReactElement } from "react";
 import { LineChart, AreaChart, BarChart, DonutChart } from "@matrixzero/charts";
 import { Button, SegmentedControl } from "@matrixzero/ui";
 import "@matrixzero/charts/styles.css";
-function ChartExample({ kind, children, locale }: { kind: string; children: ReactElement; locale: "zh" | "en" }) {
+function ChartExample({ kind, children, locale }: { kind: string; children: ReactElement; locale: DocsLocale }) {
 	const [status, setStatus] = useState("");
 	const code = `import { ${kind} } from '@matrixzero/charts';
 import '@matrixzero/charts/styles.css';
@@ -14,21 +15,21 @@ export default function Example() {
 	return (
 		<section className="docs-card">
 			{children}
-			<a href={`#charts/${kind.replace("Chart", "").toLowerCase()}-chart`}>Chart API →</a>
+			<a href={`/charts/${kind.replace("Chart", "").toLowerCase()}-chart`}>Chart API →</a>
 			<details className="docs-code">
-				<summary>{locale === "zh" ? "样例代码" : "Example code"}</summary>
+				<summary>{translate(locale, "样例代码", "Example code")}</summary>
 				<Button
 					size="sm"
 					onClick={async () => {
 						try {
 							await navigator.clipboard.writeText(code);
-							setStatus(locale === "zh" ? "已复制" : "Copied");
+							setStatus(translate(locale, "已复制", "Copied"));
 						} catch {
-							setStatus(locale === "zh" ? "请手动复制代码" : "Please copy the code manually");
+							setStatus(translate(locale, "请手动复制代码", "Please copy the code manually"));
 						}
 					}}
 				>
-					{locale === "zh" ? "复制代码" : "Copy code"}
+					{translate(locale, "复制代码", "Copy code")}
 				</Button>
 				<pre>
 					<code>{code}</code>
@@ -38,14 +39,14 @@ export default function Example() {
 		</section>
 	);
 }
-export function ChartsPage({ locale }: { locale: "zh" | "en" }) {
-	const [detail, setDetail] = useState(location.hash.split("/")[1]);
+export function ChartsPage({ locale }: { locale: DocsLocale }) {
+	const [detail, setDetail] = useState(location.pathname.split("/")[2]);
 	useEffect(() => {
-		const sync = () => setDetail(location.hash.split("/")[1]);
-		window.addEventListener("hashchange", sync);
-		return () => window.removeEventListener("hashchange", sync);
+		const sync = () => setDetail(location.pathname.split("/")[2]);
+		window.addEventListener("popstate", sync);
+		return () => window.removeEventListener("popstate", sync);
 	}, []);
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en),
+	const t = (zh: string, en: string) => translate(locale, zh, en),
 		[range, setRange] = useState("week");
 	const values = range === "week" ? [1240, 1830, 1520, 2210, 1940, 2480, 2120] : [540, 760, 910, 880, 1160, 1450, 1240];
 	const data = values.map((value, i) => ({

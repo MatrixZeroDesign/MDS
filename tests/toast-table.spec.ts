@@ -2,11 +2,12 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 test("toast stacks expand on hover and focus, pause timers and dismiss", async ({ page }) => {
 	await page.emulateMedia({ reducedMotion: "reduce" });
-	await page.goto("/#docs/toast");
-	await page.getByRole("button", { name: "Stack three", exact: true }).click();
-	const toasts = page.locator(".mds-toast");
+	await page.goto("/docs/toast");
+	const basic = page.getByLabel("Interactive example");
+	await basic.getByRole("button", { name: "Stack three", exact: true }).click();
+	const toasts = page.locator('.mds-toaster[data-placement="fixed"] .mds-toast');
 	await expect(toasts).toHaveCount(3);
-	const stack = page.locator(".mds-toaster").filter({ has: toasts });
+	const stack = page.locator('.mds-toaster[data-placement="fixed"]');
 	await expect(stack).toHaveAttribute("data-expanded", "false");
 	await stack.hover();
 	await expect(stack).toHaveAttribute("data-expanded", "true");
@@ -28,18 +29,18 @@ test("toast stacks expand on hover and focus, pause timers and dismiss", async (
 	expect((await new AxeBuilder({ page }).include(".mds-toaster").analyze()).violations).toEqual([]);
 	await page.getByRole("button", { name: "Dismiss notification" }).first().click();
 	await expect(toasts).toHaveCount(2);
-	await page.getByRole("button", { name: "Show toast", exact: true }).focus();
+	await basic.getByRole("button", { name: "Show actionable toast", exact: true }).focus();
 	await page.mouse.move(0, 0);
 	await expect(toasts).toHaveCount(0, { timeout: 6000 });
-	await page.getByRole("button", { name: "Persistent toast", exact: true }).click();
+	await basic.getByRole("button", { name: "Persistent toast", exact: true }).click();
 	await page.mouse.move(0, 0);
 	await page.waitForTimeout(5200);
 	await expect(toasts).toHaveCount(1);
-	await page.getByRole("button", { name: "Clear toasts", exact: true }).click();
+	await basic.getByRole("button", { name: "Clear toasts", exact: true }).click();
 	await expect(toasts).toHaveCount(0);
 });
 test("table row headings have body styling and numeric alignment in both directions", async ({ page }) => {
-	await page.goto("/#docs/table");
+	await page.goto("/docs/table");
 	const table = page.getByRole("region", { name: "Interactive example" }).getByRole("table");
 	await expect(table.getByRole("row")).toHaveCount(4);
 	await expect(table.locator("tbody th").first()).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
@@ -56,9 +57,10 @@ test("table row headings have body styling and numeric alignment in both directi
 test("toast remains usable on narrow RTL screens with long stacks and reduced motion", async ({ page }) => {
 	await page.emulateMedia({ reducedMotion: "reduce" });
 	await page.setViewportSize({ width: 320, height: 700 });
-	await page.goto("/#docs/toast");
+	await page.goto("/docs/toast");
 	await page.getByRole("button", { name: "Toggle reading direction" }).click();
-	for (let i = 0; i < 4; i++) await page.getByRole("button", { name: "Stack three", exact: true }).click();
+	const basic = page.getByLabel("Interactive example");
+	for (let i = 0; i < 4; i++) await basic.getByRole("button", { name: "Stack three", exact: true }).click();
 	await page.keyboard.press("F8");
 	const stack = page.locator(".mds-toaster");
 	await expect(stack).toHaveAttribute("data-expanded", "true");
@@ -79,11 +81,12 @@ test("toast remains usable on narrow RTL screens with long stacks and reduced mo
 });
 
 test("closing the final toast resets the next stack to its resting state", async ({ page }) => {
-	await page.goto("/#docs/toast");
-	await page.getByRole("button", { name: "Show toast", exact: true }).click();
+	await page.goto("/docs/toast");
+	const basic = page.getByLabel("Interactive example");
+	await basic.getByRole("button", { name: "Show actionable toast", exact: true }).click();
 	await page.getByRole("button", { name: "Dismiss notification", exact: true }).click();
-	await page.getByRole("button", { name: "Stack three", exact: true }).click();
+	await basic.getByRole("button", { name: "Stack three", exact: true }).click();
 	await page.mouse.move(0, 0);
-	await expect(page.locator(".mds-toaster")).toHaveAttribute("data-expanded", "false");
-	await expect(page.locator(".mds-toast")).toHaveCount(0, { timeout: 6000 });
+	await expect(page.locator('.mds-toaster[data-placement="fixed"]')).toHaveAttribute("data-expanded", "false");
+	await expect(page.locator('.mds-toaster[data-placement="fixed"] .mds-toast')).toHaveCount(0, { timeout: 6000 });
 });

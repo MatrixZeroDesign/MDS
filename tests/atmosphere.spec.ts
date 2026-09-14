@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 test("expressive surfaces support palette selection, accessible dialog tabs and mobile themes", async ({ page }) => {
-	await page.goto("/?lang=zh#system");
+	await page.goto("/design?lang=zh");
 	const region = page.getByRole("region", { name: "渐变展示风格" });
 	await region.getByRole("radio", { name: "薄荷", exact: true }).click();
 	await expect(region.locator(".mds-atmosphere")).toHaveAttribute("data-tone", "mint");
@@ -9,9 +9,8 @@ test("expressive surfaces support palette selection, accessible dialog tabs and 
 	await trigger.click();
 	const dialog = page.getByRole("dialog", { name: "探索 Matrix" });
 	await expect(dialog).toBeVisible();
-	await dialog.getByRole("tab", { name: "创作", exact: true }).focus();
-	await page.keyboard.press("ArrowRight");
-	await expect(dialog.getByRole("tab", { name: "连接", exact: true })).toHaveAttribute("aria-selected", "true");
+	await dialog.getByRole("radio", { name: "连接", exact: true }).click();
+	await expect(dialog.getByRole("radio", { name: "连接", exact: true })).toBeChecked();
 	await expect(dialog.getByRole("heading", { name: "把可能，连接起来。" })).toBeVisible();
 	expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
 	await page.keyboard.press("Escape");
@@ -19,6 +18,7 @@ test("expressive surfaces support palette selection, accessible dialog tabs and 
 	await page.getByRole("button", { name: "切换明暗主题" }).click();
 	await page.getByRole("menuitemradio", { name: "深色", exact: true }).click();
 	await page.getByRole("button", { name: "Change language" }).click();
+	await page.getByRole("menuitemradio", { name: /English/ }).click();
 	await page.setViewportSize({ width: 320, height: 900 });
 	await page.emulateMedia({ reducedMotion: "reduce" });
 	await page.getByRole("button", { name: "Explore the experience" }).click();
@@ -32,7 +32,7 @@ test("actual gradient pixels retain readable foreground contrast in all palettes
 	page,
 }, testInfo) => {
 	test.setTimeout(60000);
-	await page.goto("/?lang=zh#system");
+	await page.goto("/design?lang=zh");
 	await page.emulateMedia({ reducedMotion: "reduce" });
 	const surface = page.locator(".docs-atmosphere-hero");
 	const report = [];

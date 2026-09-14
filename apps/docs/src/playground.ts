@@ -32,6 +32,7 @@ const motion: PlaygroundControl = {
 	boolean: true,
 };
 export const playgroundControls: Record<string, PlaygroundControl[]> = {
+	spinner: [size],
 	"segmented-control": [size, shape],
 	theme: [
 		{
@@ -54,7 +55,7 @@ export const playgroundControls: Record<string, PlaygroundControl[]> = {
 	callout: [tone("warning")],
 	banner: [tone("info")],
 	alert: [tone("success", ["info", "success", "warning", "danger"])],
-	atmosphere: [tone("iris", ["iris", "mint", "peach"])],
+	atmosphere: [tone("brand", ["brand", "iris", "mint", "peach"])],
 	"line-chart": [motion],
 	"area-chart": [
 		motion,
@@ -67,6 +68,7 @@ export const playgroundControls: Record<string, PlaygroundControl[]> = {
 	"donut-chart": [motion],
 };
 export const playgroundLabels: Record<string, [string, string]> = {
+	brand: ["跟随主题", "Follow theme"],
 	default: ["默认", "Default"],
 	segmented: ["分段", "Segmented"],
 	mono: ["黑白", "Monochrome"],

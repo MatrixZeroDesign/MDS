@@ -1,6 +1,7 @@
+import { type DocsLocale, translate } from "../i18n";
 import { Badge, Table } from "@matrixzero/ui";
-export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	return (
 		<Table>
 			<caption>{t("最近请求", "Recent requests")}</caption>

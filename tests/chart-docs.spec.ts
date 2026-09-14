@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import ts from "typescript";
 test("every gallery chart has matching executable example code and a type-specific API link", async ({ page }) => {
-	await page.goto("/?lang=zh#charts");
+	await page.goto("/charts?lang=zh");
 	const cards = page.locator(".docs-grid > .docs-card");
 	await expect(cards).toHaveCount(7);
 	for (const card of await cards.all()) {
@@ -10,7 +10,7 @@ test("every gallery chart has matching executable example code and a type-specif
 		expect(code).toContain("export default function Example");
 		const output = ts.transpileModule(code, { compilerOptions: { jsx: ts.JsxEmit.ReactJSX }, reportDiagnostics: true });
 		expect(output.diagnostics).toEqual([]);
-		await expect(card.getByRole("link", { name: "Chart API →" })).toHaveAttribute("href", /^#charts\//);
+		await expect(card.getByRole("link", { name: "Chart API →" })).toHaveAttribute("href", /^\/charts\//);
 	}
 	await page.getByRole("radio", { name: "近24小时", exact: true }).click();
 	await expect(cards.first().locator("details.docs-code code")).toContainText("540");
@@ -20,7 +20,7 @@ test("every gallery chart has matching executable example code and a type-specif
 		await expect(page.getByRole("heading", { name: new RegExp(name + "$"), exact: true })).toBeVisible();
 		await expect(page.getByRole("region", { name: "交互示例" }).locator(".mds-chart")).toBeVisible();
 		await expect(page.getByRole("heading", { name: "API", exact: true })).toBeVisible();
-		await expect(page.locator(".docs-reference-detail pre code")).toContainText(`import { ${name} }`);
+		await expect(page.locator(".docs-reference-detail pre code").first()).toContainText(`import { ${name} }`);
 		await expect(
 			page.getByRole("navigation", { name: "全站导航" }).getByRole("link", { name: "图表", exact: true }),
 		).toHaveAttribute("aria-current", "page");
@@ -28,7 +28,7 @@ test("every gallery chart has matching executable example code and a type-specif
 	await page.reload();
 	await expect(page.getByRole("heading", { name: /DonutChart$/, exact: true })).toBeVisible();
 	await page.setViewportSize({ width: 320, height: 900 });
-	await page.getByRole("button", { name: "打开导航" }).click();
+	await page.getByRole("button", { name: /打开导航|Open navigation/ }).click();
 	await page
 		.getByRole("dialog")
 		.getByRole("link", { name: /BarChart$/, exact: true })

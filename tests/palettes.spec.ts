@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 test("palette presets retain readable text, action and focus colors", async ({ page }) => {
-	await page.goto("/?lang=zh#system");
+	await page.goto("/system?lang=zh");
 	await page.emulateMedia({ reducedMotion: "reduce" });
 	await page
 		.locator(".mds-root")

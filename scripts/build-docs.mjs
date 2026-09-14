@@ -1,7 +1,18 @@
+import { build } from "esbuild";
 import { readFile, writeFile, mkdir, readdir, rm } from "node:fs/promises";
 import { resolve } from "node:path";
 import ts from "typescript";
 const root = resolve(import.meta.dirname, "..");
+const compiledExampleSource = await build({
+	entryPoints: [resolve(root, "apps/docs/src/i18n/exampleSource.ts")],
+	bundle: true,
+	write: false,
+	platform: "node",
+	format: "esm",
+});
+const { standaloneExample } = await import(
+	"data:text/javascript;base64," + Buffer.from(compiledExampleSource.outputFiles[0].text).toString("base64")
+);
 const read = (p) => readFile(resolve(root, p), "utf8");
 const output = async (p, text) => {
 	await mkdir(resolve(root, p, ".."), { recursive: true });
@@ -18,7 +29,20 @@ const versions = Object.fromEntries(
 	),
 );
 const covered = new Set(entries.filter((e) => e.package === "ui").flatMap((e) => e.names));
-for (const file of ["theme", "controls", "overlays", "navigation", "display", "select", "layout", "toast", "form"]) {
+for (const file of [
+	"theme",
+	"controls",
+	"overlays",
+	"navigation",
+	"display",
+	"select",
+	"layout",
+	"typography",
+	"toast",
+	"form",
+	"date-time",
+	"media",
+]) {
 	const source = ts.createSourceFile(
 		file,
 		await read(`packages/ui/src/${file}.tsx`),
@@ -34,13 +58,20 @@ for (const file of ["theme", "controls", "overlays", "navigation", "display", "s
 				? statement.declarationList.declarations.map((d) => d.name.getText(source))
 				: [];
 		for (const name of names)
-			if (name && /^[A-Z]/.test(name) && !covered.has(name)) throw Error(`Missing component guide: ${name}`);
+			if (name && /^[A-Z]/.test(name) && !covered.has(name) && !ts.getJSDocDeprecatedTag(statement))
+				throw Error(`Missing component guide: ${name}`);
 	}
 }
+const variants = JSON.parse(await read("apps/docs/src/exampleVariants.json"));
 const paths = [];
 for (const entry of entries) {
-	const code = await read(`apps/docs/src/examples/${entry.slug}.tsx`);
-	const text = `# ${entry.slug === "icons" ? "Icons" : entry.names.join(" / ")}\n\nPackage: @matrixzero/${entry.package}@${versions[entry.package]}\n\n${entry.purpose}\n\n## Guide / 使用指南\n\n${entry.guide}\n\n## API\n\n${entry.api}\n\nFor full inherited props, inspect the versioned TypeScript declarations in the package and the [API source](../api/${entry.package}.md).\n\n## Usage / 完整示例\n\nRequires the CSS imports and ThemeProvider in the [integration guide](../guides/integration.md).\n\n\`\`\`tsx\n${code.trim()}\n\`\`\`\n\n## Accessibility / 无障碍\n\n${entry.a11y}\n\n## Pitfalls / 常见误用\n\n${entry.pitfalls}\n`;
+	const code = standaloneExample(await read(`apps/docs/src/examples/${entry.slug}.tsx`), "en");
+	let text = `# ${entry.slug === "icons" ? "Icons" : entry.names.join(" / ")}\n\nPackage: @matrixzero/${entry.package}@${versions[entry.package]}\n\n${entry.purpose}\n\n## Guide / 使用指南\n\n${entry.guide}\n\n## API\n\n${entry.api}\n\nFor full inherited props, inspect the versioned TypeScript declarations in the package and the [API source](../api/${entry.package}.md).\n\n## Usage / 完整示例\n\nRequires the CSS imports and ThemeProvider in the [integration guide](../guides/integration.md).\n\n\`\`\`tsx\n${code.trim()}\n\`\`\`\n\n## Accessibility / 无障碍\n\n${entry.a11y}\n\n## Pitfalls / 常见误用\n\n${entry.pitfalls}\n`;
+	for (const variant of variants[entry.slug] ?? []) {
+		const source = standaloneExample(await read(`apps/docs/src/examples/variants/${variant.file}.tsx`), "en");
+		text += "\n## " + variant.title.join(" / ") + "\n\n" + "```tsx\n" + source + "\n```\n";
+		await output(`apps/docs/public/docs/examples/variants/${variant.file}.tsx`, source);
+	}
 	const path = `docs/components/${entry.slug}.md`;
 	await output(`apps/docs/public/${path}`, text);
 	paths.push({ path, title: entry.slug === "icons" ? "Icons" : entry.names.join(" / "), text });
@@ -76,13 +107,20 @@ const manifest = {
 		package: `@matrixzero/${pkg}`,
 		markdown: `docs/components/${slug}.md`,
 		example: `docs/examples/${slug}.tsx`,
+		examples: [
+			{ path: `docs/examples/${slug}.tsx`, title: ["基本用法", "Basic usage"] },
+			...(variants[slug] ?? []).map((v) => ({ path: `docs/examples/variants/${v.file}.tsx`, title: v.title })),
+		],
 	})),
 	guides: paths.filter((p) => p.path.includes("/guides/")).map((p) => p.path),
 	api: ["ui", "charts", "icons"].map((p) => `docs/api/${p}.md`),
 	icons: "docs/icons.json",
 };
 for (const e of entries)
-	await output(`apps/docs/public/docs/examples/${e.slug}.tsx`, await read(`apps/docs/src/examples/${e.slug}.tsx`));
+	await output(
+		`apps/docs/public/docs/examples/${e.slug}.tsx`,
+		standaloneExample(await read(`apps/docs/src/examples/${e.slug}.tsx`), "en"),
+	);
 await output("apps/docs/public/docs/manifest.json", JSON.stringify(manifest, null, 2) + "\n");
 await output(
 	"apps/docs/public/llms.txt",

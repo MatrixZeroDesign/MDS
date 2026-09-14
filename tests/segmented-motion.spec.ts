@@ -2,8 +2,8 @@ import { test, expect } from "@playwright/test";
 test("segmented indicator slides between actual option bounds and respects RTL and reduced motion", async ({
 	page,
 }) => {
-	await page.goto("/#docs/segmented-control");
-	const group = page.getByRole("radiogroup", { name: "Billing" });
+	await page.goto("/docs/segmented-control");
+	const group = page.getByRole("region", { name: "Interactive example" }).getByRole("radiogroup", { name: "Billing" });
 	const indicator = group.locator(".mds-segment-indicator");
 	const annual = group.getByRole("radio", { name: "Annual", exact: true });
 	await expect(indicator).toBeVisible();

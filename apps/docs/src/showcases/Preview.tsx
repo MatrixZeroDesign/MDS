@@ -24,6 +24,73 @@ export function Preview({ id }: { id: string }) {
 	);
 	let art;
 	switch (id) {
+		case "showcase-chatbot":
+			art = (
+				<>
+					<rect
+						x="20"
+						y="10"
+						width="280"
+						height="132"
+						rx="12"
+						fill="var(--mds-surface)"
+						stroke="currentColor"
+						strokeOpacity=".2"
+					/>
+					<rect x="20" y="10" width="70" height="132" rx="12" fill="currentColor" opacity=".08" />
+					{[35, 55, 75].map((y, index) => (
+						<rect
+							key={y}
+							x="32"
+							y={y}
+							width={index === 0 ? 44 : 34}
+							height="5"
+							rx="2.5"
+							fill="currentColor"
+							opacity={index === 0 ? ".42" : ".18"}
+						/>
+					))}
+					<rect x="190" y="37" width="82" height="22" rx="10" fill="currentColor" opacity=".14" />
+					<circle cx="112" cy="82" r="9" fill="currentColor" opacity=".7" />
+					<rect x="128" y="75" width="118" height="6" rx="3" fill="currentColor" opacity=".26" />
+					<rect x="128" y="88" width="94" height="6" rx="3" fill="currentColor" opacity=".16" />
+					<rect x="112" y="113" width="160" height="18" rx="9" fill="currentColor" opacity=".1" />
+				</>
+			);
+			break;
+		case "showcase-feed":
+			art = (
+				<>
+					{[32, 122, 212].map((x, i) => (
+						<g key={x}>
+							{[0, 1].map((j) => (
+								<g key={j}>
+									<rect
+										x={x}
+										y={12 + j * 70}
+										width="76"
+										height={48 - i * 5}
+										rx="8"
+										fill="currentColor"
+										opacity={0.12 + i * 0.07}
+									/>
+									<circle cx={x + 6} cy={67 + j * 70 - i * 5} r="4" fill="currentColor" opacity=".3" />
+									<rect
+										x={x + 16}
+										y={64 + j * 70 - i * 5}
+										width="44"
+										height="5"
+										rx="2"
+										fill="currentColor"
+										opacity=".2"
+									/>
+								</g>
+							))}
+						</g>
+					))}
+				</>
+			);
+			break;
 		case "overview":
 		case "showcase-wellness":
 			art = (
@@ -176,6 +243,126 @@ export function Preview({ id }: { id: string }) {
 							rx="3"
 							fill="currentColor"
 							opacity=".2"
+						/>
+					))}
+				</>
+			);
+			break;
+		case "showcase-robotics":
+			art = (
+				<>
+					<path
+						d="M42 106C88 106 90 45 145 45s68 65 123 65"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="3"
+						strokeDasharray="2 7"
+						opacity=".35"
+					/>
+					{[
+						[42, 106],
+						[145, 45],
+						[268, 110],
+					].map(([x, y], index) => (
+						<g key={x}>
+							<rect
+								x={x - 17}
+								y={y - 17}
+								width="34"
+								height="34"
+								rx="9"
+								fill="currentColor"
+								opacity={index === 1 ? ".72" : ".18"}
+							/>
+							<circle cx={x} cy={y} r="5" fill="var(--mds-surface)" />
+						</g>
+					))}
+					<rect x="34" y="16" width="72" height="7" rx="3" fill="currentColor" opacity=".18" />
+				</>
+			);
+			break;
+		case "showcase-finance":
+			art = (
+				<>
+					{frame}
+					<path
+						d="M45 112 78 98 104 103 137 75 170 82 202 54 236 60 274 29"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="5"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						opacity=".65"
+					/>
+					<path
+						d="M45 112 78 98 104 103 137 75 170 82 202 54 236 60 274 29V123H45Z"
+						fill="currentColor"
+						opacity=".09"
+					/>
+					<circle cx="274" cy="29" r="6" fill="currentColor" />
+				</>
+			);
+			break;
+		case "showcase-vehicle":
+			art = (
+				<>
+					<ellipse cx="160" cy="117" rx="118" ry="12" fill="currentColor" opacity=".1" />
+					<path
+						d="M45 99c5-22 22-34 47-37l40-5 34-29c11-9 24-13 38-13h30c18 0 34 7 46 20l20 23 28 8c18 5 27 16 28 33H45Z"
+						fill="currentColor"
+						opacity=".55"
+					/>
+					<circle cx="98" cy="99" r="21" fill="var(--mds-surface)" stroke="currentColor" strokeWidth="6" />
+					<circle cx="267" cy="99" r="21" fill="var(--mds-surface)" stroke="currentColor" strokeWidth="6" />
+				</>
+			);
+			break;
+		case "showcase-smart-home":
+			art = (
+				<>
+					<path
+						d="M61 73 160 10l99 63v68H61Z"
+						fill="var(--mds-surface)"
+						stroke="currentColor"
+						strokeWidth="3"
+						opacity=".9"
+					/>
+					{[
+						[102, 78],
+						[160, 55],
+						[215, 90],
+						[134, 119],
+					].map(([x, y], index) => (
+						<g key={x + y}>
+							<circle
+								cx={x}
+								cy={y}
+								r={index === 1 ? 13 : 9}
+								fill="currentColor"
+								opacity={index === 1 ? ".72" : ".22"}
+							/>
+							<circle cx={x} cy={y} r="3" fill="var(--mds-surface)" />
+						</g>
+					))}
+				</>
+			);
+			break;
+		case "showcase-creator":
+			art = (
+				<>
+					<rect x="25" y="14" width="185" height="126" rx="12" fill="currentColor" opacity=".18" />
+					<circle cx="116" cy="77" r="24" fill="currentColor" opacity=".65" />
+					<path d="m109 64 20 13-20 13Z" fill="var(--mds-surface)" />
+					{[34, 58, 82, 106].map((y, index) => (
+						<rect
+							key={y}
+							x="232"
+							y={y}
+							width={18 + index * 10}
+							height="8"
+							rx="4"
+							fill="currentColor"
+							opacity={0.18 + index * 0.12}
 						/>
 					))}
 				</>

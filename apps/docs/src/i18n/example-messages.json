@@ -1,0 +1,1886 @@
+{
+	"Make room for what’s next.": [
+		"次の可能性のために、余白を。",
+		"새로운 가능성을 위한 여유를 만드세요.",
+		"Faites place à la suite.",
+		"Haz espacio para lo que viene.",
+		"أفسح المجال لما هو قادم."
+	],
+	"Requests": ["リクエスト", "요청", "Requêtes", "Solicitudes", "الطلبات"],
+	"Total": ["合計", "합계", "Total", "Total", "الإجمالي"],
+	"Chat": ["チャット", "채팅", "Discussion", "Chat", "المحادثة"],
+	"Knowledge": ["ナレッジ", "지식", "Connaissances", "Conocimiento", "المعرفة"],
+	"In progress": ["進行中", "진행 중", "En cours", "En curso", "قيد التنفيذ"],
+	"How to install?": [
+		"インストール方法は？",
+		"어떻게 설치하나요?",
+		"Comment installer ?",
+		"¿Cómo se instala?",
+		"كيف يتم التثبيت؟"
+	],
+	"Install through the private registry.": [
+		"プライベートレジストリからインストールします。",
+		"비공개 레지스트리를 통해 설치하세요.",
+		"Installez via le registre privé.",
+		"Instala desde el registro privado.",
+		"ثبّت الحزمة عبر السجل الخاص."
+	],
+	"Settings saved.": [
+		"設定を保存しました。",
+		"설정을 저장했습니다.",
+		"Paramètres enregistrés.",
+		"Configuración guardada.",
+		"تم حفظ الإعدادات."
+	],
+	"Introduction": ["はじめに", "소개", "Introduction", "Introducción", "مقدمة"],
+	"Details": ["詳細", "세부 정보", "Détails", "Detalles", "التفاصيل"],
+	"Use the contents navigation to jump to this section.": [
+		"目次からこのセクションに移動できます。",
+		"목차 탐색으로 이 섹션으로 이동하세요.",
+		"Utilisez le sommaire pour accéder à cette section.",
+		"Usa el índice para ir a esta sección.",
+		"استخدم فهرس المحتويات للانتقال إلى هذا القسم."
+	],
+	"Daily requests by channel": [
+		"チャネル別の日次リクエスト",
+		"채널별 일일 요청",
+		"Requêtes quotidiennes par canal",
+		"Solicitudes diarias por canal",
+		"الطلبات اليومية حسب القناة"
+	],
+	"Web": ["ウェブ", "웹", "Web", "Web", "الويب"],
+	"Mobile": ["モバイル", "모바일", "Mobile", "Móvil", "الجوال"],
+	"Soft color, clear intentions.": [
+		"やさしい色、明確な意図。",
+		"부드러운 색감, 명확한 의도.",
+		"Des couleurs douces, des intentions claires.",
+		"Colores suaves, intenciones claras.",
+		"ألوان هادئة، ومقاصد واضحة."
+	],
+	"Example action completed": [
+		"サンプルの操作が完了しました",
+		"예제 작업을 완료했습니다",
+		"Action de démonstration terminée",
+		"Acción de ejemplo completada",
+		"اكتمل الإجراء التجريبي"
+	],
+	"Explore components": [
+		"コンポーネントを見る",
+		"컴포넌트 살펴보기",
+		"Explorer les composants",
+		"Explorar componentes",
+		"استكشف المكوّنات"
+	],
+	"Morning Light": ["朝の光", "아침 햇살", "Lumière du matin", "Luz de la mañana", "ضوء الصباح"],
+	"MDS original synthesized sample": [
+		"MDS オリジナル合成音源",
+		"MDS 오리지널 합성 음원",
+		"Extrait synthétisé original MDS",
+		"Muestra sintetizada original de MDS",
+		"مقطع صوتي أصلي مولّد من MDS"
+	],
+	"Project members": [
+		"プロジェクトメンバー",
+		"프로젝트 구성원",
+		"Membres du projet",
+		"Miembros del proyecto",
+		"أعضاء المشروع"
+	],
+	"Chen Chen": ["Chen Chen", "Chen Chen", "Chen Chen", "Chen Chen", "Chen Chen"],
+	"CC": ["CC", "CC", "CC", "CC", "CC"],
+	"Lin Yu": ["Lin Yu", "Lin Yu", "Lin Yu", "Lin Yu", "Lin Yu"],
+	"LY": ["LY", "LY", "LY", "LY", "LY"],
+	"Service notice": ["サービスのお知らせ", "서비스 안내", "Avis de service", "Aviso de servicio", "إشعار الخدمة"],
+	"Dismiss notice": ["お知らせを閉じる", "안내 닫기", "Fermer l’avis", "Cerrar aviso", "إغلاق الإشعار"],
+	"Learn more": ["詳しく見る", "자세히 보기", "En savoir plus", "Más información", "معرفة المزيد"],
+	"Maintenance at 22:00. Your data remains available.": [
+		"22:00 にメンテナンスを行います。データは引き続き利用できます。",
+		"22:00에 유지보수가 진행됩니다. 데이터는 계속 이용할 수 있습니다.",
+		"Maintenance à 22 h. Vos données restent accessibles.",
+		"Mantenimiento a las 22:00. Tus datos seguirán disponibles.",
+		"صيانة في الساعة 22:00. ستظل بياناتك متاحة."
+	],
+	"Show notice again": [
+		"お知らせを再表示",
+		"안내 다시 표시",
+		"Afficher à nouveau l’avis",
+		"Volver a mostrar el aviso",
+		"إظهار الإشعار مجددًا"
+	],
+	"Workspace": ["ワークスペース", "워크스페이스", "Espace de travail", "Espacio de trabajo", "مساحة العمل"],
+	"Page content starts below the announcement bar.": [
+		"ページの内容はお知らせバーの下から始まります。",
+		"페이지 콘텐츠는 공지 표시줄 아래에서 시작합니다.",
+		"Le contenu de la page commence sous la barre d’annonce.",
+		"El contenido de la página comienza debajo de la barra de anuncios.",
+		"يبدأ محتوى الصفحة أسفل شريط الإعلان."
+	],
+	"Monthly usage by channel": [
+		"チャネル別の月間利用状況",
+		"채널별 월간 사용량",
+		"Utilisation mensuelle par canal",
+		"Uso mensual por canal",
+		"الاستخدام الشهري حسب القناة"
+	],
+	"Review before publishing": [
+		"公開前の確認",
+		"게시 전 검토",
+		"Vérifier avant publication",
+		"Revisar antes de publicar",
+		"المراجعة قبل النشر"
+	],
+	"Read the Select guide": [
+		"選択コンポーネントのガイドを読む",
+		"선택 컴포넌트 가이드 읽기",
+		"Lire le guide du sélecteur",
+		"Leer la guía del selector",
+		"اقرأ دليل مكوّن الاختيار"
+	],
+	"Confirm affected applications and permissions.": [
+		"影響を受けるアプリと権限を確認してください。",
+		"영향을 받는 애플리케이션과 권한을 확인하세요.",
+		"Vérifiez les applications et les autorisations concernées.",
+		"Confirma las aplicaciones y los permisos afectados.",
+		"تأكّد من التطبيقات والصلاحيات المتأثرة."
+	],
+	"Applications and usage": [
+		"アプリと利用状況",
+		"애플리케이션 및 사용량",
+		"Applications et utilisation",
+		"Aplicaciones y uso",
+		"التطبيقات والاستخدام"
+	],
+	"3 applications connected.": [
+		"3 件のアプリが接続されています。",
+		"애플리케이션 3개가 연결되었습니다.",
+		"3 applications connectées.",
+		"3 aplicaciones conectadas.",
+		"تم ربط 3 تطبيقات."
+	],
+	"View overview": ["概要を見る", "개요 보기", "Voir la vue d’ensemble", "Ver resumen", "عرض النظرة العامة"],
+	"Choose region": ["地域を選ぶ", "지역 선택", "Choisir une région", "Elegir región", "اختر المنطقة"],
+	"Select a region": [
+		"地域を選択",
+		"지역을 선택하세요",
+		"Sélectionner une région",
+		"Seleccionar una región",
+		"حدّد منطقة"
+	],
+	"China": ["中国", "중국", "Chine", "China", "الصين"],
+	"Zhejiang": ["浙江省", "저장성", "Zhejiang", "Zhejiang", "تشجيانغ"],
+	"Hangzhou": ["杭州", "항저우", "Hangzhou", "Hangzhou", "هانغتشو"],
+	"Ningbo": ["寧波", "닝보", "Ningbo", "Ningbo", "نينغبو"],
+	"Jiangsu": ["江蘇省", "장쑤성", "Jiangsu", "Jiangsu", "جيانغسو"],
+	"Nanjing": ["南京", "난징", "Nankin", "Nankín", "نانجينغ"],
+	"Suzhou": ["蘇州", "쑤저우", "Suzhou", "Suzhou", "سوتشو"],
+	"Japan": ["日本", "일본", "Japon", "Japón", "اليابان"],
+	"Tokyo": ["東京", "도쿄", "Tokyo", "Tokio", "طوكيو"],
+	"Osaka": ["大阪", "오사카", "Osaka", "Osaka", "أوساكا"],
+	"Receive notifications": [
+		"通知を受け取る",
+		"알림 받기",
+		"Recevoir des notifications",
+		"Recibir notificaciones",
+		"تلقي الإشعارات"
+	],
+	"Sort": ["並べ替え", "정렬", "Trier", "Ordenar", "ترتيب"],
+	"Sort order": ["並び順", "정렬 순서", "Ordre de tri", "Orden", "ترتيب العرض"],
+	"Recently updated": [
+		"更新が新しい順",
+		"최근 업데이트순",
+		"Mise à jour récente",
+		"Actualizados recientemente",
+		"الأحدث تحديثًا"
+	],
+	"Name A–Z": ["名前の昇順", "이름 오름차순", "Nom de A à Z", "Nombre de A a Z", "الاسم من أ إلى ي"],
+	"Updates this view immediately, without submitting a form.": [
+		"フォームを送信せずに、この表示をすぐに更新します。",
+		"폼을 제출하지 않고 이 보기를 즉시 업데이트합니다.",
+		"Met à jour cette vue immédiatement, sans envoyer de formulaire.",
+		"Actualiza esta vista al instante, sin enviar un formulario.",
+		"يحدّث هذا العرض فورًا دون إرسال نموذج."
+	],
+	"Region": ["地域", "지역", "Région", "Región", "المنطقة"],
+	"Asia": ["アジア", "아시아", "Asie", "Asia", "آسيا"],
+	"Europe": ["ヨーロッパ", "유럽", "Europe", "Europa", "أوروبا"],
+	"A form value with required validation and reset support.": [
+		"必須項目の検証とリセットに対応したフォーム値です。",
+		"필수 입력 검증과 초기화를 지원하는 폼 값입니다.",
+		"Une valeur de formulaire avec validation obligatoire et réinitialisation.",
+		"Un valor de formulario con validación obligatoria y restablecimiento.",
+		"قيمة نموذج تدعم التحقق من الإدخال المطلوب وإعادة الضبط."
+	],
+	"Advanced settings": ["詳細設定", "고급 설정", "Paramètres avancés", "Configuración avanzada", "إعدادات متقدمة"],
+	"Use for supplemental independent details or advanced options.": [
+		"補足情報や詳細オプションに使用します。",
+		"독립적인 추가 정보나 고급 옵션에 사용하세요.",
+		"À utiliser pour des détails complémentaires ou des options avancées.",
+		"Úsalo para detalles complementarios u opciones avanzadas.",
+		"استخدمه للتفاصيل الإضافية المستقلة أو الخيارات المتقدمة."
+	],
+	"Standalone action": ["独立した操作", "독립 작업", "Action indépendante", "Acción independiente", "إجراء مستقل"],
+	"Content area": ["コンテンツ領域", "콘텐츠 영역", "Zone de contenu", "Área de contenido", "منطقة المحتوى"],
+	"Centered content with responsive gutters.": [
+		"画面幅に合わせた余白でコンテンツを中央に配置します。",
+		"화면 크기에 맞는 여백으로 콘텐츠를 가운데 배치합니다.",
+		"Contenu centré avec des marges adaptatives.",
+		"Contenido centrado con márgenes adaptables.",
+		"محتوى في المنتصف مع هوامش تتكيف مع حجم الشاشة."
+	],
+	"Design workspace": [
+		"デザインワークスペース",
+		"디자인 워크스페이스",
+		"Espace de conception",
+		"Espacio de diseño",
+		"مساحة عمل التصميم"
+	],
+	"Customer portal": ["カスタマーポータル", "고객 포털", "Portail client", "Portal de clientes", "بوابة العملاء"],
+	"Product": ["製品", "제품", "Produit", "Producto", "المنتج"],
+	"Component docs": [
+		"コンポーネントのドキュメント",
+		"컴포넌트 문서",
+		"Documentation des composants",
+		"Documentación de componentes",
+		"توثيق المكوّنات"
+	],
+	"Project": ["プロジェクト", "프로젝트", "Projet", "Proyecto", "المشروع"],
+	"Team": ["チーム", "팀", "Équipe", "Equipo", "الفريق"],
+	"Action": ["操作", "작업", "Action", "Acción", "الإجراء"],
+	"Edit: ": ["編集: ", "편집: ", "Modifier : ", "Editar: ", "تعديل: "],
+	"Projects": ["プロジェクト", "프로젝트", "Projets", "Proyectos", "المشاريع"],
+	"Project details stay within the table context.": [
+		"表の中でプロジェクトの詳細を確認できます。",
+		"표 안에서 프로젝트 세부 정보를 확인할 수 있습니다.",
+		"Les détails du projet restent dans le contexte du tableau.",
+		"Los detalles del proyecto permanecen en el contexto de la tabla.",
+		"تبقى تفاصيل المشروع ضمن سياق الجدول."
+	],
+	"View project": ["プロジェクトを見る", "프로젝트 보기", "Voir le projet", "Ver proyecto", "عرض المشروع"],
+	"Expand details: ": [
+		"詳細を展開: ",
+		"세부 정보 펼치기: ",
+		"Développer les détails : ",
+		"Ampliar detalles: ",
+		"توسيع التفاصيل: "
+	],
+	"Open: ": ["開く: ", "열기: ", "Ouvrir : ", "Abrir: ", "فتح: "],
+	"Project ": ["プロジェクト ", "프로젝트 ", "Projet ", "Proyecto ", "المشروع "],
+	"10,000 rows · Fixed-height virtual scrolling": [
+		"10,000 行 · 固定行高の仮想スクロール",
+		"10,000개 행 · 고정 높이 가상 스크롤",
+		"10 000 lignes · Défilement virtuel à hauteur fixe",
+		"10.000 filas · Desplazamiento virtual de altura fija",
+		"10,000 صف · تمرير افتراضي بارتفاع ثابت"
+	],
+	"Project usage": [
+		"プロジェクトの利用状況",
+		"프로젝트 사용량",
+		"Utilisation du projet",
+		"Uso del proyecto",
+		"استخدام المشروع"
+	],
+	"Select all projects": [
+		"すべてのプロジェクトを選択",
+		"모든 프로젝트 선택",
+		"Sélectionner tous les projets",
+		"Seleccionar todos los proyectos",
+		"تحديد جميع المشاريع"
+	],
+	"Select ": ["選択: ", "선택: ", "Sélectionner ", "Seleccionar ", "تحديد "],
+	"No projects": [
+		"プロジェクトがありません",
+		"프로젝트가 없습니다",
+		"Aucun projet",
+		"No hay proyectos",
+		"لا توجد مشاريع"
+	],
+	"Selected": ["選択済み", "선택됨", "Sélectionné", "Seleccionado", "محدّد"],
+	"Pinned columns": ["固定列", "고정 열", "Colonnes figées", "Columnas fijas", "الأعمدة المثبتة"],
+	"Expandable rows": ["展開可能な行", "확장 가능한 행", "Lignes dépliables", "Filas expandibles", "صفوف قابلة للتوسيع"],
+	"Row grouping": ["行のグループ化", "행 그룹화", "Regroupement des lignes", "Agrupación de filas", "تجميع الصفوف"],
+	"Custom cells and row actions": [
+		"カスタムセルと行の操作",
+		"사용자 정의 셀 및 행 작업",
+		"Cellules personnalisées et actions de ligne",
+		"Celdas personalizadas y acciones de fila",
+		"خلايا مخصصة وإجراءات الصفوف"
+	],
+	"Scroll horizontally; the first and last columns stay visible.": [
+		"横にスクロールしても、最初と最後の列は表示されたままです。",
+		"가로로 스크롤해도 첫 번째 열과 마지막 열은 계속 표시됩니다.",
+		"Faites défiler horizontalement ; la première et la dernière colonne restent visibles.",
+		"Desplázate horizontalmente; la primera y la última columna permanecen visibles.",
+		"مرّر أفقيًا؛ يظل العمودان الأول والأخير ظاهرين."
+	],
+	"Expanded details have a bounded scroll area and work with virtualization.": [
+		"展開した詳細は高さが制限されたスクロール領域内に表示され、仮想化にも対応します。",
+		"펼친 세부 정보는 높이가 제한된 스크롤 영역에 표시되며 가상화와 함께 작동합니다.",
+		"Les détails dépliés ont une zone de défilement limitée et fonctionnent avec la virtualisation.",
+		"Los detalles expandidos tienen un área de desplazamiento limitada y admiten virtualización.",
+		"للتفاصيل الموسّعة منطقة تمرير محدودة، وهي تدعم العرض الافتراضي."
+	],
+	"Group by team with row counts in each heading.": [
+		"チーム別にグループ化し、見出しに行数を表示します。",
+		"팀별로 그룹화하고 각 제목에 행 수를 표시합니다.",
+		"Regroupez par équipe avec le nombre de lignes dans chaque titre.",
+		"Agrupa por equipo con el número de filas en cada encabezado.",
+		"جمّع حسب الفريق مع عدد الصفوف في كل عنوان."
+	],
+	"Click a row or press Enter to open it; cell buttons act independently.": [
+		"行をクリックするか Enter キーで開きます。セル内のボタンは個別に動作します。",
+		"행을 클릭하거나 Enter를 눌러 엽니다. 셀 버튼은 독립적으로 동작합니다.",
+		"Cliquez sur une ligne ou appuyez sur Entrée pour l’ouvrir ; les boutons des cellules restent indépendants.",
+		"Haz clic en una fila o pulsa Intro para abrirla; los botones de las celdas funcionan de forma independiente.",
+		"انقر على صف أو اضغط Enter لفتحه؛ تعمل أزرار الخلايا بشكل مستقل."
+	],
+	"Date of birth": ["生年月日", "생년월일", "Date de naissance", "Fecha de nacimiento", "تاريخ الميلاد"],
+	"Edit with number keys; use arrow keys to move or adjust.": [
+		"数字キーで入力し、矢印キーで移動・調整します。",
+		"숫자 키로 입력하고 화살표 키로 이동하거나 조정하세요.",
+		"Saisissez avec les touches numériques ; utilisez les flèches pour vous déplacer ou ajuster.",
+		"Escribe con las teclas numéricas; usa las flechas para moverte o ajustar.",
+		"أدخل بالأرقام واستخدم مفاتيح الأسهم للتنقل أو التعديل."
+	],
+	"Appointment date": ["予約日", "예약 날짜", "Date du rendez-vous", "Fecha de la cita", "تاريخ الموعد"],
+	"Type each segment or choose from the calendar.": [
+		"各項目に入力するか、カレンダーから選択します。",
+		"각 항목을 입력하거나 달력에서 선택하세요.",
+		"Saisissez chaque partie ou choisissez dans le calendrier.",
+		"Escribe cada parte o elige en el calendario.",
+		"أدخل كل جزء أو اختر من التقويم."
+	],
+	"Travel dates": ["旅行日程", "여행 날짜", "Dates du voyage", "Fechas del viaje", "تواريخ السفر"],
+	"Enter a start and end date. The end cannot precede the start.": [
+		"開始日と終了日を入力してください。終了日は開始日より前にはできません。",
+		"시작일과 종료일을 입력하세요. 종료일은 시작일보다 빠를 수 없습니다.",
+		"Saisissez une date de début et de fin. La fin ne peut pas précéder le début.",
+		"Introduce una fecha de inicio y de fin. La fecha de fin no puede ser anterior a la de inicio.",
+		"أدخل تاريخ بداية ونهاية. لا يمكن أن تسبق النهاية البداية."
+	],
+	"Update your display name": [
+		"表示名を変更",
+		"표시 이름 변경",
+		"Modifier votre nom d’affichage",
+		"Actualizar tu nombre visible",
+		"تحديث اسم العرض"
+	],
+	"Name": ["名前", "이름", "Nom", "Nombre", "الاسم"],
+	"Done": ["完了", "완료", "Terminé", "Listo", "تم"],
+	"Traffic mix": [
+		"トラフィックの内訳",
+		"트래픽 구성",
+		"Répartition du trafic",
+		"Distribución del tráfico",
+		"توزيع حركة البيانات"
+	],
+	"Images": ["画像", "이미지", "Images", "Imágenes", "الصور"],
+	"Documents": ["ドキュメント", "문서", "Documents", "Documentos", "المستندات"],
+	"Audio": ["音声", "오디오", "Audio", "Audio", "الصوت"],
+	"Automation": ["自動化", "자동화", "Automatisation", "Automatización", "الأتمتة"],
+	"Other": ["その他", "기타", "Autre", "Otro", "أخرى"],
+	"Category": ["カテゴリ", "카테고리", "Catégorie", "Categoría", "الفئة"],
+	"No matches": [
+		"一致する項目がありません",
+		"일치하는 항목이 없습니다",
+		"Aucun résultat",
+		"No hay coincidencias",
+		"لا توجد نتائج مطابقة"
+	],
+	"Try a shorter query or adjust your filters.": [
+		"検索語を短くするか、フィルターを調整してください。",
+		"검색어를 줄이거나 필터를 조정하세요.",
+		"Essayez une recherche plus courte ou ajustez les filtres.",
+		"Prueba una búsqueda más corta o ajusta los filtros.",
+		"جرّب عبارة بحث أقصر أو عدّل عوامل التصفية."
+	],
+	"Try the new feature": [
+		"新機能を試す",
+		"새 기능 사용해 보기",
+		"Essayer la nouvelle fonctionnalité",
+		"Probar la nueva función",
+		"جرّب الميزة الجديدة"
+	],
+	"Email": ["メールアドレス", "이메일", "Adresse e-mail", "Correo electrónico", "البريد الإلكتروني"],
+	"For notifications": ["通知用", "알림용", "Pour les notifications", "Para notificaciones", "للإشعارات"],
+	"Please review the following": [
+		"以下をご確認ください",
+		"다음을 확인하세요",
+		"Veuillez vérifier les éléments suivants",
+		"Revisa lo siguiente",
+		"يرجى مراجعة ما يلي"
+	],
+	"Unable to save. Please try again.": [
+		"保存できませんでした。もう一度お試しください。",
+		"저장할 수 없습니다. 다시 시도하세요.",
+		"Impossible d’enregistrer. Veuillez réessayer.",
+		"No se pudo guardar. Inténtalo de nuevo.",
+		"تعذّر الحفظ. يرجى المحاولة مجددًا."
+	],
+	"This name is already taken. Choose another.": [
+		"この名前は使用済みです。別の名前を選んでください。",
+		"이미 사용 중인 이름입니다. 다른 이름을 선택하세요.",
+		"Ce nom est déjà utilisé. Choisissez-en un autre.",
+		"Este nombre ya está en uso. Elige otro.",
+		"هذا الاسم مستخدم بالفعل. اختر اسمًا آخر."
+	],
+	"Workspace name": [
+		"ワークスペース名",
+		"워크스페이스 이름",
+		"Nom de l’espace de travail",
+		"Nombre del espacio de trabajo",
+		"اسم مساحة العمل"
+	],
+	"Enter admin for a validation error, or offline for a request failure.": [
+		"admin で検証エラー、offline でリクエスト失敗を確認できます。",
+		"admin을 입력하면 검증 오류를, offline을 입력하면 요청 실패를 확인할 수 있습니다.",
+		"Saisissez admin pour une erreur de validation, ou offline pour un échec de requête.",
+		"Escribe admin para ver un error de validación u offline para un fallo de solicitud.",
+		"أدخل admin لرؤية خطأ تحقق، أو offline لرؤية فشل طلب."
+	],
+	"Saved.": ["保存しました。", "저장했습니다.", "Enregistré.", "Guardado.", "تم الحفظ."],
+	"Members": ["メンバー", "구성원", "Membres", "Miembros", "الأعضاء"],
+	"Member": ["メンバー", "구성원", "Membre", "Miembro", "عضو"],
+	"Product navigation": [
+		"製品ナビゲーション",
+		"제품 탐색",
+		"Navigation des produits",
+		"Navegación de productos",
+		"تنقل المنتجات"
+	],
+	"Products": ["製品", "제품", "Produits", "Productos", "المنتجات"],
+	"Build": ["構築", "구축", "Créer", "Crear", "البناء"],
+	"Consistent actions": ["一貫した操作", "일관된 작업", "Actions cohérentes", "Acciones coherentes", "إجراءات متسقة"],
+	"Our icon collection": [
+		"アイコンコレクション",
+		"아이콘 모음",
+		"Notre collection d’icônes",
+		"Nuestra colección de iconos",
+		"مجموعة أيقوناتنا"
+	],
+	"Explore": ["探索", "둘러보기", "Explorer", "Explorar", "استكشاف"],
+	"Interactive data visualization": [
+		"インタラクティブなデータ可視化",
+		"대화형 데이터 시각화",
+		"Visualisation interactive des données",
+		"Visualización de datos interactiva",
+		"عرض تفاعلي للبيانات"
+	],
+	"Showcases": ["活用事例", "활용 사례", "Exemples d’utilisation", "Casos de uso", "حالات الاستخدام"],
+	"Installation": ["インストール", "설치", "Installation", "Instalación", "التثبيت"],
+	"Theming": ["テーマ設定", "테마 설정", "Personnalisation du thème", "Personalización del tema", "تخصيص المظهر"],
+	"Resources": ["リソース", "리소스", "Ressources", "Recursos", "الموارد"],
+	"Learn": ["学ぶ", "학습", "Apprendre", "Aprender", "تعلّم"],
+	"Themes and motion": ["テーマと動き", "테마 및 모션", "Thèmes et animations", "Temas y animación", "المظاهر والحركة"],
+	"Drawer variant": [
+		"ドロワーの種類",
+		"드로어 유형",
+		"Variante du panneau",
+		"Variante del panel",
+		"نوع اللوحة الجانبية"
+	],
+	"Standard": ["標準", "표준", "Standard", "Estándar", "قياسي"],
+	"Modal": ["モーダル", "모달", "Modal", "Modal", "مشروط"],
+	"Rail": ["レール", "레일", "Rail", "Barra lateral compacta", "شريط تنقل جانبي"],
+	"Workspace navigation": [
+		"ワークスペースナビゲーション",
+		"워크스페이스 탐색",
+		"Navigation de l’espace de travail",
+		"Navegación del espacio de trabajo",
+		"تنقل مساحة العمل"
+	],
+	"Overview": ["概要", "개요", "Vue d’ensemble", "Resumen", "نظرة عامة"],
+	"Docs": ["ドキュメント", "문서", "Documentation", "Documentación", "التوثيق"],
+	"Main navigation": [
+		"メインナビゲーション",
+		"기본 탐색",
+		"Navigation principale",
+		"Navegación principal",
+		"التنقل الرئيسي"
+	],
+	"Knowledge and documentation": [
+		"ナレッジとドキュメント",
+		"지식 및 문서",
+		"Connaissances et documentation",
+		"Conocimiento y documentación",
+		"المعرفة والتوثيق"
+	],
+	"Workspace administration": [
+		"ワークスペース管理",
+		"워크스페이스 관리",
+		"Administration de l’espace de travail",
+		"Administración del espacio de trabajo",
+		"إدارة مساحة العمل"
+	],
+	"Top navigation": [
+		"上部ナビゲーション",
+		"상단 탐색",
+		"Navigation supérieure",
+		"Navegación superior",
+		"التنقل العلوي"
+	],
+	"Pricing": ["料金", "요금", "Tarifs", "Precios", "الأسعار"],
+	"Account": ["アカウント", "계정", "Compte", "Cuenta", "الحساب"],
+	"Pages": ["ページ", "페이지", "Pages", "Páginas", "الصفحات"],
+	"Quick settings": ["クイック設定", "빠른 설정", "Réglages rapides", "Ajustes rápidos", "إعدادات سريعة"],
+	"Workspace settings": [
+		"ワークスペース設定",
+		"워크스페이스 설정",
+		"Paramètres de l’espace de travail",
+		"Configuración del espacio de trabajo",
+		"إعدادات مساحة العمل"
+	],
+	"Edit without leaving this page.": [
+		"このページを離れずに編集できます。",
+		"이 페이지를 떠나지 않고 편집하세요.",
+		"Modifiez sans quitter cette page.",
+		"Edita sin salir de esta página.",
+		"عدّل دون مغادرة هذه الصفحة."
+	],
+	"Upload progress": [
+		"アップロードの進捗",
+		"업로드 진행률",
+		"Progression de l’envoi",
+		"Progreso de subida",
+		"تقدم الرفع"
+	],
+	"Plan": ["プラン", "요금제", "Offre", "Plan", "الخطة"],
+	"Everyday use": ["日常使い", "일상적인 사용", "Usage quotidien", "Uso diario", "الاستخدام اليومي"],
+	"Pro": ["Pro", "Pro", "Pro", "Pro", "Pro"],
+	"Billing": ["請求", "결제", "Facturation", "Facturación", "الفوترة"],
+	"Monthly": ["月払い", "월간", "Mensuel", "Mensual", "شهري"],
+	"Annual": ["年払い", "연간", "Annuel", "Anual", "سنوي"],
+	"A clear direction": ["明確な方向性", "명확한 방향", "Une direction claire", "Una dirección clara", "اتجاه واضح"],
+	"Start with the problem to solve, and give every detail a purpose.": [
+		"解決すべき課題から始め、すべての細部に意味を持たせます。",
+		"해결할 문제에서 시작하고 모든 세부 요소에 목적을 부여하세요.",
+		"Partez du problème à résoudre et donnez un sens à chaque détail.",
+		"Empieza por el problema que quieres resolver y da un propósito a cada detalle.",
+		"ابدأ بالمشكلة المراد حلها، وامنح كل تفصيل غاية."
+	],
+	"Room to explore": [
+		"探索する余白",
+		"탐색할 여유",
+		"De la place pour explorer",
+		"Espacio para explorar",
+		"مساحة للاستكشاف"
+	],
+	"Collect inspiration, test assumptions, and bring new possibilities together.": [
+		"着想を集め、仮説を確かめ、新しい可能性をつなげます。",
+		"영감을 모으고 가정을 검증하며 새로운 가능성을 연결하세요.",
+		"Rassemblez des inspirations, testez vos hypothèses et réunissez de nouvelles possibilités.",
+		"Reúne inspiración, pon a prueba tus ideas y conecta nuevas posibilidades.",
+		"اجمع الإلهام واختبر الافتراضات واربط الإمكانات الجديدة."
+	],
+	"The thoughtful details": [
+		"心を配った細部",
+		"세심한 디테일",
+		"Des détails soignés",
+		"Detalles cuidados",
+		"التفاصيل المدروسة"
+	],
+	"Clear hierarchy, generous spacing, and timely feedback make the experience feel natural.": [
+		"明確な階層、ゆとりのある余白、適切なフィードバックが自然な体験を生みます。",
+		"명확한 계층, 넉넉한 여백, 적절한 피드백이 자연스러운 경험을 만듭니다.",
+		"Une hiérarchie claire, des espaces généreux et des retours au bon moment rendent l’expérience naturelle.",
+		"Una jerarquía clara, espacios amplios y respuestas oportunas hacen que la experiencia resulte natural.",
+		"التسلسل الواضح والمساحات المريحة والاستجابة في الوقت المناسب تجعل التجربة طبيعية."
+	],
+	"Ready to grow": ["成長の準備", "성장을 위한 준비", "Prêt à évoluer", "Listo para crecer", "جاهز للنمو"],
+	"Learn from real feedback and keep improving.": [
+		"実際のフィードバックから学び、改善を続けます。",
+		"실제 피드백을 통해 배우고 계속 개선하세요.",
+		"Apprenez des retours concrets et continuez à vous améliorer.",
+		"Aprende de los comentarios reales y sigue mejorando.",
+		"تعلّم من الملاحظات الفعلية وواصل التحسين."
+	],
+	"Reading progress": ["読書の進捗", "읽기 진행률", "Progression de lecture", "Progreso de lectura", "تقدم القراءة"],
+	"Loading members": [
+		"メンバーを読み込み中",
+		"구성원 불러오는 중",
+		"Chargement des membres",
+		"Cargando miembros",
+		"جارٍ تحميل الأعضاء"
+	],
+	"Loading…": ["読み込み中…", "불러오는 중…", "Chargement…", "Cargando…", "جارٍ التحميل…"],
+	"Loading content": [
+		"コンテンツを読み込み中",
+		"콘텐츠 불러오는 중",
+		"Chargement du contenu",
+		"Cargando contenido",
+		"جارٍ تحميل المحتوى"
+	],
+	"Preparing your content…": [
+		"コンテンツを準備しています…",
+		"콘텐츠를 준비하고 있습니다…",
+		"Préparation de votre contenu…",
+		"Preparando tu contenido…",
+		"جارٍ تجهيز المحتوى…"
+	],
+	"Quick search": ["クイック検索", "빠른 검색", "Recherche rapide", "Búsqueda rápida", "بحث سريع"],
+	"Quick actions": ["クイック操作", "빠른 작업", "Actions rapides", "Acciones rápidas", "إجراءات سريعة"],
+	"Search actions": ["操作を検索", "작업 검색", "Rechercher une action", "Buscar acciones", "البحث عن إجراء"],
+	"Type to search…": [
+		"入力して検索…",
+		"검색어 입력…",
+		"Saisissez pour rechercher…",
+		"Escribe para buscar…",
+		"اكتب للبحث…"
+	],
+	"No matching actions": [
+		"一致する操作がありません",
+		"일치하는 작업이 없습니다",
+		"Aucune action correspondante",
+		"No hay acciones coincidentes",
+		"لا توجد إجراءات مطابقة"
+	],
+	"Create project": ["プロジェクトを作成", "프로젝트 만들기", "Créer un projet", "Crear proyecto", "إنشاء مشروع"],
+	"Open settings": ["設定を開く", "설정 열기", "Ouvrir les paramètres", "Abrir configuración", "فتح الإعدادات"],
+	"Creation flow": ["作成フロー", "생성 흐름", "Parcours de création", "Flujo de creación", "مسار الإنشاء"],
+	"Review": ["確認", "검토", "Vérifier", "Revisar", "مراجعة"],
+	"Light theme": ["ライトテーマ", "라이트 테마", "Thème clair", "Tema claro", "المظهر الفاتح"],
+	"The theme applies to this example.": [
+		"テーマはこのサンプルに適用されます。",
+		"테마는 이 예제에 적용됩니다.",
+		"Le thème s’applique à cet exemple.",
+		"El tema se aplica a este ejemplo.",
+		"يُطبّق المظهر على هذا المثال."
+	],
+	"Autosave": ["自動保存", "자동 저장", "Enregistrement automatique", "Guardado automático", "الحفظ التلقائي"],
+	"Changes will be saved automatically.": [
+		"変更は自動的に保存されます。",
+		"변경 사항이 자동으로 저장됩니다.",
+		"Les modifications seront enregistrées automatiquement.",
+		"Los cambios se guardarán automáticamente.",
+		"سيتم حفظ التغييرات تلقائيًا."
+	],
+	"Save changes manually.": [
+		"変更を手動で保存します。",
+		"변경 사항을 수동으로 저장하세요.",
+		"Enregistrez les modifications manuellement.",
+		"Guarda los cambios manualmente.",
+		"احفظ التغييرات يدويًا."
+	],
+	"Recent requests": ["最近のリクエスト", "최근 요청", "Requêtes récentes", "Solicitudes recientes", "الطلبات الأخيرة"],
+	"Service": ["サービス", "서비스", "Service", "Servicio", "الخدمة"],
+	"Status": ["状態", "상태", "État", "Estado", "الحالة"],
+	"Chat service": ["チャットサービス", "채팅 서비스", "Service de discussion", "Servicio de chat", "خدمة المحادثة"],
+	"Knowledge search": [
+		"ナレッジ検索",
+		"지식 검색",
+		"Recherche de connaissances",
+		"Búsqueda de conocimiento",
+		"البحث في المعرفة"
+	],
+	"Code assistant": [
+		"コードアシスタント",
+		"코드 어시스턴트",
+		"Assistant de code",
+		"Asistente de código",
+		"مساعد البرمجة"
+	],
+	"Active": ["有効", "활성", "Actif", "Activo", "نشط"],
+	"Paused": ["一時停止", "일시 중지", "En pause", "En pausa", "متوقف مؤقتًا"],
+	"Documentation view": [
+		"ドキュメント表示",
+		"문서 보기",
+		"Vue de la documentation",
+		"Vista de documentación",
+		"عرض التوثيق"
+	],
+	"Usage": ["使い方", "사용법", "Utilisation", "Uso", "الاستخدام"],
+	"Usage example": ["使用例", "사용 예제", "Exemple d’utilisation", "Ejemplo de uso", "مثال الاستخدام"],
+	"Design guide": ["デザインガイド", "디자인 가이드", "Guide de conception", "Guía de diseño", "دليل التصميم"],
+	"Up to 500 characters": [
+		"最大 500 文字",
+		"최대 500자",
+		"500 caractères maximum",
+		"Hasta 500 caracteres",
+		"حتى 500 حرف"
+	],
+	"Light preview": ["ライト表示", "라이트 미리보기", "Aperçu clair", "Vista previa clara", "معاينة فاتحة"],
+	"Dark preview": ["ダーク表示", "다크 미리보기", "Aperçu sombre", "Vista previa oscura", "معاينة داكنة"],
+	"Type here…": ["ここに入力…", "여기에 입력…", "Saisissez ici…", "Escribe aquí…", "اكتب هنا…"],
+	"Confirmed": ["確認済み", "확인됨", "Confirmé", "Confirmado", "مؤكّد"],
+	"Confirm": ["確認する", "확인", "Confirmer", "Confirmar", "تأكيد"],
+	"Start time": ["開始時刻", "시작 시간", "Heure de début", "Hora de inicio", "وقت البدء"],
+	"Type the hour and minute directly.": [
+		"時と分を直接入力します。",
+		"시와 분을 직접 입력하세요.",
+		"Saisissez directement l’heure et les minutes.",
+		"Escribe directamente la hora y los minutos.",
+		"أدخل الساعة والدقيقة مباشرة."
+	],
+	"Arrival time": ["到着時刻", "도착 시간", "Heure d’arrivée", "Hora de llegada", "وقت الوصول"],
+	"Choose a suggested time or type any minute within the range.": [
+		"候補の時刻を選ぶか、範囲内で分単位の時刻を入力してください。",
+		"추천 시간을 선택하거나 범위 내에서 원하는 분을 입력하세요.",
+		"Choisissez un horaire proposé ou saisissez l’heure à la minute près dans la plage autorisée.",
+		"Elige una hora sugerida o escribe cualquier minuto dentro del intervalo.",
+		"اختر وقتًا مقترحًا أو أدخل وقتًا بالدقيقة ضمن النطاق."
+	],
+	"Export completed": [
+		"エクスポート完了",
+		"내보내기 완료",
+		"Exportation terminée",
+		"Exportación completada",
+		"اكتمل التصدير"
+	],
+	"Your file is ready to download.": [
+		"ファイルをダウンロードできます。",
+		"파일을 다운로드할 수 있습니다.",
+		"Votre fichier est prêt à être téléchargé.",
+		"Tu archivo está listo para descargar.",
+		"ملفك جاهز للتنزيل."
+	],
+	"Show toast": [
+		"トーストを表示",
+		"토스트 표시",
+		"Afficher une notification",
+		"Mostrar notificación",
+		"عرض إشعار عابر"
+	],
+	"Changes saved": [
+		"変更を保存しました",
+		"변경 사항 저장됨",
+		"Modifications enregistrées",
+		"Cambios guardados",
+		"تم حفظ التغييرات"
+	],
+	"Preparing report": [
+		"レポートを準備中",
+		"보고서 준비 중",
+		"Préparation du rapport",
+		"Preparando informe",
+		"جارٍ تجهيز التقرير"
+	],
+	"We will let you know when it is ready.": [
+		"準備ができ次第お知らせします。",
+		"준비되면 알려 드리겠습니다.",
+		"Nous vous préviendrons dès qu’il sera prêt.",
+		"Te avisaremos cuando esté listo.",
+		"سنخبرك عندما يصبح جاهزًا."
+	],
+	"Hover or focus to expand all notifications and pause their timers.": [
+		"ホバーまたはフォーカスで通知をすべて展開し、自動終了を一時停止します。",
+		"마우스를 올리거나 포커스하면 모든 알림을 펼치고 타이머를 일시 정지합니다.",
+		"Survolez ou placez le focus pour déployer les notifications et suspendre leur minuterie.",
+		"Pasa el cursor o enfoca para expandir las notificaciones y pausar sus temporizadores.",
+		"مرّر المؤشر أو انقل التركيز لتوسيع جميع الإشعارات وإيقاف مؤقتاتها مؤقتًا."
+	],
+	"Stack three": ["3 件を重ねる", "3개 쌓기", "Empiler trois notifications", "Apilar tres", "تكديس ثلاثة إشعارات"],
+	"Connection lost": [
+		"接続が切れました",
+		"연결이 끊어졌습니다",
+		"Connexion perdue",
+		"Conexión perdida",
+		"انقطع الاتصال"
+	],
+	"This notification stays until dismissed.": [
+		"この通知は閉じるまで表示されます。",
+		"이 알림은 닫을 때까지 표시됩니다.",
+		"Cette notification reste affichée jusqu’à sa fermeture.",
+		"Esta notificación permanece hasta que la cierres.",
+		"يبقى هذا الإشعار حتى إغلاقه."
+	],
+	"Persistent toast": [
+		"自動終了しないトースト",
+		"계속 표시되는 토스트",
+		"Notification persistante",
+		"Notificación persistente",
+		"إشعار عابر دائم"
+	],
+	"Clear toasts": [
+		"トーストをすべて閉じる",
+		"토스트 모두 닫기",
+		"Effacer les notifications",
+		"Borrar notificaciones",
+		"مسح الإشعارات العابرة"
+	],
+	"Notification": ["通知", "알림", "Notification", "Notificación", "إشعار"],
+	"Notifications ({hotkey})": [
+		"通知（{hotkey}）",
+		"알림 ({hotkey})",
+		"Notifications ({hotkey})",
+		"Notificaciones ({hotkey})",
+		"الإشعارات ({hotkey})"
+	],
+	"Dismiss notification": [
+		"通知を閉じる",
+		"알림 닫기",
+		"Fermer la notification",
+		"Cerrar notificación",
+		"إغلاق الإشعار"
+	],
+	"Stored on this device": [
+		"この端末に保存済み",
+		"이 기기에 저장됨",
+		"Enregistré sur cet appareil",
+		"Guardado en este dispositivo",
+		"محفوظ على هذا الجهاز"
+	],
+	"Local save": ["ローカル保存", "로컬 저장", "Enregistrement local", "Guardado local", "حفظ محلي"],
+	"How to use it?": ["使い方は？", "어떻게 사용하나요?", "Comment l’utiliser ?", "¿Cómo se usa?", "كيف يُستخدم؟"],
+	"Render components inside a theme provider.": [
+		"テーマプロバイダーの中でコンポーネントを描画します。",
+		"테마 프로바이더 안에서 컴포넌트를 렌더링하세요.",
+		"Affichez les composants dans un fournisseur de thème.",
+		"Renderiza los componentes dentro de un proveedor de tema.",
+		"اعرض المكوّنات داخل موفّر المظهر."
+	],
+	"Configuration": ["設定", "구성", "Configuration", "Configuración", "الإعدادات"],
+	"Theme": ["テーマ", "테마", "Thème", "Tema", "المظهر"],
+	"Nested contents": ["入れ子の目次", "중첩 목차", "Sommaire imbriqué", "Índice anidado", "فهرس متداخل"],
+	"Smooth curves": ["滑らかな曲線", "부드러운 곡선", "Courbes lissées", "Curvas suaves", "منحنيات سلسة"],
+	"Straight segments": ["直線", "직선 구간", "Segments droits", "Segmentos rectos", "مقاطع مستقيمة"],
+	"16 observations · four marker shapes": [
+		"16 個のデータ · 4 種類のマーカー",
+		"관측값 16개 · 마커 모양 4종",
+		"16 observations · quatre formes de marqueurs",
+		"16 observaciones · cuatro formas de marcador",
+		"16 ملاحظة · أربعة أشكال للعلامات"
+	],
+	"Desktop": ["デスクトップ", "데스크톱", "Ordinateur", "Escritorio", "سطح المكتب"],
+	"A shared space for thoughtful work.": [
+		"丁寧な仕事のための共有スペース。",
+		"집중해서 일하는 공유 공간.",
+		"Un espace partagé pour un travail soigné.",
+		"Un espacio compartido para trabajar con cuidado.",
+		"مساحة مشتركة للعمل المتقن."
+	],
+	"3 projects · 12 members": [
+		"3 プロジェクト · 12 メンバー",
+		"프로젝트 3개 · 구성원 12명",
+		"3 projets · 12 membres",
+		"3 proyectos · 12 miembros",
+		"3 مشاريع · 12 عضوًا"
+	],
+	"Team space": ["チームスペース", "팀 공간", "Espace d’équipe", "Espacio del equipo", "مساحة الفريق"],
+	"Additional details": ["追加情報", "추가 정보", "Détails supplémentaires", "Detalles adicionales", "تفاصيل إضافية"],
+	"Weekly digest": ["週刊ダイジェスト", "주간 요약", "Résumé hebdomadaire", "Resumen semanal", "ملخص أسبوعي"],
+	"New: bring your team's updates together in a weekly email.": [
+		"新機能：チームの最新情報を毎週メールでまとめてお届けします。",
+		"새 기능: 팀 소식을 주간 이메일로 모아 보세요.",
+		"Nouveau : recevez les nouvelles de votre équipe dans un e-mail hebdomadaire.",
+		"Nuevo: reúne las novedades de tu equipo en un correo semanal.",
+		"جديد: اجمع مستجدات فريقك في رسالة بريد أسبوعية."
+	],
+	"Enabled": ["有効", "활성화됨", "Activé", "Activado", "مفعّل"],
+	"Enable digest": ["ダイジェストを有効にする", "요약 활성화", "Activer le résumé", "Activar resumen", "تفعيل الملخص"],
+	"Demo subscription enabled": [
+		"サンプルの購読を有効にしました",
+		"예제 구독이 활성화되었습니다",
+		"Abonnement de démonstration activé",
+		"Suscripción de ejemplo activada",
+		"تم تفعيل الاشتراك التجريبي"
+	],
+	"Team knowledge · New": [
+		"チームナレッジ · 新機能",
+		"팀 지식 · 신규",
+		"Connaissances d’équipe · Nouveau",
+		"Conocimiento del equipo · Nuevo",
+		"معرفة الفريق · جديد"
+	],
+	"Settings": ["設定", "설정", "Paramètres", "Configuración", "الإعدادات"],
+	"Team knowledge opened. Discovery hint dismissed.": [
+		"チームナレッジを開き、機能の案内を終了しました。",
+		"팀 지식을 열었습니다. 기능 안내가 해제되었습니다.",
+		"Connaissances d’équipe ouvertes. L’indication de découverte est masquée.",
+		"Conocimiento del equipo abierto. Sugerencia descartada.",
+		"تم فتح معرفة الفريق وإغلاق تلميح الاكتشاف."
+	],
+	"Highlight a new destination until it has been visited.": [
+		"新しいページを訪問するまで強調表示します。",
+		"새 페이지를 방문할 때까지 강조 표시합니다.",
+		"Mettez une nouvelle destination en évidence jusqu’à sa visite.",
+		"Destaca un nuevo destino hasta que se visite.",
+		"أبرز الوجهة الجديدة حتى تتم زيارتها."
+	],
+	"Theme accent": ["テーマのアクセント", "테마 강조색", "Accent du thème", "Acento del tema", "لون تمييز المظهر"],
+	"Spectrum": ["スペクトル", "스펙트럼", "Spectre", "Espectro", "الطيف"],
+	"Explore new feature": [
+		"新機能を見る",
+		"새 기능 살펴보기",
+		"Explorer la nouveauté",
+		"Explorar nueva función",
+		"استكشاف الميزة الجديدة"
+	],
+	"Document actions": [
+		"ドキュメントの操作",
+		"문서 작업",
+		"Actions du document",
+		"Acciones del documento",
+		"إجراءات المستند"
+	],
+	"Duplicate document": [
+		"ドキュメントを複製",
+		"문서 복제",
+		"Dupliquer le document",
+		"Duplicar documento",
+		"نسخ المستند"
+	],
+	"Demo copy created": [
+		"サンプルのコピーを作成しました",
+		"예제 복사본을 만들었습니다",
+		"Copie de démonstration créée",
+		"Copia de ejemplo creada",
+		"تم إنشاء نسخة تجريبية"
+	],
+	"Share document (new)": [
+		"ドキュメントを共有（新機能）",
+		"문서 공유 (신규)",
+		"Partager le document (nouveau)",
+		"Compartir documento (nuevo)",
+		"مشاركة المستند (جديد)"
+	],
+	"Share action discovered. Hint dismissed.": [
+		"共有機能を確認し、案内を終了しました。",
+		"공유 기능을 확인했습니다. 안내가 해제되었습니다.",
+		"Partage découvert. L’indication est masquée.",
+		"Función de compartir descubierta. Sugerencia descartada.",
+		"تم اكتشاف المشاركة وإغلاق التلميح."
+	],
+	"Export document": [
+		"ドキュメントをエクスポート",
+		"문서 내보내기",
+		"Exporter le document",
+		"Exportar documento",
+		"تصدير المستند"
+	],
+	"Demo export prepared": [
+		"サンプルのエクスポートを準備しました",
+		"예제 내보내기를 준비했습니다",
+		"Exportation de démonstration préparée",
+		"Exportación de ejemplo preparada",
+		"تم تجهيز التصدير التجريبي"
+	],
+	"Draw attention to a newly added toolbar action.": [
+		"ツールバーに追加した新しい操作に注目を集めます。",
+		"도구 모음에 추가된 새 작업을 강조하세요.",
+		"Attirez l’attention sur une nouvelle action de la barre d’outils.",
+		"Llama la atención sobre una nueva acción de la barra de herramientas.",
+		"لفت الانتباه إلى إجراء جديد في شريط الأدوات."
+	],
+	"Enter a valid email": [
+		"有効なメールアドレスを入力してください",
+		"올바른 이메일을 입력하세요",
+		"Saisissez une adresse e-mail valide",
+		"Introduce un correo válido",
+		"أدخل بريدًا إلكترونيًا صالحًا"
+	],
+	"All articles": ["すべての記事", "모든 문서", "Tous les articles", "Todos los artículos", "جميع المقالات"],
+	"Team collections": [
+		"チームコレクション",
+		"팀 모음",
+		"Collections d’équipe",
+		"Colecciones del equipo",
+		"مجموعات الفريق"
+	],
+	"Members and permissions": [
+		"メンバーと権限",
+		"구성원 및 권한",
+		"Membres et autorisations",
+		"Miembros y permisos",
+		"الأعضاء والصلاحيات"
+	],
+	"Enterprise security": [
+		"企業向けセキュリティ",
+		"기업 보안",
+		"Sécurité d’entreprise",
+		"Seguridad empresarial",
+		"أمان المؤسسات"
+	],
+	"Open nested navigation": [
+		"階層ナビゲーションを開く",
+		"중첩 탐색 열기",
+		"Ouvrir la navigation imbriquée",
+		"Abrir navegación anidada",
+		"فتح التنقل المتداخل"
+	],
+	"Modal navigation": ["モーダルナビゲーション", "모달 탐색", "Navigation modale", "Navegación modal", "تنقل مشروط"],
+	"Documentation shortcuts": [
+		"ドキュメントのショートカット",
+		"문서 바로가기",
+		"Raccourcis de documentation",
+		"Accesos a la documentación",
+		"اختصارات التوثيق"
+	],
+	"Navigation rail documentation": [
+		"ナビゲーションレールのドキュメント",
+		"탐색 레일 문서",
+		"Documentation du rail de navigation",
+		"Documentación de la barra lateral compacta",
+		"توثيق شريط التنقل الجانبي"
+	],
+	"Theme settings": ["テーマ設定", "테마 설정", "Paramètres du thème", "Configuración del tema", "إعدادات المظهر"],
+	"Team knowledge": ["チームナレッジ", "팀 지식", "Connaissances d’équipe", "Conocimiento del equipo", "معرفة الفريق"],
+	"All articles and documentation": [
+		"すべての記事とドキュメント",
+		"모든 문서 및 자료",
+		"Tous les articles et documents",
+		"Todos los artículos y documentos",
+		"جميع المقالات والوثائق"
+	],
+	"Shared team collections": [
+		"チームの共有コレクション",
+		"팀 공유 모음",
+		"Collections partagées de l’équipe",
+		"Colecciones compartidas del equipo",
+		"مجموعات الفريق المشتركة"
+	],
+	"Navigation layout": [
+		"ナビゲーションの配置",
+		"탐색 레이아웃",
+		"Disposition de la navigation",
+		"Diseño de navegación",
+		"تخطيط التنقل"
+	],
+	"Drawer": ["ドロワー", "드로어", "Panneau latéral", "Panel lateral", "لوحة جانبية"],
+	"Scroll-aware navigation demo": [
+		"スクロールに応じたナビゲーションの例",
+		"스크롤 반응형 탐색 예제",
+		"Navigation réactive au défilement",
+		"Navegación que responde al desplazamiento",
+		"مثال للتنقل المتفاعل مع التمرير"
+	],
+	"Demo navigation": [
+		"サンプルナビゲーション",
+		"예제 탐색",
+		"Navigation de démonstration",
+		"Navegación de ejemplo",
+		"تنقل تجريبي"
+	],
+	"Navbar": ["ナビゲーションバー", "탐색 모음", "Barre de navigation", "Barra de navegación", "شريط التنقل"],
+	"Content section": [
+		"コンテンツセクション",
+		"콘텐츠 섹션",
+		"Section de contenu",
+		"Sección de contenido",
+		"قسم المحتوى"
+	],
+	"Scroll down to hide the bar; scroll up to reveal it.": [
+		"下にスクロールするとバーを隠し、上にスクロールすると表示します。",
+		"아래로 스크롤하면 표시줄이 숨겨지고 위로 스크롤하면 나타납니다.",
+		"Faites défiler vers le bas pour masquer la barre, vers le haut pour l’afficher.",
+		"Desplázate hacia abajo para ocultar la barra y hacia arriba para mostrarla.",
+		"مرّر لأسفل لإخفاء الشريط ولأعلى لإظهاره."
+	],
+	"Sticky navigation demo": [
+		"固定ナビゲーションの例",
+		"고정 탐색 예제",
+		"Navigation fixe en haut",
+		"Navegación fija superior",
+		"مثال للتنقل المثبت"
+	],
+	"Scroll this area; the navigation bar stays at the top.": [
+		"この領域をスクロールしても、ナビゲーションバーは上部に残ります。",
+		"이 영역을 스크롤해도 탐색 모음은 상단에 고정됩니다.",
+		"Faites défiler cette zone ; la barre de navigation reste en haut.",
+		"Desplaza esta área; la barra de navegación permanece arriba.",
+		"مرّر داخل هذه المنطقة؛ يبقى شريط التنقل في الأعلى."
+	],
+	"View information": ["情報を見る", "정보 보기", "Voir les informations", "Ver información", "عرض المعلومات"],
+	"Sync status": ["同期状況", "동기화 상태", "État de synchronisation", "Estado de sincronización", "حالة المزامنة"],
+	"All changes are up to date.": [
+		"すべての変更が反映されています。",
+		"모든 변경 사항이 최신 상태입니다.",
+		"Toutes les modifications sont à jour.",
+		"Todos los cambios están al día.",
+		"جميع التغييرات محدّثة."
+	],
+	"Got it": ["了解", "확인", "Compris", "Entendido", "فهمت"],
+	"Starter": ["スターター", "스타터", "Démarrage", "Inicial", "البداية"],
+	"Scale": ["スケール", "스케일", "Expansion", "Escala", "التوسع"],
+	"Current plan": ["現在のプラン", "현재 요금제", "Offre actuelle", "Plan actual", "الخطة الحالية"],
+	"Usage this month": [
+		"今月の利用状況",
+		"이번 달 사용량",
+		"Utilisation ce mois-ci",
+		"Uso de este mes",
+		"الاستخدام هذا الشهر"
+	],
+	"Usage allowance": ["利用上限", "사용 한도", "Quota d’utilisation", "Límite de uso", "حد الاستخدام"],
+	"Find your team’s next plan": [
+		"チームに合う次のプランを見つける",
+		"팀에 맞는 다음 요금제를 찾아보세요",
+		"Trouvez la prochaine offre de votre équipe",
+		"Encuentra el próximo plan de tu equipo",
+		"اعثر على خطة فريقك القادمة"
+	],
+	"Billing cycle": ["請求サイクル", "결제 주기", "Cycle de facturation", "Ciclo de facturación", "دورة الفوترة"],
+	"Yearly · save 20%": [
+		"年払い · 20% お得",
+		"연간 · 20% 할인",
+		"Annuel · économisez 20 %",
+		"Anual · ahorra un 20 %",
+		"سنوي · وفّر 20٪"
+	],
+	"Subscription plan": [
+		"サブスクリプションプラン",
+		"구독 요금제",
+		"Offre d’abonnement",
+		"Plan de suscripción",
+		"خطة الاشتراك"
+	],
+	"/ seat / month": ["/ ユーザー / 月", "/ 사용자 / 월", "/ utilisateur / mois", "/ usuario / mes", "/ مستخدم / شهر"],
+	"Review change": ["変更を確認", "변경 검토", "Vérifier la modification", "Revisar cambio", "مراجعة التغيير"],
+	"Confirm plan change": [
+		"プラン変更を確認",
+		"요금제 변경 확인",
+		"Confirmer le changement d’offre",
+		"Confirmar cambio de plan",
+		"تأكيد تغيير الخطة"
+	],
+	"Monthly billing": ["月次請求", "월간 결제", "Facturation mensuelle", "Facturación mensual", "فوترة شهرية"],
+	"Annual billing": ["年次請求", "연간 결제", "Facturation annuelle", "Facturación anual", "فوترة سنوية"],
+	"This updates the demo only. No payment is collected.": [
+		"このデモのみ更新されます。お支払いは発生しません。",
+		"이 예제만 업데이트됩니다. 결제는 진행되지 않습니다.",
+		"Seule la démonstration est mise à jour. Aucun paiement n’est effectué.",
+		"Solo se actualiza la demostración. No se realiza ningún cobro.",
+		"يُحدّث هذا العرض التجريبي فقط. لن تُحصّل أي دفعة."
+	],
+	"Demo plan updated": [
+		"サンプルのプランを更新しました",
+		"예제 요금제를 업데이트했습니다",
+		"Offre de démonstration mise à jour",
+		"Plan de ejemplo actualizado",
+		"تم تحديث الخطة التجريبية"
+	],
+	"Confirm change": ["変更を確定", "변경 확인", "Confirmer la modification", "Confirmar cambio", "تأكيد التغيير"],
+	"Invoice history": ["請求履歴", "청구 내역", "Historique des factures", "Historial de facturas", "سجل الفواتير"],
+	"Period": ["期間", "기간", "Période", "Período", "الفترة"],
+	"Amount": ["金額", "금액", "Montant", "Importe", "المبلغ"],
+	"Paid": ["支払い済み", "결제 완료", "Payé", "Pagado", "مدفوع"],
+	"Discovery": ["ヒアリング", "요구 파악", "Découverte", "Descubrimiento", "الاستكشاف"],
+	"Proposal": ["提案", "제안", "Proposition", "Propuesta", "العرض"],
+	"Won": ["成約", "수주", "Gagné", "Ganado", "تم الفوز"],
+	"Pipeline value": ["商談総額", "파이프라인 금액", "Valeur du pipeline", "Valor del embudo", "قيمة الفرص"],
+	"Won revenue": ["成約売上", "수주 매출", "Revenus gagnés", "Ingresos ganados", "الإيرادات المحققة"],
+	"Active accounts": ["アクティブな顧客", "활성 고객", "Comptes actifs", "Cuentas activas", "الحسابات النشطة"],
+	"Accounts & opportunities": [
+		"顧客と商談",
+		"고객 및 영업 기회",
+		"Comptes et opportunités",
+		"Cuentas y oportunidades",
+		"الحسابات والفرص"
+	],
+	"Select an account to review and advance its opportunity.": [
+		"顧客を選択して商談を確認し、次の段階に進めます。",
+		"고객을 선택하여 영업 기회를 검토하고 다음 단계로 진행하세요.",
+		"Sélectionnez un compte pour examiner et faire avancer son opportunité.",
+		"Selecciona una cuenta para revisar y avanzar su oportunidad.",
+		"اختر حسابًا لمراجعة فرصته ونقلها إلى المرحلة التالية."
+	],
+	"Search accounts": ["顧客を検索", "고객 검색", "Rechercher un compte", "Buscar cuentas", "البحث في الحسابات"],
+	"Stage": ["段階", "단계", "Étape", "Etapa", "المرحلة"],
+	"Value": ["金額", "금액", "Valeur", "Valor", "القيمة"],
+	"No matching accounts": [
+		"一致する顧客がありません",
+		"일치하는 고객이 없습니다",
+		"Aucun compte correspondant",
+		"No hay cuentas coincidentes",
+		"لا توجد حسابات مطابقة"
+	],
+	"Clear search": ["検索をクリア", "검색 지우기", "Effacer la recherche", "Borrar búsqueda", "مسح البحث"],
+	"Account owner · Alex Morgan": [
+		"担当者 · Alex Morgan",
+		"담당자 · Alex Morgan",
+		"Responsable du compte · Alex Morgan",
+		"Responsable de cuenta · Alex Morgan",
+		"مسؤول الحساب · Alex Morgan"
+	],
+	"Next step: confirm the implementation timeline and team seats.": [
+		"次のステップ：導入スケジュールとチームの利用人数を確認します。",
+		"다음 단계: 도입 일정과 팀 사용자 수를 확인하세요.",
+		"Prochaine étape : confirmer le calendrier de mise en œuvre et les effectifs.",
+		"Próximo paso: confirmar el calendario de implementación y las plazas del equipo.",
+		"الخطوة التالية: تأكيد الجدول الزمني للتنفيذ وعدد مستخدمي الفريق."
+	],
+	"Sales stage": ["商談段階", "영업 단계", "Étape de vente", "Etapa de venta", "مرحلة البيع"],
+	"Current stage: ": ["現在の段階: ", "현재 단계: ", "Étape actuelle : ", "Etapa actual: ", "المرحلة الحالية: "],
+	"THE EVERYDAY EDIT": [
+		"日々のセレクション",
+		"일상의 발견",
+		"LA SÉLECTION DU QUOTIDIEN",
+		"LA SELECCIÓN COTIDIANA",
+		"مختارات الحياة اليومية"
+	],
+	"Good things, found here.": [
+		"ここで見つかる、いいもの。",
+		"좋은 것들을 여기에서.",
+		"De belles choses, à découvrir ici.",
+		"Cosas bonitas, aquí.",
+		"أشياء جميلة تجدها هنا."
+	],
+	"Small discoveries. A fresh perspective on the everyday.": [
+		"小さな発見。日常に、新しい視点を。",
+		"작은 발견. 일상을 보는 새로운 시선.",
+		"De petites découvertes. Un regard neuf sur le quotidien.",
+		"Pequeños descubrimientos. Una nueva mirada a lo cotidiano.",
+		"اكتشافات صغيرة. نظرة جديدة إلى الحياة اليومية."
+	],
+	"Search inspiration": [
+		"インスピレーションを検索",
+		"영감 검색",
+		"Rechercher l’inspiration",
+		"Buscar inspiración",
+		"البحث عن الإلهام"
+	],
+	"Find your next inspiration…": [
+		"次のひらめきを探す…",
+		"새로운 영감을 찾아보세요…",
+		"Trouvez votre prochaine inspiration…",
+		"Encuentra tu próxima inspiración…",
+		"اعثر على إلهامك القادم…"
+	],
+	"Feed categories": [
+		"フィードのカテゴリ",
+		"피드 카테고리",
+		"Catégories du fil",
+		"Categorías del feed",
+		"فئات المنشورات"
+	],
+	"Discover": ["見つける", "발견", "Découvrir", "Descubrir", "اكتشاف"],
+	"Spaces": ["空間", "공간", "Espaces", "Espacios", "مساحات"],
+	"Outdoors": ["アウトドア", "야외", "Plein air", "Al aire libre", "في الهواء الطلق"],
+	"Food & coffee": ["食とコーヒー", "음식과 커피", "Cuisine et café", "Comida y café", "الطعام والقهوة"],
+	"View story": ["投稿を見る", "게시물 보기", "Voir la publication", "Ver publicación", "عرض المنشور"],
+	"Keep your favorite finds here": [
+		"お気に入りの発見をここに",
+		"마음에 든 발견을 여기에 모으세요",
+		"Gardez vos découvertes favorites ici",
+		"Guarda aquí tus hallazgos favoritos",
+		"احتفظ باكتشافاتك المفضلة هنا"
+	],
+	"No stories found": [
+		"投稿が見つかりません",
+		"게시물이 없습니다",
+		"Aucune publication trouvée",
+		"No se encontraron publicaciones",
+		"لم يتم العثور على منشورات"
+	],
+	"Explore all stories": [
+		"すべての投稿を見る",
+		"모든 게시물 보기",
+		"Explorer toutes les publications",
+		"Explorar todas las publicaciones",
+		"استكشف جميع المنشورات"
+	],
+	"You’re all caught up. Make a little room for tomorrow.": [
+		"すべて読み終えました。明日のために、少しの余白を。",
+		"모두 둘러보셨네요. 내일을 위한 여유를 남겨 두세요.",
+		"Vous avez tout vu. Gardez un peu de place pour demain.",
+		"Ya estás al día. Deja un poco de espacio para mañana.",
+		"اطّلعت على كل شيء. اترك مساحة صغيرة للغد."
+	],
+	"Build visual hierarchy": [
+		"視覚的な階層をつくる",
+		"시각적 계층 만들기",
+		"Créer une hiérarchie visuelle",
+		"Crear una jerarquía visual",
+		"بناء تسلسل بصري"
+	],
+	"Make space work": [
+		"余白を活かす",
+		"여백 활용하기",
+		"Faire vivre les espaces",
+		"Dar sentido al espacio",
+		"توظيف المساحات"
+	],
+	"Design clear feedback": [
+		"明確なフィードバックを設計する",
+		"명확한 피드백 설계하기",
+		"Concevoir des retours clairs",
+		"Diseñar respuestas claras",
+		"تصميم استجابة واضحة"
+	],
+	"Start with the most important information. Use size, weight and placement to guide reading instead of making every element compete.": [
+		"最も重要な情報から始めます。すべての要素を目立たせるのではなく、大きさ・太さ・配置で読む順序を導きます。",
+		"가장 중요한 정보부터 시작하세요. 모든 요소가 경쟁하게 하기보다 크기, 굵기, 배치로 읽기 순서를 안내하세요.",
+		"Partez de l’information essentielle. Utilisez la taille, la graisse et la position pour guider la lecture sans faire rivaliser tous les éléments.",
+		"Empieza por la información más importante. Usa el tamaño, el peso y la posición para guiar la lectura sin que todos los elementos compitan.",
+		"ابدأ بالمعلومات الأهم. استخدم الحجم والسمك والموضع لتوجيه القراءة بدلًا من جعل جميع العناصر تتنافس."
+	],
+	"Keep related content together and separate topics with larger gaps. Space communicates relationships; it is more than decoration.": [
+		"関連する内容をまとめ、異なる話題の間には広い余白を取ります。余白は装飾ではなく、関係性を伝えます。",
+		"관련 콘텐츠는 모으고 다른 주제는 더 넓은 간격으로 구분하세요. 여백은 장식을 넘어 관계를 전달합니다.",
+		"Regroupez les contenus liés et espacez les sujets distincts. L’espace exprime les relations ; il ne sert pas qu’à décorer.",
+		"Agrupa el contenido relacionado y separa los temas con espacios mayores. El espacio comunica relaciones; es más que decoración.",
+		"اجمع المحتوى المترابط وافصل الموضوعات بمسافات أكبر. فالمساحة توضّح العلاقات وليست مجرد زينة."
+	],
+	"Give every action understandable feedback. Distinguish loading, success and failure, and offer a clear next step.": [
+		"すべての操作にわかりやすい反応を返します。読み込み・成功・失敗を区別し、次の行動を明確に示します。",
+		"모든 작업에 이해하기 쉬운 피드백을 주세요. 로딩, 성공, 실패를 구분하고 다음 단계를 명확히 제시하세요.",
+		"Donnez un retour compréhensible à chaque action. Distinguez chargement, réussite et échec, puis proposez une suite claire.",
+		"Da una respuesta comprensible a cada acción. Distingue carga, éxito y error, y ofrece un siguiente paso claro.",
+		"قدّم استجابة مفهومة لكل إجراء. ميّز بين التحميل والنجاح والفشل، واقترح خطوة تالية واضحة."
+	],
+	"Interface design essentials": [
+		"インターフェースデザインの基本",
+		"인터페이스 디자인 기초",
+		"Les bases du design d’interface",
+		"Fundamentos del diseño de interfaces",
+		"أساسيات تصميم الواجهات"
+	],
+	"Three lessons · self-paced": [
+		"3 レッスン · 自分のペースで",
+		"레슨 3개 · 자유 진도",
+		"Trois leçons · à votre rythme",
+		"Tres lecciones · a tu ritmo",
+		"ثلاثة دروس · حسب وتيرتك"
+	],
+	"Course progress": ["コースの進捗", "강의 진행률", "Progression du cours", "Progreso del curso", "تقدم الدورة"],
+	"Reading · three minutes": [
+		"読了目安 · 3 分",
+		"읽기 · 3분",
+		"Lecture · trois minutes",
+		"Lectura · tres minutos",
+		"قراءة · ثلاث دقائق"
+	],
+	"Try it": ["試してみる", "직접 해보기", "À vous de jouer", "Pruébalo", "جرّب بنفسك"],
+	"Choose a page you use often. Identify its most important action and reduce the distractions around it.": [
+		"よく使うページを選びます。最も重要な操作を見つけ、その周りの気を散らす要素を減らしましょう。",
+		"자주 사용하는 페이지를 선택하세요. 가장 중요한 작업을 찾고 주변의 방해 요소를 줄여 보세요.",
+		"Choisissez une page que vous utilisez souvent. Repérez son action essentielle et réduisez les distractions autour.",
+		"Elige una página que uses a menudo. Identifica su acción más importante y reduce las distracciones a su alrededor.",
+		"اختر صفحة تستخدمها كثيرًا. حدّد أهم إجراء فيها وقلّل ما يشتت الانتباه حوله."
+	],
+	"Completed": ["完了", "완료", "Terminé", "Completado", "مكتمل"],
+	"Mark lesson complete": [
+		"レッスンを完了にする",
+		"레슨 완료 표시",
+		"Marquer la leçon comme terminée",
+		"Marcar lección como completada",
+		"تحديد الدرس كمكتمل"
+	],
+	"Next lesson": ["次のレッスン", "다음 레슨", "Leçon suivante", "Siguiente lección", "الدرس التالي"],
+	"Blue Hour": ["ブルーアワー", "블루 아워", "L’heure bleue", "La hora azul", "الساعة الزرقاء"],
+	"The Way Home": ["帰り道", "집으로 가는 길", "Le chemin du retour", "El camino a casa", "الطريق إلى المنزل"],
+	"Curated playlist": [
+		"セレクトプレイリスト",
+		"추천 플레이리스트",
+		"Playlist choisie",
+		"Lista seleccionada",
+		"قائمة تشغيل مختارة"
+	],
+	"A little room to breathe": [
+		"ひと息つく余白",
+		"잠시 숨 돌릴 여유",
+		"Un peu d’espace pour respirer",
+		"Un momento para respirar",
+		"مساحة صغيرة لالتقاط الأنفاس"
+	],
+	"Three tracks for a quieter moment.": [
+		"穏やかなひとときのための 3 曲。",
+		"차분한 순간을 위한 세 곡.",
+		"Trois morceaux pour un moment plus calme.",
+		"Tres canciones para un momento más tranquilo.",
+		"ثلاث مقطوعات للحظة أكثر هدوءًا."
+	],
+	"Three original synthesized samples with real playback and seeking.": [
+		"再生・シークに対応したオリジナル合成音源 3 曲。",
+		"재생과 탐색이 가능한 오리지널 합성 음원 세 곡.",
+		"Trois extraits synthétisés originaux avec lecture et recherche dans la piste.",
+		"Tres muestras sintetizadas originales con reproducción y búsqueda en la pista.",
+		"ثلاثة مقاطع صوتية أصلية مولّدة، مع تشغيل فعلي وتنقل داخل المقطع."
+	],
+	"Track list": ["曲一覧", "트랙 목록", "Liste des pistes", "Lista de canciones", "قائمة المقاطع"],
+	"Track": ["曲", "트랙", "Piste", "Canción", "المقطع"],
+	"Duration": ["再生時間", "재생 시간", "Durée", "Duración", "المدة"],
+	"Favorite": ["お気に入り", "즐겨찾기", "Favori", "Favorito", "المفضلة"],
+	"Interview five customers": [
+		"5 人の顧客にインタビュー",
+		"고객 5명 인터뷰",
+		"Interroger cinq clients",
+		"Entrevistar a cinco clientes",
+		"مقابلة خمسة عملاء"
+	],
+	"Refine mobile navigation": [
+		"モバイルナビゲーションを改善",
+		"모바일 탐색 개선",
+		"Affiner la navigation mobile",
+		"Mejorar la navegación móvil",
+		"تحسين التنقل على الجوال"
+	],
+	"Publish design principles": [
+		"デザイン原則を公開",
+		"디자인 원칙 게시",
+		"Publier les principes de design",
+		"Publicar principios de diseño",
+		"نشر مبادئ التصميم"
+	],
+	"Planned": ["予定", "예정", "Prévu", "Planificado", "مخطط له"],
+	"Product team · Sprint 24": [
+		"プロダクトチーム · スプリント 24",
+		"제품 팀 · 스프린트 24",
+		"Équipe produit · Sprint 24",
+		"Equipo de producto · Sprint 24",
+		"فريق المنتج · الدورة 24"
+	],
+	"Make the next release matter.": [
+		"次のリリースを、意味のあるものに。",
+		"다음 릴리스에 의미를 더하세요.",
+		"Donnez du sens à la prochaine version.",
+		"Haz que la próxima versión cuente.",
+		"اجعل الإصدار القادم ذا أثر."
+	],
+	"A shared space for ideas, progress and delivery.": [
+		"アイデア、進捗、成果を共有する場所。",
+		"아이디어, 진행 상황, 결과물을 공유하는 공간.",
+		"Un espace partagé pour les idées, les avancées et les livraisons.",
+		"Un espacio compartido para ideas, avances y entregas.",
+		"مساحة مشتركة للأفكار والتقدم والتسليم."
+	],
+	"Sprint progress": [
+		"スプリントの進捗",
+		"스프린트 진행률",
+		"Progression du sprint",
+		"Progreso del sprint",
+		"تقدم الدورة"
+	],
+	"Add a task": ["タスクを追加", "작업 추가", "Ajouter une tâche", "Añadir una tarea", "إضافة مهمة"],
+	"Task name": ["タスク名", "작업 이름", "Nom de la tâche", "Nombre de la tarea", "اسم المهمة"],
+	"Add task": ["タスクを追加", "작업 추가", "Ajouter une tâche", "Añadir tarea", "إضافة مهمة"],
+	"Assigned to Alex": ["Alex が担当", "Alex에게 할당됨", "Attribué à Alex", "Asignada a Alex", "مسندة إلى Alex"],
+	"Reopen": ["再開", "다시 열기", "Rouvrir", "Reabrir", "إعادة الفتح"],
+	"Move forward": ["次の段階へ", "다음 단계로", "Faire avancer", "Avanzar", "الانتقال للمرحلة التالية"],
+	"No tasks here": [
+		"タスクがありません",
+		"작업이 없습니다",
+		"Aucune tâche ici",
+		"No hay tareas aquí",
+		"لا توجد مهام هنا"
+	],
+	"Illustration of a desk lamp": [
+		"デスクランプのイラスト",
+		"탁상 램프 일러스트",
+		"Illustration d’une lampe de bureau",
+		"Ilustración de una lámpara de escritorio",
+		"رسم توضيحي لمصباح مكتبي"
+	],
+	"A little light for everyday life.": [
+		"日々の暮らしに、やさしい光を。",
+		"일상에 더하는 작은 빛.",
+		"Un peu de lumière au quotidien.",
+		"Un poco de luz para cada día.",
+		"قليل من الضوء للحياة اليومية."
+	],
+	"The Everyday Lamp": [
+		"日常のランプ",
+		"에브리데이 램프",
+		"La lampe du quotidien",
+		"La lámpara cotidiana",
+		"مصباح كل يوم"
+	],
+	"Soft illumination. An adjustable shade. Made from aluminum.": [
+		"やさしい明かり。角度を変えられるシェード。アルミニウム製。",
+		"부드러운 조명. 조절 가능한 갓. 알루미늄 소재.",
+		"Une lumière douce. Un abat-jour réglable. En aluminium.",
+		"Luz suave. Pantalla ajustable. Fabricada en aluminio.",
+		"إضاءة ناعمة. غطاء قابل للتعديل. مصنوع من الألومنيوم."
+	],
+	"Lamp color": ["ランプの色", "램프 색상", "Couleur de la lampe", "Color de la lámpara", "لون المصباح"],
+	"Sage": ["セージ", "세이지", "Sauge", "Salvia", "أخضر مريمي"],
+	"Ink": ["インク", "잉크", "Encre", "Tinta", "حبري"],
+	"Quantity": ["数量", "수량", "Quantité", "Cantidad", "الكمية"],
+	"Added to the demo bag": [
+		"サンプルのバッグに追加しました",
+		"예제 장바구니에 추가했습니다",
+		"Ajouté au panier de démonstration",
+		"Añadido a la bolsa de ejemplo",
+		"تمت الإضافة إلى السلة التجريبية"
+	],
+	"Add to bag": ["バッグに追加", "장바구니에 담기", "Ajouter au panier", "Añadir a la bolsa", "أضف إلى السلة"],
+	"Shipping & returns": [
+		"配送と返品",
+		"배송 및 반품",
+		"Livraison et retours",
+		"Envíos y devoluciones",
+		"الشحن والإرجاع"
+	],
+	"Sample delivery: three to five business days, with returns within thirty days.": [
+		"配送例：3～5 営業日。返品は 30 日以内に受け付けます。",
+		"배송 예시: 영업일 기준 3~5일, 30일 이내 반품 가능.",
+		"Livraison indicative : trois à cinq jours ouvrés, retours sous trente jours.",
+		"Entrega de ejemplo: de tres a cinco días laborables, con devoluciones en treinta días.",
+		"توصيل تجريبي: من ثلاثة إلى خمسة أيام عمل، مع إمكانية الإرجاع خلال ثلاثين يومًا."
+	],
+	"Inbox": ["受信トレイ", "받은편지함", "Boîte de réception", "Bandeja de entrada", "صندوق الوارد"],
+	"Today · one customer conversation": [
+		"今日 · 1 件のお問い合わせ",
+		"오늘 · 고객 대화 1건",
+		"Aujourd’hui · une conversation client",
+		"Hoy · una conversación con un cliente",
+		"اليوم · محادثة واحدة مع عميل"
+	],
+	"Resolved": ["解決済み", "해결됨", "Résolu", "Resuelto", "تم الحل"],
+	"Needs reply": ["返信待ち", "답변 필요", "Réponse attendue", "Pendiente de respuesta", "بانتظار الرد"],
+	"Report export is unavailable": [
+		"レポートをエクスポートできません",
+		"보고서를 내보낼 수 없습니다",
+		"L’exportation du rapport est indisponible",
+		"No se puede exportar el informe",
+		"تصدير التقرير غير متاح"
+	],
+	"Response target: first reply within two hours.": [
+		"返信目標：2 時間以内に初回返信。",
+		"응답 목표: 2시간 이내 첫 답변.",
+		"Objectif : première réponse sous deux heures.",
+		"Objetivo: primera respuesta en dos horas.",
+		"الهدف: الرد الأول خلال ساعتين."
+	],
+	"Hi, I cannot see the export button. Could you help me check my team permissions?": [
+		"エクスポートボタンが表示されません。チームの権限を確認していただけますか？",
+		"안녕하세요. 내보내기 버튼이 보이지 않습니다. 팀 권한을 확인해 주시겠어요?",
+		"Bonjour, je ne vois pas le bouton d’exportation. Pourriez-vous vérifier mes autorisations d’équipe ?",
+		"Hola, no veo el botón de exportar. ¿Podrías revisar mis permisos del equipo?",
+		"مرحبًا، لا أرى زر التصدير. هل يمكنك مساعدتي في التحقق من صلاحياتي في الفريق؟"
+	],
+	"Conversation information": [
+		"会話の情報",
+		"대화 정보",
+		"Informations de la conversation",
+		"Información de la conversación",
+		"معلومات المحادثة"
+	],
+	"Reply": ["返信", "답변", "Répondre", "Responder", "رد"],
+	"Customer details": ["顧客情報", "고객 정보", "Informations du client", "Datos del cliente", "تفاصيل العميل"],
+	"Your reply": ["返信内容", "답변 내용", "Votre réponse", "Tu respuesta", "ردّك"],
+	"Send reply": ["返信を送信", "답변 보내기", "Envoyer la réponse", "Enviar respuesta", "إرسال الرد"],
+	"Reopen ticket": ["チケットを再開", "티켓 다시 열기", "Rouvrir le ticket", "Reabrir ticket", "إعادة فتح التذكرة"],
+	"Resolve ticket": ["チケットを解決", "티켓 해결", "Résoudre le ticket", "Resolver ticket", "حل التذكرة"],
+	"Team: Forma Labs. Plan: Pro. Last contact: today.": [
+		"チーム：Forma Labs。プラン：Pro。最終連絡：今日。",
+		"팀: Forma Labs. 요금제: Pro. 최근 연락: 오늘.",
+		"Équipe : Forma Labs. Offre : Pro. Dernier contact : aujourd’hui.",
+		"Equipo: Forma Labs. Plan: Pro. Último contacto: hoy.",
+		"الفريق: Forma Labs. الخطة: Pro. آخر تواصل: اليوم."
+	],
+	"Admin": ["管理者", "관리자", "Administrateur", "Administrador", "مسؤول"],
+	"Viewer": ["閲覧者", "뷰어", "Lecteur", "Lector", "مشاهد"],
+	"Your people": ["チームのメンバー", "우리 팀", "Votre équipe", "Tu equipo", "فريقك"],
+	"Invite collaborators and give everyone the right level of access.": [
+		"協力者を招待し、一人ひとりに適切な権限を設定します。",
+		"협업자를 초대하고 각자에게 적절한 접근 권한을 부여하세요.",
+		"Invitez des collaborateurs et donnez à chacun le bon niveau d’accès.",
+		"Invita a colaboradores y da a cada uno el nivel de acceso adecuado.",
+		"ادعُ المتعاونين وامنح كل شخص مستوى الوصول المناسب."
+	],
+	"Role": ["役割", "역할", "Rôle", "Rol", "الدور"],
+	"This member already belongs to the team": [
+		"このメンバーはすでにチームに参加しています",
+		"이미 팀에 속한 구성원입니다",
+		"Ce membre fait déjà partie de l’équipe",
+		"Este miembro ya pertenece al equipo",
+		"هذا العضو موجود بالفعل في الفريق"
+	],
+	"Demo member added": [
+		"サンプルのメンバーを追加しました",
+		"예제 구성원을 추가했습니다",
+		"Membre de démonstration ajouté",
+		"Miembro de ejemplo añadido",
+		"تمت إضافة عضو تجريبي"
+	],
+	"Invite email": [
+		"招待先メールアドレス",
+		"초대 이메일",
+		"Adresse e-mail à inviter",
+		"Correo de invitación",
+		"البريد الإلكتروني للدعوة"
+	],
+	"Add member": ["メンバーを追加", "구성원 추가", "Ajouter un membre", "Añadir miembro", "إضافة عضو"],
+	"Workspace security": [
+		"ワークスペースのセキュリティ",
+		"워크스페이스 보안",
+		"Sécurité de l’espace de travail",
+		"Seguridad del espacio de trabajo",
+		"أمان مساحة العمل"
+	],
+	"Require single sign-on": [
+		"シングルサインオンを必須にする",
+		"통합 로그인 필수",
+		"Exiger l’authentification unique",
+		"Exigir inicio de sesión único",
+		"اشتراط تسجيل الدخول الموحّد"
+	],
+	"When enabled, members sign in with their organization identity.": [
+		"有効にすると、メンバーは組織のアカウントでログインします。",
+		"활성화하면 구성원은 조직 계정으로 로그인합니다.",
+		"Une fois activé, les membres se connectent avec leur identité d’entreprise.",
+		"Al activarlo, los miembros inician sesión con su identidad de la organización.",
+		"عند التفعيل، يسجّل الأعضاء الدخول بهوية مؤسستهم."
+	],
+	"Security settings saved for this demo": [
+		"このデモのセキュリティ設定を保存しました",
+		"이 예제의 보안 설정을 저장했습니다",
+		"Paramètres de sécurité enregistrés pour cette démonstration",
+		"Configuración de seguridad guardada en esta demostración",
+		"تم حفظ إعدادات الأمان لهذا العرض التجريبي"
+	],
+	"Save settings": ["設定を保存", "설정 저장", "Enregistrer les paramètres", "Guardar configuración", "حفظ الإعدادات"],
+	"Illustration of mountains at sunrise": [
+		"朝日の山々のイラスト",
+		"일출의 산 일러스트",
+		"Illustration de montagnes au lever du soleil",
+		"Ilustración de montañas al amanecer",
+		"رسم توضيحي لجبال عند شروق الشمس"
+	],
+	"Booking steps": ["予約手順", "예약 단계", "Étapes de réservation", "Pasos de reserva", "خطوات الحجز"],
+	"Dates": ["日程", "날짜", "Dates", "Fechas", "التواريخ"],
+	"A mountain cabin · two slow nights": [
+		"山のキャビン · ゆったり過ごす 2 泊",
+		"산속 오두막 · 여유로운 이틀 밤",
+		"Un chalet en montagne · deux nuits paisibles",
+		"Una cabaña en la montaña · dos noches tranquilas",
+		"كوخ جبلي · ليلتان هادئتان"
+	],
+	"A private terrace, forest trails and quiet mornings.": [
+		"専用テラス、森の小道、静かな朝。",
+		"전용 테라스, 숲길, 고요한 아침.",
+		"Une terrasse privée, des sentiers forestiers et des matins calmes.",
+		"Una terraza privada, senderos por el bosque y mañanas tranquilas.",
+		"شرفة خاصة ومسارات غابية وصباحات هادئة."
+	],
+	"Check-in date": ["チェックイン日", "체크인 날짜", "Date d’arrivée", "Fecha de entrada", "تاريخ الوصول"],
+	"Guests": ["宿泊人数", "투숙객", "Voyageurs", "Huéspedes", "الضيوف"],
+	"Estimated arrival": ["到着予定時刻", "예상 도착 시간", "Arrivée estimée", "Llegada estimada", "الوصول المتوقع"],
+	"Review reservation": ["予約を確認", "예약 검토", "Vérifier la réservation", "Revisar reserva", "مراجعة الحجز"],
+	"guests · two nights": ["名 · 2 泊", "명 · 2박", "voyageurs · deux nuits", "huéspedes · dos noches", "ضيوف · ليلتان"],
+	"This is a demo reservation. No request is sent to a property.": [
+		"これはサンプルの予約です。宿泊施設にリクエストは送信されません。",
+		"예제 예약입니다. 숙소에 요청이 전송되지 않습니다.",
+		"Ceci est une réservation de démonstration. Aucune demande n’est envoyée à un établissement.",
+		"Esta es una reserva de demostración. No se envía ninguna solicitud al alojamiento.",
+		"هذا حجز تجريبي. لن يُرسل أي طلب إلى مكان إقامة."
+	],
+	"Confirm demo reservation": [
+		"サンプルの予約を確定",
+		"예제 예약 확인",
+		"Confirmer la réservation de démonstration",
+		"Confirmar reserva de ejemplo",
+		"تأكيد الحجز التجريبي"
+	],
+	"Edit dates": ["日程を変更", "날짜 수정", "Modifier les dates", "Editar fechas", "تعديل التواريخ"],
+	"Your itinerary is ready": [
+		"旅程の準備ができました",
+		"여행 일정이 준비되었습니다",
+		"Votre itinéraire est prêt",
+		"Tu itinerario está listo",
+		"برنامج رحلتك جاهز"
+	],
+	"Your reservation is saved in this demo.": [
+		"このデモ内に予約を保存しました。",
+		"이 예제에 예약을 저장했습니다.",
+		"Votre réservation est enregistrée dans cette démonstration.",
+		"Tu reserva se ha guardado en esta demostración.",
+		"تم حفظ حجزك في هذا العرض التجريبي."
+	],
+	"Plan another stay": [
+		"別の滞在を計画",
+		"다른 숙박 계획하기",
+		"Prévoir un autre séjour",
+		"Planear otra estancia",
+		"التخطيط لإقامة أخرى"
+	],
+	"Take a twenty-minute walk": [
+		"20 分散歩する",
+		"20분 산책하기",
+		"Marcher vingt minutes",
+		"Caminar veinte minutos",
+		"المشي لمدة عشرين دقيقة"
+	],
+	"Read ten pages": ["10 ページ読む", "열 페이지 읽기", "Lire dix pages", "Leer diez páginas", "قراءة عشر صفحات"],
+	"Put the phone away before bed": [
+		"寝る前にスマートフォンを置く",
+		"잠들기 전 휴대전화 내려놓기",
+		"Ranger son téléphone avant le coucher",
+		"Dejar el móvil antes de dormir",
+		"إبعاد الهاتف قبل النوم"
+	],
+	"Small steps deserve a little celebration.": [
+		"小さな一歩も、少し祝ってあげよう。",
+		"작은 걸음도 축하할 가치가 있어요.",
+		"Les petits pas méritent d’être célébrés.",
+		"Los pequeños pasos merecen celebrarse.",
+		"الخطوات الصغيرة تستحق بعض الاحتفاء."
+	],
+	"Find your own rhythm. Perfection is optional.": [
+		"自分のリズムを見つけよう。完璧でなくていい。",
+		"나만의 리듬을 찾으세요. 완벽하지 않아도 괜찮아요.",
+		"Trouvez votre rythme. La perfection est facultative.",
+		"Encuentra tu ritmo. La perfección es opcional.",
+		"اعثر على إيقاعك الخاص. الكمال ليس شرطًا."
+	],
+	"Today’s progress": ["今日の進捗", "오늘의 진행률", "Progrès du jour", "Progreso de hoy", "تقدم اليوم"],
+	"Today’s habits": ["今日の習慣", "오늘의 습관", "Habitudes du jour", "Hábitos de hoy", "عادات اليوم"],
+	"Habit completion": [
+		"習慣の達成状況",
+		"습관 달성률",
+		"Réalisation des habitudes",
+		"Hábitos completados",
+		"إنجاز العادات"
+	],
+	"Water journal": ["水分記録", "수분 기록", "Journal d’hydratation", "Registro de agua", "سجل شرب الماء"],
+	"Glasses logged today": [
+		"今日記録した杯数",
+		"오늘 기록한 잔 수",
+		"Verres enregistrés aujourd’hui",
+		"Vasos registrados hoy",
+		"الأكواب المسجلة اليوم"
+	],
+	"Log a glass": ["1 杯を記録", "한 잔 기록", "Ajouter un verre", "Registrar un vaso", "تسجيل كوب"],
+	"Undo a glass": ["1 杯を取り消す", "한 잔 취소", "Retirer un verre", "Deshacer un vaso", "التراجع عن كوب"],
+	"Log what works for you, without a universal target.": [
+		"一律の目標ではなく、自分に合う量を記録しましょう。",
+		"일률적인 목표 없이 나에게 맞게 기록하세요.",
+		"Notez ce qui vous convient, sans objectif universel.",
+		"Registra lo que te funciona, sin un objetivo universal.",
+		"سجّل ما يناسبك دون هدف موحّد للجميع."
+	],
+	"Your week at a glance": [
+		"今週をひと目で",
+		"한눈에 보는 이번 주",
+		"Votre semaine en un coup d’œil",
+		"Tu semana de un vistazo",
+		"أسبوعك في لمحة"
+	],
+	"Habits completed each day": [
+		"毎日達成した習慣",
+		"매일 완료한 습관",
+		"Habitudes réalisées chaque jour",
+		"Hábitos completados cada día",
+		"العادات المنجزة كل يوم"
+	],
+	"Mon": ["月", "월", "Lun.", "Lun.", "الاثنين"],
+	"Tue": ["火", "화", "Mar.", "Mar.", "الثلاثاء"],
+	"Wed": ["水", "수", "Mer.", "Mié.", "الأربعاء"],
+	"Today": ["今日", "오늘", "Aujourd’hui", "Hoy", "اليوم"],
+	"A little room for sunlight": [
+		"日差しのための小さな余白",
+		"햇살을 위한 작은 공간",
+		"Une petite place pour le soleil",
+		"Un pequeño espacio para el sol",
+		"مساحة صغيرة لضوء الشمس"
+	],
+	"Wood, linen, and afternoon light. Leaving space for the things that matter.": [
+		"木とリネン、午後の光。大切なもののために余白を残す。",
+		"나무, 리넨, 오후의 햇살. 소중한 것들을 위한 공간을 남기다.",
+		"Du bois, du lin et la lumière de l’après-midi. Garder de la place pour l’essentiel.",
+		"Madera, lino y luz de la tarde. Dejar espacio para lo que importa.",
+		"خشب وكتان وضوء العصر. مساحة للأشياء التي تعنينا."
+	],
+	"The weekend, somewhere quieter": [
+		"週末は、もっと静かな場所へ",
+		"주말에는 조금 더 고요한 곳으로",
+		"Le week-end, dans un endroit plus calme",
+		"El fin de semana, en un lugar más tranquilo",
+		"عطلة نهاية الأسبوع، في مكان أهدأ"
+	],
+	"A day without an itinerary. Follow the trail and stop to listen to the wind.": [
+		"予定のない一日。小道をたどり、立ち止まって風を聞く。",
+		"일정 없는 하루. 오솔길을 따라 걷다 멈춰 바람 소리를 듣는다.",
+		"Une journée sans itinéraire. Suivre le sentier et s’arrêter pour écouter le vent.",
+		"Un día sin itinerario. Seguir el sendero y detenerse a escuchar el viento.",
+		"يوم بلا برنامج. اتبع الدرب وتوقف لتستمع إلى الريح."
+	],
+	"Taking the slow way into morning": [
+		"ゆっくりと朝を迎える",
+		"천천히 맞이하는 아침",
+		"Entrer doucement dans la matinée",
+		"Empezar la mañana sin prisa",
+		"استقبال الصباح على مهل"
+	],
+	"Freshly brewed coffee, an open window, and a new day ahead.": [
+		"淹れたてのコーヒー、開けた窓、これから始まる一日。",
+		"갓 내린 커피, 열린 창문, 그리고 새로운 하루.",
+		"Un café fraîchement préparé, une fenêtre ouverte et une nouvelle journée devant soi.",
+		"Café recién hecho, una ventana abierta y un nuevo día por delante.",
+		"قهوة طازجة ونافذة مفتوحة ويوم جديد ينتظرنا."
+	],
+	"A corner that keeps on growing": [
+		"少しずつ育っていく一角",
+		"계속 자라나는 한쪽 공간",
+		"Un coin qui ne cesse de grandir",
+		"Un rincón que sigue creciendo",
+		"ركن يواصل النمو"
+	],
+	"Start with one plant. Let your home grow into something that feels like you.": [
+		"ひと鉢の植物から。自分らしく感じられる家を、少しずつ育てる。",
+		"식물 한 그루부터 시작해 보세요. 집이 나를 닮은 공간으로 자라나도록.",
+		"Commencez par une plante. Laissez votre intérieur devenir un lieu qui vous ressemble.",
+		"Empieza con una planta. Deja que tu hogar crezca hasta parecerse a ti.",
+		"ابدأ بنبتة واحدة. دع منزلك ينمو ليصبح مكانًا يشبهك."
+	],
+	"Where the day meets the sea": [
+		"一日が海と出会う場所",
+		"하루가 바다와 만나는 곳",
+		"Là où le jour rejoint la mer",
+		"Donde el día se encuentra con el mar",
+		"حيث يلتقي النهار بالبحر"
+	],
+	"Reflections on the water. The moment I wanted to bring home from this trip.": [
+		"水面に映る景色。この旅から持ち帰りたかった瞬間。",
+		"수면 위의 풍경. 이번 여행에서 집으로 가져오고 싶었던 순간.",
+		"Des reflets sur l’eau. L’instant que je voulais rapporter de ce voyage.",
+		"Reflejos sobre el agua. El momento que quería llevarme a casa de este viaje.",
+		"انعكاسات على الماء. اللحظة التي أردت أن أحملها معي من هذه الرحلة."
+	],
+	"Breakfast is a small occasion": [
+		"朝食は、小さな特別",
+		"아침 식사는 작은 특별함",
+		"Le petit-déjeuner, un petit événement",
+		"El desayuno es una pequeña celebración",
+		"الفطور مناسبة صغيرة"
+	],
+	"Fresh ingredients, simple combinations. A breakfast with nowhere to rush.": [
+		"新鮮な食材、シンプルな組み合わせ。急がなくていい朝食。",
+		"신선한 재료, 간단한 조합. 서두를 필요 없는 아침 식사.",
+		"Des ingrédients frais, des associations simples. Un petit-déjeuner sans se presser.",
+		"Ingredientes frescos, combinaciones sencillas. Un desayuno sin prisas.",
+		"مكونات طازجة وتوليفات بسيطة. فطور لا داعي للعجلة فيه."
+	],
+	"One more chapter before sunset": [
+		"日が沈む前に、もう一章",
+		"해 지기 전에 한 장 더",
+		"Encore un chapitre avant le coucher du soleil",
+		"Un capítulo más antes del atardecer",
+		"فصل آخر قبل الغروب"
+	],
+	"It does not need to be big. A good book and a quiet corner are enough.": [
+		"広くなくてもいい。一冊の本と静かな一角があれば。",
+		"넓지 않아도 괜찮아요. 좋은 책과 조용한 공간이면 충분해요.",
+		"Pas besoin de beaucoup de place. Un bon livre et un coin tranquille suffisent.",
+		"No hace falta que sea grande. Un buen libro y un rincón tranquilo bastan.",
+		"لا حاجة إلى مساحة كبيرة. كتاب جيد وركن هادئ يكفيان."
+	],
+	"Offline looks good from here": [
+		"ここでは、オフラインが心地いい",
+		"여기서는 오프라인이 더 좋아요",
+		"D’ici, la déconnexion a du bon",
+		"Desde aquí, desconectar sienta bien",
+		"من هنا، يبدو الانفصال عن الشبكة جميلًا"
+	],
+	"Put the phone away for a while. Walk toward the light.": [
+		"しばらくスマートフォンをしまって、光のほうへ歩いてみる。",
+		"잠시 휴대전화를 내려놓고 빛을 향해 걸어가세요.",
+		"Rangez votre téléphone un moment. Marchez vers la lumière.",
+		"Guarda el móvil un rato. Camina hacia la luz.",
+		"ضع الهاتف جانبًا قليلًا. امشِ نحو الضوء."
+	],
+	"Contrast": ["コントラスト", "대비", "Contraste", "Contraste", "التباين"],
+	"Entry {number}": ["記録 {number}", "기록 {number}", "Entrée {number}", "Entrada {number}", "السجل {number}"],
+	"Entry navigation": [
+		"記録ナビゲーション",
+		"기록 탐색",
+		"Navigation des entrées",
+		"Navegación de entradas",
+		"التنقل بين السجلات"
+	],
+	"Hover to preview; select to navigate. Use the arrow keys, Home, and End to explore.": [
+		"ホバーでプレビューし、選択して移動します。矢印キー、Home、End でも操作できます。",
+		"마우스를 올려 미리 보고 선택하여 이동하세요. 화살표 키, Home, End로 탐색할 수 있습니다.",
+		"Survolez pour prévisualiser, sélectionnez pour naviguer. Utilisez les flèches, Début et Fin pour explorer.",
+		"Pasa el cursor para ver una vista previa y selecciona para navegar. Usa las flechas, Inicio y Fin para explorar.",
+		"مرّر المؤشر للمعاينة، واختر للتنقل. استخدم مفاتيح الأسهم وHome وEnd للاستكشاف."
+	]
+}

@@ -1,6 +1,6 @@
 {
 	"name": "@matrixzero/charts",
-	"version": "0.1.0-alpha.3",
+	"version": "0.1.0-alpha.4",
 	"description": "Theme-aware basic charts for Matrix Design System",
 	"type": "module",
 	"license": "UNLICENSED",

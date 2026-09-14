@@ -1,3 +1,4 @@
+import { type DocsLocale, translate } from "../i18n";
 import { EmptyState } from "@matrixzero/ui";
 import { Search } from "@matrixzero/icons";
 
@@ -6,11 +7,11 @@ export default function Example({
 	media = "illustration",
 	thumbnailSize = "md",
 }: {
-	locale?: "zh" | "en";
+	locale?: DocsLocale;
 	media?: "icon" | "illustration" | "none";
 	thumbnailSize?: "sm" | "md" | "lg";
 }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	// Decorative vector illustration: no external assets or duplicated screen-reader text.
 	const illustration = (
 		<svg viewBox="0 0 160 160" aria-hidden="true" focusable="false">

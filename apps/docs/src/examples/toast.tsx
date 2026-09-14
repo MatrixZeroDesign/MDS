@@ -1,19 +1,30 @@
+import { type DocsLocale, translate } from "../i18n";
 import { Button, ToastProvider, Toaster, useToast, type ToastOptions } from "@matrixzero/ui";
-function Notifications({ locale, tone }: { locale: "zh" | "en"; tone: ToastOptions["tone"] }) {
+function Notifications({ locale, tone }: { locale: DocsLocale; tone: ToastOptions["tone"] }) {
 	const { toast, clear } = useToast();
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	return (
 		<div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
 			<Button
 				onClick={() =>
 					toast({
-						title: t("导出完成", "Export completed"),
-						description: t("文件已准备好，可以下载。", "Your file is ready to download."),
+						title: t("可以更新了", "Ready to update"),
+						description: t("新版本已准备好。", "A new version is ready."),
 						tone,
+						action: {
+							label: t("立即更新", "Update now"),
+							altText: t("立即安装更新", "Install the update now"),
+							onClick: () =>
+								toast({
+									title: t("正在更新", "Updating"),
+									description: t("完成后会通知你。", "We will let you know when it is complete."),
+									tone: "info",
+								}),
+						},
 					})
 				}
 			>
-				{t("显示通知", "Show toast")}
+				{t("显示操作通知", "Show actionable toast")}
 			</Button>
 			<Button
 				onClick={() => {
@@ -57,15 +68,15 @@ export default function Example({
 	locale = "en",
 	tone = "success",
 }: {
-	locale?: "zh" | "en";
+	locale?: DocsLocale;
 	tone?: ToastOptions["tone"];
 }) {
 	return (
-		<ToastProvider label={locale === "zh" ? "通知" : "Notification"}>
+		<ToastProvider label={translate(locale, "通知", "Notification")}>
 			<Notifications locale={locale} tone={tone} />
 			<Toaster
-				label={locale === "zh" ? "通知 ({hotkey})" : "Notifications ({hotkey})"}
-				closeLabel={locale === "zh" ? "关闭通知" : "Dismiss notification"}
+				label={translate(locale, "通知 ({hotkey})", "Notifications ({hotkey})")}
+				closeLabel={translate(locale, "关闭通知", "Dismiss notification")}
 			/>
 		</ToastProvider>
 	);

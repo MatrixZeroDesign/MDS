@@ -1,5 +1,18 @@
 import { useState } from "react";
-import { Button, Avatar, Badge, Field, Textarea, Form, FormSubmit, Tabs, TabList, Tab, TabPanel } from "@matrixzero/ui";
+import {
+	Button,
+	Avatar,
+	Badge,
+	NotificationBadge,
+	Field,
+	Textarea,
+	Form,
+	FormSubmit,
+	Tabs,
+	TabList,
+	Tab,
+	TabPanel,
+} from "@matrixzero/ui";
 import { Panel, translator, type SceneProps } from "./shared";
 export default function Support({ locale }: SceneProps) {
 	const t = translator(locale);
@@ -19,7 +32,9 @@ export default function Support({ locale }: SceneProps) {
 			</Panel>
 			<Panel title={t("无法导出报表", "Report export is unavailable")}>
 				<div className="sc-row">
-					<Avatar alt="Jordan Lee" fallback="JL" />
+					<NotificationBadge variant="dot" label={t("未读客户消息", "Unread customer message")} invisible={resolved}>
+						<Avatar alt="Jordan Lee" fallback="JL" />
+					</NotificationBadge>
 					<strong>Jordan Lee</strong>
 				</div>
 				<div className="sc-message">

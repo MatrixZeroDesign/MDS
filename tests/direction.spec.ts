@@ -14,7 +14,7 @@ test("nested direction inherits and explicit roots remain isolated", async () =>
 	expect(html).toMatch(/data-testid="override" dir="ltr"/);
 });
 test("RTL mirrors navigation and switch movement, and tabs follow direction-aware keys", async ({ page }) => {
-	await page.goto("/#system");
+	await page.goto("/system");
 	await page.getByRole("button", { name: "Toggle reading direction" }).click();
 	const root = page.locator(".mds-root").first();
 	await expect(root).toHaveAttribute("dir", "rtl");
@@ -43,7 +43,7 @@ test("RTL mirrors navigation and switch movement, and tabs follow direction-awar
 	await drawer.getByRole("link", { name: "Button", exact: true }).click();
 	await expect(drawer).toHaveCount(0);
 	expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();
-	await expect(page.locator(".docs-reference-detail pre")).toHaveCSS("direction", "ltr");
+	await expect(page.locator(".docs-reference-detail pre").first()).toHaveCSS("direction", "ltr");
 });
 test("separate roots retain their own portal directions", async ({ page }) => {
 	await page.goto("/isolation.html");

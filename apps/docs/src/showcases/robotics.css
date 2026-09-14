@@ -1,0 +1,447 @@
+.mds-root .sc-robotics {
+	display: grid;
+	gap: 18px;
+	padding: clamp(4px, 1vw, 12px);
+	background:
+		radial-gradient(circle at 82% -10%, color-mix(in srgb, var(--mds-accent) 9%, transparent), transparent 35%),
+		transparent;
+}
+.mds-root .sc-robotics-header,
+.mds-root .sc-robotics-header-actions,
+.mds-root .sc-robotics-title-row,
+.mds-root .sc-robotics-controlbar,
+.mds-root .sc-robotics-footer {
+	display: flex;
+	align-items: center;
+}
+.mds-root .sc-robotics-header {
+	justify-content: space-between;
+	gap: 24px;
+	padding: 8px 2px 4px;
+}
+.mds-root .sc-robotics-header h2 {
+	margin: 8px 0 5px;
+	font-size: clamp(27px, 3.5vw, 42px);
+	font-weight: 540;
+	letter-spacing: -0.045em;
+}
+.mds-root .sc-robotics-header p,
+.mds-root .sc-robotics-header small {
+	margin: 0;
+	color: var(--mds-muted);
+}
+.mds-root .sc-robotics-header-actions {
+	gap: 8px;
+	align-self: start;
+}
+.mds-root .sc-robotics-kicker {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--mds-muted);
+	font-size: 10px;
+	font-weight: 650;
+	letter-spacing: 0.13em;
+}
+.mds-root .sc-robotics-live {
+	display: inline-block;
+	width: 7px;
+	height: 7px;
+	border-radius: 50%;
+	background: var(--mds-success);
+	box-shadow: 0 0 0 4px color-mix(in srgb, var(--mds-success) 12%, transparent);
+}
+.mds-root .sc-robotics-stats {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	overflow: hidden;
+	border: 1px solid var(--mds-border);
+	border-radius: 16px;
+	background: var(--mds-surface);
+}
+.mds-root .sc-robotics-stats > div {
+	display: grid;
+	gap: 7px;
+	padding: 18px 20px;
+	border-inline-end: 1px solid var(--mds-border);
+}
+.mds-root .sc-robotics-stats > div:last-child {
+	border-inline-end: 0;
+}
+.mds-root .sc-robotics-stats span {
+	color: var(--mds-muted);
+	font-size: 12px;
+}
+.mds-root .sc-robotics-stats strong {
+	font-size: 25px;
+	font-weight: 560;
+	letter-spacing: -0.035em;
+	font-variant-numeric: tabular-nums;
+}
+.mds-root .sc-robotics-stats strong span {
+	margin-inline-start: 4px;
+	font-size: 12px;
+	font-weight: 450;
+}
+.mds-root .sc-robotics-stats small,
+.mds-root .sc-robotics-footer span {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	color: var(--mds-muted);
+	font-size: 11px;
+}
+.mds-root .sc-robotics-stats .sc-positive {
+	color: var(--mds-success);
+}
+.mds-root .sc-robotics-layout {
+	display: grid;
+	grid-template-columns: minmax(270px, 0.76fr) minmax(0, 1.65fr);
+	gap: 18px;
+	align-items: start;
+}
+.mds-root .sc-robotics-layout > .mds-card {
+	overflow: hidden;
+	border-radius: 16px;
+}
+.mds-root .sc-robotics-fleet,
+.mds-root .sc-robotics-tasks {
+	grid-column: 1;
+}
+.mds-root .sc-robotics-map-card,
+.mds-root .sc-robotics-telemetry {
+	grid-column: 2;
+}
+.mds-root .sc-robotics-map-card {
+	grid-row: 1 / span 2;
+}
+.mds-root .sc-robotics-telemetry {
+	grid-row: 3;
+}
+.mds-root .sc-robotics-tasks {
+	grid-row: 2 / span 2;
+}
+.mds-root .sc-robotics-title-row {
+	justify-content: space-between;
+	gap: 16px;
+	width: 100%;
+}
+.mds-root .sc-robotics-fleet-list,
+.mds-root .sc-robotics-task-list {
+	gap: 6px;
+}
+.mds-root .sc-robotics-robot-options {
+	grid-template-columns: 1fr;
+	gap: 8px;
+}
+.mds-root .sc-robotics-robot {
+	padding: 12px;
+	border-radius: 12px;
+}
+.mds-root .sc-robotics-unit {
+	display: grid;
+	place-items: center;
+	width: 36px;
+	height: 36px;
+	padding: 0;
+	border-radius: 11px;
+	background: var(--mds-soft);
+}
+.mds-root .sc-robotics-unit[data-state="active"] {
+	color: var(--mds-success);
+}
+.mds-root .sc-robotics-unit[data-state="attention"] {
+	color: var(--mds-warning);
+}
+.mds-root .sc-robotics-robot-copy,
+.mds-root .sc-robotics-robot-meta {
+	display: grid;
+	min-width: 0;
+	gap: 3px;
+}
+.mds-root .sc-robotics-robot-copy small {
+	overflow: hidden;
+	color: var(--mds-muted);
+	font-size: 10px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.mds-root .sc-robotics-robot-meta {
+	justify-items: end;
+}
+.mds-root .sc-robotics-robot-meta small,
+.mds-root .sc-robotics-task > div:last-child small {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	color: var(--mds-muted);
+	font-size: 10px;
+}
+.mds-root .sc-robotics-map {
+	position: relative;
+	min-height: 310px;
+	overflow: hidden;
+	border: 1px solid var(--mds-border);
+	border-radius: 14px;
+	background-color: var(--mds-soft);
+	background-image:
+		linear-gradient(color-mix(in srgb, var(--mds-border) 36%, transparent) 1px, transparent 1px),
+		linear-gradient(90deg, color-mix(in srgb, var(--mds-border) 36%, transparent) 1px, transparent 1px);
+	background-size: 26px 26px;
+}
+.mds-root .sc-robotics-map::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: radial-gradient(
+		circle at 50% 50%,
+		transparent 20%,
+		color-mix(in srgb, var(--mds-soft) 66%, transparent) 100%
+	);
+}
+.mds-root .sc-robotics-map svg {
+	position: absolute;
+	inset: 25px 4%;
+	width: 92%;
+	height: calc(100% - 50px);
+	overflow: visible;
+	fill: none;
+	stroke: color-mix(in srgb, var(--mds-accent) 58%, var(--mds-muted));
+	stroke-width: 4;
+	stroke-linecap: round;
+	stroke-dasharray: 2 10;
+}
+.mds-root .sc-robotics-zone {
+	position: absolute;
+	z-index: 1;
+	padding: 6px 9px;
+	border: 1px solid var(--mds-border);
+	border-radius: 8px;
+	background: color-mix(in srgb, var(--mds-surface) 88%, transparent);
+	color: var(--mds-muted);
+	font-size: 9px;
+	font-weight: 650;
+	letter-spacing: 0.08em;
+}
+.mds-root .sc-zone-a {
+	inset: 20% auto auto 7%;
+}
+.mds-root .sc-zone-b {
+	inset: auto auto 15% 38%;
+}
+.mds-root .sc-zone-pack {
+	inset: 19% 7% auto auto;
+}
+.mds-root .sc-robotics-node,
+.mds-root .sc-robotics-position {
+	position: absolute;
+	z-index: 2;
+	display: grid;
+	place-items: center;
+	width: 34px;
+	height: 34px;
+	border-radius: 11px;
+	background: var(--mds-surface);
+	box-shadow: 0 5px 18px color-mix(in srgb, var(--mds-text) 12%, transparent);
+}
+.mds-root .sc-node-start {
+	left: 8%;
+	bottom: 22%;
+}
+.mds-root .sc-node-end {
+	right: 6%;
+	top: 41%;
+}
+.mds-root .sc-robotics-position {
+	left: 48%;
+	top: 34%;
+	width: 42px;
+	height: 42px;
+	background: var(--mds-text);
+	color: var(--mds-surface);
+	animation: sc-robotics-float 2.4s ease-in-out infinite;
+}
+.mds-root .sc-robotics-position i {
+	position: absolute;
+	width: 56px;
+	height: 56px;
+	border: 1px solid color-mix(in srgb, var(--mds-accent) 45%, transparent);
+	border-radius: 18px;
+	animation: sc-robotics-signal 1.8s ease-out infinite;
+}
+.mds-root .sc-robotics-position[data-paused] {
+	animation: none;
+}
+.mds-root .sc-robotics-position[data-paused] i {
+	display: none;
+}
+.mds-root .sc-robotics-controlbar {
+	flex-wrap: wrap;
+	gap: 14px;
+	padding-top: 16px;
+}
+.mds-root .sc-robotics-controlbar > div {
+	display: grid;
+	gap: 2px;
+	min-width: 82px;
+}
+.mds-root .sc-robotics-controlbar > div span {
+	color: var(--mds-muted);
+	font-size: 10px;
+}
+.mds-root .sc-robotics-controlbar > div strong {
+	font-size: 13px;
+	font-variant-numeric: tabular-nums;
+}
+.mds-root .sc-robotics-controlbar .sc-robotics-battery-reading {
+	grid-template-columns: auto auto;
+	align-items: center;
+	column-gap: 8px;
+}
+.mds-root .sc-robotics-battery-reading .mds-progress {
+	grid-column: 1 / -1;
+	width: 74px;
+}
+.mds-root .sc-robotics-controlbar > .mds-button:first-of-type {
+	margin-inline-start: auto;
+}
+.mds-root .sc-robotics-stop-trigger {
+	gap: 7px;
+}
+.mds-root .sc-robotics-task {
+	display: grid;
+	grid-template-columns: 30px minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 10px;
+	padding: 11px 4px;
+}
+.mds-root .sc-robotics-task-index {
+	display: grid;
+	place-items: center;
+	width: 28px;
+	height: 28px;
+	border-radius: 9px;
+	background: var(--mds-soft);
+	color: var(--mds-muted);
+	font-size: 11px;
+	font-weight: 650;
+}
+.mds-root .sc-robotics-task > div {
+	display: grid;
+	gap: 4px;
+}
+.mds-root .sc-robotics-task > div > small {
+	color: var(--mds-muted);
+	font-size: 10px;
+}
+.mds-root .sc-robotics-task > div:last-child {
+	justify-items: end;
+}
+.mds-root .sc-robotics-telemetry .mds-card-content {
+	min-height: 280px;
+}
+.mds-root .sc-robotics-footer {
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	gap: 18px;
+	padding: 2px 5px;
+}
+.mds-root .sc-robotics-dialog-icon {
+	display: grid;
+	place-items: center;
+	width: 46px;
+	height: 46px;
+	margin-top: 14px;
+	border-radius: 14px;
+	background: color-mix(in srgb, var(--mds-danger) 12%, var(--mds-surface));
+	color: var(--mds-danger);
+}
+.mds-root .sc-robotics-dialog-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 8px;
+	margin-top: 24px;
+}
+@keyframes sc-robotics-float {
+	50% {
+		transform: translateY(-3px);
+	}
+}
+@keyframes sc-robotics-signal {
+	from {
+		opacity: 0.7;
+		transform: scale(0.72);
+	}
+	to {
+		opacity: 0;
+		transform: scale(1.15);
+	}
+}
+@media (max-width: 940px) {
+	.mds-root .sc-robotics-stats {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	.mds-root .sc-robotics-stats > div:nth-child(2) {
+		border-inline-end: 0;
+	}
+	.mds-root .sc-robotics-stats > div:nth-child(-n + 2) {
+		border-bottom: 1px solid var(--mds-border);
+	}
+	.mds-root .sc-robotics-layout {
+		grid-template-columns: 1fr;
+	}
+	.mds-root .sc-robotics-layout > .mds-card {
+		grid-column: 1;
+		grid-row: auto;
+	}
+}
+@media (max-width: 600px) {
+	.mds-root .sc-robotics {
+		padding: 13px;
+		border-radius: 16px;
+	}
+	.mds-root .sc-robotics-header {
+		align-items: flex-start;
+	}
+	.mds-root .sc-robotics-header-actions .mds-badge {
+		display: none;
+	}
+	.mds-root .sc-robotics-stats > div {
+		padding: 14px;
+	}
+	.mds-root .sc-robotics-stats strong {
+		font-size: 21px;
+	}
+	.mds-root .sc-robotics-map {
+		min-height: 260px;
+	}
+	.mds-root .sc-robotics-controlbar > div {
+		min-width: calc(33.333% - 10px);
+	}
+	.mds-root .sc-robotics-controlbar > .mds-button:first-of-type {
+		margin-inline-start: 0;
+	}
+	.mds-root .sc-robotics-controlbar > .mds-button {
+		flex: 1;
+	}
+	.mds-root .sc-robotics-robot {
+		grid-template-columns: 34px minmax(0, 1fr);
+	}
+	.mds-root .sc-robotics-robot-meta {
+		grid-column: 2;
+		grid-template-columns: auto auto;
+		justify-content: space-between;
+		justify-items: start;
+		width: 100%;
+	}
+	.mds-root .sc-robotics-footer {
+		justify-content: flex-start;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.mds-root .sc-robotics-position,
+	.mds-root .sc-robotics-position i {
+		animation: none;
+	}
+}

@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 test("text, action states and categorical strokes retain contrast in every theme", async ({ page }) => {
-	await page.goto("/?lang=zh#system");
+	await page.goto("/system?lang=zh");
 	await page.emulateMedia({ reducedMotion: "reduce" });
 	await page
 		.locator(".mds-root")
@@ -102,7 +102,7 @@ test("text, action states and categorical strokes retain contrast in every theme
 test("rendered notices, cards, placeholders and control outlines meet contrast thresholds", async ({
 	page,
 }, testInfo) => {
-	await page.goto("/?lang=zh#system");
+	await page.goto("/system?lang=zh");
 	await page.emulateMedia({ reducedMotion: "reduce" });
 	const report = [];
 	for (const mode of ["light", "dark"]) {
@@ -111,6 +111,15 @@ test("rendered notices, cards, placeholders and control outlines meet contrast t
 			.first()
 			.evaluate((el, mode) => el.setAttribute("data-mds-mode", mode), mode);
 		const pairs = await page.evaluate(() => {
+			const effectiveBackground = (element: Element) => {
+				let current: Element | null = element;
+				while (current) {
+					const background = getComputedStyle(current).backgroundColor;
+					if (background !== "rgba(0, 0, 0, 0)" && background !== "transparent") return background;
+					current = current.parentElement;
+				}
+				return "rgb(255, 255, 255)";
+			};
 			const luminance = (color: string) => {
 				const c = document.createElement("canvas").getContext("2d")!;
 				c.fillStyle = color;
@@ -131,7 +140,7 @@ test("rendered notices, cards, placeholders and control outlines meet contrast t
 				const c = getComputedStyle(el);
 				results.push({
 					name: el.className + " " + el.getAttribute("data-tone"),
-					ratio: ratio(c.color, c.backgroundColor),
+					ratio: ratio(c.color, effectiveBackground(el)),
 					minimum: 4.5,
 				});
 			}

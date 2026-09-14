@@ -4,16 +4,18 @@ import type { ComponentProps, ReactNode } from "react";
 import * as Check from "@radix-ui/react-checkbox";
 import * as Toggle from "@radix-ui/react-switch";
 import * as Radio from "@radix-ui/react-radio-group";
-import { Check as CheckIcon, Minus, LoaderCircle, ChevronDown } from "@matrixzero/icons";
+import { Check as CheckIcon, Minus, LoaderCircle, ChevronDown, X } from "@matrixzero/icons";
 export const cx = (...parts: (string | undefined | false)[]) => parts.filter(Boolean).join(" ");
 type Size = "sm" | "md" | "lg";
 export interface ButtonProps extends ComponentProps<"button"> {
+	density?: "comfortable" | "compact";
 	variant?: "primary" | "secondary" | "ghost" | "danger" | "contrast";
 	size?: Size;
 	shape?: "rounded" | "pill";
 	loading?: boolean;
 }
 export function Button({
+	density,
 	variant = "secondary",
 	size = "md",
 	shape = "rounded",
@@ -31,12 +33,66 @@ export function Button({
 			disabled={disabled || loading}
 			aria-busy={loading || undefined}
 			className={cx("mds-button", className)}
+			data-mds-density={density}
 			data-variant={variant}
 			data-size={size}
 			data-shape={shape}
 		>
 			{loading && <LoaderCircle className="mds-spin" size={16} aria-hidden="true" />}
 			{children}
+		</button>
+	);
+}
+
+export interface ChipGroupProps extends ComponentProps<"div"> {
+	label: string;
+}
+
+export function ChipGroup({ label, className, ...props }: ChipGroupProps) {
+	return <div {...props} role="group" aria-label={label} className={cx("mds-chip-group", className)} />;
+}
+
+export interface ChipProps extends Omit<ComponentProps<"button">, "onChange"> {
+	leading?: ReactNode;
+	selected?: boolean;
+	onSelectedChange?: (selected: boolean) => void;
+	removable?: boolean;
+	removeLabel?: string;
+	onRemove?: () => void;
+}
+
+/** Compact filter, choice, or removable value. */
+export function Chip({
+	leading,
+	selected,
+	onSelectedChange,
+	removable = false,
+	removeLabel,
+	onRemove,
+	className,
+	children,
+	onClick,
+	type = "button",
+	...props
+}: ChipProps) {
+	return (
+		<button
+			{...props}
+			type={type}
+			className={cx("mds-chip", className)}
+			data-selected={selected || undefined}
+			aria-pressed={!removable && selected !== undefined ? selected : undefined}
+			aria-label={removable ? removeLabel : props["aria-label"]}
+			onClick={(event) => {
+				onClick?.(event);
+				if (event.defaultPrevented) return;
+				if (removable) onRemove?.();
+				else if (selected !== undefined) onSelectedChange?.(!selected);
+			}}
+		>
+			{leading !== undefined && <span className="mds-chip-leading">{leading}</span>}
+			<span className="mds-chip-label">{children}</span>
+			{removable && <X className="mds-chip-remove-icon" size={13} aria-hidden="true" />}
 		</button>
 	);
 }
@@ -80,7 +136,7 @@ export function Field({
 	return (
 		<FieldContext.Provider value={value}>
 			<div {...props} className={cx("mds-field", className)} data-disabled={disabled || undefined}>
-				<label htmlFor={id} className="mds-label">
+				<label id={`${id}-label`} htmlFor={id} className="mds-label">
 					{label}
 					{required && (
 						<span aria-hidden="true" className="mds-required">
@@ -108,6 +164,7 @@ export function useFieldProps(
 	props: {
 		id?: string;
 		"aria-describedby"?: string;
+		"aria-labelledby"?: string;
 		"aria-invalid"?: ComponentProps<"input">["aria-invalid"];
 		required?: boolean;
 		disabled?: boolean;
@@ -116,6 +173,7 @@ export function useFieldProps(
 	const field = useContext(FieldContext);
 	return {
 		id: props.id ?? field?.id,
+		"aria-labelledby": props["aria-labelledby"] ?? (field ? `${field.id}-label` : undefined),
 		"aria-describedby":
 			[props["aria-describedby"], field?.description, field?.error].filter(Boolean).join(" ") || undefined,
 		"aria-invalid": props["aria-invalid"] ?? (field?.invalid || undefined),
@@ -123,9 +181,14 @@ export function useFieldProps(
 		disabled: props.disabled ?? field?.disabled,
 	};
 }
-export function Input({ size: _, className, ...props }: Omit<ComponentProps<"input">, "size"> & { size?: never }) {
+export function Input({
+	size: _,
+	className,
+	density,
+	...props
+}: Omit<ComponentProps<"input">, "size"> & { size?: never; density?: "comfortable" | "compact" }) {
 	const field = useFieldProps(props);
-	return <input {...props} {...field} className={cx("mds-input", className)} />;
+	return <input data-mds-density={density} {...props} {...field} className={cx("mds-input", className)} />;
 }
 export function Textarea({ className, ...props }: ComponentProps<"textarea">) {
 	const field = useFieldProps(props);
@@ -211,11 +274,6 @@ export function RadioItem({ children, id: given, className, ...props }: Componen
 		</div>
 	);
 }
-export function Slider({ className, ...props }: Omit<ComponentProps<"input">, "type">) {
-	const field = useFieldProps(props);
-	return <input {...props} {...field} type="range" className={cx("mds-slider", className)} />;
-}
-
 export interface IconButtonProps extends Omit<ButtonProps, "children" | "aria-label"> {
 	label: string;
 	icon: ReactNode;
@@ -347,5 +405,25 @@ export function RadioCard({ title, description, icon, className, ...props }: Rad
 				<Radio.Indicator className="mds-radio-dot" />
 			</span>
 		</Radio.Item>
+	);
+}
+
+export interface SpinnerProps {
+	size?: "sm" | "md" | "lg";
+	label?: string;
+	decorative?: boolean;
+	className?: string;
+}
+export function Spinner({ size = "md", label = "Loading", decorative = false, className }: SpinnerProps) {
+	return (
+		<span
+			className={cx("mds-spinner", className)}
+			data-size={size}
+			role={decorative ? undefined : "status"}
+			aria-label={decorative ? undefined : label}
+			aria-hidden={decorative || undefined}
+		>
+			<LoaderCircle className="mds-spin" size={size === "sm" ? 14 : size === "lg" ? 32 : 20} />
+		</span>
 	);
 }

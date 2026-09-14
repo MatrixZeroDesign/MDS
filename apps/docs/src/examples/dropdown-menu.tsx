@@ -1,3 +1,4 @@
+import { type DocsLocale, translate } from "../i18n";
 import { useState } from "react";
 import {
 	DropdownMenu,
@@ -8,8 +9,8 @@ import {
 	Button,
 } from "@matrixzero/ui";
 
-export default function Example({ locale = "en" }: { locale?: "zh" | "en" }) {
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	const [message, setMessage] = useState("");
 	return (
 		<div style={{ display: "grid", gap: 16 }}>

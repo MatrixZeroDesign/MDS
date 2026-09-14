@@ -1,8 +1,23 @@
+import { type DocsLocale, translate } from "./i18n";
 export const componentNames: Record<string, string> = {
+	cascader: "级联选择",
+	"date-range-field": "日期范围输入",
+	"date-range-picker": "日期范围选择",
+	"data-table": "数据表格",
+	"date-field": "日期输入",
+	"date-picker": "日期选择",
+	"time-field": "时间输入",
+	"time-picker": "时间选择",
+	"audio-player": "音频播放器",
+	spinner: "加载指示器",
 	theme: "主题提供器",
 	toast: "通知",
 	button: "按钮",
 	"icon-button": "图标按钮",
+	chip: "标签按钮",
+	divider: "分隔线",
+	grid: "网格布局",
+	typography: "排版",
 	form: "表单",
 	field: "表单字段",
 	input: "输入框",
@@ -20,14 +35,23 @@ export const componentNames: Record<string, string> = {
 	dialog: "对话框",
 	"side-sheet": "侧边面板",
 	navigation: "导航栏",
+	"mega-menu": "大型导航菜单",
+	spotlight: "快捷搜索",
+	anchor: "锚点导航",
+	"scroll-navigator": "阅读导航",
+	"feature-highlight": "新功能提示",
+	popover: "浮动面板",
+	"nav-rail": "侧边导航轨",
 	"nav-drawer": "导航抽屉",
-	collapse: "折叠面板",
+	collapse: "折叠面板（单区域）",
 	accordion: "手风琴",
 	tabs: "标签页",
 	avatar: "头像",
 	"avatar-group": "头像组",
 	badge: "徽标",
+	"notification-badge": "通知角标",
 	list: "列表",
+	"selection-list": "可选列表",
 	table: "表格",
 	pagination: "分页",
 	steps: "步骤条",
@@ -47,7 +71,9 @@ export const componentNames: Record<string, string> = {
 	container: "容器",
 	atmosphere: "柔和渐变",
 };
-export function componentTitle(entry: { slug: string; names: string[] }, locale: "zh" | "en", full = false) {
-	const name = entry.slug === "icons" ? "Icons" : full && locale === "en" ? entry.names.join(" / ") : entry.names[0];
-	return locale === "zh" ? `${componentNames[entry.slug]} ${name}` : name;
+export function componentTitle(entry: { slug: string; names: string[] }, locale: DocsLocale, full = false) {
+	const name = entry.slug === "icons" ? "Icons" : entry.names[0];
+	const localized = translate(locale, componentNames[entry.slug] ?? name, name);
+	if (locale === "en") return full ? entry.names.join(" / ") : name;
+	return localized === name ? name : `${localized} ${full ? entry.names.join(" / ") : name}`;
 }

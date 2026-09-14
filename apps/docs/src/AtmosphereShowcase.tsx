@@ -1,3 +1,4 @@
+import { type DocsLocale, translate } from "./i18n";
 import { useState } from "react";
 import {
 	Atmosphere,
@@ -6,16 +7,13 @@ import {
 	DialogTrigger,
 	DialogContent,
 	DialogClose,
-	Tabs,
-	TabList,
-	Tab,
-	TabPanel,
 	SegmentedControl,
 } from "@matrixzero/ui";
 import type { AtmosphereProps } from "@matrixzero/ui";
-export function AtmosphereShowcase({ locale }: { locale: "zh" | "en" }) {
-	const [tone, setTone] = useState<NonNullable<AtmosphereProps["tone"]>>("iris");
-	const t = (zh: string, en: string) => (locale === "zh" ? zh : en);
+export function AtmosphereShowcase({ locale }: { locale: DocsLocale }) {
+	const [mode, setMode] = useState("create");
+	const [tone, setTone] = useState<NonNullable<AtmosphereProps["tone"]>>("brand");
+	const t = (zh: string, en: string) => translate(locale, zh, en);
 	return (
 		<section className="docs-atmosphere-section" aria-label={t("渐变展示风格", "Expressive surfaces")}>
 			<div className="docs-row">
@@ -28,6 +26,7 @@ export function AtmosphereShowcase({ locale }: { locale: "zh" | "en" }) {
 					value={tone}
 					onValueChange={(v) => setTone(v as typeof tone)}
 					options={[
+						{ value: "brand", label: t("跟随主题", "Follow theme") },
 						{ value: "iris", label: t("鸢尾", "Iris") },
 						{ value: "mint", label: t("薄荷", "Mint") },
 						{ value: "peach", label: t("暖桃", "Peach") },
@@ -58,30 +57,35 @@ export function AtmosphereShowcase({ locale }: { locale: "zh" | "en" }) {
 						className="docs-atmosphere-dialog"
 					>
 						<Atmosphere tone={tone} className="docs-atmosphere-dialog-surface">
-							<Tabs defaultValue="create">
-								<TabList aria-label={t("体验介绍", "Experience introduction")} className="docs-atmosphere-tabs">
-									<Tab value="create">{t("创作", "Create")}</Tab>
-									<Tab value="connect">{t("连接", "Connect")}</Tab>
-								</TabList>
-								<TabPanel value="create">
-									<h2>{t("从一个好想法开始。", "Start with a good idea.")}</h2>
-									<p>
-										{t(
-											"用清晰的组件搭建你的工作空间，让每一次创作，都拥有恰到好处的节奏。",
-											"Build your workspace with thoughtful components, and give every new idea the space to grow.",
-										)}
-									</p>
-								</TabPanel>
-								<TabPanel value="connect">
-									<h2>{t("把可能，连接起来。", "Bring possibilities together.")}</h2>
-									<p>
-										{t(
-											"从应用到团队，让熟悉的体验保持一致，把注意力留给真正重要的事情。",
-											"Connect applications and people through a familiar experience, keeping attention on what matters.",
-										)}
-									</p>
-								</TabPanel>
-							</Tabs>
+							<SegmentedControl
+								label={t("体验模式", "Experience mode")}
+								value={mode}
+								onValueChange={setMode}
+								shape="pill"
+								className="docs-atmosphere-mode"
+								options={[
+									{ value: "create", label: t("创作", "Create") },
+									{ value: "connect", label: t("连接", "Connect") },
+								]}
+							/>
+							<div className="docs-atmosphere-mode-content" hidden={mode !== "create"}>
+								<h2>{t("从一个好想法开始。", "Start with a good idea.")}</h2>
+								<p>
+									{t(
+										"用清晰的组件搭建你的工作空间，让每一次创作，都拥有恰到好处的节奏。",
+										"Build your workspace with thoughtful components, and give every new idea the space to grow.",
+									)}
+								</p>
+							</div>
+							<div className="docs-atmosphere-mode-content" hidden={mode !== "connect"}>
+								<h2>{t("把可能，连接起来。", "Bring possibilities together.")}</h2>
+								<p>
+									{t(
+										"从应用到团队，让熟悉的体验保持一致，把注意力留给真正重要的事情。",
+										"Connect applications and people through a familiar experience, keeping attention on what matters.",
+									)}
+								</p>
+							</div>
 							<DialogClose asChild>
 								<Button variant="contrast" shape="pill" size="lg">
 									{t("开始探索", "Let’s get started")}

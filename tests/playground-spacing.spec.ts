@@ -1,28 +1,17 @@
 import { test, expect } from "@playwright/test";
-test("playground controls update real props and matching copyable code, then reset", async ({ page }) => {
-	await page.goto("/#docs/button");
-	const controls = page.getByRole("group", { name: "Example settings" });
-	for (const [label, option] of [
-		["Variant", "Contrast"],
-		["Size", "Large"],
-		["Shape", "Pill"],
-	]) {
-		await controls.getByRole("combobox", { name: label, exact: true }).click();
-		await page.getByRole("option", { name: option, exact: true }).click();
-	}
-	const button = page.locator(".docs-live-stage").getByRole("button", { name: "Add", exact: true });
-	await expect(button).toHaveAttribute("data-variant", "contrast");
-	await expect(button).toHaveAttribute("data-size", "lg");
-	await expect(button).toHaveAttribute("data-shape", "pill");
-	for (const value of ['variant = "contrast"', 'size = "lg"', 'shape = "pill"'])
-		await expect(page.locator(".docs-reference-detail pre")).toContainText(value);
-	await controls.getByRole("button", { name: "Reset", exact: true }).click();
-	await expect(button).toHaveAttribute("data-size", "md");
-	await page.goto("/#docs/callout");
-	await controls.getByRole("combobox", { name: "Color" }).click();
-	await page.getByRole("option", { name: "Success", exact: true }).click();
-	await expect(page.locator(".docs-live-stage .mds-callout")).toHaveAttribute("data-tone", "success");
-	await expect(page.locator(".docs-reference-detail pre")).toContainText('tone = "success"');
+test("comparison examples expose real props and matching copyable code", async ({ page }) => {
+	await page.goto("/docs/button");
+	const variants = page.getByRole("region", { name: "Variant comparison" });
+	await expect(variants.locator('[data-variant="contrast"]')).toBeVisible();
+	await variants.getByRole("button", { name: "Code", exact: true }).click();
+	await expect(variants.locator("pre")).toContainText('value: "contrast"');
+	const sizes = page.getByRole("region", { name: "Size comparison" });
+	await expect(sizes.locator('[data-size="lg"]')).toBeVisible();
+	const shapes = page.getByRole("region", { name: "Shape comparison" });
+	await expect(shapes.locator('[data-shape="pill"]').first()).toBeVisible();
+	await page.goto("/docs/callout");
+	const colors = page.getByRole("region", { name: "Color comparison" });
+	await expect(colors.locator('[data-tone="success"]')).toBeVisible();
 	await page.setViewportSize({ width: 320, height: 900 });
 	expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();
 });
@@ -32,12 +21,13 @@ test("form, dialog and sheet examples separate inputs from actions at all sizes 
 		for (const rtl of [false, true]) {
 			await page.setViewportSize({ width, height: 1000 });
 			for (const slug of ["select", "native-select", "dialog", "side-sheet"]) {
-				await page.goto("/#docs/" + slug);
+				await page.goto("/docs/" + slug);
 				await page.reload();
 				if (rtl) await page.getByRole("button", { name: "Toggle reading direction" }).click();
 				const overlay = slug === "dialog" || slug === "side-sheet";
-				if (overlay) await page.locator(".docs-live-stage").getByRole("button", { name: "Edit", exact: true }).click();
-				const area = overlay ? page.getByRole("dialog") : page.locator(".docs-live-stage");
+				const preview = page.getByRole("region", { name: "Interactive example" });
+				if (overlay) await preview.getByRole("button", { name: "Edit", exact: true }).click();
+				const area = overlay ? page.getByRole("dialog") : preview;
 				const field = area.locator(".mds-field");
 				const action = area.getByRole("button", { name: overlay ? "Done" : "Reset", exact: true });
 				const a = await field.boundingBox(),
