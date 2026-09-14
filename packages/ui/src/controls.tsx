@@ -4,7 +4,7 @@ import type { ComponentProps, ReactNode } from "react";
 import * as Check from "@radix-ui/react-checkbox";
 import * as Toggle from "@radix-ui/react-switch";
 import * as Radio from "@radix-ui/react-radio-group";
-import { Check as CheckIcon, Minus, LoaderCircle, ChevronDown, X } from "@matrixzero/icons";
+import { Check as CheckIcon, Minus, LoaderCircle, ChevronDown, ChevronLeft, ChevronRight, X } from "@matrixzero/icons";
 export const cx = (...parts: (string | undefined | false)[]) => parts.filter(Boolean).join(" ");
 type Size = "sm" | "md" | "lg";
 export interface ButtonProps extends ComponentProps<"button"> {
@@ -291,12 +291,16 @@ export interface SegmentOption {
 	disabled?: boolean;
 }
 export interface SegmentedControlProps extends Omit<ComponentProps<typeof Radio.Root>, "children"> {
+	scrollLeftLabel?: string;
+	scrollRightLabel?: string;
 	size?: "sm" | "md" | "lg";
 	shape?: "rounded" | "pill";
 	label: string;
 	options: readonly SegmentOption[];
 }
 export function SegmentedControl({
+	scrollLeftLabel = "Scroll options left",
+	scrollRightLabel = "Scroll options right",
 	label,
 	options,
 	className,
@@ -305,12 +309,41 @@ export function SegmentedControl({
 	...props
 }: SegmentedControlProps) {
 	const anchor = useRef<HTMLSpanElement>(null);
+	const shell = useRef<HTMLDivElement>(null);
+	const [scroll, setScroll] = useState({ overflow: false, left: false, right: false });
+	const scrollBy = (sign: number) => {
+		const root = anchor.current?.parentElement;
+		if (!root) return;
+		root.scrollBy({
+			left: sign * Math.max(80, root.clientWidth * 0.75),
+			behavior:
+				window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+				parseFloat(getComputedStyle(root).getPropertyValue("--mds-duration-normal")) === 0
+					? "auto"
+					: "smooth",
+		});
+	};
 	const direction = useDirection(props.dir);
 	const [position, setPosition] = useState<{ x: number; y: number; width: number; height: number } | null>(null);
 	useLayoutEffect(() => {
 		const root = anchor.current?.parentElement;
 		if (!root) return;
 		const measure = () => {
+			const rect = root.getBoundingClientRect();
+			const items = [...root.querySelectorAll<HTMLElement>(".mds-segment-option")];
+			const overflow = root.scrollWidth > (shell.current?.clientWidth ?? root.clientWidth) + 1;
+			const nextScroll = {
+				overflow,
+				left: overflow && items.some((item) => item.getBoundingClientRect().left < rect.left - 1),
+				right: overflow && items.some((item) => item.getBoundingClientRect().right > rect.right + 1),
+			};
+			setScroll((current) =>
+				current.overflow === nextScroll.overflow &&
+				current.left === nextScroll.left &&
+				current.right === nextScroll.right
+					? current
+					: nextScroll,
+			);
 			const selected = root.querySelector<HTMLElement>('.mds-segment-option[data-state="checked"]');
 			if (!selected) {
 				setPosition(null);
@@ -329,44 +362,88 @@ export function SegmentedControl({
 					: next,
 			);
 		};
-		measure();
-		const resize = new ResizeObserver(measure);
+		const reveal = () => {
+			measure();
+			const active = root.querySelector<HTMLElement>('.mds-segment-option[data-state="checked"]');
+			if (!active) return;
+			const rect = root.getBoundingClientRect(),
+				item = active.getBoundingClientRect();
+			const delta =
+				item.left < rect.left ? item.left - rect.left : item.right > rect.right ? item.right - rect.right : 0;
+			if (delta) root.scrollBy({ left: delta, behavior: "auto" });
+		};
+		reveal();
+		root.addEventListener("scroll", measure, { passive: true });
+		const resize = new ResizeObserver(reveal);
 		resize.observe(root);
 		root.querySelectorAll(".mds-segment-option").forEach((item) => resize.observe(item));
-		const mutation = new MutationObserver(measure);
+		const mutation = new MutationObserver(reveal);
 		mutation.observe(root, { subtree: true, attributes: true, attributeFilter: ["data-state"] });
 		return () => {
 			resize.disconnect();
 			mutation.disconnect();
+			root.removeEventListener("scroll", measure);
 		};
 	}, [direction, options, size, shape]);
 	return (
-		<Radio.Root
-			orientation="horizontal"
-			{...props}
-			aria-label={label}
-			data-size={size}
-			data-shape={shape}
-			className={cx("mds-segmented", className)}
+		<div
+			ref={shell}
+			dir={direction}
+			className="mds-segment-scroll-shell"
+			data-can-scroll-left={scroll.left || undefined}
+			data-can-scroll-right={scroll.right || undefined}
 		>
-			<span ref={anchor} hidden aria-hidden="true" />
-			{position && (
-				<span
-					className="mds-segment-indicator"
-					aria-hidden="true"
-					style={{
-						width: position.width,
-						height: position.height,
-						transform: `translate(${position.x}px, ${position.y}px)`,
-					}}
+			{scroll.overflow && (
+				<IconButton
+					className="mds-segment-scroll-button"
+					style={{ order: direction === "rtl" ? 2 : 0 }}
+					size="sm"
+					variant="ghost"
+					label={scrollLeftLabel}
+					icon={<ChevronLeft size={16} />}
+					disabled={!scroll.left}
+					onClick={() => scrollBy(-1)}
 				/>
 			)}
-			{options.map((option) => (
-				<Radio.Item key={option.value} value={option.value} disabled={option.disabled} className="mds-segment-option">
-					{option.label}
-				</Radio.Item>
-			))}
-		</Radio.Root>
+			<Radio.Root
+				orientation="horizontal"
+				{...props}
+				aria-label={label}
+				data-size={size}
+				data-shape={shape}
+				className={cx("mds-segmented", className)}
+			>
+				<span ref={anchor} hidden aria-hidden="true" />
+				{position && (
+					<span
+						className="mds-segment-indicator"
+						aria-hidden="true"
+						style={{
+							width: position.width,
+							height: position.height,
+							transform: `translate(${position.x}px, ${position.y}px)`,
+						}}
+					/>
+				)}
+				{options.map((option) => (
+					<Radio.Item key={option.value} value={option.value} disabled={option.disabled} className="mds-segment-option">
+						{option.label}
+					</Radio.Item>
+				))}
+			</Radio.Root>
+			{scroll.overflow && (
+				<IconButton
+					className="mds-segment-scroll-button"
+					style={{ order: direction === "rtl" ? 0 : 2 }}
+					size="sm"
+					variant="ghost"
+					label={scrollRightLabel}
+					icon={<ChevronRight size={16} />}
+					disabled={!scroll.right}
+					onClick={() => scrollBy(1)}
+				/>
+			)}
+		</div>
 	);
 }
 export function RadioCardGroup({ className, ...props }: ComponentProps<typeof Radio.Root>) {

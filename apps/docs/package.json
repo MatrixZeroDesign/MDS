@@ -9,7 +9,7 @@
 	"dependencies": {
 		"@matrixzero/charts": "0.1.0-alpha.4",
 		"@matrixzero/icons": "*",
-		"@matrixzero/ui": "0.1.0-alpha.11",
+		"@matrixzero/ui": "0.1.0-alpha.12",
 		"opencc-js": "^1.4.2",
 		"react": "19.2.3",
 		"react-dom": "19.2.3"

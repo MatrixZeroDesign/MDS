@@ -1,0 +1,55 @@
+{
+	"en": [
+		"Scroll options left",
+		"Scroll options right",
+		"Navigation",
+		"Home",
+		"Projects",
+		"Calendar",
+		"Team",
+		"Settings"
+	],
+	"zh": ["向左滚动选项", "向右滚动选项", "导航", "首页", "项目", "日历", "团队", "设置"],
+	"zh-TW": ["向左捲動選項", "向右捲動選項", "導覽", "首頁", "專案", "行事曆", "團隊", "設定"],
+	"ja": [
+		"選択肢を左にスクロール",
+		"選択肢を右にスクロール",
+		"ナビゲーション",
+		"ホーム",
+		"プロジェクト",
+		"カレンダー",
+		"チーム",
+		"設定"
+	],
+	"ko": ["옵션을 왼쪽으로 스크롤", "옵션을 오른쪽으로 스크롤", "탐색", "홈", "프로젝트", "캘린더", "팀", "설정"],
+	"fr": [
+		"Faire défiler les options vers la gauche",
+		"Faire défiler les options vers la droite",
+		"Navigation",
+		"Accueil",
+		"Projets",
+		"Calendrier",
+		"Équipe",
+		"Paramètres"
+	],
+	"es": [
+		"Desplazar opciones a la izquierda",
+		"Desplazar opciones a la derecha",
+		"Navegación",
+		"Inicio",
+		"Proyectos",
+		"Calendario",
+		"Equipo",
+		"Ajustes"
+	],
+	"ar": [
+		"تمرير الخيارات لليسار",
+		"تمرير الخيارات لليمين",
+		"التنقل",
+		"الرئيسية",
+		"المشاريع",
+		"التقويم",
+		"الفريق",
+		"الإعدادات"
+	]
+}

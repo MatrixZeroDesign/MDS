@@ -1,6 +1,6 @@
 # Integration guide / 接入指南
 
-Applies to React 19, @matrixzero/ui 0.1.0-alpha.11, @matrixzero/icons 0.1.0-alpha.4 and @matrixzero/charts 0.1.0-alpha.4. Pin these versions when reproducing examples. This is an alpha API; inspect the installed declarations before upgrading.
+Applies to React 19, @matrixzero/ui 0.1.0-alpha.12, @matrixzero/icons 0.1.0-alpha.4 and @matrixzero/charts 0.1.0-alpha.4. Pin these versions when reproducing examples. This is an alpha API; inspect the installed declarations before upgrading.
 
 适用于 React 19 与以上固定版本。升级时检查变更记录及安装包的类型声明，不要套用 shadcn 的组件 API。
 
@@ -9,7 +9,7 @@ Applies to React 19, @matrixzero/ui 0.1.0-alpha.11, @matrixzero/icons 0.1.0-alph
 Install from the public npm registry; no project-level registry configuration is required:
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.11 @matrixzero/icons@0.1.0-alpha.4
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.12 @matrixzero/icons@0.1.0-alpha.4
 # Optional charts / 按需安装图表
 npm install --save-exact @matrixzero/charts@0.1.0-alpha.4
 ```
