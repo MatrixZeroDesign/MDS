@@ -1,0 +1,13 @@
+node_modules/
+dist/
+playwright-report/
+test-results/
+scratchpad/
+*.tgz
+.npmrc
+.env*
+.npm/
+
+# Generated from canonical documentation and compiled package declarations
+apps/docs/public/docs/
+apps/docs/public/llms*.txt

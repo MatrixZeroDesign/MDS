@@ -1,0 +1,163 @@
+[
+	{
+		"name": "Plus",
+		"category": "editing",
+		"keywords": ["添加", "增加", "add", "create"]
+	},
+	{
+		"name": "X",
+		"category": "editing",
+		"keywords": ["关闭", "取消", "close", "cancel"]
+	},
+	{
+		"name": "Check",
+		"category": "editing",
+		"keywords": ["确认", "完成", "confirm", "done"]
+	},
+	{
+		"name": "Minus",
+		"category": "editing",
+		"keywords": ["减少", "删除", "remove", "subtract"]
+	},
+	{
+		"name": "ChevronDown",
+		"category": "navigation",
+		"keywords": ["向下", "展开", "down", "expand"]
+	},
+	{
+		"name": "ChevronRight",
+		"category": "navigation",
+		"keywords": ["向右", "前进", "right", "next"]
+	},
+	{
+		"name": "ArrowUpRight",
+		"category": "navigation",
+		"keywords": ["右上", "外链", "external", "northeast"]
+	},
+	{
+		"name": "ArrowLeft",
+		"category": "navigation",
+		"keywords": ["向左", "返回", "back", "previous"]
+	},
+	{
+		"name": "ArrowRight",
+		"category": "navigation",
+		"keywords": ["向右", "前进", "forward", "next"]
+	},
+	{
+		"name": "LoaderCircle",
+		"category": "everyday",
+		"keywords": ["加载", "等待", "loading", "spinner"]
+	},
+	{
+		"name": "Search",
+		"category": "navigation",
+		"keywords": ["搜索", "查找", "find", "lookup"]
+	},
+	{
+		"name": "Menu",
+		"category": "navigation",
+		"keywords": ["菜单", "导航", "navigation", "hamburger"]
+	},
+	{
+		"name": "MoreHorizontal",
+		"category": "navigation",
+		"keywords": ["更多", "操作", "more", "overflow"]
+	},
+	{
+		"name": "Sun",
+		"category": "everyday",
+		"keywords": ["太阳", "浅色", "light", "day"]
+	},
+	{
+		"name": "Moon",
+		"category": "everyday",
+		"keywords": ["月亮", "深色", "dark", "night"]
+	},
+	{
+		"name": "Blocks",
+		"category": "layout",
+		"keywords": ["组件", "积木", "components", "blocks"]
+	},
+	{
+		"name": "LayoutDashboard",
+		"category": "layout",
+		"keywords": ["仪表盘", "布局", "dashboard", "overview"]
+	},
+	{
+		"name": "SlidersHorizontal",
+		"category": "layout",
+		"keywords": ["筛选", "调整", "filter", "adjust"]
+	},
+	{
+		"name": "PanelLeftClose",
+		"category": "layout",
+		"keywords": ["关闭侧栏", "collapse", "sidebar"]
+	},
+	{
+		"name": "PanelLeftOpen",
+		"category": "layout",
+		"keywords": ["打开侧栏", "expand", "sidebar"]
+	},
+	{
+		"name": "Inbox",
+		"category": "communication",
+		"keywords": ["收件箱", "接收", "inbox", "receive"]
+	},
+	{
+		"name": "ShieldCheck",
+		"category": "security",
+		"keywords": ["安全", "检查", "protect", "verified"]
+	},
+	{
+		"name": "Copy",
+		"category": "editing",
+		"keywords": ["复制", "副本", "copy", "duplicate"]
+	},
+	{
+		"name": "Download",
+		"category": "files",
+		"keywords": ["下载", "保存", "download", "save"]
+	},
+	{
+		"name": "Upload",
+		"category": "files",
+		"keywords": ["上传", "发送", "upload", "send"]
+	},
+	{
+		"name": "Trash",
+		"category": "files",
+		"keywords": ["删除", "垃圾桶", "delete", "remove"]
+	},
+	{
+		"name": "Settings",
+		"category": "development",
+		"keywords": ["设置", "齿轮", "settings", "preferences"]
+	},
+	{
+		"name": "Info",
+		"category": "everyday",
+		"keywords": ["信息", "提示", "info", "help"]
+	},
+	{
+		"name": "AlertCircle",
+		"category": "everyday",
+		"keywords": ["警告", "错误", "warning", "error"]
+	},
+	{
+		"name": "User",
+		"category": "security",
+		"keywords": ["用户", "个人", "user", "account"]
+	},
+	{
+		"name": "Bell",
+		"category": "communication",
+		"keywords": ["通知", "铃铛", "notification", "alert"],
+		"variants": ["outlined", "filled"]
+	},
+	{
+		"name": "ExternalLink",
+		"category": "navigation",
+		"keywords": ["外部链接", "新窗口", "external", "open"]
+	}
+]

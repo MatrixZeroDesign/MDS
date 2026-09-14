@@ -1,0 +1,226 @@
+{
+	"Trends across observations.": [
+		"観測値の推移を表示します。",
+		"관측값의 추세를 보여줍니다.",
+		"Évolution des observations.",
+		"Tendencias entre observaciones.",
+		"اتجاهات القيم المرصودة."
+	],
+	"Magnitude relative to zero, optionally stacked.": [
+		"ゼロを基準に大きさを表示します。積み上げも可能です。",
+		"0을 기준으로 크기를 표시하며 누적도 지원합니다.",
+		"Grandeur par rapport à zéro, avec empilement facultatif.",
+		"Magnitud respecto a cero, con apilamiento opcional.",
+		"مقادير بالنسبة إلى الصفر، مع خيار التكديس."
+	],
+	"Compare discrete categories.": [
+		"異なるカテゴリの値を比較します。",
+		"개별 범주의 값을 비교합니다.",
+		"Comparer des catégories distinctes.",
+		"Comparar categorías discretas.",
+		"مقارنة فئات منفصلة."
+	],
+	"Nonnegative parts of a whole.": [
+		"全体に対する非負の値の割合を表示します。",
+		"전체에서 음수가 아닌 값의 비율을 표시합니다.",
+		"Parts non négatives d’un ensemble.",
+		"Partes no negativas de un total.",
+		"أجزاء غير سالبة من إجمالي."
+	],
+	"Sort observations by time and use null for gaps. Import charts/styles.css after UI CSS. Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected. Override pointShape per series; hide markers for dense data. smooth uses monotone interpolation and preserves gaps for missing values.": [
+		"観測値を時系列順に並べ、欠損には null を使います。UI CSS の後に charts/styles.css を読み込みます。表示と更新には局所的な不透明度の変化を使い、motion={false} で無効化できます。動きを減らす設定に従います。pointShape は系列ごとに指定でき、密なデータでは点を非表示にします。smooth は単調補間を使い、欠損箇所の切れ目を保ちます。",
+		"관측값을 시간순으로 정렬하고 결측값은 null로 표시하세요. UI CSS 다음에 charts/styles.css를 가져오세요. 표시 및 갱신 시 국소적인 투명도 전환을 사용하며 motion={false}로 끌 수 있습니다. 모션 감소 설정을 따릅니다. 계열별 pointShape를 지정할 수 있으며 데이터가 많을 때는 점을 숨기세요. smooth는 단조 보간을 사용하고 결측 구간을 유지합니다.",
+		"Triez les observations par date et utilisez null pour les valeurs manquantes. Importez charts/styles.css après le CSS UI. Les transitions locales d’opacité à l’apparition et à la mise à jour se désactivent avec motion={false}. Les préférences de réduction des animations sont respectées. Définissez pointShape par série et masquez les points pour les données denses. smooth utilise une interpolation monotone et conserve les interruptions.",
+		"Ordena las observaciones por fecha y usa null para los datos ausentes. Importa charts/styles.css después del CSS de UI. Las transiciones locales de opacidad al aparecer o actualizarse se desactivan con motion={false}. Se respeta la preferencia de movimiento reducido. Define pointShape por serie y oculta los puntos en datos densos. smooth usa interpolación monótona y conserva los huecos.",
+		"رتّب القيم زمنيًا واستخدم null للبيانات المفقودة. استورد charts/styles.css بعد CSS الخاص بالواجهة. تُستخدم انتقالات شفافية محلية عند الظهور والتحديث ويمكن تعطيلها عبر motion={false}. تُحترم تفضيلات تقليل الحركة. خصّص pointShape لكل سلسلة وأخفِ النقاط عند كثافة البيانات. يستخدم smooth استيفاءً رتيبًا ويحافظ على فجوات البيانات المفقودة."
+	],
+	"Stack for total magnitude; prefer unstacked charts when gaps matter. Import charts/styles.css after UI CSS. Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected. Override pointShape per series; hide markers for dense data. smooth uses monotone interpolation and preserves gaps for missing values.": [
+		"合計の大きさを示す場合は積み上げを使い、欠損が重要な場合は積み上げなしを選びます。UI CSS の後に charts/styles.css を読み込みます。表示と更新の不透明度変化は motion={false} で無効化でき、動きを減らす設定に従います。pointShape は系列ごとに指定でき、密なデータでは点を隠します。smooth は単調補間を使い、欠損の切れ目を保ちます。",
+		"전체 크기를 나타낼 때는 누적을 사용하고 결측 구간이 중요하면 누적하지 마세요. UI CSS 다음에 charts/styles.css를 가져오세요. 표시 및 갱신 시 투명도 전환은 motion={false}로 끌 수 있으며 모션 감소 설정을 따릅니다. 계열별 pointShape를 지정하고 데이터가 많으면 점을 숨기세요. smooth는 단조 보간을 사용하며 결측 구간을 유지합니다.",
+		"Empilez les séries pour représenter le total ; préférez un graphique non empilé si les interruptions sont importantes. Importez charts/styles.css après le CSS UI. Désactivez les transitions locales d’opacité avec motion={false} ; les préférences de réduction des animations sont respectées. Définissez pointShape par série et masquez les points si les données sont denses. smooth interpole de façon monotone en conservant les interruptions.",
+		"Apila las series para mostrar el total; evita apilarlas si importan los huecos. Importa charts/styles.css después del CSS de UI. Desactiva las transiciones locales de opacidad con motion={false}; se respeta el movimiento reducido. Define pointShape por serie y oculta los puntos si los datos son densos. smooth interpola de forma monótona y conserva los huecos.",
+		"استخدم التكديس لإظهار الإجمالي وتجنّبه عندما تكون الفجوات مهمة. استورد charts/styles.css بعد CSS الخاص بالواجهة. عطّل انتقالات الشفافية المحلية عبر motion={false}؛ تُحترم تفضيلات تقليل الحركة. حدّد pointShape لكل سلسلة وأخفِ النقاط للبيانات الكثيفة. يستخدم smooth استيفاءً رتيبًا ويحافظ على الفجوات."
+	],
+	"Keep labels legible; stacked bars separate positive and negative totals. Import charts/styles.css after UI CSS. Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.": [
+		"ラベルの読みやすさを保ちます。積み上げでは正と負の合計を分けます。UI CSS の後に charts/styles.css を読み込みます。表示と更新時の局所的な不透明度変化は motion={false} で無効化でき、動きを減らす設定に従います。",
+		"레이블을 읽기 쉽게 유지하세요. 누적 막대는 양수와 음수 합계를 분리합니다. UI CSS 다음에 charts/styles.css를 가져오세요. 표시 및 갱신 시 투명도 전환은 motion={false}로 끌 수 있으며 모션 감소 설정을 따릅니다.",
+		"Gardez les libellés lisibles ; les barres empilées séparent les totaux positifs et négatifs. Importez charts/styles.css après le CSS UI. Les transitions locales d’opacité se désactivent avec motion={false} et respectent les préférences de réduction des animations.",
+		"Mantén las etiquetas legibles; las barras apiladas separan los totales positivos y negativos. Importa charts/styles.css después del CSS de UI. Las transiciones locales de opacidad se desactivan con motion={false} y respetan el movimiento reducido.",
+		"حافظ على وضوح التسميات؛ تفصل الأعمدة المكدّسة الإجماليات الموجبة عن السالبة. استورد charts/styles.css بعد CSS الخاص بالواجهة. يمكن تعطيل انتقالات الشفافية المحلية عبر motion={false} مع احترام تفضيلات تقليل الحركة."
+	],
+	"Keep the exact-value table and translate locale/labels; do not rely on color alone.": [
+		"正確な値を示すデータ表を残し、locale と labels で翻訳します。色だけで情報を伝えないでください。",
+		"정확한 값이 담긴 표를 유지하고 locale과 labels로 번역하세요. 색상만으로 정보를 전달하지 마세요.",
+		"Conservez le tableau de valeurs exactes et traduisez via locale et labels ; ne vous reposez pas uniquement sur la couleur.",
+		"Conserva la tabla de valores exactos y traduce con locale y labels; no dependas solo del color.",
+		"احتفظ بجدول القيم الدقيقة وترجم عبر locale وlabels؛ لا تعتمد على اللون وحده."
+	],
+	"Series keys must be unique and cannot be label. Do not convert missing values to zero. Container width must be nonzero; stacked does not affect LineChart.": [
+		"series.key は一意で、label は使用できません。欠損値を 0 に置き換えないでください。コンテナ幅は 0 より大きい必要があります。LineChart では stacked は無効です。",
+		"series.key는 고유해야 하며 label을 사용할 수 없습니다. 결측값을 0으로 바꾸지 마세요. 컨테이너 너비는 0보다 커야 합니다. stacked는 LineChart에 영향을 주지 않습니다.",
+		"Les clés de série doivent être uniques et différentes de label. Ne remplacez pas les valeurs manquantes par zéro. Le conteneur doit avoir une largeur non nulle ; stacked ne modifie pas LineChart.",
+		"Las claves de serie deben ser únicas y distintas de label. No conviertas los datos ausentes en cero. El contenedor debe tener anchura mayor que cero; stacked no afecta a LineChart.",
+		"يجب أن تكون مفاتيح السلاسل فريدة وألا تكون label. لا تستبدل القيم المفقودة بصفر. يجب أن يكون عرض الحاوية أكبر من صفر؛ لا يؤثر stacked في LineChart."
+	],
+	"Use for a small number of meaningful parts; prefer BarChart for precise comparison. Local opacity transitions on entry/update; set motion={false} to disable. Reduced-motion preferences are respected.": [
+		"意味のある少数の内訳に使用します。精密な比較には BarChart を選びます。表示と更新の局所的な不透明度変化は motion={false} で無効化でき、動きを減らす設定に従います。",
+		"의미 있는 소수의 구성 요소에 사용하고 정확한 비교에는 BarChart를 권장합니다. 표시 및 갱신 시 투명도 전환은 motion={false}로 끌 수 있으며 모션 감소 설정을 따릅니다.",
+		"Utilisez-le pour quelques parts significatives ; préférez BarChart pour les comparaisons précises. Désactivez les transitions locales d’opacité avec motion={false}. Les préférences de réduction des animations sont respectées.",
+		"Úsalo para pocas partes significativas; prefiere BarChart para comparaciones precisas. Desactiva las transiciones locales de opacidad con motion={false}. Se respeta el movimiento reducido.",
+		"استخدمه لعدد قليل من الأجزاء ذات المعنى، وفضّل BarChart للمقارنة الدقيقة. عطّل انتقالات الشفافية المحلية عبر motion={false}. تُحترم تفضيلات تقليل الحركة."
+	],
+	"Provide title and translated labels; retain the data table alternative.": [
+		"タイトルと翻訳済み labels を渡し、代替表示としてデータ表を残します。",
+		"제목과 번역된 labels를 제공하고 대체 표현으로 데이터 표를 유지하세요.",
+		"Fournissez un titre et des labels traduits ; conservez le tableau de données comme alternative.",
+		"Proporciona un título y labels traducidos; conserva la tabla de datos como alternativa.",
+		"وفّر عنوانًا وlabels مترجمة واحتفظ بجدول البيانات كبديل."
+	],
+	"Negative/nonfinite values and overflowing totals throw RangeError; validate inputs or use an error boundary. All-zero data is empty.": [
+		"負数、非有限値、合計のオーバーフローは RangeError になります。入力を検証するかエラーバウンダリを使用してください。すべて 0 のデータは空状態になります。",
+		"음수, 유한하지 않은 값, 합계 오버플로는 RangeError를 발생시킵니다. 입력을 검증하거나 오류 경계를 사용하세요. 모든 값이 0이면 빈 상태를 표시합니다.",
+		"Les valeurs négatives ou non finies et les totaux débordants déclenchent RangeError. Validez les entrées ou utilisez une frontière d’erreur. Un ensemble de zéros affiche l’état vide.",
+		"Los valores negativos o no finitos y los totales desbordados generan RangeError. Valida las entradas o usa un límite de errores. Si todos los valores son cero se muestra el estado vacío.",
+		"تؤدي القيم السالبة أو غير المنتهية وتجاوز الإجمالي للحدود إلى RangeError. تحقّق من المدخلات أو استخدم حدًا للأخطاء. البيانات الصفرية بالكامل تعرض حالة فارغة."
+	],
+	"Consistent form layout, submission state and error navigation.": [
+		"フォームのレイアウト、送信状態、エラーへの移動を統一します。",
+		"폼 레이아웃, 제출 상태, 오류 탐색을 일관되게 제공합니다.",
+		"Disposition, état d’envoi et navigation vers les erreurs cohérents.",
+		"Diseño del formulario, estado de envío y navegación de errores coherentes.",
+		"تخطيط موحّد للنماذج وحالة الإرسال والانتقال إلى الأخطاء."
+	],
+	"Form preserves native validation, submission and reset. onSubmitAsync receives FormData including the submitter and manages pending state. FormSubmit prevents duplicate submissions. Use errors alongside Field.error for server validation; after submission, focus moves to the first focusable invalid field.": [
+		"Form はネイティブの検証、送信、リセットを維持します。onSubmitAsync は送信ボタンを含む FormData を受け取り、送信中の状態を管理します。FormSubmit は二重送信を防ぎます。サーバー検証には errors と Field.error を使います。送信後はフォーカス可能な最初の無効フィールドへ移動します。",
+		"Form은 기본 유효성 검사, 제출, 초기화를 유지합니다. onSubmitAsync는 제출 버튼을 포함한 FormData를 받고 처리 중 상태를 관리합니다. FormSubmit은 중복 제출을 막습니다. 서버 검증에는 errors와 Field.error를 함께 사용하세요. 제출 후 포커스 가능한 첫 번째 오류 필드로 이동합니다.",
+		"Form conserve la validation, l’envoi et la réinitialisation natifs. onSubmitAsync reçoit FormData avec le bouton d’envoi et gère l’état en cours. FormSubmit évite les doubles envois. Utilisez errors avec Field.error pour la validation serveur ; après l’envoi, le focus passe au premier champ invalide pouvant le recevoir.",
+		"Form conserva la validación, el envío y el restablecimiento nativos. onSubmitAsync recibe FormData con el botón de envío y gestiona el estado pendiente. FormSubmit evita envíos duplicados. Usa errors con Field.error para validar en el servidor; tras enviar, el foco va al primer campo inválido que pueda recibirlo.",
+		"يحافظ Form على التحقق والإرسال وإعادة الضبط الأصلية. يستقبل onSubmitAsync بيانات FormData بما فيها زر الإرسال ويدير حالة الانتظار. يمنع FormSubmit الإرسال المكرر. استخدم errors مع Field.error للتحقق من الخادم؛ بعد الإرسال ينتقل التركيز إلى أول حقل غير صالح يمكنه استقبال التركيز."
+	],
+	"Connect field errors using Field and stable IDs. aria-busy indicates submission while button labels remain available. Server errors appear both beside fields and in the summary.": [
+		"Field と固定 ID でエラーを関連付けます。送信中は aria-busy を設定し、ボタン名を維持します。サーバーエラーはフィールド横と概要の両方に表示します。",
+		"Field와 안정적인 ID로 오류를 연결하세요. 제출 중에는 aria-busy로 상태를 알리고 버튼 이름을 유지합니다. 서버 오류는 필드 옆과 요약에 모두 표시합니다.",
+		"Reliez les erreurs avec Field et des identifiants stables. aria-busy indique l’envoi sans masquer le nom des boutons. Les erreurs serveur apparaissent près des champs et dans le résumé.",
+		"Asocia los errores con Field e identificadores estables. aria-busy indica el envío y mantiene los nombres de los botones. Los errores del servidor aparecen junto a los campos y en el resumen.",
+		"اربط أخطاء الحقول باستخدام Field ومعرّفات ثابتة. يشير aria-busy إلى الإرسال مع إبقاء أسماء الأزرار متاحة. تظهر أخطاء الخادم بجانب الحقول وفي الملخص."
+	],
+	"No form library is required. With native onSubmit or React Hook Form, manage preventDefault and submitting externally. A prevented onSubmit skips onSubmitAsync. Native action submissions do not need onSubmitAsync.": [
+		"フォームライブラリは不要です。ネイティブ onSubmit や React Hook Form では preventDefault と submitting を外部で管理します。onSubmit で既定の動作を防ぐと onSubmitAsync は呼ばれません。ネイティブ action 送信には onSubmitAsync は不要です。",
+		"폼 라이브러리가 필요하지 않습니다. 기본 onSubmit이나 React Hook Form을 사용할 때는 preventDefault와 submitting을 외부에서 관리하세요. onSubmit에서 기본 동작을 막으면 onSubmitAsync를 건너뜁니다. 기본 action 제출에는 onSubmitAsync가 필요하지 않습니다.",
+		"Aucune bibliothèque de formulaire n’est requise. Avec onSubmit natif ou React Hook Form, gérez preventDefault et submitting vous-même. Un onSubmit annulé ignore onSubmitAsync. Les envois via action natif n’en ont pas besoin.",
+		"No se necesita biblioteca de formularios. Con onSubmit nativo o React Hook Form, gestiona preventDefault y submitting externamente. Cancelar onSubmit omite onSubmitAsync. Los envíos mediante action nativo no necesitan onSubmitAsync.",
+		"لا يلزم استخدام مكتبة نماذج. عند استخدام onSubmit الأصلي أو React Hook Form، أدِر preventDefault وsubmitting خارجيًا. إلغاء onSubmit يتجاوز onSubmitAsync. لا تحتاج عمليات الإرسال عبر action الأصلي إلى onSubmitAsync."
+	],
+	"Date entry.": [
+		"日付を入力します。",
+		"날짜를 입력합니다.",
+		"Saisie d’une date.",
+		"Introducir una fecha.",
+		"إدخال تاريخ."
+	],
+	"Date selection.": [
+		"日付を選択します。",
+		"날짜를 선택합니다.",
+		"Sélection d’une date.",
+		"Seleccionar una fecha.",
+		"اختيار تاريخ."
+	],
+	"Time entry.": [
+		"時刻を入力します。",
+		"시간을 입력합니다.",
+		"Saisie d’une heure.",
+		"Introducir una hora.",
+		"إدخال وقت."
+	],
+	"Time selection.": [
+		"時刻を選択します。",
+		"시간을 선택합니다.",
+		"Sélection d’une heure.",
+		"Seleccionar una hora.",
+		"اختيار وقت."
+	],
+	"Type digits directly into each segment; arrow keys adjust or move between segments. Values are YYYY-MM-DD dates or HH:mm local times without timezone conversion. Pickers add MDS popovers; fields are input-only. Provide a label or nest in Field. Locale controls display order.": [
+		"各部分に数字を直接入力し、矢印キーで調整や移動ができます。日付は YYYY-MM-DD、時刻は HH:mm で、タイムゾーン変換を行いません。Picker は MDS ポップオーバーを追加し、Field は入力のみです。label を指定するか Field に入れます。locale は表示順序を制御します。",
+		"각 구간에 숫자를 직접 입력하고 방향키로 조정하거나 이동하세요. 날짜는 YYYY-MM-DD, 시간은 HH:mm이며 시간대를 변환하지 않습니다. Picker는 MDS 팝오버를 추가하고 Field는 입력만 제공합니다. label을 지정하거나 Field 안에 배치하세요. locale은 표시 순서를 제어합니다.",
+		"Saisissez les chiffres dans chaque segment ; les flèches ajustent les valeurs ou changent de segment. Les valeurs sont au format YYYY-MM-DD ou HH:mm, sans conversion de fuseau horaire. Les sélecteurs ajoutent un popover MDS ; les champs servent uniquement à la saisie. Fournissez un label ou utilisez Field. locale contrôle l’ordre d’affichage.",
+		"Escribe números en cada segmento; las flechas ajustan valores o cambian de segmento. Los valores usan YYYY-MM-DD o HH:mm sin conversión horaria. Los selectores añaden un popover MDS; los campos solo permiten escribir. Proporciona label o anida en Field. locale controla el orden visual.",
+		"اكتب الأرقام مباشرة في كل جزء؛ تعدّل مفاتيح الأسهم القيم أو تنتقل بين الأجزاء. القيم بتنسيق YYYY-MM-DD للتواريخ أو HH:mm للأوقات المحلية دون تحويل المنطقة الزمنية. تضيف مكوّنات Picker نوافذ MDS منبثقة، بينما تقتصر Field على الإدخال. وفّر label أو ضعها داخل Field. يتحكم locale في ترتيب العرض."
+	],
+	"Preserves keyboard operation and accessible labels.": [
+		"キーボード操作とアクセシブルなラベルを維持します。",
+		"키보드 조작과 접근성 레이블을 유지합니다.",
+		"Conserve l’utilisation au clavier et les libellés accessibles.",
+		"Mantiene la operación por teclado y las etiquetas accesibles.",
+		"يحافظ على استخدام لوحة المفاتيح والتسميات الميسّرة."
+	],
+	"Clear with an empty string; time values do not carry a timezone. minuteStep only controls suggestions; manual input accepts any minute.": [
+		"空文字列で値を消去します。時刻にタイムゾーンは含まれません。minuteStep は候補だけを制御し、手入力では任意の分を指定できます。",
+		"빈 문자열로 값을 지우세요. 시간 값에는 시간대가 없습니다. minuteStep은 제안만 제어하며 직접 입력할 때는 모든 분 값을 사용할 수 있습니다.",
+		"Effacez avec une chaîne vide ; les heures n’ont pas de fuseau horaire. minuteStep contrôle seulement les suggestions ; toute minute peut être saisie.",
+		"Borra con una cadena vacía; las horas no incluyen zona horaria. minuteStep solo controla las sugerencias; la entrada manual admite cualquier minuto.",
+		"امسح القيمة بسلسلة فارغة؛ لا تتضمن الأوقات منطقة زمنية. يتحكم minuteStep في الاقتراحات فقط، ويمكن إدخال أي دقيقة يدويًا."
+	],
+	"Enter a start and end date.": [
+		"開始日と終了日を入力します。",
+		"시작일과 종료일을 입력합니다.",
+		"Saisir une date de début et de fin.",
+		"Introducir una fecha inicial y final.",
+		"إدخال تاريخ بداية ونهاية."
+	],
+	"Type or select a date range in a themed calendar.": [
+		"テーマに対応したカレンダーで日付範囲を入力または選択します。",
+		"테마가 적용된 달력에서 날짜 범위를 입력하거나 선택합니다.",
+		"Saisir ou sélectionner une plage de dates dans un calendrier thématique.",
+		"Escribir o seleccionar un intervalo en un calendario adaptado al tema.",
+		"إدخال نطاق تواريخ أو اختياره في تقويم متوافق مع السمة."
+	],
+	"Use ISO dates in { start, end }; null clears the range. startName and endName submit separate form values.": [
+		"{ start, end } に ISO 日付を指定し、null で消去します。startName と endName は個別のフォーム値として送信されます。",
+		"{ start, end }에 ISO 날짜를 지정하고 null로 범위를 지우세요. startName과 endName은 별도의 폼 값으로 제출됩니다.",
+		"Utilisez des dates ISO dans { start, end } ; null efface la plage. startName et endName envoient des valeurs distinctes.",
+		"Usa fechas ISO en { start, end }; null borra el intervalo. startName y endName envían valores separados.",
+		"استخدم تواريخ ISO في { start, end }؛ تمسح null النطاق. يرسل startName وendName قيمتين منفصلتين في النموذج."
+	],
+	"Supports segmented keyboard entry, associated errors and native form validation; calendar supports arrow keys and Escape.": [
+		"分割入力のキーボード操作、エラーの関連付け、ネイティブフォーム検証に対応します。カレンダーは矢印キーと Escape に対応します。",
+		"구간별 키보드 입력, 연결된 오류, 기본 폼 검증을 지원합니다. 달력은 방향키와 Escape를 지원합니다.",
+		"Prend en charge la saisie segmentée au clavier, les erreurs associées et la validation native ; le calendrier accepte les flèches et Escape.",
+		"Admite entrada segmentada por teclado, errores asociados y validación nativa; el calendario admite flechas y Escape.",
+		"يدعم الإدخال المقسّم بلوحة المفاتيح والأخطاء المرتبطة والتحقق الأصلي للنماذج؛ يدعم التقويم الأسهم وEscape."
+	],
+	"End must not precede start. Dates have no time zone. Reset controlled values in your form handler.": [
+		"終了日は開始日以降にします。日付にタイムゾーンはありません。制御された値はフォームハンドラでリセットしてください。",
+		"종료일은 시작일보다 빠를 수 없습니다. 날짜에는 시간대가 없습니다. 제어된 값은 폼 핸들러에서 초기화하세요.",
+		"La fin ne doit pas précéder le début. Les dates n’ont pas de fuseau horaire. Réinitialisez les valeurs contrôlées dans votre gestionnaire.",
+		"El final no puede preceder al inicio. Las fechas no tienen zona horaria. Restablece los valores controlados en el manejador del formulario.",
+		"يجب ألا تسبق النهاية البداية. لا تتضمن التواريخ منطقة زمنية. أعِد ضبط القيم المتحكم بها في معالج النموذج."
+	],
+	"Data table with sorting, selection and virtual scrolling.": [
+		"並べ替え、選択、仮想スクロールに対応したデータ表。",
+		"정렬, 선택, 가상 스크롤을 지원하는 데이터 표입니다.",
+		"Tableau avec tri, sélection et défilement virtualisé.",
+		"Tabla con ordenación, selección y desplazamiento virtual.",
+		"جدول بيانات مع الفرز والتحديد والتمرير الافتراضي."
+	],
+	"MDS implements the visible window directly, without a third-party table library. Only visible and overscan rows render by default. Pinned columns use logical start/end edges. Expanded details and group headers participate in the virtual row model.": [
+		"MDS は外部の表ライブラリを使わず表示範囲を計算します。既定では可視行と overscan 行のみを描画します。固定列は論理方向 start/end を使います。展開詳細とグループ見出しも仮想行モデルに含まれます。",
+		"MDS는 외부 표 라이브러리 없이 표시 영역을 직접 계산합니다. 기본적으로 보이는 행과 overscan 행만 렌더링합니다. 고정 열은 논리 방향 start/end를 사용합니다. 펼친 상세 정보와 그룹 헤더도 가상 행 모델에 포함됩니다.",
+		"MDS calcule directement la fenêtre visible, sans bibliothèque tierce. Seules les lignes visibles et d’overscan sont rendues par défaut. Les colonnes épinglées utilisent les bords logiques start/end. Les détails développés et en-têtes de groupe participent au modèle de lignes virtuelles.",
+		"MDS calcula directamente la ventana visible sin biblioteca de tablas externa. Por defecto solo renderiza las filas visibles y de overscan. Las columnas fijas usan los bordes lógicos start/end. Los detalles expandidos y encabezados de grupo participan en el modelo de filas virtuales.",
+		"يحسب MDS النافذة المرئية مباشرة دون مكتبة جداول خارجية. تُعرض افتراضيًا الصفوف المرئية وصفوف overscan فقط. تستخدم الأعمدة المثبّتة الحافتين المنطقيتين start/end. تدخل التفاصيل الموسّعة وعناوين المجموعات ضمن نموذج الصفوف الافتراضية."
+	],
+	"Native table semantics retain total row count and row indices; sorting and selection are keyboard operable.": [
+		"ネイティブの表セマンティクスで総行数と行インデックスを維持します。並べ替えと選択はキーボードで操作できます。",
+		"기본 표 의미 구조로 전체 행 수와 행 인덱스를 유지합니다. 정렬과 선택을 키보드로 조작할 수 있습니다.",
+		"La sémantique native conserve le nombre total de lignes et leurs indices ; le tri et la sélection sont utilisables au clavier.",
+		"La semántica nativa conserva el total de filas y sus índices; la ordenación y selección funcionan con teclado.",
+		"تحافظ دلالات الجدول الأصلية على إجمالي الصفوف وفهارسها؛ يمكن الفرز والتحديد بلوحة المفاتيح."
+	],
+	"Virtualization requires fixed-height rows; use virtualized=false for wrapping content. Row keys must be stable and unique. Selection requires both localized labels. Virtual expanded details use expandedRowHeight with internal scrolling. Cell buttons do not trigger row clicks.": [
+		"仮想化には固定行高が必要です。折り返す内容には virtualized=false を指定します。行キーは安定かつ一意にし、選択には翻訳済みラベルを両方指定します。仮想化した展開詳細は expandedRowHeight の固定高で内部スクロールします。セル内のボタンは行クリックを発生させません。",
+		"가상화는 고정 행 높이가 필요합니다. 줄바꿈이 필요한 내용은 virtualized=false를 사용하세요. 행 키는 안정적이고 고유해야 하며 선택에는 번역된 두 레이블이 필요합니다. 가상 모드 상세 영역은 expandedRowHeight 높이로 내부 스크롤합니다. 셀 버튼은 행 클릭을 발생시키지 않습니다.",
+		"La virtualisation exige une hauteur fixe ; utilisez virtualized=false pour les contenus qui reviennent à la ligne. Les clés doivent être stables et uniques. La sélection nécessite les deux libellés traduits. Les détails virtuels utilisent expandedRowHeight avec défilement interne. Les boutons des cellules ne déclenchent pas le clic de ligne.",
+		"La virtualización exige filas de altura fija; usa virtualized=false para contenido con saltos de línea. Las claves deben ser estables y únicas. La selección requiere ambas etiquetas traducidas. Los detalles virtuales usan expandedRowHeight con desplazamiento interno. Los botones de celda no activan el clic de fila.",
+		"تتطلب الافتراضية صفوفًا ثابتة الارتفاع؛ استخدم virtualized=false للمحتوى الملتف. يجب أن تكون مفاتيح الصفوف ثابتة وفريدة. يتطلب التحديد التسميتين المترجمتين. تستخدم التفاصيل الموسّعة expandedRowHeight مع تمرير داخلي. لا تفعّل أزرار الخلايا نقر الصف."
+	]
+}

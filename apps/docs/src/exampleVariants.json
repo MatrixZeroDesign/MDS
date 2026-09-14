@@ -1,0 +1,484 @@
+{
+	"spinner": [
+		{
+			"file": "spinner--size-comparison",
+			"title": ["尺寸对比", "Size comparison"]
+		}
+	],
+	"segmented-control": [
+		{
+			"file": "segmented-control--size-comparison",
+			"title": ["尺寸对比", "Size comparison"]
+		},
+		{
+			"file": "segmented-control--shape-comparison",
+			"title": ["形状对比", "Shape comparison"]
+		}
+	],
+	"theme": [
+		{
+			"file": "theme--palette-comparison",
+			"title": ["配色方案对比", "Palette comparison"]
+		}
+	],
+	"typography": [
+		{
+			"file": "typography--scale",
+			"title": ["完整排版层级", "Complete type scale"]
+		},
+		{
+			"file": "typography--semantics",
+			"title": ["语义、色调与截断", "Semantics, tone and truncation"]
+		}
+	],
+	"empty-state": [
+		{
+			"file": "empty-state--media-icon",
+			"title": ["配图：图标", "Thumbnail: Icon"]
+		},
+		{
+			"file": "empty-state--media-none",
+			"title": ["配图：无配图", "Thumbnail: None"]
+		},
+		{
+			"file": "empty-state--thumbnailSize-comparison",
+			"title": ["尺寸对比", "Size comparison"]
+		}
+	],
+	"toast": [
+		{
+			"file": "toast--inline",
+			"title": ["区域内通知", "Inline notification"]
+		},
+		{
+			"file": "toast--tone-comparison",
+			"title": ["颜色对比", "Color comparison"]
+		}
+	],
+	"button": [
+		{
+			"file": "button--variant-comparison",
+			"title": ["样式对比", "Variant comparison"]
+		},
+		{
+			"file": "button--size-comparison",
+			"title": ["尺寸对比", "Size comparison"]
+		},
+		{
+			"file": "button--shape-comparison",
+			"title": ["形状对比", "Shape comparison"]
+		}
+	],
+	"icon-button": [
+		{
+			"file": "icon-button--variant-comparison",
+			"title": ["样式对比", "Variant comparison"]
+		},
+		{
+			"file": "icon-button--size-comparison",
+			"title": ["尺寸对比", "Size comparison"]
+		},
+		{
+			"file": "icon-button--shape-comparison",
+			"title": ["形状对比", "Shape comparison"]
+		}
+	],
+	"avatar": [
+		{
+			"file": "avatar--size-comparison",
+			"title": ["尺寸对比", "Size comparison"]
+		}
+	],
+	"avatar-group": [
+		{
+			"file": "avatar-group--size-comparison",
+			"title": ["尺寸对比", "Size comparison"]
+		}
+	],
+	"badge": [
+		{
+			"file": "badge--tone-comparison",
+			"title": ["颜色对比", "Color comparison"]
+		}
+	],
+	"callout": [
+		{
+			"file": "callout--tone-comparison",
+			"title": ["颜色对比", "Color comparison"]
+		}
+	],
+	"banner": [
+		{
+			"file": "banner--tone-comparison",
+			"title": ["颜色对比", "Color comparison"]
+		}
+	],
+	"atmosphere": [
+		{
+			"file": "atmosphere--tone-comparison",
+			"title": ["颜色对比", "Color comparison"]
+		}
+	],
+	"line-chart": [
+		{
+			"file": "line-chart--motion-false",
+			"title": ["动效：关闭", "Motion: Off"]
+		},
+		{
+			"file": "line-chart--points-and-smooth",
+			"title": ["数据点形状与平滑曲线", "Point shapes and smooth curves"]
+		}
+	],
+	"area-chart": [
+		{
+			"file": "area-chart--motion-false",
+			"title": ["动效：关闭", "Motion: Off"]
+		},
+		{
+			"file": "area-chart--stacked-true",
+			"title": ["堆叠：开启", "Stacked: On"]
+		},
+		{
+			"file": "area-chart--points-and-smooth",
+			"title": ["数据点形状与平滑曲线", "Point shapes and smooth curves"]
+		}
+	],
+	"bar-chart": [
+		{
+			"file": "bar-chart--motion-false",
+			"title": ["动效：关闭", "Motion: Off"]
+		},
+		{
+			"file": "bar-chart--stacked-true",
+			"title": ["堆叠：开启", "Stacked: On"]
+		}
+	],
+	"donut-chart": [
+		{
+			"file": "donut-chart--motion-false",
+			"title": ["动效：关闭", "Motion: Off"]
+		}
+	],
+	"accordion": [
+		{
+			"file": "accordion--additional",
+			"title": ["同时展开多个区块", "Multiple expanded sections"]
+		}
+	],
+	"checkbox": [
+		{
+			"file": "checkbox--additional",
+			"title": ["禁用状态", "Disabled state"]
+		}
+	],
+	"choice-menu": [
+		{
+			"file": "choice-menu--additional",
+			"title": ["不可用的排序选项", "Disabled sort menu"]
+		}
+	],
+	"collapse": [
+		{
+			"file": "collapse--additional",
+			"title": ["默认展开", "Initially expanded"]
+		}
+	],
+	"container": [
+		{
+			"file": "container--additional",
+			"title": ["紧凑内容宽度", "Narrow content width"]
+		}
+	],
+	"dialog": [
+		{
+			"file": "dialog--additional",
+			"title": ["长内容滚动", "Long content"]
+		}
+	],
+	"dropdown-menu": [
+		{
+			"file": "dropdown-menu--additional",
+			"title": ["末端对齐", "End-aligned menu"]
+		},
+		{
+			"file": "dropdown-menu--rich-options",
+			"title": ["丰富视觉选项", "Rich visual options"]
+		}
+	],
+	"field": [
+		{
+			"file": "field--additional",
+			"title": ["错误信息", "Validation error"]
+		}
+	],
+	"form": [
+		{
+			"file": "form--additional",
+			"title": ["预填与重置", "Prefilled form and reset"]
+		}
+	],
+	"input": [
+		{
+			"file": "input--additional",
+			"title": ["只读内容", "Read-only value"]
+		}
+	],
+	"native-select": [
+		{
+			"file": "native-select--additional",
+			"title": ["禁用状态", "Disabled state"]
+		}
+	],
+	"pagination": [
+		{
+			"file": "pagination--additional",
+			"title": ["大量页面", "Many pages"]
+		}
+	],
+	"progress": [
+		{
+			"file": "progress--additional",
+			"title": ["完成状态", "Complete"]
+		}
+	],
+	"radio-card": [
+		{
+			"file": "radio-card--additional",
+			"title": ["不可用方案", "Unavailable plan"]
+		}
+	],
+	"radio": [
+		{
+			"file": "radio--additional",
+			"title": ["禁用选项", "Disabled option"]
+		}
+	],
+	"select": [
+		{
+			"file": "select--additional",
+			"title": ["禁用状态", "Disabled state"]
+		}
+	],
+	"side-sheet": [
+		{
+			"file": "side-sheet--additional",
+			"title": ["从起始侧打开", "Start-side sheet"]
+		}
+	],
+	"skeleton": [
+		{
+			"file": "skeleton--additional",
+			"title": ["头像占位", "Avatar placeholder"]
+		}
+	],
+	"slider": [
+		{
+			"file": "slider--additional",
+			"title": ["步进控制", "Stepped values"]
+		}
+	],
+	"steps": [
+		{
+			"file": "steps--additional",
+			"title": ["最后一步", "Final step"]
+		}
+	],
+	"switch": [
+		{
+			"file": "switch--additional",
+			"title": ["禁用状态", "Disabled switches"]
+		}
+	],
+	"tabs": [
+		{
+			"file": "tabs--additional",
+			"title": ["禁用标签", "Disabled tab"]
+		},
+		{
+			"file": "tabs--scrollable",
+			"title": ["可滚动标签", "Scrollable tabs"]
+		}
+	],
+	"textarea": [
+		{
+			"file": "textarea--additional",
+			"title": ["只读内容", "Read-only content"]
+		}
+	],
+	"tooltip": [
+		{
+			"file": "tooltip--additional",
+			"title": ["快速显示提示", "Immediate tooltip"]
+		}
+	],
+	"card": [
+		{
+			"file": "card--variant-comparison",
+			"title": ["外观对比", "Appearance variants"]
+		},
+		{
+			"file": "card--scoped-theme",
+			"title": ["局部反色主题", "Scoped contrast theme"]
+		},
+		{
+			"file": "card--additional",
+			"title": ["精简内容卡片", "Content-only card"]
+		}
+	],
+	"nav-rail": [
+		{
+			"file": "nav-rail--additional",
+			"title": ["仅图标受控导航", "Icon-only controlled navigation"]
+		},
+		{
+			"file": "nav-rail--nested",
+			"title": ["二级菜单与抽屉切换", "Nested navigation and drawer switching"]
+		}
+	],
+	"nav-drawer": [
+		{
+			"file": "nav-drawer--additional",
+			"title": ["模态导航", "Modal navigation"]
+		},
+		{
+			"file": "nav-drawer--nested",
+			"title": ["二级菜单", "Nested navigation"]
+		}
+	],
+	"navigation": [
+		{
+			"file": "navigation--additional",
+			"title": ["选中其他目的地", "Alternate active destination"]
+		},
+		{
+			"file": "navigation--sticky",
+			"title": ["顶部吸附", "Sticky navbar"]
+		},
+		{
+			"file": "navigation--scroll",
+			"title": ["随滚动方向显示", "Reveal on scroll up"]
+		}
+	],
+	"icons": [
+		{
+			"file": "icons--additional",
+			"title": ["大尺寸图标", "Large icon"]
+		}
+	],
+	"date-field": [
+		{
+			"file": "date-field--additional",
+			"title": ["只读日期或时间", "Read-only value"]
+		}
+	],
+	"date-picker": [
+		{
+			"file": "date-picker--additional",
+			"title": ["只读日期或时间", "Read-only value"]
+		}
+	],
+	"date-range-field": [
+		{
+			"file": "date-range-field--additional",
+			"title": ["只读日期或时间", "Read-only value"]
+		}
+	],
+	"date-range-picker": [
+		{
+			"file": "date-range-picker--additional",
+			"title": ["只读日期或时间", "Read-only value"]
+		}
+	],
+	"time-field": [
+		{
+			"file": "time-field--additional",
+			"title": ["只读日期或时间", "Read-only value"]
+		}
+	],
+	"time-picker": [
+		{
+			"file": "time-picker--additional",
+			"title": ["只读日期或时间", "Read-only value"]
+		}
+	],
+	"list": [
+		{
+			"file": "list--additional",
+			"title": ["多成员列表", "Member list"]
+		}
+	],
+	"table": [
+		{
+			"file": "table--additional",
+			"title": ["紧凑数值表格", "Numeric alignment"]
+		}
+	],
+	"audio-player": [
+		{
+			"file": "audio-player--additional",
+			"title": ["替换音轨", "Alternative track"]
+		}
+	],
+	"popover": [
+		{
+			"file": "popover--controlled",
+			"title": ["受控状态与箭头", "Controlled state and arrow"]
+		}
+	],
+	"mega-menu": [
+		{
+			"file": "mega-menu--click",
+			"title": ["仅点击展开", "Click to open"]
+		}
+	],
+	"spotlight": [
+		{
+			"file": "spotlight--additional",
+			"title": ["禁用操作", "Disabled action"]
+		}
+	],
+	"anchor": [
+		{
+			"file": "anchor--additional",
+			"title": ["立即跳转与偏移", "Instant navigation and offset"]
+		},
+		{
+			"file": "anchor--nested",
+			"title": ["嵌套目录", "Nested contents"]
+		}
+	],
+	"feature-highlight": [
+		{
+			"file": "feature-highlight--additional",
+			"title": ["持续提示与关闭", "Persistent hint with dismissal"]
+		},
+		{
+			"file": "feature-highlight--navigation",
+			"title": ["新导航入口", "New navigation destination"]
+		},
+		{
+			"file": "feature-highlight--card",
+			"title": ["功能卡片", "Feature card"]
+		},
+		{
+			"file": "feature-highlight--toolbar",
+			"title": ["工具栏操作", "Toolbar action"]
+		},
+		{
+			"file": "feature-highlight--spectrum",
+			"title": ["主题与彩色流光", "Theme and spectrum effects"]
+		}
+	],
+	"cascader": [
+		{
+			"file": "cascader--parent-selection",
+			"title": ["允许选择父级", "Parent selection"]
+		}
+	],
+	"scroll-navigator": [
+		{
+			"file": "scroll-navigator--long-content",
+			"title": ["长记录导航", "Long activity log"]
+		}
+	]
+}

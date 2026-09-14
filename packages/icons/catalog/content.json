@@ -1,0 +1,484 @@
+[
+	{
+		"name": "File",
+		"category": "files",
+		"keywords": ["文件", "document", "blank"]
+	},
+	{
+		"name": "FileText",
+		"category": "files",
+		"keywords": ["文档", "文本", "text", "document"]
+	},
+	{
+		"name": "FileCode",
+		"category": "files",
+		"keywords": ["代码文件", "source", "script"]
+	},
+	{
+		"name": "FileSpreadsheet",
+		"category": "files",
+		"keywords": ["电子表格", "excel", "cells"]
+	},
+	{
+		"name": "FileArchive",
+		"category": "files",
+		"keywords": ["压缩文件", "zip", "compressed"]
+	},
+	{
+		"name": "Folder",
+		"category": "files",
+		"keywords": ["文件夹", "directory"]
+	},
+	{
+		"name": "FolderOpen",
+		"category": "files",
+		"keywords": ["打开文件夹", "browse", "directory"]
+	},
+	{
+		"name": "FolderTree",
+		"category": "files",
+		"keywords": ["目录树", "filesystem", "hierarchy"]
+	},
+	{
+		"name": "Archive",
+		"category": "files",
+		"keywords": ["归档", "archive", "storage", "box"]
+	},
+	{
+		"name": "FileImage",
+		"category": "files",
+		"keywords": ["图像文件", "photo", "file"]
+	},
+	{
+		"name": "FileSearch",
+		"category": "files",
+		"keywords": ["查找文件", "find", "document"]
+	},
+	{
+		"name": "Notebook",
+		"category": "files",
+		"keywords": ["笔记本", "notes", "journal"]
+	},
+	{
+		"name": "BookOpen",
+		"category": "files",
+		"keywords": ["阅读", "打开书本", "read", "manual"]
+	},
+	{
+		"name": "BookMarked",
+		"category": "files",
+		"keywords": ["书签书本", "saved", "reading"]
+	},
+	{
+		"name": "Library",
+		"category": "files",
+		"keywords": ["文库", "图书馆", "library", "collection"]
+	},
+	{
+		"name": "Bookmark",
+		"category": "files",
+		"keywords": ["收藏", "书签", "save", "bookmark"],
+		"variants": ["outlined", "filled"]
+	},
+	{
+		"name": "FileBookmark",
+		"category": "files",
+		"keywords": ["书签文档", "bookmarked", "file"]
+	},
+	{
+		"name": "Tags",
+		"category": "files",
+		"keywords": ["多个标签", "labels", "taxonomy"]
+	},
+	{
+		"name": "Stamp",
+		"category": "files",
+		"keywords": ["印章", "stamp", "certify"]
+	},
+	{
+		"name": "ScrollText",
+		"category": "files",
+		"keywords": ["卷轴", "scroll", "manuscript"]
+	},
+	{
+		"name": "Presentation",
+		"category": "files",
+		"keywords": ["演示文稿", "slides", "presentation"]
+	},
+	{
+		"name": "FileTransfer",
+		"category": "files",
+		"keywords": ["文件传输", "transfer", "documents"]
+	},
+	{
+		"name": "FolderShared",
+		"category": "files",
+		"keywords": ["共享文件夹", "shared", "folder"]
+	},
+	{
+		"name": "Paragraph",
+		"category": "files",
+		"keywords": ["段落", "paragraph", "pilcrow"]
+	},
+	{
+		"name": "DocumentStack",
+		"category": "files",
+		"keywords": ["文档集合", "stack", "files"]
+	},
+	{
+		"name": "FolderHeart",
+		"category": "files",
+		"keywords": ["收藏文件夹", "favorite", "directory"]
+	},
+	{
+		"name": "TableOfContents",
+		"category": "files",
+		"keywords": ["目录索引", "contents", "index"]
+	},
+	{
+		"name": "FolderLock",
+		"category": "files",
+		"keywords": ["私密文件夹", "protected", "directory"]
+	},
+	{
+		"name": "DocumentScan",
+		"category": "files",
+		"keywords": ["扫描文档", "scan", "page"]
+	},
+	{
+		"name": "FileSignature",
+		"category": "files",
+		"keywords": ["签署文件", "signed", "document"]
+	},
+	{
+		"name": "FileAudio",
+		"category": "files",
+		"keywords": ["音频文件", "audio", "file"]
+	},
+	{
+		"name": "FileVideo",
+		"category": "files",
+		"keywords": ["视频文件", "movie", "file"]
+	},
+	{
+		"name": "Mail",
+		"category": "communication",
+		"keywords": ["邮件", "email", "envelope"]
+	},
+	{
+		"name": "MailOpen",
+		"category": "communication",
+		"keywords": ["已读邮件", "open", "envelope"]
+	},
+	{
+		"name": "Send",
+		"category": "communication",
+		"keywords": ["发送", "send", "paper", "plane"]
+	},
+	{
+		"name": "Message",
+		"category": "communication",
+		"keywords": ["聊天", "chat", "bubble"]
+	},
+	{
+		"name": "MessageSquare",
+		"category": "communication",
+		"keywords": ["消息", "message", "comment"]
+	},
+	{
+		"name": "Messages",
+		"category": "communication",
+		"keywords": ["对话", "会话", "conversations"]
+	},
+	{
+		"name": "MessageReply",
+		"category": "communication",
+		"keywords": ["回复消息", "reply", "comment"]
+	},
+	{
+		"name": "MessageForward",
+		"category": "communication",
+		"keywords": ["转发消息", "forward", "comment"]
+	},
+	{
+		"name": "MessageCheck",
+		"category": "communication",
+		"keywords": ["消息已送达", "delivered", "read"]
+	},
+	{
+		"name": "MessageTyping",
+		"category": "communication",
+		"keywords": ["正在输入", "typing", "chat"]
+	},
+	{
+		"name": "Phone",
+		"category": "communication",
+		"keywords": ["电话", "telephone", "call"]
+	},
+	{
+		"name": "PhoneIncoming",
+		"category": "communication",
+		"keywords": ["来电", "incoming", "call"]
+	},
+	{
+		"name": "PhoneOutgoing",
+		"category": "communication",
+		"keywords": ["拨出电话", "outgoing", "call"]
+	},
+	{
+		"name": "PhoneOff",
+		"category": "communication",
+		"keywords": ["挂断电话", "hangup", "decline"]
+	},
+	{
+		"name": "VideoCall",
+		"category": "communication",
+		"keywords": ["视频通话", "video", "meeting"]
+	},
+	{
+		"name": "Contact",
+		"category": "communication",
+		"keywords": ["联系人", "contact", "profile"]
+	},
+	{
+		"name": "AddressBook",
+		"category": "communication",
+		"keywords": ["通讯录", "address", "directory"]
+	},
+	{
+		"name": "AtSign",
+		"category": "communication",
+		"keywords": ["艾特", "at", "email", "address"]
+	},
+	{
+		"name": "Mention",
+		"category": "communication",
+		"keywords": ["提及", "mention", "notify"]
+	},
+	{
+		"name": "Hash",
+		"category": "communication",
+		"keywords": ["话题", "频道", "hashtag", "channel"]
+	},
+	{
+		"name": "Rss",
+		"category": "communication",
+		"keywords": ["订阅", "rss", "feed"]
+	},
+	{
+		"name": "Megaphone",
+		"category": "communication",
+		"keywords": ["扩音器", "broadcast", "megaphone"]
+	},
+	{
+		"name": "Announcement",
+		"category": "communication",
+		"keywords": ["公告", "announcement", "bulletin"]
+	},
+	{
+		"name": "TeamChat",
+		"category": "communication",
+		"keywords": ["团队讨论", "group", "conversation"]
+	},
+	{
+		"name": "ThumbsUp",
+		"category": "communication",
+		"keywords": ["赞", "like", "approve"]
+	},
+	{
+		"name": "ThumbsDown",
+		"category": "communication",
+		"keywords": ["不赞", "dislike", "disapprove"]
+	},
+	{
+		"name": "Smile",
+		"category": "communication",
+		"keywords": ["表情", "开心", "smile", "emoji"]
+	},
+	{
+		"name": "Reaction",
+		"category": "communication",
+		"keywords": ["回应", "反应", "reaction", "emoji"]
+	},
+	{
+		"name": "Pin",
+		"category": "communication",
+		"keywords": ["置顶", "固定", "pin"]
+	},
+	{
+		"name": "Flag",
+		"category": "communication",
+		"keywords": ["标记", "flag", "report"],
+		"variants": ["outlined", "filled"]
+	},
+	{
+		"name": "Reply",
+		"category": "communication",
+		"keywords": ["回复", "reply", "back"]
+	},
+	{
+		"name": "ReplyAll",
+		"category": "communication",
+		"keywords": ["回复全部", "reply", "all"]
+	},
+	{
+		"name": "Image",
+		"category": "media",
+		"keywords": ["图片", "image", "picture", "photo"]
+	},
+	{
+		"name": "Images",
+		"category": "media",
+		"keywords": ["图库", "images", "gallery", "photos"]
+	},
+	{
+		"name": "Camera",
+		"category": "media",
+		"keywords": ["相机", "camera", "capture"]
+	},
+	{
+		"name": "CameraOff",
+		"category": "media",
+		"keywords": ["关闭相机", "camera", "disabled"]
+	},
+	{
+		"name": "Video",
+		"category": "media",
+		"keywords": ["视频", "video", "recording"]
+	},
+	{
+		"name": "Film",
+		"category": "media",
+		"keywords": ["电影", "film", "reel"]
+	},
+	{
+		"name": "Clapperboard",
+		"category": "media",
+		"keywords": ["场记板", "movie", "production"]
+	},
+	{
+		"name": "Play",
+		"category": "media",
+		"keywords": ["播放", "play", "start"]
+	},
+	{
+		"name": "Pause",
+		"category": "media",
+		"keywords": ["暂停", "pause"]
+	},
+	{
+		"name": "Stop",
+		"category": "media",
+		"keywords": ["停止", "stop"]
+	},
+	{
+		"name": "SkipBack",
+		"category": "media",
+		"keywords": ["上一首", "previous", "track", "skip", "back"]
+	},
+	{
+		"name": "SkipForward",
+		"category": "media",
+		"keywords": ["下一首", "next", "track", "skip", "forward"]
+	},
+	{
+		"name": "Rewind",
+		"category": "media",
+		"keywords": ["快退", "rewind"]
+	},
+	{
+		"name": "FastForward",
+		"category": "media",
+		"keywords": ["快进", "fast", "forward"]
+	},
+	{
+		"name": "Volume",
+		"category": "media",
+		"keywords": ["音量", "volume", "speaker"]
+	},
+	{
+		"name": "VolumeLow",
+		"category": "media",
+		"keywords": ["低音量", "quiet", "volume", "low"]
+	},
+	{
+		"name": "VolumeOff",
+		"category": "media",
+		"keywords": ["静音", "mute", "audio", "off"]
+	},
+	{
+		"name": "Microphone",
+		"category": "media",
+		"keywords": ["麦克风", "microphone", "record"]
+	},
+	{
+		"name": "MicrophoneOff",
+		"category": "media",
+		"keywords": ["麦克风关闭", "mic", "mute"]
+	},
+	{
+		"name": "Headphones",
+		"category": "media",
+		"keywords": ["耳机", "headphones", "listen"]
+	},
+	{
+		"name": "Music",
+		"category": "media",
+		"keywords": ["音乐", "music", "notes"]
+	},
+	{
+		"name": "AudioWave",
+		"category": "media",
+		"keywords": ["音频波形", "waveform", "sound"]
+	},
+	{
+		"name": "Radio",
+		"category": "media",
+		"keywords": ["收音机", "radio", "broadcast"]
+	},
+	{
+		"name": "Podcast",
+		"category": "media",
+		"keywords": ["播客", "podcast"]
+	},
+	{
+		"name": "Palette",
+		"category": "media",
+		"keywords": ["调色板", "palette", "colors"]
+	},
+	{
+		"name": "Brush",
+		"category": "media",
+		"keywords": ["画笔", "brush", "paint"]
+	},
+	{
+		"name": "Disc",
+		"category": "media",
+		"keywords": ["光盘", "optical", "disc", "cd"]
+	},
+	{
+		"name": "VinylRecord",
+		"category": "media",
+		"keywords": ["黑胶唱片", "vinyl", "record"]
+	},
+	{
+		"name": "MusicQueue",
+		"category": "media",
+		"keywords": ["播放队列", "playlist", "queue"]
+	},
+	{
+		"name": "Piano",
+		"category": "media",
+		"keywords": ["钢琴键盘", "piano", "keyboard"]
+	},
+	{
+		"name": "Guitar",
+		"category": "media",
+		"keywords": ["吉他", "guitar", "instrument"]
+	},
+	{
+		"name": "Aperture",
+		"category": "media",
+		"keywords": ["光圈", "aperture", "shutter"]
+	}
+]

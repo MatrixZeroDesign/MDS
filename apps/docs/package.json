@@ -1,0 +1,17 @@
+{
+	"name": "@matrixzero/mds-docs",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "node ../../scripts/build-docs.mjs && vite --host 127.0.0.1 --port 4173",
+		"build": "node ../../scripts/build-docs.mjs && vite build && node ../../scripts/build-doc-routes.mjs"
+	},
+	"dependencies": {
+		"@matrixzero/charts": "0.1.0-alpha.4",
+		"@matrixzero/icons": "*",
+		"@matrixzero/ui": "0.1.0-alpha.11",
+		"opencc-js": "^1.4.2",
+		"react": "19.2.3",
+		"react-dom": "19.2.3"
+	}
+}

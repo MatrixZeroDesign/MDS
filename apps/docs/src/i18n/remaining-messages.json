@@ -1,0 +1,1169 @@
+{
+	"Example code": ["サンプルコード", "예제 코드", "Code d’exemple", "Código de ejemplo", "رمز المثال"],
+	"Please copy the code manually": [
+		"コードを手動でコピーしてください",
+		"코드를 직접 복사하세요",
+		"Veuillez copier le code manuellement",
+		"Copia el código manualmente",
+		"يرجى نسخ الرمز يدويًا"
+	],
+	"Color system": ["カラーシステム", "색상 시스템", "Système de couleurs", "Sistema de color", "نظام الألوان"],
+	"Color & hierarchy": [
+		"カラーと階層",
+		"색상 및 계층",
+		"Couleur et hiérarchie",
+		"Color y jerarquía",
+		"اللون والتدرج الهرمي"
+	],
+	"Coordinated brand colors, consistent semantic states.": [
+		"ブランドカラーを調和させ、一貫した意味状態を保ちます。",
+		"조화로운 브랜드 색상과 일관된 의미 상태를 제공합니다.",
+		"Des couleurs de marque coordonnées et des états sémantiques cohérents.",
+		"Colores de marca coordinados y estados semánticos coherentes.",
+		"ألوان علامة تجارية متناسقة وحالات دلالية متسقة."
+	],
+	"Palette": ["パレット", "팔레트", "Palette", "Paleta", "لوحة الألوان"],
+	"Categorical data": ["カテゴリデータ", "범주형 데이터", "Données catégorielles", "Datos categóricos", "بيانات فئوية"],
+	"Chart colors distinguish categories without implying success or risk.": [
+		"グラフの色は成功やリスクを示唆せず、カテゴリを区別します。",
+		"차트 색상은 성공이나 위험을 암시하지 않고 범주를 구분합니다.",
+		"Les couleurs des graphiques distinguent les catégories sans suggérer la réussite ou le risque.",
+		"Los colores de los gráficos distinguen categorías sin sugerir éxito o riesgo.",
+		"تميّز ألوان المخططات الفئات دون الإيحاء بالنجاح أو المخاطر."
+	],
+	"Interactive example": [
+		"インタラクティブな例",
+		"대화형 예제",
+		"Exemple interactif",
+		"Ejemplo interactivo",
+		"مثال تفاعلي"
+	],
+	"Example settings": [
+		"サンプル設定",
+		"예제 설정",
+		"Paramètres de l’exemple",
+		"Configuración del ejemplo",
+		"إعدادات المثال"
+	],
+	"Full type declarations, including inherited props": [
+		"継承されたpropsを含む完全な型宣言",
+		"상속된 props를 포함한 전체 타입 선언",
+		"Déclarations de types complètes, y compris les props héritées",
+		"Declaraciones de tipos completas, incluidas las props heredadas",
+		"تصريحات الأنواع الكاملة، بما فيها props الموروثة"
+	],
+	"Markdown documentation": [
+		"Markdownドキュメント",
+		"Markdown 문서",
+		"Documentation Markdown",
+		"Documentación Markdown",
+		"توثيق Markdown"
+	],
+	"Open interactive examples": [
+		"インタラクティブな例を開く",
+		"대화형 예제 열기",
+		"Ouvrir les exemples interactifs",
+		"Abrir ejemplos interactivos",
+		"فتح الأمثلة التفاعلية"
+	],
+	"Choose a component for its purpose, API, complete example, keyboard behavior and pitfalls. Charts and icons follow the same documentation contract.": [
+		"目的、API、完全な例、キーボード操作、注意点に基づいてコンポーネントを選びます。グラフとアイコンにも同じドキュメント契約を適用します。",
+		"목적, API, 완전한 예제, 키보드 동작 및 주의점을 기준으로 컴포넌트를 선택하세요. 차트와 아이콘도 같은 문서 계약을 따릅니다.",
+		"Choisissez un composant selon son objectif, son API, son exemple complet, son comportement au clavier et ses pièges. Les graphiques et les icônes suivent le même contrat documentaire.",
+		"Elige un componente por su propósito, API, ejemplo completo, comportamiento del teclado y posibles errores. Los gráficos y los iconos siguen el mismo contrato documental.",
+		"اختر المكوّن وفق غرضه وواجهة API والمثال الكامل وسلوك لوحة المفاتيح والمخاطر. تتبع المخططات والأيقونات عقد التوثيق نفسه."
+	],
+	"AI documentation entry": [
+		"AIドキュメント入口",
+		"AI 문서 항목",
+		"Entrée de documentation AI",
+		"Entrada de documentación de IA",
+		"مدخل توثيق الذكاء الاصطناعي"
+	],
+	"Readable, reusable, verifiable component documentation": [
+		"読みやすく、再利用でき、検証可能なコンポーネントドキュメント",
+		"읽기 쉽고 재사용 가능하며 검증 가능한 컴포넌트 문서",
+		"Documentation de composants lisible, réutilisable et vérifiable",
+		"Documentación de componentes legible, reutilizable y verificable",
+		"توثيق مكوّنات قابل للقراءة وإعادة الاستخدام والتحقق"
+	],
+	"Complete AI documentation": [
+		"完全なAIドキュメント",
+		"완전한 AI 문서",
+		"Documentation AI complète",
+		"Documentación de IA completa",
+		"توثيق كامل للذكاء الاصطناعي"
+	],
+	"Versioned manifest": [
+		"バージョン管理されたマニフェスト",
+		"버전이 지정된 매니페스트",
+		"Manifeste versionné",
+		"Manifiesto versionado",
+		"بيان بإصدارات"
+	],
+	"Private Pages requires GitLab authorization; local agents can read docs/ and example sources directly.": [
+		"Private PagesにはGitLab認証が必要です。ローカルエージェントはdocs/とサンプルソースを直接読み取れます。",
+		"Private Pages에는 GitLab 인증이 필요하며 로컬 에이전트는 docs/와 예제 소스를 직접 읽을 수 있습니다.",
+		"Private Pages nécessite une autorisation GitLab ; les agents locaux peuvent lire directement docs/ et les sources des exemples.",
+		"Private Pages requiere autorización de GitLab; los agentes locales pueden leer directamente docs/ y las fuentes de los ejemplos.",
+		"تتطلب Private Pages تفويض GitLab؛ ويمكن للوكلاء المحليين قراءة docs/ ومصادر الأمثلة مباشرةً."
+	],
+	"Install the packages you need": [
+		"必要なパッケージをインストール",
+		"필요한 패키지 설치",
+		"Installez les packages nécessaires",
+		"Instala los paquetes que necesitas",
+		"ثبّت الحزم التي تحتاج إليها"
+	],
+	"Three independently published packages. UI depends on icons; charts are optional.": [
+		"独立して公開される3つのパッケージ。UIはiconsに依存し、chartsはオプションです。",
+		"독립적으로 배포되는 세 패키지입니다. UI는 icons에 의존하고 charts는 선택 사항입니다.",
+		"Trois packages publiés indépendamment. UI dépend de icons ; charts est facultatif.",
+		"Tres paquetes publicados de forma independiente. UI depende de icons; charts es opcional.",
+		"ثلاث حزم منشورة بشكل مستقل. تعتمد UI على icons، بينما charts اختيارية."
+	],
+	"Private registry configuration": [
+		"プライベートレジストリの設定",
+		"비공개 레지스트리 구성",
+		"Configuration du registre privé",
+		"Configuración del registro privado",
+		"إعداد السجل الخاص"
+	],
+	"Inject a read-only token through the environment; never commit the token.": [
+		"読み取り専用トークンを環境経由で渡し、トークンは決してコミットしません。",
+		"읽기 전용 토큰은 환경을 통해 주입하고 절대 커밋하지 마세요.",
+		"Injectez un token en lecture seule via l’environnement ; ne le validez jamais.",
+		"Inyecta un token de solo lectura mediante el entorno; nunca hagas commit del token.",
+		"مرّر رمزًا للقراءة فقط عبر البيئة؛ ولا تُودع الرمز أبدًا."
+	],
+	"Add the theme root": [
+		"テーマルートを追加",
+		"테마 루트 추가",
+		"Ajoutez la racine du thème",
+		"Añade la raíz del tema",
+		"أضف جذر السمة"
+	],
+	"Examples and API": ["例とAPI", "예제 및 API", "Exemples et API", "Ejemplos y API", "الأمثلة وواجهة API"],
+	"Foundations shows real package components. Charts includes interactive examples and data tables. Each component page lists common props and compositions; full TypeScript definitions ship with each package.": [
+		"Foundationsには実際のパッケージコンポーネントを掲載します。Chartsにはインタラクティブな例とデータテーブルがあります。各コンポーネントページには一般的なpropsと構成を示し、完全なTypeScript定義を各パッケージに同梱します。",
+		"Foundations에는 실제 패키지 컴포넌트가 표시됩니다. Charts에는 대화형 예제와 데이터 테이블이 포함됩니다. 각 컴포넌트 페이지에는 일반적인 props와 조합이 나열되며 전체 TypeScript 정의가 각 패키지에 포함됩니다.",
+		"Foundations présente les composants réels des packages. Charts inclut des exemples interactifs et des tableaux de données. Chaque page de composant répertorie les props et compositions courantes ; les définitions TypeScript complètes sont fournies avec chaque package.",
+		"Foundations muestra componentes reales de los paquetes. Charts incluye ejemplos interactivos y tablas de datos. Cada página de componente enumera props y composiciones habituales; cada paquete incluye las definiciones completas de TypeScript.",
+		"يعرض Foundations مكوّنات الحزم الفعلية. يتضمن Charts أمثلة تفاعلية وجداول بيانات. تسرد صفحة كل مكوّن props والتركيبات الشائعة؛ وتأتي تعريفات TypeScript الكاملة مع كل حزمة."
+	],
+	"Color and attention": [
+		"カラーと注意",
+		"색상 및 주의",
+		"Couleur et attention",
+		"Color y atención",
+		"اللون والانتباه"
+	],
+	"Reserve the accent for key actions and form selection. Navigation, tabs and selected table rows use neutral selection colors; avatar fallbacks and general notifications use neutral decoration colors. Success, warning and error retain their own semantics, while charts use categorical colors.": [
+		"アクセントは重要な操作とフォーム選択に使います。ナビゲーション、タブ、選択した表の行には中立的な選択色を使い、アバターのフォールバックと一般通知には中立的な装飾色を使います。成功、警告、エラーは固有の意味を保ち、グラフにはカテゴリ色を使います。",
+		"강조 색상은 핵심 작업과 폼 선택에 사용하세요. 탐색, 탭 및 선택된 표 행에는 중립 선택 색상을 사용하고 아바타 대체 표시와 일반 알림에는 중립 장식 색상을 사용합니다. 성공, 경고 및 오류는 고유한 의미를 유지하고 차트에는 범주 색상을 사용합니다.",
+		"Réservez l’accent aux actions clés et à la sélection dans les formulaires. La navigation, les onglets et les lignes sélectionnées utilisent des couleurs de sélection neutres ; les avatars de remplacement et les notifications générales utilisent des couleurs décoratives neutres. Succès, avertissement et erreur conservent leur sémantique, tandis que les graphiques utilisent des couleurs catégorielles.",
+		"Reserva el acento para acciones clave y selecciones de formularios. La navegación, las pestañas y las filas seleccionadas usan colores de selección neutros; los avatares alternativos y las notificaciones generales usan colores decorativos neutros. Éxito, advertencia y error mantienen su significado, mientras los gráficos usan colores categóricos.",
+		"خصّص اللون البارز للإجراءات الأساسية واختيار الحقول. تستخدم عناصر التنقل وعلامات التبويب وصفوف الجداول المحددة ألوان اختيار محايدة؛ وتستخدم الصور الرمزية البديلة والإشعارات العامة ألوانًا زخرفية محايدة. تحتفظ حالات النجاح والتحذير والخطأ بدلالاتها، بينما تستخدم المخططات ألوانًا فئوية."
+	],
+	"Theme isolation and brand contract": [
+		"テーマ分離とブランド契約",
+		"테마 격리 및 브랜드 계약",
+		"Isolation du thème et contrat de marque",
+		"Aislamiento del tema y contrato de marca",
+		"عزل السمة وعقد العلامة التجارية"
+	],
+	"Styles live inside .mds-root. Brand selects explicitly imported CSS; without it, base semantic tokens remain. Portals retain their current theme.": [
+		"スタイルは.mds-root内に置きます。Brandは明示的にインポートしたCSSを選択し、なければ基本の意味トークンが残ります。ポータルは現在のテーマを維持します。",
+		"스타일은 .mds-root 내부에 있습니다. Brand는 명시적으로 가져온 CSS를 선택하며, 없으면 기본 의미 토큰이 유지됩니다. 포털은 현재 테마를 유지합니다.",
+		"Les styles résident dans .mds-root. Brand sélectionne le CSS importé explicitement ; sans lui, les tokens sémantiques de base restent actifs. Les portails conservent leur thème actuel.",
+		"Los estilos viven dentro de .mds-root. Brand selecciona el CSS importado explícitamente; sin él, se mantienen los tokens semánticos base. Los portales conservan su tema actual.",
+		"توجد الأنماط داخل .mds-root. يختار Brand ملفات CSS المستوردة صراحةً؛ وبدونها تبقى الرموز الدلالية الأساسية. وتحافظ البوابات على سمتها الحالية."
+	],
+	"Reading direction: RTL and LTR": [
+		"読み方向: RTLとLTR",
+		"읽기 방향: RTL 및 LTR",
+		"Sens de lecture : RTL et LTR",
+		"Dirección de lectura: RTL y LTR",
+		"اتجاه القراءة: RTL وLTR"
+	],
+	"Configure language and direction independently. dir=rtl mirrors layout and adjusts arrow-key behavior; dir=ltr restores the default. Portals inherit direction, and independent roots may use different directions. Prefer start/end for sheets; code and chronological data keep their left-to-right reading order.": [
+		"言語と方向を個別に設定します。dir=rtlはレイアウトを反転して矢印キーの動作を調整し、dir=ltrはデフォルトに戻します。ポータルは方向を継承し、独立したルートには異なる方向を設定できます。シートにはstart/endを使い、コードと時系列データは左から右の順序を保ちます。",
+		"언어와 방향을 독립적으로 설정하세요. dir=rtl은 레이아웃을 뒤집고 화살표 키 동작을 조정하며 dir=ltr은 기본값을 복원합니다. 포털은 방향을 상속하고 독립 루트는 서로 다른 방향을 사용할 수 있습니다. 시트에는 start/end를 사용하고 코드와 시간순 데이터는 왼쪽에서 오른쪽 순서를 유지합니다.",
+		"Configurez la langue et le sens indépendamment. dir=rtl inverse la disposition et adapte les flèches ; dir=ltr restaure la valeur par défaut. Les portails héritent du sens et les racines indépendantes peuvent différer. Préférez start/end pour les panneaux ; le code et les données chronologiques restent lus de gauche à droite.",
+		"Configura el idioma y la dirección de forma independiente. dir=rtl invierte la disposición y ajusta las flechas; dir=ltr restaura el valor predeterminado. Los portales heredan la dirección y las raíces independientes pueden usar direcciones distintas. Prefiere start/end en paneles; el código y los datos cronológicos conservan el orden de izquierda a derecha.",
+		"اضبط اللغة والاتجاه بشكل مستقل. يعكس dir=rtl التخطيط ويعدّل سلوك مفاتيح الأسهم، بينما يعيد dir=ltr الإعداد الافتراضي. ترث البوابات الاتجاه، وقد تستخدم الجذور المستقلة اتجاهات مختلفة. فضّل start/end للألواح؛ ويحافظ الرمز والبيانات الزمنية على ترتيب القراءة من اليسار إلى اليمين."
+	],
+	"Micro motion": ["マイクロモーション", "미세 모션", "Micro-mouvements", "Microanimación", "الحركة الدقيقة"],
+	"Use 120ms for immediate feedback, 180ms for state changes, and 240ms for side sheets. Animate only the active component. Respect reduced motion.": [
+		"即時フィードバックには120ms、状態変更には180ms、サイドシートには240msを使います。アクティブなコンポーネントだけをアニメーションし、動きを減らす設定を尊重します。",
+		"즉각적인 피드백에는 120ms, 상태 변경에는 180ms, 사이드 시트에는 240ms를 사용하세요. 활성 컴포넌트만 애니메이션하고 동작 줄이기 설정을 존중합니다.",
+		"Utilisez 120 ms pour le retour immédiat, 180 ms pour les changements d’état et 240 ms pour les panneaux latéraux. Animez uniquement le composant actif et respectez la réduction des animations.",
+		"Usa 120 ms para la respuesta inmediata, 180 ms para cambios de estado y 240 ms para paneles laterales. Anima solo el componente activo y respeta la reducción de movimiento.",
+		"استخدم 120 مللي ثانية للاستجابة الفورية، و180 لتغييرات الحالة، و240 للألواح الجانبية. حرّك المكوّن النشط فقط واحترم تفضيلات تقليل الحركة."
+	],
+	"Icon governance": [
+		"アイコンのガバナンス",
+		"아이콘 관리",
+		"Gouvernance des icônes",
+		"Gobernanza de iconos",
+		"حوكمة الأيقونات"
+	],
+	"MDS maintains 340 stable icon names, 16/20/24px sizes and a 1.75px stroke. SVG shapes are independently drawn, informed by Lucide’s clarity with MDS geometric details.": [
+		"MDSは340個の安定したアイコン名、16/20/24pxのサイズ、1.75pxの線幅を維持します。SVGの形状は個別に描画し、Lucideの明快さを参考にMDSの幾何学的な細部を加えています。",
+		"MDS는 340개의 안정적인 아이콘 이름, 16/20/24px 크기 및 1.75px 선을 유지합니다. SVG 모양은 독립적으로 그리며 Lucide의 명료함에 MDS의 기하학적 세부 사항을 더합니다.",
+		"MDS maintient 340 noms d’icônes stables, des tailles 16/20/24 px et un trait de 1,75 px. Les formes SVG sont dessinées indépendamment, avec la clarté de Lucide et les détails géométriques de MDS.",
+		"MDS mantiene 340 nombres de iconos estables, tamaños de 16/20/24 px y un trazo de 1,75 px. Las formas SVG se dibujan de forma independiente, inspiradas en la claridad de Lucide y los detalles geométricos de MDS.",
+		"يحافظ MDS على 340 اسمًا ثابتًا للأيقونات وأحجام 16/20/24 بكسل وسمك 1.75 بكسل. تُرسم أشكال SVG بشكل مستقل، مستفيدةً من وضوح Lucide مع التفاصيل الهندسية لـ MDS."
+	],
+	"Release and validation": [
+		"リリースと検証",
+		"릴리스 및 검증",
+		"Publication et validation",
+		"Lanzamiento y validación",
+		"الإصدار والتحقق"
+	],
+	"Each package has its own version. Previews use the next tag. Validate interaction, languages, themes, keyboard, narrow layouts, SSR and installation before publishing.": [
+		"各パッケージには独自のバージョンがあります。プレビューにはnextタグを使います。公開前に操作、言語、テーマ、キーボード、狭いレイアウト、SSR、インストールを検証します。",
+		"각 패키지는 자체 버전을 가집니다. 미리보기에는 next 태그를 사용합니다. 배포 전에 상호작용, 언어, 테마, 키보드, 좁은 레이아웃, SSR 및 설치를 검증하세요.",
+		"Chaque package possède sa propre version. Les aperçus utilisent le tag next. Validez les interactions, les langues, les thèmes, le clavier, les dispositions étroites, SSR et l’installation avant publication.",
+		"Cada paquete tiene su propia versión. Las vistas previas usan la etiqueta next. Valida la interacción, los idiomas, los temas, el teclado, los diseños estrechos, SSR y la instalación antes de publicar.",
+		"لكل حزمة إصدارها الخاص. تستخدم المعاينات وسم next. تحقّق من التفاعل واللغات والسمات ولوحة المفاتيح والتخطيطات الضيقة وSSR والتثبيت قبل النشر."
+	],
+	"Dismiss preview notice": [
+		"プレビュー通知を閉じる",
+		"미리보기 알림 닫기",
+		"Fermer l’avis de prévisualisation",
+		"Descartar aviso de vista previa",
+		"إغلاق إشعار المعاينة"
+	],
+	"MDS preview · Components are evolving. Interactive examples use demo data.": [
+		"MDSプレビュー · コンポーネントは進化中です。インタラクティブな例ではデモデータを使用します。",
+		"MDS 미리보기 · 컴포넌트는 계속 발전하고 있습니다. 대화형 예제는 데모 데이터를 사용합니다.",
+		"Aperçu MDS · Les composants évoluent. Les exemples interactifs utilisent des données de démonstration.",
+		"Vista previa de MDS · Los componentes están evolucionando. Los ejemplos interactivos usan datos de demostración.",
+		"معاينة MDS · المكوّنات قيد التطوير. تستخدم الأمثلة التفاعلية بيانات تجريبية."
+	],
+	"Content that can send notifications.": [
+		"通知を送信できるコンテンツ。",
+		"알림을 보낼 수 있는 콘텐츠입니다.",
+		"Contenu pouvant envoyer des notifications.",
+		"Contenido que puede enviar notificaciones.",
+		"محتوى يمكنه إرسال إشعارات."
+	],
+	"Default lifetime in milliseconds; Infinity keeps notifications open.": [
+		"デフォルトの表示時間（ミリ秒）。Infinityで通知を開いたままにします。",
+		"기본 지속 시간(밀리초)이며 Infinity는 알림을 열린 상태로 유지합니다.",
+		"Durée par défaut en millisecondes ; Infinity maintient les notifications ouvertes.",
+		"Duración predeterminada en milisegundos; Infinity mantiene abiertas las notificaciones.",
+		"المدة الافتراضية بالمللي ثانية؛ ويحافظ Infinity على إبقاء الإشعارات مفتوحة."
+	],
+	"Localized screen-reader announcement prefix.": [
+		"スクリーンリーダー通知のローカライズされた接頭辞。",
+		"스크린 리더 알림의 현지화된 접두사입니다.",
+		"Préfixe localisé de l’annonce du lecteur d’écran.",
+		"Prefijo localizado del anuncio del lector de pantalla.",
+		"بادئة مترجمة لإعلان قارئ الشاشة."
+	],
+	"Region name; {hotkey} is replaced with the keyboard shortcut.": [
+		"領域名。{hotkey}はキーボードショートカットに置き換えられます。",
+		"영역 이름이며 {hotkey}는 키보드 단축키로 대체됩니다.",
+		"Nom de la région ; {hotkey} est remplacé par le raccourci clavier.",
+		"Nombre de la región; {hotkey} se sustituye por el atajo de teclado.",
+		"اسم المنطقة؛ يُستبدل {hotkey} باختصار لوحة المفاتيح."
+	],
+	"Accessible name of each close button.": [
+		"各閉じるボタンのアクセシブル名。",
+		"각 닫기 버튼의 접근 가능한 이름입니다.",
+		"Nom accessible de chaque bouton de fermeture.",
+		"Nombre accesible de cada botón de cierre.",
+		"الاسم الميسّر لكل زر إغلاق."
+	],
+	"Create a notification and return its ID.": [
+		"通知を作成してIDを返します。",
+		"알림을 생성하고 ID를 반환합니다.",
+		"Crée une notification et renvoie son ID.",
+		"Crea una notificación y devuelve su ID.",
+		"أنشئ إشعارًا وأعد معرّفه."
+	],
+	"Dismiss one notification.": [
+		"1件の通知を閉じます。",
+		"알림 하나를 닫습니다.",
+		"Fermer une notification.",
+		"Descarta una notificación.",
+		"إغلاق إشعار واحد."
+	],
+	"Dismiss all notifications.": [
+		"すべての通知を閉じます。",
+		"모든 알림을 닫습니다.",
+		"Fermer toutes les notifications.",
+		"Descarta todas las notificaciones.",
+		"إغلاق جميع الإشعارات."
+	],
+	"Concise feedback title.": [
+		"簡潔なフィードバックのタイトル。",
+		"간결한 피드백 제목입니다.",
+		"Titre concis du retour.",
+		"Título conciso de comentarios.",
+		"عنوان موجز للتعليقات."
+	],
+	"Supporting detail.": [
+		"補足説明。",
+		"보충 세부 정보입니다.",
+		"Détail complémentaire.",
+		"Detalle complementario.",
+		"تفصيل داعم."
+	],
+	"Semantic notification color.": [
+		"通知の意味を示す色。",
+		"알림의 의미를 나타내는 색상입니다.",
+		"Couleur sémantique de la notification.",
+		"Color semántico de la notificación.",
+		"لون الإشعار الدلالي."
+	],
+	"Override this notification’s lifetime; Infinity keeps it open.": [
+		"この通知の表示時間を上書きします。Infinityで開いたままにします。",
+		"이 알림의 지속 시간을 재정의하며 Infinity는 열린 상태로 유지합니다.",
+		"Remplace la durée de cette notification ; Infinity la maintient ouverte.",
+		"Anula la duración de esta notificación; Infinity la mantiene abierta.",
+		"تجاوز مدة هذا الإشعار؛ ويحافظ Infinity على إبقائه مفتوحًا."
+	],
+	"Optional action; altText describes its purpose.": [
+		"任意の操作。altTextで目的を説明します。",
+		"선택적 작업이며 altText가 목적을 설명합니다.",
+		"Action facultative ; altText en décrit le but.",
+		"Acción opcional; altText describe su propósito.",
+		"إجراء اختياري؛ يصف altText الغرض منه."
+	],
+	"Runs after native validation and manages pending state.": [
+		"ネイティブ検証後に実行され、保留状態を管理します。",
+		"기본 유효성 검사 후 실행되며 대기 상태를 관리합니다.",
+		"S’exécute après la validation native et gère l’état d’attente.",
+		"Se ejecuta tras la validación nativa y gestiona el estado pendiente.",
+		"يعمل بعد التحقق الأصلي ويدير حالة الانتظار."
+	],
+	"Native submit handler; preventDefault skips onSubmitAsync.": [
+		"ネイティブ送信ハンドラー。preventDefaultでonSubmitAsyncをスキップします。",
+		"기본 제출 핸들러이며 preventDefault는 onSubmitAsync를 건너뜁니다.",
+		"Gestionnaire d’envoi natif ; preventDefault ignore onSubmitAsync.",
+		"Controlador de envío nativo; preventDefault omite onSubmitAsync.",
+		"معالج الإرسال الأصلي؛ يتخطى preventDefault الدالة onSubmitAsync."
+	],
+	"Pending state controlled by an external form library.": [
+		"外部フォームライブラリが保留状態を制御します。",
+		"외부 폼 라이브러리가 대기 상태를 제어합니다.",
+		"État d’attente contrôlé par une bibliothèque de formulaires externe.",
+		"Estado pendiente controlado por una biblioteca de formularios externa.",
+		"حالة الانتظار تتحكم بها مكتبة نماذج خارجية."
+	],
+	"Summary entries; focus the first invalid control after submission.": [
+		"概要項目。送信後、最初の無効なコントロールにフォーカスします。",
+		"요약 항목이며 제출 후 첫 번째 유효하지 않은 컨트롤에 초점을 맞춥니다.",
+		"Entrées du résumé ; place le focus sur le premier contrôle invalide après l’envoi.",
+		"Entradas del resumen; enfoca el primer control no válido después del envío.",
+		"عناصر الملخص؛ ركّز على أول عنصر تحكم غير صالح بعد الإرسال."
+	],
+	"Localized error summary title.": [
+		"ローカライズされたエラー概要のタイトル。",
+		"현지화된 오류 요약 제목입니다.",
+		"Titre localisé du résumé des erreurs.",
+		"Título localizado del resumen de errores.",
+		"عنوان ملخص الأخطاء المترجم."
+	],
+	"Message displayed when async submission rejects.": [
+		"非同期送信が拒否されたときに表示するメッセージ。",
+		"비동기 제출이 거부될 때 표시되는 메시지입니다.",
+		"Message affiché lorsque l’envoi asynchrone est rejeté.",
+		"Mensaje mostrado cuando se rechaza el envío asíncrono.",
+		"الرسالة المعروضة عند رفض الإرسال غير المتزامن."
+	],
+	"Receive a rejected submission error.": [
+		"拒否された送信エラーを受け取ります。",
+		"거부된 제출 오류를 받습니다.",
+		"Reçoit une erreur d’envoi rejeté.",
+		"Recibe un error de envío rechazado.",
+		"استقبال خطأ إرسال مرفوض."
+	],
+	"Combined with Form pending state; other Button props are supported, with type fixed to submit.": [
+		"Formの保留状態と組み合わせます。その他のButton propsに対応し、typeはsubmitに固定されます。",
+		"Form 대기 상태와 함께 사용하며 다른 Button props를 지원하고 type은 submit으로 고정됩니다.",
+		"S’utilise avec l’état d’attente de Form ; les autres props de Button sont prises en charge et type est fixé à submit.",
+		"Se combina con el estado pendiente de Form; admite otras props de Button y fija type en submit.",
+		"يُستخدم مع حالة انتظار Form؛ ويدعم خصائص Button الأخرى مع تثبيت type على submit."
+	],
+	"Error entries for an independently rendered summary.": [
+		"独立して描画する概要のエラー項目。",
+		"독립적으로 렌더링되는 요약의 오류 항목입니다.",
+		"Entrées d’erreur pour un résumé rendu indépendamment.",
+		"Entradas de error para un resumen renderizado de forma independiente.",
+		"عناصر أخطاء لملخص يُعرض بشكل مستقل."
+	],
+	"Accessible summary title.": [
+		"アクセシブルな概要タイトル。",
+		"접근 가능한 요약 제목입니다.",
+		"Titre accessible du résumé.",
+		"Título accesible del resumen.",
+		"عنوان الملخص الميسّر."
+	],
+	"Associated Field ID; omit for a form-level error.": [
+		"関連付けるField ID。フォームレベルのエラーでは省略します。",
+		"연결된 Field ID이며 폼 수준 오류에는 생략합니다.",
+		"ID du Field associé ; omettez-le pour une erreur au niveau du formulaire.",
+		"ID del Field asociado; omítelo para un error a nivel del formulario.",
+		"معرّف Field المرتبط؛ احذفه لخطأ على مستوى النموذج."
+	],
+	"Localized error message.": [
+		"ローカライズされたエラーメッセージ。",
+		"현지화된 오류 메시지입니다.",
+		"Message d’erreur localisé.",
+		"Mensaje de error localizado.",
+		"رسالة خطأ مترجمة."
+	],
+	"Read the nearest MDS Form pending state.": [
+		"最も近いMDS Formの保留状態を読み取ります。",
+		"가장 가까운 MDS Form의 대기 상태를 읽습니다.",
+		"Lit l’état d’attente du Form MDS le plus proche.",
+		"Lee el estado pendiente del Form de MDS más cercano.",
+		"اقرأ حالة انتظار Form الأقرب من MDS."
+	],
+	"Controlled value or initial value.": [
+		"制御値または初期値。",
+		"제어된 값 또는 초기값입니다.",
+		"Valeur contrôlée ou valeur initiale.",
+		"Valor controlado o valor inicial.",
+		"قيمة متحكم بها أو قيمة أولية."
+	],
+	"Handle input changes.": [
+		"入力変更を処理します。",
+		"입력 변경을 처리합니다.",
+		"Gère les changements de saisie.",
+		"Gestiona los cambios de entrada.",
+		"تعامل مع تغييرات الإدخال."
+	],
+	"Native input type, such as email or password.": [
+		"emailやpasswordなどのネイティブ入力型。",
+		"email 또는 password와 같은 기본 입력 유형입니다.",
+		"Type de saisie natif, comme email ou password.",
+		"Tipo de entrada nativo, como email o password.",
+		"نوع الإدخال الأصلي، مثل email أو password."
+	],
+	"Field name in submitted form data.": [
+		"送信するフォームデータのField名。",
+		"제출된 폼 데이터의 Field 이름입니다.",
+		"Nom du Field dans les données de formulaire envoyées.",
+		"Nombre del Field en los datos del formulario enviados.",
+		"اسم Field في بيانات النموذج المُرسلة."
+	],
+	"Input hint; does not replace a Field label.": [
+		"入力ヒント。Fieldラベルの代わりにはなりません。",
+		"입력 힌트이며 Field 레이블을 대신하지 않습니다.",
+		"Indication de saisie ; ne remplace pas le libellé du Field.",
+		"Indicación de entrada; no sustituye la etiqueta de Field.",
+		"تلميح الإدخال؛ لا يحل محل تسمية Field."
+	],
+	"Set explicitly or inherit from Field.": [
+		"明示的に設定するかFieldから継承します。",
+		"명시적으로 설정하거나 Field에서 상속합니다.",
+		"Définir explicitement ou hériter de Field.",
+		"Se establece explícitamente o se hereda de Field.",
+		"اضبطه صراحةً أو ورثه من Field."
+	],
+	"Browser autofill purpose.": [
+		"ブラウザーの自動入力の目的。",
+		"브라우저 자동 완성 목적입니다.",
+		"But de la saisie automatique du navigateur.",
+		"Propósito del autocompletado del navegador.",
+		"غرض الملء التلقائي للمتصفح."
+	],
+	"Layout": ["レイアウト", "레이아웃", "Mise en page", "Diseño", "التخطيط"],
+	"Editing": ["編集", "편집", "Modification", "Edición", "التحرير"],
+	"Files": ["ファイル", "파일", "Fichiers", "Archivos", "الملفات"],
+	"Communication": ["コミュニケーション", "커뮤니케이션", "Communication", "Comunicación", "التواصل"],
+	"Media": ["メディア", "미디어", "Médias", "Medios", "الوسائط"],
+	"Development": ["開発", "개발", "Développement", "Desarrollo", "التطوير"],
+	"Security": ["セキュリティ", "보안", "Sécurité", "Seguridad", "الأمان"],
+	"Data": ["データ", "데이터", "Données", "Datos", "البيانات"],
+	"Everyday": ["日常", "일상", "Quotidien", "Cotidiano", "يومي"],
+	"Date & time": ["日付と時刻", "날짜 및 시간", "Date et heure", "Fecha y hora", "التاريخ والوقت"],
+	"Content & data display": [
+		"コンテンツとデータ表示",
+		"콘텐츠 및 데이터 표시",
+		"Affichage du contenu et des données",
+		"Visualización de contenido y datos",
+		"عرض المحتوى والبيانات"
+	],
+	"Motion": ["モーション", "모션", "Mouvement", "Movimiento", "الحركة"],
+	"Thumbnail": ["サムネイル", "썸네일", "Vignette", "Miniatura", "صورة مصغرة"],
+	"Stacked": ["積み重ね", "스택", "Empilé", "Apilado", "مكدّس"],
+	"Segmented": ["セグメント", "세그먼트", "Segmenté", "Segmentado", "مجزّأ"],
+	"Illustration": ["イラスト", "일러스트", "Illustration", "Ilustración", "رسم توضيحي"],
+	"Icon": ["アイコン", "아이콘", "Icône", "Icono", "أيقونة"],
+	"None": ["なし", "없음", "Aucun", "Ninguno", "لا شيء"],
+	"3 pending updates": [
+		"保留中の更新 3 件",
+		"대기 중인 업데이트 3개",
+		"3 mises à jour en attente",
+		"3 actualizaciones pendientes",
+		"3 تحديثات معلّقة"
+	],
+	"Content filters": [
+		"コンテンツフィルター",
+		"콘텐츠 필터",
+		"Filtres de contenu",
+		"Filtros de contenido",
+		"مرشحات المحتوى"
+	],
+	"Accessibility": ["アクセシビリティ", "접근성", "Accessibilité", "Accesibilidad", "إمكانية الوصول"],
+	"Updates": ["更新", "업데이트", "Mises à jour", "Actualizaciones", "التحديثات"],
+	"New notification": ["新しい通知", "새 알림", "Nouvelle notification", "Nueva notificación", "إشعار جديد"],
+	"Notifications": ["通知", "알림", "Notifications", "Notificaciones", "الإشعارات"],
+	"Choose a workspace": [
+		"ワークスペースを選択",
+		"워크스페이스 선택",
+		"Choisir un espace de travail",
+		"Elegir un espacio de trabajo",
+		"اختر مساحة عمل"
+	],
+	"Live": ["ライブ", "실시간", "En direct", "En vivo", "مباشر"],
+	"Knowledge base": [
+		"ナレッジベース",
+		"지식 베이스",
+		"Base de connaissances",
+		"Base de conocimientos",
+		"قاعدة المعرفة"
+	],
+	"Unread customer message": [
+		"未読の顧客メッセージ",
+		"읽지 않은 고객 메시지",
+		"Message client non lu",
+		"Mensaje de cliente sin leer",
+		"رسالة عميل غير مقروءة"
+	],
+	"Inverse": ["反転", "반전", "Inversé", "Invertido", "معكوس"],
+	"Compact filters, choices, and removable values.": [
+		"コンパクトなフィルター、選択肢、削除可能な値。",
+		"간결한 필터, 선택 항목 및 삭제 가능한 값입니다.",
+		"Filtres, choix et valeurs supprimables compacts.",
+		"Filtros, opciones y valores eliminables compactos.",
+		"مرشحات وخيارات وقيم قابلة للإزالة بشكل مدمج."
+	],
+	"Use selected mode for toggleable filters and removable mode for entered values. ChipGroup names the set and wraps items automatically.": [
+		"切り替え可能なフィルターには selected モード、入力値には removable モードを使います。ChipGroup がセットに名前を付け、自動で折り返します。",
+		"전환 가능한 필터에는 selected 모드를, 입력한 값에는 removable 모드를 사용하세요. ChipGroup이 그룹 이름을 지정하고 자동으로 줄바꿈합니다.",
+		"Utilisez le mode selected pour les filtres activables et removable pour les valeurs saisies. ChipGroup nomme le groupe et gère automatiquement le retour à la ligne.",
+		"Usa el modo selected para filtros alternables y removable para valores introducidos. ChipGroup nombra el conjunto y ajusta las opciones automáticamente.",
+		"استخدم وضع selected للفلاتر القابلة للتبديل وremovable للقيم المُدخلة. يقوم ChipGroup بتسمية المجموعة ولف العناصر تلقائيًا."
+	],
+	"Selected chips expose aria-pressed. Removable chips need a removeLabel that names the removal action. ChipGroup provides a named group.": [
+		"選択チップは aria-pressed を公開します。削除チップには削除操作を示す removeLabel が必要です。ChipGroup は名前付きグループを提供します。",
+		"선택된 칩은 aria-pressed를 제공합니다. 삭제 가능한 칩에는 삭제 동작을 설명하는 removeLabel이 필요합니다. ChipGroup은 이름 있는 그룹을 제공합니다.",
+		"Les chips sélectionnés exposent aria-pressed. Les chips supprimables nécessitent un removeLabel décrivant l’action. ChipGroup fournit un groupe nommé.",
+		"Los chips seleccionados exponen aria-pressed. Los chips eliminables necesitan un removeLabel que describa la acción. ChipGroup proporciona un grupo con nombre.",
+		"تُظهر الشرائح المحددة aria-pressed. تتطلب الشرائح القابلة للإزالة removeLabel يصف إجراء الإزالة. يوفر ChipGroup مجموعة مُسمّاة."
+	],
+	"Do not replace read-only Badge with Chip, and do not combine selected with removable. Long labels truncate within the available width.": [
+		"読み取り専用の Badge を Chip に置き換えず、selected と removable を組み合わせないでください。長いラベルは使用可能な幅で省略されます。",
+		"읽기 전용 Badge를 Chip으로 대체하지 말고 selected와 removable을 함께 사용하지 마세요. 긴 라벨은 사용 가능한 너비에서 줄임표 처리됩니다.",
+		"Ne remplacez pas un Badge en lecture seule par un Chip et ne combinez pas selected avec removable. Les libellés longs sont tronqués dans la largeur disponible.",
+		"No sustituyas un Badge de solo lectura por un Chip ni combines selected con removable. Las etiquetas largas se truncan en el ancho disponible.",
+		"لا تستبدل Badge للقراءة فقط بـ Chip، ولا تجمع بين selected وremovable. تُختصر التسميات الطويلة ضمن العرض المتاح."
+	],
+	"Attach an unread dot or count to another component.": [
+		"未読ドットまたは件数を別のコンポーネントに付加します。",
+		"읽지 않은 점 또는 개수를 다른 컴포넌트에 연결합니다.",
+		"Ajoutez un point ou un nombre de non-lus à un autre composant.",
+		"Adjunta un punto o contador de no leídos a otro componente.",
+		"أرفق نقطة أو عددًا لغير المقروء بكون آخر."
+	],
+	"Use dot for new activity and count when the quantity matters. Wrap IconButton, Avatar, Button, or navigation controls without changing their layout.": [
+		"新しいアクティビティにはドット、数量が重要な場合は件数を使います。レイアウトを変えずに IconButton、Avatar、Button、ナビゲーションコントロールをラップできます。",
+		"새 활동에는 점을, 수량이 중요할 때는 개수를 사용하세요. 레이아웃을 바꾸지 않고 IconButton, Avatar, Button 또는 탐색 컨트롤을 감쌀 수 있습니다.",
+		"Utilisez un point pour une nouvelle activité et un nombre lorsque la quantité compte. Enveloppez IconButton, Avatar, Button ou les contrôles de navigation sans modifier leur mise en page.",
+		"Usa un punto para actividad nueva y un contador cuando la cantidad importa. Envuelve IconButton, Avatar, Button o controles de navegación sin cambiar su diseño.",
+		"استخدم النقطة للنشاط الجديد والعدد عندما تكون الكمية مهمة. لف IconButton أو Avatar أو Button أو عناصر التنقل دون تغيير التخطيط."
+	],
+	"Provide a complete unread-state label. The visual dot or count is hidden from assistive technology to avoid duplicate announcements.": [
+		"完全な未読状態ラベルを指定します。重複した読み上げを避けるため、視覚的なドットや件数は支援技術から隠されます。",
+		"완전한 읽지 않음 상태 라벨을 제공하세요. 중복 안내를 피하기 위해 시각적 점이나 개수는 보조 기술에서 숨겨집니다.",
+		"Fournissez un libellé complet pour l’état non lu. Le point ou le nombre visuel est masqué aux technologies d’assistance pour éviter les annonces en double.",
+		"Proporciona una etiqueta completa para el estado no leído. El punto o contador visual se oculta a las tecnologías de asistencia para evitar anuncios duplicados.",
+		"وفّر تسمية كاملة لحالة عدم القراءة. تُخفى النقطة أو العدد المرئي عن التقنيات المساعدة لتجنب الإعلانات المكررة."
+	],
+	"Do not make the badge the only action target; interaction belongs to the wrapped component. Count badges hide at zero by default.": [
+		"バッジだけを操作対象にせず、操作はラップされたコンポーネントに持たせます。件数バッジは既定で 0 のとき非表示です。",
+		"배지를 유일한 작업 대상으로 만들지 말고 상호작용은 감싼 컴포넌트에 두세요. 개수 배지는 기본적으로 0일 때 숨겨집니다.",
+		"Ne faites pas du badge la seule cible d’action ; l’interaction appartient au composant enveloppé. Les badges de nombre sont masqués à zéro par défaut.",
+		"No conviertas el badge en el único objetivo de acción; la interacción pertenece al componente envuelto. Los contadores se ocultan en cero de forma predeterminada.",
+		"لا تجعل الشارة هدف الإجراء الوحيد؛ التفاعل يخص المكوّن المُغلّف. تُخفى شارات العدد عند الصفر افتراضيًا."
+	],
+	"AI assistant": ["AIアシスタント", "AI 어시스턴트", "Assistant IA", "Asistente de IA", "المساعد الذكي"],
+	"Ask, generate, stop, and keep thinking in a focused conversation.": [
+		"集中した会話で質問、生成、停止、思考の継続を行います。",
+		"집중된 대화에서 질문하고 생성하고 멈추고 계속 생각합니다.",
+		"Posez des questions, générez, arrêtez et poursuivez la réflexion dans une conversation ciblée.",
+		"Pregunta, genera, detén y sigue pensando en una conversación enfocada.",
+		"اسأل وأنشئ وأوقف وتابع التفكير في محادثة مركزة."
+	],
+	"Robotics command center": [
+		"ロボット指令センター",
+		"로보틱스 관제 센터",
+		"Centre de commande robotique",
+		"Centro de comando robótico",
+		"مركز قيادة الروبوتات"
+	],
+	"Monitor fleet health, coordinate missions, and handle safety controls.": [
+		"フリートの状態を監視し、ミッションを調整し、安全制御を扱います。",
+		"플릿 상태를 모니터링하고 미션을 조정하며 안전 제어를 처리합니다.",
+		"Surveillez l’état de la flotte, coordonnez les missions et gérez les contrôles de sécurité.",
+		"Supervisa el estado de la flota, coordina misiones y gestiona los controles de seguridad.",
+		"راقب حالة الأسطول، ونسّق المهام، وأدر عناصر التحكم بالسلامة."
+	],
+	"Personal finance": ["個人財務", "개인 금융", "Finance personnelle", "Finanzas personales", "التمويل الشخصي"],
+	"See accounts, portfolio movement, and savings goals in one calm view.": [
+		"口座、ポートフォリオの動き、貯蓄目標を一つの落ち着いた画面で確認します。",
+		"계좌, 포트폴리오 변동 및 저축 목표를 한 화면에서 확인합니다.",
+		"Consultez vos comptes, l’évolution du portefeuille et vos objectifs d’épargne dans une vue claire.",
+		"Consulta cuentas, movimientos de cartera y objetivos de ahorro en una vista tranquila.",
+		"اعرض الحسابات وحركة المحفظة وأهداف الادخار في عرض واحد هادئ."
+	],
+	"Electric vehicle": ["電気自動車", "전기차", "Véhicule électrique", "Vehículo eléctrico", "السيارة الكهربائية"],
+	"Check vehicle status, prepare the cabin, and plan charging.": [
+		"車両の状態を確認し、車内を準備して、充電を計画します。",
+		"차량 상태를 확인하고 실내를 준비하며 충전을 계획합니다.",
+		"Vérifiez l’état du véhicule, préparez l’habitacle et planifiez la recharge.",
+		"Comprueba el estado del vehículo, prepara el habitáculo y planifica la carga.",
+		"تحقق من حالة السيارة، وجهّز المقصورة، وخطط للشحن."
+	],
+	"Connected home": ["コネクテッドホーム", "커넥티드 홈", "Maison connectée", "Hogar conectado", "المنزل المتصل"],
+	"Control rooms, devices, and automations while understanding the home environment.": [
+		"家の環境を把握しながら、部屋、デバイス、自動化を管理します。",
+		"집 환경을 파악하면서 공간, 기기 및 자동화를 제어합니다.",
+		"Contrôlez les pièces, les appareils et les automatisations tout en comprenant l’environnement du domicile.",
+		"Controla habitaciones, dispositivos y automatizaciones mientras entiendes el entorno del hogar.",
+		"تحكم في الغرف والأجهزة والأتمتة مع فهم بيئة المنزل."
+	],
+	"Creator studio": [
+		"クリエイタースタジオ",
+		"크리에이터 스튜디오",
+		"Studio de création",
+		"Estudio del creador",
+		"استوديو المبدعين"
+	],
+	"Plan releases, understand performance, and manage a growing content library.": [
+		"リリースを計画し、パフォーマンスを把握し、成長するコンテンツライブラリを管理します。",
+		"출시를 계획하고 성과를 파악하며 성장하는 콘텐츠 라이브러리를 관리합니다.",
+		"Planifiez les sorties, comprenez les performances et gérez une bibliothèque de contenu en pleine croissance.",
+		"Planifica lanzamientos, comprende el rendimiento y gestiona una biblioteca de contenido en crecimiento.",
+		"خطط للإصدارات، وافهم الأداء، وأدر مكتبة محتوى متنامية."
+	],
+	"Good morning, Avery.": [
+		"おはよう、Avery。",
+		"좋은 아침이에요, Avery.",
+		"Bonjour, Avery.",
+		"Buenos días, Avery.",
+		"صباح الخير يا Avery."
+	],
+	"A calm view of your money, goals, and recent movement.": [
+		"資金、目標、最近の動きを落ち着いて確認できます。",
+		"자금, 목표 및 최근 변동을 차분하게 확인합니다.",
+		"Une vue claire de votre argent, de vos objectifs et de vos mouvements récents.",
+		"Una vista tranquila de tu dinero, objetivos y movimientos recientes.",
+		"عرض هادئ لأموالك وأهدافك وحركتك الأخيرة."
+	],
+	"Total balance": ["総残高", "총 잔액", "Solde total", "Saldo total", "الرصيد الإجمالي"],
+	"Portfolio": ["ポートフォリオ", "포트폴리오", "Portefeuille", "Cartera", "المحفظة"],
+	"Balance over time": [
+		"残高の推移",
+		"시간별 잔액",
+		"Évolution du solde",
+		"Saldo a lo largo del tiempo",
+		"الرصيد بمرور الوقت"
+	],
+	"Home deposit": ["住宅購入資金", "주택 예치금", "Dépôt immobilier", "Depósito para vivienda", "دفعة المنزل"],
+	"On track": ["順調", "순조로움", "En bonne voie", "En camino", "على المسار الصحيح"],
+	"Holdings": ["保有資産", "보유 자산", "Avoirs", "Posiciones", "الحيازات"],
+	"Asset": ["資産", "자산", "Actif", "Activo", "الأصل"],
+	"Value": ["価値", "가치", "Valeur", "Valor", "القيمة"],
+	"Allocation": ["配分", "배분", "Allocation", "Asignación", "التوزيع"],
+	"Audience growth": [
+		"オーディエンスの成長",
+		"잠재고객 증가",
+		"Croissance de l’audience",
+		"Crecimiento de la audiencia",
+		"نمو الجمهور"
+	],
+	"Content library": [
+		"コンテンツライブラリ",
+		"콘텐츠 라이브러리",
+		"Bibliothèque de contenu",
+		"Biblioteca de contenido",
+		"مكتبة المحتوى"
+	],
+	"Recent and upcoming work": [
+		"最近と今後の作品",
+		"최근 및 예정 작업",
+		"Travaux récents et à venir",
+		"Trabajos recientes y próximos",
+		"الأعمال الأخيرة والقادمة"
+	],
+	"Vehicle is secure and ready.": [
+		"車両は安全にロックされ、準備完了です。",
+		"차량이 안전하게 잠겼고 준비되었습니다.",
+		"Le véhicule est sécurisé et prêt.",
+		"El vehículo está seguro y listo.",
+		"السيارة آمنة وجاهزة."
+	],
+	"Everything you need, before the next drive.": [
+		"次のドライブに必要なものがすべて揃っています。",
+		"다음 주행 전에 필요한 모든 것이 준비됩니다.",
+		"Tout ce dont vous avez besoin avant le prochain trajet.",
+		"Todo lo que necesitas antes del próximo viaje.",
+		"كل ما تحتاجه قبل الرحلة القادمة."
+	],
+	"Check range, prepare the cabin, and plan charging from one calm control surface.": [
+		"1つの画面で航続距離を確認し、車内を準備して充電を計画します。",
+		"한 화면에서 주행 가능 거리 확인, 실내 준비 및 충전을 계획합니다.",
+		"Vérifiez l’autonomie, préparez l’habitacle et planifiez la recharge depuis une interface claire.",
+		"Comprueba la autonomía, prepara el habitáculo y planifica la carga desde un único panel.",
+		"تحقق من المدى وجهّز المقصورة وخطط للشحن من واجهة تحكم هادئة."
+	],
+	"Online": ["オンライン", "온라인", "En ligne", "En línea", "متصل"],
+	"Updated just now": [
+		"たった今更新",
+		"방금 업데이트됨",
+		"Mis à jour à l’instant",
+		"Actualizado ahora mismo",
+		"تم التحديث للتو"
+	],
+	"CURRENT RANGE": ["現在の航続距離", "현재 주행 가능 거리", "AUTONOMIE ACTUELLE", "AUTONOMÍA ACTUAL", "المدى الحالي"],
+	"Charging": ["充電中", "충전 중", "En charge", "Cargando", "قيد الشحن"],
+	"Ready": ["準備完了", "준비됨", "Prêt", "Listo", "جاهز"],
+	"Cabin": ["車内", "실내", "Habitacle", "Habitáculo", "المقصورة"],
+	"Odometer": ["走行距離", "주행 거리계", "Compteur kilométrique", "Odómetro", "عداد المسافة"],
+	"Charge target": ["充電目標", "충전 목표", "Objectif de charge", "Objetivo de carga", "هدف الشحن"],
+	"Needs review": ["要確認", "검토 필요", "À vérifier", "Requiere revisión", "تحتاج إلى مراجعة"],
+	"WAREHOUSE 04 · LIVE OPERATIONS": [
+		"倉庫04 · ライブ運用",
+		"창고 04 · 실시간 운영",
+		"ENTREPÔT 04 · OPÉRATIONS EN DIRECT",
+		"ALMACÉN 04 · OPERACIONES EN DIRECTO",
+		"المستودع 04 · عمليات مباشرة"
+	],
+	"Coordinate robots, missions, and floor safety from one calm workspace.": [
+		"1つの落ち着いたワークスペースでロボット、ミッション、現場の安全を調整します。",
+		"하나의 차분한 작업 공간에서 로봇, 임무 및 현장 안전을 조정합니다.",
+		"Coordonnez les robots, les missions et la sécurité du site depuis un espace de travail serein.",
+		"Coordina robots, misiones y seguridad del espacio desde un único entorno tranquilo.",
+		"نسّق الروبوتات والمهام وسلامة الموقع من مساحة عمل هادئة واحدة."
+	],
+	"Safety stop active": [
+		"安全停止中",
+		"안전 정지 활성화",
+		"Arrêt de sécurité actif",
+		"Parada de seguridad activa",
+		"توقف الأمان نشط"
+	],
+	"All systems nominal": [
+		"すべてのシステムは正常",
+		"모든 시스템 정상",
+		"Tous les systèmes sont opérationnels",
+		"Todos los sistemas funcionan con normalidad",
+		"جميع الأنظمة طبيعية"
+	],
+	"More controls": ["その他の操作", "추가 제어", "Autres commandes", "Más controles", "مزيد من عناصر التحكم"],
+	"Fleet overview": [
+		"フリート概要",
+		"차량군 개요",
+		"Vue d’ensemble de la flotte",
+		"Resumen de la flota",
+		"نظرة عامة على الأسطول"
+	],
+	"Robots online": ["オンラインのロボット", "온라인 로봇", "Robots en ligne", "Robots conectados", "الروبوتات المتصلة"],
+	"Missions active": ["実行中のミッション", "활성 임무", "Missions actives", "Misiones activas", "المهام النشطة"],
+	"Moves today": ["本日の搬送", "오늘 이동", "Déplacements aujourd’hui", "Movimientos de hoy", "الحركات اليوم"],
+	"Safety events": [
+		"安全イベント",
+		"안전 이벤트",
+		"Événements de sécurité",
+		"Incidentes de seguridad",
+		"أحداث السلامة"
+	],
+	"4 robots · sorted by status": [
+		"4台のロボット · 状態順",
+		"로봇 4대 · 상태순",
+		"4 robots · triés par état",
+		"4 robots · ordenados por estado",
+		"4 روبوتات · مرتبة حسب الحالة"
+	],
+	"Choose a robot to inspect": [
+		"確認するロボットを選択",
+		"검사할 로봇 선택",
+		"Choisissez un robot à inspecter",
+		"Elige un robot para inspeccionarlo",
+		"اختر روبوتًا لفحصه"
+	],
+	"updated 2s ago": [
+		"2秒前に更新",
+		"2초 전 업데이트",
+		"mis à jour il y a 2 s",
+		"actualizado hace 2 s",
+		"تم التحديث قبل ثانيتين"
+	],
+	"Stopped": ["停止", "중지됨", "Arrêté", "Detenido", "متوقف"],
+	"Live robot position map": [
+		"ロボットのリアルタイム位置マップ",
+		"실시간 로봇 위치 지도",
+		"Carte de position du robot en direct",
+		"Mapa de posición del robot en directo",
+		"خريطة موقع الروبوت المباشر"
+	],
+	"Current mission": ["現在のミッション", "현재 임무", "Mission actuelle", "Misión actual", "المهمة الحالية"],
+	"Velocity": ["速度", "속도", "Vitesse", "Velocidad", "السرعة"],
+	"Battery": ["バッテリー", "배터리", "Batterie", "Batería", "البطارية"],
+	"Resume": ["再開", "재개", "Reprendre", "Reanudar", "استئناف"],
+	"Emergency stop": ["緊急停止", "비상 정지", "Arrêt d’urgence", "Parada de emergencia", "توقف طارئ"],
+	"This immediately locks drive power and holds the current mission. Demo only.": [
+		"駆動電力を直ちにロックし、現在のミッションを保持します。デモ専用です。",
+		"구동 전원을 즉시 잠그고 현재 임무를 보류합니다. 데모 전용입니다.",
+		"Cette action verrouille immédiatement l’alimentation et suspend la mission actuelle. Démonstration uniquement.",
+		"Esto bloquea de inmediato la energía de tracción y retiene la misión actual. Solo para demostración.",
+		"يؤدي هذا إلى قفل طاقة القيادة فورًا وتعليق المهمة الحالية. للعرض فقط."
+	],
+	"Confirm safety stop": [
+		"安全停止を確認",
+		"안전 정지 확인",
+		"Confirmer l’arrêt de sécurité",
+		"Confirmar parada de seguridad",
+		"تأكيد توقف الأمان"
+	],
+	"Mission queue": ["ミッションキュー", "임무 대기열", "File des missions", "Cola de misiones", "قائمة انتظار المهام"],
+	"Autonomous dispatch by priority": [
+		"優先度による自動ディスパッチ",
+		"우선순위별 자동 배차",
+		"Répartition automatique par priorité",
+		"Despacho automático por prioridad",
+		"توزيع تلقائي حسب الأولوية"
+	],
+	"Live telemetry": [
+		"リアルタイムテレメトリ",
+		"실시간 원격 측정",
+		"Télémétrie en direct",
+		"Telemetría en directo",
+		"القياس عن بُعد المباشر"
+	],
+	"Last 12 minutes · auto refresh": [
+		"過去12分 · 自動更新",
+		"지난 12분 · 자동 새로고침",
+		"12 dernières minutes · actualisation automatique",
+		"Últimos 12 minutos · actualización automática",
+		"آخر 12 دقيقة · تحديث تلقائي"
+	],
+	"Fleet throughput": [
+		"フリートスループット",
+		"차량군 처리량",
+		"Débit de la flotte",
+		"Rendimiento de la flota",
+		"إنتاجية الأسطول"
+	],
+	"Completed actions per minute": [
+		"1分あたりの完了アクション数",
+		"분당 완료 작업",
+		"Actions terminées par minute",
+		"Acciones completadas por minuto",
+		"الإجراءات المكتملة في الدقيقة"
+	],
+	"Throughput": ["スループット", "처리량", "Débit", "Rendimiento", "الإنتاجية"],
+	"Home online": ["ホームオンライン", "홈 온라인", "Maison en ligne", "Hogar conectado", "المنزل متصل"],
+	"Good": ["良好", "양호", "Bon", "Bueno", "جيد"],
+	"Excellent": ["優秀", "최상", "Excellent", "Excelente", "ممتاز"],
+	"Charging paused.": [
+		"充電を一時停止しました。",
+		"충전이 일시 중지되었습니다.",
+		"Recharge en pause.",
+		"Carga pausada.",
+		"تم إيقاف الشحن مؤقتًا."
+	],
+	"Pause charging": [
+		"充電を一時停止",
+		"충전 일시 중지",
+		"Mettre en pause la recharge",
+		"Pausar carga",
+		"إيقاف الشحن مؤقتًا"
+	],
+	"Start charging now": [
+		"今すぐ充電を開始",
+		"지금 충전 시작",
+		"Démarrer la recharge",
+		"Iniciar carga ahora",
+		"بدء الشحن الآن"
+	],
+	"Today’s energy": ["本日のエネルギー", "오늘의 에너지", "Énergie du jour", "Energía de hoy", "طاقة اليوم"],
+	"Driving and cabin use across the day.": [
+		"1日の走行と車内の使用状況。",
+		"하루 동안의 주행 및 실내 사용량입니다.",
+		"Utilisation de la conduite et de l’habitacle sur la journée.",
+		"Uso de conducción y habitáculo durante el día.",
+		"استخدام القيادة والمقصورة على مدار اليوم."
+	],
+	"Average": ["平均", "평균", "Moyenne", "Promedio", "المتوسط"],
+	"Hourly energy use": [
+		"時間ごとのエネルギー使用量",
+		"시간별 에너지 사용량",
+		"Consommation horaire d’énergie",
+		"Uso de energía por hora",
+		"استخدام الطاقة كل ساعة"
+	],
+	"12 hourly observations": [
+		"12時間の観測値",
+		"시간별 관측값 12개",
+		"12 observations horaires",
+		"12 observaciones por hora",
+		"12 ملاحظة ساعية"
+	],
+	"Drive": ["走行", "주행", "Conduite", "Conducción", "القيادة"],
+	"Climate": ["車内空調", "공조", "Climatisation", "Climatización", "المناخ"],
+	"Missing": ["欠損", "누락", "Manquant", "Faltante", "مفقود"],
+	"driven": ["走行", "주행", "parcourus", "recorridos", "مقطوعة"],
+	"below fleet average": [
+		"フリート平均未満",
+		"차량군 평균보다 낮음",
+		"sous la moyenne de la flotte",
+		"por debajo del promedio de la flota",
+		"أقل من متوسط الأسطول"
+	],
+	"on the road": ["走行中", "주행 중", "sur la route", "en carretera", "على الطريق"],
+	"Drive mode": ["走行モード", "주행 모드", "Mode de conduite", "Modo de conducción", "وضع القيادة"],
+	"Range": ["航続距離", "주행 가능 거리", "Autonomie", "Autonomía", "المدى"],
+	"Balanced": ["バランス", "균형", "Équilibré", "Equilibrado", "متوازن"],
+	"Dynamic": ["ダイナミック", "다이내믹", "Dynamique", "Dinámico", "ديناميكي"],
+	"Preview playing": [
+		"プレビューを再生中",
+		"미리보기 재생 중",
+		"Lecture de l’aperçu",
+		"Reproduciendo vista previa",
+		"تشغيل المعاينة"
+	],
+	"A slower morning in Kyoto": [
+		"京都のゆっくりした朝",
+		"교토의 느린 아침",
+		"Une matinée paisible à Kyoto",
+		"Una mañana tranquila en Kioto",
+		"صباح هادئ في كيوتو"
+	],
+	"Your film is performing above your recent average. Most viewers stay through the quiet opening sequence.": [
+		"新しい動画は最近の平均を上回っています。多くの視聴者が静かな冒頭まで視聴しています。",
+		"새 영상이 최근 평균보다 좋은 성과를 내고 있습니다. 대부분의 시청자가 조용한 도입부까지 시청합니다.",
+		"Votre film dépasse votre moyenne récente. La plupart des spectateurs restent pendant la séquence d’ouverture paisible.",
+		"Tu nueva película supera tu promedio reciente. La mayoría de los espectadores permanece durante la secuencia inicial tranquila.",
+		"يحقق فيلمك أداءً أعلى من متوسطك الأخير. يبقى معظم المشاهدين خلال المقدمة الهادئة."
+	],
+	"Video details opened": [
+		"動画の詳細を開きました",
+		"동영상 세부 정보가 열렸습니다",
+		"Détails de la vidéo ouverts",
+		"Detalles del vídeo abiertos",
+		"فُتحت تفاصيل الفيديو"
+	],
+	"7 days": ["7日", "7일", "7 jours", "7 días", "7 أيام"],
+	"30 days": ["30日", "30일", "30 jours", "30 días", "30 يومًا"],
+	"Views (thousands)": [
+		"視聴回数（千）",
+		"조회수(천 단위)",
+		"Vues (milliers)",
+		"Visualizaciones (miles)",
+		"المشاهدات (بالآلاف)"
+	],
+	"Next scheduled content": [
+		"次に予定されているコンテンツ",
+		"다음 예약 콘텐츠",
+		"Prochain contenu planifié",
+		"Próximo contenido programado",
+		"المحتوى المجدول التالي"
+	],
+	"Four of five upload checks complete": [
+		"アップロード確認5件中4件完了",
+		"업로드 확인 5개 중 4개 완료",
+		"Quatre vérifications d’envoi sur cinq terminées",
+		"Cuatro de cinco comprobaciones de carga completadas",
+		"اكتملت أربعة من أصل خمسة فحوصات للتحميل"
+	],
+	"Schedule editor opened": [
+		"スケジュールエディターを開きました",
+		"일정 편집기가 열렸습니다",
+		"Éditeur de planning ouvert",
+		"Editor de programación abierto",
+		"فُتح محرر الجدولة"
+	],
+	"2 items need review": [
+		"確認が必要な項目2件",
+		"검토할 항목 2개",
+		"2 éléments à vérifier",
+		"2 elementos requieren revisión",
+		"عنصران بحاجة إلى مراجعة"
+	],
+	"Library options": [
+		"ライブラリのオプション",
+		"라이브러리 옵션",
+		"Options de la bibliothèque",
+		"Opciones de la biblioteca",
+		"خيارات المكتبة"
+	],
+	"99.98% uptime": [
+		"稼働率99.98%",
+		"가동 시간 99.98%",
+		"Disponibilité de 99,98 %",
+		"99,98 % de actividad",
+		"وقت تشغيل 99.98%"
+	],
+	"7 queued": ["7件待機中", "7개 대기 중", "7 en attente", "7 en cola", "7 قيد الانتظار"],
+	"Last 30 days: 0": ["過去30日: 0", "지난 30일: 0", "30 derniers jours : 0", "Últimos 30 días: 0", "آخر 30 يومًا: 0"],
+	"SOC 2 controls active": [
+		"SOC 2管理が有効",
+		"SOC 2 제어 활성화",
+		"Contrôles SOC 2 actifs",
+		"Controles SOC 2 activos",
+		"ضوابط SOC 2 نشطة"
+	],
+	"Edge link 18 ms": [
+		"エッジリンク 18ms",
+		"엣지 링크 18ms",
+		"Liaison périphérique 18 ms",
+		"Enlace periférico 18 ms",
+		"وصلة الحافة 18 مللي ثانية"
+	],
+	"Shift ends 14:00": [
+		"シフト終了 14:00",
+		"교대 종료 14:00",
+		"Fin du poste à 14:00",
+		"El turno termina a las 14:00",
+		"تنتهي المناوبة الساعة 14:00"
+	],
+	"turned on": ["オンになりました", "켜짐", "activé", "encendido", "تم التشغيل"],
+	"turned off": ["オフになりました", "꺼짐", "désactivé", "apagado", "تم الإيقاف"],
+	"Good evening, Alex.": [
+		"こんばんは、Alexさん。",
+		"좋은 저녁이에요, Alex.",
+		"Bonsoir, Alex.",
+		"Buenas tardes, Alex.",
+		"مساء الخير يا Alex."
+	],
+	"Your home is comfortable, quiet, and running to plan.": [
+		"ご自宅は快適で静かに、予定どおり稼働しています。",
+		"집은 편안하고 조용하며 계획대로 작동하고 있습니다.",
+		"Votre maison est confortable, calme et fonctionne comme prévu.",
+		"Tu hogar es cómodo, tranquilo y funciona según lo previsto.",
+		"منزلك مريح وهادئ ويعمل وفق الخطة."
+	],
+	"Home status is good": [
+		"ホームの状態は良好",
+		"홈 상태 양호",
+		"L’état de la maison est bon",
+		"El estado del hogar es bueno",
+		"حالة المنزل جيدة"
+	],
+	"devices active": [
+		"台のデバイスが稼働中",
+		"대의 기기 활성",
+		"appareils actifs",
+		"dispositivos activos",
+		"أجهزة نشطة"
+	],
+	"Filter devices by room": [
+		"部屋でデバイスを絞り込む",
+		"방별 기기 필터",
+		"Filtrer les appareils par pièce",
+		"Filtrar dispositivos por habitación",
+		"تصفية الأجهزة حسب الغرفة"
+	],
+	"Whole home": ["家全体", "집 전체", "Toute la maison", "Toda la casa", "المنزل بالكامل"],
+	"Living": ["リビング", "거실", "Salon", "Salón", "غرفة المعيشة"],
+	"Kitchen": ["キッチン", "주방", "Cuisine", "Cocina", "المطبخ"],
+	"Bedroom": ["寝室", "침실", "Chambre", "Dormitorio", "غرفة النوم"],
+	"Studio": ["スタジオ", "스튜디오", "Studio", "Estudio", "الاستوديو"],
+	"Indoor climate": ["室内環境", "실내 환경", "Climat intérieur", "Clima interior", "المناخ الداخلي"],
+	"Whole-home average · updated now": [
+		"家全体の平均 · 今更新",
+		"집 전체 평균 · 지금 업데이트",
+		"Moyenne de la maison · mise à jour",
+		"Promedio del hogar · actualizado ahora",
+		"متوسط المنزل · تم التحديث الآن"
+	],
+	"Balancing": ["調整中", "조정 중", "Équilibrage", "Equilibrando", "موازنة"],
+	"Climate mode": ["空調モード", "공조 모드", "Mode de climatisation", "Modo de climatización", "وضع المناخ"],
+	"Auto": ["自動", "자동", "Auto", "Automático", "تلقائي"],
+	"Heat": ["暖房", "난방", "Chauffage", "Calor", "تدفئة"],
+	"Cool": ["冷房", "냉방", "Climatisation", "Frío", "تبريد"],
+	"Air quality": ["空気質", "공기질", "Qualité de l’air", "Calidad del aire", "جودة الهواء"],
+	"Humidity": ["湿度", "습도", "Humidité", "Humedad", "الرطوبة"],
+	"Control connected devices in one place": [
+		"接続済みデバイスを一か所で管理",
+		"연결된 기기를 한 곳에서 제어",
+		"Contrôlez les appareils connectés en un seul endroit",
+		"Controla los dispositivos conectados en un solo lugar",
+		"تحكم في الأجهزة المتصلة من مكان واحد"
+	],
+	"Device offline": [
+		"デバイスオフライン",
+		"기기 오프라인",
+		"Appareil hors ligne",
+		"Dispositivo sin conexión",
+		"الجهاز غير متصل"
+	],
+	"Routines": ["自動化シーン", "루틴", "Routines", "Rutinas", "الأتمتة"],
+	"Coordinate several devices with one action": [
+		"1回の操作で複数のデバイスを連携",
+		"한 번의 작업으로 여러 기기 조정",
+		"Coordonnez plusieurs appareils en une action",
+		"Coordina varios dispositivos con una acción",
+		"نسّق عدة أجهزة بإجراء واحد"
+	],
+	"Good morning routine is ready.": [
+		"おはようシーンの準備完了。",
+		"아침 루틴이 준비되었습니다.",
+		"La routine du matin est prête.",
+		"La rutina de buenos días está lista.",
+		"روتين صباح الخير جاهز."
+	],
+	"Evening routine activated.": [
+		"夜のシーンを有効にしました。",
+		"저녁 루틴이 활성화되었습니다.",
+		"Routine du soir activée.",
+		"Rutina nocturna activada.",
+		"تم تفعيل روتين المساء."
+	],
+	"Away mode activated. Entry monitoring remains on.": [
+		"外出モードを有効化。入口監視は継続します。",
+		"자리 비움 모드가 활성화되었습니다. 출입 모니터링은 유지됩니다.",
+		"Mode absence activé. La surveillance des entrées reste active.",
+		"Modo ausente activado. La supervisión de entradas sigue activa.",
+		"تم تفعيل وضع المغادرة. تظل مراقبة المداخل قيد التشغيل."
+	],
+	"Energy today": ["本日のエネルギー", "오늘 에너지", "Énergie du jour", "Energía de hoy", "طاقة اليوم"],
+	"Matrix Assistant": [
+		"Matrix アシスタント",
+		"Matrix 어시스턴트",
+		"Assistant Matrix",
+		"Asistente de Matrix",
+		"مساعد Matrix"
+	],
+	"Your new film is performing above your recent average. Most viewers stay through the quiet opening sequence.": [
+		"新しい動画は最近の平均を上回っています。多くの視聴者が静かな冒頭まで視聴しています。",
+		"새 영상이 최근 평균보다 좋은 성과를 내고 있습니다. 대부분의 시청자가 조용한 도입부까지 시청합니다.",
+		"Votre film dépasse votre moyenne récente. La plupart des spectateurs restent pendant la séquence d’ouverture paisible.",
+		"Tu nueva película supera tu promedio reciente. La mayoría de los espectadores permanece durante la secuencia inicial tranquila.",
+		"يحقق فيلمك أداءً أعلى من متوسطك الأخير. يبقى معظم المشاهدين خلال المقدمة الهادئة."
+	],
+	"Play A slower morning in Kyoto": [
+		"《京都のゆっくりした朝》を再生",
+		"교토의 느린 아침 재생",
+		"Lire Une matinée paisible à Kyoto",
+		"Reproducir Una mañana tranquila en Kioto",
+		"تشغيل صباح هادئ في كيوتو"
+	],
+	"Battery charge, 68 percent": [
+		"バッテリー充電量68パーセント",
+		"배터리 충전량 68퍼센트",
+		"Batterie chargée à 68 %",
+		"Batería al 68 por ciento",
+		"شحن البطارية 68 بالمائة"
+	]
+}

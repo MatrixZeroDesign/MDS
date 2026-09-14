@@ -1,0 +1,484 @@
+[
+	{
+		"name": "Terminal",
+		"category": "development",
+		"keywords": ["终端", "console", "shell", "命令行"]
+	},
+	{
+		"name": "Cpu",
+		"category": "development",
+		"keywords": ["处理器", "chip", "芯片"]
+	},
+	{
+		"name": "Server",
+		"category": "development",
+		"keywords": ["服务器", "hosting", "主机"]
+	},
+	{
+		"name": "Database",
+		"category": "development",
+		"keywords": ["数据库", "storage", "sql", "存储"]
+	},
+	{
+		"name": "Cloud",
+		"category": "development",
+		"keywords": ["云", "infrastructure", "云服务"]
+	},
+	{
+		"name": "Network",
+		"category": "development",
+		"keywords": ["网络拓扑", "topology", "网络"]
+	},
+	{
+		"name": "Wifi",
+		"category": "development",
+		"keywords": ["无线网络", "wireless", "无线"]
+	},
+	{
+		"name": "Ethernet",
+		"category": "development",
+		"keywords": ["网口", "port", "网络接口"]
+	},
+	{
+		"name": "HardDrive",
+		"category": "development",
+		"keywords": ["硬盘", "disk", "磁盘"]
+	},
+	{
+		"name": "MemoryStick",
+		"category": "development",
+		"keywords": ["内存", "ram", "内存条"]
+	},
+	{
+		"name": "Monitor",
+		"category": "development",
+		"keywords": ["显示器", "desktop", "桌面"]
+	},
+	{
+		"name": "Laptop",
+		"category": "development",
+		"keywords": ["笔记本电脑", "computer", "电脑"]
+	},
+	{
+		"name": "Smartphone",
+		"category": "development",
+		"keywords": ["手机", "mobile", "移动端"]
+	},
+	{
+		"name": "Tablet",
+		"category": "development",
+		"keywords": ["平板电脑", "device", "设备"]
+	},
+	{
+		"name": "Plug",
+		"category": "development",
+		"keywords": ["插头", "connect", "电源连接"]
+	},
+	{
+		"name": "Power",
+		"category": "development",
+		"keywords": ["电源", "shutdown", "开关机"]
+	},
+	{
+		"name": "Battery",
+		"category": "development",
+		"keywords": ["电池", "energy", "电量"]
+	},
+	{
+		"name": "Bug",
+		"category": "development",
+		"keywords": ["缺陷", "debug", "虫子"]
+	},
+	{
+		"name": "GitBranch",
+		"category": "development",
+		"keywords": ["分支", "version", "git", "版本"]
+	},
+	{
+		"name": "GitMerge",
+		"category": "development",
+		"keywords": ["合并", "git", "merge", "分支合并"]
+	},
+	{
+		"name": "Webhook",
+		"category": "development",
+		"keywords": ["回调", "callback", "钩子"]
+	},
+	{
+		"name": "Container",
+		"category": "development",
+		"keywords": ["容器", "docker", "部署"]
+	},
+	{
+		"name": "Workflow",
+		"category": "development",
+		"keywords": ["工作流", "automation", "自动化"]
+	},
+	{
+		"name": "Binary",
+		"category": "development",
+		"keywords": ["二进制", "bits", "数字"]
+	},
+	{
+		"name": "Lock",
+		"category": "security",
+		"keywords": ["锁定", "locked", "锁"]
+	},
+	{
+		"name": "Unlock",
+		"category": "security",
+		"keywords": ["解锁", "unlocked", "开锁"]
+	},
+	{
+		"name": "Key",
+		"category": "security",
+		"keywords": ["密钥", "password", "钥匙"]
+	},
+	{
+		"name": "Fingerprint",
+		"category": "security",
+		"keywords": ["指纹", "biometric", "生物识别"]
+	},
+	{
+		"name": "Shield",
+		"category": "security",
+		"keywords": ["安全盾牌", "protection", "防护"]
+	},
+	{
+		"name": "ScanFace",
+		"category": "security",
+		"keywords": ["人脸识别", "faceid", "面容"]
+	},
+	{
+		"name": "Eye",
+		"category": "security",
+		"keywords": ["可见", "visible", "查看"]
+	},
+	{
+		"name": "EyeOff",
+		"category": "security",
+		"keywords": ["隐藏", "hidden", "不可见"]
+	},
+	{
+		"name": "Users",
+		"category": "security",
+		"keywords": ["用户组", "team", "团队"]
+	},
+	{
+		"name": "UserRound",
+		"category": "security",
+		"keywords": ["账户", "account", "个人资料"]
+	},
+	{
+		"name": "IdCard",
+		"category": "security",
+		"keywords": ["身份卡", "identity", "证件"]
+	},
+	{
+		"name": "BadgeCheck",
+		"category": "security",
+		"keywords": ["认证", "verified", "验证"]
+	},
+	{
+		"name": "KeyRound",
+		"category": "security",
+		"keywords": ["访问令牌", "token", "access", "令牌"]
+	},
+	{
+		"name": "Siren",
+		"category": "security",
+		"keywords": ["警报器", "alarm", "警报"]
+	},
+	{
+		"name": "Vault",
+		"category": "security",
+		"keywords": ["保险柜", "safe", "保管"]
+	},
+	{
+		"name": "Fence",
+		"category": "security",
+		"keywords": ["访问边界", "boundary", "隔离"]
+	},
+	{
+		"name": "ChartLine",
+		"category": "data",
+		"keywords": ["折线图", "trend", "趋势"]
+	},
+	{
+		"name": "ChartArea",
+		"category": "data",
+		"keywords": ["面积图", "area", "面积"]
+	},
+	{
+		"name": "ChartBar",
+		"category": "data",
+		"keywords": ["柱状图", "bars", "柱形"]
+	},
+	{
+		"name": "ChartPie",
+		"category": "data",
+		"keywords": ["饼图", "pie", "占比"]
+	},
+	{
+		"name": "ChartDonut",
+		"category": "data",
+		"keywords": ["环形图", "donut", "圆环"]
+	},
+	{
+		"name": "ChartScatter",
+		"category": "data",
+		"keywords": ["散点图", "scatter", "分布"]
+	},
+	{
+		"name": "ChartCandlestick",
+		"category": "data",
+		"keywords": ["蜡烛图", "candles", "K线"]
+	},
+	{
+		"name": "ChartRadar",
+		"category": "data",
+		"keywords": ["雷达图", "radar", "多维"]
+	},
+	{
+		"name": "ChartFunnel",
+		"category": "data",
+		"keywords": ["漏斗图", "funnel", "转化"]
+	},
+	{
+		"name": "Gauge",
+		"category": "data",
+		"keywords": ["仪表盘", "meter", "指标"]
+	},
+	{
+		"name": "Activity",
+		"category": "data",
+		"keywords": ["活动曲线", "pulse", "心跳"]
+	},
+	{
+		"name": "TrendingUp",
+		"category": "data",
+		"keywords": ["上升趋势", "increase", "增长"]
+	},
+	{
+		"name": "TrendingDown",
+		"category": "data",
+		"keywords": ["下降趋势", "decrease", "下降"]
+	},
+	{
+		"name": "Sigma",
+		"category": "data",
+		"keywords": ["求和", "sum", "总和"]
+	},
+	{
+		"name": "Percent",
+		"category": "data",
+		"keywords": ["百分比", "percentage", "百分率"]
+	},
+	{
+		"name": "Calculator",
+		"category": "data",
+		"keywords": ["计算器", "calculate", "计算"]
+	},
+	{
+		"name": "Variable",
+		"category": "data",
+		"keywords": ["变量", "formula", "公式"]
+	},
+	{
+		"name": "Filter",
+		"category": "data",
+		"keywords": ["筛选", "filter", "过滤"]
+	},
+	{
+		"name": "Target",
+		"category": "data",
+		"keywords": ["目标", "goal", "靶心"]
+	},
+	{
+		"name": "Waypoints",
+		"category": "data",
+		"keywords": ["数据节点", "graph", "关系图"]
+	},
+	{
+		"name": "Briefcase",
+		"category": "business",
+		"keywords": ["公文包", "work", "工作"]
+	},
+	{
+		"name": "Building",
+		"category": "business",
+		"keywords": ["办公楼", "office", "企业"]
+	},
+	{
+		"name": "Store",
+		"category": "business",
+		"keywords": ["商店", "shop", "门店"]
+	},
+	{
+		"name": "ShoppingCart",
+		"category": "business",
+		"keywords": ["购物车", "cart", "购物"]
+	},
+	{
+		"name": "ShoppingBag",
+		"category": "business",
+		"keywords": ["购物袋", "bag", "购买"]
+	},
+	{
+		"name": "CreditCard",
+		"category": "business",
+		"keywords": ["银行卡", "payment", "支付"]
+	},
+	{
+		"name": "Wallet",
+		"category": "business",
+		"keywords": ["钱包", "balance", "余额"]
+	},
+	{
+		"name": "Banknote",
+		"category": "business",
+		"keywords": ["纸币", "cash", "现金"]
+	},
+	{
+		"name": "Coins",
+		"category": "business",
+		"keywords": ["硬币", "money", "金币"]
+	},
+	{
+		"name": "Receipt",
+		"category": "business",
+		"keywords": ["收据", "invoice", "发票"]
+	},
+	{
+		"name": "Tag",
+		"category": "business",
+		"keywords": ["标签", "price", "价格"]
+	},
+	{
+		"name": "Gift",
+		"category": "business",
+		"keywords": ["礼物", "present", "礼品"]
+	},
+	{
+		"name": "Package",
+		"category": "business",
+		"keywords": ["包裹", "parcel", "物流"]
+	},
+	{
+		"name": "Truck",
+		"category": "business",
+		"keywords": ["卡车", "delivery", "运输"]
+	},
+	{
+		"name": "Landmark",
+		"category": "business",
+		"keywords": ["银行", "bank", "机构"]
+	},
+	{
+		"name": "Handshake",
+		"category": "business",
+		"keywords": ["合作", "agreement", "握手"]
+	},
+	{
+		"name": "Trophy",
+		"category": "business",
+		"keywords": ["奖杯", "award", "冠军"]
+	},
+	{
+		"name": "Medal",
+		"category": "business",
+		"keywords": ["奖牌", "achievement", "勋章"]
+	},
+	{
+		"name": "Scale",
+		"category": "business",
+		"keywords": ["天平", "balance", "公平"]
+	},
+	{
+		"name": "Ticket",
+		"category": "business",
+		"keywords": ["票券", "coupon", "优惠券"]
+	},
+	{
+		"name": "Calendar",
+		"category": "everyday",
+		"keywords": ["日历", "date", "日期"]
+	},
+	{
+		"name": "Clock",
+		"category": "everyday",
+		"keywords": ["时钟", "time", "时间"]
+	},
+	{
+		"name": "AlarmClock",
+		"category": "everyday",
+		"keywords": ["闹钟", "alarm", "提醒"]
+	},
+	{
+		"name": "Hourglass",
+		"category": "everyday",
+		"keywords": ["沙漏", "duration", "等待"]
+	},
+	{
+		"name": "Coffee",
+		"category": "everyday",
+		"keywords": ["咖啡", "cup", "饮品"]
+	},
+	{
+		"name": "Utensils",
+		"category": "everyday",
+		"keywords": ["餐具", "food", "餐饮"]
+	},
+	{
+		"name": "Heart",
+		"category": "everyday",
+		"keywords": ["爱心", "favorite", "喜欢"],
+		"variants": ["outlined", "filled"]
+	},
+	{
+		"name": "Star",
+		"category": "everyday",
+		"keywords": ["星标", "favorite", "收藏"],
+		"variants": ["outlined", "filled"]
+	},
+	{
+		"name": "Flame",
+		"category": "everyday",
+		"keywords": ["火焰", "fire", "热门"]
+	},
+	{
+		"name": "Droplet",
+		"category": "everyday",
+		"keywords": ["水滴", "water", "水"]
+	},
+	{
+		"name": "Leaf",
+		"category": "everyday",
+		"keywords": ["叶子", "nature", "自然"]
+	},
+	{
+		"name": "Flower",
+		"category": "everyday",
+		"keywords": ["花朵", "bloom", "花"]
+	},
+	{
+		"name": "Umbrella",
+		"category": "everyday",
+		"keywords": ["雨伞", "rain", "雨"]
+	},
+	{
+		"name": "Globe",
+		"category": "everyday",
+		"keywords": ["地球", "world", "全球"]
+	},
+	{
+		"name": "Rocket",
+		"category": "everyday",
+		"keywords": ["火箭", "launch", "启动"]
+	},
+	{
+		"name": "Lightbulb",
+		"category": "everyday",
+		"keywords": ["灯泡", "idea", "灵感"]
+	}
+]
