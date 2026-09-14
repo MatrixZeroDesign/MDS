@@ -8,6 +8,7 @@
 - Consumers provide copy. Do not place product terminology, network requests, permissions, or routing logic in components.
 - Pair component text and backgrounds with MDS tokens. Import brand assets explicitly; do not download fonts or styles at runtime.
 - Validate supported languages, light and dark themes, system theme, multi-instance isolation, and reduced motion.
+- Route every user-facing docs string through the i18n helpers and provide Japanese, Korean, French, Spanish, and Arabic catalog entries. Run `npm run check:i18n`; do not add new work to `scripts/i18n-baseline.json`.
 - Keep motion local to components and use 120–240 ms by default. Do not move or scale page backgrounds. Remove nonessential motion under reduced-motion preferences.
 - Run `npm run check` before submitting. Verify tarball installation, exports, SSR, and CI before publishing.
 - Do not commit scratchpads, credentials, `node_modules`, or build output. Packages should contain only `dist` and required usage documentation.

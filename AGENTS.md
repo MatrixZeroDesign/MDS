@@ -2,4 +2,6 @@ Read the repository and workspace `CLAUDE.md` files first. Component changes mus
 
 Use English for source code, comments, tests, commit messages, pull requests, issues, and documentation source. Other languages are allowed only in i18n translation resources.
 
+Every user-facing docs string must use the i18n helpers and include Japanese, Korean, French, Spanish, and Arabic catalog entries. Run `npm run check:i18n`, and do not add new work to the existing i18n baseline.
+
 When implementing docs, showcases, or user scenarios, first reuse semantically correct components from `@matrixzero/ui`. If the existing API is insufficient, enhance or add a reusable MDS component in `packages/ui/src`, document and validate it, and then use it in the scenario. Do not imitate components with page-level CSS or force a semantically incorrect component into the design. See “Build documentation and scenarios with MDS components” in `CLAUDE.md` for details.

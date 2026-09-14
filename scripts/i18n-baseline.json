@@ -1,0 +1,1269 @@
+[
+	{
+		"key": "12 components updated",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "12 minutes ago",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "3 new notifications",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "4 of 5",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "68 percent of goal complete",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "68% complete",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "A gentle rhythm for the week",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "A new version is ready.",
+		"files": ["apps/docs/src/examples/toast.tsx"]
+	},
+	{
+		"key": "Accent fails WCAG AA",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Accent passes WCAG AA",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Accept MDS suggested color",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Account connection opened",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Accounts",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Add a note…",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Add an account",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Add attachment",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Add to goal",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Adjust schedule",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Air quality returned to excellent",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Alternate active destination",
+		"files": ["apps/docs/src/exampleVariants.json:navigation"]
+	},
+	{
+		"key": "Alternative track",
+		"files": ["apps/docs/src/exampleVariants.json:audio-player"]
+	},
+	{
+		"key": "Analytics period",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Appearance variants",
+		"files": ["apps/docs/src/exampleVariants.json:card"]
+	},
+	{
+		"key": "Apply theme",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "At this pace, you may arrive two months early.",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Automatic updates",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Avatar placeholder",
+		"files": ["apps/docs/src/exampleVariants.json:skeleton"]
+	},
+	{
+		"key": "Away",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Balance",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Behavior",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Brand",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "By Wind down routine",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "CREATOR STUDIO",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Cabin climate",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Calendar",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Captions",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Card is not a selectable control; use RadioCard for choices and avoid nested interactive targets. Use a nested ThemeProvider to control the mode for contrast surfaces instead of manually swapping background and text tokens.",
+		"files": ["docs/content.json:card:pitfalls"]
+	},
+	{
+		"key": "Changes internal spacing, list rows, and navigation rhythm; nested ThemeProviders can override it.",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Changes the hierarchy of headings and body text.",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Charge limit",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Charging plan",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Chip",
+		"files": ["apps/docs/src/componentNames.ts"]
+	},
+	{
+		"key": "Choose accent color",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Choose an accent color",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Choose color, shape, type, and interface rhythm while comparing light and dark in real time.",
+		"files": ["apps/docs/src/DesignPage.tsx"]
+	},
+	{
+		"key": "Choose theme",
+		"files": ["apps/docs/src/examples/variants/dropdown-menu--rich-options.tsx"]
+	},
+	{
+		"key": "Classic serif",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Click to open",
+		"files": ["apps/docs/src/exampleVariants.json:mega-menu"]
+	},
+	{
+		"key": "Climate on",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Clip saved for 30 days",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Close conversation navigation",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Collapse navigation",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Color comparison",
+		"files": [
+			"apps/docs/src/exampleVariants.json:atmosphere",
+			"apps/docs/src/exampleVariants.json:badge",
+			"apps/docs/src/exampleVariants.json:banner",
+			"apps/docs/src/exampleVariants.json:callout",
+			"apps/docs/src/exampleVariants.json:toast"
+		]
+	},
+	{
+		"key": "Commands are simulated in this preview",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Completion",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Compose Header, Content and Footer; choose outlined, elevated or subtle by emphasis. Plain is transparent and borderless. Nest ThemeProvider around the Card when the entire region needs a different color mode.",
+		"files": ["docs/content.json:card:guide"]
+	},
+	{
+		"key": "Connected",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Contains horizontal top-bar content only. Use NavDrawer or NavRail for side navigation. Navbar inherits global ThemeProvider density and automatically adjusts height, padding, and item spacing. sticky keeps the bar at the top of its nearest scroll container; stickyOffset reserves space for a banner.",
+		"files": ["docs/content.json:navigation:guide"]
+	},
+	{
+		"key": "Content-only card",
+		"files": ["apps/docs/src/exampleVariants.json:card"]
+	},
+	{
+		"key": "Controlled state and arrow",
+		"files": ["apps/docs/src/exampleVariants.json:popover"]
+	},
+	{
+		"key": "Controls how cards and overlays relate to the canvas.",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Conversation history",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Conversation navigation",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Copy response",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Copy setup",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Copy this setup to reproduce the theme.",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Copyright",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Corner radius",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Create a three-week launch plan",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Crisp",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Design system",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Devices",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Disabled action",
+		"files": ["apps/docs/src/exampleVariants.json:spotlight"]
+	},
+	{
+		"key": "Disabled option",
+		"files": ["apps/docs/src/exampleVariants.json:radio"]
+	},
+	{
+		"key": "Disabled sort menu",
+		"files": ["apps/docs/src/exampleVariants.json:choice-menu"]
+	},
+	{
+		"key": "Disabled state",
+		"files": [
+			"apps/docs/src/exampleVariants.json:checkbox",
+			"apps/docs/src/exampleVariants.json:native-select",
+			"apps/docs/src/exampleVariants.json:select"
+		]
+	},
+	{
+		"key": "Disabled switches",
+		"files": ["apps/docs/src/exampleVariants.json:switch"]
+	},
+	{
+		"key": "Disabled tab",
+		"files": ["apps/docs/src/exampleVariants.json:tabs"]
+	},
+	{
+		"key": "Dismiss",
+		"files": ["apps/docs/src/showcases/creator.tsx", "apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Driver seat heating",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Editorial",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Editorial serif",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "End-aligned menu",
+		"files": ["apps/docs/src/exampleVariants.json:dropdown-menu"]
+	},
+	{
+		"key": "Enter a six-digit hex color such as #3F66D4.",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Expand navigation",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Expressive",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Feature card",
+		"files": ["apps/docs/src/exampleVariants.json:feature-highlight"]
+	},
+	{
+		"key": "Final review",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Final step",
+		"files": ["apps/docs/src/exampleVariants.json:steps"]
+	},
+	{
+		"key": "Flash lights",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Fleet",
+		"files": ["apps/docs/src/showcases/robotics.tsx"]
+	},
+	{
+		"key": "Four positions across your investment account",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Front door locked",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Geometric sans",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Goal contribution opened",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Goal · June 2027",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Good morning",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Grid, divider & typography",
+		"files": ["apps/docs/src/main.tsx"]
+	},
+	{
+		"key": "Hidden",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Hide balances",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "High",
+		"files": ["apps/docs/src/PalettePicker.tsx", "apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Holding options",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Holding options opened",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Home energy use every two hours",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Home garage · 3 minutes ago",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Home status",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "How can we make a new product launch feel more meaningful?",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Humanist sans",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "I can help shape an idea, explore a question, or refine your writing.",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Icon-only controlled navigation",
+		"files": ["apps/docs/src/exampleVariants.json:nav-rail"]
+	},
+	{
+		"key": "Immediate tooltip",
+		"files": ["apps/docs/src/exampleVariants.json:tooltip"]
+	},
+	{
+		"key": "Initially expanded",
+		"files": ["apps/docs/src/exampleVariants.json:collapse"]
+	},
+	{
+		"key": "Inline notification",
+		"files": ["apps/docs/src/exampleVariants.json:toast"]
+	},
+	{
+		"key": "Inner dark override",
+		"files": ["apps/docs/src/examples/theme.tsx"]
+	},
+	{
+		"key": "Inner scoped input",
+		"files": ["apps/docs/src/examples/theme.tsx"]
+	},
+	{
+		"key": "Install from npm.",
+		"files": ["apps/docs/src/examples/accordion.tsx", "apps/docs/src/examples/variants/accordion--additional.tsx"]
+	},
+	{
+		"key": "Install the update now",
+		"files": ["apps/docs/src/examples/toast.tsx"]
+	},
+	{
+		"key": "Instant navigation and offset",
+		"files": ["apps/docs/src/exampleVariants.json:anchor"]
+	},
+	{
+		"key": "Interface sans",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Invalid color format",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Investments",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Large icon",
+		"files": ["apps/docs/src/exampleVariants.json:icons"]
+	},
+	{
+		"key": "Last played: Focus mix",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Latest video",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Light and dark preview",
+		"files": ["apps/docs/src/examples/variants/dropdown-menu--rich-options.tsx"]
+	},
+	{
+		"key": "Light theme accent",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Light · Dark",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Lights flashed. The vehicle is 18 m away.",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Lights, coffee, climate",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "List is ul; ListItem is li with leading/trailing slots. Copy shrinks safely; trailing content moves to a second row only in extremely narrow containers.",
+		"files": ["docs/content.json:list:guide"]
+	},
+	{
+		"key": "List the assumptions to validate",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Live validation",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Locate",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Lock",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Lock vehicle",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Locked · 2 min ago",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Long activity log",
+		"files": ["apps/docs/src/exampleVariants.json:scroll-navigator"]
+	},
+	{
+		"key": "Long content",
+		"files": ["apps/docs/src/exampleVariants.json:dialog"]
+	},
+	{
+		"key": "Low",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Make this idea more focused",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Make your theme",
+		"files": ["apps/docs/src/DesignPage.tsx", "apps/docs/src/PalettePicker.tsx", "apps/docs/src/main.tsx"]
+	},
+	{
+		"key": "Many pages",
+		"files": ["apps/docs/src/exampleVariants.json:pagination"]
+	},
+	{
+		"key": "Matrix Assistant can make mistakes. Check important information.",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Member list",
+		"files": ["apps/docs/src/exampleVariants.json:list"]
+	},
+	{
+		"key": "Message Matrix Assistant",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Message Matrix Assistant…",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Monday",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Motion: Off",
+		"files": [
+			"apps/docs/src/exampleVariants.json:area-chart",
+			"apps/docs/src/exampleVariants.json:bar-chart",
+			"apps/docs/src/exampleVariants.json:donut-chart",
+			"apps/docs/src/exampleVariants.json:line-chart"
+		]
+	},
+	{
+		"key": "Move money",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Multiple expanded sections",
+		"files": ["apps/docs/src/exampleVariants.json:accordion"]
+	},
+	{
+		"key": "NOVA E7 · PARKED AT HOME",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Narrow content width",
+		"files": ["apps/docs/src/exampleVariants.json:container"]
+	},
+	{
+		"key": "Nested navigation",
+		"files": ["apps/docs/src/exampleVariants.json:nav-drawer"]
+	},
+	{
+		"key": "Nested navigation and drawer switching",
+		"files": ["apps/docs/src/exampleVariants.json:nav-rail"]
+	},
+	{
+		"key": "Neutral tone",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "New conversation",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "New navigation destination",
+		"files": ["apps/docs/src/exampleVariants.json:feature-highlight"]
+	},
+	{
+		"key": "Next up",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Nightly release",
+		"files": ["apps/docs/src/examples/variants/card--scoped-theme.tsx"]
+	},
+	{
+		"key": "NotificationBadge",
+		"files": ["apps/docs/src/componentNames.ts"]
+	},
+	{
+		"key": "Now",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Numeric alignment",
+		"files": ["apps/docs/src/exampleVariants.json:table"]
+	},
+	{
+		"key": "Open theme builder",
+		"files": ["apps/docs/src/DesignPage.tsx"]
+	},
+	{
+		"key": "Outer light scope",
+		"files": ["apps/docs/src/examples/theme.tsx"]
+	},
+	{
+		"key": "Outside 13°C · Cabin will be ready in about 8 minutes.",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Package detected at the door",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Packages use the public npm registry with no extra configuration.",
+		"files": ["apps/docs/src/PortalPage.tsx"]
+	},
+	{
+		"key": "Palette comparison",
+		"files": ["apps/docs/src/exampleVariants.json:theme"]
+	},
+	{
+		"key": "Parent selection",
+		"files": ["apps/docs/src/exampleVariants.json:cascader"]
+	},
+	{
+		"key": "Pass",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Persistent hint with dismissal",
+		"files": ["apps/docs/src/exampleVariants.json:feature-highlight"]
+	},
+	{
+		"key": "Personal workspace",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Place ToastProvider and one Toaster inside ThemeProvider. Call useToast().toast to notify. Use action for one clear follow-up while the independent close control remains available. Toaster is fixed to the viewport by default; placement=\"inline\" expands where it is rendered for panel-level status. Notifications dismiss after 5 seconds; hover or keyboard focus expands the stack and pauses timers.",
+		"files": ["docs/content.json:toast:guide"]
+	},
+	{
+		"key": "Plan, publish, and understand what resonates without losing the thread.",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Please review this attachment: ",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Plugged in",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Point shapes and smooth curves",
+		"files": ["apps/docs/src/exampleVariants.json:area-chart", "apps/docs/src/exampleVariants.json:line-chart"]
+	},
+	{
+		"key": "Portfolio balance",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Portfolio period",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Power down and monitor entry",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Precondition using grid power",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Prefilled form and reset",
+		"files": ["apps/docs/src/exampleVariants.json:form"]
+	},
+	{
+		"key": "Preview input",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Preview mode",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Preview navigation",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Primary action",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Private",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Product launch plan",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Project name",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Published",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Purifier ran for 24 minutes",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Quick controls",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "RECENT",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "REMOTE ACCESS",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Raises the distinction of text, borders, and control states.",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Read-only content",
+		"files": ["apps/docs/src/exampleVariants.json:textarea"]
+	},
+	{
+		"key": "Read-only value",
+		"files": [
+			"apps/docs/src/exampleVariants.json:date-field",
+			"apps/docs/src/exampleVariants.json:date-picker",
+			"apps/docs/src/exampleVariants.json:date-range-field",
+			"apps/docs/src/exampleVariants.json:date-range-picker",
+			"apps/docs/src/exampleVariants.json:input",
+			"apps/docs/src/exampleVariants.json:time-field",
+			"apps/docs/src/exampleVariants.json:time-picker"
+		]
+	},
+	{
+		"key": "Ready before you step inside.",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Ready by",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Ready for 7:00 AM",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Ready to update",
+		"files": ["apps/docs/src/examples/toast.tsx"]
+	},
+	{
+		"key": "Recent activity",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Recent members",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Recording on motion",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Reduced",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Regenerate response",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Regular layouts follow the interface density.",
+		"files": ["apps/docs/src/main.tsx"]
+	},
+	{
+		"key": "Release name",
+		"files": ["apps/docs/src/examples/variants/card--scoped-theme.tsx"]
+	},
+	{
+		"key": "Reset to defaults",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Retention",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Reveal on scroll up",
+		"files": ["apps/docs/src/exampleVariants.json:navigation"]
+	},
+	{
+		"key": "Rich visual options",
+		"files": ["apps/docs/src/exampleVariants.json:dropdown-menu"]
+	},
+	{
+		"key": "Scales controls, typography, and icons together.",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Scheduled",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Scheduled departure",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Scoped contrast theme",
+		"files": ["apps/docs/src/exampleVariants.json:card"]
+	},
+	{
+		"key": "Scrollable tabs",
+		"files": ["apps/docs/src/exampleVariants.json:tabs"]
+	},
+	{
+		"key": "Send message",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Sets the intensity of interaction feedback.",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Sets the temperature of canvas and surfaces.",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Setup progress",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Shape comparison",
+		"files": [
+			"apps/docs/src/exampleVariants.json:button",
+			"apps/docs/src/exampleVariants.json:icon-button",
+			"apps/docs/src/exampleVariants.json:segmented-control"
+		]
+	},
+	{
+		"key": "Show actionable toast",
+		"files": ["apps/docs/src/examples/toast.tsx"]
+	},
+	{
+		"key": "Show balances",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Side profile illustration of the Nova E7",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Size comparison",
+		"files": [
+			"apps/docs/src/exampleVariants.json:avatar",
+			"apps/docs/src/exampleVariants.json:avatar-group",
+			"apps/docs/src/exampleVariants.json:button",
+			"apps/docs/src/exampleVariants.json:empty-state",
+			"apps/docs/src/exampleVariants.json:icon-button",
+			"apps/docs/src/exampleVariants.json:segmented-control",
+			"apps/docs/src/exampleVariants.json:spinner"
+		]
+	},
+	{
+		"key": "Soft",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Soft white · 28%",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Solid",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Stacked: On",
+		"files": ["apps/docs/src/exampleVariants.json:area-chart", "apps/docs/src/exampleVariants.json:bar-chart"]
+	},
+	{
+		"key": "Start climate",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Start-side sheet",
+		"files": ["apps/docs/src/exampleVariants.json:side-sheet"]
+	},
+	{
+		"key": "State the meaning in text, then choose a tone. Use outline on subtle surfaces to preserve visual separation.",
+		"files": ["docs/content.json:badge:guide"]
+	},
+	{
+		"key": "Status changes across your home",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Stepped values",
+		"files": ["apps/docs/src/exampleVariants.json:slider"]
+	},
+	{
+		"key": "Sticky navbar",
+		"files": ["apps/docs/src/exampleVariants.json:navigation"]
+	},
+	{
+		"key": "Stop generating",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Style",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Suggested prompts",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Sunday, September 13",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Surface style",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Sync",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Target temperature",
+		"files": ["apps/docs/src/showcases/smart-home.tsx", "apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Technical mono",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Temporary feedback with snackbar actions and stacked notifications.",
+		"files": ["docs/content.json:toast:purpose"]
+	},
+	{
+		"key": "The Card and its children inherit the inner dark theme.",
+		"files": ["apps/docs/src/examples/variants/card--scoped-theme.tsx"]
+	},
+	{
+		"key": "The site and source are public; local agents can also read docs/ and example sources directly.",
+		"files": ["apps/docs/src/PortalPage.tsx"]
+	},
+	{
+		"key": "Theme and spectrum effects",
+		"files": ["apps/docs/src/exampleVariants.json:feature-highlight"]
+	},
+	{
+		"key": "This preview does not move real funds.",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Thumbnail: Icon",
+		"files": ["apps/docs/src/exampleVariants.json:empty-state"]
+	},
+	{
+		"key": "Thumbnail: None",
+		"files": ["apps/docs/src/exampleVariants.json:empty-state"]
+	},
+	{
+		"key": "Title",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "ToastProvider",
+		"files": ["apps/docs/src/componentNames.ts"]
+	},
+	{
+		"key": "Today is tracking below your typical usage.",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Tomorrow · 9:30 AM",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Toolbar action",
+		"files": ["apps/docs/src/exampleVariants.json:feature-highlight"]
+	},
+	{
+		"key": "TooltipProvider",
+		"files": ["apps/docs/src/componentNames.ts"]
+	},
+	{
+		"key": "Transfer flow opened",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "Translucent",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Tune brand, shape, type, and behavior in complete light and dark previews.",
+		"files": ["apps/docs/src/main.tsx"]
+	},
+	{
+		"key": "Two-hour usage compared with your typical day",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Type scale",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Typeface",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Typical",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "UI scale",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Unavailable plan",
+		"files": ["apps/docs/src/exampleVariants.json:radio-card"]
+	},
+	{
+		"key": "Unlock",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Unlock vehicle",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Unlocked",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Update now",
+		"files": ["apps/docs/src/examples/toast.tsx"]
+	},
+	{
+		"key": "Updating",
+		"files": ["apps/docs/src/examples/toast.tsx"]
+	},
+	{
+		"key": "Upload",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Upload checks",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Upload workspace opened",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Use in your app",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Use lower-rate energy overnight.",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Validation error",
+		"files": ["apps/docs/src/exampleVariants.json:field"]
+	},
+	{
+		"key": "Variant comparison",
+		"files": ["apps/docs/src/exampleVariants.json:button", "apps/docs/src/exampleVariants.json:icon-button"]
+	},
+	{
+		"key": "Vehicle location centered on your map.",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Vehicle locked and secured.",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "Vehicle unlocked.",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "View",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "View all activity",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "View performance",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Views",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Views across published content",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "Warm",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Warm lights and secure doors",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Warm · 62%",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "We will let you know when it is complete.",
+		"files": ["apps/docs/src/examples/toast.tsx"]
+	},
+	{
+		"key": "What I carry every day",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "What shall we think through today?",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Wind down",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "Workspace sections",
+		"files": ["apps/docs/src/examples/variants/tabs--scrollable.tsx"]
+	},
+	{
+		"key": "Wrap the interface in ThemeProvider. mode controls theme; dir controls layout and Radix keyboard direction independently of language. Nested roots inherit or explicitly override direction; portals keep the same direction. Nest ThemeProvider with an explicit mode when an entire region needs a different color mode; use a component variant such as Card inverse when only one surface needs semantic contrast. palette selects one of six color families independently of mode, retaining semantic status colors.",
+		"files": ["docs/content.json:theme:guide"]
+	},
+	{
+		"key": "Yesterday",
+		"files": ["apps/docs/src/showcases/chatbot.tsx"]
+	},
+	{
+		"key": "Your theme, clear and consistent.",
+		"files": ["apps/docs/src/PalettePicker.tsx"]
+	},
+	{
+		"key": "Your work is finding its people.",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "battery",
+		"files": ["apps/docs/src/showcases/vehicle.tsx"]
+	},
+	{
+		"key": "comments",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	},
+	{
+		"key": "complete",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "devices connected",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "of",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "off",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "on",
+		"files": ["apps/docs/src/showcases/smart-home.tsx"]
+	},
+	{
+		"key": "standard participates in layout; modal overlays content with a backdrop and focus management. NavDrawer inherits global ThemeProvider density and automatically adjusts panel and item spacing. rail presents the same items as compact icon navigation. Keep active state in the application and provide icons for rail items. Compose secondary navigation with NavGroup and NavItem or NavLink children. The parent expands; children navigate. Use defaultOpen or controlled open to reveal the active group.",
+		"files": ["docs/content.json:nav-drawer:guide"]
+	},
+	{
+		"key": "this month",
+		"files": ["apps/docs/src/showcases/finance.tsx"]
+	},
+	{
+		"key": "views",
+		"files": ["apps/docs/src/showcases/creator.tsx"]
+	}
+]

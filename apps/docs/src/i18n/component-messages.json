@@ -1,0 +1,307 @@
+{
+	"Divider": ["ディバイダー", "구분선", "Séparateur", "Separador", "فاصل"],
+	"Grid": ["グリッド", "그리드", "Grille", "Cuadrícula", "شبكة"],
+	"Typography": ["タイポグラフィ", "타이포그래피", "Typographie", "Tipografía", "الطباعة"],
+	"SelectionList": ["選択リスト", "선택 목록", "Liste de sélection", "Lista de selección", "قائمة تحديد"],
+	"Horizontal divider": ["水平区切り線", "수평 구분선", "Séparateur horizontal", "Separador horizontal", "فاصل أفقي"],
+	"Workspace access": [
+		"ワークスペースへのアクセス",
+		"워크스페이스 액세스",
+		"Accès à l’espace de travail",
+		"Acceso al espacio de trabajo",
+		"الوصول إلى مساحة العمل"
+	],
+	"Manage the people and applications in this workspace.": [
+		"このワークスペースのメンバーとアプリケーションを管理します。",
+		"이 워크스페이스의 사용자와 애플리케이션을 관리합니다.",
+		"Gérez les personnes et les applications de cet espace de travail.",
+		"Gestiona las personas y aplicaciones de este espacio de trabajo.",
+		"أدِر الأشخاص والتطبيقات في مساحة العمل هذه."
+	],
+	"Last updated a few seconds ago": [
+		"数秒前に更新",
+		"몇 초 전에 업데이트됨",
+		"Mis à jour il y a quelques secondes",
+		"Actualizado hace unos segundos",
+		"تم التحديث قبل بضع ثوانٍ"
+	],
+	"Vertical divider": ["垂直区切り線", "수직 구분선", "Séparateur vertical", "Separador vertical", "فاصل عمودي"],
+	"Publish": ["公開", "게시", "Publier", "Publicar", "نشر"],
+	"12 active projects": [
+		"進行中のプロジェクト12件",
+		"진행 중인 프로젝트 12개",
+		"12 projets actifs",
+		"12 proyectos activos",
+		"12 مشروعًا نشطًا"
+	],
+	"8 releases this month": [
+		"今月のリリース8件",
+		"이번 달 릴리스 8개",
+		"8 versions publiées ce mois-ci",
+		"8 lanzamientos este mes",
+		"8 إصدارات هذا الشهر"
+	],
+	"24 insights collected": [
+		"24件のインサイトを収集",
+		"인사이트 24개 수집됨",
+		"24 observations recueillies",
+		"24 hallazgos recopilados",
+		"تم جمع 24 رؤية"
+	],
+	"Choose a teammate": [
+		"チームメンバーを選択",
+		"팀원 선택",
+		"Choisir un membre de l’équipe",
+		"Elegir un miembro del equipo",
+		"اختر عضوًا في الفريق"
+	],
+	"Owner": ["所有者", "소유자", "Propriétaire", "Propietario", "المالك"],
+	"Product design": ["プロダクトデザイン", "제품 디자인", "Conception produit", "Diseño de producto", "تصميم المنتج"],
+	"Editor": ["編集者", "편집자", "Éditeur", "Editor", "محرر"],
+	"Product workspace": [
+		"プロダクトワークスペース",
+		"제품 워크스페이스",
+		"Espace de travail produit",
+		"Espacio de trabajo del producto",
+		"مساحة عمل المنتج"
+	],
+	"Clear ideas, carefully expressed.": [
+		"明確なアイデアを、丁寧に表現する。",
+		"명확한 아이디어를 세심하게 표현합니다.",
+		"Des idées claires, exprimées avec soin.",
+		"Ideas claras, expresadas con cuidado.",
+		"أفكار واضحة، مصاغة بعناية."
+	],
+	"Choose the visual style independently from the HTML element so the document outline stays correct.": [
+		"文書構造を正しく保つため、HTML要素とは独立して視覚スタイルを選びます。",
+		"문서 구조를 올바르게 유지하도록 HTML 요소와 시각적 스타일을 독립적으로 선택하세요.",
+		"Choisissez le style visuel indépendamment de l’élément HTML afin de conserver une structure de document correcte.",
+		"Elige el estilo visual independientemente del elemento HTML para mantener correcta la estructura del documento.",
+		"اختر النمط المرئي بشكل مستقل عن عنصر HTML للحفاظ على بنية المستند الصحيحة."
+	],
+	"Automatic title gutter": [
+		"タイトルの自動余白",
+		"제목 자동 여백",
+		"Espacement automatique du titre",
+		"Espaciado automático del título",
+		"مسافة تلقائية للعنوان"
+	],
+	"The bottom space follows the selected type size, which keeps document flow balanced without manual margins.": [
+		"下部の余白は選択した文字サイズに応じて変わり、手動のマージンなしで文書の流れを整えます。",
+		"아래 여백이 선택한 글자 크기에 맞춰져 수동 여백 없이 문서 흐름의 균형을 유지합니다.",
+		"L’espace inférieur suit la taille de texte choisie afin d’équilibrer le flux du document sans marges manuelles.",
+		"El espacio inferior sigue el tamaño de texto elegido y mantiene equilibrado el flujo del documento sin márgenes manuales.",
+		"تتبع المسافة السفلية حجم الخط المحدد، مما يحافظ على توازن تدفق المستند دون هوامش يدوية."
+	],
+	"Build calmer products": [
+		"落ち着いたプロダクトをつくる",
+		"차분한 제품 만들기",
+		"Concevoir des produits plus sereins",
+		"Crear productos más serenos",
+		"أنشئ منتجات أكثر هدوءًا"
+	],
+	"Large section title": [
+		"大きなセクションタイトル",
+		"큰 섹션 제목",
+		"Grand titre de section",
+		"Título grande de sección",
+		"عنوان قسم كبير"
+	],
+	"Section title": ["セクションタイトル", "섹션 제목", "Titre de section", "Título de sección", "عنوان القسم"],
+	"Compact card title": [
+		"コンパクトなカードタイトル",
+		"간결한 카드 제목",
+		"Titre de carte compact",
+		"Título compacto de tarjeta",
+		"عنوان بطاقة مضغوط"
+	],
+	"Lead body text for a short introduction.": [
+		"短い導入に使うリード本文。",
+		"짧은 소개를 위한 도입 본문입니다.",
+		"Texte d’introduction principal pour une courte présentation.",
+		"Texto principal para una introducción breve.",
+		"نص تمهيدي رئيسي لمقدمة قصيرة."
+	],
+	"Default body text for most interface content.": [
+		"多くのインターフェース内容に使う標準本文。",
+		"대부분의 인터페이스 콘텐츠에 사용하는 기본 본문입니다.",
+		"Texte courant par défaut pour la plupart des contenus d’interface.",
+		"Texto predeterminado para la mayoría del contenido de la interfaz.",
+		"النص الافتراضي لمعظم محتوى الواجهة."
+	],
+	"Supporting body text for compact surfaces.": [
+		"コンパクトな画面向けの補助本文。",
+		"간결한 화면을 위한 보조 본문입니다.",
+		"Texte secondaire pour les surfaces compactes.",
+		"Texto de apoyo para superficies compactas.",
+		"نص داعم للأسطح المضغوطة."
+	],
+	"Form and control label": [
+		"フォームとコントロールのラベル",
+		"폼 및 컨트롤 레이블",
+		"Libellé de formulaire et de contrôle",
+		"Etiqueta de formulario y control",
+		"تسمية النموذج وعنصر التحكم"
+	],
+	"Updated 3 minutes ago": [
+		"3分前に更新",
+		"3분 전에 업데이트됨",
+		"Mis à jour il y a 3 minutes",
+		"Actualizado hace 3 minutos",
+		"تم التحديث قبل 3 دقائق"
+	],
+	"A semantic heading with a section-title style": [
+		"セクションタイトルの見た目を持つ意味的な見出し",
+		"섹션 제목 스타일을 적용한 시맨틱 제목",
+		"Un titre sémantique avec un style de titre de section",
+		"Un encabezado semántico con estilo de título de sección",
+		"عنوان دلالي بنمط عنوان قسم"
+	],
+	"A paragraph can use a stronger visual style without changing the document outline.": [
+		"段落は文書構造を変えずに、より強い視覚スタイルを使えます。",
+		"문단은 문서 구조를 변경하지 않고 더 강한 시각적 스타일을 사용할 수 있습니다.",
+		"Un paragraphe peut adopter un style visuel plus marqué sans modifier la structure du document.",
+		"Un párrafo puede usar un estilo visual más fuerte sin cambiar la estructura del documento.",
+		"يمكن للفقرة استخدام نمط مرئي أقوى دون تغيير بنية المستند."
+	],
+	"Supporting metadata · 3 minutes ago": [
+		"補助メタデータ · 3分前",
+		"보조 메타데이터 · 3분 전",
+		"Métadonnées secondaires · il y a 3 minutes",
+		"Metadatos de apoyo · hace 3 minutos",
+		"بيانات وصفية داعمة · قبل 3 دقائق"
+	],
+	"This long line is intentionally truncated inside a narrow region": [
+		"この長い行は狭い領域で意図的に省略されています",
+		"이 긴 줄은 좁은 영역에서 의도적으로 잘립니다",
+		"Cette longue ligne est volontairement tronquée dans une zone étroite",
+		"Esta línea larga se trunca intencionadamente en una zona estrecha",
+		"يتم اقتطاع هذا السطر الطويل عمدًا داخل مساحة ضيقة"
+	],
+	"Arrange content in fixed or responsive equal-width columns.": [
+		"コンテンツを固定列またはレスポンシブな等幅列に配置します。",
+		"콘텐츠를 고정 열 또는 반응형 동일 너비 열로 배치합니다.",
+		"Disposez le contenu en colonnes fixes ou adaptatives de largeur égale.",
+		"Organiza el contenido en columnas fijas o adaptables de igual ancho.",
+		"رتّب المحتوى في أعمدة ثابتة أو متجاوبة متساوية العرض."
+	],
+	"Use columns when the count is stable. minColumnWidth enables auto-fit and reduces the column count as the parent narrows. The default gap follows global density; rowGap and columnGap can override each axis.": [
+		"列数が一定ならcolumnsを使います。minColumnWidthはauto-fitを有効にし、親幅が狭くなると列数を減らします。既定のgapはグローバル密度に従い、rowGapとcolumnGapで各軸を上書きできます。",
+		"열 수가 고정적이면 columns를 사용하세요. minColumnWidth는 auto-fit을 활성화하고 부모가 좁아지면 열 수를 줄입니다. 기본 gap은 전역 밀도를 따르며 rowGap과 columnGap으로 각 축을 재정의할 수 있습니다.",
+		"Utilisez columns lorsque le nombre est stable. minColumnWidth active l’ajustement automatique et réduit le nombre de colonnes quand le parent se rétrécit. L’espacement par défaut suit la densité globale ; rowGap et columnGap peuvent remplacer chaque axe.",
+		"Usa columns cuando la cantidad sea estable. minColumnWidth activa el ajuste automático y reduce el número de columnas al estrecharse el contenedor. El espacio predeterminado sigue la densidad global; rowGap y columnGap pueden sobrescribir cada eje.",
+		"استخدم columns عندما يكون العدد ثابتًا. يفعّل minColumnWidth الملاءمة التلقائية ويقلّل عدد الأعمدة عند تضييق العنصر الأب. تتبع المسافة الافتراضية الكثافة العامة، ويمكن لـ rowGap وcolumnGap تجاوز كل محور."
+	],
+	"Grid only controls visual layout. Use ul or ol with li children for lists, and name section regions with a heading.": [
+		"Gridは視覚的なレイアウトだけを制御します。リストにはliを子に持つulまたはolを使い、section領域には見出しで名前を付けます。",
+		"Grid는 시각적 레이아웃만 제어합니다. 목록에는 li 자식이 있는 ul 또는 ol을 사용하고 section 영역에는 제목을 지정하세요.",
+		"Grid contrôle uniquement la disposition visuelle. Utilisez ul ou ol avec des éléments li pour les listes et nommez les régions section avec un titre.",
+		"Grid solo controla el diseño visual. Usa ul u ol con elementos li para las listas y asigna un título a las regiones section.",
+		"يتحكم Grid في التخطيط المرئي فقط. استخدم ul أو ol مع عناصر li للقوائم، وسمِّ مناطق section بعنوان."
+	],
+	"minColumnWidth takes precedence over columns. Use style for asymmetric tracks without coupling content order to visual placement.": [
+		"minColumnWidthはcolumnsより優先されます。コンテンツ順を視覚配置に結び付けず、非対称トラックにはstyleを使います。",
+		"minColumnWidth가 columns보다 우선합니다. 콘텐츠 순서를 시각적 배치와 결합하지 말고 비대칭 트랙에는 style을 사용하세요.",
+		"minColumnWidth est prioritaire sur columns. Utilisez style pour les pistes asymétriques sans lier l’ordre du contenu au placement visuel.",
+		"minColumnWidth tiene prioridad sobre columns. Usa style para pistas asimétricas sin vincular el orden del contenido con la ubicación visual.",
+		"تكون الأولوية لـ minColumnWidth على columns. استخدم style للمسارات غير المتماثلة دون ربط ترتيب المحتوى بالموضع المرئي."
+	],
+	"Separate adjacent content groups horizontally or vertically.": [
+		"隣接するコンテンツグループを水平または垂直に分けます。",
+		"인접한 콘텐츠 그룹을 가로 또는 세로로 구분합니다.",
+		"Séparez les groupes de contenu adjacents horizontalement ou verticalement.",
+		"Separa grupos de contenido adyacentes horizontal o verticalmente.",
+		"افصل مجموعات المحتوى المتجاورة أفقيًا أو عموديًا."
+	],
+	"Horizontal is the default for stacked content. Use vertical inside a flex or grid row with a defined height. Set decorative when the rule has no structural meaning.": [
+		"積み重ねたコンテンツでは水平が既定です。高さが定義されたflexまたはgrid行の中で垂直を使います。線に構造的な意味がない場合はdecorativeを設定します。",
+		"쌓인 콘텐츠에는 가로 방향이 기본입니다. 높이가 지정된 flex 또는 grid 행 안에서 세로 방향을 사용하세요. 선에 구조적 의미가 없으면 decorative를 설정합니다.",
+		"L’orientation horizontale est utilisée par défaut pour le contenu empilé. Utilisez l’orientation verticale dans une ligne flex ou grid de hauteur définie. Activez decorative lorsque le trait n’a pas de sens structurel.",
+		"La orientación horizontal es la predeterminada para contenido apilado. Usa la vertical dentro de una fila flex o grid con altura definida. Activa decorative cuando la línea no tenga significado estructural.",
+		"الاتجاه الأفقي هو الافتراضي للمحتوى المتراص. استخدم الاتجاه العمودي داخل صف flex أو grid ذي ارتفاع محدد. عيّن decorative عندما لا يحمل الخط معنى بنيويًا."
+	],
+	"Semantic dividers expose separator and aria-orientation. Decorative dividers are removed from the accessibility tree.": [
+		"意味的な区切り線はseparatorとaria-orientationを公開します。装飾的な区切り線はアクセシビリティツリーから除外されます。",
+		"의미가 있는 구분선은 separator와 aria-orientation을 노출합니다. 장식용 구분선은 접근성 트리에서 제거됩니다.",
+		"Les séparateurs sémantiques exposent separator et aria-orientation. Les séparateurs décoratifs sont retirés de l’arbre d’accessibilité.",
+		"Los separadores semánticos exponen separator y aria-orientation. Los separadores decorativos se eliminan del árbol de accesibilidad.",
+		"تعرض الفواصل الدلالية separator وaria-orientation. وتُزال الفواصل الزخرفية من شجرة إمكانية الوصول."
+	],
+	"Do not use Divider as a Card, panel, or navigation outline. A vertical Divider needs a parent that provides height.": [
+		"DividerをCard、パネル、ナビゲーションの輪郭として使わないでください。垂直Dividerには高さを提供する親が必要です。",
+		"Divider를 Card, 패널 또는 탐색 윤곽선으로 사용하지 마세요. 세로 Divider에는 높이를 제공하는 부모가 필요합니다.",
+		"N’utilisez pas Divider comme Card, panneau ou contour de navigation. Un Divider vertical nécessite un parent qui fournit une hauteur.",
+		"No uses Divider como Card, panel o contorno de navegación. Un Divider vertical necesita un contenedor padre que proporcione altura.",
+		"لا تستخدم Divider كـ Card أو لوحة أو إطار تنقل. يحتاج Divider العمودي إلى عنصر أب يوفر ارتفاعًا."
+	],
+	"Apply a shared type hierarchy while preserving correct HTML semantics.": [
+		"正しいHTMLセマンティクスを保ちながら、共通の文字階層を適用します。",
+		"올바른 HTML 시맨틱을 유지하면서 공통 타이포그래피 계층을 적용합니다.",
+		"Appliquez une hiérarchie typographique partagée tout en préservant une sémantique HTML correcte.",
+		"Aplica una jerarquía tipográfica compartida manteniendo la semántica HTML correcta.",
+		"طبّق تسلسلاً هرميًا مشتركًا للخطوط مع الحفاظ على دلالات HTML الصحيحة."
+	],
+	"variant controls appearance while as controls the element and document structure. Choose the correct h1–h6 explicitly and use suitable elements for body text, labels, and code. tone supports default, muted, and inherit. Enable gutter in natural document flow to add bottom space calculated from the type scale; keep using container gap in Grid and Flex layouts.": [
+		"variantは見た目を、asは要素と文書構造を制御します。正しいh1〜h6を明示的に選び、本文、ラベル、コードには適切な要素を使います。toneはdefault、muted、inheritをサポートします。自然な文書フローではgutterを有効にして文字スケールから計算した下余白を加え、GridとFlexレイアウトではコンテナのgapを使い続けます。",
+		"variant는 모양을, as는 요소와 문서 구조를 제어합니다. 올바른 h1–h6을 명시적으로 선택하고 본문, 레이블, 코드에 적절한 요소를 사용하세요. tone은 default, muted, inherit을 지원합니다. 자연스러운 문서 흐름에서는 gutter를 활성화해 타입 스케일에서 계산된 아래 여백을 추가하고 Grid와 Flex 레이아웃에서는 컨테이너 gap을 계속 사용하세요.",
+		"variant contrôle l’apparence, tandis que as contrôle l’élément et la structure du document. Choisissez explicitement le bon niveau h1–h6 et utilisez des éléments adaptés au corps de texte, aux libellés et au code. tone prend en charge default, muted et inherit. Activez gutter dans le flux naturel du document pour ajouter un espace inférieur calculé selon l’échelle typographique ; conservez le gap du conteneur dans les dispositions Grid et Flex.",
+		"variant controla la apariencia, mientras que as controla el elemento y la estructura del documento. Elige explícitamente el h1–h6 correcto y usa elementos adecuados para cuerpo, etiquetas y código. tone admite default, muted e inherit. Activa gutter en el flujo natural del documento para añadir espacio inferior calculado según la escala tipográfica; sigue usando el gap del contenedor en diseños Grid y Flex.",
+		"يتحكم variant في المظهر، بينما يتحكم as في العنصر وبنية المستند. اختر مستوى h1–h6 الصحيح صراحةً واستخدم عناصر مناسبة للنص والتسميات والرمز. يدعم tone القيم default وmuted وinherit. فعّل gutter في التدفق الطبيعي للمستند لإضافة مسافة سفلية محسوبة من مقياس الخط، واستمر في استخدام gap للحاوية في تخطيطات Grid وFlex."
+	],
+	"Visual size does not replace heading semantics; preserve heading order. Do not truncate critical content, and set dir=\"ltr\" for code inside RTL pages.": [
+		"視覚的な大きさは見出しの意味を置き換えません。見出し順を保ってください。重要な内容を省略せず、RTLページ内のコードにはdir=\"ltr\"を設定します。",
+		"시각적 크기는 제목 시맨틱을 대체하지 않습니다. 제목 순서를 유지하세요. 중요한 콘텐츠를 자르지 말고 RTL 페이지의 코드에는 dir=\"ltr\"을 설정하세요.",
+		"La taille visuelle ne remplace pas la sémantique des titres ; conservez leur ordre. Ne tronquez pas le contenu essentiel et définissez dir=\"ltr\" pour le code dans les pages RTL.",
+		"El tamaño visual no sustituye la semántica de los encabezados; conserva su orden. No trunques contenido crítico y define dir=\"ltr\" para el código dentro de páginas RTL.",
+		"لا يحل الحجم المرئي محل دلالات العناوين؛ حافظ على ترتيبها. لا تقتطع المحتوى المهم، واضبط dir=\"ltr\" للرمز داخل صفحات RTL."
+	],
+	"Do not use Typography to imitate a button or link. Truncated content must remain available from context, tone cannot be the only status cue, and gutter should not duplicate an existing layout gap.": [
+		"Typographyでボタンやリンクを模倣しないでください。省略された内容は文脈から利用できる必要があり、toneだけを状態の手掛かりにせず、gutterで既存のレイアウトgapを重複させないでください。",
+		"Typography로 버튼이나 링크를 흉내 내지 마세요. 잘린 콘텐츠는 맥락에서 확인할 수 있어야 하며 tone만 상태 단서로 사용해서는 안 되고 gutter가 기존 레이아웃 gap과 중복되어서는 안 됩니다.",
+		"N’utilisez pas Typography pour imiter un bouton ou un lien. Le contenu tronqué doit rester accessible par le contexte, tone ne peut pas être le seul indice d’état et gutter ne doit pas dupliquer un gap de mise en page existant.",
+		"No uses Typography para imitar un botón o enlace. El contenido truncado debe seguir disponible por contexto, tone no puede ser la única señal de estado y gutter no debe duplicar un gap existente.",
+		"لا تستخدم Typography لمحاكاة زر أو رابط. يجب أن يظل المحتوى المقتطع متاحًا من السياق، ولا يمكن أن يكون tone مؤشر الحالة الوحيد، ولا ينبغي أن يكرر gutter مسافة gap موجودة."
+	],
+	"Select the current item in a master-detail interface.": [
+		"マスター詳細インターフェースで現在の項目を選択します。",
+		"마스터-세부 정보 인터페이스에서 현재 항목을 선택합니다.",
+		"Sélectionnez l’élément courant dans une interface maître-détail.",
+		"Selecciona el elemento actual en una interfaz maestro-detalle.",
+		"حدّد العنصر الحالي في واجهة رئيسية وتفصيلية."
+	],
+	"Use when choosing an item immediately updates an adjacent detail view. SelectionList owns the current value; SelectionListItem composes leading media, content, and trailing status.": [
+		"項目の選択によって隣接する詳細ビューがすぐ更新される場合に使います。SelectionListが現在値を管理し、SelectionListItemは先頭メディア、内容、末尾状態を構成します。",
+		"항목을 선택하면 인접한 세부 정보 보기가 즉시 업데이트되는 경우 사용하세요. SelectionList가 현재 값을 관리하고 SelectionListItem은 선행 미디어, 콘텐츠 및 후행 상태를 구성합니다.",
+		"Utilisez-le lorsque le choix d’un élément met immédiatement à jour une vue détaillée adjacente. SelectionList gère la valeur courante ; SelectionListItem compose le média initial, le contenu et l’état final.",
+		"Úsalo cuando elegir un elemento actualice inmediatamente una vista de detalle adyacente. SelectionList controla el valor actual; SelectionListItem compone el contenido visual inicial, el contenido y el estado final.",
+		"استخدمه عندما يؤدي اختيار عنصر إلى تحديث عرض تفاصيل مجاور فورًا. تدير SelectionList القيمة الحالية، ويجمع SelectionListItem الوسائط البادئة والمحتوى والحالة اللاحقة."
+	],
+	"Uses listbox and option semantics. Arrow keys move and select, Home and End jump to the first and last item, and the current item remains in the tab order.": [
+		"listboxとoptionのセマンティクスを使います。矢印キーで移動と選択を行い、HomeとEndで最初と最後の項目へ移動し、現在の項目はタブ順に残ります。",
+		"listbox와 option 시맨틱을 사용합니다. 화살표 키로 이동하고 선택하며 Home과 End는 첫 항목과 마지막 항목으로 이동하고 현재 항목은 탭 순서에 남습니다.",
+		"Utilise les sémantiques listbox et option. Les flèches déplacent et sélectionnent, Home et End accèdent au premier et au dernier élément, et l’élément courant reste dans l’ordre de tabulation.",
+		"Usa la semántica listbox y option. Las flechas mueven y seleccionan, Home y End saltan al primer y último elemento, y el elemento actual permanece en el orden de tabulación.",
+		"يستخدم دلالات listbox وoption. تنقل مفاتيح الأسهم وتحدد، وينتقل Home وEnd إلى العنصر الأول والأخير، ويبقى العنصر الحالي ضمن ترتيب التنقل بلوحة المفاتيح."
+	],
+	"Use RadioGroup or RadioCardGroup for submitted form choices. Use NavLink when items navigate to another page.": [
+		"送信するフォーム選択にはRadioGroupまたはRadioCardGroupを使います。項目が別ページへ移動する場合はNavLinkを使います。",
+		"제출되는 폼 선택에는 RadioGroup 또는 RadioCardGroup을 사용하세요. 항목이 다른 페이지로 이동하면 NavLink를 사용합니다.",
+		"Utilisez RadioGroup ou RadioCardGroup pour les choix de formulaire soumis. Utilisez NavLink lorsque les éléments mènent vers une autre page.",
+		"Usa RadioGroup o RadioCardGroup para opciones de formulario que se envían. Usa NavLink cuando los elementos naveguen a otra página.",
+		"استخدم RadioGroup أو RadioCardGroup لخيارات النموذج التي تُرسل. واستخدم NavLink عندما تنتقل العناصر إلى صفحة أخرى."
+	],
+	"Complete type scale": [
+		"完全な文字スケール",
+		"전체 타입 스케일",
+		"Échelle typographique complète",
+		"Escala tipográfica completa",
+		"مقياس خطوط كامل"
+	],
+	"Semantics, tone and truncation": [
+		"セマンティクス、トーン、省略",
+		"시맨틱, 톤 및 잘림",
+		"Sémantique, ton et troncature",
+		"Semántica, tono y truncamiento",
+		"الدلالات والنبرة والاقتطاع"
+	]
+}
