@@ -3099,6 +3099,7 @@
 .mds-root .mds-sheet-body > .mds-navdrawer-panel {
 	inline-size: 100%;
 	padding: 0;
+	background: transparent;
 }
 .mds-root .mds-navdrawer-title {
 	padding: var(--mds-nav-item-padding-inline);

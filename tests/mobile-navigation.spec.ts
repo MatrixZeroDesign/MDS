@@ -35,3 +35,20 @@ for (const width of [320, 390, 760]) {
 		});
 	}
 }
+
+test("mobile site navigation has a single surface and a branded title", async ({ page }) => {
+	await page.setViewportSize({ width: 390, height: 844 });
+	await page.goto("/theme-builder");
+	await page.getByRole("button", { name: "Open navigation", exact: true }).click();
+	await page.mouse.move(380, 800);
+	const drawer = page.getByRole("dialog", { name: "MDS", exact: true });
+	await expect(drawer).toBeVisible();
+	await expect(drawer.locator(".mds-navdrawer-panel")).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
+	const inactive = drawer.getByRole("button", { name: "Home", exact: true });
+	await expect(inactive).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
+	const active = drawer.getByRole("button", { name: "Design", exact: true });
+	await expect(active).toHaveAttribute("aria-current", "page");
+	await expect(active).not.toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
+	await page.keyboard.press("Escape");
+	await expect(drawer).toBeHidden();
+});

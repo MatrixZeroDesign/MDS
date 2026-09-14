@@ -28,7 +28,7 @@ test("tablet and mobile navigation use the same unclipped labels and close after
 		await page.getByRole("button", { name: "Change language" }).click();
 		await page.getByRole("menuitemradio", { name: /English/ }).click();
 		await page.getByRole("button", { name: "Open navigation" }).click();
-		const drawer = page.getByRole("dialog", { name: "Workspace navigation" });
+		const drawer = page.getByRole("dialog", { name: "MDS" });
 		await expect(drawer).toBeVisible();
 		expect(
 			await drawer
