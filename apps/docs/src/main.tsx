@@ -1553,10 +1553,8 @@ function App() {
 										</section>
 									</ShowcaseDetailFrame>
 								)}
-						<ToastFeedback message={notice} consume={() => setNotice("")} />
-						<footer className="docs-footer">
-							Matrix Design System
-						</footer>
+								<ToastFeedback message={notice} consume={() => setNotice("")} />
+								<footer className="docs-footer">Matrix Design System</footer>
 							</Container>
 						</main>
 					</div>
