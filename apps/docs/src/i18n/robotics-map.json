@@ -1,0 +1,10 @@
+{
+	"en": ["Pickup", "Destination", "Planned route"],
+	"zh": ["取货点", "目的地", "规划路线"],
+	"zh-TW": ["取貨點", "目的地", "規劃路線"],
+	"ja": ["集荷地点", "目的地", "予定ルート"],
+	"ko": ["픽업 위치", "목적지", "계획 경로"],
+	"fr": ["Collecte", "Destination", "Trajet prévu"],
+	"es": ["Recogida", "Destino", "Ruta prevista"],
+	"ar": ["الاستلام", "الوجهة", "المسار المخطط"]
+}

@@ -39,6 +39,7 @@ import {
 import { languageTag } from "../i18n";
 import { translator, type SceneProps } from "./shared";
 import "./robotics.css";
+import mapLabels from "../i18n/robotics-map.json";
 
 type RobotState = "active" | "charging" | "attention";
 
@@ -79,6 +80,7 @@ const tasks = [
 
 export default function Robotics({ locale }: SceneProps) {
 	const t = translator(locale);
+	const [pickupLabel, destinationLabel, routeLabel] = mapLabels[locale];
 	const [selectedId, setSelectedId] = useState<(typeof fleet)[number]["id"]>("AMR-07");
 	const [paused, setPaused] = useState(false);
 	const [emergencyStopped, setEmergencyStopped] = useState(false);
@@ -247,26 +249,35 @@ export default function Robotics({ locale }: SceneProps) {
 					<CardContent>
 						<div
 							className="sc-robotics-map"
-							aria-label={t("机器人实时位置示意图", "Live robot position map")}
+							aria-label={`${t("机器人实时位置示意图", "Live robot position map")}: ${robot.id}. ${routeLabel}: ${pickupLabel} → ${destinationLabel}.`}
 							role="img"
 						>
 							<div className="sc-robotics-zone sc-zone-a">A-14</div>
 							<div className="sc-robotics-zone sc-zone-b">B-08</div>
 							<div className="sc-robotics-zone sc-zone-pack">PACK 03</div>
-							<svg viewBox="0 0 600 260" aria-hidden="true">
-								<path d="M72 181 C154 181 156 88 243 88 S365 188 450 188 S506 124 548 124" />
+							<svg className="sc-robotics-route" viewBox="0 0 600 260" preserveAspectRatio="none" aria-hidden="true">
+								<path
+									vectorEffect="non-scaling-stroke"
+									d="M72 181 C154 181 156 88 243 88 S365 188 450 188 S506 124 548 124"
+								/>
 							</svg>
 							<span className="sc-robotics-node sc-node-start">
 								<Package size={15} />
+								<span className="sc-robotics-marker-label">{pickupLabel}</span>
 							</span>
 							<span className="sc-robotics-node sc-node-end">
 								<MapPin size={15} />
+								<span className="sc-robotics-marker-label">{destinationLabel}</span>
 							</span>
 							<span className="sc-robotics-position" data-paused={paused || emergencyStopped || undefined}>
 								<Cpu size={18} />
+								<span className="sc-robotics-marker-label">{robot.id}</span>
 								<i />
 							</span>
 						</div>
+						<p className="sc-robotics-map-key">
+							{pickupLabel} → {destinationLabel} · {routeLabel}
+						</p>
 						<div className="sc-robotics-controlbar">
 							<div>
 								<span>{t("当前任务", "Current mission")}</span>
