@@ -1,20 +1,21 @@
 # Matrix Design System
 
-- 遵循工作区 CLAUDE.md；改动走分支和 MR，合并由 Ethan 操作。
-- 组件源代码只在 packages/ui/src；展示站 apps/docs 必须通过 @matrixzero/ui 导入，不复制组件实现。
-- 所有 CSS 必须在 .mds-root 作用域内。禁止修改宿主 html/body 的主题、滚动或颜色。
-- 使用 Radix 的键盘、焦点、表单与无障碍行为；不要把 menuitemradio 伪装成 combobox。
-- 文案由使用方传入，不把产品术语、网络请求、权限或路由逻辑放进组件。
-- 组件文字和背景成对使用 MDS token；品牌资源显式导入，不运行时下载字体或样式。
-- 中英文、明暗主题、系统主题、多实例隔离、减少动态效果均属于验收范围。
-- 微动效只作用于局部组件；默认 120–240ms，不移动或缩放背景。减少动态效果时移除非必要动效。
-- 提交前运行 npm run check。发布前检查 tarball 安装、导出、SSR 和 CI。
-- scratchpad、凭证、node_modules、构建产物不提交；包仅包含 dist 和必要使用文档。
+- Follow the workspace `CLAUDE.md`. Make changes on a branch and open a pull request; Ethan performs merges.
+- Use English for source code, comments, tests, commit messages, pull requests, issues, and documentation source. Other languages are allowed only in i18n translation resources.
+- Component source code belongs only in `packages/ui/src`. The docs app must import components from `@matrixzero/ui` and must not copy component implementations.
+- Scope all CSS under `.mds-root`. Do not change the host `html` or `body` theme, scrolling, or colors.
+- Preserve Radix keyboard, focus, form, and accessibility behavior. Do not present `menuitemradio` as a combobox.
+- Consumers provide copy. Do not place product terminology, network requests, permissions, or routing logic in components.
+- Pair component text and backgrounds with MDS tokens. Import brand assets explicitly; do not download fonts or styles at runtime.
+- Validate supported languages, light and dark themes, system theme, multi-instance isolation, and reduced motion.
+- Keep motion local to components and use 120–240 ms by default. Do not move or scale page backgrounds. Remove nonessential motion under reduced-motion preferences.
+- Run `npm run check` before submitting. Verify tarball installation, exports, SSR, and CI before publishing.
+- Do not commit scratchpads, credentials, `node_modules`, or build output. Packages should contain only `dist` and required usage documentation.
 
-## 文档与场景必须由 MDS 组件构建
+## Build documentation and scenarios with MDS components
 
-- 开始实现 docs、showcase 或用户场景前，先检查 `@matrixzero/ui` 现有导出和对应文档，优先组合已有 MDS 组件。
-- 交互控件和通用界面结构必须使用语义正确的 MDS 组件，例如 Button、Card、Tabs、NavDrawer、Grid、Divider、Typography、List 和表单控件。不要用原生元素加局部 CSS 重新仿制已有组件，也不要为了复用而使用语义不匹配的组件。
-- 页面 CSS 只负责布局、内容编排和场景特有的视觉表达；组件的 hover、active、focus、disabled、主题、density、圆角和无障碍行为由 MDS 组件负责。
-- 如果现有组件无法合理表达设计，先把缺失能力提炼成通用的 prop、variant、slot 或新组件，在 `packages/ui/src` 中实现并补齐文档与必要验证；随后再在 docs/showcase 中使用它。不要以临时样式或错误组件绕过能力缺口。
-- 新增场景后检查其组件清单与实际实现一致，并验证 light/dark、density、响应式、键盘操作以及适用语言的 LTR/RTL 表现。
+- Before implementing docs, showcases, or user scenarios, inspect the existing `@matrixzero/ui` exports and documentation, then compose the available MDS components first.
+- Interactive controls and common interface structures must use semantically correct MDS components such as Button, Card, Tabs, NavDrawer, Grid, Divider, Typography, List, and form controls. Do not recreate an existing component with native elements and local CSS, and do not use a semantically incorrect component merely for reuse.
+- Page CSS handles layout, content composition, and scenario-specific visual expression. Components own hover, active, focus, disabled, theme, density, radius, and accessibility behavior.
+- When the existing component API cannot express a design, first define a reusable prop, variant, slot, or component in `packages/ui/src`, then add documentation and necessary validation before using it in docs or showcases. Do not bypass a capability gap with temporary styles or the wrong component.
+- After adding a scenario, verify that its component inventory matches the implementation and test light and dark themes, density, responsive behavior, keyboard operation, and applicable LTR/RTL layouts.
