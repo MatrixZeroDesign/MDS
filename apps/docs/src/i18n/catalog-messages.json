@@ -13,20 +13,6 @@
 		"Métricas, actividad de solicitudes y estado del servicio.",
 		"المؤشرات ونشاط الطلبات وسلامة الخدمة."
 	],
-	"Policy workspace": [
-		"ポリシーワークスペース",
-		"정책 작업 공간",
-		"Espace des politiques",
-		"Espacio de políticas",
-		"مساحة السياسات"
-	],
-	"Configure protection rules and save policies.": [
-		"保護ルールを設定し、ポリシーを保存します。",
-		"보호 규칙을 설정하고 정책을 저장하세요.",
-		"Configurez les règles de protection et enregistrez les politiques.",
-		"Configura reglas de protección y guarda políticas.",
-		"اضبط قواعد الحماية واحفظ السياسات."
-	],
 	"Project workspace": [
 		"プロジェクトワークスペース",
 		"프로젝트 작업 공간",
@@ -150,5 +136,19 @@
 		"Trouvez l’inspiration au quotidien, explorez des récits et enregistrez vos favoris.",
 		"Descubre inspiración cotidiana, explora historias y guarda tus favoritos.",
 		"اكتشف إلهامًا يوميًا واستكشف القصص واحفظ المفضلة."
+	],
+	"Release governance": [
+		"リリースガバナンス",
+		"릴리스 거버넌스",
+		"Gouvernance des mises en production",
+		"Gobernanza de publicaciones",
+		"حوكمة الإصدارات"
+	],
+	"Set approvals, security checks and audit rules for production releases.": [
+		"本番リリースの承認、セキュリティチェック、監査ルールを設定します。",
+		"프로덕션 릴리스에 대한 승인, 보안 검사 및 감사 규칙을 설정합니다.",
+		"Définissez les approbations, les contrôles de sécurité et les règles d’audit des mises en production.",
+		"Configura aprobaciones, comprobaciones de seguridad y reglas de auditoría para publicaciones en producción.",
+		"اضبط الموافقات وفحوصات الأمان وقواعد التدقيق لإصدارات الإنتاج."
 	]
 }

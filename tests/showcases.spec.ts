@@ -3,7 +3,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { useArabicDirection } from "./test-utils";
 const ids = ["projects", "crm", "support", "team", "billing", "shop", "travel", "learning", "music", "wellness"];
 
-for (const path of ["overview", "policy"])
+for (const path of ["overview", "governance"])
 	test(`${path} uses the shared scenario detail layout`, async ({ page }) => {
 		await page.goto("/" + path);
 		await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
@@ -15,6 +15,51 @@ for (const path of ["overview", "policy"])
 		await expect(page.getByRole("region", { name: "Product scenario" })).toBeVisible();
 		await expect(page.locator(".sc-components")).toBeVisible();
 	});
+test("release governance updates its enforcement summary", async ({ page }) => {
+	await page.goto("/governance");
+	const scene = page.getByRole("region", { name: "Product scenario" });
+	await scene.getByRole("checkbox", { name: "Require peer approval" }).uncheck();
+	await expect(scene.getByText("Optional", { exact: true })).toBeVisible();
+	await scene.getByRole("combobox", { name: "Environment" }).click();
+	await page.getByRole("option", { name: "Critical services", exact: true }).click();
+	await expect(scene.locator(".docs-policy-summary").getByText("Critical services", { exact: true })).toBeVisible();
+	await scene.getByRole("button", { name: "Save release rules" }).click();
+	await expect(page.getByText("Release rules saved", { exact: true })).toBeVisible();
+});
+
+test("desktop showcase forms constrain fields and utility actions", async ({ page }) => {
+	await page.setViewportSize({ width: 2200, height: 1200 });
+	for (const [route, field] of [
+		["showcase-projects", "Task name"],
+		["showcase-team", "Invite email"],
+		["governance", "Rule name"],
+	] as const) {
+		await page.goto(`/${route}`);
+		const width = await page
+			.getByRole("textbox", { name: field })
+			.evaluate((control) => control.getBoundingClientRect().width);
+		expect(width).toBeLessThanOrEqual(720);
+	}
+	for (const [route, action] of [
+		["showcase-team", "Save settings"],
+		["showcase-billing", "Review change"],
+		["showcase-travel", "Review reservation"],
+		["showcase-finance", "Add to goal"],
+		["showcase-vehicle", "Start charging now"],
+		["showcase-smart-home", "View all activity"],
+		["showcase-creator", "Adjust schedule"],
+	] as const) {
+		await page.goto(`/${route}`);
+		const button = page.getByRole("button", { name: action, exact: true });
+		await expect(button).toBeVisible();
+		const ratio = await button.evaluate((control) => {
+			const card = control.closest(".mds-card");
+			return card ? control.getBoundingClientRect().width / card.getBoundingClientRect().width : 1;
+		});
+		expect(ratio).toBeLessThan(0.5);
+	}
+});
+
 test("showcase catalog filters all scenarios and clears empty search", async ({ page }) => {
 	await page.goto("/showcase");
 	await expect(page.locator(".sc-gallery-card")).toHaveCount(19);
@@ -61,6 +106,14 @@ test("business scenarios complete their main workflows", async ({ page }) => {
 	await scene.getByRole("textbox", { name: "Invite email" }).fill("new@example.com");
 	await scene.getByRole("button", { name: "Add member" }).click();
 	await expect(scene.getByRole("combobox", { name: "Role: new@example.com" })).toBeVisible();
+	const saveSettingsWidth = await scene
+		.getByRole("button", { name: "Save settings" })
+		.evaluate((button) => button.getBoundingClientRect().width);
+	const securityPanelWidth = await scene
+		.getByRole("heading", { name: "Workspace security" })
+		.locator("xpath=ancestor::*[contains(@class, 'mds-card')][1]")
+		.evaluate((panel) => panel.getBoundingClientRect().width);
+	expect(saveSettingsWidth).toBeLessThan(securityPanelWidth / 2);
 	await page.goto("/showcase-billing");
 	await scene.getByRole("radio", { name: "Scale", exact: true }).click();
 	await scene.getByRole("button", { name: "Review change" }).click();

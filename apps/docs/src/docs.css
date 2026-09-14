@@ -228,7 +228,74 @@ a {
 	color: var(--mds-muted);
 }
 .docs-policy {
-	max-width: 640px;
+	max-width: none;
+	gap: 28px;
+}
+.docs-policy-heading {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 32px;
+}
+.mds-root .sc-product .docs-policy-heading h2 {
+	font-size: clamp(22px, 2vw, 28px);
+	line-height: 1.25;
+	letter-spacing: -0.025em;
+	margin: 6px 0 8px;
+}
+.docs-policy-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+.docs-policy-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.75fr);
+	gap: 40px;
+	padding-top: 28px;
+	border-top: 1px solid var(--mds-border);
+}
+.docs-policy-grid > form {
+	max-inline-size: 680px;
+}
+.docs-policy-summary {
+	display: flex;
+	flex-direction: column;
+	align-self: start;
+	padding: 20px;
+	border: 1px solid var(--mds-border);
+	border-radius: 10px;
+	background: var(--mds-surface);
+}
+.docs-policy-summary h3 {
+	font-size: 13px;
+	line-height: 20px;
+	margin: 0 0 8px;
+}
+.docs-policy-summary > div {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 14px 0;
+	border-bottom: 1px solid var(--mds-border);
+}
+.docs-policy-summary span {
+	font-size: 12px;
+	color: var(--mds-muted);
+}
+.docs-policy-summary strong {
+	font-size: 13px;
+	font-weight: 500;
+	text-align: end;
+}
+.mds-root .sc-product .docs-policy-summary p {
+	font-size: 12px;
+	line-height: 1.55;
+	color: var(--mds-muted);
+	margin-top: 16px;
 }
 .docs-metrics {
 	display: grid;
@@ -256,6 +323,16 @@ a {
 	}
 }
 @media (max-width: 900px) {
+	.docs-policy-heading,
+	.docs-policy-grid {
+		grid-template-columns: 1fr;
+	}
+	.docs-policy-heading {
+		flex-direction: column;
+	}
+	.docs-policy-actions {
+		justify-content: flex-start;
+	}
 	.docs-layout {
 		grid-template-columns: 170px minmax(0, 1fr);
 	}
@@ -1370,6 +1447,7 @@ a {
 	gap: 16px;
 	align-items: end;
 	flex-wrap: wrap;
+	max-inline-size: 720px;
 }
 .mds-root .sc-inline-form .mds-field {
 	flex: 1;

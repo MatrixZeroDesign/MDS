@@ -473,9 +473,11 @@ export default function SmartHome({ locale }: SceneProps) {
 								<span>{t("录像已保存 30 天", "Clip saved for 30 days")}</span>
 							</ListItem>
 						</List>
-						<Button variant="ghost" size="sm">
-							{t("查看全部动态", "View all activity")}
-						</Button>
+						<div className="sc-row">
+							<Button variant="ghost" size="sm">
+								{t("查看全部动态", "View all activity")}
+							</Button>
+						</div>
 					</CardContent>
 				</Card>
 			</div>

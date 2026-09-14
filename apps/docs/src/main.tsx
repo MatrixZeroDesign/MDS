@@ -145,7 +145,6 @@ const portalPages = [
 	"charts",
 	"icons",
 	"overview",
-	"policy",
 	...showcaseCatalog.map((item) => item.id),
 ];
 function readPage() {
@@ -246,7 +245,7 @@ function App() {
 			? "design"
 			: page === "system" || page === "docs"
 				? "components"
-				: ["overview", "policy", "showcase", ...showcaseCatalog.map((item) => item.id)].includes(page)
+				: ["overview", "showcase", ...showcaseCatalog.map((item) => item.id)].includes(page)
 					? "showcase"
 					: page;
 	const primaryItems = [
@@ -280,7 +279,7 @@ function App() {
 			<ChartBar />
 		) : id === "icons" ? (
 			<Palette />
-		) : id === "policy" ? (
+		) : id === "governance" ? (
 			<ShieldCheck />
 		) : (
 			<LayoutDashboard />
@@ -295,11 +294,11 @@ function App() {
 		[loading, setLoading] = useState(false),
 		[percent, setPercent] = useState(0),
 		[exporting, setExporting] = useState(false);
-	const [policyScope, setPolicyScope] = useState("all"),
-		[policyInjection, setPolicyInjection] = useState(true),
-		[policySensitive, setPolicySensitive] = useState(true),
-		[savedPolicy, setSavedPolicy] = useState({ scope: "all", injection: true, sensitive: true });
-	const [name, setName] = useState(t("默认防护", "Default protection")),
+	const [releaseEnvironment, setReleaseEnvironment] = useState("production"),
+		[peerApproval, setPeerApproval] = useState(true),
+		[securityChecks, setSecurityChecks] = useState(true),
+		[savedGovernance, setSavedGovernance] = useState({ environment: "production", approval: true, security: true });
+	const [name, setName] = useState(t("生产发布控制", "Production release controls")),
 		[saved, setSaved] = useState(name),
 		[createOpen, setCreateOpen] = useState(false),
 		[newName, setNewName] = useState(""),
@@ -328,9 +327,9 @@ function App() {
 		setLoading(true);
 		setTimeout(() => {
 			setSaved(name);
-			setSavedPolicy({ scope: policyScope, injection: policyInjection, sensitive: policySensitive });
+			setSavedGovernance({ environment: releaseEnvironment, approval: peerApproval, security: securityChecks });
 			setLoading(false);
-			setNotice(t("所有更改已保存", "All changes saved"));
+			setNotice(t("发布规则已保存", "Release rules saved"));
 		}, 550);
 	};
 	const menuOptions = [
@@ -365,12 +364,15 @@ function App() {
 			<DialogTrigger asChild>
 				<Button variant="primary">
 					<Plus size={15} />
-					{t("新建策略", "Create policy")}
+					{t("新建发布规则", "Create release rule")}
 				</Button>
 			</DialogTrigger>
 			<DialogContent
-				title={t("新建策略", "Create policy")}
-				description={t("为应用配置一套清晰的防护规则。", "Configure safeguards for your application.")}
+				title={t("新建发布规则", "Create release rule")}
+				description={t(
+					"为生产变更定义审批和验证要求。",
+					"Define approval and verification requirements for production changes.",
+				)}
 				closeLabel={t("关闭", "Close")}
 			>
 				<form
@@ -380,28 +382,37 @@ function App() {
 						setName(newName);
 						setSaved(newName);
 						setCreateOpen(false);
-						setPage("policy");
-						setNotice(t("策略已创建", "Policy created"));
+						setPage("governance");
+						setNotice(t("发布规则已创建", "Release rule created"));
 					}}
 				>
-					<Field label={t("策略名称", "Policy name")} required>
+					<Field label={t("规则名称", "Rule name")} required>
 						<Input value={newName} onChange={(e) => setNewName(e.target.value)} />
 					</Field>
-					<Field label={t("检测模板", "Template")}>
+					<Field label={t("规则模板", "Rule template")}>
 						<Select
 							name="template"
 							defaultValue="standard"
 							options={[
-								{ value: "standard", label: t("标准防护", "Standard protection") },
-								{ value: "sensitive", label: t("敏感信息保护", "Sensitive data protection") },
+								{ value: "standard", label: t("标准生产发布", "Standard production release") },
+								{ value: "regulated", label: t("受监管变更", "Regulated change") },
 							]}
 						/>
 					</Field>
-					<Field label={t("应用范围", "Applications")}>
-						<Select name="application" value={scope} onValueChange={setScope} options={menuOptions} />
+					<Field label={t("环境", "Environment")}>
+						<Select
+							name="environment"
+							defaultValue="production"
+							options={[
+								{ value: "production", label: t("生产环境", "Production") },
+								{ value: "critical", label: t("关键服务", "Critical services") },
+							]}
+						/>
 					</Field>
 					<Field label={t("说明", "Description")}>
-						<Textarea placeholder={t("策略用途（可选）", "Policy purpose (optional)")} />
+						<Textarea
+							placeholder={t("描述此规则适用的变更（可选）", "Describe the changes this rule covers (optional)")}
+						/>
 					</Field>
 					<div className="docs-actions">
 						<Button type="submit" variant="primary">
@@ -624,42 +635,45 @@ function App() {
 																					: (translatePair(
 																							locale,
 																							showcaseCatalog.find((item) => item.id === page)?.title ?? [],
-																						) ?? t("策略工作台", "Policy workspace"))}
+																						) ?? t("发布治理", "Release governance"))}
 											</h1>
-											{page !== "design" && (
-												<p className="docs-muted">
-													{page === "home"
-														? t(
-																"从基础到体验，用一致的语言构建界面。",
-																"A considered language for every part of your interface.",
-															)
-														: page === "showcase"
-															? t("在真实页面组合中探索组件。", "Explore components in complete product experiences.")
-															: page === "system"
-																? t("清晰、一致，也有温度。", "Clear, consistent, and considered.")
-																: page === "theme-builder"
-																	? t(
-																			"在完整的浅色与深色界面中调整品牌、形状、字体和行为。",
-																			"Tune brand, shape, type, and behavior in complete light and dark previews.",
-																		)
-																	: page === "docs"
+											{page !== "design" &&
+												page !== "overview" &&
+												page !== "governance" &&
+												!page.startsWith("showcase-") && (
+													<p className="docs-muted">
+														{page === "home"
+															? t(
+																	"从基础到体验，用一致的语言构建界面。",
+																	"A considered language for every part of your interface.",
+																)
+															: page === "showcase"
+																? t("在真实页面组合中探索组件。", "Explore components in complete product experiences.")
+																: page === "system"
+																	? t("清晰、一致，也有温度。", "Clear, consistent, and considered.")
+																	: page === "theme-builder"
 																		? t(
-																				"安装、组件 API 与设计规范。",
-																				"Installation, component APIs and design guidelines.",
+																				"在完整的浅色与深色界面中调整品牌、形状、字体和行为。",
+																				"Tune brand, shape, type, and behavior in complete light and dark previews.",
 																			)
-																		: page === "icons"
+																		: page === "docs"
 																			? t(
-																					"为 Matrix 独立绘制的图标集合。",
-																					"An independently drawn icon collection for Matrix.",
+																					"安装、组件 API 与设计规范。",
+																					"Installation, component APIs and design guidelines.",
 																				)
-																			: page === "charts"
+																			: page === "icons"
 																				? t(
-																						"清晰的数据表达，完整的交互示例。",
-																						"Clear data presentation with interactive examples.",
+																						"为 Matrix 独立绘制的图标集合。",
+																						"An independently drawn icon collection for Matrix.",
 																					)
-																				: t("演示数据 · 未连接生产环境", "Sample data · no production connection")}
-												</p>
-											)}
+																				: page === "charts"
+																					? t(
+																							"清晰的数据表达，完整的交互示例。",
+																							"Clear data presentation with interactive examples.",
+																						)
+																					: null}
+													</p>
+												)}
 										</div>
 									</div>
 								)}
@@ -1446,56 +1460,96 @@ function App() {
 										</section>
 									</ShowcaseDetailFrame>
 								)}
-								{page === "policy" && (
-									<ShowcaseDetailFrame locale={locale} page="policy">
-										<div className="docs-row">{actions}</div>
+								{page === "governance" && (
+									<ShowcaseDetailFrame locale={locale} page="governance">
 										<section className="docs-card docs-policy">
-											<h2>{t("基本配置", "Configuration")}</h2>
-											<form
-												className="docs-stack"
-												onSubmit={(e) => {
-													e.preventDefault();
-													save();
-												}}
-												onReset={(e) => {
-													e.preventDefault();
-													setName(saved);
-													setPolicyScope(savedPolicy.scope);
-													setPolicyInjection(savedPolicy.injection);
-													setPolicySensitive(savedPolicy.sensitive);
-													setNotice(t("已恢复上次保存", "Restored saved value"));
-												}}
-											>
-												<Field label={t("策略名称", "Policy name")} required>
-													<Input value={name} onChange={(e) => setName(e.target.value)} />
-												</Field>
-												<Field label={t("适用范围", "Scope")}>
-													<Select
-														value={policyScope}
-														onValueChange={setPolicyScope}
-														options={[
-															{ value: "all", label: t("全部应用", "All applications") },
-															{ value: "chat", label: t("对话服务", "Chat service") },
-														]}
-													/>
-												</Field>
-												<CheckField
-													label={t("提示词注入", "Prompt injection")}
-													checked={policyInjection}
-													onCheckedChange={(v) => setPolicyInjection(!!v)}
-												/>
-												<CheckField
-													label={t("敏感信息", "Sensitive information")}
-													checked={policySensitive}
-													onCheckedChange={(v) => setPolicySensitive(!!v)}
-												/>
-												<div className="docs-actions">
-													<Button type="submit" variant="primary" loading={loading}>
-														{t("保存更改", "Save changes")}
-													</Button>
-													<Button type="reset">{t("重置", "Reset")}</Button>
+											<div className="docs-policy-heading">
+												<div>
+													<p className="docs-eyebrow">{t("生产环境", "PRODUCTION")}</p>
+													<h2>{t("发布控制", "Release controls")}</h2>
+													<p className="docs-muted">
+														{t(
+															"在部署开始前强制执行审批与自动化检查。",
+															"Enforce approvals and automated checks before a deployment can begin.",
+														)}
+													</p>
 												</div>
-											</form>
+												<div className="docs-policy-actions">
+													<Badge tone="success">{t("已启用", "Active")}</Badge>
+													{actions}
+												</div>
+											</div>
+											<div className="docs-policy-grid">
+												<form
+													className="docs-stack"
+													onSubmit={(e) => {
+														e.preventDefault();
+														save();
+													}}
+													onReset={(e) => {
+														e.preventDefault();
+														setName(saved);
+														setReleaseEnvironment(savedGovernance.environment);
+														setPeerApproval(savedGovernance.approval);
+														setSecurityChecks(savedGovernance.security);
+														setNotice(t("已恢复已保存规则", "Restored saved rules"));
+													}}
+												>
+													<Field label={t("规则名称", "Rule name")} required>
+														<Input value={name} onChange={(e) => setName(e.target.value)} />
+													</Field>
+													<Field label={t("环境", "Environment")}>
+														<Select
+															value={releaseEnvironment}
+															onValueChange={setReleaseEnvironment}
+															options={[
+																{ value: "production", label: t("生产环境", "Production") },
+																{ value: "critical", label: t("关键服务", "Critical services") },
+															]}
+														/>
+													</Field>
+													<CheckField
+														label={t("需要同行审批", "Require peer approval")}
+														checked={peerApproval}
+														onCheckedChange={(v) => setPeerApproval(!!v)}
+													/>
+													<CheckField
+														label={t("需要通过安全检查", "Require passing security checks")}
+														checked={securityChecks}
+														onCheckedChange={(v) => setSecurityChecks(!!v)}
+													/>
+													<div className="docs-actions">
+														<Button type="submit" variant="primary" loading={loading}>
+															{t("保存发布规则", "Save release rules")}
+														</Button>
+														<Button type="reset">{t("重置", "Reset")}</Button>
+													</div>
+												</form>
+												<aside className="docs-policy-summary">
+													<h3>{t("执行摘要", "Enforcement summary")}</h3>
+													<div>
+														<span>{t("目标", "Target")}</span>
+														<strong>
+															{releaseEnvironment === "production"
+																? t("生产环境", "Production")
+																: t("关键服务", "Critical services")}
+														</strong>
+													</div>
+													<div>
+														<span>{t("审批", "Approval")}</span>
+														<strong>{peerApproval ? t("需要", "Required") : t("可选", "Optional")}</strong>
+													</div>
+													<div>
+														<span>{t("安全门禁", "Security gate")}</span>
+														<strong>
+															{securityChecks ? t("阻止失败的检查", "Blocks failed checks") : t("仅记录", "Audit only")}
+														</strong>
+													</div>
+													<p>
+														{t("每次规则变更都会写入审计日志。", "Every rule change is recorded in the audit log.")}
+													</p>
+												</aside>
+											</div>
 										</section>
 									</ShowcaseDetailFrame>
 								)}

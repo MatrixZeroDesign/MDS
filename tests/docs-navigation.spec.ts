@@ -54,7 +54,7 @@ test("site sections own their secondary navigation and retain deep links", async
 	await expect.poll(() => secondary.locator(".docs-component-navigation a").count()).toBeGreaterThan(35);
 	await expect(secondary.getByRole("button", { name: "Charts", exact: true })).toHaveCount(0);
 	await primary.getByRole("link", { name: "Showcase" }).click();
-	await secondary.getByRole("link", { name: "Policy workspace" }).click();
+	await secondary.getByRole("link", { name: "Release governance" }).click();
 	await expect(primary.getByRole("link", { name: "Showcase" })).toHaveAttribute("aria-current", "page");
 	await page.goBack();
 	await expect(page.getByRole("heading", { name: "Showcase", exact: true })).toBeVisible();

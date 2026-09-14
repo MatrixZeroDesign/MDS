@@ -60,7 +60,9 @@ export default function Travel({ locale }: SceneProps) {
 							locale={languageTag(locale)}
 							hourCycle={24}
 						/>
-						<FormSubmit variant="primary">{t("查看预订", "Review reservation")}</FormSubmit>
+						<div className="sc-row">
+							<FormSubmit variant="primary">{t("查看预订", "Review reservation")}</FormSubmit>
+						</div>
 					</Form>
 				) : step === 1 ? (
 					<>

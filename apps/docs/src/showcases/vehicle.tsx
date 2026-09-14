@@ -292,20 +292,22 @@ export default function Vehicle({ locale }: SceneProps) {
 							hourCycle={24}
 							disabled={!scheduled}
 						/>
-						<Button
-							variant={charging ? "secondary" : "primary"}
-							onClick={() => {
-								setCharging(!charging);
-								setNotice(
-									charging
-										? t("充电已暂停。", "Charging paused.")
-										: t(`已开始充电至 ${chargeLimit}%。`, `Charging to ${chargeLimit}% started.`),
-								);
-							}}
-						>
-							<Power size={18} aria-hidden="true" />
-							{charging ? t("暂停充电", "Pause charging") : t("立即开始充电", "Start charging now")}
-						</Button>
+						<div className="sc-row">
+							<Button
+								variant={charging ? "secondary" : "primary"}
+								onClick={() => {
+									setCharging(!charging);
+									setNotice(
+										charging
+											? t("充电已暂停。", "Charging paused.")
+											: t(`已开始充电至 ${chargeLimit}%。`, `Charging to ${chargeLimit}% started.`),
+									);
+								}}
+							>
+								<Power size={18} aria-hidden="true" />
+								{charging ? t("暂停充电", "Pause charging") : t("立即开始充电", "Start charging now")}
+							</Button>
+						</div>
 					</CardContent>
 				</Card>
 			</div>
