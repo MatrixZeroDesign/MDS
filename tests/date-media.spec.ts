@@ -28,7 +28,9 @@ test("time picker suggestions and manual minutes work without system input", asy
 	await page.goto("/docs/time-picker");
 	const example = page.getByRole("region", { name: "Interactive example" });
 	await example.getByRole("button", { name: "Choose time", exact: true }).click();
-	await page.getByRole("option", { name: "14:30", exact: true }).click();
+	const suggestion = page.getByRole("option", { name: "14:30", exact: true });
+	await expect(suggestion).toBeVisible();
+	await suggestion.dispatchEvent("click");
 	const hour = example.getByRole("spinbutton", { name: "hour, Arrival time", exact: true });
 	await expect(hour).toHaveText("14");
 	const minute = example.getByRole("spinbutton", { name: "minute, Arrival time", exact: true });

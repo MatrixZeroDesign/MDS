@@ -15,14 +15,15 @@ test("comparison examples expose real props and matching copyable code", async (
 	await page.setViewportSize({ width: 320, height: 900 });
 	expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();
 });
-test("form, dialog and sheet examples separate inputs from actions at all sizes and directions", async ({ page }) => {
-	await page.emulateMedia({ reducedMotion: "reduce" });
-	for (const width of [1280, 320])
-		for (const rtl of [false, true]) {
+for (const width of [1280, 320]) {
+	for (const rtl of [false, true]) {
+		test(`form, dialog and sheet examples separate inputs from actions at ${width}px ${rtl ? "RTL" : "LTR"}`, async ({
+			page,
+		}) => {
+			await page.emulateMedia({ reducedMotion: "reduce" });
 			await page.setViewportSize({ width, height: 1000 });
 			for (const slug of ["select", "native-select", "dialog", "side-sheet"]) {
 				await page.goto("/docs/" + slug);
-				await page.reload();
 				if (rtl) await page.getByRole("button", { name: "Toggle reading direction" }).click();
 				const overlay = slug === "dialog" || slug === "side-sheet";
 				const preview = page.getByRole("region", { name: "Interactive example" });
@@ -30,11 +31,14 @@ test("form, dialog and sheet examples separate inputs from actions at all sizes 
 				const area = overlay ? page.getByRole("dialog") : preview;
 				const field = area.locator(".mds-field");
 				const action = area.getByRole("button", { name: overlay ? "Done" : "Reset", exact: true });
-				const a = await field.boundingBox(),
-					b = await action.boundingBox();
+				await expect(field).toBeVisible();
+				await expect(action).toBeVisible();
+				const a = await field.boundingBox();
+				const b = await action.boundingBox();
 				expect(b!.y - a!.y - a!.height).toBeGreaterThanOrEqual(15);
 				expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();
 				if (overlay) await page.keyboard.press("Escape");
 			}
-		}
-});
+		});
+	}
+}
