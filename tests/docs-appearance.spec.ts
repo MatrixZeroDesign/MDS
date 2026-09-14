@@ -100,8 +100,47 @@ test("home hero uses the available width on large screens", async ({ page }) => 
 	expect(metrics.height).toBeLessThan(metrics.lineHeight * 1.35);
 });
 
+test("desktop content surface uses a complete large-radius silhouette", async ({ page }) => {
+	await page.goto("/home");
+	const surface = page.locator(".docs-main");
+	const layout = page.locator(".docs-layout");
+	const corners = await surface.evaluate((element) => {
+		const style = getComputedStyle(element);
+		return [
+			style.borderTopLeftRadius,
+			style.borderTopRightRadius,
+			style.borderBottomRightRadius,
+			style.borderBottomLeftRadius,
+		];
+	});
+	expect(new Set(corners).size).toBe(1);
+	expect(Number.parseFloat(corners[0])).toBeGreaterThan(0);
+	await expect(layout).toHaveCSS("padding", "16px");
+	await expect(layout).toHaveCSS("gap", "16px");
+});
+
+test("home page responds visibly to global density", async ({ page }) => {
+	await page.goto("/home");
+	const intro = page.locator(".home-intro");
+	const card = page.locator(".home-type-card");
+	const comfortableMargin = Number.parseFloat(
+		await intro.evaluate((element) => getComputedStyle(element).marginBottom),
+	);
+	const comfortablePadding = Number.parseFloat(await card.evaluate((element) => getComputedStyle(element).paddingTop));
+	await page.getByRole("button", { name: "Interface density", exact: true }).click();
+	await page.getByRole("menuitemradio", { name: "Compact", exact: true }).click();
+	await expect(page.locator(".mds-root").first()).toHaveAttribute("data-mds-density", "compact");
+	expect(Number.parseFloat(await intro.evaluate((element) => getComputedStyle(element).marginBottom))).toBeLessThan(
+		comfortableMargin,
+	);
+	expect(Number.parseFloat(await card.evaluate((element) => getComputedStyle(element).paddingTop))).toBeLessThan(
+		comfortablePadding,
+	);
+});
+
 test("design links to the theme builder and uses only global density", async ({ page }) => {
 	await page.goto("/design");
+	await expect(page.locator(".docs-page-heading .docs-muted")).toHaveCount(0);
 	await expect(page.getByRole("link", { name: "Open theme builder", exact: true })).toHaveAttribute(
 		"href",
 		"/theme-builder",

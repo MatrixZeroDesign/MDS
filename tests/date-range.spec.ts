@@ -32,15 +32,18 @@ test("range field supports manual entry and rejects reversed dates", async ({ pa
 	await page.goto("/docs/date-range-field");
 	const example = page.getByRole("region", { name: "Interactive example" });
 	await expect(page.getByRole("button", { name: /^Choose date range/ })).toHaveCount(0);
-	const days = page.getByRole("spinbutton", { name: /^day,/ });
+	const days = example.getByRole("spinbutton", { name: /^day,/ });
 	await days.first().focus();
-	await page.keyboard.type("19");
+	await expect(days.first()).toHaveAttribute("aria-valuenow", "16");
+	for (let i = 0; i < 3; i++) await page.keyboard.press("ArrowUp");
+	await expect(days.first()).toHaveAttribute("aria-valuenow", "19");
 	await example.getByRole("button", { name: "Save", exact: true }).click();
 	await expect(example.getByRole("status").filter({ hasText: "2026-10-19 – 2026-10-20" })).toHaveText(
 		"2026-10-19 – 2026-10-20",
 	);
 	await days.first().focus();
-	await page.keyboard.type("25");
+	for (let i = 0; i < 6; i++) await page.keyboard.press("ArrowUp");
+	await expect(days.first()).toHaveAttribute("aria-valuenow", "25");
 	await example.getByRole("button", { name: "Save", exact: true }).click();
 	await expect(page.locator(".mds-date-range .mds-error")).toBeVisible();
 	await expect(example.getByRole("status").filter({ hasText: "2026-10-19 – 2026-10-20" })).toHaveText(

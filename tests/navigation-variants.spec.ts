@@ -54,10 +54,10 @@ test("rail uses short labels and reveals the full label on keyboard focus", asyn
 });
 test("icon-only rail preserves accessible names, selection and tooltips", async ({ page }) => {
 	await page.goto("/docs/nav-rail");
-	const stage = page.getByLabel("Icon-only navigation links").locator(".docs-live-stage");
+	const stage = page.getByLabel("Icon-only controlled navigation").locator(".docs-live-stage");
 	const rail = stage.locator(".mds-navrail");
 	await expect(rail).toHaveAttribute("data-collapsed", "true");
-	const item = rail.getByRole("link", { name: "Navigation rail documentation", exact: true });
+	const item = rail.getByRole("button", { name: "Navigation rail documentation", exact: true });
 	await expect(item).toHaveAttribute("aria-current", "page");
 	await expect(item.locator(".mds-navitem-label")).toHaveCSS("clip-path", "inset(50%)");
 	const box = await item.boundingBox();
@@ -65,4 +65,8 @@ test("icon-only rail preserves accessible names, selection and tooltips", async 
 	expect(box!.height).toBeGreaterThanOrEqual(44);
 	await item.focus();
 	await expect(page.getByRole("tooltip")).toContainText("Navigation rail documentation");
+	const settings = rail.getByRole("button", { name: "Theme settings", exact: true });
+	await settings.click();
+	await expect(settings).toHaveAttribute("aria-current", "page");
+	await expect(page).toHaveURL(/\/docs\/nav-rail$/);
 });

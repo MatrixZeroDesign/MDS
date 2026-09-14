@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { useArabicDirection } from "./test-utils";
 test("Form preserves validation, prevents duplicate async submissions, focuses errors and resets", async ({ page }) => {
 	await page.goto("/docs/form");
 	const preview = page.getByRole("region", { name: "Interactive example" });
@@ -63,17 +64,29 @@ test("API tables separate contracts, defaults and explanations and scroll on nar
 });
 test("Switch icon slots track checked state and stay decorative through keyboard and RTL changes", async ({ page }) => {
 	await page.goto("/docs/switch");
-	const preview = page.getByRole("region", { name: "Interactive example" });
-	const theme = preview.getByRole("switch", { name: "Light theme" });
+	const preview = page.locator(".docs-live-stage").first();
+	const theme = preview.getByRole("switch").first();
 	await expect(theme.locator('[data-visible="checked"]')).toHaveCSS("opacity", "1");
 	await theme.focus();
 	await page.keyboard.press("Space");
 	await expect(theme).toHaveAttribute("aria-checked", "false");
 	await expect(theme.locator('[data-visible="unchecked"]')).toHaveCSS("opacity", "1");
 	await expect(preview.locator(".mds-root")).toHaveAttribute("data-mds-mode", "dark");
-	await page.getByRole("button", { name: "Toggle reading direction" }).click();
-	await theme.focus();
-	await page.keyboard.press("Space");
+	await expect(preview.locator('.mds-root[data-mds-mode="dark"] .mds-card')).toHaveCSS(
+		"background-color",
+		"rgb(34, 34, 34)",
+	);
+	const fieldStarts = await preview
+		.locator(".mds-card-content .mds-field")
+		.evaluateAll((fields) => fields.map((field) => field.getBoundingClientRect().x));
+	expect(fieldStarts[0]).toBe(fieldStarts[1]);
+	const disabledPreview = page.locator(".docs-live-stage").nth(1);
+	await expect(disabledPreview.locator(".mds-switch:disabled")).toHaveCount(2);
+	const disabledFieldStarts = await disabledPreview
+		.locator(".mds-card-content .mds-field")
+		.evaluateAll((fields) => fields.map((field) => field.getBoundingClientRect().x));
+	expect(disabledFieldStarts[0]).toBe(disabledFieldStarts[1]);
+	await useArabicDirection(page);
 	await expect(theme).toHaveAttribute("aria-checked", "true");
 	await expect(theme.locator(".mds-switch-thumb")).toHaveCSS("transform", "matrix(1, 0, 0, 1, -14, 0)");
 	await expect(theme.locator(".mds-switch-icon").first()).toHaveAttribute("aria-hidden", "true");

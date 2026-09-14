@@ -78,10 +78,13 @@ test("global density compacts MegaMenu triggers and content", async ({ page }) =
 	await page.getByRole("menuitemradio", { name: "Compact", exact: true }).click();
 	expect((await trigger.boundingBox())!.height).toBeLessThan(comfortableTriggerHeight);
 	await trigger.click();
-	expect((await link.boundingBox())!.height).toBeLessThan(comfortableLinkHeight);
-	expect(await content.evaluate((element) => Number.parseFloat(getComputedStyle(element).paddingTop))).toBeLessThan(
-		comfortablePadding,
-	);
+	const compactContent = page.locator(".docs-live-stage .mds-mega-menu-content").first();
+	const compactLink = compactContent.locator(".mds-mega-menu-link").first();
+	await expect(compactLink).toBeVisible();
+	expect((await compactLink.boundingBox())!.height).toBeLessThan(comfortableLinkHeight);
+	expect(
+		await compactContent.evaluate((element) => Number.parseFloat(getComputedStyle(element).paddingTop)),
+	).toBeLessThan(comfortablePadding);
 });
 
 test("global density compacts lists, tabs and data rows", async ({ page }) => {

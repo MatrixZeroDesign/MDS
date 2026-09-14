@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { execFileSync } from "node:child_process";
 import AxeBuilder from "@axe-core/playwright";
+import { useArabicDirection } from "./test-utils";
 test("empty state preserves image semantics and legacy icon compatibility", () => {
 	const [markup, legacy] = JSON.parse(
 		execFileSync(
@@ -25,13 +26,13 @@ test("empty state thumbnail variants render at narrow RTL widths", async ({ page
 	const comparison = page.getByRole("region", { name: "Size comparison" });
 	await expect(comparison.locator(".mds-empty-thumbnail")).toHaveCount(3);
 	await expect(comparison.locator(".mds-empty-thumbnail").last()).toHaveCSS("width", "160px");
-	await page.getByRole("button", { name: "Toggle reading direction" }).click();
-	await page.setViewportSize({ width: 320, height: 900 });
-	expect((await new AxeBuilder({ page }).include(".mds-empty").analyze()).violations).toEqual([]);
 	await expect(
 		page.getByRole("region", { name: "Thumbnail: Icon" }).locator(".mds-empty-thumbnail svg"),
 	).toHaveAttribute("viewBox", "0 0 24 24");
 	const none = page.getByRole("region", { name: "Thumbnail: None" });
 	await expect(none.locator(".mds-empty-thumbnail")).toHaveCount(0);
 	await expect(none.getByRole("heading", { name: "No matches" })).toBeVisible();
+	await useArabicDirection(page);
+	await page.setViewportSize({ width: 320, height: 900 });
+	expect((await new AxeBuilder({ page }).include(".mds-empty").analyze()).violations).toEqual([]);
 });

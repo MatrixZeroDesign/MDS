@@ -1,7 +1,7 @@
 import { translatePair, translate } from "./i18n";
 import { PageLoading } from "./PageLoading";
 import { Preview } from "./showcases/Preview";
-import { lazy, Suspense, useState } from "react";
+import { lazy, type ReactNode, Suspense, useState } from "react";
 import { Container, Grid, Input, Field, SegmentedControl, EmptyState, Button, Badge } from "@matrixzero/ui";
 import { showcaseCatalog } from "./showcases/catalog";
 import type { SceneProps } from "./showcases/shared";
@@ -28,6 +28,60 @@ const sources = import.meta.glob("./showcases/*.tsx", { query: "?raw", import: "
 	string,
 	string
 >;
+
+export function ShowcaseDetailFrame({
+	locale,
+	page,
+	children,
+	source,
+}: {
+	locale: SceneProps["locale"];
+	page: string;
+	children: ReactNode;
+	source?: string;
+}) {
+	const t = (zh: string, en: string) => translate(locale, zh, en);
+	const item = showcaseCatalog.find((entry) => entry.id === page);
+	if (!item) return null;
+	return (
+		<Container className="sc-detail" maxWidth={1280} gutter={0}>
+			<div className="sc-detail-bar">
+				<a href="/showcase">← {t("全部场景", "All scenarios")}</a>
+				<Badge>
+					{item.audience === "business" ? t("企业产品", "Business product") : t("消费产品", "Consumer product")}
+				</Badge>
+			</div>
+			<p className="docs-muted">
+				{t(
+					"可交互演示 · 数据仅保留在当前页面，不连接真实服务。",
+					"Interactive demo · data stays on this page; no live services are connected.",
+				)}
+			</p>
+			<section className="sc-product" aria-label={t("产品场景", "Product scenario")}>
+				{children}
+			</section>
+			<div className="sc-components">
+				<strong>{t("使用的组件", "Components used")}</strong>
+				{item.components.map((name) => (
+					<span key={name}>{name}</span>
+				))}
+			</div>
+			{source && (
+				<details className="sc-source">
+					<summary>{t("查看场景源码", "View scenario source")}</summary>
+					<p>{t("场景文件与共享布局辅助组件。", "Scene module and shared layout helpers.")}</p>
+					<pre dir="ltr">
+						<code>{source}</code>
+					</pre>
+					<pre dir="ltr">
+						<code>{sources["./showcases/shared.tsx"]}</code>
+					</pre>
+				</details>
+			)}
+		</Container>
+	);
+}
+
 export function ShowcasePage({ locale, page }: { locale: SceneProps["locale"]; page: string }) {
 	const [filter, setFilter] = useState("all");
 	const [query, setQuery] = useState("");
@@ -38,41 +92,15 @@ export function ShowcasePage({ locale, page }: { locale: SceneProps["locale"]; p
 	const Scene = scenes[page as keyof typeof scenes];
 	if (Scene && item)
 		return (
-			<Container className="sc-detail" maxWidth={1280} gutter={0}>
-				<div className="sc-detail-bar">
-					<a href="/showcase">← {t("全部场景", "All scenarios")}</a>
-					<Badge>
-						{item.audience === "business" ? t("企业产品", "Business product") : t("消费产品", "Consumer product")}
-					</Badge>
-				</div>
-				<p className="docs-muted">
-					{t(
-						"可交互演示 · 数据仅保留在当前页面，不连接真实服务。",
-						"Interactive demo · data stays on this page; no live services are connected.",
-					)}
-				</p>
+			<ShowcaseDetailFrame
+				locale={locale}
+				page={page}
+				source={sources[`./showcases/${page.replace("showcase-", "")}.tsx`]}
+			>
 				<Suspense fallback={<PageLoading locale={locale} />}>
-					<section className="sc-product" aria-label={t("产品场景", "Product scenario")}>
-						<Scene key={`${page}-${locale}`} locale={locale} />
-					</section>
+					<Scene key={`${page}-${locale}`} locale={locale} />
 				</Suspense>
-				<div className="sc-components">
-					<strong>{t("使用的组件", "Components used")}</strong>
-					{item.components.map((name) => (
-						<span key={name}>{name}</span>
-					))}
-				</div>
-				<details className="sc-source">
-					<summary>{t("查看场景源码", "View scenario source")}</summary>
-					<p>{t("场景文件与共享布局辅助组件。", "Scene module and shared layout helpers.")}</p>
-					<pre dir="ltr">
-						<code>{sources[`./showcases/${page.replace("showcase-", "")}.tsx`]}</code>
-					</pre>
-					<pre dir="ltr">
-						<code>{sources["./showcases/shared.tsx"]}</code>
-					</pre>
-				</details>
-			</Container>
+			</ShowcaseDetailFrame>
 		);
 	const visible = showcaseCatalog.filter(
 		(x) =>

@@ -1,6 +1,20 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { useArabicDirection } from "./test-utils";
 const ids = ["projects", "crm", "support", "team", "billing", "shop", "travel", "learning", "music", "wellness"];
+
+for (const path of ["overview", "policy"])
+	test(`${path} uses the shared scenario detail layout`, async ({ page }) => {
+		await page.goto("/" + path);
+		await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+		await expect(page.locator(".docs-page-heading .docs-eyebrow")).toHaveText("MATRIX / DESIGN SYSTEM");
+		await expect(page.locator(".sc-detail-bar").getByRole("link", { name: /All scenarios/ })).toHaveAttribute(
+			"href",
+			"/showcase",
+		);
+		await expect(page.getByRole("region", { name: "Product scenario" })).toBeVisible();
+		await expect(page.locator(".sc-components")).toBeVisible();
+	});
 test("showcase catalog filters all scenarios and clears empty search", async ({ page }) => {
 	await page.goto("/showcase");
 	await expect(page.locator(".sc-gallery-card")).toHaveCount(19);
@@ -20,11 +34,9 @@ for (const id of ids)
 		await page.getByText("View scenario source", { exact: true }).click();
 		await expect(page.locator(".sc-source pre").first()).toContainText("@matrixzero/");
 		await page.getByText("View scenario source", { exact: true }).click();
-		await page.getByRole("button", { name: "Toggle reading direction" }).click();
-		await page.getByRole("button", { name: "Change language" }).click();
-		await page.getByRole("menuitemradio", { name: /简体中文/ }).click();
+		await useArabicDirection(page);
 		await page.setViewportSize({ width: 320, height: 900 });
-		await expect(page.getByRole("region", { name: "产品场景" })).toBeVisible();
+		await expect(page.locator(".sc-product")).toBeVisible();
 		await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();
 	});
 test("business scenarios complete their main workflows", async ({ page }) => {

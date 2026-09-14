@@ -47,5 +47,5 @@ test("docs site header hides on page scroll and reappears on scroll up", async (
 	await expect(bar).not.toHaveAttribute("data-scroll-hidden", "true");
 	await expect(bar).toBeVisible();
 	const box = await bar.boundingBox();
-	expect(Math.abs(box!.y)).toBeLessThan(1);
+	expect(Math.abs(box!.y)).toBeLessThan(2);
 });

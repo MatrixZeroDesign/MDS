@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { useArabicDirection } from "./test-utils";
 test("comparison examples expose real props and matching copyable code", async ({ page }) => {
 	await page.goto("/docs/button");
 	const variants = page.getByRole("region", { name: "Variant comparison" });
@@ -24,13 +25,13 @@ for (const width of [1280, 320]) {
 			await page.setViewportSize({ width, height: 1000 });
 			for (const slug of ["select", "native-select", "dialog", "side-sheet"]) {
 				await page.goto("/docs/" + slug);
-				if (rtl) await page.getByRole("button", { name: "Toggle reading direction" }).click();
+				if (rtl) await useArabicDirection(page);
 				const overlay = slug === "dialog" || slug === "side-sheet";
-				const preview = page.getByRole("region", { name: "Interactive example" });
-				if (overlay) await preview.getByRole("button", { name: "Edit", exact: true }).click();
+				const preview = page.locator(".docs-live-stage").first();
+				if (overlay) await preview.locator("button").first().click();
 				const area = overlay ? page.getByRole("dialog") : preview;
 				const field = area.locator(".mds-field");
-				const action = area.getByRole("button", { name: overlay ? "Done" : "Reset", exact: true });
+				const action = area.locator(".mds-button").last();
 				await expect(field).toBeVisible();
 				await expect(action).toBeVisible();
 				const a = await field.boundingBox();

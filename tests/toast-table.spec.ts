@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { useArabicDirection } from "./test-utils";
 test("toast stacks expand on hover and focus, pause timers and dismiss", async ({ page }) => {
 	await page.emulateMedia({ reducedMotion: "reduce" });
 	await page.goto("/docs/toast");
@@ -41,12 +42,12 @@ test("toast stacks expand on hover and focus, pause timers and dismiss", async (
 });
 test("table row headings have body styling and numeric alignment in both directions", async ({ page }) => {
 	await page.goto("/docs/table");
-	const table = page.getByRole("region", { name: "Interactive example" }).getByRole("table");
+	const table = page.locator(".docs-live-stage table").first();
 	await expect(table.getByRole("row")).toHaveCount(4);
 	await expect(table.locator("tbody th").first()).toHaveCSS("background-color", "rgba(0, 0, 0, 0)");
 	await expect(table.locator("caption")).toHaveCSS("text-align", "start");
 	for (const rtl of [false, true]) {
-		if (rtl) await page.getByRole("button", { name: "Toggle reading direction" }).click();
+		if (rtl) await useArabicDirection(page);
 		await expect(table.locator("tbody td").last()).toHaveCSS("text-align", "end");
 		const row = table.locator("tbody tr").first();
 		await row.hover();
@@ -58,9 +59,9 @@ test("toast remains usable on narrow RTL screens with long stacks and reduced mo
 	await page.emulateMedia({ reducedMotion: "reduce" });
 	await page.setViewportSize({ width: 320, height: 700 });
 	await page.goto("/docs/toast");
-	await page.getByRole("button", { name: "Toggle reading direction" }).click();
-	const basic = page.getByLabel("Interactive example");
-	for (let i = 0; i < 4; i++) await basic.getByRole("button", { name: "Stack three", exact: true }).click();
+	await useArabicDirection(page);
+	const basic = page.locator(".docs-live-stage").first();
+	for (let i = 0; i < 4; i++) await basic.locator(".mds-button").nth(1).click();
 	await page.keyboard.press("F8");
 	const stack = page.locator(".mds-toaster");
 	await expect(stack).toHaveAttribute("data-expanded", "true");
@@ -76,8 +77,9 @@ test("toast remains usable on narrow RTL screens with long stacks and reduced mo
 	expect(geometry.height).toBeLessThanOrEqual(652);
 	expect(geometry.scrollHeight).toBeGreaterThan(geometry.clientHeight);
 	await expect(page.locator(".mds-toast").first()).toHaveCSS("animation-name", "none");
-	await page.getByRole("button", { name: "Dismiss notification" }).last().focus();
-	await expect(page.getByRole("button", { name: "Dismiss notification" }).last()).toBeInViewport();
+	const close = page.locator(".mds-toast").last().locator("button").last();
+	await close.focus();
+	await expect(close).toBeInViewport();
 });
 
 test("closing the final toast resets the next stack to its resting state", async ({ page }) => {

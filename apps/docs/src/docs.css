@@ -68,8 +68,7 @@ a {
 }
 .docs-main {
 	background: var(--mds-surface);
-	border-radius: 0;
-	border-start-start-radius: 16px;
+	border-radius: var(--mds-radius-xl);
 	padding: 36px;
 	min-width: 0;
 }
@@ -836,6 +835,9 @@ a {
 /* Documentation navigation uses a compact, single-line list in both surfaces. */
 .mds-root .docs-layout {
 	grid-template-columns: 240px minmax(0, 1fr);
+	gap: 16px;
+	padding: 16px;
+	box-sizing: border-box;
 }
 .mds-root .docs-nav {
 	position: sticky;
@@ -964,7 +966,7 @@ a {
 .mds-root .docs-layout:not([data-sidebar]) {
 	width: 100%;
 	grid-template-columns: minmax(0, 1fr);
-	max-width: 1440px;
+	max-width: 1472px;
 	margin-inline: auto;
 }
 .mds-root .docs-layout[data-sidebar] {
@@ -1205,6 +1207,8 @@ a {
 	.mds-root .docs-layout,
 	.mds-root .docs-layout[data-sidebar] {
 		grid-template-columns: minmax(0, 1fr);
+		gap: 0;
+		padding: 0;
 	}
 }
 

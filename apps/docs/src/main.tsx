@@ -7,7 +7,7 @@ import { SystemCompositions } from "./SystemCompositions";
 import { PageLoading } from "./PageLoading";
 import { navigate as navigatePath } from "./router";
 import { showcaseCatalog } from "./showcases/catalog";
-import { ShowcasePage } from "./ShowcasePage";
+import { ShowcaseDetailFrame, ShowcasePage } from "./ShowcasePage";
 import { AppearancePicker, readSavedMode, saveMode } from "./AppearancePicker";
 import {
 	makeCustomThemeStyle,
@@ -204,9 +204,9 @@ function App() {
 		[advancedOpen, setAdvancedOpen] = useState(false);
 	const [mode, setMode] = useState<ThemeMode>(readSavedMode),
 		[locale, setLocale] = useState<DocsLocale>(readSavedLanguage),
-		[direction, setDirection] = useState<"ltr" | "rtl">("ltr"),
 		[page, setPage] = useState(readPage),
 		[density, updateDensity] = useState<"comfortable" | "compact">(readSavedDensity);
+	const direction = locale === "ar" ? "rtl" : "ltr";
 	const setDensity = (value: "comfortable" | "compact") => {
 		updateDensity(value);
 		saveDensity(value);
@@ -530,14 +530,6 @@ function App() {
 							))}
 						</nav>
 						<div className="docs-actions">
-							<Button
-								variant="ghost"
-								aria-label={t("切换阅读方向", "Toggle reading direction")}
-								aria-pressed={direction === "rtl"}
-								onClick={() => setDirection(direction === "ltr" ? "rtl" : "ltr")}
-							>
-								{direction.toUpperCase()}
-							</Button>
 							<LanguagePicker
 								locale={locale}
 								onChange={(value) => {
@@ -609,9 +601,7 @@ function App() {
 								{!(page === "home" || page === "docs" || (page === "charts" && routePath.split("/")[2])) && (
 									<div className="docs-page-heading">
 										<div>
-											<p className="docs-eyebrow">
-												{page === "overview" || page === "policy" ? "MT0 / WORKSPACE" : "MATRIX / DESIGN SYSTEM"}
-											</p>
+											<p className="docs-eyebrow">MATRIX / DESIGN SYSTEM</p>
 											<h1>
 												{page === "home"
 													? "Matrix Design System"
@@ -636,40 +626,41 @@ function App() {
 																							showcaseCatalog.find((item) => item.id === page)?.title ?? [],
 																						) ?? t("策略工作台", "Policy workspace"))}
 											</h1>
-											<p className="docs-muted">
-												{page === "home"
-													? t(
-															"从基础到体验，用一致的语言构建界面。",
-															"A considered language for every part of your interface.",
-														)
-													: page === "showcase"
-														? t("在真实页面组合中探索组件。", "Explore components in complete product experiences.")
-														: page === "system"
-															? t("清晰、一致，也有温度。", "Clear, consistent, and considered.")
-															: page === "theme-builder"
-																? t(
-																		"在完整的浅色与深色界面中调整品牌、形状、字体和行为。",
-																		"Tune brand, shape, type, and behavior in complete light and dark previews.",
-																	)
-																: page === "docs"
+											{page !== "design" && (
+												<p className="docs-muted">
+													{page === "home"
+														? t(
+																"从基础到体验，用一致的语言构建界面。",
+																"A considered language for every part of your interface.",
+															)
+														: page === "showcase"
+															? t("在真实页面组合中探索组件。", "Explore components in complete product experiences.")
+															: page === "system"
+																? t("清晰、一致，也有温度。", "Clear, consistent, and considered.")
+																: page === "theme-builder"
 																	? t(
-																			"安装、组件 API 与设计规范。",
-																			"Installation, component APIs and design guidelines.",
+																			"在完整的浅色与深色界面中调整品牌、形状、字体和行为。",
+																			"Tune brand, shape, type, and behavior in complete light and dark previews.",
 																		)
-																	: page === "icons"
+																	: page === "docs"
 																		? t(
-																				"为 Matrix 独立绘制的图标集合。",
-																				"An independently drawn icon collection for Matrix.",
+																				"安装、组件 API 与设计规范。",
+																				"Installation, component APIs and design guidelines.",
 																			)
-																		: page === "charts"
+																		: page === "icons"
 																			? t(
-																					"清晰的数据表达，完整的交互示例。",
-																					"Clear data presentation with interactive examples.",
+																					"为 Matrix 独立绘制的图标集合。",
+																					"An independently drawn icon collection for Matrix.",
 																				)
-																			: t("演示数据 · 未连接生产环境", "Sample data · no production connection")}
-											</p>
+																			: page === "charts"
+																				? t(
+																						"清晰的数据表达，完整的交互示例。",
+																						"Clear data presentation with interactive examples.",
+																					)
+																				: t("演示数据 · 未连接生产环境", "Sample data · no production connection")}
+												</p>
+											)}
 										</div>
-										{(page === "overview" || page === "policy") && actions}
 									</div>
 								)}
 								{page === "home" && <HomePage locale={locale} />}
@@ -1382,7 +1373,7 @@ function App() {
 									</>
 								)}
 								{page === "overview" && (
-									<>
+									<ShowcaseDetailFrame locale={locale} page="overview">
 										<div className="docs-row">
 											<ChoiceMenu
 												label={t("时间范围", "Time range")}
@@ -1453,57 +1444,60 @@ function App() {
 												</tbody>
 											</Table>
 										</section>
-									</>
+									</ShowcaseDetailFrame>
 								)}
 								{page === "policy" && (
-									<section className="docs-card docs-policy">
-										<h2>{t("基本配置", "Configuration")}</h2>
-										<form
-											className="docs-stack"
-											onSubmit={(e) => {
-												e.preventDefault();
-												save();
-											}}
-											onReset={(e) => {
-												e.preventDefault();
-												setName(saved);
-												setPolicyScope(savedPolicy.scope);
-												setPolicyInjection(savedPolicy.injection);
-												setPolicySensitive(savedPolicy.sensitive);
-												setNotice(t("已恢复上次保存", "Restored saved value"));
-											}}
-										>
-											<Field label={t("策略名称", "Policy name")} required>
-												<Input value={name} onChange={(e) => setName(e.target.value)} />
-											</Field>
-											<Field label={t("适用范围", "Scope")}>
-												<Select
-													value={policyScope}
-													onValueChange={setPolicyScope}
-													options={[
-														{ value: "all", label: t("全部应用", "All applications") },
-														{ value: "chat", label: t("对话服务", "Chat service") },
-													]}
+									<ShowcaseDetailFrame locale={locale} page="policy">
+										<div className="docs-row">{actions}</div>
+										<section className="docs-card docs-policy">
+											<h2>{t("基本配置", "Configuration")}</h2>
+											<form
+												className="docs-stack"
+												onSubmit={(e) => {
+													e.preventDefault();
+													save();
+												}}
+												onReset={(e) => {
+													e.preventDefault();
+													setName(saved);
+													setPolicyScope(savedPolicy.scope);
+													setPolicyInjection(savedPolicy.injection);
+													setPolicySensitive(savedPolicy.sensitive);
+													setNotice(t("已恢复上次保存", "Restored saved value"));
+												}}
+											>
+												<Field label={t("策略名称", "Policy name")} required>
+													<Input value={name} onChange={(e) => setName(e.target.value)} />
+												</Field>
+												<Field label={t("适用范围", "Scope")}>
+													<Select
+														value={policyScope}
+														onValueChange={setPolicyScope}
+														options={[
+															{ value: "all", label: t("全部应用", "All applications") },
+															{ value: "chat", label: t("对话服务", "Chat service") },
+														]}
+													/>
+												</Field>
+												<CheckField
+													label={t("提示词注入", "Prompt injection")}
+													checked={policyInjection}
+													onCheckedChange={(v) => setPolicyInjection(!!v)}
 												/>
-											</Field>
-											<CheckField
-												label={t("提示词注入", "Prompt injection")}
-												checked={policyInjection}
-												onCheckedChange={(v) => setPolicyInjection(!!v)}
-											/>
-											<CheckField
-												label={t("敏感信息", "Sensitive information")}
-												checked={policySensitive}
-												onCheckedChange={(v) => setPolicySensitive(!!v)}
-											/>
-											<div className="docs-actions">
-												<Button type="submit" variant="primary" loading={loading}>
-													{t("保存更改", "Save changes")}
-												</Button>
-												<Button type="reset">{t("重置", "Reset")}</Button>
-											</div>
-										</form>
-									</section>
+												<CheckField
+													label={t("敏感信息", "Sensitive information")}
+													checked={policySensitive}
+													onCheckedChange={(v) => setPolicySensitive(!!v)}
+												/>
+												<div className="docs-actions">
+													<Button type="submit" variant="primary" loading={loading}>
+														{t("保存更改", "Save changes")}
+													</Button>
+													<Button type="reset">{t("重置", "Reset")}</Button>
+												</div>
+											</form>
+										</section>
+									</ShowcaseDetailFrame>
 								)}
 								<ToastFeedback message={notice} consume={() => setNotice("")} />
 								<footer className="docs-footer">

@@ -328,7 +328,7 @@
 	"nav-rail": [
 		{
 			"file": "nav-rail--additional",
-			"title": ["仅图标链接导航", "Icon-only navigation links"]
+			"title": ["仅图标受控导航", "Icon-only controlled navigation"]
 		},
 		{
 			"file": "nav-rail--nested",
