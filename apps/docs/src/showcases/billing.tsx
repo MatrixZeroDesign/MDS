@@ -47,28 +47,30 @@ export default function Billing({ locale }: SceneProps) {
 						/>
 					))}
 				</RadioCardGroup>
-				<Dialog>
-					<DialogTrigger asChild>
-						<Button>{t("查看变更", "Review change")}</Button>
-					</DialogTrigger>
-					<DialogContent title={t("确认方案变更", "Confirm plan change")} closeLabel={t("关闭", "Close")}>
-						<p>
-							{names[plan as keyof typeof names]} ·{" "}
-							{cycle === "monthly" ? t("按月计费", "Monthly billing") : t("按年计费", "Annual billing")}
-						</p>
-						<p>{t("此操作仅更新演示状态，不会扣款。", "This updates the demo only. No payment is collected.")}</p>
-						<DialogClose asChild>
-							<Button
-								onClick={() => {
-									setActive(plan);
-									toast({ title: t("演示方案已更新", "Demo plan updated"), tone: "success" });
-								}}
-							>
-								{t("确认变更", "Confirm change")}
-							</Button>
-						</DialogClose>
-					</DialogContent>
-				</Dialog>
+				<div className="sc-row">
+					<Dialog>
+						<DialogTrigger asChild>
+							<Button>{t("查看变更", "Review change")}</Button>
+						</DialogTrigger>
+						<DialogContent title={t("确认方案变更", "Confirm plan change")} closeLabel={t("关闭", "Close")}>
+							<p>
+								{names[plan as keyof typeof names]} ·{" "}
+								{cycle === "monthly" ? t("按月计费", "Monthly billing") : t("按年计费", "Annual billing")}
+							</p>
+							<p>{t("此操作仅更新演示状态，不会扣款。", "This updates the demo only. No payment is collected.")}</p>
+							<DialogClose asChild>
+								<Button
+									onClick={() => {
+										setActive(plan);
+										toast({ title: t("演示方案已更新", "Demo plan updated"), tone: "success" });
+									}}
+								>
+									{t("确认变更", "Confirm change")}
+								</Button>
+							</DialogClose>
+						</DialogContent>
+					</Dialog>
+				</div>
 			</Panel>
 			<Panel title={t("账单记录", "Invoice history")}>
 				<Table>

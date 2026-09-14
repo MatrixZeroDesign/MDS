@@ -46,6 +46,18 @@ visitDir("apps/docs/src");
 for (const entry of JSON.parse(fs.readFileSync("docs/content.json", "utf8")))
 	for (const field of ["purpose", "guide", "a11y", "pitfalls"])
 		add(entry[field]?.split(" / ")[1] ?? "", `docs/content.json:${entry.slug}:${field}`);
+for (const [slug, variants] of Object.entries(
+	JSON.parse(fs.readFileSync("apps/docs/src/exampleVariants.json", "utf8")),
+))
+	for (const variant of variants) add(variant.title?.[1] ?? "", `apps/docs/src/exampleVariants.json:${slug}`);
+
+const componentNamesSource = fs.readFileSync("apps/docs/src/componentNames.ts", "utf8");
+const entries = new Map(JSON.parse(fs.readFileSync("docs/content.json", "utf8")).map((entry) => [entry.slug, entry]));
+for (const match of componentNamesSource.matchAll(/^\s*(?:"([^"]+)"|([\w-]+)):\s*"[^"]+",/gm)) {
+	const slug = match[1] || match[2];
+	const entry = entries.get(slug);
+	if (entry) add(slug === "icons" ? "Icons" : entry.names[0], "apps/docs/src/componentNames.ts");
+}
 const missing = [...keys]
 	.filter(([key]) => !catalog[key] || catalog[key].length !== 5 || catalog[key].some((v) => !v))
 	.map(([key, files]) => ({ key, files: [...new Set(files)] }));
@@ -63,3 +75,17 @@ console.log(
 	),
 );
 if (process.argv.includes("--details")) console.log(JSON.stringify(missing, null, 2));
+if (process.argv.includes("--check")) {
+	const baseline = new Map(
+		JSON.parse(fs.readFileSync("scripts/i18n-baseline.json", "utf8")).map(({ key, files }) => [key, new Set(files)]),
+	);
+	const regressions = missing.filter(
+		({ key, files }) => !baseline.has(key) || files.some((file) => !baseline.get(key).has(file)),
+	);
+	if (regressions.length) {
+		console.error("New or incomplete i18n entries:\n" + JSON.stringify(regressions, null, 2));
+		process.exitCode = 1;
+	} else {
+		console.log(`i18n gate passed; ${missing.length} known gaps remain in the baseline.`);
+	}
+}

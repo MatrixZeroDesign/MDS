@@ -26,8 +26,9 @@ jobs:
           cache: npm
           registry-url: https://registry.npmjs.org
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
-      - run: npm run check
+      # The tagged commit must already be part of main, where the full browser suite runs.
+      # Release keeps package-specific build, type, install/SSR and tree-shaking gates.
+      - run: npm run check:release
       - name: Publish tagged package
         run: node scripts/publish.mjs
         env:

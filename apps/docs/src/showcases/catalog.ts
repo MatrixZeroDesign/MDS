@@ -8,10 +8,13 @@ export const showcaseCatalog = [
 		motif: "01",
 	},
 	{
-		id: "policy",
+		id: "governance",
 		audience: "business",
-		title: ["策略工作台", "Policy workspace"],
-		description: ["配置防护规则并保存策略。", "Configure protection rules and save policies."],
+		title: ["发布治理", "Release governance"],
+		description: [
+			"为生产发布设置审批、安全检查与审计规则。",
+			"Set approvals, security checks and audit rules for production releases.",
+		],
 		components: ["Select", "Switch", "Form"],
 		motif: "02",
 	},

@@ -52,12 +52,6 @@ export function ShowcaseDetailFrame({
 					{item.audience === "business" ? t("企业产品", "Business product") : t("消费产品", "Consumer product")}
 				</Badge>
 			</div>
-			<p className="docs-muted">
-				{t(
-					"可交互演示 · 数据仅保留在当前页面，不连接真实服务。",
-					"Interactive demo · data stays on this page; no live services are connected.",
-				)}
-			</p>
 			<section className="sc-product" aria-label={t("产品场景", "Product scenario")}>
 				{children}
 			</section>

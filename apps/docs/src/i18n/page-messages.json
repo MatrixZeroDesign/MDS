@@ -1,11 +1,4 @@
 {
-	"Default protection": [
-		"既定の保護",
-		"기본 보호",
-		"Protection par défaut",
-		"Protección predeterminada",
-		"الحماية الافتراضية"
-	],
 	"Export complete · sample data": [
 		"エクスポート完了 · サンプルデータ",
 		"내보내기 완료 · 샘플 데이터",
@@ -42,33 +35,9 @@
 	"Translator": ["翻訳", "번역기", "Traducteur", "Traductor", "المترجم"],
 	"Research": ["リサーチ", "연구", "Recherche", "Investigación", "البحث"],
 	"Chat": ["チャット", "채팅", "Discussion", "Chat", "الدردشة"],
-	"Create policy": ["ポリシーを作成", "정책 만들기", "Créer une politique", "Crear política", "إنشاء سياسة"],
-	"Configure safeguards for your application.": [
-		"アプリの保護機能を設定します。",
-		"애플리케이션의 보호 기능을 설정하세요.",
-		"Configurez les protections de votre application.",
-		"Configura las protecciones de tu aplicación.",
-		"اضبط وسائل الحماية لتطبيقك."
-	],
-	"Policy created": ["ポリシーを作成しました", "정책 생성됨", "Politique créée", "Política creada", "تم إنشاء السياسة"],
 	"Policy name": ["ポリシー名", "정책 이름", "Nom de la politique", "Nombre de la política", "اسم السياسة"],
-	"Template": ["テンプレート", "템플릿", "Modèle", "Plantilla", "القالب"],
 	"Standard protection": ["標準保護", "표준 보호", "Protection standard", "Protección estándar", "الحماية القياسية"],
-	"Sensitive data protection": [
-		"機密データ保護",
-		"민감한 데이터 보호",
-		"Protection des données sensibles",
-		"Protección de datos sensibles",
-		"حماية البيانات الحساسة"
-	],
 	"Applications": ["アプリ", "애플리케이션", "Applications", "Aplicaciones", "التطبيقات"],
-	"Policy purpose (optional)": [
-		"ポリシーの目的（任意）",
-		"정책 목적(선택사항)",
-		"Objectif de la politique (facultatif)",
-		"Objetivo de la política (opcional)",
-		"غرض السياسة (اختياري)"
-	],
 	"Create": ["作成", "만들기", "Créer", "Crear", "إنشاء"],
 	"Notification": ["通知", "알림", "Notification", "Notificación", "إشعار"],
 	"Notifications ({hotkey})": [
@@ -103,13 +72,6 @@
 	"CHARTS": ["チャート", "차트", "GRAPHIQUES", "GRÁFICOS", "الرسوم البيانية"],
 	"SHOWCASE": ["活用例", "활용 사례", "DÉMONSTRATIONS", "DEMOSTRACIONES", "نماذج تطبيقية"],
 	"Overview": ["概要", "개요", "Vue d’ensemble", "Resumen", "نظرة عامة"],
-	"Policy workspace": [
-		"ポリシーワークスペース",
-		"정책 작업 공간",
-		"Espace des politiques",
-		"Espacio de políticas",
-		"مساحة السياسات"
-	],
 	"A considered language for every part of your interface.": [
 		"インターフェース全体に、考え抜かれたデザインを。",
 		"인터페이스의 모든 부분을 위한 세심한 디자인 언어.",
@@ -151,13 +113,6 @@
 		"Des données lisibles, accompagnées d’exemples interactifs.",
 		"Datos claros con ejemplos interactivos.",
 		"عرض واضح للبيانات مع أمثلة تفاعلية."
-	],
-	"Sample data · no production connection": [
-		"サンプルデータ · 本番環境には接続していません",
-		"샘플 데이터 · 운영 환경 연결 없음",
-		"Données d’exemple · aucune connexion à la production",
-		"Datos de ejemplo · sin conexión a producción",
-		"بيانات تجريبية · غير متصل ببيئة الإنتاج"
 	],
 	"Typography & rhythm": [
 		"文字とリズム",
@@ -998,13 +953,6 @@
 		"Guía de implementación",
 		"دليل التنفيذ"
 	],
-	"Interactive demo · data stays on this page; no live services are connected.": [
-		"インタラクティブデモ · データはこのページ内のみ。実際のサービスには接続しません。",
-		"인터랙티브 데모 · 데이터는 이 페이지에만 유지되며 실제 서비스에 연결되지 않습니다.",
-		"Démo interactive · les données restent sur cette page ; aucun service réel n’est connecté.",
-		"Demo interactiva · los datos permanecen en esta página; no hay servicios reales conectados.",
-		"عرض تفاعلي · تبقى البيانات في هذه الصفحة دون اتصال بخدمات فعلية."
-	],
 	"Scene module and shared layout helpers.": [
 		"シーンモジュールと共通レイアウトのヘルパー。",
 		"장면 모듈과 공통 레이아웃 도우미.",
@@ -1468,5 +1416,150 @@
 		"Surfaces dégradées · Boutons pilules · Adapté au thème",
 		"Superficies degradadas · Botones píldora · Adaptado al tema",
 		"أسطح متدرجة · أزرار كبسولية · متوافق مع السمة"
+	],
+	"Production release controls": [
+		"本番リリース制御",
+		"프로덕션 릴리스 제어",
+		"Contrôles de mise en production",
+		"Controles de publicación en producción",
+		"ضوابط إصدار الإنتاج"
+	],
+	"Release rules saved": [
+		"リリースルールを保存しました",
+		"릴리스 규칙이 저장되었습니다",
+		"Règles de mise en production enregistrées",
+		"Reglas de publicación guardadas",
+		"تم حفظ قواعد الإصدار"
+	],
+	"Create release rule": [
+		"リリースルールを作成",
+		"릴리스 규칙 만들기",
+		"Créer une règle de mise en production",
+		"Crear regla de publicación",
+		"إنشاء قاعدة إصدار"
+	],
+	"Define approval and verification requirements for production changes.": [
+		"本番環境への変更に必要な承認と検証を定義します。",
+		"프로덕션 변경에 필요한 승인 및 검증 요구 사항을 정의합니다.",
+		"Définissez les exigences d’approbation et de vérification des changements en production.",
+		"Define los requisitos de aprobación y verificación para los cambios en producción.",
+		"حدّد متطلبات الموافقة والتحقق لتغييرات الإنتاج."
+	],
+	"Release rule created": [
+		"リリースルールを作成しました",
+		"릴리스 규칙이 생성되었습니다",
+		"Règle de mise en production créée",
+		"Regla de publicación creada",
+		"تم إنشاء قاعدة الإصدار"
+	],
+	"Rule name": ["ルール名", "규칙 이름", "Nom de la règle", "Nombre de la regla", "اسم القاعدة"],
+	"Rule template": ["ルールテンプレート", "규칙 템플릿", "Modèle de règle", "Plantilla de regla", "قالب القاعدة"],
+	"Standard production release": [
+		"標準本番リリース",
+		"표준 프로덕션 릴리스",
+		"Mise en production standard",
+		"Publicación estándar en producción",
+		"إصدار إنتاج قياسي"
+	],
+	"Regulated change": [
+		"規制対象の変更",
+		"규제 대상 변경",
+		"Changement réglementé",
+		"Cambio regulado",
+		"تغيير خاضع للتنظيم"
+	],
+	"Environment": ["環境", "환경", "Environnement", "Entorno", "البيئة"],
+	"Production": ["本番環境", "프로덕션", "Production", "Producción", "الإنتاج"],
+	"Critical services": ["重要サービス", "핵심 서비스", "Services critiques", "Servicios críticos", "الخدمات الحرجة"],
+	"Describe the changes this rule covers (optional)": [
+		"このルールが対象とする変更を説明します（任意）",
+		"이 규칙이 적용되는 변경 사항을 설명하세요(선택 사항)",
+		"Décrivez les changements couverts par cette règle (facultatif)",
+		"Describe los cambios que cubre esta regla (opcional)",
+		"صِف التغييرات التي تشملها هذه القاعدة (اختياري)"
+	],
+	"Release governance": [
+		"リリースガバナンス",
+		"릴리스 거버넌스",
+		"Gouvernance des mises en production",
+		"Gobernanza de publicaciones",
+		"حوكمة الإصدارات"
+	],
+	"PRODUCTION": ["本番環境", "프로덕션", "PRODUCTION", "PRODUCCIÓN", "الإنتاج"],
+	"Release controls": [
+		"リリース制御",
+		"릴리스 제어",
+		"Contrôles de mise en production",
+		"Controles de publicación",
+		"ضوابط الإصدار"
+	],
+	"Enforce approvals and automated checks before a deployment can begin.": [
+		"デプロイ開始前に承認と自動チェックを必須にします。",
+		"배포를 시작하기 전에 승인과 자동 검사를 적용합니다.",
+		"Imposez les approbations et les contrôles automatisés avant tout déploiement.",
+		"Exige aprobaciones y comprobaciones automatizadas antes de iniciar una implementación.",
+		"افرِض الموافقات والفحوصات الآلية قبل بدء النشر."
+	],
+	"Restored saved rules": [
+		"保存済みのルールに戻しました",
+		"저장된 규칙으로 복원했습니다",
+		"Règles enregistrées restaurées",
+		"Reglas guardadas restauradas",
+		"تمت استعادة القواعد المحفوظة"
+	],
+	"Require peer approval": [
+		"同僚の承認を必須にする",
+		"동료 승인 필요",
+		"Exiger l’approbation d’un pair",
+		"Requerir aprobación de un compañero",
+		"طلب موافقة زميل"
+	],
+	"Require passing security checks": [
+		"セキュリティチェックの合格を必須にする",
+		"보안 검사 통과 필요",
+		"Exiger la réussite des contrôles de sécurité",
+		"Requerir que se superen las comprobaciones de seguridad",
+		"طلب اجتياز فحوصات الأمان"
+	],
+	"Enforcement summary": ["適用内容", "적용 요약", "Résumé de l’application", "Resumen de aplicación", "ملخص التنفيذ"],
+	"Production deployment unlocks after approval and all security checks pass.": [
+		"承認とすべてのセキュリティチェックが完了すると、本番デプロイが許可されます。",
+		"승인과 모든 보안 검사를 통과하면 프로덕션 배포가 잠금 해제됩니다.",
+		"Le déploiement en production est autorisé après approbation et réussite de tous les contrôles de sécurité.",
+		"La implementación en producción se habilita tras la aprobación y al superar todas las comprobaciones de seguridad.",
+		"يُفتح نشر الإنتاج بعد الموافقة واجتياز جميع فحوصات الأمان."
+	],
+	"Save release rules": [
+		"リリースルールを保存",
+		"릴리스 규칙 저장",
+		"Enregistrer les règles de mise en production",
+		"Guardar reglas de publicación",
+		"حفظ قواعد الإصدار"
+	],
+	"Target": ["対象", "대상", "Cible", "Destino", "الهدف"],
+	"Approval": ["承認", "승인", "Approbation", "Aprobación", "الموافقة"],
+	"Required": ["必須", "필수", "Requise", "Obligatoria", "مطلوبة"],
+	"Optional": ["任意", "선택 사항", "Facultative", "Opcional", "اختيارية"],
+	"Security gate": [
+		"セキュリティゲート",
+		"보안 게이트",
+		"Contrôle de sécurité",
+		"Control de seguridad",
+		"بوابة الأمان"
+	],
+	"Blocks failed checks": [
+		"失敗したチェックをブロック",
+		"실패한 검사 차단",
+		"Bloque les contrôles en échec",
+		"Bloquea comprobaciones fallidas",
+		"يحظر الفحوصات الفاشلة"
+	],
+	"Audit only": ["監査のみ", "감사만", "Audit uniquement", "Solo auditoría", "تدقيق فقط"],
+	"Every rule change is recorded in the audit log.": [
+		"すべてのルール変更は監査ログに記録されます。",
+		"모든 규칙 변경 사항은 감사 로그에 기록됩니다.",
+		"Chaque modification de règle est enregistrée dans le journal d’audit.",
+		"Cada cambio de regla se registra en el registro de auditoría.",
+		"يُسجَّل كل تغيير في القواعد في سجل التدقيق."
 	]
 }

@@ -161,9 +161,14 @@ export default function Finance({ locale }: SceneProps) {
 							</span>
 							<p>{t("按目前进度，可能提前两个月达成。", "At this pace, you may arrive two months early.")}</p>
 						</div>
-						<Button variant="secondary" onClick={() => setNotice(t("目标追加储蓄已打开", "Goal contribution opened"))}>
-							{t("追加储蓄", "Add to goal")}
-						</Button>
+						<div className="sc-row">
+							<Button
+								variant="secondary"
+								onClick={() => setNotice(t("目标追加储蓄已打开", "Goal contribution opened"))}
+							>
+								{t("追加储蓄", "Add to goal")}
+							</Button>
+						</div>
 					</CardContent>
 				</Card>
 			</div>

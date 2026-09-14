@@ -143,7 +143,7 @@ export function Preview({ id }: { id: string }) {
 				</>
 			);
 			break;
-		case "policy":
+		case "governance":
 		case "showcase-team":
 			art = (
 				<>

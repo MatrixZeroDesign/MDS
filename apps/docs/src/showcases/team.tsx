@@ -83,13 +83,18 @@ export default function Team({ locale }: SceneProps) {
 				>
 					<Switch checked={sso} onCheckedChange={setSso} />
 				</Field>
-				<Button
-					onClick={() =>
-						toast({ title: t("安全设置已保存在本次演示中", "Security settings saved for this demo"), tone: "success" })
-					}
-				>
-					{t("保存设置", "Save settings")}
-				</Button>
+				<div className="sc-row">
+					<Button
+						onClick={() =>
+							toast({
+								title: t("安全设置已保存在本次演示中", "Security settings saved for this demo"),
+								tone: "success",
+							})
+						}
+					>
+						{t("保存设置", "Save settings")}
+					</Button>
+				</div>
 			</Panel>
 		</div>
 	);

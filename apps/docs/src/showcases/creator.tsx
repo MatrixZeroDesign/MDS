@@ -183,9 +183,11 @@ export default function Creator({ locale }: SceneProps) {
 							<span>{t("版权", "Copyright")}</span>
 							<span data-pending>{t("最终审核", "Final review")}</span>
 						</div>
-						<Button variant="secondary" onClick={() => setNotice(t("排期编辑器已打开", "Schedule editor opened"))}>
-							<Clock size={16} /> {t("调整排期", "Adjust schedule")}
-						</Button>
+						<div className="sc-row">
+							<Button variant="secondary" onClick={() => setNotice(t("排期编辑器已打开", "Schedule editor opened"))}>
+								<Clock size={16} /> {t("调整排期", "Adjust schedule")}
+							</Button>
+						</div>
 					</CardContent>
 				</Card>
 			</div>
