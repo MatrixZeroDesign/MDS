@@ -1554,10 +1554,7 @@ function App() {
 									</ShowcaseDetailFrame>
 								)}
 								<ToastFeedback message={notice} consume={() => setNotice("")} />
-								<footer className="docs-footer">
-									Matrix Design System · {t("预览版本", "Preview release")}
-									<span>React · MDS · {t("本地字体，无运行时下载", "Local fonts, no runtime downloads")}</span>
-								</footer>
+								<footer className="docs-footer">Matrix Design System</footer>
 							</Container>
 						</main>
 					</div>
