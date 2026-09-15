@@ -256,6 +256,14 @@ export const BadgeCheck = /* @__PURE__ */ defineIcon(
 	<>
 		<path d="m12 3 3 2 3.5.5.5 3.5 2 3-2 3-.5 3.5-3.5.5-3 2-3-2-3.5-.5L5 15l-2-3 2-3 .5-3.5L9 5l3-2Zm-4 9 2.5 2.5 5-5" />
 	</>,
+	() => (
+		<path
+			fill="currentColor"
+			stroke="none"
+			fillRule="evenodd"
+			d="M12 2.1 15.35 4.3l3.95.6.6 3.95L22.1 12l-2.2 3.15-.6 3.95-3.95.6L12 21.9l-3.35-2.2-3.95-.6-.6-3.95L1.9 12l2.2-3.15.6-3.95 3.95-.6L12 2.1Zm-4.7 9.2 1.4-1.3 1.9 2 4.7-4.6 1.4 1.4-6.1 6.1-3.3-3.6Z"
+		/>
+	),
 );
 export const KeyRound = /* @__PURE__ */ defineIcon(
 	"KeyRound",
@@ -672,5 +680,34 @@ export const Lightbulb = /* @__PURE__ */ defineIcon(
 	"Lightbulb",
 	<>
 		<path d="M9 17c0-3-4-3.5-4-7a7 7 0 0 1 14 0c0 3.5-4 4-4 7H9Zm1 3h4M12 17v-6m-2-1 2 1 2-1" />
+	</>,
+);
+
+export const WifiOff = /* @__PURE__ */ defineIcon(
+	"WifiOff",
+	<>
+		<path d="M3.5 3.5 20.5 20.5M3.5 8a13 13 0 0 1 13.25-2.2M6.5 11.5a8.5 8.5 0 0 1 5.75-2m5.25 2a9 9 0 0 1 .75.75M9.5 15a4 4 0 0 1 5 0" />
+		<circle cx="12" cy="18.5" r="0.8" />
+	</>,
+);
+export const BatteryCharging = /* @__PURE__ */ defineIcon(
+	"BatteryCharging",
+	<>
+		<rect x="3.5" y="7" width="15" height="10" rx="2" />
+		<path d="M21 10v4m-9-5-2.5 4H13l-2.5 4" />
+	</>,
+);
+export const CloudUpload = /* @__PURE__ */ defineIcon(
+	"CloudUpload",
+	<>
+		<path d="M7.5 18.5H7a4 4 0 0 1-1.4-7.75A6.5 6.5 0 0 1 18.25 10.5a4 4 0 0 1 .25 8h-2" />
+		<path d="M12 20V11m-3 3 3-3 3 3" />
+	</>,
+);
+export const CloudDownload = /* @__PURE__ */ defineIcon(
+	"CloudDownload",
+	<>
+		<path d="M7.5 18.5H7a4 4 0 0 1-1.4-7.75A6.5 6.5 0 0 1 18.25 10.5a4 4 0 0 1 .25 8h-2" />
+		<path d="M12 10v10m-3-3 3 3 3-3" />
 	</>,
 );

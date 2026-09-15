@@ -81,8 +81,8 @@ export function IconsPage({ locale }: { locale: DocsLocale }) {
 				<h2 style={{ margin: 0 }}>{t("用形态表达选中状态", "Make selection visible")}</h2>
 				<p className="docs-muted" style={{ margin: 0 }}>
 					{t(
-						"爱心、书签、星标、铃铛与旗帜支持独立绘制的实心版本。按钮的选中状态同时通过 aria-pressed 表达。",
-						"Heart, Bookmark, Star, Bell and Flag have independently drawn filled variants. Toggle buttons also expose their state through aria-pressed.",
+						"爱心、书签、星标、铃铛、旗帜与认证徽章支持独立绘制的实心版本。按钮的选中状态同时通过 aria-pressed 表达。",
+						"Heart, Bookmark, Star, Bell, Flag and BadgeCheck have independently drawn filled variants. Toggle buttons also expose their state through aria-pressed.",
 					)}
 				</p>
 				<div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>

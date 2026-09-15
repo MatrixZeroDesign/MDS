@@ -627,3 +627,109 @@ export const Subscript = /* @__PURE__ */ defineIcon(
 		<path d="m4 4 9 11m0-11L4 15m12 1c0-2 4-2 4 0 0 1.5-4 2-4 4h4" />
 	</>,
 );
+
+export const CircleCheck = /* @__PURE__ */ defineIcon(
+	"CircleCheck",
+	<>
+		<circle cx="12" cy="12" r="8.5" />
+		<path d="m8 12 2.75 2.75L16.5 9" />
+	</>,
+);
+export const CircleX = /* @__PURE__ */ defineIcon(
+	"CircleX",
+	<>
+		<circle cx="12" cy="12" r="8.5" />
+		<path d="m9 9 6 6m0-6-6 6" />
+	</>,
+);
+export const CircleHelp = /* @__PURE__ */ defineIcon(
+	"CircleHelp",
+	<>
+		<circle cx="12" cy="12" r="8.5" />
+		<path d="M9.5 9a2.6 2.6 0 0 1 5.05.85c0 2.15-2.55 2.25-2.55 4.15m0 3h.01" />
+	</>,
+);
+export const TriangleAlert = /* @__PURE__ */ defineIcon(
+	"TriangleAlert",
+	<>
+		<path d="M10.45 4.5 3.2 17.1a1.6 1.6 0 0 0 1.4 2.4h14.8a1.6 1.6 0 0 0 1.4-2.4L13.55 4.5a1.8 1.8 0 0 0-3.1 0Z" />
+		<path d="M12 9v4m0 3h.01" />
+	</>,
+);
+export const MoreVertical = /* @__PURE__ */ defineIcon(
+	"MoreVertical",
+	<g fill="currentColor" stroke="none">
+		<circle cx="12" cy="5.5" r="1.6" />
+		<circle cx="12" cy="12" r="1.6" />
+		<circle cx="12" cy="18.5" r="1.6" />
+	</g>,
+);
+export const GripVertical = /* @__PURE__ */ defineIcon(
+	"GripVertical",
+	<g fill="currentColor" stroke="none">
+		<circle cx="9" cy="6" r="1.25" />
+		<circle cx="15" cy="6" r="1.25" />
+		<circle cx="9" cy="12" r="1.25" />
+		<circle cx="15" cy="12" r="1.25" />
+		<circle cx="9" cy="18" r="1.25" />
+		<circle cx="15" cy="18" r="1.25" />
+	</g>,
+);
+export const ArrowUpDown = /* @__PURE__ */ defineIcon(
+	"ArrowUpDown",
+	<path d="M8 4v16m-4-4 4 4 4-4m4 4V4m-4 4 4-4 4 4" />,
+);
+export const SortAscending = /* @__PURE__ */ defineIcon(
+	"SortAscending",
+	<path d="M4 7h7M4 12h5m-5 5h3m10-12v14m-4-4 4 4 4-4" />,
+);
+export const SortDescending = /* @__PURE__ */ defineIcon(
+	"SortDescending",
+	<path d="M4 7h3m-3 5h5m-5 5h7m6-12v14m-4-4 4 4 4-4" />,
+);
+export const ZoomIn = /* @__PURE__ */ defineIcon(
+	"ZoomIn",
+	<>
+		<circle cx="10.5" cy="10.5" r="6.75" />
+		<path d="m15.5 15.5 4.75 4.75M10.5 7.5v6m-3-3h6" />
+	</>,
+);
+export const ZoomOut = /* @__PURE__ */ defineIcon(
+	"ZoomOut",
+	<>
+		<circle cx="10.5" cy="10.5" r="6.75" />
+		<path d="m15.5 15.5 4.75 4.75m-8-9.75h-6" />
+	</>,
+);
+export const Save = /* @__PURE__ */ defineIcon(
+	"Save",
+	<>
+		<path d="M4 4h13l3 3v13H4V4Z" />
+		<path d="M8 4v6h8V4M8 20v-6h8v6" />
+	</>,
+);
+export const Printer = /* @__PURE__ */ defineIcon(
+	"Printer",
+	<>
+		<path d="M7 8V3.5h10V8M7 17H4.5A1.5 1.5 0 0 1 3 15.5v-6A1.5 1.5 0 0 1 4.5 8h15A1.5 1.5 0 0 1 21 9.5v6a1.5 1.5 0 0 1-1.5 1.5H17" />
+		<path d="M7 14h10v6.5H7V14Zm10-2h.01" />
+	</>,
+);
+export const Languages = /* @__PURE__ */ defineIcon(
+	"Languages",
+	<path d="m3.5 18 4-12 4 12M5 14h5m4-6h6m-3-2v2m-3 3h6c-.5 3-2.25 5.5-5.5 7m1.5-7c.5 2.25 2 4.25 4.5 5.5" />,
+);
+export const Accessibility = /* @__PURE__ */ defineIcon(
+	"Accessibility",
+	<>
+		<circle cx="12" cy="4.5" r="2" />
+		<path d="M4 8.5c5.5 1.5 10.5 1.5 16 0M12 10v10m0-6-4 6m4-6 4 6" />
+	</>,
+);
+export const Ban = /* @__PURE__ */ defineIcon(
+	"Ban",
+	<>
+		<circle cx="12" cy="12" r="8.5" />
+		<path d="M6 18 18 6" />
+	</>,
+);

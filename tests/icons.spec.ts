@@ -52,7 +52,7 @@ test("icon search understands Chinese, category filters and keyboard usage dialo
 
 test("filled variants use explicit geometry without changing decorative semantics", () => {
 	const paired = iconCatalog.filter((entry) => "variants" in entry && entry.variants.includes("filled"));
-	expect(paired.map((entry) => entry.name).sort()).toEqual(["Bell", "Bookmark", "Flag", "Heart", "Star"]);
+	expect(paired.map((entry) => entry.name).sort()).toEqual(["BadgeCheck", "Bell", "Bookmark", "Flag", "Heart", "Star"]);
 	for (const entry of paired) {
 		const Icon = Icons[entry.name];
 		const outline = renderToStaticMarkup(createElement(Icon, { variant: "outlined" }));
@@ -79,7 +79,7 @@ test("icon variants filter the catalog and toggle controls expose selected state
 	await page.keyboard.press("Space");
 	await expect(like).toHaveAttribute("aria-pressed", "false");
 	await page.getByRole("radio", { name: "Filled", exact: true }).click();
-	await expect(page.locator(".docs-icon-tile")).toHaveCount(5);
+	await expect(page.locator(".docs-icon-tile")).toHaveCount(6);
 	await page.getByRole("button", { name: /^Heart / }).click();
 	await expect(page.getByRole("dialog").locator("pre")).toContainText('variant="filled"');
 	await expect(page.locator(".docs-icon-preview svg")).toHaveCount(4);

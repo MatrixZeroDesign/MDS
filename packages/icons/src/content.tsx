@@ -652,3 +652,32 @@ export const Aperture = /* @__PURE__ */ defineIcon(
 		<path d="M9.5 7.7H19M14.5 7.7l4.5 7.8M17 12l-4.5 7.8M14.5 16.3H5M9.5 16.3 5 8.5M7 12l4.5-7.8" />
 	</>,
 );
+
+export const FilePlus = /* @__PURE__ */ defineIcon(
+	"FilePlus",
+	<>
+		<path d="M5 3.5h9l5 5v12H5v-17Zm9 0v5h5" />
+		<path d="M12 11.5v6m-3-3h6" />
+	</>,
+);
+export const FolderPlus = /* @__PURE__ */ defineIcon(
+	"FolderPlus",
+	<>
+		<path d="M3.5 6.5h6l2 2h9v10.25A1.75 1.75 0 0 1 18.75 20H5.25a1.75 1.75 0 0 1-1.75-1.75V6.5Z" />
+		<path d="M12 11.5v5m-2.5-2.5h5" />
+	</>,
+);
+export const UserPlus = /* @__PURE__ */ defineIcon(
+	"UserPlus",
+	<>
+		<circle cx="9" cy="7.5" r="3.5" />
+		<path d="M3.5 20v-1.5A4.5 4.5 0 0 1 8 14h2a4.5 4.5 0 0 1 4.5 4.5V20M18 8v6m-3-3h6" />
+	</>,
+);
+export const UserMinus = /* @__PURE__ */ defineIcon(
+	"UserMinus",
+	<>
+		<circle cx="9" cy="7.5" r="3.5" />
+		<path d="M3.5 20v-1.5A4.5 4.5 0 0 1 8 14h2a4.5 4.5 0 0 1 4.5 4.5V20m.5-9H21" />
+	</>,
+);

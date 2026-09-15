@@ -480,5 +480,25 @@
 		"name": "Aperture",
 		"category": "media",
 		"keywords": ["光圈", "aperture", "shutter"]
+	},
+	{
+		"name": "FilePlus",
+		"category": "files",
+		"keywords": ["new file", "add document", "create"]
+	},
+	{
+		"name": "FolderPlus",
+		"category": "files",
+		"keywords": ["new folder", "add directory", "create"]
+	},
+	{
+		"name": "UserPlus",
+		"category": "security",
+		"keywords": ["add user", "invite", "account"]
+	},
+	{
+		"name": "UserMinus",
+		"category": "security",
+		"keywords": ["remove user", "revoke", "account"]
 	}
 ]
