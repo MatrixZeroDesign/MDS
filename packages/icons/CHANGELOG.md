@@ -1,18 +1,24 @@
 # Changelog
 
+## 0.1.0-alpha.5
+
+- Expand the catalog to 381 independently drawn interface icons, including editing, window, hardware, design and development actions.
+- Add consistent SVG replacements for decorative arrows, sparkles and asterisks so they do not render as platform emoji.
+- Preserve tree-shakable named imports, the shared 24px grid and existing accessibility behavior.
+
 ## 0.1.0-alpha.4
 
-- 新增 20 个分享、通信与互动图标，目录扩展至 340 个独立图形。
-- Heart、Bookmark、Star、Bell、Flag 支持 outlined / filled 成对样式；默认线框，实心使用独立几何。
-- 目录标注可用样式；不支持 filled 的图标保持 outlined，避免错误填充。
+- Add 20 sharing, communication and interaction icons, expanding the catalog to 340 distinct drawings.
+- Add independently drawn outlined and filled variants for Heart, Bookmark, Star, Bell and Flag.
+- Record supported variants in the catalog; icons without a filled drawing retain their outlined form.
 
 ## 0.1.0-alpha.3
 
-- 重绘 Webhook：三个旋转对称回调环替代重叠外弧，改善 16/20/24px 轮廓。名称和属性 API 不变。
+- Redraw Webhook with three rotationally symmetric callback loops for clearer 16px, 20px and 24px rendering while preserving its API.
 
 ## 0.1.0-alpha.2
 
-- 从 32 扩展到 320 个独立语义图标，覆盖 11 类产品场景。
-- 独立 catalog 入口提供分类和中英文关键词。
-- 共用可访问 SVG runtime；按需导入不携带整个图库。
-- 保留全部原有 32 个名称和属性契约。
+- Expand from 32 to 320 distinct semantic icons across 11 product categories.
+- Add a separate catalog entry point with categories and bilingual search keywords.
+- Share an accessible SVG runtime while keeping named imports tree-shakable.
+- Preserve all original icon names and prop contracts.
