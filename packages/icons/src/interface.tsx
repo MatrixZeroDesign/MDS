@@ -733,3 +733,82 @@ export const Ban = /* @__PURE__ */ defineIcon(
 		<path d="M6 18 18 6" />
 	</>,
 );
+export const ClipboardPaste = /* @__PURE__ */ defineIcon(
+	"ClipboardPaste",
+	<>
+		<path d="M9 5.5V4h6v1.5M8 5.5H6.5A1.5 1.5 0 0 0 5 7v12a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19V7a1.5 1.5 0 0 0-1.5-1.5H16" />
+		<rect x="8" y="3.5" width="8" height="4" rx="1.5" />
+		<path d="M12 10v7m-3-3 3 3 3-3" />
+	</>,
+);
+export const SelectAll = /* @__PURE__ */ defineIcon(
+	"SelectAll",
+	<>
+		<path d="M8 3.5H5A1.5 1.5 0 0 0 3.5 5v3m12-4.5h3A1.5 1.5 0 0 1 20.5 5v3M8 20.5H5A1.5 1.5 0 0 1 3.5 19v-3m12 4.5h3A1.5 1.5 0 0 0 20.5 19v-3" />
+		<path d="m8 16 4-9 4 9m-6.5-3h5" />
+	</>,
+);
+export const History = /* @__PURE__ */ defineIcon(
+	"History",
+	<>
+		<path d="M4 9V4m0 5h5M4.7 7A8.5 8.5 0 1 1 3.5 14" />
+		<path d="M12 7.5V12l3 2" />
+	</>,
+);
+export const Restart = /* @__PURE__ */ defineIcon(
+	"Restart",
+	<>
+		<path d="M5 8V3.5m0 4.5h4.5M5.7 6.5A8.5 8.5 0 1 1 4 15" />
+		<path d="M12 7v5" />
+	</>,
+);
+export const WandSparkles = /* @__PURE__ */ defineIcon(
+	"WandSparkles",
+	<>
+		<path d="m4 20 11-11 3 3L7 23 4 20Zm9-9 3 3" />
+		<path d="M7 3v4M5 5h4m10-2v4m-2-2h4" />
+	</>,
+);
+export const Keyboard = /* @__PURE__ */ defineIcon(
+	"Keyboard",
+	<>
+		<rect x="3" y="6" width="18" height="12" rx="2" />
+		<path d="M7 10h.01M11 10h.01M15 10h.01M19 10h.01M7 14h.01M11 14h6" />
+	</>,
+);
+export const WindowMinimize = /* @__PURE__ */ defineIcon(
+	"WindowMinimize",
+	<>
+		<rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+		<path d="M8.5 12h7" />
+	</>,
+);
+export const WindowMaximize = /* @__PURE__ */ defineIcon(
+	"WindowMaximize",
+	<>
+		<rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+		<rect x="7.5" y="8" width="9" height="8" rx="1.25" />
+	</>,
+);
+export const WindowFill = /* @__PURE__ */ defineIcon(
+	"WindowFill",
+	<>
+		<rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+		<rect x="6.5" y="8" width="11" height="8" rx="1" fill="currentColor" stroke="none" />
+	</>,
+);
+export const WindowCenter = /* @__PURE__ */ defineIcon(
+	"WindowCenter",
+	<>
+		<rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+		<rect x="8" y="8" width="8" height="8" rx="1" />
+	</>,
+);
+export const WindowClose = /* @__PURE__ */ defineIcon(
+	"WindowClose",
+	<>
+		<rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+		<path d="m9.5 9.5 5 5m0-5-5 5" />
+	</>,
+);
+export const Bolt = /* @__PURE__ */ defineIcon("Bolt", <path d="M13.5 2.5 5 14h6l-.5 7.5L19 10h-6l.5-7.5Z" />);

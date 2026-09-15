@@ -558,5 +558,65 @@
 		"name": "Ban",
 		"category": "security",
 		"keywords": ["block", "prohibited", "disabled"]
+	},
+	{
+		"name": "ClipboardPaste",
+		"category": "editing",
+		"keywords": ["paste", "clipboard", "insert"]
+	},
+	{
+		"name": "SelectAll",
+		"category": "editing",
+		"keywords": ["select all", "selection", "text"]
+	},
+	{
+		"name": "History",
+		"category": "everyday",
+		"keywords": ["history", "recent", "time"]
+	},
+	{
+		"name": "Restart",
+		"category": "development",
+		"keywords": ["restart", "reboot", "reload"]
+	},
+	{
+		"name": "WandSparkles",
+		"category": "editing",
+		"keywords": ["writing tools", "magic", "enhance"]
+	},
+	{
+		"name": "Keyboard",
+		"category": "development",
+		"keywords": ["keyboard", "typing", "autofill"]
+	},
+	{
+		"name": "WindowMinimize",
+		"category": "layout",
+		"keywords": ["window", "minimize", "desktop"]
+	},
+	{
+		"name": "WindowMaximize",
+		"category": "layout",
+		"keywords": ["window", "maximize", "zoom"]
+	},
+	{
+		"name": "WindowFill",
+		"category": "layout",
+		"keywords": ["window", "fill", "resize"]
+	},
+	{
+		"name": "WindowCenter",
+		"category": "layout",
+		"keywords": ["window", "center", "position"]
+	},
+	{
+		"name": "WindowClose",
+		"category": "layout",
+		"keywords": ["window", "close", "remove"]
+	},
+	{
+		"name": "Bolt",
+		"category": "everyday",
+		"keywords": ["flash", "lightning", "energy", "quick action"]
 	}
 ]

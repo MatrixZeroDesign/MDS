@@ -501,5 +501,10 @@
 		"name": "CloudDownload",
 		"category": "development",
 		"keywords": ["cloud download", "sync", "restore"]
+	},
+	{
+		"name": "Gpu",
+		"category": "development",
+		"keywords": ["graphics card", "accelerator", "compute", "video hardware"]
 	}
 ]

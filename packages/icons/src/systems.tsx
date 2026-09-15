@@ -711,3 +711,12 @@ export const CloudDownload = /* @__PURE__ */ defineIcon(
 		<path d="M12 10v10m-3-3 3 3 3-3" />
 	</>,
 );
+export const Gpu = /* @__PURE__ */ defineIcon(
+	"Gpu",
+	<>
+		<rect x="2.5" y="5.5" width="17" height="12" rx="2" />
+		<circle cx="8" cy="11.5" r="3" />
+		<circle cx="15.5" cy="11.5" r="1.5" />
+		<path d="M19.5 8.5h2v6h-2M6 17.5v2h5v-2" />
+	</>,
+);
