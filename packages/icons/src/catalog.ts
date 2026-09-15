@@ -115,6 +115,8 @@ export const iconCatalog = [
 	{ name: "CreditCard", category: "business", keywords: ["银行卡", "payment", "支付"] },
 	{ name: "Crop", category: "editing", keywords: ["裁切画布", "Crop", "crop"] },
 	{ name: "Database", category: "development", keywords: ["数据库", "storage", "sql", "存储"] },
+	{ name: "Design", category: "editing", keywords: ["bezier", "creative", "vector", "prototype"] },
+	{ name: "Develop", category: "development", keywords: ["code", "software", "engineering", "browser"] },
 	{ name: "Disc", category: "media", keywords: ["光盘", "optical", "disc", "cd"] },
 	{
 		name: "DistributeHorizontal",

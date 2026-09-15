@@ -812,3 +812,19 @@ export const WindowClose = /* @__PURE__ */ defineIcon(
 	</>,
 );
 export const Bolt = /* @__PURE__ */ defineIcon("Bolt", <path d="M13.5 2.5 5 14h6l-.5 7.5L19 10h-6l.5-7.5Z" />);
+export const Design = /* @__PURE__ */ defineIcon(
+	"Design",
+	<>
+		<circle cx="5" cy="6" r="2" />
+		<circle cx="19" cy="6" r="2" />
+		<circle cx="12" cy="18" r="2" />
+		<path d="M7 6h10M5 8c0 4.5 3 8 7 8m7-8c0 4.5-3 8-7 8" />
+	</>,
+);
+export const Develop = /* @__PURE__ */ defineIcon(
+	"Develop",
+	<>
+		<rect x="3" y="4" width="18" height="16" rx="2" />
+		<path d="M3 8h18M10 12l-2 2 2 2m4-4 2 2-2 2" />
+	</>,
+);

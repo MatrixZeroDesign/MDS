@@ -618,5 +618,15 @@
 		"name": "Bolt",
 		"category": "everyday",
 		"keywords": ["flash", "lightning", "energy", "quick action"]
+	},
+	{
+		"name": "Design",
+		"category": "editing",
+		"keywords": ["bezier", "creative", "vector", "prototype"]
+	},
+	{
+		"name": "Develop",
+		"category": "development",
+		"keywords": ["code", "software", "engineering", "browser"]
 	}
 ]
