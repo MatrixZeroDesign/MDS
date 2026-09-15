@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "@matrixzero/icons";
 import { type DocsLocale, translate } from "./i18n";
 import { useEffect, useState } from "react";
 import entries from "../../../docs/content.json";
@@ -26,9 +27,15 @@ export function PortalPage({ locale }: { locale: DocsLocale }) {
 							)}
 						</p>
 						<div className="docs-reference-footer">
-							<a href={appPath("/llms.txt")}>llms.txt ↗</a>
-							<a href={appPath("/llms-full.txt")}>{t("完整 AI 文档", "Complete AI documentation")} ↗</a>
-							<a href={appPath("/docs/manifest.json")}>{t("版本与组件索引", "Versioned manifest")} ↗</a>
+							<a href={appPath("/llms.txt")}>
+								llms.txt <ArrowUpRight size={"1em"} className="docs-symbol" />
+							</a>
+							<a href={appPath("/llms-full.txt")}>
+								{t("完整 AI 文档", "Complete AI documentation")} <ArrowUpRight size={"1em"} className="docs-symbol" />
+							</a>
+							<a href={appPath("/docs/manifest.json")}>
+								{t("版本与组件索引", "Versioned manifest")} <ArrowUpRight size={"1em"} className="docs-symbol" />
+							</a>
 						</div>
 						<p className="docs-muted">
 							{t(

@@ -1,3 +1,4 @@
+import { ArrowRight } from "@matrixzero/icons";
 import { type DocsLocale, translate } from "./i18n";
 import { ComponentDocs } from "./ComponentDocs";
 import { useState, useEffect, type ReactElement } from "react";
@@ -16,7 +17,9 @@ export default function Example() {
 	return (
 		<section className="docs-card">
 			{children}
-			<a href={appPath(`/charts/${kind.replace("Chart", "").toLowerCase()}-chart`)}>Chart API →</a>
+			<a href={appPath(`/charts/${kind.replace("Chart", "").toLowerCase()}-chart`)}>
+				Chart API <ArrowRight size={"1em"} className="docs-symbol" />
+			</a>
 			<details className="docs-code">
 				<summary>{translate(locale, "样例代码", "Example code")}</summary>
 				<Button

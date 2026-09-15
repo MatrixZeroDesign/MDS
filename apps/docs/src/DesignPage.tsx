@@ -1,3 +1,4 @@
+import { ArrowRight } from "@matrixzero/icons";
 import { type DocsLocale, translate } from "./i18n";
 import { Card, ThemeProvider, Typography } from "@matrixzero/ui";
 import { ArrowUpRight } from "@matrixzero/icons";
@@ -105,7 +106,9 @@ export function DesignPage({ locale }: { locale: DocsLocale }) {
 							"Keep feedback local without moving the background. Respect reduced motion, preserve visible keyboard focus, and never communicate state through color alone.",
 						)}
 					</p>
-					<a href={appPath("/docs/theme-motion")}>{t("查看实现指南", "Implementation guide")} →</a>
+					<a href={appPath("/docs/theme-motion")}>
+						{t("查看实现指南", "Implementation guide")} <ArrowRight size={"1em"} className="docs-symbol" />
+					</a>
 				</Card>
 			</div>
 		</div>

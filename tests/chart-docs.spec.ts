@@ -10,7 +10,7 @@ test("every gallery chart has matching executable example code and a type-specif
 		expect(code).toContain("export default function Example");
 		const output = ts.transpileModule(code, { compilerOptions: { jsx: ts.JsxEmit.ReactJSX }, reportDiagnostics: true });
 		expect(output.diagnostics).toEqual([]);
-		await expect(card.getByRole("link", { name: "Chart API →" })).toHaveAttribute("href", /^\/charts\//);
+		await expect(card.getByRole("link", { name: "Chart API", exact: true })).toHaveAttribute("href", /^\/charts\//);
 	}
 	await page.getByRole("radio", { name: "近24小时", exact: true }).click();
 	await expect(cards.first().locator("details.docs-code code")).toContainText("540");

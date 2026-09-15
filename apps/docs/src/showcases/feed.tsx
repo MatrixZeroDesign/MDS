@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "@matrixzero/icons";
 import { translatePair } from "../i18n";
 import { useState } from "react";
 import {
@@ -206,7 +207,9 @@ export default function Feed({ locale }: SceneProps) {
 									e.currentTarget.style.visibility = "hidden";
 								}}
 							/>
-							<span>{t("查看故事", "View story")} ↗</span>
+							<span>
+								{t("查看故事", "View story")} <ArrowUpRight size={"1em"} className="docs-symbol" />
+							</span>
 						</button>
 						<CardContent>
 							<CardTitle id={`feed-title-${p.id}`}>

@@ -180,3 +180,12 @@ export * from "./content.js";
 export * from "./systems.js";
 
 export * from "./social.js";
+
+export const Asterisk = /* @__PURE__ */ defineIcon(
+	"Asterisk",
+	/* @__PURE__ */ <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M5.6 18.4 18.4 5.6" />,
+);
+export const Sparkle = /* @__PURE__ */ defineIcon(
+	"Sparkle",
+	/* @__PURE__ */ <path d="M12 3c1.2 5.6 3.4 7.8 9 9-5.6 1.2-7.8 3.4-9 9-1.2-5.6-3.4-7.8-9-9 5.6-1.2 7.8-3.4 9-9Z" />,
+);

@@ -1,3 +1,4 @@
+import { ArrowUpRight, ArrowRight } from "@matrixzero/icons";
 import { translatePair, translateProse, type DocsLocale, translate } from "./i18n";
 import { ExampleLoading } from "./ExampleLoading";
 import { ExampleCode } from "./ExampleCode";
@@ -180,7 +181,8 @@ export function ComponentDocs({ locale }: { locale: DocsLocale }) {
 						<ApiReference api={entry.api} name={entry.names[0]} slug={entry.slug} locale={locale} />
 						<p>
 							<a href={appPath(`/docs/api/${entry.package}.md`)}>
-								{t("完整类型声明（含继承属性）", "Full type declarations, including inherited props")} ↗
+								{t("完整类型声明（含继承属性）", "Full type declarations, including inherited props")}{" "}
+								<ArrowUpRight size={"1em"} className="docs-symbol" />
 							</a>
 						</p>
 						<h2 id={sectionId("accessibility")}>{t("无障碍与键盘", "Accessibility & keyboard")}</h2>
@@ -189,12 +191,14 @@ export function ComponentDocs({ locale }: { locale: DocsLocale }) {
 						<p>{text(entry.pitfalls)}</p>
 						<div className="docs-reference-footer">
 							<a href={appPath(`/docs/components/${entry.slug}.md`)}>
-								{t("Markdown 文档", "Markdown documentation")} ↗
+								{t("Markdown 文档", "Markdown documentation")} <ArrowUpRight size={"1em"} className="docs-symbol" />
 							</a>
 							<a href={entry.package === "charts" ? "/charts" : entry.package === "icons" ? "/icons" : "/system"}>
-								{t("打开交互示例", "Open interactive examples")} →
+								{t("打开交互示例", "Open interactive examples")} <ArrowRight size={"1em"} className="docs-symbol" />
 							</a>
-							<a href={appPath(`/docs/examples/${entry.slug}.tsx`)}>{t("下载 TSX 示例", "Download TSX example")} ↗</a>
+							<a href={appPath(`/docs/examples/${entry.slug}.tsx`)}>
+								{t("下载 TSX 示例", "Download TSX example")} <ArrowUpRight size={"1em"} className="docs-symbol" />
+							</a>
 						</div>
 					</article>
 				</>
@@ -213,7 +217,9 @@ export function ComponentDocs({ locale }: { locale: DocsLocale }) {
 							<a className="docs-guide-card" key={e.slug} href={appPath(`/docs/${e.slug}`)}>
 								<h3>{componentTitle(e, locale)}</h3>
 								<p>{text(e.purpose)}</p>
-								<span>{t("阅读指南", "Read guide")} →</span>
+								<span>
+									{t("阅读指南", "Read guide")} <ArrowRight size={"1em"} className="docs-symbol" />
+								</span>
 							</a>
 						))}
 					</div>

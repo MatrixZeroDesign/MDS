@@ -3128,3 +3128,9 @@ a {
 		grid-template-columns: minmax(0, 1fr);
 	}
 }
+
+.mds-root .docs-symbol {
+	display: inline-block;
+	flex-shrink: 0;
+	vertical-align: -0.125em;
+}

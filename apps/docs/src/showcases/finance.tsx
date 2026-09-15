@@ -88,7 +88,9 @@ export default function Finance({ locale }: SceneProps) {
 					</Card>
 					<Card variant="subtle">
 						<CardContent>
-							<span className="sc-finance-account-mark">↗</span>
+							<span className="sc-finance-account-mark">
+								<ArrowUpRight size={"1em"} className="docs-symbol" />
+							</span>
 							<span>{t("投资", "Investments")}</span>
 							<strong>{money("$36,207.82")}</strong>
 						</CardContent>

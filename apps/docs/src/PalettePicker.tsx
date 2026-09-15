@@ -1,3 +1,4 @@
+import { ArrowRight } from "@matrixzero/icons";
 import { type DocsLocale, translate } from "./i18n";
 import { navigate } from "./router";
 import { useState } from "react";
@@ -615,7 +616,9 @@ export function PalettePicker({
 												<span>{colorAnalysis.lightContrast.toFixed(2)}:1</span>
 												{needsAdjustment ? (
 													<>
-														<b aria-hidden="true">→</b>
+														<b aria-hidden="true">
+															<ArrowRight size={"1em"} className="docs-symbol" />
+														</b>
 														<code>{colorAnalysis.lightAccent}</code>
 														<span>{colorAnalysis.generatedLightContrast.toFixed(2)}:1</span>
 													</>
