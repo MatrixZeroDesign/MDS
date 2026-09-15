@@ -815,10 +815,8 @@ export const Bolt = /* @__PURE__ */ defineIcon("Bolt", <path d="M13.5 2.5 5 14h6
 export const Design = /* @__PURE__ */ defineIcon(
 	"Design",
 	<>
-		<circle cx="5" cy="6" r="2" />
-		<circle cx="19" cy="6" r="2" />
-		<circle cx="12" cy="18" r="2" />
-		<path d="M7 6h10M5 8c0 4.5 3 8 7 8m7-8c0 4.5-3 8-7 8" />
+		<circle cx="12" cy="4.5" r="1.75" />
+		<path d="m11.5 6-4 14m5-14 4 14M5 14h14M7.5 20H5m11.5 0H19" />
 	</>,
 );
 export const Develop = /* @__PURE__ */ defineIcon(
