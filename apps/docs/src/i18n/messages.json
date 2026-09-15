@@ -191,24 +191,20 @@
 		"Cargando ejemplo",
 		"جارٍ تحميل المثال"
 	],
-	"Preview notice": [
-		"プレビュー版のお知らせ",
-		"미리보기 안내",
-		"Avis de préversion",
-		"Aviso de vista previa",
-		"إشعار المعاينة"
+	"MDS status": ["MDS のステータス", "MDS 상태", "Statut de MDS", "Estado de MDS", "حالة MDS"],
+	"Dismiss MDS status": [
+		"MDS のステータスを閉じる",
+		"MDS 상태 닫기",
+		"Fermer le statut de MDS",
+		"Cerrar el estado de MDS",
+		"إغلاق حالة MDS"
 	],
-	"Dismiss preview notice": [
-		"プレビュー版のお知らせを閉じる",
-		"미리보기 안내 닫기",
-		"Fermer l’avis de préversion",
-		"Cerrar aviso de vista previa"
-	],
-	"MDS preview · Components are evolving. Interactive examples use demo data.": [
-		"MDS プレビュー版 · コンポーネントは開発中です。使用例にはデモデータを使用しています。",
-		"MDS 미리보기 · 컴포넌트는 계속 개선됩니다. 대화형 예제에는 데모 데이터가 사용됩니다.",
-		"MDS en préversion · Les composants évoluent. Les exemples interactifs utilisent des données de démonstration.",
-		"Vista previa de MDS · Los componentes siguen evolucionando. Los ejemplos interactivos usan datos de demostración."
+	"MDS is ready for building products.": [
+		"MDS はプロダクト開発に利用できます。",
+		"MDS는 제품 구축에 사용할 수 있습니다.",
+		"MDS est prêt pour la création de produits.",
+		"MDS está listo para crear productos.",
+		"MDS جاهز لبناء المنتجات."
 	],
 	"View data": ["データを表示", "데이터 보기", "Voir les données", "Ver datos", "عرض البيانات"],
 	"No data": ["データがありません", "데이터 없음", "Aucune donnée", "Sin datos", "لا توجد بيانات"],

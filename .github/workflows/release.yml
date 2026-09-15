@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "icons-v*.*.*"
+      - "brand-icons-v*.*.*"
       - "ui-v*.*.*"
       - "charts-v*.*.*"
 

@@ -1,0 +1,121 @@
+{
+	"Icon libraries": [
+		"アイコンライブラリ",
+		"아이콘 라이브러리",
+		"Bibliothèques d’icônes",
+		"Bibliotecas de iconos",
+		"مكتبات الأيقونات"
+	],
+	"Interface icons": [
+		"UI アイコン",
+		"인터페이스 아이콘",
+		"Icônes d’interface",
+		"Iconos de interfaz",
+		"أيقونات الواجهة"
+	],
+	"Brand icons": [
+		"ブランドアイコン",
+		"브랜드 아이콘",
+		"Icônes de marque",
+		"Iconos de marca",
+		"أيقونات العلامات التجارية"
+	],
+	"brands": ["ブランド", "개 브랜드", "marques", "marcas", "علامة تجارية"],
+	"Search brand icons": [
+		"ブランドアイコンを検索",
+		"브랜드 아이콘 검색",
+		"Rechercher des icônes de marque",
+		"Buscar iconos de marca",
+		"البحث في أيقونات العلامات التجارية"
+	],
+	"Search providers or products…": [
+		"プロバイダーや製品を検索…",
+		"제공업체 또는 제품 검색…",
+		"Rechercher des fournisseurs ou produits…",
+		"Buscar proveedores o productos…",
+		"ابحث عن مزودين أو منتجات…"
+	],
+	"Brand category": [
+		"ブランドカテゴリー",
+		"브랜드 카테고리",
+		"Catégorie de marque",
+		"Categoría de marca",
+		"فئة العلامة التجارية"
+	],
+	"All brands": ["すべてのブランド", "모든 브랜드", "Toutes les marques", "Todas las marcas", "كل العلامات التجارية"],
+	"AI providers": [
+		"AI プロバイダー",
+		"AI 제공업체",
+		"Fournisseurs d’IA",
+		"Proveedores de IA",
+		"مزودو الذكاء الاصطناعي"
+	],
+	"Business": ["ビジネス", "비즈니스", "Entreprise", "Negocios", "الأعمال"],
+	"Cloud": ["クラウド", "클라우드", "Cloud", "Nube", "السحابة"],
+	"Collaboration": ["コラボレーション", "협업", "Collaboration", "Colaboración", "التعاون"],
+	"Commerce": ["コマース", "상거래", "Commerce", "Comercio", "التجارة"],
+	"Data": ["データ", "데이터", "Données", "Datos", "البيانات"],
+	"Design": ["デザイン", "디자인", "Design", "Diseño", "التصميم"],
+	"Development": ["開発", "개발", "Développement", "Desarrollo", "التطوير"],
+	"Media": ["メディア", "미디어", "Médias", "Medios", "الوسائط"],
+	"Platforms": ["プラットフォーム", "플랫폼", "Plateformes", "Plataformas", "المنصات"],
+	"Social": ["ソーシャル", "소셜", "Réseaux sociaux", "Redes sociales", "التواصل الاجتماعي"],
+	"Brand icon style": [
+		"ブランドアイコンのスタイル",
+		"브랜드 아이콘 스타일",
+		"Style des icônes de marque",
+		"Estilo de iconos de marca",
+		"نمط أيقونة العلامة التجارية"
+	],
+	"Color": ["カラー", "컬러", "Couleur", "Color", "ملون"],
+	"Monochrome": ["モノクロ", "단색", "Monochrome", "Monocromo", "أحادي اللون"],
+	"matching brands": ["件の一致", "개 일치", "marques correspondantes", "marcas coincidentes", "علامة تجارية مطابقة"],
+	"Brand icon preview and React usage": [
+		"ブランドアイコンのプレビューと React での使用方法",
+		"브랜드 아이콘 미리보기 및 React 사용법",
+		"Aperçu de l’icône de marque et utilisation avec React",
+		"Vista previa del icono de marca y uso con React",
+		"معاينة أيقونة العلامة التجارية واستخدامها في React"
+	],
+	"Brand icon usage": [
+		"ブランドアイコンの使用方法",
+		"브랜드 아이콘 사용법",
+		"Utilisation de l’icône de marque",
+		"Uso del icono de marca",
+		"استخدام أيقونة العلامة التجارية"
+	],
+	"Review the brand owner's usage guidelines before publication.": [
+		"公開前にブランド所有者の使用ガイドラインを確認してください。",
+		"게시 전에 브랜드 소유자의 사용 지침을 확인하세요.",
+		"Consultez les règles d’utilisation du propriétaire de la marque avant publication.",
+		"Revisa las directrices de uso del propietario de la marca antes de publicar.",
+		"راجع إرشادات استخدام مالك العلامة التجارية قبل النشر."
+	],
+	"AI, product, mobility, commerce and infrastructure brands share a square frame with optical size correction while preserving original proportions.": [
+		"AI、製品、モビリティ、コマース、インフラのブランドは、元の比率を保ちながら、視覚サイズを補正した共通の正方形フレームを使用します。",
+		"AI, 제품, 모빌리티, 커머스 및 인프라 브랜드는 원래 비율을 유지하면서 시각적 크기를 보정한 정사각형 프레임을 공유합니다.",
+		"Les marques d’IA, de produits, de mobilité, de commerce et d’infrastructure partagent un cadre carré avec correction optique, tout en conservant leurs proportions d’origine.",
+		"Las marcas de IA, productos, movilidad, comercio e infraestructura comparten un marco cuadrado con corrección óptica, conservando sus proporciones originales.",
+		"تستخدم علامات الذكاء الاصطناعي والمنتجات والتنقل والتجارة والبنية التحتية إطارًا مربعًا موحدًا مع تصحيح بصري للحجم مع الحفاظ على النسب الأصلية."
+	],
+	"Compute": ["コンピュート", "컴퓨팅", "Calcul", "Cómputo", "الحوسبة"],
+	"Networking": ["ネットワーク", "네트워킹", "Réseaux", "Redes", "الشبكات"],
+	"Security": ["セキュリティ", "보안", "Sécurité", "Seguridad", "الأمان"],
+	"Vehicles & mobility": [
+		"自動車とモビリティ",
+		"자동차 및 모빌리티",
+		"Véhicules et mobilité",
+		"Vehículos y movilidad",
+		"المركبات والتنقل"
+	],
+	"Crypto & Web3": ["暗号資産と Web3", "암호화폐 및 Web3", "Crypto et Web3", "Cripto y Web3", "العملات المشفرة وWeb3"],
+	"Mark": ["マーク", "마크", "Symbole", "Símbolo", "الرمز"],
+	"Wordmark": ["ワードマーク", "워드마크", "Logo typographique", "Logotipo tipográfico", "الشعار النصي"],
+	"Use in brand headers, partner walls and other layouts with enough horizontal space.": [
+		"ブランドヘッダー、パートナー一覧、その他横幅に余裕のあるレイアウトで使用します。",
+		"브랜드 헤더, 파트너 목록 및 가로 공간이 충분한 레이아웃에서 사용하세요.",
+		"À utiliser dans les en-têtes de marque, les murs de partenaires et les mises en page offrant suffisamment d’espace horizontal.",
+		"Úsalo en cabeceras de marca, paneles de socios y otros diseños con suficiente espacio horizontal.",
+		"استخدمه في رؤوس العلامات التجارية وقوائم الشركاء والتخطيطات التي توفر مساحة أفقية كافية."
+	]
+}

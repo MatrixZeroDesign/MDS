@@ -115,12 +115,12 @@
 		"Instala los paquetes que necesitas",
 		"ثبّت الحزم التي تحتاج إليها"
 	],
-	"Three independently published packages. UI depends on icons; charts are optional.": [
-		"独立して公開される3つのパッケージ。UIはiconsに依存し、chartsはオプションです。",
-		"독립적으로 배포되는 세 패키지입니다. UI는 icons에 의존하고 charts는 선택 사항입니다.",
-		"Trois packages publiés indépendamment. UI dépend de icons ; charts est facultatif.",
-		"Tres paquetes publicados de forma independiente. UI depende de icons; charts es opcional.",
-		"ثلاث حزم منشورة بشكل مستقل. تعتمد UI على icons، بينما charts اختيارية."
+	"Four independently published packages. UI depends on icons; brand-icons and charts are optional.": [
+		"独立して公開される4つのパッケージ。UIはiconsに依存し、brand-iconsとchartsはオプションです。",
+		"독립적으로 배포되는 네 패키지입니다. UI는 icons에 의존하며 brand-icons와 charts는 선택 사항입니다.",
+		"Quatre packages publiés indépendamment. UI dépend de icons ; brand-icons et charts sont facultatifs.",
+		"Cuatro paquetes publicados de forma independiente. UI depende de icons; brand-icons y charts son opcionales.",
+		"أربع حزم منشورة بشكل مستقل. تعتمد UI على icons، بينما brand-icons وcharts اختياريتان."
 	],
 	"Private registry configuration": [
 		"プライベートレジストリの設定",
@@ -229,19 +229,19 @@
 		"Cada paquete tiene su propia versión. Las vistas previas usan la etiqueta next. Valida la interacción, los idiomas, los temas, el teclado, los diseños estrechos, SSR y la instalación antes de publicar.",
 		"لكل حزمة إصدارها الخاص. تستخدم المعاينات وسم next. تحقّق من التفاعل واللغات والسمات ولوحة المفاتيح والتخطيطات الضيقة وSSR والتثبيت قبل النشر."
 	],
-	"Dismiss preview notice": [
-		"プレビュー通知を閉じる",
-		"미리보기 알림 닫기",
-		"Fermer l’avis de prévisualisation",
-		"Descartar aviso de vista previa",
-		"إغلاق إشعار المعاينة"
+	"Dismiss MDS status": [
+		"MDS のステータスを閉じる",
+		"MDS 상태 닫기",
+		"Fermer le statut de MDS",
+		"Cerrar el estado de MDS",
+		"إغلاق حالة MDS"
 	],
-	"MDS preview · Components are evolving. Interactive examples use demo data.": [
-		"MDSプレビュー · コンポーネントは進化中です。インタラクティブな例ではデモデータを使用します。",
-		"MDS 미리보기 · 컴포넌트는 계속 발전하고 있습니다. 대화형 예제는 데모 데이터를 사용합니다.",
-		"Aperçu MDS · Les composants évoluent. Les exemples interactifs utilisent des données de démonstration.",
-		"Vista previa de MDS · Los componentes están evolucionando. Los ejemplos interactivos usan datos de demostración.",
-		"معاينة MDS · المكوّنات قيد التطوير. تستخدم الأمثلة التفاعلية بيانات تجريبية."
+	"MDS is ready for building products.": [
+		"MDS はプロダクト開発に利用できます。",
+		"MDS는 제품 구축에 사용할 수 있습니다.",
+		"MDS est prêt pour la création de produits.",
+		"MDS está listo para crear productos.",
+		"MDS جاهز لبناء المنتجات."
 	],
 	"Content that can send notifications.": [
 		"通知を送信できるコンテンツ。",

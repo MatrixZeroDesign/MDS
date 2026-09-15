@@ -1,0 +1,41 @@
+{
+	"name": "@matrixzero/brand-icons",
+	"version": "0.1.0-alpha.1",
+	"description": "Optically normalized brand icons for AI, product, mobility, commerce and infrastructure brands",
+	"type": "module",
+	"license": "MIT",
+	"files": [
+		"dist",
+		"README.md",
+		"NOTICE.md",
+		"CHANGELOG.md"
+	],
+	"sideEffects": false,
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		},
+		"./catalog": {
+			"types": "./dist/catalog.d.ts",
+			"import": "./dist/catalog.js"
+		}
+	},
+	"scripts": {
+		"build": "node ../../scripts/clean-ui.mjs && node ../../scripts/generate-brand-icons.mjs && tsc -p tsconfig.json"
+	},
+	"peerDependencies": {
+		"react": "^19.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MatrixZeroDesign/MDS.git",
+		"directory": "packages/brand-icons"
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org/",
+		"access": "public"
+	}
+}

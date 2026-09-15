@@ -5,7 +5,8 @@ import { execFileSync } from "node:child_process";
 const flag = process.argv.indexOf("--package");
 const tag = process.env.GITHUB_REF_NAME || process.env.CI_COMMIT_TAG;
 const name = flag >= 0 ? process.argv[flag + 1] : tag?.split("-v")[0];
-if (!["icons", "ui", "charts"].includes(name)) throw Error("Specify --package icons|ui|charts");
+if (!["icons", "brand-icons", "ui", "charts"].includes(name))
+	throw Error("Specify --package icons|brand-icons|ui|charts");
 const pkg = JSON.parse(await readFile("packages/" + name + "/package.json", "utf8"));
 const preview = process.argv.includes("--preview");
 const isPrerelease = pkg.version.includes("-");

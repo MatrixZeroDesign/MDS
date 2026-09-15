@@ -6,6 +6,7 @@ const cases = [
 	["ui", "Grid", ["date-time", "cascader", "data-table"]],
 	["ui", "Typography", ["date-time", "cascader", "data-table"]],
 	["icons", "Plus", ["/catalog.js", "/interface.js"]],
+	["brand-icons", "OpenAI", ["/catalog.js", "slack.svg", "figma.svg"]],
 	["charts", "LineChart", ["/BarChart.js", "/PieChart.js", "/AreaChart.js"]],
 	["charts", "AreaChart", ["/BarChart.js", "/PieChart.js", "/LineChart.js"]],
 	["charts", "BarChart", ["/PieChart.js", "/LineChart.js", "/AreaChart.js"]],
