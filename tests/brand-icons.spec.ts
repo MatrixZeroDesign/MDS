@@ -6,7 +6,14 @@ test("brand catalog keeps a normalized frame and usable mobile layout", async ({
 	const library = page.locator(".docs-brand-library");
 	const initialStatus = library.getByRole("status");
 	await expect(initialStatus).toContainText("matching brands");
-	expect(Number.parseInt(await initialStatus.innerText(), 10)).toBeGreaterThanOrEqual(340);
+	const totalBrands = Number.parseInt(await initialStatus.innerText(), 10);
+	expect(totalBrands).toBeGreaterThanOrEqual(340);
+	const initialTiles = await library.locator(".docs-brand-tile").count();
+	expect(initialTiles).toBeLessThan(totalBrands);
+	await expect(library.locator(".docs-brand-icon-color img").first()).toHaveAttribute("loading", "lazy");
+	await expect(library.locator(".docs-brand-icon-color img").first()).toHaveAttribute("decoding", "async");
+	await library.locator(".docs-brand-load-sentinel").scrollIntoViewIfNeeded();
+	await expect.poll(() => library.locator(".docs-brand-tile").count()).toBeGreaterThan(initialTiles);
 
 	const frames = library.locator(".docs-brand-icon-frame > .docs-brand-icon-color");
 	for (let index = 0; index < 20; index += 1) {

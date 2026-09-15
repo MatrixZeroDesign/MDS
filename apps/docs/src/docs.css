@@ -481,6 +481,8 @@ a {
 	margin-bottom: 16px;
 }
 .mds-root button.docs-icon-tile {
+	content-visibility: auto;
+	contain-intrinsic-size: auto 100px;
 	border: 1px solid transparent;
 	color: var(--mds-text);
 	font-family: inherit;
@@ -488,6 +490,10 @@ a {
 	transition:
 		background var(--mds-duration-fast),
 		border-color var(--mds-duration-fast);
+}
+.docs-icon-load-sentinel,
+.docs-brand-load-sentinel {
+	height: 1px;
 }
 .mds-root button.docs-icon-tile:hover {
 	background: var(--mds-soft);
@@ -597,6 +603,8 @@ a {
 	gap: 12px;
 }
 .docs-brand-tile {
+	content-visibility: auto;
+	contain-intrinsic-size: auto 72px;
 	display: grid;
 	grid-template-columns: 40px minmax(0, 1fr);
 	grid-template-rows: auto auto;

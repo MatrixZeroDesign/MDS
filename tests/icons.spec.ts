@@ -26,7 +26,10 @@ test("icon catalog matches all unique drawings and preserves accessibility", () 
 test("icon search understands Chinese, category filters and keyboard usage dialogs", async ({ page }) => {
 	await page.setViewportSize({ width: 320, height: 900 });
 	await page.goto("/icons?lang=zh");
-	await expect(page.locator(".docs-icon-tile")).toHaveCount(iconCatalog.length);
+	const initialTiles = await page.locator(".docs-icon-tile").count();
+	expect(initialTiles).toBeLessThan(iconCatalog.length);
+	await page.locator(".docs-icon-load-sentinel").scrollIntoViewIfNeeded();
+	await expect.poll(() => page.locator(".docs-icon-tile").count()).toBeGreaterThan(initialTiles);
 	await page.getByRole("textbox", { name: "搜索图标" }).fill("搜索");
 	await expect(page.getByRole("button", { name: /^Search / })).toBeVisible();
 	await page.getByRole("textbox", { name: "搜索图标" }).fill("zzzzzz");

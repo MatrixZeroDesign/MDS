@@ -72,7 +72,7 @@ export function BrandMark({
 			}}
 		>
 			{variant === "color" && colorSource ? (
-				<img alt="" src={source} style={{ ...drawingStyle, objectFit: "contain" }} />
+				<img alt="" decoding="async" loading="lazy" src={source} style={{ ...drawingStyle, objectFit: "contain" }} />
 			) : (
 				<span
 					style={{
