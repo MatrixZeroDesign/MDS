@@ -1097,12 +1097,12 @@
 		"Haz visible la selección",
 		"اجعل الاختيار واضحًا"
 	],
-	"Heart, Bookmark, Star, Bell and Flag have independently drawn filled variants. Toggle buttons also expose their state through aria-pressed.": [
-		"Heart、Bookmark、Star、Bell、Flagには独自に描いた塗りつぶし版があります。切替ボタンはaria-pressedでも状態を伝えます。",
-		"Heart, Bookmark, Star, Bell, Flag에는 독자적으로 그린 채움 변형이 있습니다. 토글 버튼은 aria-pressed로도 상태를 전달합니다.",
-		"Heart, Bookmark, Star, Bell et Flag disposent de variantes pleines originales. Les boutons bascule exposent aussi leur état via aria-pressed.",
-		"Heart, Bookmark, Star, Bell y Flag tienen variantes rellenas originales. Los botones de alternancia también indican su estado mediante aria-pressed.",
-		"تتوفر لـ Heart وBookmark وStar وBell وFlag نسخ ممتلئة مرسومة بشكل مستقل. وتعرض أزرار التبديل حالتها أيضًا عبر aria-pressed."
+	"Heart, Bookmark, Star, Bell, Flag and BadgeCheck have independently drawn filled variants. Toggle buttons also expose their state through aria-pressed.": [
+		"Heart、Bookmark、Star、Bell、Flag、BadgeCheckには独自に描いた塗りつぶし版があります。切替ボタンはaria-pressedでも状態を伝えます。",
+		"Heart, Bookmark, Star, Bell, Flag, BadgeCheck에는 독자적으로 그린 채움 변형이 있습니다. 토글 버튼은 aria-pressed로도 상태를 전달합니다.",
+		"Heart, Bookmark, Star, Bell, Flag et BadgeCheck disposent de variantes pleines originales. Les boutons bascule exposent aussi leur état via aria-pressed.",
+		"Heart, Bookmark, Star, Bell, Flag y BadgeCheck tienen variantes rellenas originales. Los botones de alternancia también indican su estado mediante aria-pressed.",
+		"تتوفر لـ Heart وBookmark وStar وBell وFlag وBadgeCheck نسخ ممتلئة مرسومة بشكل مستقل. وتعرض أزرار التبديل حالتها أيضًا عبر aria-pressed."
 	],
 	"Star": ["スター", "별", "Étoile", "Estrella", "نجمة"],
 	"Icon style": ["アイコンのスタイル", "아이콘 스타일", "Style d’icône", "Estilo de icono", "نمط الأيقونة"],

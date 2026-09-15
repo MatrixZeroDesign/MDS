@@ -1,3 +1,4 @@
+import { ArrowRight } from "@matrixzero/icons";
 import { Fragment, useMemo, useState } from "react";
 import {
 	Badge,
@@ -276,7 +277,7 @@ export default function Robotics({ locale }: SceneProps) {
 							</span>
 						</div>
 						<p className="sc-robotics-map-key">
-							{pickupLabel} → {destinationLabel} · {routeLabel}
+							{pickupLabel} <ArrowRight size={"1em"} className="docs-symbol" /> {destinationLabel} · {routeLabel}
 						</p>
 						<div className="sc-robotics-controlbar">
 							<div>
@@ -349,7 +350,8 @@ export default function Robotics({ locale }: SceneProps) {
 									<div>
 										<strong>{task.id}</strong>
 										<small>
-											{localizeRobotText(task.from)} → {localizeRobotText(task.to)} · {localizeRobotText(task.item)}
+											{localizeRobotText(task.from)} <ArrowRight size={"1em"} className="docs-symbol" />{" "}
+											{localizeRobotText(task.to)} · {localizeRobotText(task.item)}
 										</small>
 									</div>
 									<div>

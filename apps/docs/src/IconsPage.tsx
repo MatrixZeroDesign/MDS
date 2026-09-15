@@ -1,6 +1,18 @@
 import { translatePair, type DocsLocale, translate } from "./i18n";
-import { useRef, useState } from "react";
-import { Button, IconButton, Input, Select, SegmentedControl, Dialog, DialogContent } from "@matrixzero/ui";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import {
+	Button,
+	IconButton,
+	Input,
+	Select,
+	SegmentedControl,
+	Dialog,
+	DialogContent,
+	Tabs,
+	TabList,
+	Tab,
+	TabPanel,
+} from "@matrixzero/ui";
 import * as Icons from "@matrixzero/icons";
 import { iconCatalog } from "@matrixzero/icons/catalog";
 const categories: Record<string, [string, string]> = {
@@ -16,7 +28,9 @@ const categories: Record<string, [string, string]> = {
 	business: ["商业与交易", "Business"],
 	everyday: ["日常与时间", "Everyday"],
 };
-export function IconsPage({ locale }: { locale: DocsLocale }) {
+const iconBatchSize = 72;
+
+function InterfaceIcons({ locale }: { locale: DocsLocale }) {
 	const t = (zh: string, en: string) => translate(locale, zh, en);
 	const [variant, setVariant] = useState<"outlined" | "filled">("outlined");
 	const [liked, setLiked] = useState(false);
@@ -28,6 +42,8 @@ export function IconsPage({ locale }: { locale: DocsLocale }) {
 	const [selected, setSelected] = useState<keyof typeof Icons>("Plus"),
 		[copyStatus, setCopyStatus] = useState(""),
 		[detailOpen, setDetailOpen] = useState(false);
+	const [visibleCount, setVisibleCount] = useState(iconBatchSize);
+	const loadSentinel = useRef<HTMLDivElement | null>(null);
 	const matches = iconCatalog.filter(
 		(item) =>
 			(category === "all" || item.category === category) &&
@@ -38,6 +54,24 @@ export function IconsPage({ locale }: { locale: DocsLocale }) {
 				.split(/\s+/)
 				.every((term) => [item.name, ...item.keywords].join(" ").toLowerCase().includes(term)),
 	);
+	const visibleMatches = matches.slice(0, visibleCount);
+	useEffect(() => {
+		setVisibleCount(iconBatchSize);
+	}, [category, query, variant]);
+	useEffect(() => {
+		const sentinel = loadSentinel.current;
+		if (!sentinel || visibleCount >= matches.length) return;
+		const observer = new IntersectionObserver(
+			(entries) => {
+				if (entries.some((entry) => entry.isIntersecting)) {
+					setVisibleCount((current) => Math.min(current + iconBatchSize, matches.length));
+				}
+			},
+			{ rootMargin: "600px 0px" },
+		);
+		observer.observe(sentinel);
+		return () => observer.disconnect();
+	}, [matches.length, visibleCount]);
 	const example =
 		"import { " +
 		selected +
@@ -81,8 +115,8 @@ export function IconsPage({ locale }: { locale: DocsLocale }) {
 				<h2 style={{ margin: 0 }}>{t("用形态表达选中状态", "Make selection visible")}</h2>
 				<p className="docs-muted" style={{ margin: 0 }}>
 					{t(
-						"爱心、书签、星标、铃铛与旗帜支持独立绘制的实心版本。按钮的选中状态同时通过 aria-pressed 表达。",
-						"Heart, Bookmark, Star, Bell and Flag have independently drawn filled variants. Toggle buttons also expose their state through aria-pressed.",
+						"爱心、书签、星标、铃铛、旗帜与认证徽章支持独立绘制的实心版本。按钮的选中状态同时通过 aria-pressed 表达。",
+						"Heart, Bookmark, Star, Bell, Flag and BadgeCheck have independently drawn filled variants. Toggle buttons also expose their state through aria-pressed.",
 					)}
 				</p>
 				<div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
@@ -188,7 +222,7 @@ export function IconsPage({ locale }: { locale: DocsLocale }) {
 				</div>
 			)}
 			<div className="docs-icon-grid">
-				{matches.map(({ name, category }) => {
+				{visibleMatches.map(({ name, category }) => {
 					const Icon = Icons[name];
 					return (
 						<button
@@ -213,6 +247,9 @@ export function IconsPage({ locale }: { locale: DocsLocale }) {
 					);
 				})}
 			</div>
+			{visibleCount < matches.length && (
+				<div ref={loadSentinel} className="docs-icon-load-sentinel" aria-hidden="true" />
+			)}
 			<Dialog open={detailOpen} onOpenChange={setDetailOpen}>
 				<DialogContent
 					title={selected}
@@ -252,5 +289,30 @@ export function IconsPage({ locale }: { locale: DocsLocale }) {
 				</DialogContent>
 			</Dialog>
 		</>
+	);
+}
+
+const BrandIcons = lazy(() => import("./BrandIcons").then((module) => ({ default: module.BrandIcons })));
+
+export function IconsPage({ locale }: { locale: DocsLocale }) {
+	const t = (zh: string, en: string) => translate(locale, zh, en);
+	const [library, setLibrary] = useState("interface");
+	return (
+		<Tabs value={library} onValueChange={setLibrary}>
+			<TabList aria-label={t("图标库", "Icon libraries")}>
+				<Tab value="interface">{t("界面图标", "Interface icons")}</Tab>
+				<Tab value="brands">{t("品牌图标", "Brand icons")}</Tab>
+			</TabList>
+			<TabPanel value="interface">
+				<InterfaceIcons locale={locale} />
+			</TabPanel>
+			<TabPanel value="brands">
+				{library === "brands" && (
+					<Suspense fallback={<div className="docs-card">{t("正在加载", "Loading")}</div>}>
+						<BrandIcons locale={locale} />
+					</Suspense>
+				)}
+			</TabPanel>
+		</Tabs>
 	);
 }

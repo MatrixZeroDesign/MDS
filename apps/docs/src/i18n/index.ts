@@ -9,6 +9,7 @@ import guides from "./guide-messages.json";
 import extraGuides from "./guide-extra-messages.json";
 import home from "./home-messages.json";
 import components from "./component-messages.json";
+import brandIcons from "./brand-icon-messages.json";
 export type DocsLocale = "en" | "zh" | "zh-TW" | "ja" | "ko" | "fr" | "es" | "ar";
 export const languages: { value: DocsLocale; label: string; tag: string }[] = [
 	{ value: "en", label: "English", tag: "en" },
@@ -38,6 +39,7 @@ const catalog = {
 	...catalogMessages,
 	...remaining,
 	...components,
+	...brandIcons,
 } as Record<string, string[]>;
 const index = { ja: 0, ko: 1, fr: 2, es: 3, ar: 4 } as const;
 export function translate(locale: DocsLocale, zh: string, en: string) {

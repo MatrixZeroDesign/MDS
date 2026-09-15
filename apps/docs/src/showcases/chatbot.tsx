@@ -1,3 +1,4 @@
+import { Sparkle } from "@matrixzero/icons";
 import { useEffect, useRef, useState } from "react";
 import {
 	Avatar,
@@ -142,7 +143,7 @@ export default function Chatbot({ locale }: SceneProps) {
 				<div className="sc-chatbot-thread" aria-live="polite">
 					<div className="sc-chatbot-welcome">
 						<div className="sc-chatbot-orb" aria-hidden="true">
-							✦
+							<Sparkle size={32} className="docs-symbol" />
 						</div>
 						<h2>{t("今天想一起思考什么？", "What shall we think through today?")}</h2>
 						<p>

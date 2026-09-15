@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "@matrixzero/icons";
 import { type DocsLocale, translate } from "./i18n";
 import { useEffect, useState } from "react";
 import entries from "../../../docs/content.json";
@@ -26,9 +27,15 @@ export function PortalPage({ locale }: { locale: DocsLocale }) {
 							)}
 						</p>
 						<div className="docs-reference-footer">
-							<a href={appPath("/llms.txt")}>llms.txt ↗</a>
-							<a href={appPath("/llms-full.txt")}>{t("完整 AI 文档", "Complete AI documentation")} ↗</a>
-							<a href={appPath("/docs/manifest.json")}>{t("版本与组件索引", "Versioned manifest")} ↗</a>
+							<a href={appPath("/llms.txt")}>
+								llms.txt <ArrowUpRight size={"1em"} className="docs-symbol" />
+							</a>
+							<a href={appPath("/llms-full.txt")}>
+								{t("完整 AI 文档", "Complete AI documentation")} <ArrowUpRight size={"1em"} className="docs-symbol" />
+							</a>
+							<a href={appPath("/docs/manifest.json")}>
+								{t("版本与组件索引", "Versioned manifest")} <ArrowUpRight size={"1em"} className="docs-symbol" />
+							</a>
 						</div>
 						<p className="docs-muted">
 							{t(
@@ -40,13 +47,14 @@ export function PortalPage({ locale }: { locale: DocsLocale }) {
 					<h2>{t("安装所需的包", "Install the packages you need")}</h2>
 					<p>
 						{t(
-							"三个包独立发布。基础 UI 自动依赖 icons，charts 按需安装。",
-							"Three independently published packages. UI depends on icons; charts are optional.",
+							"四个包独立发布。基础 UI 自动依赖 icons；brand-icons 与 charts 按需安装。",
+							"Four independently published packages. UI depends on icons; brand-icons and charts are optional.",
 						)}
 					</p>
 					<pre>
 						<code>
 							npm install --save-exact @matrixzero/ui@0.1.0-alpha.12{String.fromCharCode(10)}npm install --save-exact
+							@matrixzero/brand-icons@0.1.0-alpha.1{String.fromCharCode(10)}npm install --save-exact
 							@matrixzero/charts@0.1.0-alpha.4
 						</code>
 					</pre>

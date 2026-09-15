@@ -10,7 +10,7 @@
 		"build:ui": "npm run build -w @matrixzero/icons && npm run build -w @matrixzero/ui",
 		"dev": "npm run build:packages && npm run dev -w @matrixzero/mds-docs",
 		"typecheck": "npm run typecheck:packages && tsc --noEmit -p apps/docs/tsconfig.json",
-		"typecheck:packages": "tsc --noEmit -p packages/icons/tsconfig.json && tsc --noEmit -p packages/ui/tsconfig.json && tsc --noEmit -p packages/charts/tsconfig.json",
+		"typecheck:packages": "tsc --noEmit -p packages/icons/tsconfig.json && tsc --noEmit -p packages/brand-icons/tsconfig.json && tsc --noEmit -p packages/ui/tsconfig.json && tsc --noEmit -p packages/charts/tsconfig.json",
 		"test": "playwright test",
 		"check:i18n": "node scripts/audit-i18n.mjs --check",
 		"test:package": "node scripts/package-smoke.mjs",
@@ -18,20 +18,24 @@
 		"check:release": "npm run build:packages && npm run typecheck:packages && npm run test:package && npm run test:tree-shaking",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
-		"build:packages": "npm run build -w @matrixzero/icons && npm run build -w @matrixzero/ui && npm run build -w @matrixzero/charts",
+		"build:packages": "npm run build -w @matrixzero/icons && npm run build -w @matrixzero/brand-icons && npm run build -w @matrixzero/ui && npm run build -w @matrixzero/charts",
 		"test:tree-shaking": "node scripts/tree-shaking.mjs"
 	},
 	"devDependencies": {
 		"@axe-core/playwright": "4.11.1",
+		"@fortawesome/free-brands-svg-icons": "^7.3.1",
+		"@lobehub/icons-static-svg": "^1.95.0",
 		"@playwright/test": "1.58.2",
 		"@types/node": "22.15.30",
 		"@types/react": "19.2.2",
 		"@types/react-dom": "19.2.2",
 		"@vitejs/plugin-react": "4.5.2",
+		"cryptocurrency-icons": "^0.18.1",
+		"esbuild": "0.25.12",
 		"prettier": "3.6.2",
+		"simple-icons": "^16.31.0",
 		"typescript": "5.9.2",
-		"vite": "6.4.3",
-		"esbuild": "0.25.12"
+		"vite": "6.4.3"
 	},
 	"engines": {
 		"node": ">=22.12",

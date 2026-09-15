@@ -177,7 +177,8 @@
 	{
 		"name": "BadgeCheck",
 		"category": "security",
-		"keywords": ["认证", "verified", "验证"]
+		"keywords": ["认证", "verified", "验证"],
+		"variants": ["outlined", "filled"]
 	},
 	{
 		"name": "KeyRound",
@@ -480,5 +481,30 @@
 		"name": "Lightbulb",
 		"category": "everyday",
 		"keywords": ["灯泡", "idea", "灵感"]
+	},
+	{
+		"name": "WifiOff",
+		"category": "development",
+		"keywords": ["offline", "no connection", "wireless"]
+	},
+	{
+		"name": "BatteryCharging",
+		"category": "development",
+		"keywords": ["charging", "power", "battery"]
+	},
+	{
+		"name": "CloudUpload",
+		"category": "development",
+		"keywords": ["cloud upload", "sync", "backup"]
+	},
+	{
+		"name": "CloudDownload",
+		"category": "development",
+		"keywords": ["cloud download", "sync", "restore"]
+	},
+	{
+		"name": "Gpu",
+		"category": "development",
+		"keywords": ["graphics card", "accelerator", "compute", "video hardware"]
 	}
 ]

@@ -274,9 +274,10 @@ test("docs portal supports search, examples and stable URLs", async ({ page }) =
 	await page.reload();
 	await expect(page.getByRole("heading", { name: /SideSheet/ })).toBeVisible();
 });
-test("icon portal renders the whole maintained collection and filters", async ({ page }) => {
+test("icon portal reports the whole maintained collection and filters", async ({ page }) => {
 	await page.goto("/icons?lang=zh");
-	await expect(page.locator(".docs-icon-tile")).toHaveCount(iconCatalog.length);
+	await expect(page.getByRole("status")).toContainText(`${iconCatalog.length} 个匹配图标`);
+	expect(await page.locator(".docs-icon-tile").count()).toBeLessThan(iconCatalog.length);
 	await page.getByRole("textbox", { name: "搜索图标" }).fill("Chevron");
 	await expect(page.locator(".docs-icon-tile")).toHaveCount(8);
 	await expect(page.locator(".docs-icon-tile").first().locator("svg")).toHaveCount(1);

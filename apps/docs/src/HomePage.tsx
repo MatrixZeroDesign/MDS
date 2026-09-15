@@ -1,3 +1,4 @@
+import { Asterisk } from "@matrixzero/icons";
 import { type DocsLocale, translate } from "./i18n";
 import { useState } from "react";
 import { Card, Avatar, IconButton, Switch, Progress, Badge } from "@matrixzero/ui";
@@ -35,7 +36,10 @@ export function HomePage({ locale }: { locale: DocsLocale }) {
 						<span className="home-photo-caption">
 							<small>{t("留白，也是一种设计", "A LITTLE SPACE TO THINK")}</small>
 							<strong>{t("让界面，自然呼吸。", "Less noise. More room.")}</strong>
-							<span>{t("探索灵感社区", "Explore the inspiration feed")} ↗</span>
+							<span>
+								{t("探索灵感社区", "Explore the inspiration feed")}{" "}
+								<ArrowUpRight size={"1em"} className="docs-symbol" />
+							</span>
 						</span>
 					</a>
 					<div className="home-photo-credit">
@@ -65,12 +69,16 @@ export function HomePage({ locale }: { locale: DocsLocale }) {
 								"Type, color, space, and motion. A foundation that leaves room for your own character.",
 							)}
 						</p>
-						<a href={appPath("/design")}>{t("我们的设计原则", "Meet the design principles")} ↗</a>
+						<a href={appPath("/design")}>
+							{t("我们的设计原则", "Meet the design principles")} <ArrowUpRight size={"1em"} className="docs-symbol" />
+						</a>
 					</Card>
 					<Card className="home-live-card">
 						<div className="home-live-heading">
 							<Badge>{t("试着交互", "TRY IT LIVE")}</Badge>
-							<span aria-hidden="true">✳</span>
+							<span aria-hidden="true">
+								<Asterisk size={28} className="docs-symbol" />
+							</span>
 						</div>
 						<h2>{t("专注此刻。", "A moment of focus.")}</h2>
 						<p>{t("小小的交互，也值得认真对待。", "Even the smallest interaction deserves care.")}</p>
@@ -101,7 +109,10 @@ export function HomePage({ locale }: { locale: DocsLocale }) {
 									"Book a getaway. Plan a project. Find a new favorite. See what happens when the pieces come together.",
 								)}
 							</p>
-							<span>{t("走进真实场景", "Step inside a real experience")} ↗</span>
+							<span>
+								{t("走进真实场景", "Step inside a real experience")}{" "}
+								<ArrowUpRight size={"1em"} className="docs-symbol" />
+							</span>
 						</div>
 					</a>
 				</Card>

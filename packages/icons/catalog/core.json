@@ -159,5 +159,15 @@
 		"name": "ExternalLink",
 		"category": "navigation",
 		"keywords": ["外部链接", "新窗口", "external", "open"]
+	},
+	{
+		"name": "Asterisk",
+		"category": "editing",
+		"keywords": ["asterisk", "starburst", "eight spokes", "decoration"]
+	},
+	{
+		"name": "Sparkle",
+		"category": "editing",
+		"keywords": ["sparkle", "four-point star", "highlight", "decoration"]
 	}
 ]

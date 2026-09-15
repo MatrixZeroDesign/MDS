@@ -26,7 +26,10 @@ test("icon catalog matches all unique drawings and preserves accessibility", () 
 test("icon search understands Chinese, category filters and keyboard usage dialogs", async ({ page }) => {
 	await page.setViewportSize({ width: 320, height: 900 });
 	await page.goto("/icons?lang=zh");
-	await expect(page.locator(".docs-icon-tile")).toHaveCount(iconCatalog.length);
+	const initialTiles = await page.locator(".docs-icon-tile").count();
+	expect(initialTiles).toBeLessThan(iconCatalog.length);
+	await page.locator(".docs-icon-load-sentinel").scrollIntoViewIfNeeded();
+	await expect.poll(() => page.locator(".docs-icon-tile").count()).toBeGreaterThan(initialTiles);
 	await page.getByRole("textbox", { name: "搜索图标" }).fill("搜索");
 	await expect(page.getByRole("button", { name: /^Search / })).toBeVisible();
 	await page.getByRole("textbox", { name: "搜索图标" }).fill("zzzzzz");
@@ -52,7 +55,7 @@ test("icon search understands Chinese, category filters and keyboard usage dialo
 
 test("filled variants use explicit geometry without changing decorative semantics", () => {
 	const paired = iconCatalog.filter((entry) => "variants" in entry && entry.variants.includes("filled"));
-	expect(paired.map((entry) => entry.name).sort()).toEqual(["Bell", "Bookmark", "Flag", "Heart", "Star"]);
+	expect(paired.map((entry) => entry.name).sort()).toEqual(["BadgeCheck", "Bell", "Bookmark", "Flag", "Heart", "Star"]);
 	for (const entry of paired) {
 		const Icon = Icons[entry.name];
 		const outline = renderToStaticMarkup(createElement(Icon, { variant: "outlined" }));
@@ -79,7 +82,7 @@ test("icon variants filter the catalog and toggle controls expose selected state
 	await page.keyboard.press("Space");
 	await expect(like).toHaveAttribute("aria-pressed", "false");
 	await page.getByRole("radio", { name: "Filled", exact: true }).click();
-	await expect(page.locator(".docs-icon-tile")).toHaveCount(5);
+	await expect(page.locator(".docs-icon-tile")).toHaveCount(6);
 	await page.getByRole("button", { name: /^Heart / }).click();
 	await expect(page.getByRole("dialog").locator("pre")).toContainText('variant="filled"');
 	await expect(page.locator(".docs-icon-preview svg")).toHaveCount(4);

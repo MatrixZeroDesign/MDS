@@ -452,8 +452,8 @@ function App() {
 						<Banner
 							className="docs-preview-banner"
 							tone="neutral"
-							label={t("预览版说明", "Preview notice")}
-							dismissLabel={t("关闭预览版说明", "Dismiss preview notice")}
+							label={t("MDS 状态", "MDS status")}
+							dismissLabel={t("关闭 MDS 状态", "Dismiss MDS status")}
 							onDismiss={() => {
 								setShowPreviewBanner(false);
 								try {
@@ -464,10 +464,7 @@ function App() {
 							}}
 							action={<a href={appPath("/docs/start")}>{t("快速开始", "Get started")}</a>}
 						>
-							{t(
-								"MDS 预览版 · 组件持续完善中，交互示例使用演示数据。",
-								"MDS preview · Components are evolving. Interactive examples use demo data.",
-							)}
+							{t("MDS 已可用于构建产品。", "MDS is ready for building products.")}
 						</Banner>
 					)}
 					<Navbar className="docs-top" hideOnScroll>

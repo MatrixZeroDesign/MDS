@@ -1,3 +1,4 @@
+import { ArrowUpRight, ArrowLeft } from "@matrixzero/icons";
 import { translatePair, translate } from "./i18n";
 import { PageLoading } from "./PageLoading";
 import { Preview } from "./showcases/Preview";
@@ -47,7 +48,9 @@ export function ShowcaseDetailFrame({
 	return (
 		<Container className="sc-detail" maxWidth={1280} gutter={0}>
 			<div className="sc-detail-bar">
-				<a href={appPath("/showcase")}>← {t("全部场景", "All scenarios")}</a>
+				<a href={appPath("/showcase")}>
+					<ArrowLeft size={"1em"} className="docs-symbol" /> {t("全部场景", "All scenarios")}
+				</a>
 				<Badge>
 					{item.audience === "business" ? t("企业产品", "Business product") : t("消费产品", "Consumer product")}
 				</Badge>
@@ -121,7 +124,9 @@ export function ShowcasePage({ locale, page }: { locale: SceneProps["locale"]; p
 				</div>
 				<div className="sc-gallery-mark" aria-hidden="true">
 					{showcaseCatalog.length}
-					<span>↗</span>
+					<span>
+						<ArrowUpRight size={"1em"} className="docs-symbol" />
+					</span>
 				</div>
 			</div>
 			<div className="sc-gallery-filters">
@@ -151,7 +156,10 @@ export function ShowcasePage({ locale, page }: { locale: SceneProps["locale"]; p
 						</div>
 						<div className="sc-card-copy">
 							<h3>
-								{translatePair(locale, item.title)} <span aria-hidden="true">↗</span>
+								{translatePair(locale, item.title)}{" "}
+								<span aria-hidden="true">
+									<ArrowUpRight size={"1em"} className="docs-symbol" />
+								</span>
 							</h3>
 							<p>{translatePair(locale, item.description)}</p>
 							<small>{item.components.join(" · ")}</small>

@@ -627,3 +627,202 @@ export const Subscript = /* @__PURE__ */ defineIcon(
 		<path d="m4 4 9 11m0-11L4 15m12 1c0-2 4-2 4 0 0 1.5-4 2-4 4h4" />
 	</>,
 );
+
+export const CircleCheck = /* @__PURE__ */ defineIcon(
+	"CircleCheck",
+	<>
+		<circle cx="12" cy="12" r="8.5" />
+		<path d="m8 12 2.75 2.75L16.5 9" />
+	</>,
+);
+export const CircleX = /* @__PURE__ */ defineIcon(
+	"CircleX",
+	<>
+		<circle cx="12" cy="12" r="8.5" />
+		<path d="m9 9 6 6m0-6-6 6" />
+	</>,
+);
+export const CircleHelp = /* @__PURE__ */ defineIcon(
+	"CircleHelp",
+	<>
+		<circle cx="12" cy="12" r="8.5" />
+		<path d="M9.5 9a2.6 2.6 0 0 1 5.05.85c0 2.15-2.55 2.25-2.55 4.15m0 3h.01" />
+	</>,
+);
+export const TriangleAlert = /* @__PURE__ */ defineIcon(
+	"TriangleAlert",
+	<>
+		<path d="M10.45 4.5 3.2 17.1a1.6 1.6 0 0 0 1.4 2.4h14.8a1.6 1.6 0 0 0 1.4-2.4L13.55 4.5a1.8 1.8 0 0 0-3.1 0Z" />
+		<path d="M12 9v4m0 3h.01" />
+	</>,
+);
+export const MoreVertical = /* @__PURE__ */ defineIcon(
+	"MoreVertical",
+	<g fill="currentColor" stroke="none">
+		<circle cx="12" cy="5.5" r="1.6" />
+		<circle cx="12" cy="12" r="1.6" />
+		<circle cx="12" cy="18.5" r="1.6" />
+	</g>,
+);
+export const GripVertical = /* @__PURE__ */ defineIcon(
+	"GripVertical",
+	<g fill="currentColor" stroke="none">
+		<circle cx="9" cy="6" r="1.25" />
+		<circle cx="15" cy="6" r="1.25" />
+		<circle cx="9" cy="12" r="1.25" />
+		<circle cx="15" cy="12" r="1.25" />
+		<circle cx="9" cy="18" r="1.25" />
+		<circle cx="15" cy="18" r="1.25" />
+	</g>,
+);
+export const ArrowUpDown = /* @__PURE__ */ defineIcon(
+	"ArrowUpDown",
+	<path d="M8 4v16m-4-4 4 4 4-4m4 4V4m-4 4 4-4 4 4" />,
+);
+export const SortAscending = /* @__PURE__ */ defineIcon(
+	"SortAscending",
+	<path d="M4 7h7M4 12h5m-5 5h3m10-12v14m-4-4 4 4 4-4" />,
+);
+export const SortDescending = /* @__PURE__ */ defineIcon(
+	"SortDescending",
+	<path d="M4 7h3m-3 5h5m-5 5h7m6-12v14m-4-4 4 4 4-4" />,
+);
+export const ZoomIn = /* @__PURE__ */ defineIcon(
+	"ZoomIn",
+	<>
+		<circle cx="10.5" cy="10.5" r="6.75" />
+		<path d="m15.5 15.5 4.75 4.75M10.5 7.5v6m-3-3h6" />
+	</>,
+);
+export const ZoomOut = /* @__PURE__ */ defineIcon(
+	"ZoomOut",
+	<>
+		<circle cx="10.5" cy="10.5" r="6.75" />
+		<path d="m15.5 15.5 4.75 4.75m-8-9.75h-6" />
+	</>,
+);
+export const Save = /* @__PURE__ */ defineIcon(
+	"Save",
+	<>
+		<path d="M4 4h13l3 3v13H4V4Z" />
+		<path d="M8 4v6h8V4M8 20v-6h8v6" />
+	</>,
+);
+export const Printer = /* @__PURE__ */ defineIcon(
+	"Printer",
+	<>
+		<path d="M7 8V3.5h10V8M7 17H4.5A1.5 1.5 0 0 1 3 15.5v-6A1.5 1.5 0 0 1 4.5 8h15A1.5 1.5 0 0 1 21 9.5v6a1.5 1.5 0 0 1-1.5 1.5H17" />
+		<path d="M7 14h10v6.5H7V14Zm10-2h.01" />
+	</>,
+);
+export const Languages = /* @__PURE__ */ defineIcon(
+	"Languages",
+	<path d="m3.5 18 4-12 4 12M5 14h5m4-6h6m-3-2v2m-3 3h6c-.5 3-2.25 5.5-5.5 7m1.5-7c.5 2.25 2 4.25 4.5 5.5" />,
+);
+export const Accessibility = /* @__PURE__ */ defineIcon(
+	"Accessibility",
+	<>
+		<circle cx="12" cy="4.5" r="2" />
+		<path d="M4 8.5c5.5 1.5 10.5 1.5 16 0M12 10v10m0-6-4 6m4-6 4 6" />
+	</>,
+);
+export const Ban = /* @__PURE__ */ defineIcon(
+	"Ban",
+	<>
+		<circle cx="12" cy="12" r="8.5" />
+		<path d="M6 18 18 6" />
+	</>,
+);
+export const ClipboardPaste = /* @__PURE__ */ defineIcon(
+	"ClipboardPaste",
+	<>
+		<path d="M9 5.5V4h6v1.5M8 5.5H6.5A1.5 1.5 0 0 0 5 7v12a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19V7a1.5 1.5 0 0 0-1.5-1.5H16" />
+		<rect x="8" y="3.5" width="8" height="4" rx="1.5" />
+		<path d="M12 10v7m-3-3 3 3 3-3" />
+	</>,
+);
+export const SelectAll = /* @__PURE__ */ defineIcon(
+	"SelectAll",
+	<>
+		<path d="M8 3.5H5A1.5 1.5 0 0 0 3.5 5v3m12-4.5h3A1.5 1.5 0 0 1 20.5 5v3M8 20.5H5A1.5 1.5 0 0 1 3.5 19v-3m12 4.5h3A1.5 1.5 0 0 0 20.5 19v-3" />
+		<path d="m8 16 4-9 4 9m-6.5-3h5" />
+	</>,
+);
+export const History = /* @__PURE__ */ defineIcon(
+	"History",
+	<>
+		<path d="M4 9V4m0 5h5M4.7 7A8.5 8.5 0 1 1 3.5 14" />
+		<path d="M12 7.5V12l3 2" />
+	</>,
+);
+export const Restart = /* @__PURE__ */ defineIcon(
+	"Restart",
+	<>
+		<path d="M5 8V3.5m0 4.5h4.5M5.7 6.5A8.5 8.5 0 1 1 4 15" />
+		<path d="M12 7v5" />
+	</>,
+);
+export const WandSparkles = /* @__PURE__ */ defineIcon(
+	"WandSparkles",
+	<>
+		<path d="m4 20 11-11 3 3L7 23 4 20Zm9-9 3 3" />
+		<path d="M7 3v4M5 5h4m10-2v4m-2-2h4" />
+	</>,
+);
+export const Keyboard = /* @__PURE__ */ defineIcon(
+	"Keyboard",
+	<>
+		<rect x="3" y="6" width="18" height="12" rx="2" />
+		<path d="M7 10h.01M11 10h.01M15 10h.01M19 10h.01M7 14h.01M11 14h6" />
+	</>,
+);
+export const WindowMinimize = /* @__PURE__ */ defineIcon(
+	"WindowMinimize",
+	<>
+		<rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+		<path d="M8.5 12h7" />
+	</>,
+);
+export const WindowMaximize = /* @__PURE__ */ defineIcon(
+	"WindowMaximize",
+	<>
+		<rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+		<rect x="7.5" y="8" width="9" height="8" rx="1.25" />
+	</>,
+);
+export const WindowFill = /* @__PURE__ */ defineIcon(
+	"WindowFill",
+	<>
+		<rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+		<rect x="6.5" y="8" width="11" height="8" rx="1" fill="currentColor" stroke="none" />
+	</>,
+);
+export const WindowCenter = /* @__PURE__ */ defineIcon(
+	"WindowCenter",
+	<>
+		<rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+		<rect x="8" y="8" width="8" height="8" rx="1" />
+	</>,
+);
+export const WindowClose = /* @__PURE__ */ defineIcon(
+	"WindowClose",
+	<>
+		<rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+		<path d="m9.5 9.5 5 5m0-5-5 5" />
+	</>,
+);
+export const Bolt = /* @__PURE__ */ defineIcon("Bolt", <path d="M13.5 2.5 5 14h6l-.5 7.5L19 10h-6l.5-7.5Z" />);
+export const Design = /* @__PURE__ */ defineIcon(
+	"Design",
+	<>
+		<circle cx="12" cy="4.5" r="1.75" />
+		<path d="m11.5 6-4 14m5-14 4 14M5 14h14M7.5 20H5m11.5 0H19" />
+	</>,
+);
+export const Develop = /* @__PURE__ */ defineIcon(
+	"Develop",
+	<>
+		<rect x="3" y="4" width="18" height="16" rx="2" />
+		<path d="M3 8h18M10 12l-2 2 2 2m4-4 2 2-2 2" />
+	</>,
+);

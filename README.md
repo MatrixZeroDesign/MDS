@@ -2,13 +2,14 @@
 
 MDS 是 Matrix 产品的 React 设计系统。提供中英文排版规范、独立主题、可访问组件与克制的微动效。组件包名为 **@matrixzero/ui**，展示名称为 **Matrix UI**。
 
-UI 目前为 **0.1.0-alpha.12**，Icons 与 Charts 为 **0.1.0-alpha.4** 预览版本。MT0 页面用于验证组合场景，未接入生产业务。
+UI 目前为 **0.1.0-alpha.12**，Icons 与 Charts 为 **0.1.0-alpha.4**，Brand Icons 为 **0.1.0-alpha.1**。这些包已可用于构建产品。
 
 文档网站：[Matrix Design System](https://matrixzerodesign.github.io/MDS/)。提供组件交互、安装和 API 文档、图表以及可搜索图标目录。
 
 ## 仓库结构
 
-- `packages/icons`：320 个独立绘制的 SVG 图标，支持可访问名称与 16/20/24px 尺寸。
+- `packages/icons`：381 个独立绘制的 SVG 图标，支持可访问名称与 16/20/24px 尺寸。
+- `packages/brand-icons`：386 个经过视觉尺寸校正的 AI、产品、汽车、支付、网络、数据与 Web3 品牌图标。
 - `packages/charts`：折线、面积、柱状、环形与堆叠图，含可访问数据表。
 - `packages/ui`：唯一组件实现、CSS token、显式品牌主题。
 - `apps/docs`：直接使用发布包 API 的中英文展示站，包含组件总览及 MT0 场景。
