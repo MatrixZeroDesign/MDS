@@ -1,23 +1,23 @@
 # Matrix Design System
 
-MDS 是 Matrix 产品的 React 设计系统。提供中英文排版规范、独立主题、可访问组件与克制的微动效。组件包名为 **@matrixzero/ui**，展示名称为 **Matrix UI**。
+MDS is the React design system for Matrix products. It provides bilingual typography guidance, independent themes, accessible components, and restrained micro-interactions. The component package is **@matrixzero/ui**, presented as **Matrix UI**.
 
-UI 目前为 **0.1.0-alpha.12**，Icons 与 Charts 为 **0.1.0-alpha.4**，Brand Icons 为 **0.1.0-alpha.1**。这些包已可用于构建产品。
+UI is currently **0.1.0-alpha.12**, Icons is **0.1.0-alpha.5**, Charts is **0.1.0-alpha.4**, and Brand Icons is **0.1.0-alpha.1**. These packages are ready for product development.
 
-文档网站：[Matrix Design System](https://matrixzerodesign.github.io/MDS/)。提供组件交互、安装和 API 文档、图表以及可搜索图标目录。
+Documentation site: [Matrix Design System](https://matrixzerodesign.github.io/MDS/). It includes interactive components, installation and API guides, charts, and a searchable icon catalog.
 
-## 仓库结构
+## Repository structure
 
-- `packages/icons`：381 个独立绘制的 SVG 图标，支持可访问名称与 16/20/24px 尺寸。
-- `packages/brand-icons`：386 个经过视觉尺寸校正的 AI、产品、汽车、支付、网络、数据与 Web3 品牌图标。
-- `packages/charts`：折线、面积、柱状、环形与堆叠图，含可访问数据表。
-- `packages/ui`：唯一组件实现、CSS token、显式品牌主题。
-- `apps/docs`：直接使用发布包 API 的中英文展示站，包含组件总览及 MT0 场景。
-- `tests`：真实浏览器交互、无障碍、主题和布局回归。
-- `scripts`：包构建、安装验收与发布。
-- `docs`：设计决策、主题契约与维护规范。
+- `packages/icons`: 381 independently drawn SVG icons with accessible names and 16/20/24px sizing.
+- `packages/brand-icons`: 386 optically normalized AI, product, vehicle, payment, networking, data, and Web3 brand icons.
+- `packages/charts`: Line, area, bar, donut, and stacked charts with accessible data tables.
+- `packages/ui`: The single source for component implementations, CSS tokens, and explicit brand themes.
+- `apps/docs`: A bilingual showcase site that uses the published package APIs, including the component gallery and MT0 scenarios.
+- `tests`: Browser interaction, accessibility, theme, and layout regression coverage.
+- `scripts`: Package builds, installation checks, and publishing.
+- `docs`: Design decisions, theme contracts, and maintenance guidance.
 
-## 本地开发
+## Local development
 
 Node.js 22 LTS、npm 10。
 
@@ -27,7 +27,7 @@ npm run dev
 # http://127.0.0.1:4173
 ```
 
-修改包后运行 `npm run build:packages`，展示站会重新加载构建输出。这样开发和安装后的导出路径一致。
+After changing a package, run `npm run build:packages`; the showcase reloads the built output so development and installed export paths stay consistent.
 
 ```sh
 npm run typecheck
@@ -35,15 +35,15 @@ npm run build
 npx playwright install chromium
 npm test
 npm run test:package
-# 以上完整检查：
+# Full validation:
 npm run check
 ```
 
-浏览器测试覆盖实际交互和 Axe WCAG 检查；这不能代替辅助技术人工验收。字体当前使用明确的系统栈，跨平台字形仍有差异。商业字体不会未经授权捆绑分发。
+Browser tests cover real interactions and Axe WCAG checks; they do not replace manual assistive-technology review. Fonts use an explicit system stack, so glyphs can vary across platforms. Commercial fonts are never bundled without authorization.
 
-## 安装
+## Installation
 
-包通过 npm 公共 registry 发布，使用方不需要额外的 registry 配置。
+Packages are published to the public npm registry; consumers need no additional registry configuration.
 
 ```sh
 npm install --save-exact @matrixzero/ui@0.1.0-alpha.12
@@ -66,41 +66,41 @@ export function Settings() {
 }
 ```
 
-不依赖使用方 Tailwind 配置。React / React DOM 为 peer dependencies，包不捆绑第二份 React。ESM 与类型声明随包发布，CSS 必须显式导入。
+The packages do not depend on consumer Tailwind configuration. React and React DOM are peer dependencies, so a second React copy is not bundled. ESM and type declarations ship with each package, and CSS must be imported explicitly.
 
-## 组件
+## Components
 
-- 表单：Button、IconButton、SegmentedControl、RadioCardGroup / RadioCard、Field、Input、Textarea、Select、Checkbox、CheckField、Switch、RadioGroup、RadioItem、Slider。
-- 浮层：ChoiceMenu、DropdownMenu 及组合件、Dialog 及组合件、Tooltip / TooltipProvider。
-- 展示：Avatar、Badge、List / ListItem、Table、Pagination、Steps。
-- 反馈：Alert、EmptyState、Progress、Skeleton。
-- 应用外壳：Navbar、NavRail / NavItem / NavLink、NavDrawer 及组合件。
-- 侧边面板：SideSheet 及组合件。
-- 展开区域：Collapse / CollapseTrigger / CollapseContent。
-- 导航：Tabs / TabList / Tab / TabPanel、Accordion 及组合件。
-- 主题：ThemeProvider、ThemeMode、ThemeStyle。
+- Forms: Button, IconButton, SegmentedControl, RadioCardGroup / RadioCard, Field, Input, Textarea, Select, Checkbox, CheckField, Switch, RadioGroup, RadioItem, Slider.
+- Overlays: ChoiceMenu, DropdownMenu and its parts, Dialog and its parts, Tooltip / TooltipProvider.
+- Display: Avatar, Badge, List / ListItem, Table, Pagination, Steps.
+- Feedback: Alert, EmptyState, Progress, Skeleton.
+- Application shell: Navbar, NavRail / NavItem / NavLink, NavDrawer and its parts.
+- Side panels: SideSheet and its parts.
+- Expandable regions: Collapse / CollapseTrigger / CollapseContent.
+- Navigation: Tabs / TabList / Tab / TabPanel, Accordion and its parts.
+- Themes: ThemeProvider, ThemeMode, ThemeStyle.
 
-`Select` 是统一主题的表单 listbox，使用 options/onValueChange 并保留提交、重置和必填校验。`NativeSelect` 显式提供旧版 option children/onChange 原生 API。`ChoiceMenu` 是非模态选择菜单，用于筛选和偏好设置，使用真实 menuitemradio 语义，不伪装成 combobox。需要搜索的 combobox 留待独立设计。
+`Select` is the themed form listbox using `options`/`onValueChange`, with submission, reset, and required validation. `NativeSelect` explicitly provides the legacy option-children/onChange native API. `ChoiceMenu` is a non-modal selection menu for filters and preferences with real `menuitemradio` semantics; it is not a combobox. A searchable combobox remains a separate design.
 
-Field 负责 label、description、error、required、disabled 的关联。需要显式 ID 时把 ID 传给 Field；内部控件不要另设不同 ID。非 MDS 控件可以通过 `useFieldProps` 接入。
+Field associates the label, description, error, required, and disabled states. Pass an explicit ID to Field when needed; do not assign a conflicting ID to the inner control. Non-MDS controls can integrate through `useFieldProps`.
 
-所有浮层都放在当前 ThemeProvider 的 portal 容器下，保留品牌和明暗 token。菜单默认不锁滚动（ChoiceMenu 固定非模态；DropdownMenu 使用时明确 `modal={false}`）；真正的模态 Dialog 使用 Radix 的焦点与滚动锁。宿主需要避免在 ThemeProvider 祖先上设置 transform/filter/contain:paint，以免改变 fixed 浮层定位。
+All overlays render in the current ThemeProvider portal container and retain its brand and appearance tokens. Menus do not lock scrolling by default (ChoiceMenu is always non-modal; set `modal={false}` when using DropdownMenu); a truly modal Dialog uses Radix focus and scroll locking. Avoid `transform`/`filter`/`contain:paint` on ThemeProvider ancestors because they change fixed-overlay positioning.
 
-## 发布与升级
+## Releases and upgrades
 
-详见 [发布规范](docs/releasing.md)、[主题与组件边界](docs/architecture.md)、[动效规范](docs/motion.md)。
+See the [release guide](docs/releasing.md), [theme and component boundaries](docs/architecture.md), and [motion guide](docs/motion.md).
 
-预览包使用 `next` dist-tag，稳定包使用 `latest`。消费者固定版本，通过 MR 升级；不会静默改变 MT0 的依赖。独立 repo 的建立不意味着 MT0 已完成迁移。
+Preview packages use the `next` dist-tag and stable packages use `latest`. Consumers pin versions and upgrade through an MR; MT0 dependencies never change silently. Creating the independent repository does not mean MT0 has completed its migration.
 
-## 来源与设计依据
+## Sources and design references
 
-- 复用 [Radix Primitives](https://www.radix-ui.com/primitives/docs/overview/introduction) 的交互基础，MDS 负责视觉、组件组合和主题边界。
-- [shadcn 共享 UI 包](https://ui.shadcn.com/docs/monorepo) 提供独立组件包组织方式的参考；本项目发布编译 CSS，避免消费方需要扫描包源码。
-- 对照 [OpenAI UI guidelines](https://developers.openai.com/plugins/concepts/ui-guidelines) 的清晰层次与克制交互；MDS 是独立实现，不声称使用 ChatGPT 内部代码。
-- [npm trusted publishing](https://docs.npmjs.com/trusted-publishers/) 用于公开包分发与构建来源证明。
+- We reuse the interaction foundation from [Radix Primitives](https://www.radix-ui.com/primitives/docs/overview/introduction); MDS owns visual design, composition, and theme boundaries.
+- [shadcn shared UI packages](https://ui.shadcn.com/docs/monorepo) informed the independent package organization; this project publishes compiled CSS so consumers do not scan package source.
+- We reference the clarity and restraint of [OpenAI UI guidelines](https://developers.openai.com/plugins/concepts/ui-guidelines); MDS is an independent implementation and does not claim to use ChatGPT internal code.
+- [npm trusted publishing](https://docs.npmjs.com/trusted-publishers/) provides public package distribution and build provenance.
 
-MDS 使用 MIT License；第三方依赖保留各自许可。
+MDS uses the MIT License; third-party dependencies retain their own licenses.
 
-## Usage and AI guides / 组件使用文档
+## Usage and AI guides
 
 See [documentation maintenance and source](docs/README.md), [integration](docs/guides/integration.md), and [design guidance](docs/guides/design-and-accessibility.md). The [portal](https://matrixzerodesign.github.io/MDS/docs/) includes 45 component guides with type-checked examples; AI clients can start at [llms.txt](https://matrixzerodesign.github.io/MDS/llms.txt).

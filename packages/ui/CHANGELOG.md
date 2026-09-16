@@ -6,83 +6,83 @@
 
 # 0.1.0-alpha.11
 
-- 新增 Typography、Grid 与 Divider，覆盖排版层级、响应式规则网格和横纵内容分隔。
-- Navbar 与 NavDrawer 的高度、内边距和条目节奏完整跟随全局 density。
-- Toaster 新增 `placement="inline"`，可在面板或内容区域内展示带操作的通知。
-- 新增 DateField、DatePicker、TimeField、TimePicker，自定义输入和主题弹层。
-- 新增 AudioPlayer、Spinner，完善 Slider 的进度与音量使用。
-- 多色主题背景随配色变化，Atmosphere 默认跟随品牌配色；文档默认黑白主题。
+- Added Typography, Grid and Divider for type hierarchy, responsive rule grids and horizontal or vertical content separation.
+- Navbar and NavDrawer heights, padding and item rhythm now follow global density.
+- Toaster now supports `placement="inline"` for actionable notices inside panels or content regions.
+- Added DateField, DatePicker, TimeField and TimePicker with custom inputs and themed popovers.
+- Added AudioPlayer and Spinner, and refined Slider progress and volume usage.
+- Multicolor theme surfaces now follow the selected palette; Atmosphere follows brand colors by default, while docs use a monochrome theme.
 
 # 0.1.0-alpha.10
 
-- Tabs 统一为下划线内容导航，移除 alpha.9 新增的 segmented、size、shape 配置；胶囊与分段选择改用 SegmentedControl，新增 size、shape。
-- 迁移：内容面板继续使用 Tabs 并移除上述属性；周期、模式等单值选择使用 SegmentedControl。
+- Tabs are now underlined content navigation; alpha.9 segmented, size and shape options were removed. Use SegmentedControl for pill and segmented selection with its size and shape options.
+- Migration: keep content panels in Tabs without those options; use SegmentedControl for single-value choices such as billing cycles and modes.
 
 # 0.1.0-alpha.9
 
-- Tabs 新增 segmented 样式、尺寸和圆角选项，支持滑块动画、RTL、键盘及减少动态效果。首页与文档统一使用真实组件 API。
+- Tabs added segmented styles, sizes and corner options with sliding indicators, RTL, keyboard and reduced-motion support. Home and docs now use the real component API.
 
 # Changelog
 
 ## 0.1.0-alpha.8
 
-- ThemeProvider 新增六套可继承 palette；文档默认跟随系统，手动模式保存到本地。
+- ThemeProvider added six inheritable palettes; docs follow the system by default and persist manual mode locally.
 
-- 新增 Form、FormSubmit、FormErrorSummary 与提交状态 hook，保留原生表单能力并支持异步提交与错误定位。
-- Switch 支持 checkedIcon / uncheckedIcon 自定义滑块图标。
-- 文档 API 改为按组件分组的属性表。
+- Added Form, FormSubmit, FormErrorSummary and a submission-state hook while preserving native form behavior and async error focus.
+- Switch supports custom checkedIcon and uncheckedIcon thumb icons.
+- Documentation API pages now group properties by component.
 
-- SegmentedControl 使用连续滑移的选中背景，适配内容尺寸、RTL、键盘与减少动态效果。
+- SegmentedControl uses a continuously sliding selection background sized to content, with RTL, keyboard and reduced-motion support.
 
-- EmptyState 新增 thumbnail 与 thumbnailSize，支持不裁切的图片、插画和图标；保留旧 icon 用法。
-- 文档提供配图与尺寸选择，同步源码和无障碍指南。
+- EmptyState added thumbnail and thumbnailSize for uncropped images, illustrations and icons while preserving the legacy icon usage.
+- Documentation provides image and size choices alongside source and accessibility guidance.
 
 ## 0.1.0-alpha.7
 
-- 新增 ToastProvider、Toaster 和 useToast：多条通知堆叠、悬停或聚焦展开并暂停计时、定时及手动关闭、持久通知与动作。
-- Table 区分列标题与行标题，修复数据行不完整的表头底色，统一标题间距与行分隔。
+- Added ToastProvider, Toaster and useToast with stacked notices, hover or focus expansion, timer pause, manual dismissal, persistence and actions.
+- Table distinguishes column and row headers, fixes incomplete row header backgrounds and standardizes heading spacing and row separators.
 
-- ChoiceMenu 使用紧凑胶囊工具栏样式，菜单与触发器起始边对齐，区别于表单 Select；当前值作为可访问描述。
+- ChoiceMenu uses a compact pill toolbar, aligns the menu and trigger edges, and differs from the form Select; the current value is an accessible description.
 
-- ThemeProvider 支持 dir=ltr/rtl，并向 Radix 交互与浮层传递方向；嵌套根继承或独立覆盖。
-- SideSheet 增加 start/end，默认 end；NavDrawer 从 start 展开。修正 RTL 开关与原生选择器。
+- ThemeProvider supports dir=ltr/rtl and passes direction to Radix interactions and overlays; nested roots inherit or override it.
+- SideSheet added start/end with end as default; NavDrawer opens from start. RTL switches and native selectors were corrected.
 
 ## 0.1.0-alpha.6
 
-- Banner 默认使用顶部窄条样式，标题和正文横向排列，与正文 Callout 区分；窄屏保留完整内容和关闭操作。
+- Banner defaults to a compact top strip with horizontal title and body, distinct from an inline Callout; narrow screens retain full content and dismiss action.
 
 ## 0.1.0-alpha.5
 
-- 新增 AvatarGroup，支持三种尺寸、叠放头像、本地化人数溢出标签及独立文档示例。
+- Added AvatarGroup with three sizes, overlapping avatars, localized overflow counts and a dedicated docs example.
 
-- 新增 Atmosphere 渐变展示面，提供 iris、mint、peach 明暗主题配色；不引入持续动画。
-- Button 增加 contrast 语义与 pill 形状，支持明暗主题中的展示型主操作。
-- 新增欢迎卡片和功能介绍弹窗组合示例、键盘与渐变对比度验收。
+- Added the Atmosphere gradient surface with iris, mint and peach light/dark palettes; no continuous animation is used.
+- Button added contrast semantics and a pill shape for prominent actions in both themes.
+- Added welcome-card and feature-dialog composition examples with keyboard and gradient contrast checks.
 
 ## 0.1.0-alpha.4
 
-- Select 改用统一主题 listbox 与 options/onValueChange API；原生实现保留为 NativeSelect。支持表单提交、必填校验、重置、键盘与主题浮层。
-- 新增 Callout、Banner、Card 组合和 Container，附完整指南与示例。
-- 增加可辨识控件边界 token，修正 placeholder 对比度，扩展明暗主题与键盘验收。
+- Select now uses a themed listbox with the options/onValueChange API; the native implementation remains NativeSelect. Form submission, required validation, reset, keyboard use and themed overlays are supported.
+- Added Callout, Banner, Card compositions and Container with complete guides and examples.
+- Added distinguishable control-boundary tokens, fixed placeholder contrast and expanded light/dark and keyboard checks.
 
-- 更新 icons 依赖至 0.1.0-alpha.3，统一安装时获得修正后的 Webhook 图形。
+- Updated the icons dependency to 0.1.0-alpha.3 so installs receive the corrected Webhook glyph.
 
 ## 0.1.0-alpha.1
 
-- 建立 Matrix Design System 初始组件与中英文排版规范。
-- 提供独立作用域的明暗/系统主题、密度与 mt0 品牌入口。
-- 覆盖表单、浮层、导航、列表、头像、表格、步骤与反馈组件。
-- 增加 IconButton、SegmentedControl 和整卡可操作的 RadioCard。
-- 提供 Navbar、可折叠 NavRail、移动 NavDrawer、SideSheet 和独立 Collapse。
-- 增加 120–240ms 局部微动效与减少动态效果支持。
-- 提供真实组件展示站、浏览器交互/无障碍测试和 tarball 安装验证。
+- Established the initial Matrix Design System components and bilingual typography rules.
+- Added scoped light, dark and system themes, density and the mt0 brand entry point.
+- Covered forms, overlays, navigation, lists, avatars, tables, steps and feedback components.
+- Added IconButton, SegmentedControl and card-wide interactive RadioCard.
+- Added Navbar, collapsible NavRail, mobile NavDrawer, SideSheet and standalone Collapse.
+- Added local 120–240ms motion and reduced-motion support.
+- Added a live component site, browser interaction and accessibility tests, and tarball installation checks.
 
 ## 0.1.0-alpha.2
 
-- 依赖扩展后的 Icons 0.1.0-alpha.2，保留现有组件 API。
+- Updated to the expanded Icons 0.1.0-alpha.2 while preserving the existing component API.
 
 ## 0.1.0-alpha.3
 
-- 暖白与松石青绿配色，明暗主题使用独立的文字、强调色和强调色上文字。
-- 主按钮、勾选、开关、导航、Tab 与进度使用操作强调色，状态提示使用成对前景/底色。
-- 增加 info、状态背景、on-accent、hover/pressed 和 data-1…6 语义 token。
+- Added warm-white and teal-green colors with independent text, accent and on-accent values for both themes.
+- Primary buttons, checks, switches, navigation, tabs and progress use action accents; status messages use paired foreground and background colors.
+- Added info, status-background, on-accent, hover/pressed and data-1…6 semantic tokens.
