@@ -390,6 +390,26 @@
 		"pitfalls": "负数、非有限值和溢出总和会抛 RangeError；先校验外部输入或用错误边界。全零显示空态。 / Negative/nonfinite values and overflowing totals throw RangeError; validate inputs or use an error boundary. All-zero data is empty."
 	},
 	{
+		"slug": "pie-chart",
+		"names": ["PieChart"],
+		"package": "charts",
+		"purpose": "非负数值占整体的比例。 / Nonnegative parts of a whole.",
+		"guide": "类别较少且总量有意义时使用；精确比较优先 BarChart。 / Use for a small number of meaningful parts; prefer BarChart for precise comparison.",
+		"api": "title:string; data:readonly {label:string;value:number;color?:string}[]; description?: string; height?: number = 240; locale?: string; labels?: ChartLabels & { value?: string }; formatValue?: (n:number)=>string; motion?: boolean = true",
+		"a11y": "提供标题与本地化 labels，保留数据表作为比例图的替代表示。 / Provide title and translated labels; retain the data table alternative.",
+		"pitfalls": "负数、非有限值和溢出总和会抛 RangeError；先校验外部输入或用错误边界。全零显示空态。 / Negative/nonfinite values and overflowing totals throw RangeError; validate inputs or use an error boundary. All-zero data is empty."
+	},
+	{
+		"slug": "scatter-chart",
+		"names": ["ScatterChart"],
+		"package": "charts",
+		"purpose": "展示两个数值维度之间的关系。 / Show the relationship between two numeric dimensions.",
+		"guide": "使用 { label, x, y } 点；无效坐标会被忽略。 / Use { label, x, y } points; invalid coordinates are omitted.",
+		"api": "title:string; data:readonly {label:string;x:number|null;y:number|null}[]; description?:string; height?:number = 240; locale?:string; labels?:ChartLabels; formatValue?: (n:number)=>string; motion?:boolean = true",
+		"a11y": "提供标题、标签和可展开的数据表，不依赖颜色区分点。 / Provide a title, labels and an expandable data table; do not rely on color to distinguish points.",
+		"pitfalls": "x 和 y 必须是有限数值；容器宽度必须大于 0。 / x and y must be finite numbers; the container width must be nonzero."
+	},
+	{
 		"slug": "icons",
 		"names": ["Search"],
 		"package": "icons",
