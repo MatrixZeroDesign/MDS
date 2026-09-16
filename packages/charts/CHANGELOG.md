@@ -2,6 +2,8 @@
 
 - 鼠标操作图表不触发整块焦点框，键盘仍有可见焦点。
 
+- Added full pie and scatter chart components with responsive layouts, data validation and accessible labels.
+
 # Changelog
 
 ## 0.1.0-alpha.3

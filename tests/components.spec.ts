@@ -284,7 +284,7 @@ test("icon portal reports the whole maintained collection and filters", async ({
 });
 test("basic charts render and expose a data table", async ({ page }) => {
 	await page.goto("/charts?lang=zh");
-	await expect(page.locator(".mds-chart")).toHaveCount(7);
+	await expect(page.locator(".mds-chart")).toHaveCount(9);
 	await expect(page.locator(".mds-chart").first().locator(".recharts-surface")).toBeVisible();
 	await page.locator(".mds-chart-data summary").first().click();
 	await expect(page.locator(".mds-chart-data table").first()).toContainText("1,240");

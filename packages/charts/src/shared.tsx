@@ -142,7 +142,7 @@ function DataTable({
 		</details>
 	);
 }
-function ChartTip({
+export function ChartTip({
 	active,
 	payload,
 	label,
@@ -177,7 +177,7 @@ function ChartTip({
 		</div>
 	);
 }
-function Legend({ series }: { series: readonly ChartSeries[] }) {
+export function Legend({ series }: { series: readonly ChartSeries[] }) {
 	return (
 		<ul className="mds-chart-legend">
 			{series.map((s, i) => (
@@ -189,7 +189,7 @@ function Legend({ series }: { series: readonly ChartSeries[] }) {
 		</ul>
 	);
 }
-function Frame({ title, description, children }: { title: string; description?: string; children: ReactNode }) {
+export function Frame({ title, description, children }: { title: string; description?: string; children: ReactNode }) {
 	const id = useId();
 	return (
 		<figure className="mds-chart" aria-labelledby={id} aria-describedby={description ? `${id}-description` : undefined}>
@@ -202,7 +202,7 @@ function Frame({ title, description, children }: { title: string; description?: 
 	);
 }
 const markSelector = ".recharts-line, .recharts-area, .recharts-bar, .recharts-pie";
-function Plot({
+export function Plot({
 	children,
 	height,
 	signature,
@@ -348,6 +348,8 @@ export interface DonutChartProps {
 	locale?: string;
 	labels?: ChartLabels & { value?: string };
 	formatValue?: (value: number) => string;
+	/** Render a full pie instead of a ring. */
+	variant?: "donut" | "pie";
 }
 /** Nonnegative finite values only. Invalid data is rejected instead of silently changing totals. */
 export function DonutChart({
@@ -359,6 +361,7 @@ export function DonutChart({
 	locale,
 	labels,
 	formatValue,
+	variant = "donut",
 }: DonutChartProps) {
 	if (data.some((d) => !finite(d.value) || d.value < 0))
 		throw new RangeError("DonutChart values must be finite and nonnegative");
@@ -383,7 +386,7 @@ export function DonutChart({
 								nameKey="label"
 								cx="50%"
 								cy="50%"
-								innerRadius="60%"
+								innerRadius={variant === "pie" ? 0 : "60%"}
 								outerRadius="82%"
 								paddingAngle={data.filter((d) => d.value > 0).length > 1 ? 2 : 0}
 								stroke="var(--mds-surface)"
@@ -412,6 +415,8 @@ export function DonutChart({
 		</Frame>
 	);
 }
+
+export const PieChart = (props: Omit<DonutChartProps, "variant">) => <DonutChart {...props} variant="pie" />;
 
 export interface RenderChartProps {
 	common: {
