@@ -1632,5 +1632,63 @@
 		"x and y must be finite numbers; the container width must be nonzero.",
 		"x and y must be finite numbers; the container width must be nonzero.",
 		"x and y must be finite numbers; the container width must be nonzero."
-	]
+	],
+	"Revenue and conversion · Composed": [
+		"収益とコンバージョン率 · 複合",
+		"매출 및 전환율 · 복합",
+		"Revenus et conversion · Graphique combiné",
+		"Ingresos y conversión · Gráfico combinado",
+		"الإيرادات والتحويل · مخطط مركب"
+	],
+	"Conversion": ["コンバージョン率", "전환율", "Conversion", "Conversión", "معدل التحويل"],
+	"Revenue and conversion": [
+		"収益とコンバージョン率",
+		"매출 및 전환율",
+		"Revenus et conversion",
+		"Ingresos y conversión",
+		"الإيرادات والتحويل"
+	],
+	"Bars and a line share categories and use separate value axes.": [
+		"棒と折れ線はカテゴリを共有し、別々の数値軸を使用します。",
+		"막대와 선은 범주를 공유하고 별도의 값 축을 사용합니다.",
+		"Les barres et la courbe partagent les catégories et utilisent des axes de valeurs distincts.",
+		"Las barras y la línea comparten categorías y usan ejes de valores separados.",
+		"تشترك الأعمدة والخط في الفئات وتستخدم محاور قيم منفصلة."
+	],
+	"Jan": ["1月", "1월", "janv.", "ene", "يناير"],
+	"Feb": ["2月", "2월", "févr.", "feb", "فبراير"],
+	"Mar": ["3月", "3월", "mars", "mar", "مارس"],
+	"Apr": ["4月", "4월", "avr.", "abr", "أبريل"],
+	"May": ["5月", "5월", "mai", "may", "مايو"],
+	"Jun": ["6月", "6월", "juin", "jun", "يونيو"],
+	"Revenue": ["収益", "매출", "Revenus", "Ingresos", "الإيرادات"],
+	"Combine bar, line and area series on a shared category axis.": [
+		"共有カテゴリ軸上で棒、折れ線、面シリーズを組み合わせます。",
+		"공유 범주 축에서 막대, 선 및 영역 시리즈를 결합합니다.",
+		"Combinez des séries de barres, de courbes et d’aires sur un axe de catégories partagé.",
+		"Combine series de barras, líneas y áreas en un eje de categorías compartido.",
+		"ادمج سلاسل الأعمدة والخطوط والمساحات على محور فئات مشترك."
+	],
+	"Declare each mark with type and bind it to a value axis with yAxisId. Use one default axis for comparable units and dual axes only when units or magnitudes differ. Group bar and area stacks with stackId.": [
+		"各マークを type で宣言し、yAxisId で数値軸に関連付けます。同等の単位には既定の軸を1つ使用し、単位や桁が異なる場合だけ2軸を使用します。棒と面の積み上げは stackId でグループ化します。",
+		"각 마크를 type으로 선언하고 yAxisId로 값 축에 연결합니다. 비교 가능한 단위에는 하나의 기본 축을 사용하고 단위나 크기가 다를 때만 이중 축을 사용합니다. 막대와 영역 스택은 stackId로 그룹화합니다.",
+		"Déclarez chaque marque avec type et liez-la à un axe de valeurs avec yAxisId. Utilisez un seul axe par défaut pour des unités comparables et deux axes uniquement si les unités ou les ordres de grandeur diffèrent. Regroupez les empilements de barres et d’aires avec stackId.",
+		"Declare cada marca con type y vincúlela a un eje de valores mediante yAxisId. Use un eje predeterminado para unidades comparables y dos ejes solo cuando las unidades o magnitudes difieran. Agrupe las pilas de barras y áreas con stackId.",
+		"عرّف كل علامة باستخدام type واربطها بمحور قيم عبر yAxisId. استخدم محورًا افتراضيًا واحدًا للوحدات القابلة للمقارنة، ومحورين فقط عند اختلاف الوحدات أو المقاييس. اجمع تكديسات الأعمدة والمساحات باستخدام stackId."
+	],
+	"All series share an expandable exact-value table. Label and format different units clearly, and do not rely on color alone.": [
+		"すべてのシリーズは展開可能な正確値テーブルを共有します。異なる単位は明確にラベル付けして書式設定し、色だけに依存しないでください。",
+		"모든 시리즈는 펼칠 수 있는 정확한 값 표를 공유합니다. 서로 다른 단위에 명확한 레이블과 형식을 적용하고 색상에만 의존하지 마세요.",
+		"Toutes les séries partagent un tableau extensible de valeurs exactes. Étiquetez et formatez clairement les différentes unités sans vous fier uniquement à la couleur.",
+		"Todas las series comparten una tabla desplegable de valores exactos. Etiquete y formatee claramente las distintas unidades y no dependa solo del color.",
+		"تشترك جميع السلاسل في جدول قابل للتوسيع للقيم الدقيقة. سمِّ الوحدات المختلفة ونسّقها بوضوح، ولا تعتمد على اللون وحده."
+	],
+	"Series keys and y-axis ids must be unique, and yAxisId must reference a configured axis. Do not use dual axes merely for visual contrast. Represent missing values with null.": [
+		"シリーズキーとY軸IDは一意で、yAxisId は設定済みの軸を参照する必要があります。視覚的な対比だけを目的に2軸を使用しないでください。欠損値は null で表します。",
+		"시리즈 키와 y축 ID는 고유해야 하며 yAxisId는 구성된 축을 참조해야 합니다. 시각적 대비만을 위해 이중 축을 사용하지 마세요. 누락된 값은 null로 표시합니다.",
+		"Les clés de série et les identifiants d’axe Y doivent être uniques, et yAxisId doit référencer un axe configuré. N’utilisez pas deux axes uniquement pour créer un contraste visuel. Représentez les valeurs manquantes par null.",
+		"Las claves de serie y los identificadores del eje Y deben ser únicos, y yAxisId debe referirse a un eje configurado. No use dos ejes solo para crear contraste visual. Represente los valores ausentes con null.",
+		"يجب أن تكون مفاتيح السلاسل ومعرّفات محور Y فريدة، وأن يشير yAxisId إلى محور مهيأ. لا تستخدم محورين لمجرد التباين البصري. مثّل القيم المفقودة باستخدام null."
+	],
+	"ComposedChart": ["ComposedChart", "ComposedChart", "ComposedChart", "ComposedChart", "ComposedChart"]
 }

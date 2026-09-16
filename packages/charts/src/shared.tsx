@@ -18,6 +18,8 @@ export interface ChartSeries {
 	key: string;
 	label: string;
 	color?: string;
+	/** Format this series in tooltips and the accessible data table. */
+	valueFormatter?: (value: number) => string;
 	/** Override the chart point shape for this series. */
 	pointShape?: ChartPointShape | "none";
 }
@@ -49,7 +51,7 @@ export interface LineAreaChartProps extends CartesianChartProps {
 	/** Default hides markers except for a single observation. */
 	pointShape?: ChartPointShape | "none";
 }
-function pointMarker(shape: ChartPointShape, color: string, active = false) {
+export function pointMarker(shape: ChartPointShape, color: string, active = false) {
 	return ({ cx, cy }: { cx?: number; cy?: number }) => {
 		if (!finite(cx) || !finite(cy)) return <g />;
 		const r = active ? 5 : 3.5;
@@ -77,18 +79,18 @@ function pointMarker(shape: ChartPointShape, color: string, active = false) {
 }
 const colors = Array.from({ length: 6 }, (_, i) => `var(--mds-chart-${i + 1})`);
 export const colorOf = (series: { color?: string }, index: number) => series.color ?? colors[index % colors.length];
-const finite = (value: unknown): value is number => typeof value === "number" && Number.isFinite(value);
-const defaultFormatter = (locale?: string) => {
+export const finite = (value: unknown): value is number => typeof value === "number" && Number.isFinite(value);
+export const defaultFormatter = (locale?: string) => {
 	const formatter = new Intl.NumberFormat(locale, { maximumFractionDigits: 2 });
 	return (value: number) => formatter.format(value);
 };
-const axisFormatter = (locale?: string) => {
+export const axisFormatter = (locale?: string) => {
 	const formatter = new Intl.NumberFormat(locale, { notation: "compact", maximumFractionDigits: 1 });
 	return (value: number) => formatter.format(value);
 };
-const plotHeight = (height: number) => (finite(height) ? Math.max(180, height) : 240);
+export const plotHeight = (height: number) => (finite(height) ? Math.max(180, height) : 240);
 
-function DataTable({
+export function DataTable({
 	title,
 	data,
 	series,
@@ -128,7 +130,7 @@ function DataTable({
 								{series.map((s) => (
 									<td key={s.key}>
 										{finite(datum[s.key]) ? (
-											format(datum[s.key] as number)
+											(s.valueFormatter?.(datum[s.key] as number) ?? format(datum[s.key] as number))
 										) : (
 											<span aria-label={labels?.missing ?? "Missing value"}>—</span>
 										)}
@@ -148,10 +150,12 @@ export function ChartTip({
 	label,
 	format,
 	missing,
+	series,
 }: {
 	active?: boolean;
 	payload?: readonly {
 		name?: string | number;
+		dataKey?: string | number;
 		value?: unknown;
 		color?: string;
 		payload?: { label?: string; fill?: string };
@@ -159,6 +163,7 @@ export function ChartTip({
 	label?: unknown;
 	format: (n: number) => string;
 	missing?: string;
+	series?: readonly ChartSeries[];
 }) {
 	if (!active || !payload?.length) return null;
 	const heading = typeof label === "string" || typeof label === "number" ? label : payload[0]?.payload?.label;
@@ -171,7 +176,14 @@ export function ChartTip({
 						<i aria-hidden="true" style={{ background: point.color ?? point.payload?.fill }} />
 						{point.name}
 					</span>
-					<b>{finite(point.value) ? format(point.value) : <span aria-label={missing ?? "Missing value"}>—</span>}</b>
+					<b>
+						{finite(point.value) ? (
+							(series?.find((item) => item.key === String(point.dataKey))?.valueFormatter?.(point.value) ??
+							format(point.value))
+						) : (
+							<span aria-label={missing ?? "Missing value"}>—</span>
+						)}
+					</b>
 				</div>
 			))}
 		</div>
@@ -305,7 +317,7 @@ export function CartesianChart({
 			<Tooltip
 				isAnimationActive={false}
 				filterNull={false}
-				content={<ChartTip format={format} missing={labels?.missing} />}
+				content={<ChartTip format={format} missing={labels?.missing} series={series} />}
 				cursor={
 					kind === "bar"
 						? { fill: "var(--mds-hover)", stroke: "none" }

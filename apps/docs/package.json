@@ -8,7 +8,7 @@
 	},
 	"dependencies": {
 		"@matrixzero/brand-icons": "*",
-		"@matrixzero/charts": "0.1.0-alpha.4",
+		"@matrixzero/charts": "0.1.0-alpha.5",
 		"@matrixzero/icons": "*",
 		"@matrixzero/ui": "0.1.0-alpha.12",
 		"opencc-js": "^1.4.2",

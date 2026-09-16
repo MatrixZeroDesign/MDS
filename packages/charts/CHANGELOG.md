@@ -1,10 +1,15 @@
-# 0.1.0-alpha.4
+# Changelog
+
+## 0.1.0-alpha.5
+
+- Added `ComposedChart` with bar, line and area layers, shared categories, dual y-axes, per-series value formatting and independent stack groups.
+- Added a documented revenue-and-conversion example with complete translations and accessible exact-value output.
+
+## 0.1.0-alpha.4
 
 - Pointer interaction no longer triggers a focus outline around the entire chart; keyboard focus remains visible.
 
 - Added full pie and scatter chart components with responsive layouts, data validation and accessible labels.
-
-# Changelog
 
 ## 0.1.0-alpha.3
 

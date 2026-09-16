@@ -2,7 +2,7 @@
 
 Theme-aware charts for **Matrix Design System**, independently installable from the core UI package. Built on Recharts, with MDS typography, semantic theme colors, exact-value tooltips and accessible data tables.
 
-The package includes responsive line, area, bar, donut, pie and scatter charts. Every chart exposes a figure title, localized labels, reduced-motion support and an accessible representation of its data.
+The package includes responsive line, area, bar, donut, pie, scatter and composed Cartesian charts. Every chart exposes a figure title, localized labels, reduced-motion support and an accessible representation of its data.
 
 ## Installation
 
@@ -36,14 +36,44 @@ Render charts inside the MDS root/provider used by your application. Import the 
 
 ## Components
 
-| Component      | Use                                               |
-| -------------- | ------------------------------------------------- |
-| `LineChart`    | Trends and observations, including gaps           |
-| `AreaChart`    | Magnitude relative to zero; optional `stacked`    |
-| `BarChart`     | Grouped comparisons; optional `stacked`           |
-| `DonutChart`   | Nonnegative parts of a whole, with a center total |
-| `PieChart`     | Nonnegative parts of a whole                      |
-| `ScatterChart` | Relationship between two numeric dimensions       |
+| Component       | Use                                               |
+| --------------- | ------------------------------------------------- |
+| `LineChart`     | Trends and observations, including gaps           |
+| `AreaChart`     | Magnitude relative to zero; optional `stacked`    |
+| `BarChart`      | Grouped comparisons; optional `stacked`           |
+| `DonutChart`    | Nonnegative parts of a whole, with a center total |
+| `PieChart`      | Nonnegative parts of a whole                      |
+| `ScatterChart`  | Relationship between two numeric dimensions       |
+| `ComposedChart` | Bar, line and area series on shared or dual axes  |
+
+`ComposedChart` uses a discriminated `series` array rather than exposing Recharts primitives. Each series declares `type: "bar" | "line" | "area"` and can bind to a configured axis with `yAxisId`. Bar and area series can use independent `stackId` values, so grouped, stacked and overlaid series can coexist. The first y-axis is the default for series without an explicit binding.
+
+```tsx
+const compactCurrency = (value: number) => `$${Math.round(value / 1000)}k`;
+const percent = (value: number) => `${(value * 100).toFixed(1)}%`;
+
+<ComposedChart
+	title="Revenue and conversion"
+	data={[
+		{ label: "Jan", revenue: 184000, conversion: 3.2 },
+		{ label: "Feb", revenue: 216000, conversion: 3.8 },
+	]}
+	yAxes={[
+		{ id: "revenue", position: "left", valueFormatter: compactCurrency },
+		{ id: "conversion", position: "right", valueFormatter: percent },
+	]}
+	series={[
+		{ type: "bar", key: "revenue", label: "Revenue", yAxisId: "revenue" },
+		{
+			type: "line",
+			key: "conversion",
+			label: "Conversion",
+			yAxisId: "conversion",
+			valueFormatter: percent,
+		},
+	]}
+/>;
+```
 
 Cartesian charts share `CartesianChartProps`: `title`, optional `description`, `data`, `series`, `height`, `motion`, `locale`, `labels`, `formatValue`, `formatAxisValue`, and `stacked`. `stacked` affects area and bar charts only. A datum has a category `label` plus numeric or null values keyed by the series. Series keys must be unique and cannot use the reserved `label` key. A series can supply `color` to override its theme color.
 

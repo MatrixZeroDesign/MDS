@@ -80,6 +80,6 @@ export const componentSections = [
 	{
 		id: "comparison",
 		title: ["比较与构成", "Comparison & composition"],
-		slugs: ["bar-chart", "donut-chart", "pie-chart", "scatter-chart"],
+		slugs: ["bar-chart", "composed-chart", "donut-chart", "pie-chart", "scatter-chart"],
 	},
 ] as const;

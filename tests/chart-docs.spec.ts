@@ -3,7 +3,7 @@ import ts from "typescript";
 test("every gallery chart has matching executable example code and a type-specific API link", async ({ page }) => {
 	await page.goto("/charts?lang=zh");
 	const cards = page.locator(".docs-grid > .docs-card");
-	await expect(cards).toHaveCount(9);
+	await expect(cards).toHaveCount(10);
 	for (const card of await cards.all()) {
 		await card.locator("details.docs-code > summary").click();
 		const code = await card.locator("details.docs-code code").innerText();
@@ -15,7 +15,7 @@ test("every gallery chart has matching executable example code and a type-specif
 	await page.getByRole("radio", { name: "近24小时", exact: true }).click();
 	await expect(cards.first().locator("details.docs-code code")).toContainText("540");
 	const nav = page.getByRole("navigation", { name: "主导航" });
-	for (const name of ["LineChart", "AreaChart", "BarChart", "DonutChart"]) {
+	for (const name of ["LineChart", "AreaChart", "BarChart", "ComposedChart", "DonutChart"]) {
 		await nav.getByRole("link", { name: new RegExp(name + "$"), exact: true }).click();
 		await expect(page.getByRole("heading", { name: new RegExp(name + "$"), exact: true })).toBeVisible();
 		await expect(page.getByRole("region", { name: "交互示例" }).locator(".mds-chart")).toBeVisible();
@@ -36,4 +36,15 @@ test("every gallery chart has matching executable example code and a type-specif
 	await expect(page.getByRole("dialog")).toHaveCount(0);
 	await expect(page.getByRole("heading", { name: /BarChart$/, exact: true })).toBeVisible();
 	expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();
+});
+
+test("composed chart layers bar and line series on independently formatted axes", async ({ page }) => {
+	await page.goto("/charts/composed-chart?lang=en");
+	const figure = page.getByRole("figure", { name: "Revenue and conversion" });
+	await expect(figure.locator(".recharts-bar")).toBeVisible();
+	await expect(figure.locator(".recharts-line")).toBeVisible();
+	await expect(figure.locator(".recharts-yAxis")).toHaveCount(2);
+	await figure.locator("summary").click();
+	await expect(figure.getByRole("table")).toContainText("$184K");
+	await expect(figure.getByRole("table")).toContainText("3.2%");
 });
