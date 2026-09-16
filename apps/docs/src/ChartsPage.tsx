@@ -2,7 +2,7 @@ import { ArrowRight } from "@matrixzero/icons";
 import { type DocsLocale, translate } from "./i18n";
 import { ComponentDocs } from "./ComponentDocs";
 import { useState, useEffect, type ReactElement } from "react";
-import { LineChart, AreaChart, BarChart, DonutChart } from "@matrixzero/charts";
+import { LineChart, AreaChart, BarChart, DonutChart, PieChart, ScatterChart } from "@matrixzero/charts";
 import { Button, SegmentedControl } from "@matrixzero/ui";
 import "@matrixzero/charts/styles.css";
 import { appPath, routePath } from "./router";
@@ -126,6 +126,31 @@ export function ChartsPage({ locale }: { locale: DocsLocale }) {
 							{ label: t("对话服务", "Chat"), value: 64 },
 							{ label: t("知识检索", "Knowledge"), value: 24 },
 							{ label: t("代码助手", "Code"), value: 12 },
+						]}
+						locale={locale}
+						labels={labels}
+					/>
+				</ChartExample>
+				<ChartExample kind="PieChart" locale={locale}>
+					<PieChart
+						title={t("应用分布 · 饼图", "Application distribution · Pie")}
+						data={[
+							{ label: t("对话服务", "Chat"), value: 64 },
+							{ label: t("知识检索", "Knowledge"), value: 24 },
+							{ label: t("代码助手", "Code"), value: 12 },
+						]}
+						locale={locale}
+						labels={labels}
+					/>
+				</ChartExample>
+				<ChartExample kind="ScatterChart" locale={locale}>
+					<ScatterChart
+						title={t("延迟与流量 · 散点图", "Latency and traffic · Scatter")}
+						data={[
+							{ label: "A", x: 12, y: 180 },
+							{ label: "B", x: 18, y: 240 },
+							{ label: "C", x: 27, y: 310 },
+							{ label: "D", x: 36, y: 420 },
 						]}
 						locale={locale}
 						labels={labels}
