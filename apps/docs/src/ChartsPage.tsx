@@ -2,7 +2,7 @@ import { ArrowRight } from "@matrixzero/icons";
 import { type DocsLocale, translate } from "./i18n";
 import { ComponentDocs } from "./ComponentDocs";
 import { useState, useEffect, type ReactElement } from "react";
-import { LineChart, AreaChart, BarChart, DonutChart, PieChart, ScatterChart } from "@matrixzero/charts";
+import { LineChart, AreaChart, BarChart, DonutChart, PieChart, ScatterChart, ComposedChart } from "@matrixzero/charts";
 import { Button, SegmentedControl } from "@matrixzero/ui";
 import "@matrixzero/charts/styles.css";
 import { appPath, routePath } from "./router";
@@ -115,6 +115,32 @@ export function ChartsPage({ locale }: { locale: DocsLocale }) {
 						title={t("每日比较 · 柱状图", "Daily comparison · Bar")}
 						data={data}
 						series={series}
+						locale={locale}
+						labels={labels}
+					/>
+				</ChartExample>
+				<ChartExample kind="ComposedChart" locale={locale}>
+					<ComposedChart
+						title={t("收入与转化率 · 组合图", "Revenue and conversion · Composed")}
+						data={data.map((datum, index) => ({
+							...datum,
+							conversion: [0.032, 0.038, 0.041, 0.046, 0.043, 0.051, 0.048][index],
+						}))}
+						yAxes={[
+							{ id: "requests", position: "left" },
+							{ id: "conversion", position: "right", min: 0 },
+						]}
+						series={[
+							{ type: "bar", key: "requests", label: t("请求量", "Requests"), yAxisId: "requests" },
+							{
+								type: "line",
+								key: "conversion",
+								label: t("转化率", "Conversion"),
+								yAxisId: "conversion",
+								smooth: true,
+								pointShape: "circle",
+							},
+						]}
 						locale={locale}
 						labels={labels}
 					/>

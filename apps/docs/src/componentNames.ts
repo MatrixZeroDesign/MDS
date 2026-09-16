@@ -63,6 +63,7 @@ export const componentNames: Record<string, string> = {
 	"line-chart": "折线图",
 	"area-chart": "面积图",
 	"bar-chart": "柱状图",
+	"composed-chart": "组合图",
 	"donut-chart": "环形图",
 	icons: "图标",
 	callout: "正文提示",

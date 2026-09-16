@@ -1,7 +1,21 @@
 import { test, expect } from "@playwright/test";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { LineChart, DonutChart } from "../packages/charts/dist/index.js";
+import { ComposedChart, LineChart, DonutChart } from "../packages/charts/dist/index.js";
+
+test("composed charts validate series and axis identifiers", () => {
+	const data = [{ label: "Jan", revenue: 10, conversion: 0.2 }];
+	expect(() =>
+		renderToStaticMarkup(
+			createElement(ComposedChart, {
+				title: "Revenue",
+				data,
+				yAxes: [{ id: "revenue" }],
+				series: [{ type: "line", key: "conversion", label: "Conversion", yAxisId: "missing" }],
+			}),
+		),
+	).toThrow("configured y-axis");
+});
 
 test("chart tables retain exact values and distinguish missing observations from zero", () => {
 	const html = renderToStaticMarkup(

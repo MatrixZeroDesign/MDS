@@ -4,6 +4,7 @@ export { BarChart } from "./bar.js";
 export { DonutChart } from "./shared.js";
 export { PieChart } from "./shared.js";
 export { ScatterChart } from "./scatter.js";
+export { ComposedChart } from "./composed.js";
 export type {
 	ChartDatum,
 	ChartSeries,
@@ -14,3 +15,12 @@ export type {
 	DonutChartProps,
 } from "./shared.js";
 export type { ScatterChartProps, ScatterDatum } from "./scatter.js";
+export type {
+	ChartXAxis,
+	ChartYAxis,
+	ComposedAreaSeries,
+	ComposedBarSeries,
+	ComposedChartProps,
+	ComposedChartSeries,
+	ComposedLineSeries,
+} from "./composed.js";

@@ -65,6 +65,7 @@ export const playgroundControls: Record<string, PlaygroundControl[]> = {
 		motion,
 		{ key: "stacked", label: ["堆叠", "Stacked"], values: ["false", "true"], initial: "false", boolean: true },
 	],
+	"composed-chart": [motion],
 	"donut-chart": [motion],
 };
 export const playgroundLabels: Record<string, [string, string]> = {

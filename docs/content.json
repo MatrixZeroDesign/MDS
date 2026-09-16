@@ -380,6 +380,16 @@
 		"pitfalls": "series.key 必须唯一且不能为 label；缺失值不能填 0。容器宽度必须大于 0。LineChart 的 stacked 无效果。 / Series keys must be unique and cannot be label. Do not convert missing values to zero. Container width must be nonzero; stacked does not affect LineChart."
 	},
 	{
+		"slug": "composed-chart",
+		"names": ["ComposedChart"],
+		"package": "charts",
+		"purpose": "在共享分类轴上组合柱形、折线和面积系列。 / Combine bar, line and area series on a shared category axis.",
+		"guide": "每个系列用 type 声明图形，通过 yAxisId 绑定数值轴。常见情况只使用默认轴；单位或数量级不同时再配置双轴。bar 和 area 可分别用 stackId 分组。 / Declare each mark with type and bind it to a value axis with yAxisId. Use one default axis for comparable units and dual axes only when units or magnitudes differ. Group bar and area stacks with stackId.",
+		"api": "title:string; data:readonly ChartDatum[]; series:readonly ComposedChartSeries[]; xAxis?:ChartXAxis; yAxes?:readonly ChartYAxis[]; description?:string; height?:number = 240; motion?:boolean = true; locale?:string; labels?:ChartLabels; formatValue?: (n:number)=>string; series.type: \"bar\" | \"line\" | \"area\"; series.yAxisId?:string; bar/area series.stackId?:string; series.valueFormatter?: (n:number)=>string",
+		"a11y": "所有系列共享一个可展开精确数据表；为不同单位提供明确系列标签和格式化值，不依赖颜色区分。 / All series share an expandable exact-value table. Label and format different units clearly, and do not rely on color alone.",
+		"pitfalls": "series.key 和 yAxes.id 必须唯一；yAxisId 必须引用已配置轴。不要仅为制造视觉差异使用双轴。缺失值使用 null。 / Series keys and y-axis ids must be unique, and yAxisId must reference a configured axis. Do not use dual axes merely for visual contrast. Represent missing values with null."
+	},
+	{
 		"slug": "donut-chart",
 		"names": ["DonutChart"],
 		"package": "charts",
