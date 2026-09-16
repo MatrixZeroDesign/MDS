@@ -88,7 +88,7 @@ All overlays render in the current ThemeProvider portal container and retain its
 
 ## Releases and upgrades
 
-详见 [发布规范](docs/releasing.md)、[主题与组件边界](docs/architecture.md)、[动效规范](docs/motion.md)。
+See the [release guide](docs/releasing.md), [theme and component boundaries](docs/architecture.md), and [motion guide](docs/motion.md).
 
 Preview packages use the `next` dist-tag and stable packages use `latest`. Consumers pin versions and upgrade through an MR; MT0 dependencies never change silently. Creating the independent repository does not mean MT0 has completed its migration.
 
@@ -101,6 +101,6 @@ Preview packages use the `next` dist-tag and stable packages use `latest`. Consu
 
 MDS uses the MIT License; third-party dependencies retain their own licenses.
 
-## Usage and AI guides / 组件使用文档
+## Usage and AI guides
 
 See [documentation maintenance and source](docs/README.md), [integration](docs/guides/integration.md), and [design guidance](docs/guides/design-and-accessibility.md). The [portal](https://matrixzerodesign.github.io/MDS/docs/) includes 45 component guides with type-checked examples; AI clients can start at [llms.txt](https://matrixzerodesign.github.io/MDS/llms.txt).
