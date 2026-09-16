@@ -2,6 +2,8 @@
 
 Theme-aware charts for **Matrix Design System**, independently installable from the core UI package. Built on Recharts, with MDS typography, semantic theme colors, exact-value tooltips and accessible data tables.
 
+The package includes responsive line, area, bar, donut, pie and scatter charts. Every chart exposes a figure title, localized labels, reduced-motion support and an accessible representation of its data.
+
 ## Installation
 
 Install compatible versions of `@matrixzero/ui`, `@matrixzero/charts`, React and React DOM from the public npm registry. React 19 is required. Charts are not included in the core UI bundle.
@@ -34,16 +36,20 @@ Render charts inside the MDS root/provider used by your application. Import the 
 
 ## Components
 
-| Component    | Use                                               |
-| ------------ | ------------------------------------------------- |
-| `LineChart`  | Trends and observations, including gaps           |
-| `AreaChart`  | Magnitude relative to zero; optional `stacked`    |
-| `BarChart`   | Grouped comparisons; optional `stacked`           |
-| `DonutChart` | Nonnegative parts of a whole, with a center total |
+| Component      | Use                                               |
+| -------------- | ------------------------------------------------- |
+| `LineChart`    | Trends and observations, including gaps           |
+| `AreaChart`    | Magnitude relative to zero; optional `stacked`    |
+| `BarChart`     | Grouped comparisons; optional `stacked`           |
+| `DonutChart`   | Nonnegative parts of a whole, with a center total |
+| `PieChart`     | Nonnegative parts of a whole                      |
+| `ScatterChart` | Relationship between two numeric dimensions       |
 
 Cartesian charts share `CartesianChartProps`: `title`, optional `description`, `data`, `series`, `height`, `motion`, `locale`, `labels`, `formatValue`, `formatAxisValue`, and `stacked`. `stacked` affects area and bar charts only. A datum has a category `label` plus numeric or null values keyed by the series. Series keys must be unique and cannot use the reserved `label` key. A series can supply `color` to override its theme color.
 
 Donut data contains `{ label, value, color? }` entries. The same display props apply, except `series`, `stacked` and `formatAxisValue`. `labels.value` names the table's value column; optional `labels.total` adds a translated label under the center total.
+
+Pie data uses the same shape as donut data. Scatter data contains `{ label, x, y }` points; invalid coordinates are omitted and an empty message is shown when no finite points remain.
 
 Default chart height is 240 pixels, with a minimum of 180 pixels. The container must have a nonzero width. Layout is responsive, including 320-pixel viewports. Long tables scroll independently and are keyboard focusable.
 
