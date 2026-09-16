@@ -1582,5 +1582,55 @@
 		"Latency and traffic · Scatter",
 		"Latency and traffic · Scatter",
 		"Latency and traffic · Scatter"
+	],
+	"Traffic distribution": [
+		"Traffic distribution",
+		"Traffic distribution",
+		"Traffic distribution",
+		"Traffic distribution",
+		"Traffic distribution"
+	],
+	"Latency and traffic": [
+		"Latency and traffic",
+		"Latency and traffic",
+		"Latency and traffic",
+		"Latency and traffic",
+		"Latency and traffic"
+	],
+	"Observations": ["Observations", "Observations", "Observations", "Observations", "Observations"],
+	"Use for a small number of meaningful parts; prefer BarChart for precise comparison.": [
+		"Use for a small number of meaningful parts; prefer BarChart for precise comparison.",
+		"Use for a small number of meaningful parts; prefer BarChart for precise comparison.",
+		"Use for a small number of meaningful parts; prefer BarChart for precise comparison.",
+		"Use for a small number of meaningful parts; prefer BarChart for precise comparison.",
+		"Use for a small number of meaningful parts; prefer BarChart for precise comparison."
+	],
+	"Show the relationship between two numeric dimensions.": [
+		"Show the relationship between two numeric dimensions.",
+		"Show the relationship between two numeric dimensions.",
+		"Show the relationship between two numeric dimensions.",
+		"Show the relationship between two numeric dimensions.",
+		"Show the relationship between two numeric dimensions."
+	],
+	"Use { label, x, y } points; invalid coordinates are omitted.": [
+		"Use { label, x, y } points; invalid coordinates are omitted.",
+		"Use { label, x, y } points; invalid coordinates are omitted.",
+		"Use { label, x, y } points; invalid coordinates are omitted.",
+		"Use { label, x, y } points; invalid coordinates are omitted.",
+		"Use { label, x, y } points; invalid coordinates are omitted."
+	],
+	"Provide a title, labels and an expandable data table; do not rely on color to distinguish points.": [
+		"Provide a title, labels and an expandable data table; do not rely on color to distinguish points.",
+		"Provide a title, labels and an expandable data table; do not rely on color to distinguish points.",
+		"Provide a title, labels and an expandable data table; do not rely on color to distinguish points.",
+		"Provide a title, labels and an expandable data table; do not rely on color to distinguish points.",
+		"Provide a title, labels and an expandable data table; do not rely on color to distinguish points."
+	],
+	"x and y must be finite numbers; the container width must be nonzero.": [
+		"x and y must be finite numbers; the container width must be nonzero.",
+		"x and y must be finite numbers; the container width must be nonzero.",
+		"x and y must be finite numbers; the container width must be nonzero.",
+		"x and y must be finite numbers; the container width must be nonzero.",
+		"x and y must be finite numbers; the container width must be nonzero."
 	]
 }
