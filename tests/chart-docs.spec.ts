@@ -3,7 +3,7 @@ import ts from "typescript";
 test("every gallery chart has matching executable example code and a type-specific API link", async ({ page }) => {
 	await page.goto("/charts?lang=zh");
 	const cards = page.locator(".docs-grid > .docs-card");
-	await expect(cards).toHaveCount(7);
+	await expect(cards).toHaveCount(9);
 	for (const card of await cards.all()) {
 		await card.locator("details.docs-code > summary").click();
 		const code = await card.locator("details.docs-code code").innerText();

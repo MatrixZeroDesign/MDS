@@ -68,7 +68,7 @@ test("charts stay within narrow screens and expose the selected dataset as a tab
 
 test("donut tooltip paints above its center total", async ({ page }) => {
 	await page.goto("/charts?lang=zh");
-	const donut = page.locator(".mds-chart-donut");
+	const donut = page.locator(".mds-chart-donut").first();
 	await donut.scrollIntoViewIfNeeded();
 	const point = await donut
 		.locator(".recharts-pie-sector path")
