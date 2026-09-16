@@ -14,20 +14,20 @@ import "@matrixzero/ui/styles.css";
 import "@matrixzero/charts/styles.css";
 
 <LineChart
-	title="Requests / 请求量"
-	description="Daily observations · 每日采样"
+	title="Requests"
+	description="Daily observations"
 	locale="zh-CN"
 	data={[
 		{ label: "Mon", requests: 1240 },
 		{ label: "Tue", requests: null },
 		{ label: "Wed", requests: 1830 },
 	]}
-	series={[{ key: "requests", label: "Requests / 请求量" }]}
+	series={[{ key: "requests", label: "Requests" }]}
 	labels={{
-		dataTable: "查看数据",
-		category: "日期",
-		empty: "暂无数据",
-		missing: "缺失值",
+		dataTable: "View data",
+		category: "Day",
+		empty: "No data",
+		missing: "Missing",
 	}}
 />;
 ```

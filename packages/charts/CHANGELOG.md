@@ -1,6 +1,6 @@
 # 0.1.0-alpha.4
 
-- 鼠标操作图表不触发整块焦点框，键盘仍有可见焦点。
+- Pointer interaction no longer triggers a focus outline around the entire chart; keyboard focus remains visible.
 
 - Added full pie and scatter chart components with responsive layouts, data validation and accessible labels.
 
@@ -8,9 +8,9 @@
 
 ## 0.1.0-alpha.3
 
-- 修复环形图中心总数穿透 tooltip 的层级问题；浮层始终绘制在总数之上。
-- 图形进入与数据更新采用 220ms 局部透明度过渡，tooltip 使用 120ms 淡入；数值与几何位置直接呈现真实数据。
-- 新增 `motion` 开关；跟随系统减少动态效果偏好并取消进行中的过渡，更新保留键盘焦点。
+- Fixed donut center totals appearing above tooltips; the overlay is always rendered above the total.
+- Chart entry and data updates use a local 220ms opacity transition; tooltips fade in over 120ms while values and geometry reflect committed data immediately.
+- Added the `motion` switch; it follows reduced-motion preferences, cancels active transitions and preserves keyboard focus across updates.
 
 ## 0.1.0-alpha.1
 
@@ -22,5 +22,5 @@
 
 ## 0.1.0-alpha.2
 
-- 图表采用六色分类调色板，不把状态告警与类别混用。
-- 使用 UI 的 data-1…6 token；旧版 UI 保留原颜色 fallback。
+- Charts use a six-color categorical palette instead of mixing status alerts with categories.
+- Charts use the UI data-1…6 tokens, with legacy color fallbacks for older UI versions.
