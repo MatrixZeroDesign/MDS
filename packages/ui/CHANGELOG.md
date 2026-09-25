@@ -1,3 +1,8 @@
+# 0.1.0-alpha.13
+
+- Add `CircularProgress` with determinate and indeterminate states, accessible value text, responsive sizing, and reduced-motion behavior.
+- Add `leadingIcon` and `trailingIcon` slots to `Button` with consistent spacing and automatic icon sizing.
+
 # 0.1.0-alpha.12
 
 - Add automatic SegmentedControl overflow arrows, single-line options, edge fades, and accessible scroll labels.

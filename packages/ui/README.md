@@ -9,7 +9,7 @@ Public release, licensed under MIT.
 Install and pin a version from the public npm registry:
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.12
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.13
 ```
 
 ```tsx
