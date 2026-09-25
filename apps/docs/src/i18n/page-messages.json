@@ -960,6 +960,23 @@
 		"Módulo de escenario y utilidades de diseño compartidas.",
 		"وحدة السيناريو وأدوات التخطيط المشتركة."
 	],
+	"Scenario source": [
+		"シナリオのソース",
+		"시나리오 소스",
+		"Code du scénario",
+		"Código del escenario",
+		"مصدر السيناريو"
+	],
+	"Read, copy or share the actual source files used by this scenario.": [
+		"このシナリオで実際に使用しているソースファイルを表示、コピー、共有できます。",
+		"이 시나리오에서 실제로 사용하는 소스 파일을 읽고 복사하거나 공유하세요.",
+		"Consultez, copiez ou partagez les fichiers source réellement utilisés par ce scénario.",
+		"Consulta, copia o comparte los archivos fuente reales que utiliza este escenario.",
+		"اقرأ ملفات المصدر الفعلية المستخدمة في هذا السيناريو أو انسخها أو شاركها."
+	],
+	"Source files": ["ソースファイル", "소스 파일", "Fichiers source", "Archivos fuente", "ملفات المصدر"],
+	"Copy source": ["ソースをコピー", "소스 복사", "Copier le code", "Copiar código", "نسخ المصدر"],
+	"View on GitHub": ["GitHub で表示", "GitHub에서 보기", "Voir sur GitHub", "Ver en GitHub", "عرض على GitHub"],
 	"PRODUCT EXPERIENCES": ["製品体験", "제품 경험", "EXPÉRIENCES PRODUIT", "EXPERIENCIAS DE PRODUCTO", "تجارب المنتجات"],
 	"One design language. Many possibilities.": [
 		"ひとつのデザイン言語。広がる可能性。",
