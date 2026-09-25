@@ -104,3 +104,5 @@ MDS uses the MIT License; third-party dependencies retain their own licenses.
 ## Usage and AI guides
 
 See [documentation maintenance and source](docs/README.md), [integration](docs/guides/integration.md), and [design guidance](docs/guides/design-and-accessibility.md). The [portal](https://matrixzerodesign.github.io/MDS/docs/) includes 45 component guides with type-checked examples; AI clients can start at [llms.txt](https://matrixzerodesign.github.io/MDS/llms.txt).
+
+AI coding tools can use the versioned [MDS skill](skills/mds/SKILL.md). Download the complete `skills/mds` folder or give the raw `SKILL.md` URL to an AI tool so it can load the component selection, theming, accessibility, and composition guidance with its supporting references.

@@ -11,3 +11,4 @@ scratchpad/
 # Generated from canonical documentation and compiled package declarations
 apps/docs/public/docs/
 apps/docs/public/llms*.txt
+apps/docs/public/skills/
