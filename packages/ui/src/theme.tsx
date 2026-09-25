@@ -1,4 +1,4 @@
-import { DirectionProvider, useDirection } from "@radix-ui/react-direction";
+import { DirectionProvider, useDirection } from "./primitives/direction.js";
 import { createContext, useContext, useState } from "react";
 import type { ComponentProps, CSSProperties } from "react";
 import { DensityContext } from "./density-context.js";

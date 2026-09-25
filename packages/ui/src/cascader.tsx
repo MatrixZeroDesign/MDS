@@ -1,5 +1,5 @@
 import { useRef, useState, type KeyboardEvent } from "react";
-import { useDirection } from "@radix-ui/react-direction";
+import { useDirection } from "./primitives/direction.js";
 import { ChevronDown, Check } from "@matrixzero/icons";
 import { Popover, PopoverTrigger, PopoverContent } from "./popover.js";
 

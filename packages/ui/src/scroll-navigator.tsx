@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
-import * as Tooltip from "@radix-ui/react-tooltip";
-import { useDirection } from "@radix-ui/react-direction";
+import * as Tooltip from "./primitives/tooltip.js";
+import { useDirection } from "./primitives/direction.js";
 import { cx } from "./controls.js";
 import { usePortalContainer } from "./theme.js";
 

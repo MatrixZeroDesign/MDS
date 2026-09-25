@@ -2,7 +2,7 @@
 
 MDS is the React design system for Matrix products. It provides bilingual typography guidance, independent themes, accessible components, and restrained micro-interactions. The component package is **@matrixzero/ui**, presented as **Matrix UI**.
 
-UI is currently **0.1.0-alpha.13**, Icons is **0.1.0-alpha.5**, Charts is **0.1.0-alpha.4**, and Brand Icons is **0.1.0-alpha.1**. These packages are ready for product development.
+UI is currently **0.1.0-alpha.14**, Icons is **0.1.0-alpha.5**, Charts is **0.1.0-alpha.4**, and Brand Icons is **0.1.0-alpha.1**. These packages are ready for product development.
 
 Documentation site: [Matrix Design System](https://matrixzerodesign.github.io/MDS/). It includes interactive components, installation and API guides, charts, and a searchable icon catalog.
 
@@ -19,7 +19,7 @@ Documentation site: [Matrix Design System](https://matrixzerodesign.github.io/MD
 
 ## Local development
 
-Node.js 22 LTS、npm 10。
+Use Node.js 22 LTS and npm 10.
 
 ```sh
 npm ci
@@ -46,7 +46,7 @@ Browser tests cover real interactions and Axe WCAG checks; they do not replace m
 Packages are published to the public npm registry; consumers need no additional registry configuration.
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.13
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.14
 ```
 
 ```tsx
@@ -57,10 +57,10 @@ import "@matrixzero/ui/themes/mt0.css";
 export function Settings() {
 	return (
 		<ThemeProvider brand="mt0" mode="system">
-			<Field label="工作区名称 / Workspace name" required>
+			<Field label="Workspace name" required>
 				<Input name="workspace" defaultValue="Engineering" />
 			</Field>
-			<Button variant="primary">保存 Save</Button>
+			<Button variant="primary">Save</Button>
 		</ThemeProvider>
 	);
 }
@@ -84,7 +84,7 @@ The packages do not depend on consumer Tailwind configuration. React and React D
 
 Field associates the label, description, error, required, and disabled states. Pass an explicit ID to Field when needed; do not assign a conflicting ID to the inner control. Non-MDS controls can integrate through `useFieldProps`.
 
-All overlays render in the current ThemeProvider portal container and retain its brand and appearance tokens. Menus do not lock scrolling by default (ChoiceMenu is always non-modal; set `modal={false}` when using DropdownMenu); a truly modal Dialog uses Radix focus and scroll locking. Avoid `transform`/`filter`/`contain:paint` on ThemeProvider ancestors because they change fixed-overlay positioning.
+All overlays render in the current ThemeProvider portal container and retain its brand and appearance tokens. Menus do not lock scrolling by default (ChoiceMenu is always non-modal; set `modal={false}` when using DropdownMenu); a truly modal Dialog uses MDS-owned focus management and scroll locking. Avoid `transform`/`filter`/`contain:paint` on ThemeProvider ancestors because they change fixed-overlay positioning.
 
 ## Releases and upgrades
 
@@ -94,7 +94,7 @@ Preview packages use the `next` dist-tag and stable packages use `latest`. Consu
 
 ## Sources and design references
 
-- We reuse the interaction foundation from [Radix Primitives](https://www.radix-ui.com/primitives/docs/overview/introduction); MDS owns visual design, composition, and theme boundaries.
+- MDS owns its interaction primitives, visual design, composition, and theme boundaries.
 - [shadcn shared UI packages](https://ui.shadcn.com/docs/monorepo) informed the independent package organization; this project publishes compiled CSS so consumers do not scan package source.
 - We reference the clarity and restraint of [OpenAI UI guidelines](https://developers.openai.com/plugins/concepts/ui-guidelines); MDS is an independent implementation and does not claim to use ChatGPT internal code.
 - [npm trusted publishing](https://docs.npmjs.com/trusted-publishers/) provides public package distribution and build provenance.

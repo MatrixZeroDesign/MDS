@@ -9,6 +9,7 @@ test("range picker selects two endpoints, submits, resets, and keeps popup scope
 	await trigger.click();
 	const popup = page.locator(".mds-portals .mds-date-popover");
 	await expect(popup).toBeVisible();
+	await expect(popup.locator(".mds-calendar")).toHaveClass(/mds-range-calendar/);
 	await popup.getByRole("button", { name: /October 18, 2026/ }).click();
 	await popup.getByRole("button", { name: /October 23, 2026/ }).click();
 	await expect(popup).toBeHidden();

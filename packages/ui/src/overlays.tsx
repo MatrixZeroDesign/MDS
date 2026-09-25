@@ -1,12 +1,13 @@
-import { useDirection } from "@radix-ui/react-direction";
+import { useDirection } from "./primitives/direction.js";
 import { useId } from "react";
 import type { ComponentProps, ReactNode } from "react";
-import * as Menu from "@radix-ui/react-dropdown-menu";
-import * as D from "@radix-ui/react-dialog";
-import * as T from "@radix-ui/react-tooltip";
+import * as Menu from "./primitives/dropdown-menu.js";
+import * as D from "./primitives/dialog.js";
+import * as T from "./primitives/tooltip.js";
 import { Check, ChevronDown, X } from "@matrixzero/icons";
 import { cx, Button } from "./controls.js";
 import { usePortalContainer } from "./theme.js";
+import type { FloatingPlacement } from "./primitives/floating.js";
 export interface ChoiceOption {
 	value: string;
 	label: string;
@@ -22,6 +23,8 @@ export interface ChoiceMenuProps {
 	id?: string;
 	placeholder?: string;
 	className?: string;
+	/** Preferred menu side and alignment, including automatic placement. */
+	placement?: FloatingPlacement;
 }
 /** Non-modal selection menu. Uses menuitemradio semantics, not a form select/combobox. */
 export function ChoiceMenu({
@@ -33,6 +36,7 @@ export function ChoiceMenu({
 	id,
 	placeholder = "—",
 	className,
+	placement,
 }: ChoiceMenuProps) {
 	const container = usePortalContainer();
 	const selectedId = useId();
@@ -50,7 +54,14 @@ export function ChoiceMenu({
 			</Menu.Trigger>
 			{container && (
 				<Menu.Portal container={container}>
-					<Menu.Content align="start" sideOffset={6} collisionPadding={12} loop className="mds-menu">
+					<Menu.Content
+						placement={placement}
+						align="start"
+						sideOffset={6}
+						collisionPadding={12}
+						loop
+						className="mds-menu"
+					>
 						<Menu.Label className="mds-menu-label">{label}</Menu.Label>
 						<Menu.RadioGroup value={value} onValueChange={onValueChange}>
 							{options.map((o) => (
@@ -131,14 +142,29 @@ export function DialogContent({ title, description, closeLabel, children, classN
 	) : null;
 }
 export const TooltipProvider = T.Provider;
-export function Tooltip({ content, children }: { content: ReactNode; children: ReactNode }) {
+export interface TooltipProps {
+	content: ReactNode;
+	children: ReactNode;
+	/** Preferred tooltip side and alignment, including automatic placement. */
+	placement?: FloatingPlacement;
+	sideOffset?: number;
+	collisionPadding?: number;
+}
+export function Tooltip({ content, children, placement = "top", sideOffset = 6, collisionPadding = 10 }: TooltipProps) {
 	const container = usePortalContainer();
+	const direction = useDirection();
 	return (
 		<T.Root>
 			<T.Trigger asChild>{children}</T.Trigger>
 			{container && (
 				<T.Portal container={container}>
-					<T.Content sideOffset={6} collisionPadding={10} className="mds-tooltip">
+					<T.Content
+						dir={direction}
+						placement={placement}
+						sideOffset={sideOffset}
+						collisionPadding={collisionPadding}
+						className="mds-tooltip"
+					>
 						{content}
 						<T.Arrow className="mds-tooltip-arrow" />
 					</T.Content>

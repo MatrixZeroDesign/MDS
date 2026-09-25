@@ -1,13 +1,13 @@
 # Integration guide
 
-Applies to React 19, @matrixzero/ui 0.1.0-alpha.13, @matrixzero/icons 0.1.0-alpha.4 and @matrixzero/charts 0.1.0-alpha.4. Pin these versions when reproducing examples. This is an alpha API; inspect the installed declarations before upgrading.
+Applies to React 19, @matrixzero/ui 0.1.0-alpha.14, @matrixzero/icons 0.1.0-alpha.4 and @matrixzero/charts 0.1.0-alpha.4. Pin these versions when reproducing examples. This is an alpha API; inspect the installed declarations before upgrading.
 
 ## Install
 
 Install from the public npm registry; no project-level registry configuration is required:
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.13 @matrixzero/icons@0.1.0-alpha.4
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.14 @matrixzero/icons@0.1.0-alpha.4
 # Optional charts
 npm install --save-exact @matrixzero/charts@0.1.0-alpha.4
 ```

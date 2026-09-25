@@ -1,34 +1,11 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import { useDirection } from "@radix-ui/react-direction";
-import { CalendarDate, Time, parseDate, parseTime } from "@internationalized/date";
-import {
-	DatePicker as AriaDatePicker,
-	DateField as AriaDateField,
-	TimeField as AriaTimeField,
-	DateInput,
-	DateSegment,
-	Group,
-	Button,
-	Popover,
-	Dialog,
-	Calendar,
-	CalendarGrid,
-	CalendarGridHeader,
-	CalendarHeaderCell,
-	CalendarGridBody,
-	CalendarCell,
-	Heading,
-	Label,
-	Text,
-	FieldError,
-	I18nProvider,
-	DialogTrigger,
-	ListBox,
-	ListBoxItem,
-} from "react-aria-components";
-import { Calendar as CalendarIcon, Clock, ChevronLeft, ChevronRight } from "@matrixzero/icons";
+import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
+import { Calendar as CalendarIcon, Clock } from "@matrixzero/icons";
 import { cx, useFieldProps } from "./controls.js";
+import { useDirection } from "./primitives/direction.js";
+import * as Popover from "./primitives/popover.js";
+import { CalendarPanel, DateSegments, TimeSegments, parseDateParts, parseTimeParts } from "./primitives/temporal.js";
 import { usePortalContainer } from "./theme.js";
+
 export interface DateTimeFieldProps {
 	/** Gregorian date YYYY-MM-DD or local time HH:mm. Empty string clears the field. */
 	value?: string;
@@ -64,22 +41,7 @@ export interface TimePickerProps extends TimeFieldProps {
 	/** Suggested time slots only. Manual input accepts any valid minute. */
 	minuteStep?: 15 | 30 | 60;
 }
-function date(value?: string) {
-	if (!value) return null;
-	try {
-		return parseDate(value);
-	} catch {
-		return null;
-	}
-}
-function time(value?: string) {
-	if (!value) return null;
-	try {
-		return parseTime(value);
-	} catch {
-		return null;
-	}
-}
+
 function Temporal({
 	kind,
 	picker = false,
@@ -107,15 +69,40 @@ function Temporal({
 	const container = usePortalContainer();
 	const direction = useDirection();
 	const root = useRef<HTMLDivElement>(null);
+	const validation = useRef<HTMLInputElement>(null);
 	const [internal, setInternal] = useState(defaultValue);
 	const [open, setOpen] = useState(false);
+	const [showInvalid, setShowInvalid] = useState(false);
 	const selected = value === undefined ? internal : value;
-	const change = (next: CalendarDate | Time | null) => {
-		const text = next?.toString() ?? "";
-		const normalized = kind === "time" ? text.slice(0, 5) : text;
-		if (value === undefined) setInternal(normalized);
-		onValueChange?.(normalized);
+	const labelText = typeof label === "string" ? label : (props["aria-label"] ?? (kind === "date" ? "Date" : "Time"));
+	const descriptionId = useId(),
+		errorId = useId();
+	const parsed = kind === "date" ? !!parseDateParts(selected) : !!parseTimeParts(selected);
+	const invalid =
+		(!!selected && !parsed) ||
+		(!!minValue && selected < minValue) ||
+		(!!maxValue && selected > maxValue) ||
+		(kind === "date" && !!selected && !!isDateUnavailable?.(selected));
+	const requiredInvalid = !!field.required && !selected;
+	const explicitInvalid = !!error || field["aria-invalid"] === true;
+	const isInvalid = invalid || requiredInvalid || explicitInvalid;
+	const t = (cn: string, en: string) => (locale.startsWith("zh") ? cn : en);
+	const errorMessage =
+		error ||
+		t(
+			kind === "date" ? "请输入有效且在允许范围内的日期。" : "请输入有效且在允许范围内的时间。",
+			kind === "date" ? "Enter a valid date within the allowed range." : "Enter a valid time within the allowed range.",
+		);
+	const change = (next: string) => {
+		if (value === undefined) setInternal(next);
+		onValueChange?.(next);
+		setShowInvalid(false);
 	};
+	useEffect(() => {
+		validation.current?.setCustomValidity(
+			isInvalid ? String(typeof errorMessage === "string" ? errorMessage : "Invalid value") : "",
+		);
+	}, [isInvalid, errorMessage]);
 	useEffect(() => {
 		const owner = root.current?.closest("form");
 		if (!owner) return;
@@ -124,215 +111,185 @@ function Temporal({
 				if (!event.defaultPrevented && value === undefined) {
 					setInternal(defaultValue);
 					setOpen(false);
+					setShowInvalid(false);
 				}
 			});
+		const guard = (event: Event) => {
+			if (!isInvalid || field.disabled) return;
+			event.preventDefault();
+			event.stopImmediatePropagation();
+			setShowInvalid(true);
+		};
 		owner.addEventListener("reset", reset);
-		return () => owner.removeEventListener("reset", reset);
-	}, [defaultValue, value]);
-	const zh = locale.startsWith("zh");
-	const t = (cn: string, en: string) => (zh ? cn : en);
-	const errorMessage =
-		error ||
-		t(
-			kind === "date" ? "请输入有效且在允许范围内的日期。" : "请输入有效且在允许范围内的时间。",
-			kind === "date" ? "Enter a valid date within the allowed range." : "Enter a valid time within the allowed range.",
+		owner.addEventListener("submit", guard, true);
+		return () => {
+			owner.removeEventListener("reset", reset);
+			owner.removeEventListener("submit", guard, true);
+		};
+	}, [defaultValue, value, isInvalid, field.disabled]);
+	const slots = useMemo(
+		() =>
+			Array.from({ length: 1440 / minuteStep }, (_, i) => {
+				const hour = Math.floor((i * minuteStep) / 60),
+					minute = (i * minuteStep) % 60;
+				return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
+			}).filter((slot) => (!minValue || slot >= minValue) && (!maxValue || slot <= maxValue)),
+		[minuteStep, minValue, maxValue],
+	);
+	const formatter = useMemo(
+		() =>
+			new Intl.DateTimeFormat(locale, {
+				hour: "numeric",
+				minute: "2-digit",
+				hourCycle: hourCycle === 24 ? "h23" : hourCycle === 12 ? "h12" : undefined,
+				timeZone: "UTC",
+			}),
+		[locale, hourCycle],
+	);
+	const segment =
+		kind === "date" ? (
+			<DateSegments
+				value={selected}
+				label={labelText}
+				disabled={field.disabled}
+				readOnly={readOnly}
+				onChange={change}
+			/>
+		) : (
+			<TimeSegments
+				value={selected}
+				label={labelText}
+				disabled={field.disabled}
+				readOnly={readOnly}
+				onChange={change}
+			/>
 		);
-	const common = {
-		id: field.id,
-		name,
-		ref: root,
-		"aria-label": props["aria-label"],
-		"aria-labelledby": props["aria-labelledby"] ?? (!label ? field["aria-labelledby"] : undefined),
-		"aria-describedby": field["aria-describedby"],
-		isRequired: field.required,
-		isDisabled: field.disabled,
-		isReadOnly: readOnly,
-		isInvalid: !!error || field["aria-invalid"] === true,
-		validationBehavior: "native" as const,
-		className: cx("mds-temporal", className),
-	};
-	const input = (
-		<DateInput className="mds-date-input">
-			{(segment) => <DateSegment segment={segment} className="mds-date-segment" />}
-		</DateInput>
-	);
-	const prefix = (
-		<>
-			{label && (
-				<Label className="mds-label">
-					{label}
-					{field.required && (
-						<span className="mds-required" aria-hidden="true">
-							{" "}
-							*
-						</span>
-					)}
-				</Label>
-			)}
-		</>
-	);
-	const suffix = (
-		<>
-			{description && (
-				<Text slot="description" className="mds-description">
-					{description}
-				</Text>
-			)}
-			<FieldError className="mds-error">{errorMessage}</FieldError>
-		</>
-	);
-	const dateValue = date(selected),
-		timeValue = time(selected);
-	const slots = Array.from(
-		{ length: 1440 / minuteStep },
-		(_, i) => new Time(Math.floor((i * minuteStep) / 60), (i * minuteStep) % 60),
-	).filter(
-		(v) => (!time(minValue) || v.compare(time(minValue)!) >= 0) && (!time(maxValue) || v.compare(time(maxValue)!) <= 0),
-	);
-	const formatter = new Intl.DateTimeFormat(locale, {
-		hour: "numeric",
-		minute: "2-digit",
-		hourCycle: hourCycle === 24 ? "h23" : hourCycle === 12 ? "h12" : undefined,
-		timeZone: "UTC",
-	});
 	return (
-		<I18nProvider locale={locale}>
-			<div className="mds-temporal-scope" dir={direction}>
-				{kind === "date" ? (
-					picker ? (
-						<AriaDatePicker
-							{...common}
-							value={dateValue}
-							onChange={change}
-							minValue={date(minValue) ?? undefined}
-							maxValue={date(maxValue) ?? undefined}
-							isDateUnavailable={isDateUnavailable ? (v) => isDateUnavailable(v.toString()) : undefined}
-							firstDayOfWeek={firstDayOfWeek}
-							isOpen={open}
-							onOpenChange={setOpen}
-						>
-							{prefix}
-							<Group className="mds-temporal-group">
-								{input}
-								<Button
-									className="mds-temporal-trigger"
-									isDisabled={field.disabled || readOnly}
-									aria-label={t("选择日期", "Choose date")}
-								>
-									<CalendarIcon size={16} />
-								</Button>
-							</Group>
-							{suffix}
-							<Popover
-								className="mds-date-popover"
-								placement="bottom start"
-								offset={8}
-								isNonModal
-								UNSTABLE_portalContainer={container ?? undefined}
-							>
-								<Dialog className="mds-date-dialog" aria-label={t("选择日期", "Choose date")}>
-									<Calendar className="mds-calendar">
-										<div className="mds-calendar-header">
-											<Button slot="previous" className="mds-calendar-nav" aria-label={t("上个月", "Previous month")}>
-												<ChevronLeft size={16} />
-											</Button>
-											<Heading />
-											<Button slot="next" className="mds-calendar-nav" aria-label={t("下个月", "Next month")}>
-												<ChevronRight size={16} />
-											</Button>
-										</div>
-										<CalendarGrid className="mds-calendar-grid">
-											<CalendarGridHeader>{(day) => <CalendarHeaderCell>{day}</CalendarHeaderCell>}</CalendarGridHeader>
-											<CalendarGridBody>
-												{(day) => <CalendarCell date={day} className="mds-calendar-cell" />}
-											</CalendarGridBody>
-										</CalendarGrid>
-									</Calendar>
-								</Dialog>
-							</Popover>
-						</AriaDatePicker>
-					) : (
-						<AriaDateField
-							{...common}
-							value={dateValue}
-							onChange={change}
-							minValue={date(minValue) ?? undefined}
-							maxValue={date(maxValue) ?? undefined}
-						>
-							{prefix}
-							<Group className="mds-temporal-group">{input}</Group>
-							{suffix}
-						</AriaDateField>
-					)
-				) : (
-					<AriaTimeField
-						{...common}
-						value={timeValue}
-						onChange={change}
-						minValue={time(minValue) ?? undefined}
-						maxValue={time(maxValue) ?? undefined}
-						hourCycle={hourCycle}
-						granularity="minute"
+		<div className="mds-temporal-scope" dir={direction}>
+			<Popover.Root open={picker ? open : false} onOpenChange={setOpen}>
+				<div
+					ref={root}
+					id={field.id}
+					className={cx("mds-temporal", className)}
+					data-invalid={(showInvalid || explicitInvalid) && isInvalid ? "" : undefined}
+					data-disabled={field.disabled ? "" : undefined}
+					aria-describedby={
+						[
+							props["aria-describedby"],
+							description ? descriptionId : "",
+							(showInvalid || explicitInvalid) && isInvalid ? errorId : "",
+						]
+							.filter(Boolean)
+							.join(" ") || undefined
+					}
+				>
+					{label && (
+						<div className="mds-label">
+							{label}
+							{field.required && (
+								<span className="mds-required" aria-hidden="true">
+									{" "}
+									*
+								</span>
+							)}
+						</div>
+					)}
+					<div
+						className="mds-temporal-group"
+						onFocus={() => root.current?.querySelector(".mds-temporal-group")?.setAttribute("data-focus-within", "")}
+						onBlur={(event) => {
+							if (!event.currentTarget.contains(event.relatedTarget))
+								event.currentTarget.removeAttribute("data-focus-within");
+						}}
 					>
-						{prefix}
-						<Group className="mds-temporal-group">
-							{input}
-							{picker && (
-								<DialogTrigger isOpen={open} onOpenChange={setOpen}>
-									<Button
-										className="mds-temporal-trigger"
-										isDisabled={field.disabled || readOnly}
-										aria-label={t("选择时间", "Choose time")}
-									>
-										<Clock size={16} />
-									</Button>
-									<Popover
-										className="mds-date-popover mds-time-popover"
-										placement="bottom start"
-										offset={8}
-										isNonModal
-										UNSTABLE_portalContainer={container ?? undefined}
-									>
-										<Dialog className="mds-date-dialog" aria-label={t("选择时间", "Choose time")}>
-											<ListBox
-												className="mds-time-options"
-												aria-label={t("可选时间", "Available times")}
-												selectionMode="single"
-												selectedKeys={timeValue ? [timeValue.toString().slice(0, 5)] : []}
-												onSelectionChange={(keys) => {
-													const key = Array.from(keys)[0];
-													if (key) {
-														change(parseTime(String(key)));
-														setOpen(false);
-													}
-												}}
-												onAction={(key) => {
-													change(parseTime(String(key)));
+						{segment}
+						{picker && (
+							<Popover.Trigger asChild>
+								<button
+									type="button"
+									className="mds-temporal-trigger"
+									disabled={field.disabled || readOnly}
+									data-disabled={field.disabled || readOnly ? "" : undefined}
+									aria-label={kind === "date" ? t("选择日期", "Choose date") : t("选择时间", "Choose time")}
+								>
+									{kind === "date" ? <CalendarIcon size={16} /> : <Clock size={16} />}
+								</button>
+							</Popover.Trigger>
+						)}
+					</div>
+					<input
+						ref={validation}
+						className="mds-visually-hidden"
+						tabIndex={-1}
+						name={name}
+						value={selected}
+						readOnly
+						required={field.required}
+						disabled={field.disabled}
+						onInvalid={() => setShowInvalid(true)}
+						aria-hidden="true"
+					/>
+					{description && (
+						<div id={descriptionId} className="mds-description">
+							{description}
+						</div>
+					)}
+					{(showInvalid || explicitInvalid) && isInvalid && (
+						<div id={errorId} className="mds-error">
+							{errorMessage}
+						</div>
+					)}
+				</div>
+				{picker && (
+					<Popover.Portal container={container}>
+						<Popover.Content
+							side="bottom"
+							align="start"
+							sideOffset={8}
+							className={cx("mds-date-popover", kind === "time" && "mds-time-popover")}
+							aria-label={kind === "date" ? t("选择日期", "Choose date") : t("选择时间", "Choose time")}
+						>
+							<div className="mds-date-dialog">
+								{kind === "date" ? (
+									<CalendarPanel
+										locale={locale}
+										firstDayOfWeek={firstDayOfWeek}
+										value={selected}
+										minValue={minValue}
+										maxValue={maxValue}
+										unavailable={isDateUnavailable}
+										onSelect={(next) => {
+											change(next);
+											setOpen(false);
+										}}
+									/>
+								) : (
+									<div className="mds-time-options" role="listbox" aria-label={t("可选时间", "Available times")}>
+										{slots.map((slot) => (
+											<button
+												type="button"
+												role="option"
+												aria-selected={slot === selected}
+												data-selected={slot === selected ? "" : undefined}
+												className="mds-time-option"
+												key={slot}
+												onClick={() => {
+													change(slot);
 													setOpen(false);
 												}}
-												autoFocus
 											>
-												{slots.map((v) => {
-													const key = v.toString().slice(0, 5);
-													const text = formatter.format(new Date(Date.UTC(2000, 0, 1, v.hour, v.minute)));
-													return (
-														<ListBoxItem id={key} key={key} textValue={text} className="mds-time-option">
-															{text}
-														</ListBoxItem>
-													);
-												})}
-											</ListBox>
-											{!slots.length && <p>{t("没有可选时间", "No available times")}</p>}
-										</Dialog>
-									</Popover>
-								</DialogTrigger>
-							)}
-						</Group>
-						{suffix}
-					</AriaTimeField>
+												{formatter.format(new Date(`2000-01-01T${slot}:00Z`))}
+											</button>
+										))}
+										{!slots.length && <p>{t("没有可选时间", "No available times")}</p>}
+									</div>
+								)}
+							</div>
+						</Popover.Content>
+					</Popover.Portal>
 				)}
-			</div>
-		</I18nProvider>
+			</Popover.Root>
+		</div>
 	);
 }
 /** Editable date segments, without a calendar popup. */

@@ -1211,10 +1211,6 @@
 		"files": ["apps/docs/src/examples/variants/tabs--scrollable.tsx"]
 	},
 	{
-		"key": "Wrap the interface in ThemeProvider. mode controls theme; dir controls layout and Radix keyboard direction independently of language. Nested roots inherit or explicitly override direction; portals keep the same direction. Nest ThemeProvider with an explicit mode when an entire region needs a different color mode; use a component variant such as Card inverse when only one surface needs semantic contrast. palette selects one of six color families independently of mode, retaining semantic status colors.",
-		"files": ["docs/content.json:theme:guide"]
-	},
-	{
 		"key": "Yesterday",
 		"files": ["apps/docs/src/showcases/chatbot.tsx"]
 	},
