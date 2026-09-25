@@ -2,7 +2,7 @@
 
 MDS is the React design system for Matrix products. It provides bilingual typography guidance, independent themes, accessible components, and restrained micro-interactions. The component package is **@matrixzero/ui**, presented as **Matrix UI**.
 
-UI is currently **0.1.0-alpha.12**, Icons is **0.1.0-alpha.5**, Charts is **0.1.0-alpha.4**, and Brand Icons is **0.1.0-alpha.1**. These packages are ready for product development.
+UI is currently **0.1.0-alpha.13**, Icons is **0.1.0-alpha.5**, Charts is **0.1.0-alpha.4**, and Brand Icons is **0.1.0-alpha.1**. These packages are ready for product development.
 
 Documentation site: [Matrix Design System](https://matrixzerodesign.github.io/MDS/). It includes interactive components, installation and API guides, charts, and a searchable icon catalog.
 
@@ -46,7 +46,7 @@ Browser tests cover real interactions and Axe WCAG checks; they do not replace m
 Packages are published to the public npm registry; consumers need no additional registry configuration.
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.12
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.13
 ```
 
 ```tsx
