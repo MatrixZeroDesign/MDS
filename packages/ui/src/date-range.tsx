@@ -214,6 +214,7 @@ function DateRange({ picker = false, ...props }: DateRangePickerProps & { picker
 								<CalendarPanel
 									locale={locale}
 									firstDayOfWeek={firstDayOfWeek}
+									range
 									value={current?.start}
 									rangeStart={current?.start}
 									rangeEnd={current?.end || undefined}

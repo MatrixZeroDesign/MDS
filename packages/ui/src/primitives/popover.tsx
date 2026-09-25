@@ -11,6 +11,7 @@ import {
 import { createPortal } from "react-dom";
 import { Slot } from "./slot.js";
 import { useControllableState } from "./state.js";
+import { useFloatingPosition } from "./floating.js";
 
 type ContextValue = {
 	open: boolean;
@@ -98,8 +99,9 @@ export const Content = forwardRef<
 		side = "bottom",
 		align = "center",
 		sideOffset = 0,
-		collisionPadding: _collisionPadding,
+		collisionPadding = 8,
 		onOpenAutoFocus,
+		onCloseAutoFocus,
 		onEscapeKeyDown,
 		onKeyDown,
 		style,
@@ -109,10 +111,24 @@ export const Content = forwardRef<
 ) {
 	const context = useContext(Context),
 		local = useRef<HTMLDivElement | null>(null);
+	const openAutoFocus = useRef(onOpenAutoFocus),
+		closeAutoFocus = useRef(onCloseAutoFocus);
+	openAutoFocus.current = onOpenAutoFocus;
+	closeAutoFocus.current = onCloseAutoFocus;
+	const reference = context?.anchor.current ? context.anchor : context?.trigger;
+	const position = useFloatingPosition({
+		open: !!context?.open,
+		anchor: reference ?? { current: null },
+		content: local,
+		side,
+		align,
+		sideOffset,
+		collisionPadding,
+	});
 	useEffect(() => {
 		if (!context?.open) return;
 		const focusEvent = new Event("openAutoFocus", { cancelable: true });
-		onOpenAutoFocus?.(focusEvent);
+		openAutoFocus.current?.(focusEvent);
 		if (!focusEvent.defaultPrevented) {
 			queueMicrotask(() =>
 				local.current
@@ -127,22 +143,14 @@ export const Content = forwardRef<
 				context.setOpen(false);
 		};
 		document.addEventListener("pointerdown", close);
-		return () => document.removeEventListener("pointerdown", close);
-	}, [context?.open, onOpenAutoFocus]);
+		return () => {
+			document.removeEventListener("pointerdown", close);
+			const focusEvent = new Event("closeAutoFocus", { cancelable: true });
+			closeAutoFocus.current?.(focusEvent);
+			if (!focusEvent.defaultPrevented) context.trigger.current?.focus({ preventScroll: true });
+		};
+	}, [context?.open]);
 	if (!context?.open) return null;
-	const rect = (context.anchor.current ?? context.trigger.current)?.getBoundingClientRect();
-	let top = rect?.bottom ?? 0,
-		left = rect?.left ?? 0;
-	if (rect) {
-		if (side === "top") top = rect.top - sideOffset;
-		else if (side === "bottom") top = rect.bottom + sideOffset;
-		else {
-			top = rect.top;
-			left = side === "left" ? rect.left - sideOffset : rect.right + sideOffset;
-		}
-		if (align === "center") left += rect.width / 2;
-		else if (align === "end") left += rect.width;
-	}
 	return (
 		<div
 			{...props}
@@ -153,9 +161,9 @@ export const Content = forwardRef<
 			}}
 			role="dialog"
 			data-state="open"
-			data-side={side}
+			data-side={position.side}
 			data-align={align}
-			style={{ position: "fixed", top, left, ...style }}
+			style={{ ...position.style, ...style }}
 			onKeyDown={(event) => {
 				onKeyDown?.(event);
 				if (!event.defaultPrevented && event.key === "Escape") {

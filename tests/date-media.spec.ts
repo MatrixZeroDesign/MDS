@@ -11,6 +11,16 @@ test("date picker uses themed calendar, manual segments, native submission and r
 	await expect(page.locator(".mds-portals .mds-date-popover")).toBeVisible();
 	const dateCell = page.getByRole("button", { name: "Saturday, October 17, 2026", exact: true });
 	await expect(dateCell).toBeVisible();
+	await expect(dateCell).toHaveCSS("border-top-width", "0px");
+	const adjacentCell = page.getByRole("button", { name: "Sunday, October 18, 2026", exact: true });
+	const restingBackground = await adjacentCell.evaluate((element) => getComputedStyle(element).backgroundColor);
+	await adjacentCell.hover();
+	await expect
+		.poll(() => adjacentCell.evaluate((element) => getComputedStyle(element).backgroundColor))
+		.not.toBe(restingBackground);
+	await dateCell.focus();
+	await page.keyboard.press("ArrowRight");
+	await expect(adjacentCell).toBeFocused();
 	await dateCell.dispatchEvent("click");
 	await expect(example.getByRole("spinbutton", { name: "day, Appointment date", exact: true })).toHaveText("17");
 	await example.getByRole("spinbutton", { name: "day, Appointment date", exact: true }).focus();

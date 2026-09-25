@@ -3,22 +3,21 @@ import {
 	forwardRef,
 	useContext,
 	useEffect,
-	useLayoutEffect,
 	useRef,
-	useState,
 	type ButtonHTMLAttributes,
-	type CSSProperties,
 	type HTMLAttributes,
 	type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
 import { Slot } from "./slot.js";
 import { useControllableState } from "./state.js";
+import { hideOutside, useFloatingPosition } from "./floating.js";
 
 type RootContextValue = {
 	open: boolean;
 	setOpen: (open: boolean) => void;
 	trigger: React.MutableRefObject<HTMLElement | null>;
+	modal: boolean;
 };
 const RootContext = createContext<RootContextValue | null>(null);
 const RadioContext = createContext<{ value: string; setValue: (value: string) => void } | null>(null);
@@ -28,6 +27,7 @@ export function Root({
 	defaultOpen = false,
 	onOpenChange,
 	children,
+	modal = true,
 }: {
 	open?: boolean;
 	defaultOpen?: boolean;
@@ -43,7 +43,9 @@ export function Root({
 		}),
 		trigger = useRef<HTMLElement | null>(null);
 	return (
-		<RootContext.Provider value={{ open: current, setOpen: setCurrent, trigger }}>{children}</RootContext.Provider>
+		<RootContext.Provider value={{ open: current, setOpen: setCurrent, trigger, modal }}>
+			{children}
+		</RootContext.Provider>
 	);
 }
 export const Trigger = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean }>(
@@ -97,8 +99,9 @@ export const Content = forwardRef<
 		align = "start",
 		side = "bottom",
 		sideOffset = 0,
-		collisionPadding: _collisionPadding,
-		loop: _loop,
+		collisionPadding = 8,
+		loop = true,
+		onCloseAutoFocus,
 		onKeyDown,
 		style,
 		...props
@@ -107,43 +110,22 @@ export const Content = forwardRef<
 ) {
 	const context = useContext(RootContext),
 		local = useRef<HTMLDivElement | null>(null);
-	const [position, setPosition] = useState<CSSProperties>({ position: "fixed", visibility: "hidden" });
-	useLayoutEffect(() => {
-		if (!context?.open) return;
-		const update = () => {
-			const rect = context.trigger.current?.getBoundingClientRect();
-			if (!rect) return;
-			const viewportWidth = window.innerWidth;
-			const height = local.current?.getBoundingClientRect().height ?? 0;
-			const preferredTop = side === "top" ? rect.top - height - sideOffset : rect.bottom + sideOffset;
-			const top =
-				preferredTop + height > window.innerHeight - 8
-					? Math.max(8, rect.top - height - sideOffset)
-					: preferredTop < 8
-						? rect.bottom + sideOffset
-						: preferredTop;
-			const start = Math.max(8, Math.min(rect.left, Math.max(8, viewportWidth - 328)));
-			setPosition(
-				align === "end"
-					? { position: "fixed", top, right: Math.max(8, viewportWidth - rect.right) }
-					: {
-							position: "fixed",
-							top,
-							left: align === "center" ? rect.left + rect.width / 2 : start,
-							transform: align === "center" ? "translateX(-50%)" : undefined,
-						},
-			);
-		};
-		update();
-		window.addEventListener("resize", update);
-		document.addEventListener("scroll", update, true);
-		return () => {
-			window.removeEventListener("resize", update);
-			document.removeEventListener("scroll", update, true);
-		};
-	}, [context?.open, align, side, sideOffset]);
+	const closeAutoFocus = useRef(onCloseAutoFocus);
+	closeAutoFocus.current = onCloseAutoFocus;
+	const position = useFloatingPosition({
+		open: !!context?.open,
+		anchor: context?.trigger ?? { current: null },
+		content: local,
+		side,
+		align,
+		sideOffset,
+		collisionPadding,
+	});
+	const search = useRef(""),
+		searchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 	useEffect(() => {
 		if (!context?.open) return;
+		const restoreAccessibilityTree = context.modal && local.current ? hideOutside(local.current) : undefined;
 		queueMicrotask(() =>
 			local.current?.querySelector<HTMLElement>('[role^="menuitem"]:not([aria-disabled="true"])')?.focus(),
 		);
@@ -152,7 +134,13 @@ export const Content = forwardRef<
 				context.setOpen(false);
 		};
 		document.addEventListener("pointerdown", outside);
-		return () => document.removeEventListener("pointerdown", outside);
+		return () => {
+			document.removeEventListener("pointerdown", outside);
+			restoreAccessibilityTree?.();
+			const focusEvent = new Event("closeAutoFocus", { cancelable: true });
+			closeAutoFocus.current?.(focusEvent);
+			if (!focusEvent.defaultPrevented) context.trigger.current?.focus({ preventScroll: true });
+		};
 	}, [context?.open]);
 	if (!context?.open) return null;
 	return (
@@ -166,9 +154,9 @@ export const Content = forwardRef<
 			role="menu"
 			tabIndex={-1}
 			data-state="open"
-			data-side={side}
+			data-side={position.side}
 			data-align={align}
-			style={{ ...position, ...style }}
+			style={{ ...position.style, ...style }}
 			onKeyDown={(event) => {
 				onKeyDown?.(event);
 				if (event.defaultPrevented) return;
@@ -182,11 +170,31 @@ export const Content = forwardRef<
 					...event.currentTarget.querySelectorAll<HTMLElement>('[role^="menuitem"]:not([aria-disabled="true"])'),
 				];
 				const index = items.indexOf(document.activeElement as HTMLElement);
+				if (!event.ctrlKey && !event.altKey && !event.metaKey && event.key.length === 1) {
+					if (searchTimer.current) clearTimeout(searchTimer.current);
+					search.current += event.key.toLocaleLowerCase();
+					const repeated = search.current.length > 1 && [...search.current].every((key) => key === search.current[0]);
+					const query = repeated ? search.current[0] : search.current;
+					const ordered = [...items.slice(index + 1), ...items.slice(0, index + 1)];
+					const match = ordered.find((item) =>
+						(item.dataset.textValue ?? item.textContent ?? "").trim().toLocaleLowerCase().startsWith(query),
+					);
+					if (match) {
+						event.preventDefault();
+						match.focus();
+					}
+					searchTimer.current = setTimeout(() => (search.current = ""), 1000);
+					return;
+				}
 				const target =
 					event.key === "ArrowDown"
-						? items[(index + 1) % items.length]
+						? loop
+							? items[(index + 1) % items.length]
+							: items[Math.min(index + 1, items.length - 1)]
 						: event.key === "ArrowUp"
-							? items[(index - 1 + items.length) % items.length]
+							? loop
+								? items[(index - 1 + items.length) % items.length]
+								: items[Math.max(index - 1, 0)]
 							: event.key === "Home"
 								? items[0]
 								: event.key === "End"
@@ -203,7 +211,7 @@ export const Content = forwardRef<
 export const Item = forwardRef<
 	HTMLDivElement,
 	HTMLAttributes<HTMLDivElement> & { disabled?: boolean; onSelect?: (event: Event) => void; textValue?: string }
->(function MenuItem({ disabled, onSelect, onClick, onPointerMove, textValue: _textValue, role, ...props }, ref) {
+>(function MenuItem({ disabled, onSelect, onClick, onPointerMove, textValue, role, ...props }, ref) {
 	const root = useContext(RootContext);
 	return (
 		<div
@@ -213,6 +221,7 @@ export const Item = forwardRef<
 			tabIndex={disabled ? undefined : -1}
 			aria-disabled={disabled || undefined}
 			data-disabled={disabled ? "" : undefined}
+			data-text-value={textValue}
 			onPointerMove={(event) => {
 				onPointerMove?.(event);
 				if (!event.defaultPrevented && !disabled && document.activeElement !== event.currentTarget)
@@ -251,7 +260,7 @@ export function RadioGroup({
 export const RadioItem = forwardRef<
 	HTMLDivElement,
 	Omit<HTMLAttributes<HTMLDivElement>, "value"> & { value: string; disabled?: boolean; textValue?: string }
->(function MenuRadioItem({ value, disabled, onClick, onPointerMove, textValue: _textValue, ...props }, ref) {
+>(function MenuRadioItem({ value, disabled, onClick, onPointerMove, textValue, ...props }, ref) {
 	const radio = useContext(RadioContext),
 		root = useContext(RootContext),
 		checked = radio?.value === value;
@@ -265,6 +274,7 @@ export const RadioItem = forwardRef<
 				aria-disabled={disabled || undefined}
 				data-state={checked ? "checked" : "unchecked"}
 				data-disabled={disabled ? "" : undefined}
+				data-text-value={textValue}
 				tabIndex={disabled ? undefined : -1}
 				onPointerMove={(event) => {
 					onPointerMove?.(event);

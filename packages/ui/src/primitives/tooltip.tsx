@@ -1,5 +1,15 @@
-import { createContext, forwardRef, useContext, useRef, useState, type HTMLAttributes, type ReactNode } from "react";
+import {
+	createContext,
+	forwardRef,
+	useContext,
+	useEffect,
+	useRef,
+	useState,
+	type HTMLAttributes,
+	type ReactNode,
+} from "react";
 import { createPortal } from "react-dom";
+import { useFloatingPosition, type FloatingAlign } from "./floating.js";
 import { Slot } from "./slot.js";
 
 const DelayContext = createContext(400);
@@ -93,26 +103,45 @@ export const Content = forwardRef<
 		sideOffset?: number;
 		collisionPadding?: number;
 		side?: "top" | "right" | "bottom" | "left";
-		align?: string;
+		align?: FloatingAlign;
 	}
 >(function TooltipContent(
-	{ sideOffset = 6, collisionPadding: _collisionPadding, side = "top", align: _align, style, ...props },
+	{ sideOffset = 6, collisionPadding = 8, side = "top", align = "center", style, ...props },
 	ref,
 ) {
-	const context = useContext(Context);
+	const context = useContext(Context),
+		local = useRef<HTMLDivElement | null>(null);
+	const position = useFloatingPosition({
+		open: !!context?.open,
+		anchor: context?.trigger ?? { current: null },
+		content: local,
+		side,
+		align,
+		sideOffset,
+		collisionPadding,
+	});
+	useEffect(() => {
+		if (!context?.open) return;
+		const closeOnEscape = (event: KeyboardEvent) => {
+			if (event.key === "Escape") context.setOpen(false);
+		};
+		document.addEventListener("keydown", closeOnEscape);
+		return () => document.removeEventListener("keydown", closeOnEscape);
+	}, [context?.open]);
 	if (!context?.open) return null;
-	const rect = context.trigger.current?.getBoundingClientRect();
-	const position = rect
-		? side === "bottom"
-			? { top: rect.bottom + sideOffset, left: rect.left + rect.width / 2 }
-			: side === "left"
-				? { top: rect.top + rect.height / 2, left: rect.left - sideOffset }
-				: side === "right"
-					? { top: rect.top + rect.height / 2, left: rect.right + sideOffset }
-					: { top: rect.top - sideOffset, left: rect.left + rect.width / 2 }
-		: {};
 	return (
-		<div {...props} ref={ref} role="tooltip" data-side={side} style={{ position: "fixed", ...position, ...style }} />
+		<div
+			{...props}
+			ref={(node) => {
+				local.current = node;
+				if (typeof ref === "function") ref(node);
+				else if (ref) ref.current = node;
+			}}
+			role="tooltip"
+			data-side={position.side}
+			data-align={align}
+			style={{ ...position.style, ...style }}
+		/>
 	);
 });
 export const Arrow = forwardRef<SVGSVGElement, React.SVGAttributes<SVGSVGElement>>(function TooltipArrow(props, ref) {

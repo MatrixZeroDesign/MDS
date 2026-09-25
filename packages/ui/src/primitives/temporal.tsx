@@ -211,6 +211,7 @@ export function TimeSegments({
 export function CalendarPanel({
 	locale,
 	firstDayOfWeek = "sun",
+	range = false,
 	value,
 	rangeStart,
 	rangeEnd,
@@ -221,6 +222,7 @@ export function CalendarPanel({
 }: {
 	locale: string;
 	firstDayOfWeek?: "sun" | "mon" | "tue" | "wed" | "thu" | "fri" | "sat";
+	range?: boolean;
 	value?: string;
 	rangeStart?: string;
 	rangeEnd?: string;
@@ -249,13 +251,15 @@ export function CalendarPanel({
 		);
 	});
 	const heading = new Intl.DateTimeFormat(locale, { month: "long", year: "numeric", timeZone: "UTC" }).format(first);
+	const now = new Date();
+	const today = toDateString({ year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() });
 	const move = (delta: number) =>
 		setMonth((current) => {
 			const next = new Date(Date.UTC(current.year, current.month - 1 + delta, 1));
 			return { year: next.getUTCFullYear(), month: next.getUTCMonth() + 1 };
 		});
 	return (
-		<div className="mds-calendar">
+		<div className={`mds-calendar${range ? " mds-range-calendar" : ""}`}>
 			<div className="mds-calendar-header">
 				<button
 					type="button"
@@ -312,8 +316,31 @@ export function CalendarPanel({
 											data-disabled={disabled ? "" : undefined}
 											data-unavailable={unavailable?.(date) ? "" : undefined}
 											data-selected={selected ? "" : undefined}
+											data-today={date === today ? "" : undefined}
 											data-selection-start={date === rangeStart ? "" : undefined}
 											data-selection-end={date === rangeEnd ? "" : undefined}
+											onKeyDown={(event) => {
+												const cells = [
+													...event.currentTarget
+														.closest("table")!
+														.querySelectorAll<HTMLButtonElement>(".mds-calendar-cell:not(:disabled)"),
+												];
+												const current = cells.indexOf(event.currentTarget);
+												const next =
+													event.key === "ArrowRight"
+														? current + 1
+														: event.key === "ArrowLeft"
+															? current - 1
+															: event.key === "ArrowDown"
+																? current + 7
+																: event.key === "ArrowUp"
+																	? current - 7
+																	: null;
+												if (next != null && cells[next]) {
+													event.preventDefault();
+													cells[next].focus();
+												}
+											}}
 											onClick={() => onSelect(date)}
 										>
 											{day}

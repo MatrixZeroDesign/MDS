@@ -1,9 +1,10 @@
-import { useEffect, useImperativeHandle, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useImperativeHandle, useId, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import type { ComponentProps } from "react";
 import { Check, ChevronDown } from "@matrixzero/icons";
 import { cx, useFieldProps } from "./controls.js";
 import { usePortalContainer } from "./theme.js";
+import { hideOutside, useFloatingPosition, useTypeahead } from "./primitives/floating.js";
 
 export interface SelectOption {
 	value: string;
@@ -44,13 +45,24 @@ export function Select({
 	useImperativeHandle(props.ref, () => trigger.current!);
 	const [internal, setInternal] = useState(defaultValue),
 		[open, setOpen] = useState(false),
-		[validation, setValidation] = useState(""),
-		[active, setActive] = useState(0);
+		[validation, setValidation] = useState("");
 	const errorId = useId(),
 		listId = useId(),
 		selected = value ?? internal,
-		selectedOption = options.find((option) => option.value === selected),
-		enabled = options.filter((option) => !option.disabled);
+		selectedOption = options.find((option) => option.value === selected);
+	const enabled = useMemo(() => options.filter((option) => !option.disabled), [options]);
+	const position = useFloatingPosition({
+		open,
+		anchor: trigger,
+		content,
+		side: "bottom",
+		align: "start",
+		sideOffset: 6,
+		collisionPadding: 8,
+		matchAnchorWidth: true,
+		minWidth: 160,
+		maxWidth: 320,
+	});
 	const change = (next: string) => {
 		if (value === undefined) setInternal(next);
 		setValidation("");
@@ -72,16 +84,7 @@ export function Select({
 	}, [form, value, defaultValue]);
 	useEffect(() => {
 		if (!open) return;
-		const hidden = [...document.querySelectorAll<HTMLElement>('[role="listbox"], select')]
-			.filter((element) => element !== content.current && element !== input.current)
-			.map((element) => ({ element, previous: element.getAttribute("aria-hidden") }));
-		for (const { element } of hidden) element.setAttribute("aria-hidden", "true");
-		setActive(
-			Math.max(
-				0,
-				enabled.findIndex((option) => option.value === selected),
-			),
-		);
+		const restoreAccessibilityTree = content.current ? hideOutside(content.current) : undefined;
 		queueMicrotask(
 			() =>
 				content.current?.querySelector<HTMLElement>(`[data-value="${CSS.escape(selected)}"]`)?.focus() ??
@@ -94,21 +97,27 @@ export function Select({
 		document.addEventListener("pointerdown", outside);
 		return () => {
 			document.removeEventListener("pointerdown", outside);
-			for (const { element, previous } of hidden) {
-				if (previous === null) element.removeAttribute("aria-hidden");
-				else element.setAttribute("aria-hidden", previous);
-			}
+			restoreAccessibilityTree?.();
 		};
-	}, [open]);
-	const focusOption = (option?: SelectOption) =>
-		option && content.current?.querySelector<HTMLElement>(`[data-value="${CSS.escape(option.value)}"]`)?.focus();
+	}, [open, enabled, selected]);
+	const focusOption = useCallback((option?: SelectOption) => {
+		if (option) content.current?.querySelector<HTMLElement>(`[data-value="${CSS.escape(option.value)}"]`)?.focus();
+	}, []);
 	const move = (delta: number) => {
 		if (!enabled.length) return;
-		const next = (active + delta + enabled.length) % enabled.length;
-		setActive(next);
+		const focusedValue = (document.activeElement as HTMLElement | null)?.dataset.value;
+		const current = enabled.findIndex((option) => option.value === focusedValue);
+		const next = (Math.max(current, 0) + delta + enabled.length) % enabled.length;
 		focusOption(enabled[next]);
 	};
-	const rect = trigger.current?.getBoundingClientRect();
+	const matchTypeahead = useTypeahead(
+		enabled,
+		(option) => option.label,
+		(option) => {
+			if (open) focusOption(option);
+			else change(option.value);
+		},
+	);
 	const popup =
 		open && container
 			? createPortal(
@@ -118,12 +127,16 @@ export function Select({
 						role="listbox"
 						aria-label={props["aria-label"]}
 						className="mds-menu mds-select-content"
-						style={{ position: "fixed", top: (rect?.bottom ?? 0) + 6, left: rect?.left ?? 0, minWidth: rect?.width }}
+						data-state="open"
+						data-side={position.side}
+						style={position.style}
 						onKeyDown={(event) => {
 							if (event.key === "Escape") {
 								event.preventDefault();
 								setOpen(false);
 								trigger.current?.focus();
+							} else if (event.key === "Tab") {
+								setOpen(false);
 							} else if (event.key === "ArrowDown") {
 								event.preventDefault();
 								move(1);
@@ -132,21 +145,17 @@ export function Select({
 								move(-1);
 							} else if (event.key === "Home") {
 								event.preventDefault();
-								setActive(0);
 								focusOption(enabled[0]);
 							} else if (event.key === "End") {
 								event.preventDefault();
 								const index = enabled.length - 1;
-								setActive(index);
 								focusOption(enabled[index]);
-							} else if (event.key.length === 1) {
-								const match = enabled.find((option) =>
-									option.label.toLocaleLowerCase().startsWith(event.key.toLocaleLowerCase()),
+							} else if (!event.ctrlKey && !event.altKey && !event.metaKey && event.key.length === 1) {
+								event.preventDefault();
+								const current = enabled.find(
+									(option) => option.value === (document.activeElement as HTMLElement)?.dataset.value,
 								);
-								if (match) {
-									event.preventDefault();
-									focusOption(match);
-								}
+								matchTypeahead(event.key, current);
 							}
 						}}
 					>
@@ -164,6 +173,10 @@ export function Select({
 									data-value={option.value}
 									disabled={option.disabled}
 									className="mds-menu-item"
+									onPointerMove={(event) => {
+										if (option.disabled || document.activeElement === event.currentTarget) return;
+										event.currentTarget.focus({ preventScroll: true });
+									}}
 									onClick={() => {
 										change(option.value);
 										setOpen(false);
@@ -203,6 +216,10 @@ export function Select({
 				className={cx("mds-input", "mds-select-trigger", className)}
 				onClick={() => setOpen((current) => !current)}
 				onKeyDown={(event) => {
+					if (!event.ctrlKey && !event.altKey && !event.metaKey && event.key.length === 1 && event.key !== " ") {
+						matchTypeahead(event.key, selectedOption);
+						return;
+					}
 					if (["Enter", " ", "ArrowDown", "ArrowUp"].includes(event.key)) {
 						event.preventDefault();
 						setOpen(true);
