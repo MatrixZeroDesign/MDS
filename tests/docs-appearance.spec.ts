@@ -147,6 +147,13 @@ test("design links to the theme builder and uses only global density", async ({ 
 	);
 	await expect(page.getByRole("button", { name: "Interface density", exact: true })).toBeVisible();
 	await expect(page.locator(".docs-type .mds-choice-trigger")).toHaveCount(0);
+	const skill = page.getByRole("link", { name: "Download MDS skill", exact: true });
+	await expect(skill).toHaveAttribute("download", "MDS-SKILL.md");
+	const response = await page.request.get(
+		await skill.getAttribute("href").then((href) => new URL(href!, page.url()).href),
+	);
+	expect(response.ok()).toBeTruthy();
+	expect(await response.text()).toContain("name: mds");
 });
 
 test("custom theme builder previews, applies and persists an accent color", async ({ page }) => {

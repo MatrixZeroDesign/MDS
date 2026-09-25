@@ -1,5 +1,5 @@
 import { build } from "esbuild";
-import { readFile, writeFile, mkdir, readdir, rm } from "node:fs/promises";
+import { cp, readFile, writeFile, mkdir, readdir, rm } from "node:fs/promises";
 import { resolve } from "node:path";
 import ts from "typescript";
 const root = resolve(import.meta.dirname, "..");
@@ -19,6 +19,8 @@ const output = async (p, text) => {
 	await writeFile(resolve(root, p), text);
 };
 await rm(resolve(root, "apps/docs/public/docs"), { recursive: true, force: true });
+await rm(resolve(root, "apps/docs/public/skills"), { recursive: true, force: true });
+await cp(resolve(root, "skills"), resolve(root, "apps/docs/public/skills"), { recursive: true });
 const entries = JSON.parse(await read("docs/content.json"));
 const versions = Object.fromEntries(
 	await Promise.all(

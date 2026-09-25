@@ -1,0 +1,4 @@
+interface:
+  display_name: Matrix Design System
+  short_description: Build accessible React interfaces with MDS
+  default_prompt: Use MDS components and design principles to build this interface.

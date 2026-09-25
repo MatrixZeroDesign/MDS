@@ -1,7 +1,6 @@
-import { ArrowRight } from "@matrixzero/icons";
+import { ArrowRight, ArrowUpRight, Download } from "@matrixzero/icons";
 import { type DocsLocale, translate } from "./i18n";
 import { Card, ThemeProvider, Typography } from "@matrixzero/ui";
-import { ArrowUpRight } from "@matrixzero/icons";
 import { appPath } from "./router";
 export function DesignPage({ locale }: { locale: DocsLocale }) {
 	const t = (zh: string, en: string) => translate(locale, zh, en);
@@ -67,6 +66,30 @@ export function DesignPage({ locale }: { locale: DocsLocale }) {
 							</div>
 						</ThemeProvider>
 					))}
+				</div>
+			</Card>
+			<Card className="design-ai-skill">
+				<div>
+					<span className="docs-eyebrow">MDS FOR AI</span>
+					<Typography as="h2" variant="title-lg" gutter>
+						{t("让 AI 正确使用 MDS", "Help AI build correctly with MDS")}
+					</Typography>
+					<p>
+						{t(
+							"下载可复用的 Skill，让编程助手了解组件选择、主题、无障碍、国际化和验证原则。",
+							"Download the reusable skill so coding assistants understand component selection, theming, accessibility, internationalization, and validation.",
+						)}
+					</p>
+				</div>
+				<div className="design-ai-skill-actions">
+					<a href={appPath("/skills/mds/SKILL.md")} download="MDS-SKILL.md">
+						<Download size={18} aria-hidden="true" />
+						{t("下载 MDS Skill", "Download MDS skill")}
+					</a>
+					<a href="https://github.com/MatrixZeroDesign/MDS/tree/main/skills/mds" target="_blank" rel="noreferrer">
+						{t("查看 Skill 源码", "View skill source")}
+						<ArrowUpRight size={18} aria-hidden="true" />
+					</a>
 				</div>
 			</Card>
 			<h2>{t("设计原则", "Design principles")}</h2>

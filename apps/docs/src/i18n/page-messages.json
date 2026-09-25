@@ -1690,5 +1690,33 @@
 		"Las claves de serie y los identificadores del eje Y deben ser únicos, y yAxisId debe referirse a un eje configurado. No use dos ejes solo para crear contraste visual. Represente los valores ausentes con null.",
 		"يجب أن تكون مفاتيح السلاسل ومعرّفات محور Y فريدة، وأن يشير yAxisId إلى محور مهيأ. لا تستخدم محورين لمجرد التباين البصري. مثّل القيم المفقودة باستخدام null."
 	],
-	"ComposedChart": ["ComposedChart", "ComposedChart", "ComposedChart", "ComposedChart", "ComposedChart"]
+	"ComposedChart": ["ComposedChart", "ComposedChart", "ComposedChart", "ComposedChart", "ComposedChart"],
+	"Help AI build correctly with MDS": [
+		"MDSを正しく使ってAIに構築させる",
+		"AI가 MDS로 올바르게 구축하도록 지원",
+		"Aidez l’IA à créer correctement avec MDS",
+		"Ayuda a la IA a crear correctamente con MDS",
+		"ساعد الذكاء الاصطناعي على البناء بشكل صحيح باستخدام MDS"
+	],
+	"Download the reusable skill so coding assistants understand component selection, theming, accessibility, internationalization, and validation.": [
+		"再利用可能なスキルをダウンロードして、コーディングアシスタントにコンポーネント選択、テーマ、アクセシビリティ、国際化、検証の原則を理解させます。",
+		"재사용 가능한 스킬을 다운로드하여 코딩 도우미가 컴포넌트 선택, 테마, 접근성, 국제화 및 검증 원칙을 이해하도록 하세요.",
+		"Téléchargez le skill réutilisable afin que les assistants de programmation comprennent le choix des composants, les thèmes, l’accessibilité, l’internationalisation et la validation.",
+		"Descarga la skill reutilizable para que los asistentes de programación comprendan la selección de componentes, los temas, la accesibilidad, la internacionalización y la validación.",
+		"نزّل المهارة القابلة لإعادة الاستخدام لكي تفهم مساعدات البرمجة اختيار المكونات والسمات وإمكانية الوصول والتدويل والتحقق."
+	],
+	"Download MDS skill": [
+		"MDSスキルをダウンロード",
+		"MDS 스킬 다운로드",
+		"Télécharger le skill MDS",
+		"Descargar la skill de MDS",
+		"تنزيل مهارة MDS"
+	],
+	"View skill source": [
+		"スキルのソースを見る",
+		"스킬 소스 보기",
+		"Voir le code source du skill",
+		"Ver el código fuente de la skill",
+		"عرض مصدر المهارة"
+	]
 }
