@@ -328,6 +328,7 @@
 	"Pagination": ["ページネーション", "페이지 나누기", "Pagination", "Paginación", "ترقيم الصفحات"],
 	"Steps": ["ステップ", "단계", "Étapes", "Pasos", "خطوات"],
 	"Progress": ["進捗バー", "진행 표시줄", "Progression", "Progreso", "شريط تقدم"],
+	"CircularProgress": ["円形進捗", "원형 진행률", "Progression circulaire", "Progreso circular", "تقدم دائري"],
 	"Spinner": ["ローディング表示", "로딩 표시", "Indicateur de chargement", "Indicador de carga", "مؤشر تحميل"],
 	"Skeleton": ["スケルトン", "스켈레톤", "Squelette", "Esqueleto", "هيكل تحميل"],
 	"Callout": ["補足メッセージ", "안내 메시지", "Encadré", "Aviso", "ملاحظة توضيحية"],

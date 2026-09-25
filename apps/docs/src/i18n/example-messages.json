@@ -1,4 +1,7 @@
 {
+	"Syncing": ["同期中", "동기화 중", "Synchronisation", "Sincronizando", "جارٍ المزامنة"],
+	"Build succeeded": ["ビルド成功", "빌드 성공", "Build réussi", "Compilación correcta", "نجح البناء"],
+	"Build failed": ["ビルド失敗", "빌드 실패", "Échec du build", "Error de compilación", "فشل البناء"],
 	"Make room for what’s next.": [
 		"次の可能性のために、余白を。",
 		"새로운 가능성을 위한 여유를 만드세요.",
