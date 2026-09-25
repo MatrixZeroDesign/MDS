@@ -60,8 +60,7 @@ function ShowcaseSource({ locale, files }: { locale: SceneProps["locale"]; files
 	return (
 		<SideSheet>
 			<SideSheetTrigger asChild>
-				<Button variant="secondary" className="sc-source-trigger">
-					<Code size={18} aria-hidden="true" />
+				<Button variant="secondary" className="sc-source-trigger" leadingIcon={<Code size={18} aria-hidden="true" />}>
 					{t("查看场景源码", "View scenario source")}
 				</Button>
 			</SideSheetTrigger>
