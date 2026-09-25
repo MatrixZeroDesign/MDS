@@ -1,6 +1,7 @@
 import { type DocsLocale, translate } from "../i18n";
 import { useState } from "react";
 import { Button } from "@matrixzero/ui";
+import { Plus, ArrowRight } from "@matrixzero/icons";
 
 export default function Example({
 	locale = "en",
@@ -17,7 +18,14 @@ export default function Example({
 	const [count, setCount] = useState(0);
 	return (
 		<div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
-			<Button shape={shape} size={size} variant={variant} onClick={() => setCount(count + 1)}>
+			<Button
+				shape={shape}
+				size={size}
+				variant={variant}
+				leadingIcon={<Plus />}
+				trailingIcon={<ArrowRight />}
+				onClick={() => setCount(count + 1)}
+			>
 				{t("添加", "Add")}
 			</Button>
 			<p role="status" style={{ margin: 0 }}>
