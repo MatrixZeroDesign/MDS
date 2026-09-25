@@ -11,7 +11,7 @@ import {
 import { createPortal } from "react-dom";
 import { Slot } from "./slot.js";
 import { useControllableState } from "./state.js";
-import { useFloatingPosition } from "./floating.js";
+import { useFloatingPosition, type FloatingPlacement } from "./floating.js";
 
 type ContextValue = {
 	open: boolean;
@@ -88,6 +88,7 @@ export const Content = forwardRef<
 	HTMLAttributes<HTMLDivElement> & {
 		side?: "top" | "bottom" | "left" | "right";
 		align?: "start" | "center" | "end";
+		placement?: FloatingPlacement;
 		sideOffset?: number;
 		collisionPadding?: number;
 		onOpenAutoFocus?: (event: Event) => void;
@@ -98,6 +99,8 @@ export const Content = forwardRef<
 	{
 		side = "bottom",
 		align = "center",
+		placement,
+		dir,
 		sideOffset = 0,
 		collisionPadding = 8,
 		onOpenAutoFocus,
@@ -122,6 +125,8 @@ export const Content = forwardRef<
 		content: local,
 		side,
 		align,
+		placement,
+		direction: dir,
 		sideOffset,
 		collisionPadding,
 	});
@@ -160,9 +165,11 @@ export const Content = forwardRef<
 				else if (ref) ref.current = node;
 			}}
 			role="dialog"
+			dir={dir}
 			data-state="open"
 			data-side={position.side}
-			data-align={align}
+			data-align={position.align}
+			data-placement={position.placement}
 			style={{ ...position.style, ...style }}
 			onKeyDown={(event) => {
 				onKeyDown?.(event);

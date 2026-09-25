@@ -9,7 +9,7 @@ import {
 	type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
-import { useFloatingPosition, type FloatingAlign } from "./floating.js";
+import { useFloatingPosition, type FloatingAlign, type FloatingPlacement } from "./floating.js";
 import { Slot } from "./slot.js";
 
 const DelayContext = createContext(400);
@@ -104,9 +104,10 @@ export const Content = forwardRef<
 		collisionPadding?: number;
 		side?: "top" | "right" | "bottom" | "left";
 		align?: FloatingAlign;
+		placement?: FloatingPlacement;
 	}
 >(function TooltipContent(
-	{ sideOffset = 6, collisionPadding = 8, side = "top", align = "center", style, ...props },
+	{ sideOffset = 6, collisionPadding = 8, side = "top", align = "center", placement, dir, style, ...props },
 	ref,
 ) {
 	const context = useContext(Context),
@@ -117,6 +118,8 @@ export const Content = forwardRef<
 		content: local,
 		side,
 		align,
+		placement,
+		direction: dir,
 		sideOffset,
 		collisionPadding,
 	});
@@ -138,8 +141,10 @@ export const Content = forwardRef<
 				else if (ref) ref.current = node;
 			}}
 			role="tooltip"
+			dir={dir}
 			data-side={position.side}
-			data-align={align}
+			data-align={position.align}
+			data-placement={position.placement}
 			style={{ ...position.style, ...style }}
 		/>
 	);

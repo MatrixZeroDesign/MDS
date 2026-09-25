@@ -11,7 +11,7 @@ import {
 import { createPortal } from "react-dom";
 import { Slot } from "./slot.js";
 import { useControllableState } from "./state.js";
-import { hideOutside, useFloatingPosition } from "./floating.js";
+import { hideOutside, useFloatingPosition, type FloatingPlacement } from "./floating.js";
 
 type RootContextValue = {
 	open: boolean;
@@ -88,6 +88,7 @@ export const Content = forwardRef<
 	HTMLDivElement,
 	HTMLAttributes<HTMLDivElement> & {
 		align?: "start" | "center" | "end";
+		placement?: FloatingPlacement;
 		side?: "top" | "bottom" | "left" | "right";
 		sideOffset?: number;
 		collisionPadding?: number;
@@ -97,6 +98,8 @@ export const Content = forwardRef<
 >(function MenuContent(
 	{
 		align = "start",
+		placement,
+		dir,
 		side = "bottom",
 		sideOffset = 0,
 		collisionPadding = 8,
@@ -118,6 +121,8 @@ export const Content = forwardRef<
 		content: local,
 		side,
 		align,
+		placement,
+		direction: dir,
 		sideOffset,
 		collisionPadding,
 	});
@@ -152,10 +157,12 @@ export const Content = forwardRef<
 				else if (ref) ref.current = node;
 			}}
 			role="menu"
+			dir={dir}
 			tabIndex={-1}
 			data-state="open"
 			data-side={position.side}
-			data-align={align}
+			data-align={position.align}
+			data-placement={position.placement}
 			style={{ ...position.style, ...style }}
 			onKeyDown={(event) => {
 				onKeyDown?.(event);

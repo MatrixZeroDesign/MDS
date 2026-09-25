@@ -4,7 +4,8 @@ import type { ComponentProps } from "react";
 import { Check, ChevronDown } from "@matrixzero/icons";
 import { cx, useFieldProps } from "./controls.js";
 import { usePortalContainer } from "./theme.js";
-import { hideOutside, useFloatingPosition, useTypeahead } from "./primitives/floating.js";
+import { useDirection } from "./primitives/direction.js";
+import { hideOutside, useFloatingPosition, useTypeahead, type FloatingPlacement } from "./primitives/floating.js";
 
 export interface SelectOption {
 	value: string;
@@ -22,6 +23,8 @@ export interface SelectProps
 	form?: string;
 	required?: boolean;
 	placeholder?: string;
+	/** Preferred listbox side and alignment, including automatic placement. */
+	placement?: FloatingPlacement;
 }
 
 export function Select({
@@ -34,11 +37,13 @@ export function Select({
 	required,
 	disabled,
 	placeholder = "—",
+	placement = "bottom-start",
 	className,
 	...props
 }: SelectProps) {
 	const field = useFieldProps({ ...props, required, disabled });
 	const container = usePortalContainer();
+	const direction = useDirection();
 	const trigger = useRef<HTMLButtonElement>(null),
 		input = useRef<HTMLSelectElement>(null),
 		content = useRef<HTMLDivElement>(null);
@@ -55,8 +60,8 @@ export function Select({
 		open,
 		anchor: trigger,
 		content,
-		side: "bottom",
-		align: "start",
+		placement,
+		direction,
 		sideOffset: 6,
 		collisionPadding: 8,
 		matchAnchorWidth: true,
@@ -129,6 +134,8 @@ export function Select({
 						className="mds-menu mds-select-content"
 						data-state="open"
 						data-side={position.side}
+						data-align={position.align}
+						data-placement={position.placement}
 						style={position.style}
 						onKeyDown={(event) => {
 							if (event.key === "Escape") {

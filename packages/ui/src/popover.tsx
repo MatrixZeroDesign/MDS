@@ -3,17 +3,21 @@ import { useDirection } from "./primitives/direction.js";
 import * as Primitive from "./primitives/popover.js";
 import { cx } from "./controls.js";
 import { usePortalContainer } from "./theme.js";
+import type { FloatingPlacement } from "./primitives/floating.js";
 
 /** Anchored custom content; non-modal by default. */
 export const Popover = Primitive.Root;
 export const PopoverTrigger = Primitive.Trigger;
 export const PopoverAnchor = Primitive.Anchor;
 export const PopoverClose = Primitive.Close;
-export interface PopoverContentProps extends Omit<ComponentProps<typeof Primitive.Content>, "title" | "side"> {
+export interface PopoverContentProps
+	extends Omit<ComponentProps<typeof Primitive.Content>, "title" | "side" | "placement"> {
 	/** Visible accessible heading. */
 	title: string;
 	description?: string;
 	side?: "top" | "bottom" | "left" | "right" | "start" | "end";
+	/** Preferred side and alignment. Auto placements choose the side with the most available space. */
+	placement?: FloatingPlacement;
 	arrow?: boolean;
 }
 export function PopoverContent({
@@ -21,6 +25,7 @@ export function PopoverContent({
 	description,
 	side = "bottom",
 	align = "start",
+	placement,
 	sideOffset = 8,
 	collisionPadding = 12,
 	arrow = false,
@@ -49,6 +54,7 @@ export function PopoverContent({
 				dir={direction}
 				side={physicalSide}
 				align={align}
+				placement={placement}
 				sideOffset={sideOffset}
 				collisionPadding={collisionPadding}
 				aria-labelledby={props["aria-labelledby"] ?? titleId}

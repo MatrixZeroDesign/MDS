@@ -2,6 +2,11 @@ import { useCallback, useLayoutEffect, useRef, useState, type CSSProperties, typ
 
 export type FloatingSide = "top" | "bottom" | "left" | "right";
 export type FloatingAlign = "start" | "center" | "end";
+export type FloatingPlacement =
+	| FloatingSide
+	| `${FloatingSide}-${Exclude<FloatingAlign, "center">}`
+	| "auto"
+	| `auto-${Exclude<FloatingAlign, "center">}`;
 
 type FloatingOptions = {
 	open: boolean;
@@ -9,6 +14,8 @@ type FloatingOptions = {
 	content: RefObject<HTMLElement | null>;
 	side?: FloatingSide;
 	align?: FloatingAlign;
+	placement?: FloatingPlacement;
+	direction?: string;
 	sideOffset?: number;
 	collisionPadding?: number;
 	matchAnchorWidth?: boolean;
@@ -19,12 +26,16 @@ type FloatingOptions = {
 type FloatingPosition = {
 	style: CSSProperties;
 	side: FloatingSide;
+	align: FloatingAlign;
+	placement: FloatingPlacement;
 	positioned: boolean;
 };
 
 const initialPosition: FloatingPosition = {
 	style: { position: "fixed", visibility: "hidden" },
 	side: "bottom",
+	align: "center",
+	placement: "bottom",
 	positioned: false,
 };
 
@@ -42,12 +53,20 @@ export function useFloatingPosition({
 	content,
 	side = "bottom",
 	align = "center",
+	placement,
+	direction = "ltr",
 	sideOffset = 0,
 	collisionPadding = 8,
 	matchAnchorWidth = false,
 	minWidth,
 	maxWidth,
 }: FloatingOptions) {
+	const [placementSide, placementAlign] = (placement?.split("-") ?? []) as
+		| [FloatingSide | "auto", FloatingAlign]
+		| [undefined, undefined];
+	const autoPlacement = placementSide === "auto";
+	const resolvedSide = placementSide && placementSide !== "auto" ? placementSide : side;
+	const resolvedAlign = placement ? (placementAlign ?? "center") : align;
 	const [position, setPosition] = useState<FloatingPosition>(initialPosition);
 	const update = useCallback(() => {
 		const anchorNode = anchor.current,
@@ -74,25 +93,32 @@ export function useFloatingPosition({
 			left: "right",
 			right: "left",
 		};
-		const needed = side === "top" || side === "bottom" ? contentHeight : contentWidth;
+		const requestedSide = autoPlacement
+			? (Object.entries(spaces).sort(([, first], [, second]) => second - first)[0][0] as FloatingSide)
+			: resolvedSide;
+		const needed = requestedSide === "top" || requestedSide === "bottom" ? contentHeight : contentWidth;
 		const actualSide =
-			spaces[side] >= needed + sideOffset || spaces[side] >= spaces[opposite[side]] ? side : opposite[side];
+			autoPlacement ||
+			spaces[requestedSide] >= needed + sideOffset ||
+			spaces[requestedSide] >= spaces[opposite[requestedSide]]
+				? requestedSide
+				: opposite[requestedSide];
 		let left: number;
 		let top: number;
 		if (actualSide === "top" || actualSide === "bottom") {
 			top = actualSide === "bottom" ? anchorRect.bottom + sideOffset : anchorRect.top - contentHeight - sideOffset;
 			left =
-				align === "start"
+				resolvedAlign === (direction === "rtl" ? "end" : "start")
 					? anchorRect.left
-					: align === "end"
+					: resolvedAlign === (direction === "rtl" ? "start" : "end")
 						? anchorRect.right - contentWidth
 						: anchorRect.left + (anchorRect.width - contentWidth) / 2;
 		} else {
 			left = actualSide === "right" ? anchorRect.right + sideOffset : anchorRect.left - contentWidth - sideOffset;
 			top =
-				align === "start"
+				resolvedAlign === "start"
 					? anchorRect.top
-					: align === "end"
+					: resolvedAlign === "end"
 						? anchorRect.bottom - contentHeight
 						: anchorRect.top + (anchorRect.height - contentHeight) / 2;
 		}
@@ -101,9 +127,24 @@ export function useFloatingPosition({
 		setPosition({
 			style: { position: "fixed", left: Math.round(left), top: Math.round(top), visibility: "visible", width },
 			side: actualSide,
+			align: resolvedAlign,
+			placement: `${actualSide}${resolvedAlign === "center" ? "" : `-${resolvedAlign}`}` as FloatingPlacement,
 			positioned: true,
 		});
-	}, [open, anchor, content, side, align, sideOffset, collisionPadding, matchAnchorWidth, minWidth, maxWidth]);
+	}, [
+		open,
+		anchor,
+		content,
+		resolvedSide,
+		resolvedAlign,
+		autoPlacement,
+		direction,
+		sideOffset,
+		collisionPadding,
+		matchAnchorWidth,
+		minWidth,
+		maxWidth,
+	]);
 
 	useLayoutEffect(() => {
 		if (!open) {

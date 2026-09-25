@@ -17,7 +17,9 @@ test("popover follows its trigger when the document scrolls", async ({ page }) =
 	await page.goto("/docs/popover");
 	const trigger = page.getByRole("button", { name: "Quick settings", exact: true });
 	await trigger.click();
-	await expectAnchoredAfterScroll(page, trigger, page.getByRole("dialog", { name: "Workspace settings" }));
+	const surface = page.getByRole("dialog", { name: "Workspace settings" });
+	await expect(surface).toHaveAttribute("data-placement", "bottom-start");
+	await expectAnchoredAfterScroll(page, trigger, surface);
 });
 
 test("tooltip follows its trigger and stays within the viewport", async ({ page }) => {
@@ -54,4 +56,32 @@ test("select and dropdown use the shared anchored positioning behavior", async (
 		.getByRole("button", { name: "Actions", exact: true });
 	await menuTrigger.click();
 	await expectAnchoredAfterScroll(page, menuTrigger, page.getByRole("menu"));
+});
+
+test("explicit and automatic placements resolve through the shared engine", async ({ page }) => {
+	await page.goto("/docs/tooltip");
+	const immediate = page
+		.getByRole("region", { name: "Immediate tooltip" })
+		.getByRole("button", { name: "Local save", exact: true });
+	await immediate.focus();
+	await expect(page.getByRole("tooltip")).toHaveAttribute("data-placement", "right");
+
+	await page.goto("/docs/popover");
+	const trigger = page.getByRole("button", { name: "View information", exact: true });
+	await trigger.click();
+	const surface = page.getByRole("dialog", { name: "Sync status" });
+	await expect(surface).toHaveAttribute("data-align", "start");
+	const [triggerBox, viewport, actualSide] = await Promise.all([
+		trigger.boundingBox(),
+		page.evaluate(() => ({ width: innerWidth, height: innerHeight })),
+		surface.getAttribute("data-side"),
+	]);
+	const spaces = {
+		top: triggerBox!.y,
+		bottom: viewport.height - triggerBox!.y - triggerBox!.height,
+		left: triggerBox!.x,
+		right: viewport.width - triggerBox!.x - triggerBox!.width,
+	};
+	const expectedSide = Object.entries(spaces).sort(([, first], [, second]) => second - first)[0][0];
+	expect(actualSide).toBe(expectedSide);
 });
