@@ -1,9 +1,9 @@
-import { useDirection } from "@radix-ui/react-direction";
+import { useDirection } from "./primitives/direction.js";
 import { createContext, useContext, useId, useLayoutEffect, useRef, useState } from "react";
 import type { ComponentProps, ReactNode } from "react";
-import * as Check from "@radix-ui/react-checkbox";
-import * as Toggle from "@radix-ui/react-switch";
-import * as Radio from "@radix-ui/react-radio-group";
+import * as Check from "./primitives/checkbox.js";
+import * as Toggle from "./primitives/switch.js";
+import * as Radio from "./primitives/radio-group.js";
 import { Check as CheckIcon, Minus, LoaderCircle, ChevronDown, ChevronLeft, ChevronRight, X } from "@matrixzero/icons";
 export const cx = (...parts: (string | undefined | false)[]) => parts.filter(Boolean).join(" ");
 type Size = "sm" | "md" | "lg";

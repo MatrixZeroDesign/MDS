@@ -5,11 +5,11 @@
 		"Délimite les thèmes, les marques, la densité et les portails.",
 		"Define el ámbito de temas, marcas, densidad y portales."
 	],
-	"Wrap the interface in ThemeProvider. mode controls theme; dir controls layout and Radix keyboard direction independently of language. Nested roots inherit or explicitly override direction; portals keep the same direction. palette selects one of six color families independently of mode, retaining semantic status colors.": [
-		"ThemeProviderで画面を囲みます。modeは明暗テーマ、dirはレイアウトとキーボード方向を言語とは独立して設定します。入れ子とポータルは方向を継承します。paletteは明暗モードとは別に6つの配色を提供し、状態色の意味を保ちます。",
-		"ThemeProvider로 인터페이스를 감싸세요. mode는 테마를, dir은 언어와 독립적으로 레이아웃과 키보드 방향을 설정합니다. 중첩 루트와 포털은 방향을 상속합니다. palette는 명암 모드와 별도로 6가지 색상을 제공하며 상태 색상의 의미는 유지됩니다.",
-		"Entourez l’interface avec ThemeProvider. mode règle le thème et dir la disposition ainsi que le sens du clavier, indépendamment de la langue. Les racines imbriquées et les portails héritent du sens. palette propose six familles de couleurs indépendantes du mode, tout en préservant les couleurs sémantiques.",
-		"Envuelve la interfaz en ThemeProvider. mode controla el tema; dir controla la disposición y el teclado independientemente del idioma. Las raíces anidadas y los portales heredan la dirección. palette ofrece seis familias de colores independientes del modo y conserva los colores semánticos."
+	"Wrap the interface in ThemeProvider. mode controls theme; dir controls layout and keyboard direction independently of language. Nested roots inherit or explicitly override direction; portals keep the same direction. Nest ThemeProvider with an explicit mode when an entire region needs a different color mode; use a component variant such as Card inverse when only one surface needs semantic contrast. palette selects one of six color families independently of mode, retaining semantic status colors.": [
+		"ThemeProviderで画面を囲みます。modeは明暗テーマ、dirはレイアウトとキーボード方向を言語とは独立して設定します。入れ子とポータルは方向を継承します。領域全体で異なるカラーモードが必要な場合は、modeを明示したThemeProviderを入れ子にします。単一の面だけに意味的なコントラストが必要な場合は、Card inverseのようなコンポーネントvariantを使用します。paletteは明暗モードとは別に6つの配色を提供し、状態色の意味を保ちます。",
+		"ThemeProvider로 인터페이스를 감싸세요. mode는 테마를, dir은 언어와 독립적으로 레이아웃과 키보드 방향을 설정합니다. 중첩 루트와 포털은 방향을 상속합니다. 전체 영역에 다른 색상 모드가 필요하면 mode를 명시한 ThemeProvider를 중첩하세요. 한 표면에만 의미 있는 대비가 필요하면 Card inverse와 같은 컴포넌트 variant를 사용하세요. palette는 명암 모드와 별도로 6가지 색상을 제공하며 상태 색상의 의미는 유지됩니다.",
+		"Entourez l’interface avec ThemeProvider. mode règle le thème et dir la disposition ainsi que le sens du clavier, indépendamment de la langue. Les racines imbriquées et les portails héritent du sens. Imbriquez un ThemeProvider avec un mode explicite lorsqu’une région entière nécessite un autre mode de couleur ; utilisez une variante de composant telle que Card inverse lorsqu’une seule surface nécessite un contraste sémantique. palette propose six familles de couleurs indépendantes du mode, tout en préservant les couleurs sémantiques.",
+		"Envuelve la interfaz en ThemeProvider. mode controla el tema; dir controla la disposición y el teclado independientemente del idioma. Las raíces anidadas y los portales heredan la dirección. Anida ThemeProvider con un mode explícito cuando toda una región necesite otro modo de color; usa una variante de componente como Card inverse cuando solo una superficie necesite contraste semántico. palette ofrece seis familias de colores independientes del modo y conserva los colores semánticos."
 	],
 	"Set the page lang, translate accessible names and preserve reduced-motion preferences.": [
 		"ページのlangとアクセシブル名を設定し、動きを減らす設定を尊重してください。",
@@ -751,12 +751,12 @@
 		"Preferencia aplicada inmediatamente.",
 		"تفضيل يطبق فورًا."
 	],
-	"Control with checked/onCheckedChange and keep the label stable. checkedIcon and uncheckedIcon supply decorative thumb icons; Radix manages their visibility.": [
-		"checked/onCheckedChangeで制御し、ラベルは固定します。checkedIconとuncheckedIconは装飾用のつまみアイコンで、Radixが表示を管理します。",
-		"checked/onCheckedChange로 제어하고 레이블은 유지하세요. checkedIcon과 uncheckedIcon은 장식용 손잡이 아이콘이며 Radix가 표시를 관리합니다.",
-		"Contrôlez avec checked/onCheckedChange et gardez un libellé stable. checkedIcon et uncheckedIcon sont décoratifs ; Radix gère leur visibilité.",
-		"Controla con checked/onCheckedChange y mantén la etiqueta estable. checkedIcon y uncheckedIcon son decorativos; Radix gestiona su visibilidad.",
-		"تحكم عبر checked/onCheckedChange وأبقِ التسمية ثابتة. checkedIcon وuncheckedIcon زخرفيان ويدير Radix ظهورهما."
+	"Control with checked/onCheckedChange and keep the label stable. checkedIcon and uncheckedIcon supply decorative thumb icons; the component manages their visibility.": [
+		"checked/onCheckedChangeで制御し、ラベルは固定します。checkedIconとuncheckedIconは装飾用のつまみアイコンで、MDSが表示を管理します。",
+		"checked/onCheckedChange로 제어하고 레이블은 유지하세요. checkedIcon과 uncheckedIcon은 장식용 손잡이 아이콘이며 MDS가 표시를 관리합니다.",
+		"Contrôlez avec checked/onCheckedChange et gardez un libellé stable. checkedIcon et uncheckedIcon sont décoratifs ; MDS gère leur visibilité.",
+		"Controla con checked/onCheckedChange y mantén la etiqueta estable. checkedIcon y uncheckedIcon son decorativos; MDS gestiona su visibilidad.",
+		"تحكم عبر checked/onCheckedChange وأبقِ التسمية ثابتة. checkedIcon وuncheckedIcon زخرفيان ويدير MDS ظهورهما."
 	],
 	"Name with Field or an associated label; Space toggles.": [
 		"Fieldまたは関連ラベルで名前を付け、Spaceで切り替えます。",

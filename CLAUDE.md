@@ -4,7 +4,7 @@
 - Use English for source code, comments, tests, commit messages, pull requests, issues, and documentation source. Other languages are allowed only in i18n translation resources.
 - Component source code belongs only in `packages/ui/src`. The docs app must import components from `@matrixzero/ui` and must not copy component implementations.
 - Scope all CSS under `.mds-root`. Do not change the host `html` or `body` theme, scrolling, or colors.
-- Preserve Radix keyboard, focus, form, and accessibility behavior. Do not present `menuitemradio` as a combobox.
+- Preserve established keyboard, focus, form, and accessibility behavior. Do not present `menuitemradio` as a combobox.
 - Consumers provide copy. Do not place product terminology, network requests, permissions, or routing logic in components.
 - Pair component text and backgrounds with MDS tokens. Import brand assets explicitly; do not download fonts or styles at runtime.
 - Validate supported languages, light and dark themes, system theme, multi-instance isolation, and reduced motion.

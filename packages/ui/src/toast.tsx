@@ -1,5 +1,5 @@
 import { Check, X, Info, AlertCircle } from "@matrixzero/icons";
-import * as Primitive from "@radix-ui/react-toast";
+import * as Primitive from "./primitives/toast.js";
 import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
 import { createPortal } from "react-dom";
@@ -64,6 +64,7 @@ export function Toaster({
 }) {
 	const { entries, dismiss } = useToast();
 	const container = usePortalContainer();
+	const toasterRef = useRef<HTMLDivElement>(null);
 	const [hovered, setHovered] = useState(false);
 	const [focused, setFocused] = useState(false);
 	useEffect(() => {
@@ -72,6 +73,34 @@ export function Toaster({
 			setFocused(false);
 		}
 	}, [entries.length]);
+	useEffect(() => {
+		if (!entries.length) return;
+		const focusStack = (event: KeyboardEvent) => {
+			if (event.key !== "F8") return;
+			event.preventDefault();
+			toasterRef.current?.querySelector<HTMLElement>("button, [tabindex]")?.focus();
+		};
+		document.addEventListener("keydown", focusStack);
+		return () => document.removeEventListener("keydown", focusStack);
+	}, [entries.length]);
+	useEffect(() => {
+		if (!entries.length) return;
+		const trackFocus = (event: FocusEvent) => setFocused(!!toasterRef.current?.contains(event.target as Node));
+		const trackPointer = () => {
+			setHovered(!!toasterRef.current?.matches(":hover"));
+			setFocused(!!toasterRef.current?.contains(document.activeElement));
+		};
+		document.addEventListener("focusin", trackFocus);
+		document.addEventListener("pointermove", trackPointer);
+		return () => {
+			document.removeEventListener("focusin", trackFocus);
+			document.removeEventListener("pointermove", trackPointer);
+		};
+	}, [entries.length]);
+	useLayoutEffect(() => {
+		if (!entries.length || toasterRef.current?.contains(document.activeElement)) return;
+		setFocused(false);
+	}, [entries.length, hovered]);
 	const [heights, setHeights] = useState<Record<number, number>>({});
 	const measure = useCallback(
 		(id: number, height: number) =>
@@ -98,14 +127,19 @@ export function Toaster({
 	if (!entries.length) return null;
 	const toaster = (
 		<div
+			ref={toasterRef}
 			className="mds-toaster"
 			data-expanded={expanded}
 			data-placement={placement}
 			onPointerEnter={() => setHovered(true)}
 			onPointerLeave={() => setHovered(false)}
-			onFocusCapture={() => setFocused(true)}
+			onFocusCapture={() => {
+				setFocused(true);
+			}}
 			onBlurCapture={(event) => {
-				if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
+				if (!event.currentTarget.contains(event.relatedTarget)) {
+					setFocused(false);
+				}
 			}}
 			style={{ "--toast-height": `${height}px` } as CSSProperties}
 		>
@@ -113,7 +147,10 @@ export function Toaster({
 				<ToastItem
 					key={entry.id}
 					entry={entry}
-					dismiss={dismiss}
+					dismiss={(id) => {
+						setFocused(false);
+						dismiss(id);
+					}}
 					measure={measure}
 					closeLabel={closeLabel}
 					expanded={expanded}
@@ -143,7 +180,7 @@ function ToastItem({
 	depth: number;
 	offset: number;
 }) {
-	const [element, setElement] = useState<HTMLLIElement | null>(null);
+	const [element, setElement] = useState<HTMLDivElement | null>(null);
 	useLayoutEffect(() => {
 		if (!element) return;
 		const observer = new ResizeObserver(() => measure(entry.id, element.offsetHeight));
@@ -162,6 +199,7 @@ function ToastItem({
 			data-tone={entry.tone ?? "neutral"}
 			data-covered={!expanded && depth > 0}
 			duration={entry.duration}
+			paused={expanded}
 			onOpenChange={(open) => {
 				if (!open) dismiss(entry.id);
 			}}

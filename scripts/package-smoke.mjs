@@ -14,6 +14,11 @@ try {
 		if (packed.files.some((f) => /scratchpad|\.npmrc|\.env|node_modules/.test(f.path)))
 			throw Error("Unexpected private files in " + name);
 		const pkg = JSON.parse(await readFile("packages/" + name + "/package.json", "utf8"));
+		if (
+			name === "ui" &&
+			Object.keys(pkg.dependencies ?? {}).some((dependency) => !dependency.startsWith("@matrixzero/"))
+		)
+			throw Error("UI package contains a third-party runtime dependency");
 		for (const target of Object.values(pkg.exports)) {
 			const path = typeof target === "string" ? target : target.import;
 			if (!packed.files.some((f) => f.path === path.replace("./", ""))) throw Error("Missing export " + path);

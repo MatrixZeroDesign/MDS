@@ -1,6 +1,6 @@
 import { useId, type ComponentProps } from "react";
-import { useDirection } from "@radix-ui/react-direction";
-import * as Primitive from "@radix-ui/react-popover";
+import { useDirection } from "./primitives/direction.js";
+import * as Primitive from "./primitives/popover.js";
 import { cx } from "./controls.js";
 import { usePortalContainer } from "./theme.js";
 

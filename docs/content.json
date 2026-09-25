@@ -4,7 +4,7 @@
 		"names": ["ThemeProvider"],
 		"package": "ui",
 		"purpose": "应用的主题、品牌、密度与浮层边界。 / Scope themes, brands, density and portals.",
-		"guide": "用 ThemeProvider 包裹界面；mode 管理主题，dir 管理布局和 Radix 键盘方向。方向与语言独立设置；嵌套根可继承或显式覆盖方向，浮层保持相同方向。需要一整块区域切换明暗时，可以嵌套 ThemeProvider 并显式传入 mode；单个组件需要语义反差表面时，继续使用组件自己的 variant，例如 Card 的 inverse。palette 提供六套配色，独立于明暗模式；状态色保持固定语义。 / Wrap the interface in ThemeProvider. mode controls theme; dir controls layout and Radix keyboard direction independently of language. Nested roots inherit or explicitly override direction; portals keep the same direction. Nest ThemeProvider with an explicit mode when an entire region needs a different color mode; use a component variant such as Card inverse when only one surface needs semantic contrast. palette selects one of six color families independently of mode, retaining semantic status colors.",
+		"guide": "用 ThemeProvider 包裹界面；mode 管理主题，dir 管理布局和键盘方向。方向与语言独立设置；嵌套根可继承或显式覆盖方向，浮层保持相同方向。需要一整块区域切换明暗时，可以嵌套 ThemeProvider 并显式传入 mode；单个组件需要语义反差表面时，继续使用组件自己的 variant，例如 Card 的 inverse。palette 提供六套配色，独立于明暗模式；状态色保持固定语义。 / Wrap the interface in ThemeProvider. mode controls theme; dir controls layout and keyboard direction independently of language. Nested roots inherit or explicitly override direction; portals keep the same direction. Nest ThemeProvider with an explicit mode when an entire region needs a different color mode; use a component variant such as Card inverse when only one surface needs semantic contrast. palette selects one of six color families independently of mode, retaining semantic status colors.",
 		"api": "brand?: string = \"neutral\"; mode?: \"light\" | \"dark\" | \"system\" = \"system\"; density?: \"comfortable\" | \"compact\" = \"comfortable\"; style?: ThemeStyle; dir?: \"ltr\" | \"rtl\" (inherits parent direction; defaults to \"ltr\"); palette?: \"mint\" | \"mono\" | \"blue\" | \"violet\" | \"rose\" | \"amber\" | null (inherits parent; null restores brand tokens)",
 		"a11y": "设置页面 lang，翻译所有可访问名称。保留系统减少动态效果设置。 / Set the page lang, translate accessible names and preserve reduced-motion preferences.",
 		"pitfalls": "brand 不下载 CSS；不导入品牌文件就不会获得该品牌。不要通过 body 全局覆盖主题。 / brand does not fetch CSS; import it explicitly. Do not override themes on body."
@@ -104,7 +104,7 @@
 		"names": ["Switch"],
 		"package": "ui",
 		"purpose": "立即生效的二元偏好。 / An immediately applied preference.",
-		"guide": "用 checked/onCheckedChange 管理开关，标签保持稳定。 checkedIcon 和 uncheckedIcon 定义滑块内的装饰图标，状态由 Radix 管理。 / Control with checked/onCheckedChange and keep the label stable. checkedIcon and uncheckedIcon supply decorative thumb icons; Radix manages their visibility.",
+		"guide": "用 checked/onCheckedChange 管理开关，标签保持稳定。 checkedIcon 和 uncheckedIcon 定义滑块内的装饰图标，状态由组件管理。 / Control with checked/onCheckedChange and keep the label stable. checkedIcon and uncheckedIcon supply decorative thumb icons; the component manages their visibility.",
 		"api": "checked?: boolean; defaultChecked?: boolean; onCheckedChange?: (checked: boolean) => void; name?: string; required?: boolean; disabled?: boolean; checkedIcon?: ReactNode; uncheckedIcon?: ReactNode",
 		"a11y": "用 Field 或关联 label 命名，Space 切换。 / Name with Field or an associated label; Space toggles.",
 		"pitfalls": "待提交的多选使用 Checkbox。不要仅以颜色描述开启状态。 / Use Checkbox for selections awaiting submission; do not communicate state through color alone."
@@ -175,7 +175,7 @@
 		"package": "ui",
 		"purpose": "需要用户专注的短任务。 / A focused, short task.",
 		"guide": "将 Trigger、Content、Close 放在同一个根内；受控模式用 open/onOpenChange。保存完成后由应用关闭。 / Compose Trigger, Content and Close in one root; control with open/onOpenChange when needed.",
-		"api": "Root: open?: boolean; defaultOpen?: boolean; onOpenChange?: (open: boolean) => void; modal?: boolean = true; Content: title: ReactNode; closeLabel: string; description?: ReactNode; Radix Content props including onCloseAutoFocus",
+		"api": "Root: open?: boolean; defaultOpen?: boolean; onOpenChange?: (open: boolean) => void; modal?: boolean = true; Content: title: ReactNode; closeLabel: string; description?: ReactNode; Content props including onCloseAutoFocus",
 		"a11y": "保留焦点圈定和 Escape；title 命名面板，closeLabel 翻译关闭操作。关闭时焦点回触发器。 / Preserve focus trapping and Escape; translate title and closeLabel. Focus returns to the trigger.",
 		"pitfalls": "没有 Trigger 的程序化打开必须记住实际 opener，在 onCloseAutoFocus 阻止默认后将焦点还给它。不要在 ThemeProvider 外渲染浮层。 / Programmatic opening without a Trigger requires explicit opener focus restoration in onCloseAutoFocus. Keep overlays inside ThemeProvider."
 	},
@@ -185,7 +185,7 @@
 		"package": "ui",
 		"purpose": "保留页面上下文的详情与编辑面板。 / Details and editing alongside page context.",
 		"guide": "将 Trigger、Content、Close 放在同一个根内；受控模式用 open/onOpenChange。保存完成后由应用关闭。 / Compose Trigger, Content and Close in one root; control with open/onOpenChange when needed.",
-		"api": "Root: open?: boolean; defaultOpen?: boolean; onOpenChange?: (open: boolean) => void; modal?: boolean = true; Content: title: ReactNode; closeLabel: string; description?: ReactNode; Radix Content props including onCloseAutoFocus; side?: \"left\" | \"right\" | \"start\" | \"end\" = \"end\"",
+		"api": "Root: open?: boolean; defaultOpen?: boolean; onOpenChange?: (open: boolean) => void; modal?: boolean = true; Content: title: ReactNode; closeLabel: string; description?: ReactNode; Content props including onCloseAutoFocus; side?: \"left\" | \"right\" | \"start\" | \"end\" = \"end\"",
 		"a11y": "保留焦点圈定和 Escape；title 命名面板，closeLabel 翻译关闭操作。关闭时焦点回触发器。 / Preserve focus trapping and Escape; translate title and closeLabel. Focus returns to the trigger.",
 		"pitfalls": "没有 Trigger 的程序化打开必须记住实际 opener，在 onCloseAutoFocus 阻止默认后将焦点还给它。不要在 ThemeProvider 外渲染浮层。 / Programmatic opening without a Trigger requires explicit opener focus restoration in onCloseAutoFocus. Keep overlays inside ThemeProvider."
 	},
@@ -225,7 +225,7 @@
 		"package": "ui",
 		"purpose": "多个相关的可展开章节。 / A group of disclosure sections.",
 		"guide": "type=\"single\" 使用字符串值，type=\"multiple\" 使用字符串数组。single 可加 collapsible 允许全关闭。 / Single mode uses a string; multiple mode uses an array. collapsible allows closing the single open item.",
-		"api": "Root: type: \"single\" | \"multiple\" required; value?: string | string[]; defaultValue?: string | string[]; onValueChange?: (value: string | string[]) => void; Item: value: string; Trigger/Content: Radix props",
+		"api": "Root: type: \"single\" | \"multiple\" required; value?: string | string[]; defaultValue?: string | string[]; onValueChange?: (value: string | string[]) => void; Item: value: string; Trigger/Content: standard element props",
 		"a11y": "内置标题与按钮语义，方向键在标题间移动；标题应清晰独立。 / Built-in heading/button semantics and arrow-key navigation.",
 		"pitfalls": "不要在 Trigger 内再嵌套按钮。multiple 模式不接受 collapsible。 / Do not nest buttons in Trigger; collapsible belongs to single mode."
 	},
@@ -245,7 +245,7 @@
 		"package": "ui",
 		"purpose": "人物或组织的视觉身份。 / Person or organization identity.",
 		"guide": "提供图片 src 与短 fallback；图片加载失败时显示 fallback。 / Provide an image and a short fallback for loading or failure.",
-		"api": "alt: string required; fallback: string required; src?: string; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; Radix Avatar.Root props",
+		"api": "alt: string required; fallback: string required; src?: string; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; standard div props",
 		"a11y": "alt 同时用于图片和 fallback 的可访问名称。 / alt names both the image and fallback.",
 		"pitfalls": "不自带点击语义；可交互头像需放在有名称的按钮/链接内。 / An Avatar is not an interactive control."
 	},
@@ -315,7 +315,7 @@
 		"package": "ui",
 		"purpose": "任务完成比例或未知时长进度。 / Determinate or indeterminate progress.",
 		"guide": "value 使用 0–100；未知进度传 null 或省略。 / Use 0–100; omit value or pass null for indeterminate progress.",
-		"api": "value?: number | null; aria-label or aria-labelledby; Radix Progress.Root props; max is always 100",
+		"api": "value?: number | null; aria-label or aria-labelledby; standard div props; max is always 100",
 		"a11y": "始终提供可访问名称，必要时在邻近文本解释正在进行的任务。 / Always name the progress indicator and explain the ongoing task.",
 		"pitfalls": "不要传 max={1000} 期望自定义范围；实现固定 100 并裁剪 value。 / max is fixed at 100 and values are clamped."
 	},

@@ -1,9 +1,9 @@
-import { useDirection } from "@radix-ui/react-direction";
+import { useDirection } from "./primitives/direction.js";
 import { useId } from "react";
 import type { ComponentProps, ReactNode } from "react";
-import * as Menu from "@radix-ui/react-dropdown-menu";
-import * as D from "@radix-ui/react-dialog";
-import * as T from "@radix-ui/react-tooltip";
+import * as Menu from "./primitives/dropdown-menu.js";
+import * as D from "./primitives/dialog.js";
+import * as T from "./primitives/tooltip.js";
 import { Check, ChevronDown, X } from "@matrixzero/icons";
 import { cx, Button } from "./controls.js";
 import { usePortalContainer } from "./theme.js";
