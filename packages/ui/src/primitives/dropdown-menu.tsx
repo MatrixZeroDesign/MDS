@@ -203,7 +203,7 @@ export const Content = forwardRef<
 export const Item = forwardRef<
 	HTMLDivElement,
 	HTMLAttributes<HTMLDivElement> & { disabled?: boolean; onSelect?: (event: Event) => void; textValue?: string }
->(function MenuItem({ disabled, onSelect, onClick, textValue: _textValue, role, ...props }, ref) {
+>(function MenuItem({ disabled, onSelect, onClick, onPointerMove, textValue: _textValue, role, ...props }, ref) {
 	const root = useContext(RootContext);
 	return (
 		<div
@@ -213,6 +213,11 @@ export const Item = forwardRef<
 			tabIndex={disabled ? undefined : -1}
 			aria-disabled={disabled || undefined}
 			data-disabled={disabled ? "" : undefined}
+			onPointerMove={(event) => {
+				onPointerMove?.(event);
+				if (!event.defaultPrevented && !disabled && document.activeElement !== event.currentTarget)
+					event.currentTarget.focus({ preventScroll: true });
+			}}
 			onClick={(event) => {
 				onClick?.(event);
 				if (event.defaultPrevented || disabled) return;
@@ -246,7 +251,7 @@ export function RadioGroup({
 export const RadioItem = forwardRef<
 	HTMLDivElement,
 	Omit<HTMLAttributes<HTMLDivElement>, "value"> & { value: string; disabled?: boolean; textValue?: string }
->(function MenuRadioItem({ value, disabled, onClick, textValue: _textValue, ...props }, ref) {
+>(function MenuRadioItem({ value, disabled, onClick, onPointerMove, textValue: _textValue, ...props }, ref) {
 	const radio = useContext(RadioContext),
 		root = useContext(RootContext),
 		checked = radio?.value === value;
@@ -261,6 +266,11 @@ export const RadioItem = forwardRef<
 				data-state={checked ? "checked" : "unchecked"}
 				data-disabled={disabled ? "" : undefined}
 				tabIndex={disabled ? undefined : -1}
+				onPointerMove={(event) => {
+					onPointerMove?.(event);
+					if (!event.defaultPrevented && !disabled && document.activeElement !== event.currentTarget)
+						event.currentTarget.focus({ preventScroll: true });
+				}}
 				onClick={(event) => {
 					onClick?.(event);
 					if (!event.defaultPrevented && !disabled) {

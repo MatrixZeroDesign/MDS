@@ -586,8 +586,9 @@
 	user-select: none;
 	outline: none;
 }
-.mds-root .mds-menu-item[data-highlighted] {
-	background: var(--mds-soft);
+.mds-root .mds-menu-item:not([data-disabled]):is(:hover, :focus, [data-highlighted]) {
+	background: var(--mds-hover);
+	color: var(--mds-text);
 }
 .mds-root .mds-menu-item:focus-visible {
 	outline: 1px solid var(--mds-focus);
