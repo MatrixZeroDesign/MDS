@@ -12,4 +12,6 @@ test("button composes leading and trailing icons across sizes", async ({ page })
 		button.locator('.mds-button-icon[data-position="trailing"]').boundingBox(),
 	]);
 	expect(leading?.width).toBe(trailing?.width);
+	await expect(page.getByRole("rowheader", { name: "leadingIcon" })).toBeVisible();
+	await expect(page.getByRole("rowheader", { name: "trailingIcon" })).toBeVisible();
 });
