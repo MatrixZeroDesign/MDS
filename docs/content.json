@@ -15,7 +15,7 @@
 		"package": "ui",
 		"purpose": "触发保存、提交等明确操作。 / Trigger an explicit action.",
 		"guide": "同一区域突出一个 primary 操作；secondary 用于普通操作，ghost 用于低强调操作，danger 用于破坏性操作。异步请求由应用管理 loading。contrast 与 pill 可用于展示型主操作；contrast 根据明暗主题反转。 / Emphasize one primary action per region. Manage async loading in the application. Use contrast and pill for expressive primary actions; contrast adapts to the theme.",
-		"api": "variant?: \"primary\" | \"secondary\" | \"ghost\" | \"danger\" | \"contrast\" = \"secondary\"; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; loading?: boolean = false; native button props; shape?: \"rounded\" | \"pill\" = \"rounded\"",
+		"api": "variant?: \"primary\" | \"secondary\" | \"ghost\" | \"danger\" | \"contrast\" = \"secondary\"; size?: \"sm\" | \"md\" | \"lg\" = \"md\"; leadingIcon?: ReactNode; trailingIcon?: ReactNode; loading?: boolean = false; shape?: \"rounded\" | \"pill\" = \"rounded\"; native button props",
 		"a11y": "使用清晰的动词标签；loading 时禁用并设置 aria-busy，标签保留。 / Use a clear verb; loading disables the button and retains its label with aria-busy.",
 		"pitfalls": "默认 type=\"button\"；提交表单必须显式 type=\"submit\"。不支持 shadcn 的 asChild 属性。 / Set type=\"submit\" for form submission. Button does not expose shadcn’s asChild API."
 	},

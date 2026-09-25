@@ -229,6 +229,21 @@
 		background-color var(--mds-duration-fast),
 		border-color var(--mds-duration-fast);
 }
+.mds-root .mds-button-icon {
+	display: inline-grid;
+	place-items: center;
+	flex: none;
+	inline-size: 1.25em;
+	block-size: 1.25em;
+}
+.mds-root .mds-button-icon > svg {
+	display: block;
+	inline-size: 100%;
+	block-size: 100%;
+}
+.mds-root .mds-button-label {
+	min-inline-size: 0;
+}
 .mds-root .mds-button[data-size="sm"] {
 	height: 28px;
 	padding: 0 10px;

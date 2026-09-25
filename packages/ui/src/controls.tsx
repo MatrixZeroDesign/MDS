@@ -13,6 +13,10 @@ export interface ButtonProps extends ComponentProps<"button"> {
 	size?: Size;
 	shape?: "rounded" | "pill";
 	loading?: boolean;
+	/** Decorative icon rendered before the label. */
+	leadingIcon?: ReactNode;
+	/** Decorative icon rendered after the label. */
+	trailingIcon?: ReactNode;
 }
 export function Button({
 	density,
@@ -20,6 +24,8 @@ export function Button({
 	size = "md",
 	shape = "rounded",
 	loading = false,
+	leadingIcon,
+	trailingIcon,
 	disabled,
 	className,
 	children,
@@ -38,8 +44,23 @@ export function Button({
 			data-size={size}
 			data-shape={shape}
 		>
-			{loading && <LoaderCircle className="mds-spin" size={16} aria-hidden="true" />}
-			{children}
+			{loading ? (
+				<span className="mds-button-icon" data-position="leading">
+					<LoaderCircle className="mds-spin" aria-hidden="true" />
+				</span>
+			) : (
+				leadingIcon !== undefined && (
+					<span className="mds-button-icon" data-position="leading" aria-hidden="true">
+						{leadingIcon}
+					</span>
+				)
+			)}
+			{children !== undefined && <span className="mds-button-label">{children}</span>}
+			{!loading && trailingIcon !== undefined && (
+				<span className="mds-button-icon" data-position="trailing" aria-hidden="true">
+					{trailingIcon}
+				</span>
+			)}
 		</button>
 	);
 }
@@ -274,7 +295,7 @@ export function RadioItem({ children, id: given, className, ...props }: Componen
 		</div>
 	);
 }
-export interface IconButtonProps extends Omit<ButtonProps, "children" | "aria-label"> {
+export interface IconButtonProps extends Omit<ButtonProps, "children" | "aria-label" | "leadingIcon" | "trailingIcon"> {
 	label: string;
 	icon: ReactNode;
 }
