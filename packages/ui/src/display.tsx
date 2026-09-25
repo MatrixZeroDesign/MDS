@@ -132,6 +132,70 @@ export function Progress({ className, ...props }: ComponentProps<typeof P.Root>)
 		</P.Root>
 	);
 }
+export interface CircularProgressProps extends Omit<ComponentProps<"div">, "children"> {
+	value?: number | null;
+	size?: "xs" | "sm" | "md" | "lg" | number;
+	strokeWidth?: number;
+	showValue?: boolean;
+	color?: string;
+	trackColor?: string;
+	state?: "loading" | "success" | "error";
+}
+export function CircularProgress({
+	value,
+	size = "md",
+	strokeWidth = 4,
+	showValue = false,
+	color,
+	trackColor,
+	state = "loading",
+	className,
+	style,
+	...props
+}: CircularProgressProps) {
+	const determinate = value != null;
+	const normalized = determinate ? Math.max(0, Math.min(100, value)) : null;
+	const dimension = typeof size === "number" ? size : undefined;
+	return (
+		<div
+			{...props}
+			role={state === "loading" ? "progressbar" : "status"}
+			aria-valuemin={state === "loading" && determinate ? 0 : undefined}
+			aria-valuemax={state === "loading" && determinate ? 100 : undefined}
+			aria-valuenow={state === "loading" && determinate ? normalized! : undefined}
+			className={cx("mds-circular-progress", className)}
+			data-size={typeof size === "string" ? size : "custom"}
+			data-state={state}
+			data-indeterminate={state === "loading" && !determinate ? "" : undefined}
+			style={{ width: dimension, height: dimension, color, ...style }}
+		>
+			<svg viewBox="0 0 48 48" aria-hidden="true">
+				<circle
+					className="mds-circular-progress-track"
+					cx="24"
+					cy="24"
+					r="20"
+					strokeWidth={strokeWidth}
+					style={{ stroke: trackColor }}
+				/>
+				{state === "loading" && (
+					<circle
+						className="mds-circular-progress-indicator"
+						cx="24"
+						cy="24"
+						r="20"
+						strokeWidth={strokeWidth}
+						pathLength="100"
+						style={{ strokeDashoffset: normalized === null ? 72 : 100 - normalized }}
+					/>
+				)}
+				{state === "success" && <path className="mds-circular-progress-status" d="m14 25 6 6 14-15" />}
+				{state === "error" && <path className="mds-circular-progress-status" d="m17 17 14 14m0-14L17 31" />}
+			</svg>
+			{showValue && normalized !== null && state === "loading" && <span>{Math.round(normalized)}%</span>}
+		</div>
+	);
+}
 export function Skeleton({ className, ...props }: ComponentProps<"div">) {
 	return <div {...props} aria-hidden="true" className={cx("mds-skeleton", className)} />;
 }

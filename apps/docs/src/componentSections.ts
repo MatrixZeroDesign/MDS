@@ -69,7 +69,17 @@ export const componentSections = [
 	{
 		id: "feedback",
 		title: ["状态与反馈", "Status & feedback"],
-		slugs: ["callout", "banner", "toast", "progress", "spinner", "skeleton", "empty-state", "feature-highlight"],
+		slugs: [
+			"callout",
+			"banner",
+			"toast",
+			"progress",
+			"circular-progress",
+			"spinner",
+			"skeleton",
+			"empty-state",
+			"feature-highlight",
+		],
 	},
 	{
 		id: "overlays",

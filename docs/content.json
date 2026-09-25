@@ -320,6 +320,16 @@
 		"pitfalls": "不要传 max={1000} 期望自定义范围；实现固定 100 并裁剪 value。 / max is fixed at 100 and values are clamped."
 	},
 	{
+		"slug": "circular-progress",
+		"names": ["CircularProgress"],
+		"package": "ui",
+		"purpose": "紧凑状态行和任务界面的圆形进度。 / Circular progress for compact status rows and task surfaces.",
+		"guide": "已知进度传 0–100，未知进度省略 value。完成或失败后将 state 切换为 success 或 error。 / Pass 0–100 for known progress and omit value when indeterminate. Switch state to success or error when the task finishes.",
+		"api": "value?: number | null; size?: \"xs\" | \"sm\" | \"md\" | \"lg\" | number; strokeWidth?: number = 4; showValue?: boolean; color?: string; trackColor?: string; state?: \"loading\" | \"success\" | \"error\" = \"loading\"",
+		"a11y": "始终提供 aria-label。确定进度暴露 0–100 的 progressbar 数值；未知进度仍提供命名的 progressbar。 / Always provide aria-label. Determinate progress exposes a 0–100 progressbar value; indeterminate progress remains a named progressbar.",
+		"pitfalls": "小尺寸不要显示数值；状态变化不能只依赖颜色，邻近文字应说明结果。 / Do not show values at compact sizes. Do not rely on color alone for status changes; explain the result in adjacent text."
+	},
+	{
 		"slug": "skeleton",
 		"names": ["Skeleton"],
 		"package": "ui",

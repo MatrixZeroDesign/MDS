@@ -1,4 +1,32 @@
 {
+	"Circular progress for compact status rows and task surfaces.": [
+		"コンパクトなステータス行とタスク画面向けの円形進捗です。",
+		"간결한 상태 행과 작업 화면을 위한 원형 진행률입니다.",
+		"Progression circulaire pour les lignes d’état compactes et les surfaces de tâche.",
+		"Progreso circular para filas de estado compactas y superficies de tareas.",
+		"تقدم دائري لصفوف الحالة المدمجة وواجهات المهام."
+	],
+	"Pass 0–100 for known progress and omit value when indeterminate. Switch state to success or error when the task finishes.": [
+		"既知の進捗には 0〜100 を渡し、不定の場合は value を省略します。完了時に state を success または error に切り替えます。",
+		"진행률을 알면 0~100을 전달하고 불확정이면 value를 생략하세요. 완료되면 state를 success 또는 error로 전환하세요.",
+		"Passez une valeur de 0 à 100 pour une progression connue et omettez value si elle est indéterminée. Passez state à success ou error à la fin.",
+		"Pasa un valor de 0 a 100 para el progreso conocido y omite value si es indeterminado. Cambia state a success o error al terminar.",
+		"مرّر قيمة من 0 إلى 100 للتقدم المعروف واحذف value عندما يكون غير محدد. غيّر state إلى success أو error عند الانتهاء."
+	],
+	"Always provide aria-label. Determinate progress exposes a 0–100 progressbar value; indeterminate progress remains a named progressbar.": [
+		"必ず aria-label を指定します。確定進捗は 0〜100 の値を公開し、不定進捗も名前付き progressbar を維持します。",
+		"항상 aria-label을 제공하세요. 확정 진행률은 0~100 값을 노출하며 불확정 진행률도 이름 있는 progressbar로 유지됩니다.",
+		"Fournissez toujours aria-label. La progression déterminée expose une valeur de 0 à 100 ; la progression indéterminée reste nommée.",
+		"Proporciona siempre aria-label. El progreso determinado expone un valor de 0 a 100; el indeterminado permanece nombrado.",
+		"وفّر aria-label دائمًا. يعرض التقدم المحدد قيمة من 0 إلى 100، ويظل التقدم غير المحدد مسمى."
+	],
+	"Do not show values at compact sizes. Do not rely on color alone for status changes; explain the result in adjacent text.": [
+		"小さいサイズでは値を表示しません。状態変化を色だけで示さず、隣接テキストで結果を説明します。",
+		"작은 크기에서는 값을 표시하지 마세요. 상태 변화를 색상만으로 알리지 말고 인접한 텍스트로 결과를 설명하세요.",
+		"N’affichez pas la valeur aux tailles compactes. Ne comptez pas uniquement sur la couleur ; expliquez le résultat dans le texte adjacent.",
+		"No muestres valores en tamaños compactos. No dependas solo del color; explica el resultado en el texto adyacente.",
+		"لا تعرض القيم في الأحجام الصغيرة. لا تعتمد على اللون وحده؛ اشرح النتيجة في النص المجاور."
+	],
 	"Trends across observations.": [
 		"観測値の推移を表示します。",
 		"관측값의 추세를 보여줍니다.",

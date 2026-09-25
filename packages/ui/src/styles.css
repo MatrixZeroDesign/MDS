@@ -774,6 +774,78 @@
 		transform: translateX(300%);
 	}
 }
+.mds-root .mds-circular-progress {
+	inline-size: 40px;
+	block-size: 40px;
+	display: inline-grid;
+	place-items: center;
+	position: relative;
+	color: var(--mds-accent);
+	vertical-align: middle;
+}
+.mds-root .mds-circular-progress[data-size="xs"] {
+	inline-size: 16px;
+	block-size: 16px;
+}
+.mds-root .mds-circular-progress[data-size="sm"] {
+	inline-size: 24px;
+	block-size: 24px;
+}
+.mds-root .mds-circular-progress[data-size="lg"] {
+	inline-size: 56px;
+	block-size: 56px;
+}
+.mds-root .mds-circular-progress svg {
+	inline-size: 100%;
+	block-size: 100%;
+	overflow: visible;
+}
+.mds-root .mds-circular-progress circle {
+	fill: none;
+}
+.mds-root .mds-circular-progress-track {
+	stroke: var(--mds-soft);
+}
+.mds-root .mds-circular-progress-indicator {
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-dasharray: 100;
+	transform: rotate(-90deg);
+	transform-origin: center;
+	transition: stroke-dashoffset var(--mds-duration-normal) var(--mds-ease-out);
+}
+.mds-root .mds-circular-progress[data-indeterminate] svg {
+	animation: mds-circular-spin 1s linear infinite;
+}
+.mds-root .mds-circular-progress[data-state="success"] {
+	color: var(--mds-success);
+}
+.mds-root .mds-circular-progress[data-state="error"] {
+	color: var(--mds-danger);
+}
+.mds-root .mds-circular-progress-status {
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 4;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+.mds-root .mds-circular-progress > span {
+	position: absolute;
+	font-size: 10px;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+}
+@keyframes mds-circular-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.mds-root .mds-circular-progress[data-indeterminate] svg {
+		animation: none;
+	}
+}
 .mds-root .mds-skeleton {
 	height: 18px;
 	border-radius: 5px;

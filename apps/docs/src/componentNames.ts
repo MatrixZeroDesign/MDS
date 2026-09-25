@@ -56,6 +56,7 @@ export const componentNames: Record<string, string> = {
 	pagination: "分页",
 	steps: "步骤条",
 	progress: "进度条",
+	"circular-progress": "圆形进度",
 	skeleton: "骨架屏",
 	tooltip: "工具提示",
 	alert: "状态提示",
