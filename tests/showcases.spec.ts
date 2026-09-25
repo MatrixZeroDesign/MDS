@@ -71,14 +71,23 @@ test("showcase catalog filters all scenarios and clears empty search", async ({ 
 	await expect(page.locator(".sc-gallery-card")).toHaveCount(19);
 });
 for (const id of ids)
-	test(`${id} is accessible, has source and fits mobile RTL`, async ({ page }) => {
+	test(`${id} is accessible, has source and fits mobile RTL`, async ({ page, context }) => {
+		await context.grantPermissions(["clipboard-read", "clipboard-write"]);
 		await page.goto("/showcase-" + id);
 		const scene = page.getByRole("region", { name: "Product scenario" });
 		await expect(scene.locator(".mds-card").first()).toBeVisible();
 		expect((await new AxeBuilder({ page }).include(".sc-product").analyze()).violations).toEqual([]);
-		await page.getByText("View scenario source", { exact: true }).click();
-		await expect(page.locator(".sc-source pre").first()).toContainText("@matrixzero/");
-		await page.getByText("View scenario source", { exact: true }).click();
+		await page.getByRole("button", { name: "View scenario source", exact: true }).click();
+		const source = page.getByRole("dialog", { name: "Scenario source" });
+		await expect(source.getByRole("tab", { name: `${id}.tsx`, exact: true })).toHaveAttribute("aria-selected", "true");
+		await expect(source.locator(".sc-source-code")).toContainText("@matrixzero/");
+		await expect(source.getByRole("link", { name: "View on GitHub" })).toHaveAttribute(
+			"href",
+			new RegExp(`/apps/docs/src/showcases/${id}\\.tsx$`),
+		);
+		await source.getByRole("button", { name: "Copy source", exact: true }).click();
+		await expect(source.getByRole("button", { name: "Copied", exact: true })).toBeVisible();
+		await source.getByRole("button", { name: "Close", exact: true }).click();
 		await useArabicDirection(page);
 		await page.setViewportSize({ width: 320, height: 900 });
 		await expect(page.locator(".sc-product")).toBeVisible();
