@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Field, Input, Form, FormSubmit, Avatar, Badge, Progress, EmptyState } from "@matrixzero/ui";
+import { Button, Field, TextField, Form, FormSubmit, Avatar, Badge, Progress, EmptyState } from "@matrixzero/ui";
 import { Panel, Stat, translator, type SceneProps } from "./shared";
 export default function Projects({ locale }: SceneProps) {
 	const t = translator(locale);
@@ -35,7 +35,7 @@ export default function Projects({ locale }: SceneProps) {
 				>
 					<div className="sc-inline-form">
 						<Field label={t("任务名称", "Task name")} required>
-							<Input name="title" required maxLength={80} />
+							<TextField name="title" required maxLength={80} />
 						</Field>
 						<FormSubmit variant="primary">{t("添加任务", "Add task")}</FormSubmit>
 					</div>

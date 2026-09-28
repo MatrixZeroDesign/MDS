@@ -1,5 +1,13 @@
 import { type DocsLocale, translate } from "../../i18n";
-import { SideSheet, SideSheetTrigger, SideSheetContent, SideSheetClose, Button, Field, Input } from "@matrixzero/ui";
+import {
+	SideSheet,
+	SideSheetTrigger,
+	SideSheetContent,
+	SideSheetClose,
+	Button,
+	Field,
+	TextField,
+} from "@matrixzero/ui";
 
 export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
 	const t = (zh: string, en: string) => translate(locale, zh, en);
@@ -16,7 +24,7 @@ export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
 			>
 				<div style={{ display: "grid", gap: 16, paddingTop: 16 }}>
 					<Field label={t("名称", "Name")}>
-						<Input defaultValue="Matrix" />
+						<TextField defaultValue="Matrix" />
 					</Field>
 					<SideSheetClose asChild>
 						<Button style={{ justifySelf: "start" }}>{t("完成", "Done")}</Button>

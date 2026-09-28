@@ -1,5 +1,6 @@
 import { useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { ChevronLeft, ChevronRight } from "@matrixzero/icons";
+import { IconButton } from "../controls.js";
 
 export function parseDateParts(value?: string) {
 	const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value ?? "");
@@ -261,23 +262,23 @@ export function CalendarPanel({
 	return (
 		<div className={`mds-calendar${range ? " mds-range-calendar" : ""}`}>
 			<div className="mds-calendar-header">
-				<button
-					type="button"
+				<IconButton
 					className="mds-calendar-nav"
-					aria-label={language === "zh" ? "上个月" : "Previous month"}
+					label={language === "zh" ? "上个月" : "Previous month"}
+					icon={<ChevronLeft size={16} />}
+					variant="ghost"
+					size="sm"
 					onClick={() => move(-1)}
-				>
-					<ChevronLeft size={16} />
-				</button>
+				/>
 				<h2>{heading}</h2>
-				<button
-					type="button"
+				<IconButton
 					className="mds-calendar-nav"
-					aria-label={language === "zh" ? "下个月" : "Next month"}
+					label={language === "zh" ? "下个月" : "Next month"}
+					icon={<ChevronRight size={16} />}
+					variant="ghost"
+					size="sm"
 					onClick={() => move(1)}
-				>
-					<ChevronRight size={16} />
-				</button>
+				/>
 			</div>
 			<table className="mds-calendar-grid">
 				<thead>

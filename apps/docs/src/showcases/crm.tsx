@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Input, Field, Table, Badge, Select, EmptyState } from "@matrixzero/ui";
+import { Button, TextField, Field, Table, Badge, Select, EmptyState } from "@matrixzero/ui";
 import { Panel, Stat, translator, type SceneProps } from "./shared";
 export default function CRM({ locale }: SceneProps) {
 	const t = translator(locale);
@@ -32,7 +32,7 @@ export default function CRM({ locale }: SceneProps) {
 					)}
 				>
 					<Field label={t("搜索客户", "Search accounts")}>
-						<Input value={query} onChange={(e) => setQuery(e.target.value)} />
+						<TextField value={query} onChange={(e) => setQuery(e.target.value)} />
 					</Field>
 					<Table>
 						<thead>

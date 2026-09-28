@@ -5,7 +5,7 @@ import * as Menu from "./primitives/dropdown-menu.js";
 import * as D from "./primitives/dialog.js";
 import * as T from "./primitives/tooltip.js";
 import { Check, ChevronDown, X } from "@matrixzero/icons";
-import { cx, Button } from "./controls.js";
+import { cx, Button, IconButton } from "./controls.js";
 import { usePortalContainer } from "./theme.js";
 import type { FloatingPlacement } from "./primitives/floating.js";
 export interface ChoiceOption {
@@ -126,9 +126,7 @@ export function DialogContent({ title, description, closeLabel, children, classN
 				<div className="mds-dialog-header">
 					<D.Title className="mds-dialog-title">{title}</D.Title>
 					<D.Close asChild>
-						<Button variant="ghost" aria-label={closeLabel}>
-							<X size={18} />
-						</Button>
+						<IconButton variant="ghost" label={closeLabel} icon={<X size={18} />} />
 					</D.Close>
 				</div>
 				{description && (
@@ -214,9 +212,7 @@ export function SideSheetContent({
 				<div className="mds-dialog-header">
 					<D.Title className="mds-dialog-title">{title}</D.Title>
 					<D.Close asChild>
-						<Button variant="ghost" aria-label={closeLabel}>
-							<X size={18} />
-						</Button>
+						<IconButton variant="ghost" label={closeLabel} icon={<X size={18} />} />
 					</D.Close>
 				</div>
 				{description && (

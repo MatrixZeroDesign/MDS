@@ -30,6 +30,25 @@ const previews = Object.fromEntries(
 		([path, load]) => [path, lazy(load)],
 	),
 );
+const wideExampleSlugs = new Set([
+	"atmosphere",
+	"audio-player",
+	"banner",
+	"card",
+	"container",
+	"data-table",
+	"divider",
+	"grid",
+	"mega-menu",
+	"nav-drawer",
+	"nav-rail",
+	"navigation",
+	"scroll-navigator",
+	"table",
+	"tabs",
+	"theme",
+	"typography",
+]);
 export function ComponentDocs({ locale }: { locale: DocsLocale }) {
 	const [selected, setSelected] = useState(() => routePath().split("/")[2] || "");
 	const [selection, setSelection] = useState<{ slug: string; values: Record<string, string> }>({
@@ -50,6 +69,7 @@ export function ComponentDocs({ locale }: { locale: DocsLocale }) {
 	}, []);
 	const entry = entries.find((e) => e.slug === selected);
 	const Preview = entry ? previews[`./examples/${entry.slug}.tsx`] : undefined;
+	const stageLayout = wideExampleSlugs.has(selected) ? "wide" : "contained";
 	const documentedVariants = (variantManifest as Record<string, { file: string; title: string[] }[]>)[selected] ?? [];
 	const sectionId = (name: string) => selected + "-" + name;
 	const toc = [
@@ -133,10 +153,12 @@ export function ComponentDocs({ locale }: { locale: DocsLocale }) {
 									</Button>
 								</div>
 							)}
-							<div className="docs-live-stage">
-								<Suspense fallback={<ExampleLoading slug={entry.slug} locale={locale} />}>
-									{Preview && <Preview key={`${locale}-${revision}`} locale={locale} {...previewProps} />}
-								</Suspense>
+							<div className="docs-live-stage" data-layout={stageLayout}>
+								<div className="docs-live-stage-content">
+									<Suspense fallback={<ExampleLoading slug={entry.slug} locale={locale} />}>
+										{Preview && <Preview key={`${locale}-${revision}`} locale={locale} {...previewProps} />}
+									</Suspense>
+								</div>
 							</div>
 							<ExampleCode
 								code={code}
@@ -156,10 +178,12 @@ export function ComponentDocs({ locale }: { locale: DocsLocale }) {
 										aria-label={translatePair(locale, variant.title)}
 									>
 										<h3>{translatePair(locale, variant.title)}</h3>
-										<div className="docs-live-stage">
-											<Suspense fallback={<ExampleLoading slug={entry.slug} locale={locale} />}>
-												<Variant key={replays[variant.file] ?? 0} locale={locale} />
-											</Suspense>
+										<div className="docs-live-stage" data-layout={stageLayout}>
+											<div className="docs-live-stage-content">
+												<Suspense fallback={<ExampleLoading slug={entry.slug} locale={locale} />}>
+													<Variant key={replays[variant.file] ?? 0} locale={locale} />
+												</Suspense>
+											</div>
 										</div>
 										<ExampleCode
 											locale={locale}

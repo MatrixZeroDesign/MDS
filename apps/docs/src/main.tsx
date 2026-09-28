@@ -41,7 +41,7 @@ import {
 	Chip,
 	ChipGroup,
 	Field,
-	Input,
+	TextField,
 	Textarea,
 	Select,
 	CheckField,
@@ -387,7 +387,7 @@ function App() {
 					}}
 				>
 					<Field label={t("规则名称", "Rule name")} required>
-						<Input value={newName} onChange={(e) => setNewName(e.target.value)} />
+						<TextField value={newName} onChange={(e) => setNewName(e.target.value)} />
 					</Field>
 					<Field label={t("规则模板", "Rule template")}>
 						<Select
@@ -840,7 +840,7 @@ function App() {
 													>
 														<div className="docs-stack">
 															<Field label={t("策略名称", "Policy name")}>
-																<Input defaultValue={t("标准防护", "Standard protection")} />
+																<TextField defaultValue={t("标准防护", "Standard protection")} />
 															</Field>
 															<ChoiceMenu
 																label={t("面板应用范围", "Sheet applications")}
@@ -871,7 +871,7 @@ function App() {
 													<CollapseContent>
 														<div className="docs-stack" style={{ paddingTop: 16 }}>
 															<Field label={t("超时时间 / 秒", "Timeout / seconds")}>
-																<Input type="number" min={1} defaultValue={30} />
+																<TextField type="number" min={1} defaultValue={30} />
 															</Field>
 															<p className="docs-muted">
 																{t(
@@ -950,13 +950,13 @@ function App() {
 														label={t("工作区名称", "Workspace name")}
 														description={t("中英文使用同一套垂直节奏。", "A shared vertical rhythm across languages.")}
 													>
-														<Input defaultValue={t("研发团队", "Engineering")} />
+														<TextField defaultValue={t("研发团队", "Engineering")} />
 													</Field>
 													<Field
 														label={t("端点地址", "Endpoint URL")}
 														error={invalid ? t("请输入有效的 HTTPS 地址", "Enter a valid HTTPS URL") : undefined}
 													>
-														<Input value={endpoint} onChange={(e) => setEndpoint(e.target.value)} />
+														<TextField value={endpoint} onChange={(e) => setEndpoint(e.target.value)} />
 													</Field>
 													<Field label={t("适用范围", "Scope")}>
 														<Select
@@ -1493,7 +1493,7 @@ function App() {
 													}}
 												>
 													<Field label={t("规则名称", "Rule name")} required>
-														<Input value={name} onChange={(e) => setName(e.target.value)} />
+														<TextField value={name} onChange={(e) => setName(e.target.value)} />
 													</Field>
 													<Field label={t("环境", "Environment")}>
 														<Select

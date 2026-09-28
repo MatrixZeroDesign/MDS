@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useId, useRef, useState, type ReactNode, type ComponentProps } from "react";
 import { Dialog, DialogContent } from "./overlays.js";
-import { Input, cx } from "./controls.js";
+import { TextField, cx } from "./controls.js";
 export interface SpotlightItem {
 	id: string;
 	label: string;
@@ -58,7 +58,7 @@ export function Spotlight({
 	return (
 		<Dialog open={open} onOpenChange={onOpenChange}>
 			<DialogContent title={title} closeLabel={closeLabel} className="mds-spotlight">
-				<Input
+				<TextField
 					role="combobox"
 					aria-label={searchLabel}
 					placeholder={placeholder}

@@ -18,7 +18,7 @@ test("comparison examples expose real props and matching copyable code", async (
 });
 for (const width of [1280, 320]) {
 	for (const rtl of [false, true]) {
-		test(`form, dialog and sheet examples separate inputs from actions at ${width}px ${rtl ? "RTL" : "LTR"}`, async ({
+		test(`form, dialog and sheet examples separate content from actions at ${width}px ${rtl ? "RTL" : "LTR"}`, async ({
 			page,
 		}) => {
 			await page.emulateMedia({ reducedMotion: "reduce" });
@@ -30,11 +30,11 @@ for (const width of [1280, 320]) {
 				const preview = page.locator(".docs-live-stage").first();
 				if (overlay) await preview.locator("button").first().click();
 				const area = overlay ? page.getByRole("dialog") : preview;
-				const field = area.locator(".mds-field");
+				const content = slug === "dialog" ? area.locator(".mds-atmosphere") : area.locator(".mds-field");
 				const action = area.locator(".mds-button").last();
-				await expect(field).toBeVisible();
+				await expect(content).toBeVisible();
 				await expect(action).toBeVisible();
-				const a = await field.boundingBox();
+				const a = await content.boundingBox();
 				const b = await action.boundingBox();
 				expect(b!.y - a!.y - a!.height).toBeGreaterThanOrEqual(15);
 				expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBeTruthy();

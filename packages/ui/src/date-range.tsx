@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { Calendar as CalendarIcon } from "@matrixzero/icons";
-import { cx, useFieldProps } from "./controls.js";
+import { cx, IconButton, useFieldProps } from "./controls.js";
 import type { DatePickerProps } from "./date-time.js";
 import { useDirection } from "./primitives/direction.js";
 import * as Popover from "./primitives/popover.js";
@@ -156,15 +156,15 @@ function DateRange({ picker = false, ...props }: DateRangePickerProps & { picker
 						/>
 						{picker && (
 							<Popover.Trigger asChild>
-								<button
-									type="button"
+								<IconButton
 									className="mds-temporal-trigger"
 									disabled={field.disabled || readOnly}
 									data-disabled={field.disabled || readOnly ? "" : undefined}
-									aria-label={t("选择日期范围", "Choose date range")}
-								>
-									<CalendarIcon size={16} />
-								</button>
+									label={t("选择日期范围", "Choose date range")}
+									icon={<CalendarIcon size={16} />}
+									variant="ghost"
+									size="sm"
+								/>
 							</Popover.Trigger>
 						)}
 					</div>

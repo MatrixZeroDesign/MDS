@@ -15,9 +15,9 @@ async function expectAnchoredAfterScroll(page: Page, trigger: Locator, surface: 
 
 test("popover follows its trigger when the document scrolls", async ({ page }) => {
 	await page.goto("/docs/popover");
-	const trigger = page.getByRole("button", { name: "Quick settings", exact: true });
+	const trigger = page.getByRole("button", { name: "View feature tour", exact: true });
 	await trigger.click();
-	const surface = page.getByRole("dialog", { name: "Workspace settings" });
+	const surface = page.getByRole("dialog", { name: "Find the next step quickly" });
 	await expect(surface).toHaveAttribute("data-placement", "bottom-start");
 	await expectAnchoredAfterScroll(page, trigger, surface);
 });

@@ -1,6 +1,6 @@
 import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 import { Calendar as CalendarIcon, Clock } from "@matrixzero/icons";
-import { cx, useFieldProps } from "./controls.js";
+import { cx, IconButton, useFieldProps } from "./controls.js";
 import { useDirection } from "./primitives/direction.js";
 import * as Popover from "./primitives/popover.js";
 import { CalendarPanel, DateSegments, TimeSegments, parseDateParts, parseTimeParts } from "./primitives/temporal.js";
@@ -205,15 +205,15 @@ function Temporal({
 						{segment}
 						{picker && (
 							<Popover.Trigger asChild>
-								<button
-									type="button"
+								<IconButton
 									className="mds-temporal-trigger"
 									disabled={field.disabled || readOnly}
 									data-disabled={field.disabled || readOnly ? "" : undefined}
-									aria-label={kind === "date" ? t("选择日期", "Choose date") : t("选择时间", "Choose time")}
-								>
-									{kind === "date" ? <CalendarIcon size={16} /> : <Clock size={16} />}
-								</button>
+									label={kind === "date" ? t("选择日期", "Choose date") : t("选择时间", "Choose time")}
+									icon={kind === "date" ? <CalendarIcon size={16} /> : <Clock size={16} />}
+									variant="ghost"
+									size="sm"
+								/>
 							</Popover.Trigger>
 						)}
 					</div>

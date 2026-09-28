@@ -33,12 +33,12 @@ async function expectConnectedArrow(trigger: Locator, surface: Locator) {
 
 test("popover opens in theme scope, closes with Escape, and supports controlled state", async ({ page }) => {
 	await page.goto("/docs/popover");
-	const trigger = page.getByRole("button", { name: "Quick settings", exact: true });
+	const trigger = page.getByRole("button", { name: "View feature tour", exact: true });
 	await trigger.click();
-	const dialog = page.getByRole("dialog", { name: "Workspace settings", exact: true });
+	const dialog = page.getByRole("dialog", { name: "Find the next step quickly", exact: true });
 	await expect(dialog).toBeVisible();
 	await expect(page.locator(".mds-portals .mds-popover")).toBeVisible();
-	await expect(dialog.getByRole("textbox", { name: "Name", exact: true })).toBeFocused();
+	await expect(dialog.getByRole("button", { name: "Next", exact: true })).toBeFocused();
 	await page.keyboard.press("Escape");
 	await expect(dialog).toBeHidden();
 	await expect(trigger).toBeFocused();

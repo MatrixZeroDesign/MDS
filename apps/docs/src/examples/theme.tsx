@@ -1,6 +1,6 @@
 import { type DocsLocale, translate } from "../i18n";
 import { useState } from "react";
-import { ThemeProvider, Button, Field, Input, type ThemePalette } from "@matrixzero/ui";
+import { ThemeProvider, Button, Field, TextField, type ThemePalette } from "@matrixzero/ui";
 export default function Example({ locale = "en", palette = "mint" }: { locale?: DocsLocale; palette?: ThemePalette }) {
 	const t = (zh: string, en: string) => translate(locale, zh, en);
 	const [confirmed, setConfirmed] = useState(false);
@@ -18,7 +18,7 @@ export default function Example({ locale = "en", palette = "mint" }: { locale?: 
 			{(["light", "dark"] as const).map((mode) => (
 				<ThemeProvider key={mode} palette={palette} mode={mode} style={surfaceStyle}>
 					<Field label={mode === "light" ? t("浅色预览", "Light preview") : t("深色预览", "Dark preview")}>
-						<Input placeholder={t("输入内容…", "Type here…")} />
+						<TextField placeholder={t("输入内容…", "Type here…")} />
 					</Field>
 					<Button variant="primary" style={{ justifySelf: "start" }} onClick={() => setConfirmed(true)}>
 						{confirmed ? t("已确认", "Confirmed") : t("确认", "Confirm")}
@@ -44,7 +44,7 @@ export default function Example({ locale = "en", palette = "mint" }: { locale?: 
 					style={{ padding: 20, background: "var(--mds-surface)", color: "var(--mds-text)", display: "grid", gap: 12 }}
 				>
 					<strong>{t("内层覆盖为深色", "Inner dark override")}</strong>
-					<Input placeholder={t("内层输入框", "Inner scoped input")} />
+					<TextField placeholder={t("内层输入框", "Inner scoped input")} />
 				</ThemeProvider>
 			</ThemeProvider>
 		</div>

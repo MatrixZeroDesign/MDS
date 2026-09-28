@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Avatar, Button, Field, Input, Select, Table, Form, FormSubmit, Switch, useToast } from "@matrixzero/ui";
+import { Avatar, Button, Field, TextField, Select, Table, Form, FormSubmit, Switch, useToast } from "@matrixzero/ui";
 import { Panel, translator, type SceneProps } from "./shared";
 export default function Team({ locale }: SceneProps) {
 	const t = translator(locale);
@@ -67,7 +67,7 @@ export default function Team({ locale }: SceneProps) {
 				>
 					<div className="sc-inline-form">
 						<Field label={t("邀请邮箱", "Invite email")} required>
-							<Input name="email" type="email" required />
+							<TextField name="email" type="email" required />
 						</Field>
 						<FormSubmit variant="primary">{t("添加成员", "Add member")}</FormSubmit>
 					</div>

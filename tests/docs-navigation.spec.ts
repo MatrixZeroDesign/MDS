@@ -14,6 +14,22 @@ test("desktop documentation navigation stays expanded with readable labels", asy
 			.locator(".docs-component-label")
 			.evaluateAll((items) => items.every((el) => el.scrollWidth <= el.clientWidth)),
 	).toBeTruthy();
+	const sectionLabelStyle = await nav
+		.locator(".docs-component-section > .docs-eyebrow")
+		.first()
+		.evaluate((element) => {
+			const style = getComputedStyle(element);
+			return {
+				variant: element.getAttribute("data-variant"),
+				fontFamily: style.fontFamily,
+				letterSpacing: Number.parseFloat(style.letterSpacing),
+				textTransform: style.textTransform,
+			};
+		});
+	expect(sectionLabelStyle.variant).toBe("overline");
+	expect(sectionLabelStyle.fontFamily).not.toContain("SFMono");
+	expect(sectionLabelStyle.letterSpacing).toBeGreaterThan(0.5);
+	expect(sectionLabelStyle.textTransform).toBe("uppercase");
 	await expect(toggle).toHaveCount(0);
 	await expect(nav).not.toHaveAttribute("data-collapsed");
 	await expect(page.getByText("Built with the real package", { exact: true })).toHaveCount(0);

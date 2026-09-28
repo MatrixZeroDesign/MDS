@@ -38,6 +38,17 @@ test("time picker suggestions and manual minutes work without system input", asy
 	await page.goto("/docs/time-picker");
 	const example = page.getByRole("region", { name: "Interactive example" });
 	await example.getByRole("button", { name: "Choose time", exact: true }).click();
+	const popup = page.locator(".mds-time-popover");
+	const options = popup.getByRole("option");
+	const [popupBox, firstBox, secondBox] = await Promise.all([
+		popup.boundingBox(),
+		options.nth(0).boundingBox(),
+		options.nth(1).boundingBox(),
+	]);
+	expect(popupBox!.width).toBeGreaterThanOrEqual(160);
+	expect(popupBox!.width).toBeLessThanOrEqual(200);
+	expect(Math.abs(firstBox!.x - secondBox!.x)).toBeLessThan(1);
+	expect(secondBox!.y).toBeGreaterThanOrEqual(firstBox!.y + firstBox!.height);
 	const suggestion = page.getByRole("option", { name: "14:30", exact: true });
 	await expect(suggestion).toBeVisible();
 	await suggestion.dispatchEvent("click");

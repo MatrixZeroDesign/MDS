@@ -15,7 +15,8 @@ export const componentSections = [
 		slugs: [
 			"form",
 			"field",
-			"input",
+			"text-field",
+			"number-field",
 			"textarea",
 			"select",
 			"cascader",

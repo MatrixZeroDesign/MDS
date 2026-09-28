@@ -7,8 +7,10 @@ import {
 	useState,
 	type ButtonHTMLAttributes,
 	type HTMLAttributes,
+	type MouseEvent as ReactMouseEvent,
 	type ReactNode,
 } from "react";
+import { Slot } from "./slot.js";
 
 const DurationContext = createContext(5000);
 const CloseContext = createContext<() => void>(() => {});
@@ -111,26 +113,24 @@ export const Action = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBut
 		return <button {...props} ref={ref} type={props.type ?? "button"} />;
 	},
 );
-export const Close = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(function ToastClose(
-	{ onClick, ...props },
-	ref,
-) {
-	const close = useContext(CloseContext);
-	return (
-		<button
-			{...props}
-			ref={ref}
-			type={props.type ?? "button"}
-			onClick={(event) => {
+export const Close = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean }>(
+	function ToastClose({ asChild, onClick, ...props }, ref) {
+		const close = useContext(CloseContext);
+		const shared = {
+			...props,
+			ref,
+			type: props.type ?? "button",
+			onClick: (event: ReactMouseEvent<HTMLButtonElement>) => {
 				onClick?.(event);
 				if (!event.defaultPrevented) {
 					event.currentTarget.blur();
 					close();
 				}
-			}}
-		/>
-	);
-});
+			},
+		};
+		return asChild ? <Slot {...shared} /> : <button {...shared} />;
+	},
+);
 export const Viewport = forwardRef<HTMLOListElement, React.OlHTMLAttributes<HTMLOListElement> & { label?: string }>(
 	function ToastViewport({ label, ...props }, ref) {
 		return <ol {...props} ref={ref} aria-label={label} />;

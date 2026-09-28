@@ -67,13 +67,13 @@ export function PortalPage({ locale }: { locale: DocsLocale }) {
 					</p>
 					<h3>{t("接入主题", "Add the theme root")}</h3>
 					<pre>
-						<code>{`import { ThemeProvider, Field, Input, Button } from '@matrixzero/ui';
+						<code>{`import { ThemeProvider, Field, TextField, Button } from '@matrixzero/ui';
 import '@matrixzero/ui/styles.css';
 import '@matrixzero/ui/themes/mt0.css';
 
 <ThemeProvider brand="mt0" mode="system" dir="ltr">
   <Field label="工作区 / Workspace" required>
-    <Input name="workspace" />
+    <TextField name="workspace" />
   </Field>
   <Button variant="primary">保存 Save</Button>
 </ThemeProvider>`}</code>

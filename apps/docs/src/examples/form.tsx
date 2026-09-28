@@ -1,6 +1,6 @@
 import { type DocsLocale, translate } from "../i18n";
 import { useId, useState } from "react";
-import { Form, FormSubmit, Field, Input, Button, type FormError } from "@matrixzero/ui";
+import { Form, FormSubmit, Field, TextField, Button, type FormError } from "@matrixzero/ui";
 export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
 	const t = (zh: string, en: string) => translate(locale, zh, en);
 	const id = useId();
@@ -40,10 +40,10 @@ export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
 					"Enter admin for a validation error, or offline for a request failure.",
 				)}
 			>
-				<Input name="name" autoComplete="organization" onChange={() => setErrors([])} />
+				<TextField name="name" autoComplete="organization" onChange={() => setErrors([])} />
 			</Field>
 			<Field label={t("邮箱", "Email")} required>
-				<Input name="email" type="email" autoComplete="email" />
+				<TextField name="email" type="email" autoComplete="email" />
 			</Field>
 			<div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
 				<FormSubmit variant="primary" name="intent" value="save">

@@ -9,7 +9,7 @@ import {
 	CardHeader,
 	CardTitle,
 	Field,
-	Input,
+	TextField,
 	ThemeProvider,
 } from "@matrixzero/ui";
 
@@ -31,7 +31,7 @@ export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
 				</CardHeader>
 				<CardContent>
 					<Field label={t("发布名称", "Release name")}>
-						<Input defaultValue="MDS 0.2" />
+						<TextField defaultValue="MDS 0.2" />
 					</Field>
 				</CardContent>
 				<CardFooter style={{ display: "flex", gap: 8 }}>

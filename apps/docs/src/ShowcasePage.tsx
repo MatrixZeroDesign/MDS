@@ -6,7 +6,7 @@ import { lazy, type ReactNode, Suspense, useState } from "react";
 import {
 	Container,
 	Grid,
-	Input,
+	TextField,
 	Field,
 	SegmentedControl,
 	EmptyState,
@@ -247,7 +247,7 @@ export function ShowcasePage({ locale, page }: { locale: SceneProps["locale"]; p
 					]}
 				/>
 				<Field label={t("搜索场景", "Search scenarios")}>
-					<Input type="search" value={query} onChange={(e) => setQuery(e.target.value)} />
+					<TextField type="search" value={query} onChange={(e) => setQuery(e.target.value)} />
 				</Field>
 			</div>
 			<Grid className="sc-gallery-grid" minColumnWidth={420} gap={24}>

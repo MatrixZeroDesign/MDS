@@ -21,7 +21,7 @@ import {
 	DropdownSeparator,
 	Field,
 	IconButton,
-	Input,
+	TextField,
 	List,
 	ListItem,
 	NavDrawer,
@@ -448,7 +448,7 @@ export function PalettePicker({
 								<div className="docs-theme-preview-main">
 									<div className="docs-theme-preview-controls">
 										<div className="docs-theme-preview-action">
-											<Input
+											<TextField
 												aria-label={translate(locale, "预览输入框", "Preview input")}
 												placeholder={translate(locale, "项目名称", "Project name")}
 											/>
@@ -556,7 +556,7 @@ export function PalettePicker({
 													setSuggestionSource(null);
 												}}
 											/>
-											<Input
+											<TextField
 												value={draftPrimary.toUpperCase()}
 												onChange={(event) => {
 													const value = event.target.value;

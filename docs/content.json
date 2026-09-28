@@ -44,20 +44,30 @@
 		"names": ["Field"],
 		"package": "ui",
 		"purpose": "统一标签、帮助文字与错误关联。 / Connect labels, help and errors.",
-		"guide": "每个 Field 放一个 Input、Textarea、Select、Checkbox、Switch 或 Slider。错误由业务校验后传入。 / Use one field-aware control per Field; pass application validation errors.",
-		"api": "label: ReactNode; description?: ReactNode; error?: ReactNode; required?: boolean; disabled?: boolean; id?: string",
-		"a11y": "自动关联 label、aria-describedby、aria-invalid，并将 required/disabled 传给子控件。 / Automatically associates labels, descriptions and errors and propagates required/disabled.",
+		"guide": "每个 Field 放一个 Textarea、Select、Checkbox、Switch 或 Slider。TextField 和 NumberField 已内置 Field；错误由业务校验后传入。 / Use one Textarea, Select, Checkbox, Switch, or Slider per Field. TextField and NumberField already include Field behavior; pass application validation errors.",
+		"api": "label?: ReactNode; description?: ReactNode; error?: ReactNode; required?: boolean; disabled?: boolean; id?: string",
+		"a11y": "自动关联可见 label、aria-describedby、aria-invalid，并将 required/disabled 传给子控件。省略 label 时，子控件必须提供 aria-label 或 aria-labelledby。 / Automatically associates a visible label, descriptions, and errors and propagates required/disabled. When label is omitted, the child must provide aria-label or aria-labelledby.",
 		"pitfalls": "不要在子控件上设置不同 id；多个输入应拆为多个 Field。Field 不执行校验。 / Do not override the child with a different id. Field does not validate data."
 	},
 	{
-		"slug": "input",
-		"names": ["Input"],
+		"slug": "text-field",
+		"names": ["TextField"],
 		"package": "ui",
-		"purpose": "单行文本与原生输入类型。 / Single-line and native input types.",
-		"guide": "用 Field 提供可见标签，name 参与 FormData；受控值配合 onChange。 / Use Field for visible labels and name for FormData; pair value with onChange.",
-		"api": "Native input props excluding size; value/defaultValue, onChange, type, name, autoComplete, disabled, required",
-		"a11y": "placeholder 只用于提示格式，不能代替标签。 / A placeholder is a format hint, not a label.",
-		"pitfalls": "没有 onValueChange 或自定义 size 属性。不要同时传 value 和 defaultValue。 / Use onChange, not onValueChange; custom size is unsupported."
+		"purpose": "带完整标签、说明、验证、图标与固定单位的文本字段。 / A complete text field with labeling, validation, icons, and a fixed unit.",
+		"guide": "用于所有单行文本输入，包括 text、email、password、search、url 和 tel。leadingIcon 和 trailingIcon 帮助识别内容类型；unit 用于不可编辑的固定后缀。可省略可见 label，但必须提供 aria-label 或 aria-labelledby。 / Use it for every single-line text input, including text, email, password, search, url, and tel. Use leadingIcon and trailingIcon to clarify the value type, and unit for a fixed, non-editable suffix. The visible label may be omitted only when aria-label or aria-labelledby is provided.",
+		"api": "label?: ReactNode; aria-label/aria-labelledby required when label is omitted; description?: ReactNode; error?: ReactNode; leadingIcon?: ReactNode; trailingIcon?: ReactNode; unit?: ReactNode; inputClassName?: string; density?: \"comfortable\" | \"compact\"; native input props excluding size",
+		"a11y": "图标自动作为装饰内容隐藏；单位与说明、错误一起通过 aria-describedby 关联到输入。 / Icons are decorative. The unit is associated with the input through aria-describedby alongside help and error text.",
+		"pitfalls": "unit 只适合固定后缀，不要放置可交互控件。不要用图标替代可见标签。 / Use unit only for a fixed suffix, never an interactive control. An icon does not replace the visible label."
+	},
+	{
+		"slug": "number-field",
+		"names": ["NumberField"],
+		"package": "ui",
+		"purpose": "带增减操作、边界、图标与单位的数值字段。 / A numeric field with step controls, bounds, icons, and a unit.",
+		"guide": "可直接键入数字，也可使用键盘方向键或加减按钮。stepperPlacement=\"end\" 在末端上下排列按钮，stepperPlacement=\"sides\" 在输入框两侧放置减号和加号。使用 min、max 和 step 定义合法范围；unit 用于 kg、%、ms 等固定单位。可省略可见 label，但必须提供 aria-label 或 aria-labelledby。 / Enter numbers directly, use the native arrow keys, or use the step buttons. stepperPlacement=\"end\" stacks controls at the end; stepperPlacement=\"sides\" places minus and plus on either side. Define the valid range with min, max, and step; use unit for fixed units such as kg, %, or ms. The visible label may be omitted only when aria-label or aria-labelledby is provided.",
+		"api": "label?: ReactNode; aria-label/aria-labelledby required when label is omitted; value/defaultValue?: number | null; onValueChange?: (value: number | null) => void; min?: number; max?: number; step?: number = 1; stepperPlacement?: \"end\" | \"sides\" = \"end\"; decrementLabel: string; incrementLabel: string; description?: ReactNode; error?: ReactNode; leadingIcon?: ReactNode; trailingIcon?: ReactNode; unit?: ReactNode; inputClassName?: string; native input props except type, size, value, defaultValue, onChange, min, max, step",
+		"a11y": "内部输入保留原生 spinbutton 语义和键盘操作；加减按钮需要本地化标签，单位通过 aria-describedby 宣读。 / The native spinbutton semantics and keyboard controls remain available. Localize both step-button labels; the unit is announced through aria-describedby.",
+		"pitfalls": "不要把加减按钮作为唯一输入方式。受控模式必须在 onValueChange 后更新 value。 / Do not make the step buttons the only input method. In controlled mode, update value after onValueChange."
 	},
 	{
 		"slug": "textarea",

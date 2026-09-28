@@ -22,9 +22,9 @@ test("documentation locales are exclusive and Banner is a page-top strip", async
 	expect(english).not.toMatch(/\p{Script=Han}/u);
 	await page.goto("/docs/dialog?lang=zh");
 	const dialogStage = page.getByRole("region", { name: "交互示例" });
-	await expect(dialogStage.getByRole("button", { name: /^(Edit|编辑)$/ })).toBeVisible();
-	await dialogStage.getByRole("button", { name: /^(Edit|编辑)$/ }).click();
-	await expect(page.getByRole("dialog").getByRole("button", { name: /^(Done|完成)$/ })).toBeVisible();
+	await expect(dialogStage.getByRole("button", { name: "预览产品导览" })).toBeVisible();
+	await dialogStage.getByRole("button", { name: "预览产品导览" }).click();
+	await expect(page.getByRole("dialog").getByRole("button", { name: "继续" })).toBeVisible();
 	await page.keyboard.press("Escape");
 	await expect(page.locator(".docs-reference-detail")).toHaveCSS("max-width", "840px");
 	await page.setViewportSize({ width: 320, height: 900 });

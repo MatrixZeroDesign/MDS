@@ -4,6 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useLayoutEffect, use
 import type { CSSProperties, ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { usePortalContainer } from "./theme.js";
+import { IconButton } from "./controls.js";
 
 export interface ToastOptions {
 	title: string;
@@ -232,8 +233,8 @@ function ToastItem({
 					</Primitive.Action>
 				)}
 			</div>
-			<Primitive.Close className="mds-toast-close" aria-label={closeLabel}>
-				<X size={14} />
+			<Primitive.Close asChild>
+				<IconButton className="mds-toast-close" variant="ghost" size="sm" label={closeLabel} icon={<X size={14} />} />
 			</Primitive.Close>
 		</Primitive.Root>
 	);
