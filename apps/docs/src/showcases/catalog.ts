@@ -31,7 +31,7 @@ export const showcaseCatalog = [
 		audience: "business",
 		title: ["销售客户管理", "Sales CRM"],
 		description: ["搜索客户、查看商机并推进销售阶段。", "Find accounts, review opportunities and update stages."],
-		components: ["Table", "Select", "Input"],
+		components: ["Table", "Select", "TextField"],
 		motif: "04",
 	},
 	{
@@ -109,7 +109,7 @@ export const showcaseCatalog = [
 			"发现生活灵感，浏览故事并收藏喜欢的内容。",
 			"Discover everyday inspiration, explore stories and save your favorites.",
 		],
-		components: ["Card", "Avatar", "IconButton", "Chip", "Dialog", "Input"],
+		components: ["Card", "Avatar", "IconButton", "Chip", "Dialog", "TextField"],
 		motif: "13",
 	},
 	{

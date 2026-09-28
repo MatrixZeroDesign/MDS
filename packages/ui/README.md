@@ -9,7 +9,7 @@ Public release, licensed under MIT.
 Install and pin a version from the public npm registry:
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.13
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.14
 ```
 
 ```tsx
@@ -49,7 +49,7 @@ Callout provides persistent contextual notes; Banner provides dismissible page-l
 
 Accessibility: keep control outlines on --mds-control-border and decorative dividers on --mds-border. Default text pairs target 4.5:1; essential control/focus outlines target 3:1. Validate your own token overrides, keyboard interaction and content composition.
 
-Direction: set `dir="rtl"` or `dir="ltr"` on `ThemeProvider`, independently of `lang`. Nested roots inherit direction unless overridden. Radix keyboard behavior and portals share this direction. `SideSheetContent` supports logical `start`/`end` (default `end`) and physical `left`/`right`; `NavDrawer` opens at `start`.
+Direction: set `dir="rtl"` or `dir="ltr"` on `ThemeProvider`, independently of `lang`. Nested roots inherit direction unless overridden. Keyboard behavior and portals share this direction. `SideSheetContent` supports logical `start`/`end` (default `end`) and physical `left`/`right`; `NavDrawer` opens at `start`.
 
 ## Toast notifications
 

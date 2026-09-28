@@ -1,3 +1,8 @@
+# 0.1.0-alpha.14
+
+- Replace third-party UI primitives with MDS-owned implementations for overlays, menus, forms, navigation, disclosure, feedback, and temporal controls.
+- Preserve keyboard, focus, form, portal, RTL, reduced-motion, and accessibility behavior without third-party UI runtime dependencies.
+
 # 0.1.0-alpha.13
 
 - Add `CircularProgress` with determinate and indeterminate states, accessible value text, responsive sizing, and reduced-motion behavior.
@@ -49,7 +54,7 @@
 
 - ChoiceMenu uses a compact pill toolbar, aligns the menu and trigger edges, and differs from the form Select; the current value is an accessible description.
 
-- ThemeProvider supports dir=ltr/rtl and passes direction to Radix interactions and overlays; nested roots inherit or override it.
+- ThemeProvider supports dir=ltr/rtl and passes direction to interactions and overlays; nested roots inherit or override it.
 - SideSheet added start/end with end as default; NavDrawer opens from start. RTL switches and native selectors were corrected.
 
 ## 0.1.0-alpha.6

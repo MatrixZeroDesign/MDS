@@ -3,7 +3,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import {
 	Button,
 	IconButton,
-	Input,
+	TextField,
 	Select,
 	SegmentedControl,
 	Dialog,
@@ -171,7 +171,7 @@ function InterfaceIcons({ locale }: { locale: DocsLocale }) {
 				</p>
 			</div>
 			<div className="docs-icon-tools">
-				<Input
+				<TextField
 					aria-label={t("搜索图标", "Search icons")}
 					placeholder={t(
 						"搜索名称或关键词，例如 分享、爱心、书签…",

@@ -1,6 +1,6 @@
 import { useRef, useState, type KeyboardEvent } from "react";
-import { useDirection } from "@radix-ui/react-direction";
-import { ChevronDown, Check } from "@matrixzero/icons";
+import { useDirection } from "./primitives/direction.js";
+import { ChevronDown, ChevronLeft, ChevronRight, Check } from "@matrixzero/icons";
 import { Popover, PopoverTrigger, PopoverContent } from "./popover.js";
 
 export interface CascaderOption {
@@ -168,7 +168,11 @@ export function Cascader({
 										>
 											<span>{item.label}</span>
 											{item.children?.length ? (
-												<span aria-hidden="true">{direction === "rtl" ? "‹" : "›"}</span>
+												direction === "rtl" ? (
+													<ChevronLeft className="mds-cascader-expand-icon" size={18} aria-hidden="true" />
+												) : (
+													<ChevronRight className="mds-cascader-expand-icon" size={18} aria-hidden="true" />
+												)
 											) : selected[level] === item.value &&
 											  selected.slice(0, level).every((v, i) => v === expanded[i]) ? (
 												<Check size={14} aria-hidden="true" />

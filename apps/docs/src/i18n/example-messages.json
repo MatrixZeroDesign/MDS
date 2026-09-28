@@ -1486,6 +1486,14 @@
 	"Sage": ["セージ", "세이지", "Sauge", "Salvia", "أخضر مريمي"],
 	"Ink": ["インク", "잉크", "Encre", "Tinta", "حبري"],
 	"Quantity": ["数量", "수량", "Quantité", "Cantidad", "الكمية"],
+	"Enter a value from 0 to 100.": [
+		"0 から 100 までの値を入力してください。",
+		"0에서 100 사이의 값을 입력하세요.",
+		"Saisissez une valeur comprise entre 0 et 100.",
+		"Introduce un valor entre 0 y 100.",
+		"أدخل قيمة من 0 إلى 100."
+	],
+	"Number input": ["数値入力", "숫자 입력", "Saisie numérique", "Entrada numérica", "إدخال رقمي"],
 	"Added to the demo bag": [
 		"サンプルのバッグに追加しました",
 		"예제 장바구니에 추가했습니다",
@@ -1885,5 +1893,522 @@
 		"Survolez pour prévisualiser, sélectionnez pour naviguer. Utilisez les flèches, Début et Fin pour explorer.",
 		"Pasa el cursor para ver una vista previa y selecciona para navegar. Usa las flechas, Inicio y Fin para explorar.",
 		"مرّر المؤشر للمعاينة، واختر للتنقل. استخدم مفاتيح الأسهم وHome وEnd للاستكشاف."
+	],
+	"Open on click": ["クリックで開く", "클릭하여 열기", "Ouvrir au clic", "Abrir al hacer clic", "الفتح بالنقر"],
+	"Click interaction": [
+		"クリック操作",
+		"클릭 상호작용",
+		"Interaction au clic",
+		"Interacción mediante clic",
+		"تفاعل النقر"
+	],
+	"Click again, click outside, or press Escape to close.": [
+		"もう一度クリックするか、外側をクリックするか、Escapeキーを押して閉じます。",
+		"다시 클릭하거나 바깥쪽을 클릭하거나 Escape 키를 눌러 닫으세요.",
+		"Cliquez à nouveau, cliquez à l’extérieur ou appuyez sur Échap pour fermer.",
+		"Haz clic de nuevo, fuera del elemento o pulsa Escape para cerrar.",
+		"انقر مرة أخرى أو خارج العنصر أو اضغط Escape للإغلاق."
+	],
+	"Open on hover": [
+		"ホバーで開く",
+		"마우스를 올려 열기",
+		"Ouvrir au survol",
+		"Abrir al pasar el cursor",
+		"الفتح عند التمرير"
+	],
+	"Hover interaction": [
+		"ホバー操作",
+		"호버 상호작용",
+		"Interaction au survol",
+		"Interacción al pasar el cursor",
+		"تفاعل التمرير"
+	],
+	"Move the pointer into the surface; keyboard focus opens it too.": [
+		"ポインターをサーフェス内へ移動できます。キーボードフォーカスでも開きます。",
+		"포인터를 표면으로 이동할 수 있으며 키보드 포커스로도 열립니다.",
+		"Déplacez le pointeur dans la surface ; le focus clavier l’ouvre également.",
+		"Mueve el puntero a la superficie; el foco del teclado también la abre.",
+		"حرّك المؤشر إلى السطح؛ ويؤدي تركيز لوحة المفاتيح إلى فتحه أيضًا."
+	],
+	"Surface action": ["サーフェス操作", "표면 작업", "Action de la surface", "Acción de la superficie", "إجراء السطح"],
+	"Popover placements": [
+		"ポップオーバーの配置",
+		"팝오버 배치",
+		"Positions du popover",
+		"Posiciones del popover",
+		"مواضع النافذة المنبثقة"
+	],
+	"Scroll or resize to see the surface remain anchored.": [
+		"スクロールまたはサイズ変更しても、サーフェスはアンカーに追従します。",
+		"스크롤하거나 크기를 조절해도 표면이 앵커를 따라갑니다.",
+		"Faites défiler ou redimensionnez pour voir la surface rester ancrée.",
+		"Desplázate o cambia el tamaño para ver cómo la superficie permanece anclada.",
+		"مرّر الصفحة أو غيّر الحجم لترى السطح ثابتًا عند نقطة الارتساء."
+	],
+	"Tooltip placements": [
+		"ツールチップの配置",
+		"툴팁 배치",
+		"Positions de l’infobulle",
+		"Posiciones de la descripción emergente",
+		"مواضع التلميح"
+	],
+	"Placement and automatic collision handling": [
+		"配置と自動衝突回避",
+		"배치 및 자동 충돌 처리",
+		"Positionnement et gestion automatique des collisions",
+		"Posicionamiento y gestión automática de colisiones",
+		"الموضع والمعالجة التلقائية للتداخل"
+	],
+	"Click and hover interactions": [
+		"クリックとホバー操作",
+		"클릭 및 호버 상호작용",
+		"Interactions au clic et au survol",
+		"Interacciones mediante clic y al pasar el cursor",
+		"تفاعلات النقر والتمرير"
+	],
+	"Package weight": ["荷物の重量", "패키지 무게", "Poids du colis", "Peso del paquete", "وزن الطرد"],
+	"Allowed range: 0 to 100 kilograms.": [
+		"許容範囲：0～100キログラム。",
+		"허용 범위: 0~100킬로그램.",
+		"Plage autorisée : de 0 à 100 kilogrammes.",
+		"Intervalo permitido: de 0 a 100 kilogramos.",
+		"النطاق المسموح: من 0 إلى 100 كيلوغرام."
+	],
+	"Decrease weight": ["重量を減らす", "무게 줄이기", "Diminuer le poids", "Disminuir el peso", "تقليل الوزن"],
+	"Increase weight": ["重量を増やす", "무게 늘리기", "Augmenter le poids", "Aumentar el peso", "زيادة الوزن"],
+	"Workspace address": [
+		"ワークスペースのアドレス",
+		"워크스페이스 주소",
+		"Adresse de l’espace de travail",
+		"Dirección del espacio de trabajo",
+		"عنوان مساحة العمل"
+	],
+	"Use letters, numbers, and hyphens.": [
+		"英字、数字、ハイフンを使用してください。",
+		"문자, 숫자, 하이픈을 사용하세요.",
+		"Utilisez des lettres, des chiffres et des traits d’union.",
+		"Usa letras, números y guiones.",
+		"استخدم الأحرف والأرقام والواصلات."
+	],
+	"A complete text field with labeling, validation, icons, and a fixed unit.": [
+		"ラベル、検証、アイコン、固定単位を備えた完全なテキストフィールド。",
+		"레이블, 유효성 검사, 아이콘 및 고정 단위를 갖춘 완전한 텍스트 필드입니다.",
+		"Un champ de texte complet avec libellé, validation, icônes et unité fixe.",
+		"Un campo de texto completo con etiqueta, validación, iconos y una unidad fija.",
+		"حقل نص كامل يتضمن التسمية والتحقق والأيقونات ووحدة ثابتة."
+	],
+	"Icons are decorative. The unit is associated with the input through aria-describedby alongside help and error text.": [
+		"アイコンは装飾です。単位はヘルプやエラーテキストとともに aria-describedby で入力に関連付けられます。",
+		"아이콘은 장식용입니다. 단위는 도움말 및 오류 텍스트와 함께 aria-describedby를 통해 입력에 연결됩니다.",
+		"Les icônes sont décoratives. L’unité est associée au champ via aria-describedby, avec l’aide et les erreurs.",
+		"Los iconos son decorativos. La unidad se asocia con la entrada mediante aria-describedby junto con la ayuda y los errores.",
+		"الأيقونات زخرفية. ترتبط الوحدة بحقل الإدخال عبر aria-describedby إلى جانب نص المساعدة والخطأ."
+	],
+	"Use unit only for a fixed suffix, never an interactive control. An icon does not replace the visible label.": [
+		"unit は固定接尾辞にのみ使用し、操作可能なコントロールには使用しないでください。アイコンは表示ラベルの代わりになりません。",
+		"unit은 고정 접미사에만 사용하고 상호작용 컨트롤에는 사용하지 마세요. 아이콘은 표시되는 레이블을 대신하지 않습니다.",
+		"Utilisez unit uniquement pour un suffixe fixe, jamais pour un contrôle interactif. Une icône ne remplace pas le libellé visible.",
+		"Usa unit solo para un sufijo fijo, nunca para un control interactivo. Un icono no sustituye la etiqueta visible.",
+		"استخدم unit للاحقة ثابتة فقط، وليس لعنصر تحكم تفاعلي. لا تحل الأيقونة محل التسمية المرئية."
+	],
+	"A numeric field with step controls, bounds, icons, and a unit.": [
+		"増減操作、範囲、アイコン、単位を備えた数値フィールド。",
+		"증감 컨트롤, 범위, 아이콘 및 단위를 갖춘 숫자 필드입니다.",
+		"Un champ numérique avec commandes de pas, limites, icônes et unité.",
+		"Un campo numérico con controles de incremento, límites, iconos y una unidad.",
+		"حقل رقمي يتضمن أزرار الزيادة والنقصان والحدود والأيقونات والوحدة."
+	],
+	"Define the valid range with min, max, and step. The step buttons honor the same bounds while direct input and native arrow-key stepping remain available. Use unit for fixed units such as kg, %, or ms.": [
+		"min、max、step で有効範囲を定義します。増減ボタンは同じ範囲に従い、直接入力と矢印キー操作も利用できます。kg、%、ms などの固定単位には unit を使用します。",
+		"min, max, step으로 유효 범위를 정의하세요. 증감 버튼도 같은 범위를 따르며 직접 입력과 기본 화살표 키 조작도 사용할 수 있습니다. kg, %, ms 같은 고정 단위에는 unit을 사용하세요.",
+		"Définissez la plage valide avec min, max et step. Les boutons respectent les mêmes limites, tout en conservant la saisie directe et les flèches du clavier. Utilisez unit pour kg, %, ms, etc.",
+		"Define el intervalo válido con min, max y step. Los botones respetan los mismos límites y se mantienen la entrada directa y las flechas del teclado. Usa unit para kg, %, ms, etc.",
+		"حدّد النطاق الصالح باستخدام min وmax وstep. تلتزم الأزرار بالحدود نفسها مع بقاء الإدخال المباشر ومفاتيح الأسهم متاحة. استخدم unit لوحدات مثل kg و% وms."
+	],
+	"The native spinbutton semantics and keyboard controls remain available. Localize both step-button labels; the unit is announced through aria-describedby.": [
+		"ネイティブの spinbutton セマンティクスとキーボード操作を維持します。両方の増減ボタンのラベルを翻訳し、単位は aria-describedby で読み上げます。",
+		"기본 spinbutton 의미와 키보드 조작이 유지됩니다. 두 증감 버튼 레이블을 현지화하고 단위는 aria-describedby를 통해 안내됩니다.",
+		"La sémantique spinbutton native et les commandes clavier restent disponibles. Localisez les libellés des deux boutons ; l’unité est annoncée via aria-describedby.",
+		"Se mantienen la semántica nativa de spinbutton y los controles de teclado. Localiza las etiquetas de ambos botones; la unidad se anuncia mediante aria-describedby.",
+		"تظل دلالات spinbutton الأصلية وعناصر تحكم لوحة المفاتيح متاحة. ترجم تسميتي الزرين؛ وتُعلن الوحدة عبر aria-describedby."
+	],
+	"Do not make the step buttons the only input method. In controlled mode, update value after onValueChange.": [
+		"増減ボタンを唯一の入力方法にしないでください。制御モードでは onValueChange 後に value を更新します。",
+		"증감 버튼을 유일한 입력 방법으로 만들지 마세요. 제어 모드에서는 onValueChange 후 value를 업데이트하세요.",
+		"Ne faites pas des boutons le seul mode de saisie. En mode contrôlé, mettez value à jour après onValueChange.",
+		"No hagas que los botones sean el único método de entrada. En modo controlado, actualiza value después de onValueChange.",
+		"لا تجعل أزرار الزيادة والنقصان وسيلة الإدخال الوحيدة. في الوضع المتحكم به، حدّث value بعد onValueChange."
+	],
+	"TextField": ["テキストフィールド", "텍스트 필드", "Champ de texte", "Campo de texto", "حقل نص"],
+	"NumberField": ["数値フィールド", "숫자 필드", "Champ numérique", "Campo numérico", "حقل رقمي"],
+	"Completion": ["完了率", "완료율", "Progression", "Finalización", "نسبة الاكتمال"],
+	"Team seats": ["チーム席数", "팀 좌석", "Places d’équipe", "Puestos del equipo", "مقاعد الفريق"],
+	"The 12-seat limit has been reached.": [
+		"12席の上限に達しました。",
+		"12석 한도에 도달했습니다.",
+		"La limite de 12 places est atteinte.",
+		"Se ha alcanzado el límite de 12 puestos.",
+		"تم بلوغ حد 12 مقعدًا."
+	],
+	"Decrease seats": ["席数を減らす", "좌석 줄이기", "Diminuer les places", "Disminuir puestos", "تقليل المقاعد"],
+	"Increase seats": ["席数を増やす", "좌석 늘리기", "Augmenter les places", "Aumentar puestos", "زيادة المقاعد"],
+	"Retry count": ["再試行回数", "재시도 횟수", "Nombre de tentatives", "Número de reintentos", "عدد المحاولات"],
+	"Retry count cannot exceed 5.": [
+		"再試行回数は5を超えられません。",
+		"재시도 횟수는 5를 초과할 수 없습니다.",
+		"Le nombre de tentatives ne peut pas dépasser 5.",
+		"El número de reintentos no puede superar 5.",
+		"لا يمكن أن يتجاوز عدد المحاولات 5."
+	],
+	"Decrease retry count": [
+		"再試行回数を減らす",
+		"재시도 횟수 줄이기",
+		"Diminuer les tentatives",
+		"Disminuir reintentos",
+		"تقليل عدد المحاولات"
+	],
+	"Increase retry count": [
+		"再試行回数を増やす",
+		"재시도 횟수 늘리기",
+		"Augmenter les tentatives",
+		"Aumentar reintentos",
+		"زيادة عدد المحاولات"
+	],
+	"Storage used": [
+		"使用済みストレージ",
+		"사용한 저장 공간",
+		"Stockage utilisé",
+		"Almacenamiento usado",
+		"مساحة التخزين المستخدمة"
+	],
+	"Decrease storage": [
+		"ストレージを減らす",
+		"저장 공간 줄이기",
+		"Diminuer le stockage",
+		"Disminuir almacenamiento",
+		"تقليل مساحة التخزين"
+	],
+	"Increase storage": [
+		"ストレージを増やす",
+		"저장 공간 늘리기",
+		"Augmenter le stockage",
+		"Aumentar almacenamiento",
+		"زيادة مساحة التخزين"
+	],
+	"Archive retention": [
+		"アーカイブ保持期間",
+		"보관 유지 기간",
+		"Conservation des archives",
+		"Retención del archivo",
+		"مدة الاحتفاظ بالأرشيف"
+	],
+	"days": ["日", "일", "jours", "días", "أيام"],
+	"Decrease retention": [
+		"保持期間を短くする",
+		"보관 기간 줄이기",
+		"Diminuer la conservation",
+		"Disminuir retención",
+		"تقليل مدة الاحتفاظ"
+	],
+	"Increase retention": [
+		"保持期間を長くする",
+		"보관 기간 늘리기",
+		"Augmenter la conservation",
+		"Aumentar retención",
+		"زيادة مدة الاحتفاظ"
+	],
+	"Weight": ["重量", "무게", "Poids", "Peso", "الوزن"],
+	"Decrease percentage": [
+		"割合を下げる",
+		"백분율 낮추기",
+		"Diminuer le pourcentage",
+		"Disminuir porcentaje",
+		"خفض النسبة المئوية"
+	],
+	"Increase percentage": [
+		"割合を上げる",
+		"백분율 높이기",
+		"Augmenter le pourcentage",
+		"Aumentar porcentaje",
+		"رفع النسبة المئوية"
+	],
+	"Decrease latency": [
+		"遅延を減らす",
+		"지연 시간 줄이기",
+		"Diminuer la latence",
+		"Disminuir latencia",
+		"تقليل زمن الاستجابة"
+	],
+	"Increase latency": [
+		"遅延を増やす",
+		"지연 시간 늘리기",
+		"Augmenter la latence",
+		"Aumentar latencia",
+		"زيادة زمن الاستجابة"
+	],
+	"Project code": ["プロジェクトコード", "프로젝트 코드", "Code du projet", "Código del proyecto", "رمز المشروع"],
+	"The trailing icon communicates status without adding an action.": [
+		"末尾のアイコンは操作を追加せずに状態を伝えます。",
+		"뒤쪽 아이콘은 동작을 추가하지 않고 상태를 전달합니다.",
+		"L’icône de fin communique un état sans ajouter d’action.",
+		"El icono final comunica el estado sin añadir una acción.",
+		"تنقل الأيقونة اللاحقة الحالة من دون إضافة إجراء."
+	],
+	"Username": ["ユーザー名", "사용자 이름", "Nom d’utilisateur", "Nombre de usuario", "اسم المستخدم"],
+	"Use only letters, numbers, and hyphens.": [
+		"英字、数字、ハイフンのみ使用できます。",
+		"문자, 숫자, 하이픈만 사용하세요.",
+		"Utilisez uniquement des lettres, des chiffres et des traits d’union.",
+		"Usa solo letras, números y guiones.",
+		"استخدم الأحرف والأرقام والواصلات فقط."
+	],
+	"Organization": ["組織", "조직", "Organisation", "Organización", "المؤسسة"],
+	"Account ID": ["アカウントID", "계정 ID", "Identifiant du compte", "ID de cuenta", "معرّف الحساب"],
+	"Password": ["パスワード", "비밀번호", "Mot de passe", "Contraseña", "كلمة المرور"],
+	"Search projects": [
+		"プロジェクトを検索",
+		"프로젝트 검색",
+		"Rechercher des projets",
+		"Buscar proyectos",
+		"البحث في المشاريع"
+	],
+	"Website": ["ウェブサイト", "웹사이트", "Site web", "Sitio web", "الموقع الإلكتروني"],
+	"Phone number": ["電話番号", "전화번호", "Numéro de téléphone", "Número de teléfono", "رقم الهاتف"],
+	"Common input types": [
+		"一般的な入力タイプ",
+		"일반 입력 유형",
+		"Types de saisie courants",
+		"Tipos de entrada comunes",
+		"أنواع الإدخال الشائعة"
+	],
+	"Input and status icons": [
+		"入力とステータスのアイコン",
+		"입력 및 상태 아이콘",
+		"Icônes de saisie et d’état",
+		"Iconos de entrada y estado",
+		"رموز الإدخال والحالة"
+	],
+	"Validation and field states": [
+		"検証とフィールド状態",
+		"유효성 검사 및 필드 상태",
+		"Validation et états des champs",
+		"Validación y estados de campo",
+		"التحقق وحالات الحقول"
+	],
+	"Units and decimal precision": [
+		"単位と小数精度",
+		"단위 및 소수 정밀도",
+		"Unités et précision décimale",
+		"Unidades y precisión decimal",
+		"الوحدات والدقة العشرية"
+	],
+	"Minimum and maximum bounds": [
+		"最小値と最大値",
+		"최솟값 및 최댓값",
+		"Limites minimale et maximale",
+		"Límites mínimo y máximo",
+		"الحدّان الأدنى والأقصى"
+	],
+	"Zoom controls": ["ズーム操作", "확대/축소 컨트롤", "Commandes de zoom", "Controles de zoom", "عناصر تحكم التكبير"],
+	"Zoom level": ["ズーム倍率", "확대/축소 수준", "Niveau de zoom", "Nivel de zoom", "مستوى التكبير"],
+	"Zoom out": ["縮小", "축소", "Dézoomer", "Alejar", "تصغير"],
+	"Zoom in": ["拡大", "확대", "Zoomer", "Acercar", "تكبير"],
+	"Search components": [
+		"コンポーネントを検索",
+		"컴포넌트 검색",
+		"Rechercher des composants",
+		"Buscar componentes",
+		"البحث عن المكونات"
+	],
+	"Use one Textarea, Select, Checkbox, Switch, or Slider per Field. TextField and NumberField already include Field behavior; pass application validation errors.": [
+		"Field ごとに Textarea、Select、Checkbox、Switch、Slider のいずれか1つを使用します。TextField と NumberField には Field の動作が組み込まれています。検証エラーはアプリケーションから渡します。",
+		"Field마다 Textarea, Select, Checkbox, Switch 또는 Slider 하나를 사용하세요. TextField와 NumberField에는 Field 동작이 포함되어 있습니다. 검증 오류는 애플리케이션에서 전달하세요.",
+		"Utilisez un seul Textarea, Select, Checkbox, Switch ou Slider par Field. TextField et NumberField intègrent déjà le comportement Field ; transmettez les erreurs de validation de l’application.",
+		"Usa un solo Textarea, Select, Checkbox, Switch o Slider por Field. TextField y NumberField ya incluyen el comportamiento de Field; pasa los errores de validación de la aplicación.",
+		"استخدم عنصرًا واحدًا من Textarea أو Select أو Checkbox أو Switch أو Slider في كل Field. يتضمن TextField وNumberField سلوك Field؛ مرّر أخطاء التحقق من التطبيق."
+	],
+	"Automatically associates a visible label, descriptions, and errors and propagates required/disabled. When label is omitted, the child must provide aria-label or aria-labelledby.": [
+		"表示ラベル、説明、エラーを自動的に関連付け、required/disabled を伝播します。label を省略する場合、子要素に aria-label または aria-labelledby が必要です。",
+		"표시 레이블, 설명 및 오류를 자동으로 연결하고 required/disabled를 전달합니다. label을 생략하면 자식이 aria-label 또는 aria-labelledby를 제공해야 합니다.",
+		"Associe automatiquement le libellé visible, les descriptions et les erreurs, et propage required/disabled. Sans label, l’enfant doit fournir aria-label ou aria-labelledby.",
+		"Asocia automáticamente la etiqueta visible, las descripciones y los errores, y propaga required/disabled. Si se omite label, el control debe proporcionar aria-label o aria-labelledby.",
+		"يربط التسمية المرئية والأوصاف والأخطاء تلقائيًا ويمرر required/disabled. عند حذف label يجب أن يوفر العنصر aria-label أو aria-labelledby."
+	],
+	"Use it for every single-line text input, including text, email, password, search, url, and tel. Use leadingIcon and trailingIcon to clarify the value type, and unit for a fixed, non-editable suffix. The visible label may be omitted only when aria-label or aria-labelledby is provided.": [
+		"text、email、password、search、url、tel を含むすべての単一行テキスト入力に使用します。leadingIcon と trailingIcon で値の種類を示し、unit は固定の編集不可接尾辞に使用します。表示ラベルを省略できるのは aria-label または aria-labelledby がある場合だけです。",
+		"text, email, password, search, url, tel을 포함한 모든 한 줄 텍스트 입력에 사용하세요. leadingIcon과 trailingIcon으로 값 유형을 알리고 unit은 고정된 편집 불가 접미사에 사용하세요. aria-label 또는 aria-labelledby가 있을 때만 표시 레이블을 생략할 수 있습니다.",
+		"Utilisez-le pour toutes les saisies sur une ligne : text, email, password, search, url et tel. Les icônes précisent le type de valeur et unit fournit un suffixe fixe non modifiable. Le libellé visible ne peut être omis qu’avec aria-label ou aria-labelledby.",
+		"Úsalo para todas las entradas de texto de una línea: text, email, password, search, url y tel. Los iconos aclaran el tipo de valor y unit aporta un sufijo fijo no editable. La etiqueta visible solo puede omitirse con aria-label o aria-labelledby.",
+		"استخدمه لكل إدخال نصي بسطر واحد، بما في ذلك text وemail وpassword وsearch وurl وtel. توضّح الأيقونات نوع القيمة وتوفر unit لاحقة ثابتة غير قابلة للتحرير. لا تُحذف التسمية المرئية إلا عند توفير aria-label أو aria-labelledby."
+	],
+	"Enter numbers directly, use the native arrow keys, or use the step buttons. stepperPlacement=\"end\" stacks controls at the end; stepperPlacement=\"sides\" places minus and plus on either side. Define the valid range with min, max, and step; use unit for fixed units such as kg, %, or ms. The visible label may be omitted only when aria-label or aria-labelledby is provided.": [
+		"数値を直接入力するか、矢印キーまたは増減ボタンを使用します。stepperPlacement=\"end\" は末尾にボタンを縦積みし、stepperPlacement=\"sides\" は入力の両側にマイナスとプラスを配置します。min、max、step で有効範囲を定義し、kg、%、ms などには unit を使用します。表示ラベルを省略できるのは aria-label または aria-labelledby がある場合だけです。",
+		"숫자를 직접 입력하거나 기본 화살표 키 또는 증감 버튼을 사용하세요. stepperPlacement=\"end\"는 끝에 버튼을 세로로 배치하고 stepperPlacement=\"sides\"는 입력 양쪽에 빼기와 더하기를 배치합니다. min, max, step으로 유효 범위를 정의하고 kg, %, ms 같은 고정 단위에는 unit을 사용하세요. aria-label 또는 aria-labelledby가 있을 때만 표시 레이블을 생략할 수 있습니다.",
+		"Saisissez directement les nombres, utilisez les flèches natives ou les boutons. stepperPlacement=\"end\" empile les commandes à la fin ; stepperPlacement=\"sides\" place moins et plus de chaque côté. Définissez la plage avec min, max et step ; utilisez unit pour kg, %, ms, etc. Le libellé visible ne peut être omis qu’avec aria-label ou aria-labelledby.",
+		"Introduce números directamente, usa las flechas nativas o los botones. stepperPlacement=\"end\" apila los controles al final; stepperPlacement=\"sides\" coloca menos y más a ambos lados. Define el intervalo con min, max y step; usa unit para kg, %, ms, etc. La etiqueta visible solo puede omitirse con aria-label o aria-labelledby.",
+		"أدخل الأرقام مباشرة أو استخدم مفاتيح الأسهم أو أزرار الزيادة والنقصان. يكدّس stepperPlacement=\"end\" عناصر التحكم في النهاية، بينما يضع stepperPlacement=\"sides\" الناقص والزائد على الجانبين. حدّد النطاق باستخدام min وmax وstep، واستخدم unit لوحدات مثل kg و% وms. لا تُحذف التسمية المرئية إلا عند توفير aria-label أو aria-labelledby."
+	],
+	"Remove a guest": ["ゲストを減らす", "게스트 줄이기", "Retirer un invité", "Quitar un invitado", "إزالة ضيف"],
+	"Add a guest": ["ゲストを増やす", "게스트 추가", "Ajouter un invité", "Añadir un invitado", "إضافة ضيف"],
+	"Controls on both sides": [
+		"両側のコントロール",
+		"양쪽 컨트롤",
+		"Commandes des deux côtés",
+		"Controles a ambos lados",
+		"عناصر التحكم على الجانبين"
+	],
+	"Without a visible label": [
+		"表示ラベルなし",
+		"표시 레이블 없음",
+		"Sans libellé visible",
+		"Sin etiqueta visible",
+		"من دون تسمية مرئية"
+	],
+	"Enter a number directly or use the step buttons.": [
+		"数値を直接入力するか、ステップボタンを使用します。",
+		"숫자를 직접 입력하거나 단계 버튼을 사용하세요.",
+		"Saisissez directement un nombre ou utilisez les boutons de pas.",
+		"Introduce un número directamente o usa los botones de incremento.",
+		"أدخل رقمًا مباشرة أو استخدم أزرار الخطوات."
+	],
+	"Decrease quantity": ["数量を減らす", "수량 줄이기", "Diminuer la quantité", "Disminuir cantidad", "تقليل الكمية"],
+	"Increase quantity": ["数量を増やす", "수량 늘리기", "Augmenter la quantité", "Aumentar cantidad", "زيادة الكمية"],
+	"Preview product tour": [
+		"製品ツアーをプレビュー",
+		"제품 둘러보기 미리보기",
+		"Prévisualiser la visite du produit",
+		"Vista previa del recorrido del producto",
+		"معاينة جولة المنتج"
+	],
+	"Welcome to your workspace": [
+		"ワークスペースへようこそ",
+		"워크스페이스에 오신 것을 환영합니다",
+		"Bienvenue dans votre espace de travail",
+		"Te damos la bienvenida a tu espacio de trabajo",
+		"مرحبًا بك في مساحة العمل"
+	],
+	"Take a one-minute tour of your team workspace.": [
+		"チームのワークスペースを1分で確認しましょう。",
+		"1분 동안 팀 워크스페이스를 둘러보세요.",
+		"Découvrez votre espace d’équipe en une minute.",
+		"Recorre el espacio de tu equipo en un minuto.",
+		"تعرّف على مساحة عمل فريقك في دقيقة واحدة."
+	],
+	"Step 1 of 3": ["ステップ 1 / 3", "1/3단계", "Étape 1 sur 3", "Paso 1 de 3", "الخطوة 1 من 3"],
+	"Start with a clear overview": [
+		"明確な概要から始める",
+		"명확한 개요로 시작하세요",
+		"Commencez par une vue d’ensemble claire",
+		"Empieza con una vista general clara",
+		"ابدأ بنظرة عامة واضحة"
+	],
+	"See projects, teammates, and the next action in one view.": [
+		"プロジェクト、チームメンバー、次のアクションを一画面で確認できます。",
+		"프로젝트, 팀원, 다음 작업을 한 화면에서 확인하세요.",
+		"Consultez les projets, les membres et la prochaine action dans une seule vue.",
+		"Consulta proyectos, compañeros y la siguiente acción en una sola vista.",
+		"شاهد المشاريع وأعضاء الفريق والإجراء التالي في عرض واحد."
+	],
+	"View feature tour": [
+		"機能ツアーを見る",
+		"기능 둘러보기",
+		"Voir la visite de la fonctionnalité",
+		"Ver recorrido de la función",
+		"عرض جولة الميزة"
+	],
+	"Find the next step quickly": [
+		"次のステップをすぐに見つける",
+		"다음 단계를 빠르게 찾으세요",
+		"Trouvez rapidement l’étape suivante",
+		"Encuentra rápidamente el siguiente paso",
+		"اعثر على الخطوة التالية بسرعة"
+	],
+	"Tour tips stay concise and close to the feature.": [
+		"ツアーのヒントは簡潔にし、関連する機能の近くに表示します。",
+		"둘러보기 팁은 간결하게 관련 기능 가까이에 표시됩니다.",
+		"Les conseils restent concis et proches de la fonctionnalité.",
+		"Los consejos son breves y aparecen junto a la función.",
+		"تبقى تلميحات الجولة موجزة وقريبة من الميزة."
+	],
+	"Workspace map": [
+		"ワークスペースマップ",
+		"워크스페이스 맵",
+		"Carte de l’espace de travail",
+		"Mapa del espacio de trabajo",
+		"خريطة مساحة العمل"
+	],
+	"Later": ["後で", "나중에", "Plus tard", "Más tarde", "لاحقًا"],
+	"New feature": ["新機能", "새 기능", "Nouvelle fonctionnalité", "Nueva función", "ميزة جديدة"],
+	"Review release readiness": [
+		"リリース準備を確認",
+		"출시 준비 검토",
+		"Vérifier la préparation de la version",
+		"Revisar preparación del lanzamiento",
+		"مراجعة جاهزية الإصدار"
+	],
+	"Release checklist": [
+		"リリースチェックリスト",
+		"출시 체크리스트",
+		"Liste de contrôle de la version",
+		"Lista de verificación del lanzamiento",
+		"قائمة تحقق الإصدار"
+	],
+	"Confirm the critical quality gates before publishing.": [
+		"公開前に重要な品質基準を確認します。",
+		"게시 전에 핵심 품질 기준을 확인하세요.",
+		"Confirmez les contrôles qualité essentiels avant la publication.",
+		"Confirma los controles de calidad críticos antes de publicar.",
+		"أكّد بوابات الجودة الأساسية قبل النشر."
+	],
+	"Incomplete items keep the release in draft.": [
+		"未完了の項目がある場合、リリースは下書きのままです。",
+		"완료되지 않은 항목이 있으면 출시는 초안으로 유지됩니다.",
+		"Les éléments incomplets maintiennent la version en brouillon.",
+		"Los elementos incompletos mantienen el lanzamiento como borrador.",
+		"تُبقي العناصر غير المكتملة الإصدار كمسودة."
+	],
+	"Design approved": [
+		"デザイン承認済み",
+		"디자인 승인됨",
+		"Design approuvé",
+		"Diseño aprobado",
+		"تمت الموافقة على التصميم"
+	],
+	"Copy reviewed": ["文言確認済み", "문구 검토됨", "Texte relu", "Texto revisado", "تمت مراجعة النص"],
+	"Keyboard flow verified": [
+		"キーボード操作確認済み",
+		"키보드 흐름 확인됨",
+		"Parcours clavier vérifié",
+		"Flujo de teclado verificado",
+		"تم التحقق من مسار لوحة المفاتيح"
+	],
+	"Mobile layout checked": [
+		"モバイルレイアウト確認済み",
+		"모바일 레이아웃 확인됨",
+		"Mise en page mobile vérifiée",
+		"Diseño móvil comprobado",
+		"تم فحص تخطيط الهاتف"
+	],
+	"Analytics events configured": [
+		"分析イベント設定済み",
+		"분석 이벤트 구성됨",
+		"Événements analytiques configurés",
+		"Eventos analíticos configurados",
+		"تم إعداد أحداث التحليلات"
+	],
+	"Rollback plan documented": [
+		"ロールバック計画を文書化",
+		"롤백 계획 문서화됨",
+		"Plan de retour documenté",
+		"Plan de reversión documentado",
+		"تم توثيق خطة التراجع"
+	],
+	"Save draft": ["下書きを保存", "초안 저장", "Enregistrer le brouillon", "Guardar borrador", "حفظ المسودة"],
+	"Release readiness checklist": [
+		"リリース準備チェックリスト",
+		"출시 준비 체크리스트",
+		"Liste de préparation de la version",
+		"Lista de preparación del lanzamiento",
+		"قائمة التحقق من جاهزية الإصدار"
 	]
 }

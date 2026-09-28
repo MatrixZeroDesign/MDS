@@ -204,42 +204,6 @@ const formGroups: Group[] = [
 		],
 	},
 ];
-const inputGroups: Group[] = [
-	{
-		name: "Input",
-		rows: [
-			{
-				name: "value / defaultValue",
-				type: "string | number | readonly string[]",
-				description: ["受控值或初始值。", "Controlled value or initial value."],
-			},
-			{
-				name: "onChange",
-				type: "ChangeEventHandler<HTMLInputElement>",
-				description: ["处理输入变更。", "Handle input changes."],
-			},
-			{
-				name: "type",
-				type: "HTMLInputTypeAttribute",
-				defaultValue: '"text"',
-				description: ["原生输入类型，如 email、password。", "Native input type, such as email or password."],
-			},
-			{ name: "name", type: "string", description: ["表单提交时的字段名称。", "Field name in submitted form data."] },
-			{
-				name: "placeholder",
-				type: "string",
-				description: ["输入提示，不替代 Field 标签。", "Input hint; does not replace a Field label."],
-			},
-			{
-				name: "required / disabled",
-				type: "boolean",
-				description: ["显式设置或从 Field 继承。", "Set explicitly or inherit from Field."],
-			},
-			{ name: "autoComplete", type: "string", description: ["浏览器自动填充用途。", "Browser autofill purpose."] },
-		],
-	},
-];
-
 // Split contract summaries only at top level, preserving object and callback types.
 function statements(source: string) {
 	const parts: string[] = [];
@@ -304,14 +268,7 @@ export function ApiReference({
 	locale: DocsLocale;
 }) {
 	const t = (zh: string, en: string) => translate(locale, zh, en);
-	const groups =
-		slug === "toast"
-			? toastGroups
-			: slug === "form"
-				? formGroups
-				: slug === "input"
-					? inputGroups
-					: summarize(api, name);
+	const groups = slug === "toast" ? toastGroups : slug === "form" ? formGroups : summarize(api, name);
 	return (
 		<div className="docs-api-groups">
 			{groups.map((group, index) => (

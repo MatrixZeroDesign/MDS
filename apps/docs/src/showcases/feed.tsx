@@ -10,7 +10,7 @@ import {
 	Chip,
 	ChipGroup,
 	IconButton,
-	Input,
+	TextField,
 	EmptyState,
 	Dialog,
 	DialogContent,
@@ -162,7 +162,7 @@ export default function Feed({ locale }: SceneProps) {
 					<h2>{t("发现值得停留的日常。", "Good things, found here.")}</h2>
 					<p>{t("小小的发现，让每一天多一点不同。", "Small discoveries. A fresh perspective on the everyday.")}</p>
 				</div>
-				<Input
+				<TextField
 					type="search"
 					aria-label={t("搜索灵感", "Search inspiration")}
 					placeholder={t("寻找你的下一份灵感…", "Find your next inspiration…")}

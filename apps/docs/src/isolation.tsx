@@ -1,7 +1,7 @@
 // Browser fixture. Not an entry in the production docs build.
 import { useState } from "react";
 import { createRoot } from "react-dom/client";
-import { ThemeProvider, ChoiceMenu, Field, Input, Select, NativeSelect, Checkbox, Button } from "@matrixzero/ui";
+import { ThemeProvider, ChoiceMenu, Field, TextField, Select, NativeSelect, Checkbox, Button } from "@matrixzero/ui";
 import "@matrixzero/ui/styles.css";
 import "@matrixzero/ui/themes/mt0.css";
 function Fixture() {
@@ -33,7 +33,7 @@ function Fixture() {
 					}}
 				>
 					<Field label="Form name">
-						<Input name="name" defaultValue="Original" />
+						<TextField name="name" defaultValue="Original" />
 					</Field>
 					<Field label="Native choice">
 						<NativeSelect name="scope" defaultValue="a">

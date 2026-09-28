@@ -9,7 +9,14 @@ test("ChoiceMenu is an immediate compact toolbar action while Select remains a f
 	expect((await menu.boundingBox())!.width).toBeLessThan((await select.boundingBox())!.width);
 	await expect(menu).toHaveAccessibleDescription("Recently updated");
 	await menu.click();
-	await page.getByRole("menuitemradio", { name: "Name A–Z" }).click();
+	const choice = page.getByRole("menuitemradio", { name: "Name A–Z" });
+	const restingBackground = await choice.evaluate((element) => getComputedStyle(element).backgroundColor);
+	await choice.hover();
+	await expect(choice).toBeFocused();
+	await expect
+		.poll(() => choice.evaluate((element) => getComputedStyle(element).backgroundColor))
+		.not.toBe(restingBackground);
+	await choice.click();
 	await expect(stage.locator("li").first()).toHaveText("Atlas");
 	await expect(menu).toBeFocused();
 	await select.click();

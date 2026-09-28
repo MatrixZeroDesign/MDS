@@ -1,10 +1,20 @@
-import { useDirection } from "@radix-ui/react-direction";
+import { useDirection } from "./primitives/direction.js";
 import { createContext, useContext, useId, useLayoutEffect, useRef, useState } from "react";
 import type { ComponentProps, ReactNode } from "react";
-import * as Check from "@radix-ui/react-checkbox";
-import * as Toggle from "@radix-ui/react-switch";
-import * as Radio from "@radix-ui/react-radio-group";
-import { Check as CheckIcon, Minus, LoaderCircle, ChevronDown, ChevronLeft, ChevronRight, X } from "@matrixzero/icons";
+import * as Check from "./primitives/checkbox.js";
+import * as Toggle from "./primitives/switch.js";
+import * as Radio from "./primitives/radio-group.js";
+import {
+	Check as CheckIcon,
+	Minus,
+	Plus,
+	LoaderCircle,
+	ChevronDown,
+	ChevronUp,
+	ChevronLeft,
+	ChevronRight,
+	X,
+} from "@matrixzero/icons";
 export const cx = (...parts: (string | undefined | false)[]) => parts.filter(Boolean).join(" ");
 type Size = "sm" | "md" | "lg";
 export interface ButtonProps extends ComponentProps<"button"> {
@@ -119,6 +129,7 @@ export function Chip({
 }
 type FieldState = {
 	id: string;
+	label?: string;
 	description?: string;
 	error?: string;
 	invalid: boolean;
@@ -127,7 +138,8 @@ type FieldState = {
 };
 const FieldContext = createContext<FieldState | null>(null);
 export interface FieldProps extends Omit<ComponentProps<"div">, "title"> {
-	label: ReactNode;
+	/** Visible label. Omit only when the child supplies another accessible name. */
+	label?: ReactNode;
 	description?: ReactNode;
 	error?: ReactNode;
 	required?: boolean;
@@ -146,8 +158,10 @@ export function Field({
 }: FieldProps) {
 	const auto = useId(),
 		id = given || auto;
+	const hasLabel = label !== undefined && label !== null;
 	const value = {
 		id,
+		label: hasLabel ? `${id}-label` : undefined,
 		description: description ? `${id}-description` : undefined,
 		error: error ? `${id}-error` : undefined,
 		invalid: !!error,
@@ -157,15 +171,17 @@ export function Field({
 	return (
 		<FieldContext.Provider value={value}>
 			<div {...props} className={cx("mds-field", className)} data-disabled={disabled || undefined}>
-				<label id={`${id}-label`} htmlFor={id} className="mds-label">
-					{label}
-					{required && (
-						<span aria-hidden="true" className="mds-required">
-							{" "}
-							*
-						</span>
-					)}
-				</label>
+				{hasLabel && (
+					<label id={value.label} htmlFor={id} className="mds-label">
+						{label}
+						{required && (
+							<span aria-hidden="true" className="mds-required">
+								{" "}
+								*
+							</span>
+						)}
+					</label>
+				)}
 				{children}
 				{description && (
 					<div id={value.description} className="mds-description">
@@ -194,7 +210,7 @@ export function useFieldProps(
 	const field = useContext(FieldContext);
 	return {
 		id: props.id ?? field?.id,
-		"aria-labelledby": props["aria-labelledby"] ?? (field ? `${field.id}-label` : undefined),
+		"aria-labelledby": props["aria-labelledby"] ?? field?.label,
 		"aria-describedby":
 			[props["aria-describedby"], field?.description, field?.error].filter(Boolean).join(" ") || undefined,
 		"aria-invalid": props["aria-invalid"] ?? (field?.invalid || undefined),
@@ -202,7 +218,7 @@ export function useFieldProps(
 		disabled: props.disabled ?? field?.disabled,
 	};
 }
-export function Input({
+function Input({
 	size: _,
 	className,
 	density,
@@ -210,6 +226,257 @@ export function Input({
 }: Omit<ComponentProps<"input">, "size"> & { size?: never; density?: "comfortable" | "compact" }) {
 	const field = useFieldProps(props);
 	return <input data-mds-density={density} {...props} {...field} className={cx("mds-input", className)} />;
+}
+
+interface FieldAffixProps {
+	/** Decorative icon rendered before the editable value. */
+	leadingIcon?: ReactNode;
+	/** Decorative icon rendered after the editable value. */
+	trailingIcon?: ReactNode;
+	/** Unit or fixed suffix announced with the field value. */
+	unit?: ReactNode;
+	/** Class name applied to the native input. */
+	inputClassName?: string;
+}
+
+export interface TextFieldProps extends Omit<ComponentProps<"input">, "size">, FieldAffixProps {
+	/** Visible label. When omitted, provide aria-label or aria-labelledby. */
+	label?: ReactNode;
+	description?: ReactNode;
+	error?: ReactNode;
+	density?: "comfortable" | "compact";
+}
+
+/** Complete text field with label, validation messaging, icons, and an optional unit. */
+export function TextField({
+	id,
+	label,
+	description,
+	error,
+	required,
+	disabled,
+	density,
+	leadingIcon,
+	trailingIcon,
+	unit,
+	className,
+	inputClassName,
+	"aria-describedby": describedBy,
+	...props
+}: TextFieldProps) {
+	const unitId = useId();
+	const parentField = useContext(FieldContext);
+	const hasUnit = unit !== undefined && unit !== null;
+	const control = (
+		<div className="mds-input-group" data-disabled={disabled || undefined}>
+			{leadingIcon !== undefined && (
+				<span className="mds-input-affix" data-position="leading" aria-hidden="true">
+					{leadingIcon}
+				</span>
+			)}
+			<Input
+				{...props}
+				required={required}
+				disabled={disabled}
+				density={density}
+				aria-describedby={[describedBy, hasUnit ? unitId : undefined].filter(Boolean).join(" ") || undefined}
+				className={cx("mds-input-group-input", inputClassName)}
+			/>
+			{hasUnit && (
+				<span id={unitId} className="mds-input-unit">
+					{unit}
+				</span>
+			)}
+			{trailingIcon !== undefined && (
+				<span className="mds-input-affix" data-position="trailing" aria-hidden="true">
+					{trailingIcon}
+				</span>
+			)}
+		</div>
+	);
+	if (parentField && label === undefined && description === undefined && error === undefined && className === undefined)
+		return control;
+	return (
+		<Field
+			id={id}
+			label={label}
+			description={description}
+			error={error}
+			required={required}
+			disabled={disabled}
+			className={className}
+		>
+			{control}
+		</Field>
+	);
+}
+
+export interface NumberFieldProps
+	extends Omit<
+			ComponentProps<"input">,
+			"type" | "size" | "value" | "defaultValue" | "onChange" | "min" | "max" | "step"
+		>,
+		FieldAffixProps {
+	/** Visible label. When omitted, provide aria-label or aria-labelledby. */
+	label?: ReactNode;
+	description?: ReactNode;
+	error?: ReactNode;
+	value?: number | null;
+	defaultValue?: number | null;
+	onValueChange?: (value: number | null) => void;
+	min?: number;
+	max?: number;
+	step?: number;
+	density?: "comfortable" | "compact";
+	/** Places stacked controls at the end or one control on each inline side. */
+	stepperPlacement?: "end" | "sides";
+	decrementLabel: string;
+	incrementLabel: string;
+}
+
+/** Numeric input with native spinbutton semantics and explicit step controls. */
+export function NumberField({
+	id,
+	label,
+	description,
+	error,
+	value,
+	defaultValue = null,
+	onValueChange,
+	min,
+	max,
+	step = 1,
+	decrementLabel,
+	incrementLabel,
+	density,
+	stepperPlacement = "end",
+	disabled,
+	readOnly,
+	required,
+	className,
+	inputClassName,
+	leadingIcon,
+	trailingIcon,
+	unit,
+	"aria-describedby": describedBy,
+	...props
+}: NumberFieldProps) {
+	const [internal, setInternal] = useState<number | null>(defaultValue);
+	const current = value === undefined ? internal : value;
+	const unitId = useId();
+	const hasUnit = unit !== undefined && unit !== null;
+	const update = (next: number | null) => {
+		if (value === undefined) setInternal(next);
+		onValueChange?.(next);
+	};
+	const stepBy = (direction: -1 | 1) => {
+		const base = current ?? (direction > 0 ? (min ?? 0) - step : (max ?? 0) + step);
+		const next = Math.min(
+			max ?? Number.POSITIVE_INFINITY,
+			Math.max(min ?? Number.NEGATIVE_INFINITY, base + step * direction),
+		);
+		const precision = Math.min(12, Math.max(0, (String(step).split(".")[1] ?? "").length));
+		update(Number(next.toFixed(precision)));
+	};
+	const decrementDisabled = disabled || readOnly || (current !== null && min !== undefined && current <= min);
+	const incrementDisabled = disabled || readOnly || (current !== null && max !== undefined && current >= max);
+	return (
+		<Field
+			id={id}
+			label={label}
+			description={description}
+			error={error}
+			required={required}
+			disabled={disabled}
+			className={className}
+		>
+			<div
+				className="mds-number-field-control"
+				data-mds-density={density}
+				data-disabled={disabled || undefined}
+				data-readonly={readOnly || undefined}
+				data-stepper-placement={stepperPlacement}
+			>
+				{stepperPlacement === "sides" && (
+					<IconButton
+						label={decrementLabel}
+						icon={<Minus size={14} />}
+						variant="ghost"
+						size="sm"
+						className="mds-number-field-side-button"
+						data-step-direction="decrement"
+						disabled={decrementDisabled}
+						onClick={() => stepBy(-1)}
+					/>
+				)}
+				<div className="mds-number-field-value">
+					{leadingIcon !== undefined && (
+						<span className="mds-input-affix" data-position="leading" aria-hidden="true">
+							{leadingIcon}
+						</span>
+					)}
+					<Input
+						{...props}
+						type="number"
+						min={min}
+						max={max}
+						step={step}
+						value={current ?? ""}
+						density={density}
+						disabled={disabled}
+						readOnly={readOnly}
+						required={required}
+						aria-describedby={[describedBy, hasUnit ? unitId : undefined].filter(Boolean).join(" ") || undefined}
+						className={cx("mds-number-field-input", inputClassName)}
+						onChange={(event) => update(Number.isNaN(event.target.valueAsNumber) ? null : event.target.valueAsNumber)}
+					/>
+					{hasUnit && (
+						<span id={unitId} className="mds-input-unit">
+							{unit}
+						</span>
+					)}
+					{trailingIcon !== undefined && (
+						<span className="mds-input-affix" data-position="trailing" aria-hidden="true">
+							{trailingIcon}
+						</span>
+					)}
+				</div>
+				{stepperPlacement === "end" ? (
+					<div className="mds-number-field-steppers">
+						<IconButton
+							label={incrementLabel}
+							icon={<ChevronUp size={12} />}
+							variant="ghost"
+							size="sm"
+							className="mds-number-field-button"
+							disabled={incrementDisabled}
+							onClick={() => stepBy(1)}
+						/>
+						<IconButton
+							label={decrementLabel}
+							icon={<ChevronDown size={12} />}
+							variant="ghost"
+							size="sm"
+							className="mds-number-field-button"
+							disabled={decrementDisabled}
+							onClick={() => stepBy(-1)}
+						/>
+					</div>
+				) : (
+					<IconButton
+						label={incrementLabel}
+						icon={<Plus size={14} />}
+						variant="ghost"
+						size="sm"
+						className="mds-number-field-side-button"
+						data-step-direction="increment"
+						disabled={incrementDisabled}
+						onClick={() => stepBy(1)}
+					/>
+				)}
+			</div>
+		</Field>
+	);
 }
 export function Textarea({ className, ...props }: ComponentProps<"textarea">) {
 	const field = useFieldProps(props);
@@ -300,11 +567,7 @@ export interface IconButtonProps extends Omit<ButtonProps, "children" | "aria-la
 	icon: ReactNode;
 }
 export function IconButton({ label, icon, className, ...props }: IconButtonProps) {
-	return (
-		<Button {...props} aria-label={label} className={cx("mds-icon-button", className)}>
-			<span aria-hidden="true">{icon}</span>
-		</Button>
-	);
+	return <Button {...props} aria-label={label} leadingIcon={icon} className={cx("mds-icon-button", className)} />;
 }
 export interface SegmentOption {
 	value: string;

@@ -53,7 +53,7 @@ export function PortalPage({ locale }: { locale: DocsLocale }) {
 					</p>
 					<pre>
 						<code>
-							npm install --save-exact @matrixzero/ui@0.1.0-alpha.13{String.fromCharCode(10)}npm install --save-exact
+							npm install --save-exact @matrixzero/ui@0.1.0-alpha.14{String.fromCharCode(10)}npm install --save-exact
 							@matrixzero/icons@0.1.0-alpha.5{String.fromCharCode(10)}npm install --save-exact
 							@matrixzero/brand-icons@0.1.0-alpha.1{String.fromCharCode(10)}npm install --save-exact
 							@matrixzero/charts@0.1.0-alpha.4
@@ -67,13 +67,13 @@ export function PortalPage({ locale }: { locale: DocsLocale }) {
 					</p>
 					<h3>{t("接入主题", "Add the theme root")}</h3>
 					<pre>
-						<code>{`import { ThemeProvider, Field, Input, Button } from '@matrixzero/ui';
+						<code>{`import { ThemeProvider, Field, TextField, Button } from '@matrixzero/ui';
 import '@matrixzero/ui/styles.css';
 import '@matrixzero/ui/themes/mt0.css';
 
 <ThemeProvider brand="mt0" mode="system" dir="ltr">
   <Field label="工作区 / Workspace" required>
-    <Input name="workspace" />
+    <TextField name="workspace" />
   </Field>
   <Button variant="primary">保存 Save</Button>
 </ThemeProvider>`}</code>

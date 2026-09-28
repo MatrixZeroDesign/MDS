@@ -153,8 +153,9 @@ test("rendered notices, cards, placeholders and control outlines meet contrast t
 				),
 				minimum: 4.5,
 			});
-			const input = document.querySelector('input.mds-input:not([aria-invalid="true"])')!;
-			const css = getComputedStyle(input);
+			const input = document.querySelector('input.mds-input-group-input:not([aria-invalid="true"])')!;
+			const inputBoundary = input.closest(".mds-input-group")!;
+			const css = getComputedStyle(inputBoundary);
 			results.push({ name: "input boundary", ratio: ratio(css.borderColor, css.backgroundColor), minimum: 3 });
 			const placeholder = getComputedStyle(input, "::placeholder");
 			results.push({ name: "placeholder", ratio: ratio(placeholder.color, css.backgroundColor), minimum: 4.5 });

@@ -196,7 +196,7 @@
 	"dialog": [
 		{
 			"file": "dialog--additional",
-			"title": ["长内容滚动", "Long content"]
+			"title": ["发布准备清单", "Release readiness checklist"]
 		}
 	],
 	"dropdown-menu": [
@@ -219,12 +219,6 @@
 		{
 			"file": "form--additional",
 			"title": ["预填与重置", "Prefilled form and reset"]
-		}
-	],
-	"input": [
-		{
-			"file": "input--additional",
-			"title": ["只读内容", "Read-only value"]
 		}
 	],
 	"native-select": [
@@ -310,6 +304,10 @@
 		}
 	],
 	"tooltip": [
+		{
+			"file": "tooltip--placements",
+			"title": ["位置与自动避让", "Placement and automatic collision handling"]
+		},
 		{
 			"file": "tooltip--additional",
 			"title": ["快速显示提示", "Immediate tooltip"]
@@ -425,6 +423,14 @@
 	],
 	"popover": [
 		{
+			"file": "popover--placements",
+			"title": ["位置与自动避让", "Placement and automatic collision handling"]
+		},
+		{
+			"file": "popover--interactions",
+			"title": ["点击与悬停触发", "Click and hover interactions"]
+		},
+		{
 			"file": "popover--controlled",
 			"title": ["受控状态与箭头", "Controlled state and arrow"]
 		}
@@ -483,6 +489,46 @@
 		{
 			"file": "scroll-navigator--long-content",
 			"title": ["长记录导航", "Long activity log"]
+		}
+	],
+	"text-field": [
+		{
+			"file": "text-field--types",
+			"title": ["常用输入类型", "Common input types"]
+		},
+		{
+			"file": "text-field--affixes",
+			"title": ["输入与状态图标", "Input and status icons"]
+		},
+		{
+			"file": "text-field--states",
+			"title": ["验证与字段状态", "Validation and field states"]
+		},
+		{
+			"file": "text-field--without-label",
+			"title": ["无可见标签", "Without a visible label"]
+		}
+	],
+	"number-field": [
+		{
+			"file": "number-field--side-steppers",
+			"title": ["两侧增减按钮", "Controls on both sides"]
+		},
+		{
+			"file": "number-field--units",
+			"title": ["单位与小数精度", "Units and decimal precision"]
+		},
+		{
+			"file": "number-field--bounds",
+			"title": ["最小值与最大值", "Minimum and maximum bounds"]
+		},
+		{
+			"file": "number-field--states",
+			"title": ["验证与字段状态", "Validation and field states"]
+		},
+		{
+			"file": "number-field--without-label",
+			"title": ["无可见标签", "Without a visible label"]
 		}
 	]
 }

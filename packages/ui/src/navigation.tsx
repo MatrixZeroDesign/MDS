@@ -1,7 +1,7 @@
 import { Popover, PopoverTrigger, PopoverContent } from "./popover.js";
 import type { ComponentProps, ReactNode } from "react";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
-import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
+import * as CollapsiblePrimitive from "./primitives/collapsible.js";
 import { cx } from "./controls.js";
 import { SideSheet, SideSheetTrigger, SideSheetContent, SideSheetClose, Tooltip, TooltipProvider } from "./overlays.js";
 

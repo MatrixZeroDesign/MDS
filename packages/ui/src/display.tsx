@@ -1,9 +1,7 @@
-import { createContext, forwardRef, useContext, useLayoutEffect, useRef, useState } from "react";
+import { createContext, forwardRef, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { ComponentProps, ComponentPropsWithoutRef, ComponentRef, CSSProperties, ReactNode } from "react";
-import * as A from "@radix-ui/react-avatar";
-import * as P from "@radix-ui/react-progress";
-import * as TabsPrimitive from "@radix-ui/react-tabs";
-import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import * as TabsPrimitive from "./primitives/tabs.js";
+import * as AccordionPrimitive from "./primitives/accordion.js";
 import { ChevronDown, ChevronLeft, ChevronRight, Check, Info, AlertCircle, X } from "@matrixzero/icons";
 import { cx, Button, IconButton } from "./controls.js";
 export function Badge({
@@ -73,14 +71,27 @@ export function Avatar({
 	size = "md",
 	className,
 	...props
-}: ComponentProps<typeof A.Root> & { src?: string; alt: string; fallback: string; size?: "sm" | "md" | "lg" }) {
+}: ComponentProps<"span"> & { src?: string; alt: string; fallback: string; size?: "sm" | "md" | "lg" }) {
+	const [loaded, setLoaded] = useState(false);
+	useEffect(() => setLoaded(false), [src]);
 	return (
-		<A.Root {...props} className={cx("mds-avatar", className)} data-size={size}>
-			<A.Image className="mds-avatar-image" src={src} alt={alt} />
-			<A.Fallback className="mds-avatar-fallback" role="img" aria-label={alt}>
-				{fallback}
-			</A.Fallback>
-		</A.Root>
+		<span {...props} className={cx("mds-avatar", className)} data-size={size}>
+			{src && (
+				<img
+					className="mds-avatar-image"
+					src={src}
+					alt={alt}
+					style={{ display: loaded ? undefined : "none" }}
+					onLoad={() => setLoaded(true)}
+					onError={() => setLoaded(false)}
+				/>
+			)}
+			{!loaded && (
+				<span className="mds-avatar-fallback" role="img" aria-label={alt}>
+					{fallback}
+				</span>
+			)}
+		</span>
 	);
 }
 export interface AvatarGroupProps extends Omit<ComponentProps<"div">, "children"> {
@@ -124,12 +135,24 @@ export function AvatarGroup({
 		</div>
 	);
 }
-export function Progress({ className, ...props }: ComponentProps<typeof P.Root>) {
-	const value = props.value == null ? null : Math.max(0, Math.min(100, props.value));
+export function Progress({
+	className,
+	value: rawValue,
+	max: _max,
+	...props
+}: ComponentProps<"div"> & { value?: number | null; max?: number }) {
+	const value = rawValue == null ? null : Math.max(0, Math.min(100, rawValue));
 	return (
-		<P.Root {...props} max={100} value={value} className={cx("mds-progress", className)}>
-			<P.Indicator className="mds-progress-indicator" style={{ width: value === null ? "35%" : `${value}%` }} />
-		</P.Root>
+		<div
+			{...props}
+			role="progressbar"
+			aria-valuemin={value === null ? undefined : 0}
+			aria-valuemax={value === null ? undefined : 100}
+			aria-valuenow={value ?? undefined}
+			className={cx("mds-progress", className)}
+		>
+			<div className="mds-progress-indicator" style={{ width: value === null ? "35%" : `${value}%` }} />
+		</div>
 	);
 }
 export interface CircularProgressProps extends Omit<ComponentProps<"div">, "children"> {

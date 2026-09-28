@@ -18,7 +18,7 @@ export default function Example({ locale = "en" }: { locale?: DocsLocale }) {
 				<DropdownTrigger asChild>
 					<Button>{t("操作", "Actions")}</Button>
 				</DropdownTrigger>
-				<DropdownContent align="end">
+				<DropdownContent placement="top-end">
 					<DropdownItem onSelect={() => setMessage(t("已保存", "Saved"))}>{t("保存", "Save")}</DropdownItem>
 					<DropdownSeparator />
 					<DropdownItem disabled>{t("删除", "Delete")}</DropdownItem>

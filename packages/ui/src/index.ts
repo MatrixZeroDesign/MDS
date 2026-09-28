@@ -18,3 +18,4 @@ export * from "./discovery.js";
 export * from "./cascader.js";
 
 export * from "./scroll-navigator.js";
+export type { FloatingPlacement } from "./primitives/floating.js";

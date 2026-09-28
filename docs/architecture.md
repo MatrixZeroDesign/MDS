@@ -33,7 +33,7 @@ All styles are scoped by `.mds-root`. Text, tables, inputs and overlays bind to 
 
 ## Why Select and ChoiceMenu are separate
 
-An early modal dropdown locked global scrolling and could shift the background. Select uses a Radix listbox plus a native form bridge for submission, required validation and reset. NativeSelect preserves the platform picker and legacy `option` and `onChange` API. ChoiceMenu is a non-modal selection menu for filters and preferences.
+An early modal dropdown locked global scrolling and could shift the background. Select uses an MDS-owned listbox plus a native form bridge for submission, required validation and reset. NativeSelect preserves the platform picker and legacy `option` and `onChange` API. ChoiceMenu is a non-modal selection menu for filters and preferences.
 
 Do not disguise a menu as a combobox with hand-written ARIA roles. Search and large-data virtualization require a separate design and test plan.
 

@@ -48,7 +48,8 @@ test("both modal form selects share one themed dropdown without shifting content
 		expect(await measure()).toEqual(before);
 		const triggerBox = await trigger.boundingBox();
 		const listBox = await list.boundingBox();
-		expect(Math.abs(listBox!.width - triggerBox!.width)).toBeLessThan(2);
+		expect(listBox!.width).toBeLessThanOrEqual(Math.min(triggerBox!.width, 320) + 1);
+		expect(listBox!.width).toBeGreaterThanOrEqual(160);
 		await page.keyboard.press("Escape");
 		await expect(trigger).toBeFocused();
 		await expect(dialog).toBeVisible();

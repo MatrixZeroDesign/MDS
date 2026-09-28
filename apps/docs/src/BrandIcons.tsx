@@ -1,6 +1,6 @@
 import { translatePair, type DocsLocale, translate } from "./i18n";
 import { useEffect, useRef, useState } from "react";
-import { Button, Dialog, DialogContent, Input, SegmentedControl, Select, Typography } from "@matrixzero/ui";
+import { Button, Dialog, DialogContent, TextField, SegmentedControl, Select, Typography } from "@matrixzero/ui";
 import { BrandIcon, brandCatalog, type BrandIconCategory } from "@matrixzero/brand-icons";
 
 const brandCategories: Record<BrandIconCategory, [string, string]> = {
@@ -123,7 +123,7 @@ export function BrandIcons({ locale }: { locale: DocsLocale }) {
 				</span>
 			</div>
 			<div className="docs-icon-tools">
-				<Input
+				<TextField
 					aria-label={t("搜索品牌图标", "Search brand icons")}
 					placeholder={t("搜索服务商或产品…", "Search providers or products…")}
 					value={query}

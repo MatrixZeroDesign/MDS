@@ -1,13 +1,13 @@
 # Integration guide
 
-Applies to React 19, @matrixzero/ui 0.1.0-alpha.13, @matrixzero/icons 0.1.0-alpha.4 and @matrixzero/charts 0.1.0-alpha.4. Pin these versions when reproducing examples. This is an alpha API; inspect the installed declarations before upgrading.
+Applies to React 19, @matrixzero/ui 0.1.0-alpha.14, @matrixzero/icons 0.1.0-alpha.4 and @matrixzero/charts 0.1.0-alpha.4. Pin these versions when reproducing examples. This is an alpha API; inspect the installed declarations before upgrading.
 
 ## Install
 
 Install from the public npm registry; no project-level registry configuration is required:
 
 ```sh
-npm install --save-exact @matrixzero/ui@0.1.0-alpha.13 @matrixzero/icons@0.1.0-alpha.4
+npm install --save-exact @matrixzero/ui@0.1.0-alpha.14 @matrixzero/icons@0.1.0-alpha.4
 # Optional charts
 npm install --save-exact @matrixzero/charts@0.1.0-alpha.4
 ```
@@ -36,7 +36,7 @@ Every component example assumes these styles and a surrounding ThemeProvider. Ex
 
 ## Controlled state
 
-Use value + onValueChange for Select, radio groups, segmented controls, tabs and ChoiceMenu; checked + onCheckedChange for Checkbox and Switch; open + onOpenChange for overlays. Native Input, Textarea, NativeSelect and Slider use onChange events. Use defaultValue/defaultChecked/defaultOpen for uncontrolled state; do not mix controlled and uncontrolled ownership. Reset controlled state explicitly when the form resets.
+Use value + onValueChange for NumberField, Select, radio groups, segmented controls, tabs and ChoiceMenu; checked + onCheckedChange for Checkbox and Switch; open + onOpenChange for overlays. TextField, Textarea, NativeSelect and Slider use onChange events. Use defaultValue/defaultChecked/defaultOpen for uncontrolled state; do not mix controlled and uncontrolled ownership. Reset controlled state explicitly when the form resets.
 
 ## Public utilities
 

@@ -27,7 +27,7 @@ Use --mds-duration-fast (120ms), --mds-duration-normal (180ms) and --mds-duratio
 
 ## Keyboard and focus
 
-Keep visible focus indicators. Use actual buttons/links, name controls, preserve Radix keyboard handlers and avoid nested interactive elements. A Dialog/SideSheet normally returns focus to its Trigger. For programmatic opening without a Trigger, store the exact opener and restore it in onCloseAutoFocus:
+Keep visible focus indicators. Use actual buttons/links, name controls, preserve established keyboard behavior and avoid nested interactive elements. A Dialog/SideSheet normally returns focus to its Trigger. For programmatic opening without a Trigger, store the exact opener and restore it in onCloseAutoFocus:
 
 ```tsx
 onCloseAutoFocus={(event) => {

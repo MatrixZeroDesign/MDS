@@ -14,6 +14,11 @@ try {
 		if (packed.files.some((f) => /scratchpad|\.npmrc|\.env|node_modules/.test(f.path)))
 			throw Error("Unexpected private files in " + name);
 		const pkg = JSON.parse(await readFile("packages/" + name + "/package.json", "utf8"));
+		if (
+			name === "ui" &&
+			Object.keys(pkg.dependencies ?? {}).some((dependency) => !dependency.startsWith("@matrixzero/"))
+		)
+			throw Error("UI package contains a third-party runtime dependency");
 		for (const target of Object.values(pkg.exports)) {
 			const path = typeof target === "string" ? target : target.import;
 			if (!packed.files.some((f) => f.path === path.replace("./", ""))) throw Error("Missing export " + path);
@@ -32,7 +37,7 @@ try {
 	);
 	await writeFile(
 		join(dir, "render.mjs"),
-		"import React from 'react';import {renderToString} from 'react-dom/server';import {ThemeProvider,Button,Field,Input,ToastProvider,Toaster,useToast,Form,FormSubmit,FormErrorSummary,useFormStatus,Grid,Divider,Typography} from '@matrixzero/ui';import {Plus} from '@matrixzero/icons';import {BrandIcon,OpenAI,Figma,brandCatalog} from '@matrixzero/brand-icons';import {LineChart} from '@matrixzero/charts';if(!ToastProvider||!Toaster||!useToast||!Form||!FormSubmit||!FormErrorSummary||!useFormStatus||!Grid||!Divider||!Typography||brandCatalog.length<200)throw Error('Missing exports');const html=renderToString(React.createElement(ThemeProvider,{mode:'light'},React.createElement(Grid,{columns:2},React.createElement(Typography,{as:'h2',variant:'title'},'中文 / English'),React.createElement(Divider,null)),React.createElement(Field,{label:'Workspace'},React.createElement(Input)),React.createElement(Button,null,'Save'),React.createElement(Plus),React.createElement(BrandIcon,{name:'slack','aria-label':'Slack'}),React.createElement(OpenAI),React.createElement(Figma,{variant:'color'}),React.createElement(LineChart,{title:'Trend',data:[],series:[]})));if(!html.includes('中文 / English')||!html.includes('Save')||!html.includes('Trend')||!html.includes('Slack')||!html.includes('mds-grid')||!html.includes('mds-divider')||!html.includes('mds-typography'))throw Error('SSR failed');console.log('All installed tarballs: exports and SSR passed');",
+		"import React from 'react';import {renderToString} from 'react-dom/server';import {ThemeProvider,Button,TextField,NumberField,ToastProvider,Toaster,useToast,Form,FormSubmit,FormErrorSummary,useFormStatus,Grid,Divider,Typography} from '@matrixzero/ui';import {Plus} from '@matrixzero/icons';import {BrandIcon,OpenAI,Figma,brandCatalog} from '@matrixzero/brand-icons';import {LineChart} from '@matrixzero/charts';if(!ToastProvider||!Toaster||!useToast||!Form||!FormSubmit||!FormErrorSummary||!useFormStatus||!Grid||!Divider||!Typography||!TextField||!NumberField||brandCatalog.length<200)throw Error('Missing exports');const html=renderToString(React.createElement(ThemeProvider,{mode:'light'},React.createElement(Grid,{columns:2},React.createElement(Typography,{as:'h2',variant:'title'},'中文 / English'),React.createElement(Divider,null)),React.createElement(TextField,{label:'Workspace'}),React.createElement(NumberField,{label:'Seats',stepperPlacement:'sides',decrementLabel:'Remove a seat',incrementLabel:'Add a seat'}),React.createElement(Button,null,'Save'),React.createElement(Plus),React.createElement(BrandIcon,{name:'slack','aria-label':'Slack'}),React.createElement(OpenAI),React.createElement(Figma,{variant:'color'}),React.createElement(LineChart,{title:'Trend',data:[],series:[]})));if(!html.includes('中文 / English')||!html.includes('Workspace')||!html.includes('Seats')||!html.includes('Save')||!html.includes('Trend')||!html.includes('Slack')||!html.includes('mds-grid')||!html.includes('mds-divider')||!html.includes('mds-typography'))throw Error('SSR failed');console.log('All installed tarballs: exports and SSR passed');",
 	);
 	execFileSync(process.execPath, ["render.mjs"], { cwd: dir, stdio: "inherit" });
 } finally {

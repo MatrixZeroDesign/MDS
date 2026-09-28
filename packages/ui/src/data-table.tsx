@@ -1,5 +1,6 @@
 import { useContext, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
-import { cx } from "./controls.js";
+import { ChevronDown, ChevronRight } from "@matrixzero/icons";
+import { cx, IconButton } from "./controls.js";
 import { DensityContext } from "./density-context.js";
 
 export interface DataTableColumn<T> {
@@ -327,15 +328,15 @@ export function DataTable<T>({
 							>
 								{expandable && (
 									<td>
-										<button
-											type="button"
+										<IconButton
 											className="mds-data-table-expand"
-											aria-label={expandLabel!(row)}
+											label={expandLabel!(row)}
+											icon={expanded.has(key) ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+											variant="ghost"
+											size="sm"
 											aria-expanded={expanded.has(key)}
 											onClick={() => toggleExpanded(key)}
-										>
-											<span aria-hidden="true">{expanded.has(key) ? "−" : "+"}</span>
-										</button>
+										/>
 									</td>
 								)}
 								{selectable && (

@@ -11,6 +11,16 @@ test("date picker uses themed calendar, manual segments, native submission and r
 	await expect(page.locator(".mds-portals .mds-date-popover")).toBeVisible();
 	const dateCell = page.getByRole("button", { name: "Saturday, October 17, 2026", exact: true });
 	await expect(dateCell).toBeVisible();
+	await expect(dateCell).toHaveCSS("border-top-width", "0px");
+	const adjacentCell = page.getByRole("button", { name: "Sunday, October 18, 2026", exact: true });
+	const restingBackground = await adjacentCell.evaluate((element) => getComputedStyle(element).backgroundColor);
+	await adjacentCell.hover();
+	await expect
+		.poll(() => adjacentCell.evaluate((element) => getComputedStyle(element).backgroundColor))
+		.not.toBe(restingBackground);
+	await dateCell.focus();
+	await page.keyboard.press("ArrowRight");
+	await expect(adjacentCell).toBeFocused();
 	await dateCell.dispatchEvent("click");
 	await expect(example.getByRole("spinbutton", { name: "day, Appointment date", exact: true })).toHaveText("17");
 	await example.getByRole("spinbutton", { name: "day, Appointment date", exact: true }).focus();
@@ -28,6 +38,17 @@ test("time picker suggestions and manual minutes work without system input", asy
 	await page.goto("/docs/time-picker");
 	const example = page.getByRole("region", { name: "Interactive example" });
 	await example.getByRole("button", { name: "Choose time", exact: true }).click();
+	const popup = page.locator(".mds-time-popover");
+	const options = popup.getByRole("option");
+	const [popupBox, firstBox, secondBox] = await Promise.all([
+		popup.boundingBox(),
+		options.nth(0).boundingBox(),
+		options.nth(1).boundingBox(),
+	]);
+	expect(popupBox!.width).toBeGreaterThanOrEqual(160);
+	expect(popupBox!.width).toBeLessThanOrEqual(200);
+	expect(Math.abs(firstBox!.x - secondBox!.x)).toBeLessThan(1);
+	expect(secondBox!.y).toBeGreaterThanOrEqual(firstBox!.y + firstBox!.height);
 	const suggestion = page.getByRole("option", { name: "14:30", exact: true });
 	await expect(suggestion).toBeVisible();
 	await suggestion.dispatchEvent("click");
@@ -44,7 +65,11 @@ test("time picker suggestions and manual minutes work without system input", asy
 test("audio controls operate real media and slider keyboard input", async ({ page }) => {
 	await page.goto("/showcase-music");
 	const player = page.locator(".mds-audio-player");
-	await player.getByRole("button", { name: /^(Play|播放)$/ }).click();
+	const play = player.getByRole("button", { name: /^(Play|播放)$/ });
+	const [buttonBox, iconBox] = await Promise.all([play.boundingBox(), play.locator("svg").boundingBox()]);
+	expect(Math.abs(buttonBox!.x + buttonBox!.width / 2 - (iconBox!.x + iconBox!.width / 2))).toBeLessThan(0.6);
+	expect(Math.abs(buttonBox!.y + buttonBox!.height / 2 - (iconBox!.y + iconBox!.height / 2))).toBeLessThan(0.6);
+	await play.click();
 	await expect(player.getByRole("button", { name: /^(Pause|暂停)$/ })).toBeVisible();
 	await expect
 		.poll(() => player.locator("audio").evaluate((el: HTMLAudioElement) => el.currentTime))

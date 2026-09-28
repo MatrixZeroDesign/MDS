@@ -2,7 +2,7 @@ import { translatePair, type DocsLocale, translate } from "./i18n";
 import { componentSections } from "./componentSections";
 import { componentNames, componentTitle } from "./componentNames";
 import { useEffect, useState } from "react";
-import { Input, NavLink } from "@matrixzero/ui";
+import { TextField, NavLink, Typography } from "@matrixzero/ui";
 import entries from "../../../docs/content.json";
 import { appPath, routePath } from "./router";
 
@@ -44,14 +44,16 @@ export function ComponentNavigation({
 	return (
 		<div className="docs-component-navigation">
 			<div className="docs-component-search">
-				<Input
+				<TextField
 					aria-label={t("搜索组件文档", "Search component documentation")}
 					placeholder={t("查找组件…", "Find a component…")}
 					value={query}
 					onChange={(e) => setQuery(e.target.value)}
 				/>
 			</div>
-			<h3 className="docs-eyebrow">{kind === "charts" ? t("图表", "Charts") : t("开始使用", "Get started")}</h3>
+			<Typography as="h3" variant="overline" tone="muted" className="docs-eyebrow">
+				{kind === "charts" ? t("图表", "Charts") : t("开始使用", "Get started")}
+			</Typography>
 			{kind === "charts" ? (
 				link("/charts", t("图表总览", "Chart overview"))
 			) : (
@@ -70,7 +72,9 @@ export function ComponentNavigation({
 						className="docs-component-section"
 						aria-label={translatePair(locale, section.title)}
 					>
-						<h3 className="docs-eyebrow">{translatePair(locale, section.title)}</h3>
+						<Typography as="h3" variant="overline" tone="muted" className="docs-eyebrow">
+							{translatePair(locale, section.title)}
+						</Typography>
 						{grouped.map((e) => link(`/${kind === "charts" ? "charts" : "docs"}/${e.slug}`, componentTitle(e, locale)))}
 					</section>
 				);
