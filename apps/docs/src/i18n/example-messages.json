@@ -1885,5 +1885,77 @@
 		"Survolez pour prévisualiser, sélectionnez pour naviguer. Utilisez les flèches, Début et Fin pour explorer.",
 		"Pasa el cursor para ver una vista previa y selecciona para navegar. Usa las flechas, Inicio y Fin para explorar.",
 		"مرّر المؤشر للمعاينة، واختر للتنقل. استخدم مفاتيح الأسهم وHome وEnd للاستكشاف."
+	],
+	"Open on click": ["クリックで開く", "클릭하여 열기", "Ouvrir au clic", "Abrir al hacer clic", "الفتح بالنقر"],
+	"Click interaction": [
+		"クリック操作",
+		"클릭 상호작용",
+		"Interaction au clic",
+		"Interacción mediante clic",
+		"تفاعل النقر"
+	],
+	"Click again, click outside, or press Escape to close.": [
+		"もう一度クリックするか、外側をクリックするか、Escapeキーを押して閉じます。",
+		"다시 클릭하거나 바깥쪽을 클릭하거나 Escape 키를 눌러 닫으세요.",
+		"Cliquez à nouveau, cliquez à l’extérieur ou appuyez sur Échap pour fermer.",
+		"Haz clic de nuevo, fuera del elemento o pulsa Escape para cerrar.",
+		"انقر مرة أخرى أو خارج العنصر أو اضغط Escape للإغلاق."
+	],
+	"Open on hover": [
+		"ホバーで開く",
+		"마우스를 올려 열기",
+		"Ouvrir au survol",
+		"Abrir al pasar el cursor",
+		"الفتح عند التمرير"
+	],
+	"Hover interaction": [
+		"ホバー操作",
+		"호버 상호작용",
+		"Interaction au survol",
+		"Interacción al pasar el cursor",
+		"تفاعل التمرير"
+	],
+	"Move the pointer into the surface; keyboard focus opens it too.": [
+		"ポインターをサーフェス内へ移動できます。キーボードフォーカスでも開きます。",
+		"포인터를 표면으로 이동할 수 있으며 키보드 포커스로도 열립니다.",
+		"Déplacez le pointeur dans la surface ; le focus clavier l’ouvre également.",
+		"Mueve el puntero a la superficie; el foco del teclado también la abre.",
+		"حرّك المؤشر إلى السطح؛ ويؤدي تركيز لوحة المفاتيح إلى فتحه أيضًا."
+	],
+	"Surface action": ["サーフェス操作", "표면 작업", "Action de la surface", "Acción de la superficie", "إجراء السطح"],
+	"Popover placements": [
+		"ポップオーバーの配置",
+		"팝오버 배치",
+		"Positions du popover",
+		"Posiciones del popover",
+		"مواضع النافذة المنبثقة"
+	],
+	"Scroll or resize to see the surface remain anchored.": [
+		"スクロールまたはサイズ変更しても、サーフェスはアンカーに追従します。",
+		"스크롤하거나 크기를 조절해도 표면이 앵커를 따라갑니다.",
+		"Faites défiler ou redimensionnez pour voir la surface rester ancrée.",
+		"Desplázate o cambia el tamaño para ver cómo la superficie permanece anclada.",
+		"مرّر الصفحة أو غيّر الحجم لترى السطح ثابتًا عند نقطة الارتساء."
+	],
+	"Tooltip placements": [
+		"ツールチップの配置",
+		"툴팁 배치",
+		"Positions de l’infobulle",
+		"Posiciones de la descripción emergente",
+		"مواضع التلميح"
+	],
+	"Placement and automatic collision handling": [
+		"配置と自動衝突回避",
+		"배치 및 자동 충돌 처리",
+		"Positionnement et gestion automatique des collisions",
+		"Posicionamiento y gestión automática de colisiones",
+		"الموضع والمعالجة التلقائية للتداخل"
+	],
+	"Click and hover interactions": [
+		"クリックとホバー操作",
+		"클릭 및 호버 상호작용",
+		"Interactions au clic et au survol",
+		"Interacciones mediante clic y al pasar el cursor",
+		"تفاعلات النقر والتمرير"
 	]
 }

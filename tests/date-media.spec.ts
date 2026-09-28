@@ -54,7 +54,11 @@ test("time picker suggestions and manual minutes work without system input", asy
 test("audio controls operate real media and slider keyboard input", async ({ page }) => {
 	await page.goto("/showcase-music");
 	const player = page.locator(".mds-audio-player");
-	await player.getByRole("button", { name: /^(Play|播放)$/ }).click();
+	const play = player.getByRole("button", { name: /^(Play|播放)$/ });
+	const [buttonBox, iconBox] = await Promise.all([play.boundingBox(), play.locator("svg").boundingBox()]);
+	expect(Math.abs(buttonBox!.x + buttonBox!.width / 2 - (iconBox!.x + iconBox!.width / 2))).toBeLessThan(0.6);
+	expect(Math.abs(buttonBox!.y + buttonBox!.height / 2 - (iconBox!.y + iconBox!.height / 2))).toBeLessThan(0.6);
+	await play.click();
 	await expect(player.getByRole("button", { name: /^(Pause|暂停)$/ })).toBeVisible();
 	await expect
 		.poll(() => player.locator("audio").evaluate((el: HTMLAudioElement) => el.currentTime))

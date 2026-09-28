@@ -64,7 +64,20 @@ test("explicit and automatic placements resolve through the shared engine", asyn
 		.getByRole("region", { name: "Immediate tooltip" })
 		.getByRole("button", { name: "Local save", exact: true });
 	await immediate.focus();
-	await expect(page.getByRole("tooltip")).toHaveAttribute("data-placement", "right");
+	const tooltip = page.getByRole("tooltip");
+	await expect(tooltip).toHaveAttribute("data-placement", "right");
+	const tooltipArrow = tooltip.locator(".mds-tooltip-arrow");
+	await expect(tooltipArrow).toBeVisible();
+	await expect
+		.poll(async () => {
+			const [triggerBox, arrowBox] = await Promise.all([immediate.boundingBox(), tooltipArrow.boundingBox()]);
+			return Math.abs(arrowBox!.y + arrowBox!.height / 2 - (triggerBox!.y + triggerBox!.height / 2));
+		})
+		.toBeLessThan(3);
+	const [tooltipBox, tooltipArrowBox] = await Promise.all([tooltip.boundingBox(), tooltipArrow.boundingBox()]);
+	const tooltipSeam = tooltipBox!.x - (tooltipArrowBox!.x + tooltipArrowBox!.width);
+	expect(tooltipSeam).toBeGreaterThanOrEqual(-2);
+	expect(tooltipSeam).toBeLessThanOrEqual(0);
 
 	await page.goto("/docs/popover");
 	const trigger = page.getByRole("button", { name: "View information", exact: true });

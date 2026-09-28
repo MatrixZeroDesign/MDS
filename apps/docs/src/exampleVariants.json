@@ -311,6 +311,10 @@
 	],
 	"tooltip": [
 		{
+			"file": "tooltip--placements",
+			"title": ["位置与自动避让", "Placement and automatic collision handling"]
+		},
+		{
 			"file": "tooltip--additional",
 			"title": ["快速显示提示", "Immediate tooltip"]
 		}
@@ -424,6 +428,14 @@
 		}
 	],
 	"popover": [
+		{
+			"file": "popover--placements",
+			"title": ["位置与自动避让", "Placement and automatic collision handling"]
+		},
+		{
+			"file": "popover--interactions",
+			"title": ["点击与悬停触发", "Click and hover interactions"]
+		},
 		{
 			"file": "popover--controlled",
 			"title": ["受控状态与箭头", "Controlled state and arrow"]

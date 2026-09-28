@@ -668,29 +668,32 @@
 	z-index: 70;
 }
 .mds-root .mds-tooltip-arrow {
+	--mds-floating-arrow-height: 4px;
+	--mds-floating-arrow-half-height: 2px;
+	--mds-floating-arrow-half-width: 4px;
+	--mds-floating-arrow-center-offset: 6px;
 	fill: var(--mds-text);
 	position: absolute;
 	pointer-events: none;
 }
 .mds-root :is(.mds-tooltip, .mds-popover)[data-side="top"] > :is(.mds-tooltip-arrow, .mds-popover-arrow) {
-	bottom: -5px;
-	left: 50%;
-	transform: translateX(-50%) rotate(180deg);
+	bottom: calc(1px - var(--mds-floating-arrow-height));
+	left: calc(var(--mds-floating-anchor-x, 50%) - var(--mds-floating-arrow-half-width));
+	transform: rotate(180deg);
 }
 .mds-root :is(.mds-tooltip, .mds-popover)[data-side="bottom"] > :is(.mds-tooltip-arrow, .mds-popover-arrow) {
-	top: -5px;
-	left: 50%;
-	transform: translateX(-50%);
+	top: calc(1px - var(--mds-floating-arrow-height));
+	left: calc(var(--mds-floating-anchor-x, 50%) - var(--mds-floating-arrow-half-width));
 }
 .mds-root :is(.mds-tooltip, .mds-popover)[data-side="left"] > :is(.mds-tooltip-arrow, .mds-popover-arrow) {
-	top: 50%;
-	right: -7px;
-	transform: translateY(-50%) rotate(90deg);
+	top: calc(var(--mds-floating-anchor-y, 50%) - var(--mds-floating-arrow-half-height));
+	right: calc(1px - var(--mds-floating-arrow-center-offset));
+	transform: rotate(90deg);
 }
 .mds-root :is(.mds-tooltip, .mds-popover)[data-side="right"] > :is(.mds-tooltip-arrow, .mds-popover-arrow) {
-	top: 50%;
-	left: -7px;
-	transform: translateY(-50%) rotate(-90deg);
+	top: calc(var(--mds-floating-anchor-y, 50%) - var(--mds-floating-arrow-half-height));
+	left: calc(1px - var(--mds-floating-arrow-center-offset));
+	transform: rotate(-90deg);
 }
 .mds-root .mds-badge {
 	display: inline-flex;
@@ -1236,7 +1239,7 @@
 	animation: mds-fade var(--mds-duration-normal) ease-out;
 }
 .mds-root .mds-tooltip {
-	animation: mds-enter var(--mds-duration-fast) var(--mds-ease-out);
+	animation: mds-floating-enter var(--mds-duration-fast) ease-out;
 }
 .mds-root .mds-accordion-trigger > svg {
 	transition: transform var(--mds-duration-normal) var(--mds-ease-out);
@@ -3533,18 +3536,34 @@
 	color: var(--mds-muted);
 }
 .mds-root .mds-popover-arrow {
+	--mds-floating-arrow-height: 6px;
+	--mds-floating-arrow-half-height: 3px;
+	--mds-floating-arrow-half-width: 6px;
+	--mds-floating-arrow-center-offset: 9px;
 	fill: var(--mds-surface);
 	position: absolute;
 	pointer-events: none;
 }
+.mds-root .mds-popover-arrow [data-arrow-outline] {
+	fill: none;
+	stroke: var(--mds-border);
+	stroke-width: 1px;
+	vector-effect: non-scaling-stroke;
+}
 @keyframes mds-popover-enter {
 	from {
 		opacity: 0;
-		transform: translateY(3px);
 	}
 	to {
 		opacity: 1;
-		transform: translateY(0);
+	}
+}
+@keyframes mds-floating-enter {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }
 @media (prefers-reduced-motion: reduce) {

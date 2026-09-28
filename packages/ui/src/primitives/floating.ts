@@ -124,8 +124,19 @@ export function useFloatingPosition({
 		}
 		left = clamp(left, collisionPadding, window.innerWidth - contentWidth - collisionPadding);
 		top = clamp(top, collisionPadding, window.innerHeight - contentHeight - collisionPadding);
+		const arrowPadding = 8;
+		const anchorX = clamp(anchorRect.left + anchorRect.width / 2 - left, arrowPadding, contentWidth - arrowPadding);
+		const anchorY = clamp(anchorRect.top + anchorRect.height / 2 - top, arrowPadding, contentHeight - arrowPadding);
 		setPosition({
-			style: { position: "fixed", left: Math.round(left), top: Math.round(top), visibility: "visible", width },
+			style: {
+				position: "fixed",
+				left: Math.round(left),
+				top: Math.round(top),
+				visibility: "visible",
+				width,
+				"--mds-floating-anchor-x": `${Math.round(anchorX)}px`,
+				"--mds-floating-anchor-y": `${Math.round(anchorY)}px`,
+			} as CSSProperties,
 			side: actualSide,
 			align: resolvedAlign,
 			placement: `${actualSide}${resolvedAlign === "center" ? "" : `-${resolvedAlign}`}` as FloatingPlacement,
@@ -152,12 +163,31 @@ export function useFloatingPosition({
 			return;
 		}
 		update();
+		let active = true;
+		let previousAnchorRect = "";
+		const trackAnchor = () => {
+			const rect = anchor.current?.getBoundingClientRect();
+			if (rect) {
+				const nextAnchorRect = `${rect.x}:${rect.y}:${rect.width}:${rect.height}`;
+				if (nextAnchorRect !== previousAnchorRect) {
+					previousAnchorRect = nextAnchorRect;
+					update();
+				}
+			}
+			frame = requestAnimationFrame(trackAnchor);
+		};
+		let frame = requestAnimationFrame(trackAnchor);
+		document.fonts?.ready.then(() => {
+			if (active) update();
+		});
 		const observer = typeof ResizeObserver === "undefined" ? null : new ResizeObserver(update);
 		if (anchor.current) observer?.observe(anchor.current);
 		if (content.current) observer?.observe(content.current);
 		window.addEventListener("resize", update);
 		document.addEventListener("scroll", update, true);
 		return () => {
+			active = false;
+			cancelAnimationFrame(frame);
 			observer?.disconnect();
 			window.removeEventListener("resize", update);
 			document.removeEventListener("scroll", update, true);

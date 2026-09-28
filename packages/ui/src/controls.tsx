@@ -300,11 +300,7 @@ export interface IconButtonProps extends Omit<ButtonProps, "children" | "aria-la
 	icon: ReactNode;
 }
 export function IconButton({ label, icon, className, ...props }: IconButtonProps) {
-	return (
-		<Button {...props} aria-label={label} className={cx("mds-icon-button", className)}>
-			<span aria-hidden="true">{icon}</span>
-		</Button>
-	);
+	return <Button {...props} aria-label={label} leadingIcon={icon} className={cx("mds-icon-button", className)} />;
 }
 export interface SegmentOption {
 	value: string;

@@ -16,6 +16,10 @@ import { useFloatingPosition, type FloatingPlacement } from "./floating.js";
 type ContextValue = {
 	open: boolean;
 	setOpen: (open: boolean) => void;
+	openOn: "click" | "hover";
+	scheduleOpen: () => void;
+	scheduleClose: () => void;
+	cancelScheduledClose: () => void;
 	trigger: React.MutableRefObject<HTMLElement | null>;
 	anchor: React.MutableRefObject<HTMLElement | null>;
 };
@@ -24,11 +28,17 @@ export function Root({
 	open,
 	defaultOpen = false,
 	onOpenChange,
+	openOn = "click",
+	openDelay = 100,
+	closeDelay = 120,
 	children,
 }: {
 	open?: boolean;
 	defaultOpen?: boolean;
 	onOpenChange?: (open: boolean) => void;
+	openOn?: "click" | "hover";
+	openDelay?: number;
+	closeDelay?: number;
 	modal?: boolean;
 	children: ReactNode;
 }) {
@@ -38,13 +48,59 @@ export function Root({
 			onChange: onOpenChange,
 		}),
 		trigger = useRef<HTMLElement | null>(null),
-		anchor = useRef<HTMLElement | null>(null);
+		anchor = useRef<HTMLElement | null>(null),
+		openTimer = useRef<ReturnType<typeof setTimeout> | null>(null),
+		closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+	const clearTimers = () => {
+		if (openTimer.current) clearTimeout(openTimer.current);
+		if (closeTimer.current) clearTimeout(closeTimer.current);
+		openTimer.current = null;
+		closeTimer.current = null;
+	};
+	const setOpen = (next: boolean) => {
+		clearTimers();
+		setCurrent(next);
+	};
+	const scheduleOpen = () => {
+		if (closeTimer.current) clearTimeout(closeTimer.current);
+		if (openTimer.current) return;
+		openTimer.current = setTimeout(() => {
+			openTimer.current = null;
+			setCurrent(true);
+		}, openDelay);
+	};
+	const scheduleClose = () => {
+		if (openTimer.current) clearTimeout(openTimer.current);
+		openTimer.current = null;
+		if (closeTimer.current) return;
+		closeTimer.current = setTimeout(() => {
+			closeTimer.current = null;
+			setCurrent(false);
+		}, closeDelay);
+	};
+	useEffect(() => clearTimers, []);
 	return (
-		<Context.Provider value={{ open: current, setOpen: setCurrent, trigger, anchor }}>{children}</Context.Provider>
+		<Context.Provider
+			value={{
+				open: current,
+				setOpen,
+				openOn,
+				scheduleOpen,
+				scheduleClose,
+				cancelScheduledClose: () => {
+					if (closeTimer.current) clearTimeout(closeTimer.current);
+					closeTimer.current = null;
+				},
+				trigger,
+				anchor,
+			}}
+		>
+			{children}
+		</Context.Provider>
 	);
 }
 export const Trigger = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean }>(
-	function PopoverTrigger({ asChild, onClick, ...props }, ref) {
+	function PopoverTrigger({ asChild, onClick, onPointerEnter, onPointerLeave, onFocus, onBlur, ...props }, ref) {
 		const context = useContext(Context);
 		if (!context) throw new Error("Popover.Trigger requires Popover.Root");
 		const shared = {
@@ -59,7 +115,23 @@ export const Trigger = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
 			"data-state": context.open ? "open" : "closed",
 			onClick: (event: React.MouseEvent<HTMLButtonElement>) => {
 				onClick?.(event);
-				if (!event.defaultPrevented) context.setOpen(!context.open);
+				if (!event.defaultPrevented && context.openOn === "click") context.setOpen(!context.open);
+			},
+			onPointerEnter: (event: React.PointerEvent<HTMLButtonElement>) => {
+				onPointerEnter?.(event);
+				if (!event.defaultPrevented && context.openOn === "hover") context.scheduleOpen();
+			},
+			onPointerLeave: (event: React.PointerEvent<HTMLButtonElement>) => {
+				onPointerLeave?.(event);
+				if (!event.defaultPrevented && context.openOn === "hover") context.scheduleClose();
+			},
+			onFocus: (event: React.FocusEvent<HTMLButtonElement>) => {
+				onFocus?.(event);
+				if (!event.defaultPrevented && context.openOn === "hover") context.setOpen(true);
+			},
+			onBlur: (event: React.FocusEvent<HTMLButtonElement>) => {
+				onBlur?.(event);
+				if (!event.defaultPrevented && context.openOn === "hover") context.scheduleClose();
 			},
 		};
 		return asChild ? <Slot {...shared} /> : <button type="button" {...shared} />;
@@ -107,6 +179,10 @@ export const Content = forwardRef<
 		onCloseAutoFocus,
 		onEscapeKeyDown,
 		onKeyDown,
+		onPointerEnter,
+		onPointerLeave,
+		onFocus,
+		onBlur,
 		style,
 		...props
 	},
@@ -134,7 +210,7 @@ export const Content = forwardRef<
 		if (!context?.open) return;
 		const focusEvent = new Event("openAutoFocus", { cancelable: true });
 		openAutoFocus.current?.(focusEvent);
-		if (!focusEvent.defaultPrevented) {
+		if (!focusEvent.defaultPrevented && context.openOn === "click") {
 			queueMicrotask(() =>
 				local.current
 					?.querySelector<HTMLElement>(
@@ -152,7 +228,8 @@ export const Content = forwardRef<
 			document.removeEventListener("pointerdown", close);
 			const focusEvent = new Event("closeAutoFocus", { cancelable: true });
 			closeAutoFocus.current?.(focusEvent);
-			if (!focusEvent.defaultPrevented) context.trigger.current?.focus({ preventScroll: true });
+			if (!focusEvent.defaultPrevented && context.openOn === "click")
+				context.trigger.current?.focus({ preventScroll: true });
 		};
 	}, [context?.open]);
 	if (!context?.open) return null;
@@ -171,6 +248,22 @@ export const Content = forwardRef<
 			data-align={position.align}
 			data-placement={position.placement}
 			style={{ ...position.style, ...style }}
+			onPointerEnter={(event) => {
+				onPointerEnter?.(event);
+				if (!event.defaultPrevented && context.openOn === "hover") context.cancelScheduledClose();
+			}}
+			onPointerLeave={(event) => {
+				onPointerLeave?.(event);
+				if (!event.defaultPrevented && context.openOn === "hover") context.scheduleClose();
+			}}
+			onFocus={(event) => {
+				onFocus?.(event);
+				if (!event.defaultPrevented && context.openOn === "hover") context.cancelScheduledClose();
+			}}
+			onBlur={(event) => {
+				onBlur?.(event);
+				if (!event.defaultPrevented && context.openOn === "hover") context.scheduleClose();
+			}}
 			onKeyDown={(event) => {
 				onKeyDown?.(event);
 				if (!event.defaultPrevented && event.key === "Escape") {
@@ -206,6 +299,7 @@ export const Arrow = forwardRef<SVGSVGElement, React.SVGAttributes<SVGSVGElement
 	return (
 		<svg {...props} ref={ref} viewBox="0 0 12 6" aria-hidden="true">
 			<path d="M0 6 6 0l6 6Z" />
+			<path data-arrow-outline="" d="M0 6 6 0l6 6" />
 		</svg>
 	);
 });
